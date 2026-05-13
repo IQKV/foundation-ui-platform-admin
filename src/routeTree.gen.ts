@@ -27,6 +27,9 @@ import { Route as AdminOrganizationsIndexRouteImport } from "./pages/admin/organ
 import { Route as AdminUsersUserIdRouteImport } from "./pages/admin/users.$userId"
 import { Route as AdminPlansPlanCodeRouteImport } from "./pages/admin/plans.$planCode"
 import { Route as AdminOrganizationsTenantKeyRouteImport } from "./pages/admin/organizations.$tenantKey"
+import { Route as AdminOrganizationsTenantKeyIndexRouteImport } from "./pages/admin/organizations.$tenantKey.index"
+import { Route as AdminOrganizationsTenantKeyMembersRouteImport } from "./pages/admin/organizations.$tenantKey.members"
+import { Route as AdminOrganizationsTenantKeyBillingRouteImport } from "./pages/admin/organizations.$tenantKey.billing"
 
 const UnauthorizedRoute = UnauthorizedRouteImport.update({
   id: "/unauthorized",
@@ -119,6 +122,24 @@ const AdminOrganizationsTenantKeyRoute =
     path: "/$tenantKey",
     getParentRoute: () => AdminOrganizationsRoute,
   } as any)
+const AdminOrganizationsTenantKeyIndexRoute =
+  AdminOrganizationsTenantKeyIndexRouteImport.update({
+    id: "/",
+    path: "/",
+    getParentRoute: () => AdminOrganizationsTenantKeyRoute,
+  } as any)
+const AdminOrganizationsTenantKeyMembersRoute =
+  AdminOrganizationsTenantKeyMembersRouteImport.update({
+    id: "/members",
+    path: "/members",
+    getParentRoute: () => AdminOrganizationsTenantKeyRoute,
+  } as any)
+const AdminOrganizationsTenantKeyBillingRoute =
+  AdminOrganizationsTenantKeyBillingRouteImport.update({
+    id: "/billing",
+    path: "/billing",
+    getParentRoute: () => AdminOrganizationsTenantKeyRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   "/": typeof IndexRoute
@@ -133,12 +154,15 @@ export interface FileRoutesByFullPath {
   "/admin/subscriptions": typeof AdminSubscriptionsRoute
   "/admin/users": typeof AdminUsersRouteWithChildren
   "/admin/": typeof AdminIndexRoute
-  "/admin/organizations/$tenantKey": typeof AdminOrganizationsTenantKeyRoute
+  "/admin/organizations/$tenantKey": typeof AdminOrganizationsTenantKeyRouteWithChildren
   "/admin/plans/$planCode": typeof AdminPlansPlanCodeRoute
   "/admin/users/$userId": typeof AdminUsersUserIdRoute
   "/admin/organizations/": typeof AdminOrganizationsIndexRoute
   "/admin/plans/": typeof AdminPlansIndexRoute
   "/admin/users/": typeof AdminUsersIndexRoute
+  "/admin/organizations/$tenantKey/billing": typeof AdminOrganizationsTenantKeyBillingRoute
+  "/admin/organizations/$tenantKey/members": typeof AdminOrganizationsTenantKeyMembersRoute
+  "/admin/organizations/$tenantKey/": typeof AdminOrganizationsTenantKeyIndexRoute
 }
 export interface FileRoutesByTo {
   "/": typeof IndexRoute
@@ -149,12 +173,14 @@ export interface FileRoutesByTo {
   "/unauthorized": typeof UnauthorizedRoute
   "/admin/subscriptions": typeof AdminSubscriptionsRoute
   "/admin": typeof AdminIndexRoute
-  "/admin/organizations/$tenantKey": typeof AdminOrganizationsTenantKeyRoute
   "/admin/plans/$planCode": typeof AdminPlansPlanCodeRoute
   "/admin/users/$userId": typeof AdminUsersUserIdRoute
   "/admin/organizations": typeof AdminOrganizationsIndexRoute
   "/admin/plans": typeof AdminPlansIndexRoute
   "/admin/users": typeof AdminUsersIndexRoute
+  "/admin/organizations/$tenantKey/billing": typeof AdminOrganizationsTenantKeyBillingRoute
+  "/admin/organizations/$tenantKey/members": typeof AdminOrganizationsTenantKeyMembersRoute
+  "/admin/organizations/$tenantKey": typeof AdminOrganizationsTenantKeyIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -170,12 +196,15 @@ export interface FileRoutesById {
   "/admin/subscriptions": typeof AdminSubscriptionsRoute
   "/admin/users": typeof AdminUsersRouteWithChildren
   "/admin/": typeof AdminIndexRoute
-  "/admin/organizations/$tenantKey": typeof AdminOrganizationsTenantKeyRoute
+  "/admin/organizations/$tenantKey": typeof AdminOrganizationsTenantKeyRouteWithChildren
   "/admin/plans/$planCode": typeof AdminPlansPlanCodeRoute
   "/admin/users/$userId": typeof AdminUsersUserIdRoute
   "/admin/organizations/": typeof AdminOrganizationsIndexRoute
   "/admin/plans/": typeof AdminPlansIndexRoute
   "/admin/users/": typeof AdminUsersIndexRoute
+  "/admin/organizations/$tenantKey/billing": typeof AdminOrganizationsTenantKeyBillingRoute
+  "/admin/organizations/$tenantKey/members": typeof AdminOrganizationsTenantKeyMembersRoute
+  "/admin/organizations/$tenantKey/": typeof AdminOrganizationsTenantKeyIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -198,6 +227,9 @@ export interface FileRouteTypes {
     | "/admin/organizations/"
     | "/admin/plans/"
     | "/admin/users/"
+    | "/admin/organizations/$tenantKey/billing"
+    | "/admin/organizations/$tenantKey/members"
+    | "/admin/organizations/$tenantKey/"
   fileRoutesByTo: FileRoutesByTo
   to:
     | "/"
@@ -208,12 +240,14 @@ export interface FileRouteTypes {
     | "/unauthorized"
     | "/admin/subscriptions"
     | "/admin"
-    | "/admin/organizations/$tenantKey"
     | "/admin/plans/$planCode"
     | "/admin/users/$userId"
     | "/admin/organizations"
     | "/admin/plans"
     | "/admin/users"
+    | "/admin/organizations/$tenantKey/billing"
+    | "/admin/organizations/$tenantKey/members"
+    | "/admin/organizations/$tenantKey"
   id:
     | "__root__"
     | "/"
@@ -234,6 +268,9 @@ export interface FileRouteTypes {
     | "/admin/organizations/"
     | "/admin/plans/"
     | "/admin/users/"
+    | "/admin/organizations/$tenantKey/billing"
+    | "/admin/organizations/$tenantKey/members"
+    | "/admin/organizations/$tenantKey/"
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -374,16 +411,59 @@ declare module "@tanstack/react-router" {
       preLoaderRoute: typeof AdminOrganizationsTenantKeyRouteImport
       parentRoute: typeof AdminOrganizationsRoute
     }
+    "/admin/organizations/$tenantKey/": {
+      id: "/admin/organizations/$tenantKey/"
+      path: "/"
+      fullPath: "/admin/organizations/$tenantKey/"
+      preLoaderRoute: typeof AdminOrganizationsTenantKeyIndexRouteImport
+      parentRoute: typeof AdminOrganizationsTenantKeyRoute
+    }
+    "/admin/organizations/$tenantKey/members": {
+      id: "/admin/organizations/$tenantKey/members"
+      path: "/members"
+      fullPath: "/admin/organizations/$tenantKey/members"
+      preLoaderRoute: typeof AdminOrganizationsTenantKeyMembersRouteImport
+      parentRoute: typeof AdminOrganizationsTenantKeyRoute
+    }
+    "/admin/organizations/$tenantKey/billing": {
+      id: "/admin/organizations/$tenantKey/billing"
+      path: "/billing"
+      fullPath: "/admin/organizations/$tenantKey/billing"
+      preLoaderRoute: typeof AdminOrganizationsTenantKeyBillingRouteImport
+      parentRoute: typeof AdminOrganizationsTenantKeyRoute
+    }
   }
 }
 
+interface AdminOrganizationsTenantKeyRouteChildren {
+  AdminOrganizationsTenantKeyBillingRoute: typeof AdminOrganizationsTenantKeyBillingRoute
+  AdminOrganizationsTenantKeyMembersRoute: typeof AdminOrganizationsTenantKeyMembersRoute
+  AdminOrganizationsTenantKeyIndexRoute: typeof AdminOrganizationsTenantKeyIndexRoute
+}
+
+const AdminOrganizationsTenantKeyRouteChildren: AdminOrganizationsTenantKeyRouteChildren =
+  {
+    AdminOrganizationsTenantKeyBillingRoute:
+      AdminOrganizationsTenantKeyBillingRoute,
+    AdminOrganizationsTenantKeyMembersRoute:
+      AdminOrganizationsTenantKeyMembersRoute,
+    AdminOrganizationsTenantKeyIndexRoute:
+      AdminOrganizationsTenantKeyIndexRoute,
+  }
+
+const AdminOrganizationsTenantKeyRouteWithChildren =
+  AdminOrganizationsTenantKeyRoute._addFileChildren(
+    AdminOrganizationsTenantKeyRouteChildren,
+  )
+
 interface AdminOrganizationsRouteChildren {
-  AdminOrganizationsTenantKeyRoute: typeof AdminOrganizationsTenantKeyRoute
+  AdminOrganizationsTenantKeyRoute: typeof AdminOrganizationsTenantKeyRouteWithChildren
   AdminOrganizationsIndexRoute: typeof AdminOrganizationsIndexRoute
 }
 
 const AdminOrganizationsRouteChildren: AdminOrganizationsRouteChildren = {
-  AdminOrganizationsTenantKeyRoute: AdminOrganizationsTenantKeyRoute,
+  AdminOrganizationsTenantKeyRoute:
+    AdminOrganizationsTenantKeyRouteWithChildren,
   AdminOrganizationsIndexRoute: AdminOrganizationsIndexRoute,
 }
 

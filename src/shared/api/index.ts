@@ -30,6 +30,10 @@ export type {
   Plan,
   PlanRequest,
   PlanPatchRequest,
+  AdminBillingSettings,
+  AdminCreateBillingSettingsRequest,
+  AdminReplaceBillingSettingsRequest,
+  AdminPatchBillingSettingsRequest,
 } from "./billing";
 export { useDashboardCounts } from "./use-dashboard-counts";
 export type { UseDashboardCountsResult, DashboardCountResult } from "./use-dashboard-counts";

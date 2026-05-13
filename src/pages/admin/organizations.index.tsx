@@ -29,6 +29,7 @@ import {
   IconAlertCircle,
   IconFilter,
   IconBuilding,
+  IconFileInvoice,
 } from "@tabler/icons-react";
 import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
@@ -355,6 +356,19 @@ function AdminOrganizationsPage() {
                           onClick={(e: React.MouseEvent) => e.stopPropagation()}
                         >
                           <IconEye size={15} />
+                        </ActionIcon>
+                      </Tooltip>
+                      <Tooltip label={t`Billing settings`} withArrow>
+                        <ActionIcon
+                          variant="subtle"
+                          color="gray"
+                          size="sm"
+                          component={Link}
+                          to="/admin/organizations/$tenantKey/billing"
+                          params={{ tenantKey: tenant.tenantKey } as never}
+                          onClick={(e: React.MouseEvent) => e.stopPropagation()}
+                        >
+                          <IconFileInvoice size={15} />
                         </ActionIcon>
                       </Tooltip>
                       <Tooltip label={t`Edit organization`} withArrow>

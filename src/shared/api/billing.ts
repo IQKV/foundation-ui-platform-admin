@@ -1,6 +1,10 @@
 import { httpClient } from "./http-client";
 import type { PagedResponse, SortDirection, CountResponse } from "./iam";
 
+function adminTenantBillingSettingsPath(tenantKey: string): string {
+  return `/v1/billing/admin/tenants/${encodeURIComponent(tenantKey)}/billing-settings`;
+}
+
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 export type SubscriptionStatus = "active" | "canceled" | "past_due" | "trialing" | "unpaid";
@@ -77,6 +81,55 @@ export interface PlanPatchRequest {
   active?: boolean | null;
 }
 
+/** Admin GET response — includes gateway customer id and profile owner. */
+export interface AdminBillingSettings {
+  id: string;
+  tenantKey: string;
+  externalCustomerId: string;
+  billingEmail: string;
+  companyName: string | null;
+  billingAddress: string | null;
+  taxId: string | null;
+  taxIdType: string | null;
+  currency: string;
+  profileOwnerId: string | null;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface AdminCreateBillingSettingsRequest {
+  externalCustomerId: string;
+  billingEmail: string;
+  companyName?: string | null;
+  billingAddress?: string | null;
+  taxId?: string | null;
+  taxIdType?: string | null;
+  currency: string;
+  profileOwnerId?: string | null;
+}
+
+export interface AdminReplaceBillingSettingsRequest {
+  externalCustomerId: string;
+  billingEmail: string;
+  companyName?: string | null;
+  billingAddress?: string | null;
+  taxId?: string | null;
+  taxIdType?: string | null;
+  currency: string;
+  profileOwnerId?: string | null;
+}
+
+export interface AdminPatchBillingSettingsRequest {
+  externalCustomerId?: string | null;
+  billingEmail?: string | null;
+  companyName?: string | null;
+  billingAddress?: string | null;
+  taxId?: string | null;
+  taxIdType?: string | null;
+  currency?: string | null;
+  profileOwnerId?: string | null;
+}
+
 // ─── API ──────────────────────────────────────────────────────────────────────
 
 export const billingApi = {
@@ -120,4 +173,30 @@ export const billingApi = {
 
   deactivatePlan: (planCode: string) =>
     httpClient.delete(`/v1/billing/admin/plans/${encodeURIComponent(planCode)}`),
+
+  getAdminTenantBillingSettings: (tenantKey: string) =>
+    httpClient
+      .get<AdminBillingSettings>(adminTenantBillingSettingsPath(tenantKey))
+      .then((r) => r.data),
+
+  createAdminTenantBillingSettings: (tenantKey: string, body: AdminCreateBillingSettingsRequest) =>
+    httpClient
+      .post<AdminBillingSettings>(adminTenantBillingSettingsPath(tenantKey), body)
+      .then((r) => r.data),
+
+  replaceAdminTenantBillingSettings: (
+    tenantKey: string,
+    body: AdminReplaceBillingSettingsRequest,
+  ) =>
+    httpClient
+      .put<AdminBillingSettings>(adminTenantBillingSettingsPath(tenantKey), body)
+      .then((r) => r.data),
+
+  patchAdminTenantBillingSettings: (tenantKey: string, body: AdminPatchBillingSettingsRequest) =>
+    httpClient
+      .patch<AdminBillingSettings>(adminTenantBillingSettingsPath(tenantKey), body)
+      .then((r) => r.data),
+
+  deleteAdminTenantBillingSettings: (tenantKey: string) =>
+    httpClient.delete(adminTenantBillingSettingsPath(tenantKey)),
 };

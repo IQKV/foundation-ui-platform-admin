@@ -25,12 +25,16 @@ msgstr "{0}"
 #~ msgstr "{0} |Key Value Admin"
 
 #: src/pages/admin/organizations.$tenantKey.tsx
-msgid "{activeSubscriptions} active subscription(s)"
-msgstr "{activeSubscriptions} active subscription(s)"
+#~ msgid "{activeSubscriptions} active subscription(s)"
+#~ msgstr "{activeSubscriptions} active subscription(s)"
 
 #: src/pages/admin/users.$userId.tsx
 #~ msgid "{displayName} |Key Value Admin"
 #~ msgstr "{displayName} |Key Value Admin"
+
+#: src/pages/admin/organizations.$tenantKey.tsx
+msgid "{subscriptionCount} subscription(s)"
+msgstr "{subscriptionCount} subscription(s)"
 
 #: src/pages/loading-demo.tsx
 msgid "1. Initial Page Load"
@@ -102,14 +106,33 @@ msgstr "Automatic router integration via <0>router.subscribe()</0>"
 msgid "Back to list"
 msgstr "Back to list"
 
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Billing address (JSON)"
+msgstr "Billing address (JSON)"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Billing email"
+msgstr "Billing email"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Billing email is required"
+msgstr "Billing email is required"
+
 #: src/features/plan-catalog/ui/create-plan-modal.tsx
 #: src/pages/admin/plans.$planCode.tsx
 msgid "Billing period"
 msgstr "Billing period"
 
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+#: src/pages/admin/organizations.$tenantKey.tsx
+#: src/pages/admin/organizations.index.tsx
+msgid "Billing settings"
+msgstr "Billing settings"
+
 #: src/features/edit-tenant/ui/edit-tenant-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
 #: src/features/plan-catalog/ui/create-plan-modal.tsx
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/pages/admin/plans.$planCode.tsx
 msgid "Cancel"
 msgstr "Cancel"
@@ -140,11 +163,19 @@ msgstr "Code"
 #~ msgid "Coming soon"
 #~ msgstr "Coming soon"
 
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Company name"
+msgstr "Company name"
+
 #: src/pages/loading-demo.tsx
 msgid "Complete"
 msgstr "Complete"
 
-#: src/pages/admin/organizations.$tenantKey.tsx
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Could not fetch billing settings."
+msgstr "Could not fetch billing settings."
+
+#: src/pages/admin/-organization-tenant-panels.tsx
 msgid "Could not fetch members."
 msgstr "Could not fetch members."
 
@@ -176,10 +207,20 @@ msgstr "Could not fetch user details."
 msgid "Could not fetch users from the API."
 msgstr "Could not fetch users from the API."
 
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Create"
+msgstr "Create"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Create billing settings"
+msgstr "Create billing settings"
+
 #: src/features/plan-catalog/ui/create-plan-modal.tsx
 msgid "Create plan"
 msgstr "Create plan"
 
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+#: src/pages/admin/-organization-tenant-panels.tsx
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/organizations.index.tsx
 #: src/pages/admin/plans.$planCode.tsx
@@ -188,11 +229,13 @@ msgid "Created"
 msgstr "Created"
 
 #: src/features/plan-catalog/ui/create-plan-modal.tsx
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/pages/admin/plans.$planCode.tsx
 msgid "Currency"
 msgstr "Currency"
 
 #: src/features/plan-catalog/ui/create-plan-modal.tsx
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/pages/admin/plans.$planCode.tsx
 msgid "Currency must be a 3-letter ISO code"
 msgstr "Currency must be a 3-letter ISO code"
@@ -213,6 +256,18 @@ msgstr "Deactivate"
 #: src/pages/admin/plans.$planCode.tsx
 msgid "Deactivate plan?"
 msgstr "Deactivate plan?"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Delete"
+msgstr "Delete"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Delete billing settings"
+msgstr "Delete billing settings"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Delete billing settings?"
+msgstr "Delete billing settings?"
 
 #: src/shared/ui/tenant-status-badge/tenant-status-badge.tsx
 #: src/shared/ui/user-status-badge/user-status-badge.tsx
@@ -261,7 +316,7 @@ msgstr "Edit User"
 
 #: src/features/edit-user/ui/edit-user-modal.tsx
 #: src/features/sign-in/ui/sign-in-form.tsx
-#: src/pages/admin/organizations.$tenantKey.tsx
+#: src/pages/admin/-organization-tenant-panels.tsx
 #: src/pages/admin/users.$userId.tsx
 #: src/pages/admin/users.index.tsx
 msgid "Email"
@@ -301,9 +356,21 @@ msgstr "Error Details (Development)"
 #~ msgid "Export"
 #~ msgstr "Export"
 
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "External customer id"
+msgstr "External customer id"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "External customer id is required"
+msgstr "External customer id is required"
+
 #: src/pages/admin/index.tsx
 msgid "Failed to load"
 msgstr "Failed to load"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Failed to load billing settings"
+msgstr "Failed to load billing settings"
 
 #: src/pages/admin/organizations.$tenantKey.tsx
 msgid "Failed to load organization"
@@ -391,6 +458,7 @@ msgstr "Inactive"
 msgid "Inactive only"
 msgstr "Inactive only"
 
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/pages/admin/plans.$planCode.tsx
 msgid "Internal id"
 msgstr "Internal id"
@@ -403,7 +471,7 @@ msgstr "Internal server error."
 msgid "Invalid email or password"
 msgstr "Invalid email or password"
 
-#: src/pages/admin/organizations.$tenantKey.tsx
+#: src/pages/admin/-organization-tenant-panels.tsx
 #: src/pages/admin/users.$userId.tsx
 #: src/pages/admin/users.index.tsx
 msgid "Joined"
@@ -429,7 +497,8 @@ msgstr "Last name"
 msgid "Last name is required"
 msgstr "Last name is required"
 
-#: src/pages/admin/organizations.$tenantKey.tsx
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+#: src/pages/admin/-organization-tenant-panels.tsx
 #: src/pages/admin/organizations.index.tsx
 #: src/pages/admin/subscriptions.tsx
 #: src/pages/admin/users.$userId.tsx
@@ -474,7 +543,7 @@ msgstr "Manage users"
 msgid "Manage users, organizations, and subscriptions across all tenants — secured by platform-level authentication."
 msgstr "Manage users, organizations, and subscriptions across all tenants — secured by platform-level authentication."
 
-#: src/pages/admin/organizations.$tenantKey.tsx
+#: src/pages/admin/-organization-tenant-panels.tsx
 #: src/pages/admin/users.index.tsx
 msgid "Member"
 msgstr "Member"
@@ -483,6 +552,7 @@ msgstr "Member"
 msgid "member(s)"
 msgstr "member(s)"
 
+#: src/pages/admin/-organization-tenant-panels.tsx
 #: src/pages/admin/organizations.$tenantKey.tsx
 msgid "Members"
 msgstr "Members"
@@ -496,20 +566,28 @@ msgstr "Monthly"
 msgid "Name"
 msgstr "Name"
 
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "New billing settings"
+msgstr "New billing settings"
+
 #: src/features/plan-catalog/ui/create-plan-modal.tsx
 #: src/pages/admin/plans.index.tsx
 msgid "New plan"
 msgstr "New plan"
 
 #: src/pages/admin/organizations.$tenantKey.tsx
-msgid "No active subscription"
-msgstr "No active subscription"
+#~ msgid "No active subscription"
+#~ msgstr "No active subscription"
 
-#: src/pages/admin/organizations.$tenantKey.tsx
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "No billing settings"
+msgstr "No billing settings"
+
+#: src/pages/admin/-organization-tenant-panels.tsx
 msgid "No members found"
 msgstr "No members found"
 
-#: src/pages/admin/organizations.$tenantKey.tsx
+#: src/pages/admin/-organization-tenant-panels.tsx
 msgid "No members match the search"
 msgstr "No members match the search"
 
@@ -533,11 +611,15 @@ msgstr "No plans match the current filters"
 msgid "No results"
 msgstr "No results"
 
+#: src/pages/admin/organizations.$tenantKey.tsx
+msgid "No subscriptions"
+msgstr "No subscriptions"
+
 #: src/pages/admin/subscriptions.tsx
 msgid "No subscriptions found"
 msgstr "No subscriptions found"
 
-#: src/pages/admin/organizations.$tenantKey.tsx
+#: src/pages/admin/-organization-tenant-panels.tsx
 msgid "No subscriptions found for this organization."
 msgstr "No subscriptions found for this organization."
 
@@ -560,6 +642,14 @@ msgstr "No users match the current filters"
 #: src/shared/ui/auth-layout/auth-layout.tsx
 msgid "Operator access only"
 msgstr "Operator access only"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Optional structured address as JSON."
+msgstr "Optional structured address as JSON."
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Optional UUID of the user who owns the billing profile."
+msgstr "Optional UUID of the user who owns the billing profile."
 
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/organizations.index.tsx
@@ -619,6 +709,14 @@ msgstr "Password"
 #: src/features/sign-in/model/use-sign-in.ts
 msgid "Password is required"
 msgstr "Password is required"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Payment gateway customer identifier (e.g. Stripe cus_…)."
+msgstr "Payment gateway customer identifier (e.g. Stripe cus_…)."
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Payment gateway customer identifier."
+msgstr "Payment gateway customer identifier."
 
 #: src/pages/admin/plans.index.tsx
 msgid "Period"
@@ -682,11 +780,21 @@ msgstr "Price (minor units)"
 msgid "Price must be at least 1 minor unit"
 msgstr "Price must be at least 1 minor unit"
 
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Profile owner id must be a valid UUID or empty"
+msgstr "Profile owner id must be a valid UUID or empty"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Profile owner user id"
+msgstr "Profile owner user id"
+
 #: src/features/edit-tenant/ui/edit-tenant-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
 msgid "read-only"
 msgstr "read-only"
 
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+#: src/pages/admin/-organization-tenant-panels.tsx
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/organizations.index.tsx
 #: src/pages/admin/plans.$planCode.tsx
@@ -697,10 +805,12 @@ msgstr "read-only"
 msgid "Refresh"
 msgstr "Refresh"
 
-#: src/pages/admin/organizations.$tenantKey.tsx
+#: src/pages/admin/-organization-tenant-panels.tsx
 msgid "Renews"
 msgstr "Renews"
 
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+#: src/pages/admin/-organization-tenant-panels.tsx
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/organizations.index.tsx
 #: src/pages/admin/plans.$planCode.tsx
@@ -713,6 +823,7 @@ msgstr "Retry"
 
 #: src/features/edit-tenant/ui/edit-tenant-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/pages/admin/plans.$planCode.tsx
 msgid "Save changes"
 msgstr "Save changes"
@@ -727,7 +838,7 @@ msgstr "Scope"
 msgid "Search by code or name…"
 msgstr "Search by code or name…"
 
-#: src/pages/admin/organizations.$tenantKey.tsx
+#: src/pages/admin/-organization-tenant-panels.tsx
 #: src/pages/admin/users.index.tsx
 msgid "Search by name or email…"
 msgstr "Search by name or email…"
@@ -760,9 +871,9 @@ msgstr "Server Error"
 #~ msgid "Settings"
 #~ msgstr "Settings"
 
-#. placeholder {0}: Math.min((page - 1) * PAGE_SIZE + 1, totalElements)
-#. placeholder {1}: Math.min(page * PAGE_SIZE, totalElements)
-#: src/pages/admin/organizations.$tenantKey.tsx
+#. placeholder {0}: Math.min((page - 1) * ORG_MEMBERS_PAGE_SIZE + 1, totalElements)
+#. placeholder {1}: Math.min(page * ORG_MEMBERS_PAGE_SIZE, totalElements)
+#: src/pages/admin/-organization-tenant-panels.tsx
 msgid "Showing {0}–{1} of {totalElements} members"
 msgstr "Showing {0}–{1} of {totalElements} members"
 
@@ -824,7 +935,7 @@ msgstr "Start"
 
 #: src/features/edit-tenant/ui/edit-tenant-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
-#: src/pages/admin/organizations.$tenantKey.tsx
+#: src/pages/admin/-organization-tenant-panels.tsx
 #: src/pages/admin/organizations.index.tsx
 #: src/pages/admin/plans.index.tsx
 #: src/pages/admin/subscriptions.tsx
@@ -832,7 +943,7 @@ msgstr "Start"
 msgid "Status"
 msgstr "Status"
 
-#: src/pages/admin/organizations.$tenantKey.tsx
+#: src/pages/admin/-organization-tenant-panels.tsx
 #: src/pages/admin/subscriptions.tsx
 #: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Subscriptions"
@@ -853,6 +964,14 @@ msgstr "Suspended"
 #~ msgid "System"
 #~ msgstr "System"
 
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Tax id"
+msgstr "Tax id"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Tax id type"
+msgstr "Tax id type"
+
 #: src/features/plan-catalog/ui/create-plan-modal.tsx
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/subscriptions.tsx
@@ -860,12 +979,25 @@ msgid "Tenant"
 msgstr "Tenant"
 
 #: src/features/edit-tenant/ui/edit-tenant-modal.tsx
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Tenant key"
 msgstr "Tenant key"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Tenant key:"
+msgstr "Tenant key:"
 
 #: src/pages/loading-demo.tsx
 msgid "Theme-aware (respects dark mode and color scheme)"
 msgstr "Theme-aware (respects dark mode and color scheme)"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "This organization does not have a billing settings row yet. Create one to attach gateway customer data and invoicing details."
+msgstr "This organization does not have a billing settings row yet. Create one to attach gateway customer data and invoicing details."
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "This permanently removes the billing settings row for this tenant. Subscriptions and gateway objects are not automatically deleted."
+msgstr "This permanently removes the billing settings row for this tenant. Subscriptions and gateway objects are not automatically deleted."
 
 #: src/pages/admin/plans.$planCode.tsx
 msgid "This sets the plan to inactive. Existing subscriptions are not changed. You can set the plan back to active later from this page."
@@ -896,7 +1028,7 @@ msgid "Unique identifier; use lowercase letters, numbers, and hyphens."
 msgstr "Unique identifier; use lowercase letters, numbers, and hyphens."
 
 #: src/features/edit-user/ui/edit-user-modal.tsx
-#: src/pages/admin/organizations.$tenantKey.tsx
+#: src/pages/admin/-organization-tenant-panels.tsx
 #: src/pages/admin/users.$userId.tsx
 #: src/pages/admin/users.index.tsx
 msgid "Unverified"
@@ -935,8 +1067,12 @@ msgstr "Uses <0>@mantine/nprogress</0> for top loading bar"
 msgid "Uses <0>LoadingOverlay</0> component for full-screen loading"
 msgstr "Uses <0>LoadingOverlay</0> component for full-screen loading"
 
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "UUID or leave empty to clear."
+msgstr "UUID or leave empty to clear."
+
 #: src/features/edit-user/ui/edit-user-modal.tsx
-#: src/pages/admin/organizations.$tenantKey.tsx
+#: src/pages/admin/-organization-tenant-panels.tsx
 #: src/pages/admin/users.$userId.tsx
 #: src/pages/admin/users.index.tsx
 msgid "Verified"
