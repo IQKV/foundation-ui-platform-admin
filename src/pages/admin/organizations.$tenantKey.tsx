@@ -278,7 +278,11 @@ function OrganizationTenantLayout() {
               ) : undefined
             }
             renderRoot={(props) => (
-              <Link to="/admin/organizations/$tenantKey/members" params={{ tenantKey }} {...props} />
+              <Link
+                to="/admin/organizations/$tenantKey/members"
+                params={{ tenantKey }}
+                {...props}
+              />
             )}
           >
             <Trans>Members</Trans>
@@ -287,7 +291,11 @@ function OrganizationTenantLayout() {
             value="billing"
             leftSection={<IconFileInvoice size={14} />}
             renderRoot={(props) => (
-              <Link to="/admin/organizations/$tenantKey/billing" params={{ tenantKey }} {...props} />
+              <Link
+                to="/admin/organizations/$tenantKey/billing"
+                params={{ tenantKey }}
+                {...props}
+              />
             )}
           >
             <Trans>Billing settings</Trans>
