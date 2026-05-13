@@ -261,9 +261,9 @@ function OrganizationTenantLayout() {
           <Tabs.Tab
             value="overview"
             leftSection={<IconBuilding size={14} />}
-            component={Link}
-            to="/admin/organizations/$tenantKey"
-            params={{ tenantKey }}
+            renderRoot={(props) => (
+              <Link to="/admin/organizations/$tenantKey" params={{ tenantKey }} {...props} />
+            )}
           >
             <Trans>Overview</Trans>
           </Tabs.Tab>
@@ -277,18 +277,18 @@ function OrganizationTenantLayout() {
                 </Badge>
               ) : undefined
             }
-            component={Link}
-            to="/admin/organizations/$tenantKey/members"
-            params={{ tenantKey }}
+            renderRoot={(props) => (
+              <Link to="/admin/organizations/$tenantKey/members" params={{ tenantKey }} {...props} />
+            )}
           >
             <Trans>Members</Trans>
           </Tabs.Tab>
           <Tabs.Tab
             value="billing"
             leftSection={<IconFileInvoice size={14} />}
-            component={Link}
-            to="/admin/organizations/$tenantKey/billing"
-            params={{ tenantKey }}
+            renderRoot={(props) => (
+              <Link to="/admin/organizations/$tenantKey/billing" params={{ tenantKey }} {...props} />
+            )}
           >
             <Trans>Billing settings</Trans>
           </Tabs.Tab>

@@ -111,6 +111,10 @@ msgid "Billing address (JSON)"
 msgstr "Billing address (JSON)"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Billing address must be valid JSON or empty"
+msgstr "Billing address must be valid JSON or empty"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Billing email"
 msgstr "Billing email"
 

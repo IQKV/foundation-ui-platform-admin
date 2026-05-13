@@ -375,7 +375,7 @@ function AdminPlansPage() {
                         color="gray"
                         size="sm"
                         to="/admin/plans/$planCode"
-                        params={{ planCode: plan.planCode }}
+                        params={{ planCode: plan.planCode } as never}
                       >
                         <IconEye size={16} />
                       </ActionIcon>

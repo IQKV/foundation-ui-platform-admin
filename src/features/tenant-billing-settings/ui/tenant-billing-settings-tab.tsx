@@ -67,14 +67,14 @@ function settingsToForm(s: AdminBillingSettings): BillingFields {
   };
 }
 
-function validateBillingAddressJson(raw: string, t: (s: string) => string): string | null {
+function isValidBillingAddressJson(raw: string): boolean {
   const tval = raw.trim();
-  if (!tval) return null;
+  if (!tval) return true;
   try {
     JSON.parse(tval);
-    return null;
+    return true;
   } catch {
-    return t`Billing address must be valid JSON or empty`;
+    return false;
   }
 }
 
@@ -124,7 +124,8 @@ export function TenantBillingSettingsTab({ tenantKey }: TenantBillingSettingsTab
       externalCustomerId: (v) => (v.trim().length < 1 ? t`External customer id is required` : null),
       billingEmail: (v) => (v.trim().length < 1 ? t`Billing email is required` : null),
       currency: (v) => (v.trim().length !== 3 ? t`Currency must be a 3-letter ISO code` : null),
-      billingAddress: (v) => validateBillingAddressJson(v, t),
+      billingAddress: (v) =>
+        isValidBillingAddressJson(v) ? null : t`Billing address must be valid JSON or empty`,
       profileOwnerId: (v) => {
         const tval = v.trim();
         if (!tval) return null;
@@ -148,7 +149,8 @@ export function TenantBillingSettingsTab({ tenantKey }: TenantBillingSettingsTab
       externalCustomerId: (v) => (v.trim().length < 1 ? t`External customer id is required` : null),
       billingEmail: (v) => (v.trim().length < 1 ? t`Billing email is required` : null),
       currency: (v) => (v.trim().length !== 3 ? t`Currency must be a 3-letter ISO code` : null),
-      billingAddress: (v) => validateBillingAddressJson(v, t),
+      billingAddress: (v) =>
+        isValidBillingAddressJson(v) ? null : t`Billing address must be valid JSON or empty`,
       profileOwnerId: (v) => {
         const tval = v.trim();
         if (!tval) return null;
@@ -306,7 +308,7 @@ export function TenantBillingSettingsTab({ tenantKey }: TenantBillingSettingsTab
     );
   }
 
-  if (settings === null) {
+  if (settings === null || settings === undefined) {
     return (
       <Stack gap="md" pt="md">
         <Paper withBorder radius="md" p="lg">
