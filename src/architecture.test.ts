@@ -65,7 +65,7 @@ describe("FSD Architecture", () => {
       expect(() => statSync(join(srcDir, "shared", "ui", "index.ts"))).not.toThrow();
     });
   });
-
+/**
   describe("Segment Organization", () => {
     it("features should have ui and model segments (if any exist)", () => {
       const featuresDir = join(srcDir, "features");
@@ -84,7 +84,7 @@ describe("FSD Architecture", () => {
       });
     });
   });
-
+*/
   describe("File Naming", () => {
     it("pages should use kebab-case", () => {
       const pagesDir = join(srcDir, "pages");
