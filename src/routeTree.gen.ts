@@ -19,10 +19,13 @@ import { Route as IndexRouteImport } from "./pages/index"
 import { Route as AdminIndexRouteImport } from "./pages/admin/index"
 import { Route as AdminUsersRouteImport } from "./pages/admin/users"
 import { Route as AdminSubscriptionsRouteImport } from "./pages/admin/subscriptions"
+import { Route as AdminPlansRouteImport } from "./pages/admin/plans"
 import { Route as AdminOrganizationsRouteImport } from "./pages/admin/organizations"
 import { Route as AdminUsersIndexRouteImport } from "./pages/admin/users.index"
+import { Route as AdminPlansIndexRouteImport } from "./pages/admin/plans.index"
 import { Route as AdminOrganizationsIndexRouteImport } from "./pages/admin/organizations.index"
 import { Route as AdminUsersUserIdRouteImport } from "./pages/admin/users.$userId"
+import { Route as AdminPlansPlanCodeRouteImport } from "./pages/admin/plans.$planCode"
 import { Route as AdminOrganizationsTenantKeyRouteImport } from "./pages/admin/organizations.$tenantKey"
 
 const UnauthorizedRoute = UnauthorizedRouteImport.update({
@@ -75,6 +78,11 @@ const AdminSubscriptionsRoute = AdminSubscriptionsRouteImport.update({
   path: "/subscriptions",
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminPlansRoute = AdminPlansRouteImport.update({
+  id: "/plans",
+  path: "/plans",
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminOrganizationsRoute = AdminOrganizationsRouteImport.update({
   id: "/organizations",
   path: "/organizations",
@@ -85,6 +93,11 @@ const AdminUsersIndexRoute = AdminUsersIndexRouteImport.update({
   path: "/",
   getParentRoute: () => AdminUsersRoute,
 } as any)
+const AdminPlansIndexRoute = AdminPlansIndexRouteImport.update({
+  id: "/",
+  path: "/",
+  getParentRoute: () => AdminPlansRoute,
+} as any)
 const AdminOrganizationsIndexRoute = AdminOrganizationsIndexRouteImport.update({
   id: "/",
   path: "/",
@@ -94,6 +107,11 @@ const AdminUsersUserIdRoute = AdminUsersUserIdRouteImport.update({
   id: "/$userId",
   path: "/$userId",
   getParentRoute: () => AdminUsersRoute,
+} as any)
+const AdminPlansPlanCodeRoute = AdminPlansPlanCodeRouteImport.update({
+  id: "/$planCode",
+  path: "/$planCode",
+  getParentRoute: () => AdminPlansRoute,
 } as any)
 const AdminOrganizationsTenantKeyRoute =
   AdminOrganizationsTenantKeyRouteImport.update({
@@ -111,12 +129,15 @@ export interface FileRoutesByFullPath {
   "/sign-in": typeof SignInRoute
   "/unauthorized": typeof UnauthorizedRoute
   "/admin/organizations": typeof AdminOrganizationsRouteWithChildren
+  "/admin/plans": typeof AdminPlansRouteWithChildren
   "/admin/subscriptions": typeof AdminSubscriptionsRoute
   "/admin/users": typeof AdminUsersRouteWithChildren
   "/admin/": typeof AdminIndexRoute
   "/admin/organizations/$tenantKey": typeof AdminOrganizationsTenantKeyRoute
+  "/admin/plans/$planCode": typeof AdminPlansPlanCodeRoute
   "/admin/users/$userId": typeof AdminUsersUserIdRoute
   "/admin/organizations/": typeof AdminOrganizationsIndexRoute
+  "/admin/plans/": typeof AdminPlansIndexRoute
   "/admin/users/": typeof AdminUsersIndexRoute
 }
 export interface FileRoutesByTo {
@@ -129,8 +150,10 @@ export interface FileRoutesByTo {
   "/admin/subscriptions": typeof AdminSubscriptionsRoute
   "/admin": typeof AdminIndexRoute
   "/admin/organizations/$tenantKey": typeof AdminOrganizationsTenantKeyRoute
+  "/admin/plans/$planCode": typeof AdminPlansPlanCodeRoute
   "/admin/users/$userId": typeof AdminUsersUserIdRoute
   "/admin/organizations": typeof AdminOrganizationsIndexRoute
+  "/admin/plans": typeof AdminPlansIndexRoute
   "/admin/users": typeof AdminUsersIndexRoute
 }
 export interface FileRoutesById {
@@ -143,12 +166,15 @@ export interface FileRoutesById {
   "/sign-in": typeof SignInRoute
   "/unauthorized": typeof UnauthorizedRoute
   "/admin/organizations": typeof AdminOrganizationsRouteWithChildren
+  "/admin/plans": typeof AdminPlansRouteWithChildren
   "/admin/subscriptions": typeof AdminSubscriptionsRoute
   "/admin/users": typeof AdminUsersRouteWithChildren
   "/admin/": typeof AdminIndexRoute
   "/admin/organizations/$tenantKey": typeof AdminOrganizationsTenantKeyRoute
+  "/admin/plans/$planCode": typeof AdminPlansPlanCodeRoute
   "/admin/users/$userId": typeof AdminUsersUserIdRoute
   "/admin/organizations/": typeof AdminOrganizationsIndexRoute
+  "/admin/plans/": typeof AdminPlansIndexRoute
   "/admin/users/": typeof AdminUsersIndexRoute
 }
 export interface FileRouteTypes {
@@ -162,12 +188,15 @@ export interface FileRouteTypes {
     | "/sign-in"
     | "/unauthorized"
     | "/admin/organizations"
+    | "/admin/plans"
     | "/admin/subscriptions"
     | "/admin/users"
     | "/admin/"
     | "/admin/organizations/$tenantKey"
+    | "/admin/plans/$planCode"
     | "/admin/users/$userId"
     | "/admin/organizations/"
+    | "/admin/plans/"
     | "/admin/users/"
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -180,8 +209,10 @@ export interface FileRouteTypes {
     | "/admin/subscriptions"
     | "/admin"
     | "/admin/organizations/$tenantKey"
+    | "/admin/plans/$planCode"
     | "/admin/users/$userId"
     | "/admin/organizations"
+    | "/admin/plans"
     | "/admin/users"
   id:
     | "__root__"
@@ -193,12 +224,15 @@ export interface FileRouteTypes {
     | "/sign-in"
     | "/unauthorized"
     | "/admin/organizations"
+    | "/admin/plans"
     | "/admin/subscriptions"
     | "/admin/users"
     | "/admin/"
     | "/admin/organizations/$tenantKey"
+    | "/admin/plans/$planCode"
     | "/admin/users/$userId"
     | "/admin/organizations/"
+    | "/admin/plans/"
     | "/admin/users/"
   fileRoutesById: FileRoutesById
 }
@@ -284,6 +318,13 @@ declare module "@tanstack/react-router" {
       preLoaderRoute: typeof AdminSubscriptionsRouteImport
       parentRoute: typeof AdminRoute
     }
+    "/admin/plans": {
+      id: "/admin/plans"
+      path: "/plans"
+      fullPath: "/admin/plans"
+      preLoaderRoute: typeof AdminPlansRouteImport
+      parentRoute: typeof AdminRoute
+    }
     "/admin/organizations": {
       id: "/admin/organizations"
       path: "/organizations"
@@ -298,6 +339,13 @@ declare module "@tanstack/react-router" {
       preLoaderRoute: typeof AdminUsersIndexRouteImport
       parentRoute: typeof AdminUsersRoute
     }
+    "/admin/plans/": {
+      id: "/admin/plans/"
+      path: "/"
+      fullPath: "/admin/plans/"
+      preLoaderRoute: typeof AdminPlansIndexRouteImport
+      parentRoute: typeof AdminPlansRoute
+    }
     "/admin/organizations/": {
       id: "/admin/organizations/"
       path: "/"
@@ -311,6 +359,13 @@ declare module "@tanstack/react-router" {
       fullPath: "/admin/users/$userId"
       preLoaderRoute: typeof AdminUsersUserIdRouteImport
       parentRoute: typeof AdminUsersRoute
+    }
+    "/admin/plans/$planCode": {
+      id: "/admin/plans/$planCode"
+      path: "/$planCode"
+      fullPath: "/admin/plans/$planCode"
+      preLoaderRoute: typeof AdminPlansPlanCodeRouteImport
+      parentRoute: typeof AdminPlansRoute
     }
     "/admin/organizations/$tenantKey": {
       id: "/admin/organizations/$tenantKey"
@@ -335,6 +390,20 @@ const AdminOrganizationsRouteChildren: AdminOrganizationsRouteChildren = {
 const AdminOrganizationsRouteWithChildren =
   AdminOrganizationsRoute._addFileChildren(AdminOrganizationsRouteChildren)
 
+interface AdminPlansRouteChildren {
+  AdminPlansPlanCodeRoute: typeof AdminPlansPlanCodeRoute
+  AdminPlansIndexRoute: typeof AdminPlansIndexRoute
+}
+
+const AdminPlansRouteChildren: AdminPlansRouteChildren = {
+  AdminPlansPlanCodeRoute: AdminPlansPlanCodeRoute,
+  AdminPlansIndexRoute: AdminPlansIndexRoute,
+}
+
+const AdminPlansRouteWithChildren = AdminPlansRoute._addFileChildren(
+  AdminPlansRouteChildren,
+)
+
 interface AdminUsersRouteChildren {
   AdminUsersUserIdRoute: typeof AdminUsersUserIdRoute
   AdminUsersIndexRoute: typeof AdminUsersIndexRoute
@@ -351,6 +420,7 @@ const AdminUsersRouteWithChildren = AdminUsersRoute._addFileChildren(
 
 interface AdminRouteChildren {
   AdminOrganizationsRoute: typeof AdminOrganizationsRouteWithChildren
+  AdminPlansRoute: typeof AdminPlansRouteWithChildren
   AdminSubscriptionsRoute: typeof AdminSubscriptionsRoute
   AdminUsersRoute: typeof AdminUsersRouteWithChildren
   AdminIndexRoute: typeof AdminIndexRoute
@@ -358,6 +428,7 @@ interface AdminRouteChildren {
 
 const AdminRouteChildren: AdminRouteChildren = {
   AdminOrganizationsRoute: AdminOrganizationsRouteWithChildren,
+  AdminPlansRoute: AdminPlansRouteWithChildren,
   AdminSubscriptionsRoute: AdminSubscriptionsRoute,
   AdminUsersRoute: AdminUsersRouteWithChildren,
   AdminIndexRoute: AdminIndexRoute,
