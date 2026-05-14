@@ -2,6 +2,7 @@ import { Group, Text, Burger, Box, Divider } from "@mantine/core";
 import { IconShieldHalf } from "@tabler/icons-react";
 import { SignOutButton } from "@/features/sign-out";
 import { APP_NAME } from "@/shared/lib/page-title";
+import { ColorSchemeToggle } from "@/shared/ui/color-scheme-toggle/color-scheme-toggle";
 
 interface AdminHeaderProps {
   opened: boolean;
@@ -51,6 +52,7 @@ export function AdminHeader({ opened, onToggle }: AdminHeaderProps) {
 
       {/* Right side actions */}
       <Group gap="xs" px="md" ml="auto">
+        <ColorSchemeToggle />
         <SignOutButton />
       </Group>
     </Group>
