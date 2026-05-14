@@ -3,6 +3,7 @@ import { IconShieldHalf } from "@tabler/icons-react";
 import { SignOutButton } from "@/features/sign-out";
 import { APP_NAME } from "@/shared/lib/page-title";
 import { ColorSchemeToggle } from "@/shared/ui/color-scheme-toggle/color-scheme-toggle";
+import { LocaleSwitcher } from "@/shared/ui/locale-switcher/locale-switcher";
 
 interface AdminHeaderProps {
   opened: boolean;
@@ -52,6 +53,7 @@ export function AdminHeader({ opened, onToggle }: AdminHeaderProps) {
 
       {/* Right side actions */}
       <Group gap="xs" px="md" ml="auto">
+        <LocaleSwitcher />
         <ColorSchemeToggle />
         <SignOutButton />
       </Group>
