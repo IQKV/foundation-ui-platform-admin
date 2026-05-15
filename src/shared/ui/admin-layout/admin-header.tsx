@@ -20,7 +20,7 @@ export function AdminHeader({ opened, onToggle }: AdminHeaderProps) {
         gap="xs"
         style={{
           width: 220,
-          borderRight: "1px solid var(--mantine-color-gray-2)",
+          borderRight: "1px solid var(--mantine-color-default-border)",
           flexShrink: 0,
         }}
       >
@@ -50,7 +50,12 @@ export function AdminHeader({ opened, onToggle }: AdminHeaderProps) {
             <IconShieldHalf size={18} color="white" />
           </Box>
 
-          <Text fw={700} size="sm" c="dark.8" style={{ letterSpacing: "-0.01em" }}>
+          <Text
+            fw={700}
+            size="sm"
+            c="var(--mantine-color-text)"
+            style={{ letterSpacing: "-0.01em" }}
+          >
             {APP_NAME}
           </Text>
         </Group>

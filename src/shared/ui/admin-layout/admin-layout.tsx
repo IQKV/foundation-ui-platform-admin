@@ -23,8 +23,7 @@ export function AdminLayout({ children }: AdminLayoutProps) {
     >
       <AppShell.Header
         style={{
-          borderBottom: "1px solid var(--mantine-color-gray-2)",
-          background: "var(--mantine-color-white)",
+          borderBottom: "1px solid var(--mantine-color-default-border)",
         }}
       >
         <AdminHeader opened={opened} onToggle={toggle} />
@@ -32,8 +31,7 @@ export function AdminLayout({ children }: AdminLayoutProps) {
 
       <AppShell.Navbar
         style={{
-          borderRight: "1px solid var(--mantine-color-gray-2)",
-          background: "var(--mantine-color-gray-0)",
+          borderRight: "1px solid var(--mantine-color-default-border)",
         }}
         data-testid="admin-nav"
       >
@@ -44,7 +42,6 @@ export function AdminLayout({ children }: AdminLayoutProps) {
 
       <AppShell.Main
         style={{
-          background: "var(--mantine-color-gray-0)",
           minHeight: "calc(100vh - 56px)",
         }}
       >
