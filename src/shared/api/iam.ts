@@ -7,6 +7,15 @@ export type IamTenantStatus = "ACTIVE" | "SUSPENDED" | "DELETED";
 
 export type IamUserSortField = "email" | "firstName" | "lastName" | "updatedAt" | "createdAt";
 export type IamTenantSortField = "name" | "tenantKey" | "updatedAt" | "createdAt";
+export type IamInvitationStatus = "PENDING" | "ACCEPTED" | "REVOKED" | "EXPIRED";
+export type IamInvitationAuthority = "ADMIN" | "MEMBER";
+export type IamInvitationSortField =
+  | "email"
+  | "tenantKey"
+  | "status"
+  | "expiresAt"
+  | "createdAt"
+  | "updatedAt";
 export type SortDirection = "asc" | "desc";
 
 export interface CountResponse {
@@ -60,6 +69,35 @@ export interface ListIamTenantsParams {
   sortDir?: SortDirection;
 }
 
+export interface IamInvitation {
+  invitationId: string;
+  tenantKey: string;
+  email: string;
+  authority: IamInvitationAuthority;
+  status: IamInvitationStatus;
+  invitedBy: string;
+  expiresAt: string;
+  acceptedAt: string | null;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface ListIamInvitationsParams {
+  page?: number;
+  size?: number;
+  search?: string;
+  status?: IamInvitationStatus;
+  tenantKey?: string;
+  sortBy?: IamInvitationSortField;
+  sortDir?: SortDirection;
+}
+
+export interface ProposeIamInvitationRequest {
+  tenantKey: string;
+  email: string;
+  authority?: IamInvitationAuthority;
+}
+
 export interface ListTenantMembersParams {
   page?: number;
   size?: number;
@@ -109,4 +147,24 @@ export const iamApi = {
     httpClient.patch<IamTenant>(`/v1/iam/admin/tenants/${tenantKey}`, data).then((r) => r.data),
 
   deleteTenant: (tenantKey: string) => httpClient.delete(`/v1/iam/admin/tenants/${tenantKey}`),
+
+  countInvitations: (
+    params: Omit<ListIamInvitationsParams, "page" | "size" | "sortBy" | "sortDir"> = {},
+  ) =>
+    httpClient
+      .get<CountResponse>("/v1/iam/admin/invitations/count", { params })
+      .then((r) => r.data),
+
+  listInvitations: (params: ListIamInvitationsParams = {}) =>
+    httpClient
+      .get<PagedResponse<IamInvitation>>("/v1/iam/admin/invitations", { params })
+      .then((r) => r.data),
+
+  getInvitation: (id: string) =>
+    httpClient.get<IamInvitation>(`/v1/iam/admin/invitations/${id}`).then((r) => r.data),
+
+  proposeInvitation: (data: ProposeIamInvitationRequest) =>
+    httpClient.post<IamInvitation>("/v1/iam/admin/invitations", data).then((r) => r.data),
+
+  revokeInvitation: (id: string) => httpClient.delete(`/v1/iam/admin/invitations/${id}`),
 };

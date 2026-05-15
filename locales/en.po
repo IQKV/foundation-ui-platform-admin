@@ -13,10 +13,13 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#. placeholder {0}: localeToNameMap[locale]
 #. placeholder {0}: o.label
+#: src/pages/admin/invitations.index.tsx
 #: src/pages/admin/organizations.index.tsx
 #: src/pages/admin/subscriptions.tsx
 #: src/pages/admin/users.index.tsx
+#: src/shared/locales/index.ts
 msgid "{0}"
 msgstr "{0}"
 
@@ -43,6 +46,15 @@ msgstr "1. Initial Page Load"
 #: src/pages/loading-demo.tsx
 msgid "2. Page Transitions"
 msgstr "2. Page Transitions"
+
+#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
+msgid "8-character tenant key"
+msgstr "8-character tenant key"
+
+#: src/features/invitation-admin/ui/edit-invitation-modal.tsx
+#: src/shared/ui/invitation-status-badge/invitation-status-badge.tsx
+msgid "Accepted"
+msgstr "Accepted"
 
 #: src/pages/unauthorized.tsx
 msgid "Access Denied"
@@ -79,6 +91,7 @@ msgstr "Active Subscriptions"
 msgid "All plans"
 msgstr "All plans"
 
+#: src/pages/admin/invitations.index.tsx
 #: src/pages/admin/organizations.index.tsx
 #: src/pages/admin/subscriptions.tsx
 #: src/pages/admin/users.index.tsx
@@ -93,6 +106,11 @@ msgstr "Annual"
 #: src/shared/ui/admin-layout/admin-nav.tsx
 #~ msgid "Audit Log"
 #~ msgstr "Audit Log"
+
+#: src/features/invitation-admin/ui/edit-invitation-modal.tsx
+#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
+msgid "Authority"
+msgstr "Authority"
 
 #: src/pages/admin/subscriptions.tsx
 msgid "Auto-Renew"
@@ -135,6 +153,7 @@ msgstr "Billing settings"
 
 #: src/features/edit-tenant/ui/edit-tenant-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
+#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 #: src/features/plan-catalog/ui/create-plan-modal.tsx
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/pages/admin/plans.$planCode.tsx
@@ -145,6 +164,7 @@ msgstr "Cancel"
 msgid "Canceling"
 msgstr "Canceling"
 
+#: src/pages/admin/invitations.index.tsx
 #: src/pages/admin/organizations.index.tsx
 #: src/pages/admin/plans.index.tsx
 #: src/pages/admin/subscriptions.tsx
@@ -152,12 +172,17 @@ msgstr "Canceling"
 msgid "Clear"
 msgstr "Clear"
 
+#: src/pages/admin/invitations.index.tsx
 #: src/pages/admin/organizations.index.tsx
 #: src/pages/admin/plans.index.tsx
 #: src/pages/admin/subscriptions.tsx
 #: src/pages/admin/users.index.tsx
 msgid "Clear filters"
 msgstr "Clear filters"
+
+#: src/features/invitation-admin/ui/edit-invitation-modal.tsx
+msgid "Close"
+msgstr "Close"
 
 #: src/pages/admin/plans.index.tsx
 msgid "Code"
@@ -178,6 +203,10 @@ msgstr "Complete"
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Could not fetch billing settings."
 msgstr "Could not fetch billing settings."
+
+#: src/pages/admin/invitations.index.tsx
+msgid "Could not fetch invitations from the API."
+msgstr "Could not fetch invitations from the API."
 
 #: src/pages/admin/-organization-tenant-panels.tsx
 msgid "Could not fetch members."
@@ -223,8 +252,10 @@ msgstr "Create billing settings"
 msgid "Create plan"
 msgstr "Create plan"
 
+#: src/features/invitation-admin/ui/edit-invitation-modal.tsx
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/pages/admin/-organization-tenant-panels.tsx
+#: src/pages/admin/invitations.index.tsx
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/organizations.index.tsx
 #: src/pages/admin/plans.$planCode.tsx
@@ -319,6 +350,8 @@ msgid "Edit User"
 msgstr "Edit User"
 
 #: src/features/edit-user/ui/edit-user-modal.tsx
+#: src/features/invitation-admin/ui/edit-invitation-modal.tsx
+#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 #: src/features/sign-in/ui/sign-in-form.tsx
 #: src/pages/admin/-organization-tenant-panels.tsx
 #: src/pages/admin/users.$userId.tsx
@@ -354,6 +387,15 @@ msgstr "Enter a valid email address"
 msgid "Error Details (Development)"
 msgstr "Error Details (Development)"
 
+#: src/shared/ui/invitation-status-badge/invitation-status-badge.tsx
+msgid "Expired"
+msgstr "Expired"
+
+#: src/features/invitation-admin/ui/edit-invitation-modal.tsx
+#: src/pages/admin/invitations.index.tsx
+msgid "Expires"
+msgstr "Expires"
+
 #: src/pages/admin/organizations.tsx
 #: src/pages/admin/subscriptions.tsx
 #: src/pages/admin/users.tsx
@@ -375,6 +417,10 @@ msgstr "Failed to load"
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Failed to load billing settings"
 msgstr "Failed to load billing settings"
+
+#: src/pages/admin/invitations.index.tsx
+msgid "Failed to load invitations"
+msgstr "Failed to load invitations"
 
 #: src/pages/admin/organizations.$tenantKey.tsx
 msgid "Failed to load organization"
@@ -435,6 +481,7 @@ msgid "Go to Home"
 msgstr "Go to Home"
 
 #: src/pages/admin/index.tsx
+#: src/pages/admin/invitations.index.tsx
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/organizations.index.tsx
 #: src/pages/admin/plans.$planCode.tsx
@@ -444,6 +491,10 @@ msgstr "Go to Home"
 #: src/pages/admin/users.index.tsx
 msgid "Home"
 msgstr "Home"
+
+#: src/features/invitation-admin/ui/edit-invitation-modal.tsx
+msgid "ID:"
+msgstr "ID:"
 
 #. placeholder {0}: user.id
 #: src/features/edit-user/ui/edit-user-modal.tsx
@@ -475,6 +526,27 @@ msgstr "Internal server error."
 msgid "Invalid email or password"
 msgstr "Invalid email or password"
 
+#: src/features/invitation-admin/ui/edit-invitation-modal.tsx
+msgid "Invitation Details"
+msgstr "Invitation Details"
+
+#: src/pages/admin/invitations.index.tsx
+#: src/shared/ui/admin-layout/admin-nav.tsx
+msgid "Invitations"
+msgstr "Invitations"
+
+#: src/features/invitation-admin/ui/edit-invitation-modal.tsx
+msgid "Invited by (user ID)"
+msgstr "Invited by (user ID)"
+
+#: src/pages/admin/invitations.index.tsx
+msgid "Invitee"
+msgstr "Invitee"
+
+#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
+msgid "invitee@example.com"
+msgstr "invitee@example.com"
+
 #: src/pages/admin/-organization-tenant-panels.tsx
 #: src/pages/admin/users.$userId.tsx
 #: src/pages/admin/users.index.tsx
@@ -492,6 +564,10 @@ msgstr "Key"
 #: src/features/edit-tenant/ui/edit-tenant-modal.tsx
 msgid "Key:"
 msgstr "Key:"
+
+#: src/shared/ui/locale-switcher/locale-switcher.tsx
+msgid "Language"
+msgstr "Language"
 
 #: src/features/edit-user/ui/edit-user-modal.tsx
 msgid "Last name"
@@ -566,6 +642,10 @@ msgstr "Members"
 msgid "Monthly"
 msgstr "Monthly"
 
+#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
+msgid "Must be a valid email address"
+msgstr "Must be a valid email address"
+
 #: src/pages/admin/plans.index.tsx
 msgid "Name"
 msgstr "Name"
@@ -586,6 +666,14 @@ msgstr "New plan"
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "No billing settings"
 msgstr "No billing settings"
+
+#: src/pages/admin/invitations.index.tsx
+msgid "No invitations found"
+msgstr "No invitations found"
+
+#: src/pages/admin/invitations.index.tsx
+msgid "No invitations match the current filters"
+msgstr "No invitations match the current filters"
 
 #: src/pages/admin/-organization-tenant-panels.tsx
 msgid "No members found"
@@ -722,6 +810,14 @@ msgstr "Payment gateway customer identifier (e.g. Stripe cus_…)."
 msgid "Payment gateway customer identifier."
 msgstr "Payment gateway customer identifier."
 
+#: src/shared/ui/invitation-status-badge/invitation-status-badge.tsx
+msgid "Pending"
+msgstr "Pending"
+
+#: src/features/invitation-admin/ui/edit-invitation-modal.tsx
+msgid "Pending invitations can be revoked. The invitee will no longer be able to accept this link."
+msgstr "Pending invitations can be revoked. The invitee will no longer be able to accept this link."
+
 #: src/pages/admin/plans.index.tsx
 msgid "Period"
 msgstr "Period"
@@ -758,6 +854,7 @@ msgstr "Plan code:"
 msgid "Plans"
 msgstr "Plans"
 
+#: src/pages/admin/invitations.index.tsx
 #: src/pages/admin/organizations.index.tsx
 #: src/pages/admin/plans.index.tsx
 #: src/pages/admin/subscriptions.tsx
@@ -792,6 +889,14 @@ msgstr "Profile owner id must be a valid UUID or empty"
 msgid "Profile owner user id"
 msgstr "Profile owner user id"
 
+#: src/pages/admin/invitations.index.tsx
+msgid "Propose invitation"
+msgstr "Propose invitation"
+
+#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
+msgid "Propose Invitation"
+msgstr "Propose Invitation"
+
 #: src/features/edit-tenant/ui/edit-tenant-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
 msgid "read-only"
@@ -799,6 +904,7 @@ msgstr "read-only"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/pages/admin/-organization-tenant-panels.tsx
+#: src/pages/admin/invitations.index.tsx
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/organizations.index.tsx
 #: src/pages/admin/plans.$planCode.tsx
@@ -815,6 +921,7 @@ msgstr "Renews"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/pages/admin/-organization-tenant-panels.tsx
+#: src/pages/admin/invitations.index.tsx
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/organizations.index.tsx
 #: src/pages/admin/plans.$planCode.tsx
@@ -824,6 +931,14 @@ msgstr "Renews"
 #: src/pages/admin/users.index.tsx
 msgid "Retry"
 msgstr "Retry"
+
+#: src/features/invitation-admin/ui/edit-invitation-modal.tsx
+msgid "Revoke invitation"
+msgstr "Revoke invitation"
+
+#: src/shared/ui/invitation-status-badge/invitation-status-badge.tsx
+msgid "Revoked"
+msgstr "Revoked"
 
 #: src/features/edit-tenant/ui/edit-tenant-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
@@ -841,6 +956,10 @@ msgstr "Scope"
 #: src/pages/admin/plans.index.tsx
 msgid "Search by code or name…"
 msgstr "Search by code or name…"
+
+#: src/pages/admin/invitations.index.tsx
+msgid "Search by email…"
+msgstr "Search by email…"
 
 #: src/pages/admin/-organization-tenant-panels.tsx
 #: src/pages/admin/users.index.tsx
@@ -863,6 +982,14 @@ msgstr "Search by tenant or plan…"
 msgid "Search…"
 msgstr "Search…"
 
+#: src/shared/ui/locale-switcher/locale-switcher.tsx
+msgid "Select language"
+msgstr "Select language"
+
+#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
+msgid "Send invitation"
+msgstr "Send invitation"
+
 #: src/pages/500.tsx
 msgid "Server Error"
 msgstr "Server Error"
@@ -880,6 +1007,10 @@ msgstr "Server Error"
 #: src/pages/admin/-organization-tenant-panels.tsx
 msgid "Showing {0}–{1} of {totalElements} members"
 msgstr "Showing {0}–{1} of {totalElements} members"
+
+#: src/pages/admin/invitations.index.tsx
+msgid "Showing {rangeStart}–{rangeEnd} of {totalElements} invitations"
+msgstr "Showing {rangeStart}–{rangeEnd} of {totalElements} invitations"
 
 #: src/pages/admin/organizations.index.tsx
 msgid "Showing {rangeStart}–{rangeEnd} of {totalElements} organizations"
@@ -939,7 +1070,9 @@ msgstr "Start"
 
 #: src/features/edit-tenant/ui/edit-tenant-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
+#: src/features/invitation-admin/ui/edit-invitation-modal.tsx
 #: src/pages/admin/-organization-tenant-panels.tsx
+#: src/pages/admin/invitations.index.tsx
 #: src/pages/admin/organizations.index.tsx
 #: src/pages/admin/plans.index.tsx
 #: src/pages/admin/subscriptions.tsx
@@ -964,6 +1097,14 @@ msgstr "Subscriptions"
 msgid "Suspended"
 msgstr "Suspended"
 
+#: src/shared/ui/color-scheme-toggle/color-scheme-toggle.tsx
+msgid "Switch to dark mode"
+msgstr "Switch to dark mode"
+
+#: src/shared/ui/color-scheme-toggle/color-scheme-toggle.tsx
+msgid "Switch to light mode"
+msgstr "Switch to light mode"
+
 #: src/shared/ui/admin-layout/admin-nav.tsx
 #~ msgid "System"
 #~ msgstr "System"
@@ -977,19 +1118,30 @@ msgid "Tax id type"
 msgstr "Tax id type"
 
 #: src/features/plan-catalog/ui/create-plan-modal.tsx
+#: src/pages/admin/invitations.index.tsx
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/subscriptions.tsx
 msgid "Tenant"
 msgstr "Tenant"
 
 #: src/features/edit-tenant/ui/edit-tenant-modal.tsx
+#: src/features/invitation-admin/ui/edit-invitation-modal.tsx
+#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Tenant key"
 msgstr "Tenant key"
 
+#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
+msgid "Tenant key must be at least 8 characters"
+msgstr "Tenant key must be at least 8 characters"
+
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Tenant key:"
 msgstr "Tenant key:"
+
+#: src/pages/admin/invitations.index.tsx
+msgid "Tenant key…"
+msgstr "Tenant key…"
 
 #: src/pages/loading-demo.tsx
 msgid "Theme-aware (respects dark mode and color scheme)"
@@ -1081,6 +1233,10 @@ msgstr "UUID or leave empty to clear."
 #: src/pages/admin/users.index.tsx
 msgid "Verified"
 msgstr "Verified"
+
+#: src/pages/admin/invitations.index.tsx
+msgid "View / manage invitation"
+msgstr "View / manage invitation"
 
 #: src/pages/admin/organizations.index.tsx
 msgid "View organization"

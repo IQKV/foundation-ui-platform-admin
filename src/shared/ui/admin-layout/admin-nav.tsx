@@ -6,6 +6,7 @@ import {
   IconCreditCard,
   IconSearch,
   IconTags,
+  IconMail,
 } from "@tabler/icons-react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useState } from "react";
@@ -30,6 +31,11 @@ export function AdminNav() {
       label: t`Organizations`,
       icon: <IconBuilding size={16} />,
       to: "/admin/organizations",
+    },
+    {
+      label: t`Invitations`,
+      icon: <IconMail size={16} />,
+      to: "/admin/invitations",
     },
     {
       label: t`Subscriptions`,

@@ -17,6 +17,12 @@ export type {
   ListIamUsersParams,
   ListIamTenantsParams,
   ListTenantMembersParams,
+  IamInvitation,
+  IamInvitationStatus,
+  IamInvitationAuthority,
+  IamInvitationSortField,
+  ListIamInvitationsParams,
+  ProposeIamInvitationRequest,
 } from "./iam";
 export { authApi } from "./auth";
 export type { SignInRequest, SignInResponse } from "./auth";
