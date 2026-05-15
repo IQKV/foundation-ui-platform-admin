@@ -1,5 +1,6 @@
-import { Group, Text, Burger, Box, Divider } from "@mantine/core";
-import { IconShieldHalf } from "@tabler/icons-react";
+import { Group, Text, Burger, Box, Divider, Tooltip, ActionIcon } from "@mantine/core";
+import { IconShieldHalf, IconUserCircle } from "@tabler/icons-react";
+import { Link } from "@tanstack/react-router";
 import { SignOutButton } from "@/features/sign-out";
 import { APP_NAME } from "@/shared/lib/page-title";
 import { ColorSchemeToggle } from "@/shared/ui/color-scheme-toggle/color-scheme-toggle";
@@ -67,6 +68,18 @@ export function AdminHeader({ opened, onToggle }: AdminHeaderProps) {
       <Group gap="xs" px="md" ml="auto">
         <LocaleSwitcher />
         <ColorSchemeToggle />
+        <Tooltip label="My Account" withArrow>
+          <ActionIcon
+            variant="subtle"
+            color="gray"
+            size="md"
+            component={Link}
+            to="/admin/account"
+            data-testid="header-account-link"
+          >
+            <IconUserCircle size={18} />
+          </ActionIcon>
+        </Tooltip>
         <SignOutButton />
       </Group>
     </Group>

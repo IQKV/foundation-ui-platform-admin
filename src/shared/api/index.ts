@@ -23,7 +23,10 @@ export type {
   IamInvitationSortField,
   ListIamInvitationsParams,
   ProposeIamInvitationRequest,
+  AdminAccount,
+  UpdateAdminAccountRequest,
 } from "./iam";
+export { adminAccountApi } from "./iam";
 export { authApi } from "./auth";
 export type { SignInRequest, SignInResponse } from "./auth";
 export { billingApi } from "./billing";

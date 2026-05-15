@@ -3,6 +3,25 @@ import { httpClient } from "./http-client";
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 export type IamUserStatus = "ACTIVE" | "LOCKED" | "SUSPENDED" | "DELETED";
+
+// ─── Platform admin account ───────────────────────────────────────────────────
+
+export interface AdminAccount {
+  userId: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+  status: IamUserStatus;
+  emailVerified: boolean;
+  platformAuthorities: string[];
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface UpdateAdminAccountRequest {
+  firstName: string;
+  lastName: string;
+}
 export type IamTenantStatus = "ACTIVE" | "SUSPENDED" | "DELETED";
 
 export type IamUserSortField = "email" | "firstName" | "lastName" | "updatedAt" | "createdAt";
@@ -167,4 +186,16 @@ export const iamApi = {
     httpClient.post<IamInvitation>("/v1/iam/admin/invitations", data).then((r) => r.data),
 
   revokeInvitation: (id: string) => httpClient.delete(`/v1/iam/admin/invitations/${id}`),
+};
+
+// ─── Platform admin self-service account API ──────────────────────────────────
+
+export const adminAccountApi = {
+  /** GET /v1/iam/auth/admin/me — fetch the authenticated platform operator's profile. */
+  getAccount: (): Promise<AdminAccount> =>
+    httpClient.get<AdminAccount>("/v1/iam/auth/admin/me").then((r) => r.data),
+
+  /** PATCH /v1/iam/auth/admin/me — update firstName and lastName. */
+  updateAccount: (data: UpdateAdminAccountRequest): Promise<AdminAccount> =>
+    httpClient.patch<AdminAccount>("/v1/iam/auth/admin/me", data).then((r) => r.data),
 };

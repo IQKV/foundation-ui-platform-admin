@@ -17,6 +17,7 @@ import { Route as R500RouteImport } from "./pages/500"
 import { Route as R404RouteImport } from "./pages/404"
 import { Route as IndexRouteImport } from "./pages/index"
 import { Route as AdminIndexRouteImport } from "./pages/admin/index"
+import { Route as AdminAccountRouteImport } from "./pages/admin/account"
 import { Route as AdminUsersRouteImport } from "./pages/admin/users"
 import { Route as AdminSubscriptionsRouteImport } from "./pages/admin/subscriptions"
 import { Route as AdminPlansRouteImport } from "./pages/admin/plans"
@@ -71,6 +72,11 @@ const IndexRoute = IndexRouteImport.update({
 const AdminIndexRoute = AdminIndexRouteImport.update({
   id: "/",
   path: "/",
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminAccountRoute = AdminAccountRouteImport.update({
+  id: "/account",
+  path: "/account",
   getParentRoute: () => AdminRoute,
 } as any)
 const AdminUsersRoute = AdminUsersRouteImport.update({
@@ -161,6 +167,7 @@ export interface FileRoutesByFullPath {
   "/loading-demo": typeof LoadingDemoRoute
   "/sign-in": typeof SignInRoute
   "/unauthorized": typeof UnauthorizedRoute
+  "/admin/account": typeof AdminAccountRoute
   "/admin/invitations": typeof AdminInvitationsRouteWithChildren
   "/admin/organizations": typeof AdminOrganizationsRouteWithChildren
   "/admin/plans": typeof AdminPlansRouteWithChildren
@@ -185,6 +192,7 @@ export interface FileRoutesByTo {
   "/loading-demo": typeof LoadingDemoRoute
   "/sign-in": typeof SignInRoute
   "/unauthorized": typeof UnauthorizedRoute
+  "/admin/account": typeof AdminAccountRoute
   "/admin/subscriptions": typeof AdminSubscriptionsRoute
   "/admin": typeof AdminIndexRoute
   "/admin/plans/$planCode": typeof AdminPlansPlanCodeRoute
@@ -206,6 +214,7 @@ export interface FileRoutesById {
   "/loading-demo": typeof LoadingDemoRoute
   "/sign-in": typeof SignInRoute
   "/unauthorized": typeof UnauthorizedRoute
+  "/admin/account": typeof AdminAccountRoute
   "/admin/invitations": typeof AdminInvitationsRouteWithChildren
   "/admin/organizations": typeof AdminOrganizationsRouteWithChildren
   "/admin/plans": typeof AdminPlansRouteWithChildren
@@ -233,6 +242,7 @@ export interface FileRouteTypes {
     | "/loading-demo"
     | "/sign-in"
     | "/unauthorized"
+    | "/admin/account"
     | "/admin/invitations"
     | "/admin/organizations"
     | "/admin/plans"
@@ -257,6 +267,7 @@ export interface FileRouteTypes {
     | "/loading-demo"
     | "/sign-in"
     | "/unauthorized"
+    | "/admin/account"
     | "/admin/subscriptions"
     | "/admin"
     | "/admin/plans/$planCode"
@@ -277,6 +288,7 @@ export interface FileRouteTypes {
     | "/loading-demo"
     | "/sign-in"
     | "/unauthorized"
+    | "/admin/account"
     | "/admin/invitations"
     | "/admin/organizations"
     | "/admin/plans"
@@ -361,6 +373,13 @@ declare module "@tanstack/react-router" {
       path: "/"
       fullPath: "/admin/"
       preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    "/admin/account": {
+      id: "/admin/account"
+      path: "/account"
+      fullPath: "/admin/account"
+      preLoaderRoute: typeof AdminAccountRouteImport
       parentRoute: typeof AdminRoute
     }
     "/admin/users": {
@@ -546,6 +565,7 @@ const AdminUsersRouteWithChildren = AdminUsersRoute._addFileChildren(
 )
 
 interface AdminRouteChildren {
+  AdminAccountRoute: typeof AdminAccountRoute
   AdminInvitationsRoute: typeof AdminInvitationsRouteWithChildren
   AdminOrganizationsRoute: typeof AdminOrganizationsRouteWithChildren
   AdminPlansRoute: typeof AdminPlansRouteWithChildren
@@ -555,6 +575,7 @@ interface AdminRouteChildren {
 }
 
 const AdminRouteChildren: AdminRouteChildren = {
+  AdminAccountRoute: AdminAccountRoute,
   AdminInvitationsRoute: AdminInvitationsRouteWithChildren,
   AdminOrganizationsRoute: AdminOrganizationsRouteWithChildren,
   AdminPlansRoute: AdminPlansRouteWithChildren,
