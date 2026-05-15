@@ -1,15 +1,5 @@
 import { useEffect } from "react";
-import {
-  Modal,
-  Stack,
-  TextInput,
-  Group,
-  Button,
-  Text,
-  Divider,
-  Box,
-  Badge,
-} from "@mantine/core";
+import { Modal, Stack, TextInput, Group, Button, Text, Divider, Box, Badge } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { Trans, useLingui } from "@lingui/react/macro";
 import type { AdminAccount } from "@/shared/api";
