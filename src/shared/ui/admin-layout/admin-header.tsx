@@ -12,7 +12,7 @@ interface AdminHeaderProps {
 
 export function AdminHeader({ opened, onToggle }: AdminHeaderProps) {
   return (
-    <Group h="100%" px={0} justify="space-between" gap={0}>
+    <Group h="100%" px={0} justify="space-between" gap={0} data-testid="admin-header">
       {/* Brand block — same width as sidebar so content aligns */}
       <Group
         h="100%"
@@ -24,7 +24,13 @@ export function AdminHeader({ opened, onToggle }: AdminHeaderProps) {
           flexShrink: 0,
         }}
       >
-        <Burger opened={opened} onClick={onToggle} hiddenFrom="sm" size="sm" />
+        <Burger
+          opened={opened}
+          onClick={onToggle}
+          hiddenFrom="sm"
+          size="sm"
+          data-testid="header-mobile-menu-toggle"
+        />
 
         <Group gap={8} visibleFrom="sm" style={{ cursor: "default" }}>
           {/* Logo mark */}
@@ -39,6 +45,7 @@ export function AdminHeader({ opened, onToggle }: AdminHeaderProps) {
               justifyContent: "center",
               flexShrink: 0,
             }}
+            data-testid="header-logo"
           >
             <IconShieldHalf size={18} color="white" />
           </Box>

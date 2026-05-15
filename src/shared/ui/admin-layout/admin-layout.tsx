@@ -19,6 +19,7 @@ export function AdminLayout({ children }: AdminLayoutProps) {
         collapsed: { mobile: !opened },
       }}
       padding="md"
+      data-testid="admin-layout"
     >
       <AppShell.Header
         style={{
@@ -34,6 +35,7 @@ export function AdminLayout({ children }: AdminLayoutProps) {
           borderRight: "1px solid var(--mantine-color-gray-2)",
           background: "var(--mantine-color-gray-0)",
         }}
+        data-testid="admin-nav"
       >
         <AppShell.Section grow component={ScrollArea}>
           <AdminNav />
