@@ -201,4 +201,8 @@ export const adminAccountApi = {
   /** PATCH /v1/iam/auth/admin/me — update firstName and lastName. */
   updateAccount: (data: UpdateAdminAccountRequest): Promise<AdminAccount> =>
     httpClient.patch<AdminAccount>("/v1/iam/auth/admin/me", data).then((r) => r.data),
+
+  /** POST /v1/iam/auth/admin/me/password — change own password (requires current password). */
+  changePassword: (data: { currentPassword: string; newPassword: string }): Promise<void> =>
+    httpClient.post("/v1/iam/auth/admin/me/password", data).then(() => undefined),
 };

@@ -25,6 +25,7 @@ import {
   IconEdit,
   IconShieldCheck,
   IconShieldHalf,
+  IconKey,
 } from "@tabler/icons-react";
 import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
@@ -33,6 +34,7 @@ import { pageTitle } from "@/shared/lib/page-title";
 import { adminAccountApi } from "@/shared/api";
 import { UserStatusBadge, PageHeader } from "@/shared/ui";
 import { EditAccountModal } from "@/features/edit-account";
+import { ChangeAdminPasswordModal } from "@/features/change-admin-password";
 
 // ─── Route ────────────────────────────────────────────────────────────────────
 
@@ -84,6 +86,7 @@ function AccountPage() {
   const { t } = useLingui();
 
   const [editOpened, { open: openEdit, close: closeEdit }] = useDisclosure(false);
+  const [pwOpened, { open: openPw, close: closePw }] = useDisclosure(false);
 
   const {
     data: account,
@@ -151,6 +154,17 @@ function AccountPage() {
                 disabled={isLoading}
               >
                 <IconEdit size={15} />
+              </ActionIcon>
+            </Tooltip>
+            <Tooltip label={t`Change password`} withArrow>
+              <ActionIcon
+                variant="light"
+                color="orange"
+                size="md"
+                onClick={openPw}
+                disabled={isLoading}
+              >
+                <IconKey size={15} />
               </ActionIcon>
             </Tooltip>
             <Tooltip label={t`Refresh`} withArrow>
@@ -347,6 +361,7 @@ function AccountPage() {
       </Paper>
 
       <EditAccountModal account={account ?? null} opened={editOpened} onClose={closeEdit} />
+      <ChangeAdminPasswordModal opened={pwOpened} onClose={closePw} />
     </Container>
   );
 }
