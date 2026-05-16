@@ -28,6 +28,7 @@ import {
   IconBuilding,
   IconEdit,
   IconShieldCheck,
+  IconKey,
 } from "@tabler/icons-react";
 import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
@@ -38,6 +39,7 @@ import { UserStatusBadge, PageHeader } from "@/shared/ui";
 import { useState } from "react";
 import type { IamUser } from "@/shared/api";
 import { EditUserModal } from "@/features/edit-user";
+import { SetUserPasswordModal } from "@/features/set-user-password";
 
 // ─── Route ────────────────────────────────────────────────────────────────────
 
@@ -208,6 +210,8 @@ function UserDetailPage() {
   const [editOpened, { open: openEdit, close: closeEdit }] = useDisclosure(false);
   const [editTarget, setEditTarget] = useState<IamUser | null>(null);
 
+  const [pwOpened, { open: openPw, close: closePw }] = useDisclosure(false);
+
   const {
     data: user,
     isLoading,
@@ -228,6 +232,10 @@ function UserDetailPage() {
   const handleCloseEdit = () => {
     closeEdit();
     setTimeout(() => setEditTarget(null), 300);
+  };
+
+  const handleClosePw = () => {
+    closePw();
   };
 
   const displayName = user ? `${user.firstName} ${user.lastName}` : userId;
@@ -288,6 +296,17 @@ function UserDetailPage() {
                 disabled={isLoading}
               >
                 <IconEdit size={15} />
+              </ActionIcon>
+            </Tooltip>
+            <Tooltip label={t`Set password`} withArrow>
+              <ActionIcon
+                variant="light"
+                color="orange"
+                size="md"
+                onClick={() => openPw()}
+                disabled={isLoading}
+              >
+                <IconKey size={15} />
               </ActionIcon>
             </Tooltip>
             <Tooltip label={t`Refresh`} withArrow>
@@ -507,6 +526,7 @@ function UserDetailPage() {
       </Tabs>
 
       <EditUserModal user={editTarget} opened={editOpened} onClose={handleCloseEdit} />
+      <SetUserPasswordModal user={user ?? null} opened={pwOpened} onClose={handleClosePw} />
     </Container>
   );
 }

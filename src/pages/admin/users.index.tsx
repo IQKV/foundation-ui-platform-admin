@@ -29,6 +29,7 @@ import {
   IconRefresh,
   IconAlertCircle,
   IconFilter,
+  IconKey,
 } from "@tabler/icons-react";
 import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
@@ -38,6 +39,7 @@ import { iamApi } from "@/shared/api";
 import type { IamUser, IamUserSortField, IamUserStatus, SortDirection } from "@/shared/api";
 import { UserStatusBadge, PageHeader } from "@/shared/ui";
 import { EditUserModal } from "@/features/edit-user";
+import { SetUserPasswordModal } from "@/features/set-user-password";
 
 export const Route = createFileRoute("/admin/users/")({
   component: AdminUsersPage,
@@ -85,6 +87,9 @@ function AdminUsersPage() {
   const [editModalOpened, { open: openEditModal, close: closeEditModal }] = useDisclosure(false);
   const [selectedUser, setSelectedUser] = useState<IamUser | null>(null);
 
+  const [pwModalOpened, { open: openPwModal, close: closePwModal }] = useDisclosure(false);
+  const [pwUser, setPwUser] = useState<IamUser | null>(null);
+
   const sortBy = SORT_FIELD_MAP[sortStatus.columnAccessor] ?? "createdAt";
   const sortDir = sortStatus.direction as SortDirection;
   const hasActiveFilters = debouncedSearch !== "" || statusFilter !== null;
@@ -131,6 +136,16 @@ function AdminUsersPage() {
   const handleCloseEdit = () => {
     closeEditModal();
     setTimeout(() => setSelectedUser(null), 300);
+  };
+
+  const handleSetPassword = (user: IamUser) => {
+    setPwUser(user);
+    openPwModal();
+  };
+
+  const handleClosePw = () => {
+    closePwModal();
+    setTimeout(() => setPwUser(null), 300);
   };
 
   const totalElements = data?.totalElements ?? 0;
@@ -418,6 +433,19 @@ function AdminUsersPage() {
                           <IconEdit size={15} />
                         </ActionIcon>
                       </Tooltip>
+                      <Tooltip label={t`Set password`} withArrow>
+                        <ActionIcon
+                          variant="subtle"
+                          color="orange"
+                          size="sm"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleSetPassword(user);
+                          }}
+                        >
+                          <IconKey size={15} />
+                        </ActionIcon>
+                      </Tooltip>
                     </Group>
                   ),
                 },
@@ -436,6 +464,7 @@ function AdminUsersPage() {
       </Stack>
 
       <EditUserModal user={selectedUser} opened={editModalOpened} onClose={handleCloseEdit} />
+      <SetUserPasswordModal user={pwUser} opened={pwModalOpened} onClose={handleClosePw} />
     </Container>
   );
 }

@@ -139,6 +139,9 @@ export const iamApi = {
   updateUser: (id: string, data: Partial<Pick<IamUser, "firstName" | "lastName" | "status">>) =>
     httpClient.patch<IamUser>(`/v1/iam/admin/users/${id}`, data).then((r) => r.data),
 
+  setUserPassword: (id: string, newPassword: string) =>
+    httpClient.post(`/v1/iam/admin/users/${id}/password`, { newPassword }),
+
   deleteUser: (id: string) => httpClient.delete(`/v1/iam/admin/users/${id}`),
 
   countTenants: () =>
