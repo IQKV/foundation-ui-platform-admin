@@ -1,39 +1,50 @@
-# Foundation UI Platform Admin 🖥️
+# Foundation UI Platform Admin
 
-Platform administration interface for the Key Value Platform. Provides comprehensive oversight and control over users, organizations, subscriptions, and system health across all tenants. Admin UI and tenant UI surfaces share the same SPA, build, and API Gateway connection — route-level guards enforce `PLATFORM_ADMIN` authority.
+Platform administration SPA for the Key Value Platform. Operators with `PLATFORM_ADMIN` authority manage users, organizations, invitations, subscriptions, and billing plans across all tenants.
 
 ## About
 
-The admin UI is the admin surface of the platform:
+This repository is the **platform admin surface only** (not the tenant-facing app). Unauthenticated visitors are redirected to sign-in; authenticated platform admins use `/admin/*`.
 
-- **Dashboard & metrics** — real-time platform health, active users, organization counts, subscription KPIs, MRR/ARR, trial conversion, and growth trends
-- **User management** — paginated user list with advanced filtering, bulk actions, and a tabbed detail view covering profile, memberships, auth history, billing, activity log, and operator notes
-- **Organization management** — cross-tenant grid with status-based highlighting, inline actions, and a tabbed detail view covering members, subscription & billing, usage limits, audit trail, and settings
-- **Subscription & billing** — global subscription list, plan catalog CRUD, billing settings, and subscription lifecycle actions (change plan, cancel, reactivate, apply discount)
-- **Platform actions** — ban/unban, account unlock, email verification, impersonation (with full audit trail), tenant suspend/unsuspend/delete, ownership transfer, GDPR data export
-- **System administration** — service health dashboard, background job monitoring, manual job triggers, platform rollout mode display, and global audit log
-- **Protected route group** — `/admin/*` routes require `PLATFORM_ADMIN` authority; completely separate layout and session store from the tenant surface
-- **Secure token strategy** — access token in memory only; refresh token in an httpOnly, Secure, SameSite=Strict cookie; XSS cannot steal long-lived credentials
-- **Internationalization** — full i18n with Lingui; English as base language; runtime locale switching without rebuild
+### Implemented today
+
+- **Sign-in** — Platform admin credentials via `POST /v1/iam/auth/admin/signin`; forbidden users see `/unauthorized`
+- **Session** — Access token in memory; refresh token in `sessionStorage` (survives reload within the tab); silent refresh on `/v1/iam/auth/admin/refresh`; inactivity timeout signs out
+- **Dashboard** — Parallel count cards for total users, organizations, and active subscriptions (with per-card loading/error states)
+- **Users** — Paginated, sortable, filterable list; detail view with Overview and Organizations tabs; edit profile; set password
+- **Organizations** — Paginated list with status filter; detail layout with Overview, Members, and Billing settings tabs; edit organization metadata
+- **Invitations** — List with filters; propose, edit, and revoke invitations
+- **Subscriptions** — Read-only global list with search, status filter, and sorting
+- **Plans** — Plan catalog list; create plan; plan detail with edit and delete
+- **My account** — View/edit operator profile; change password
+- **i18n** — Lingui with English catalog; locale switcher UI (additional locales can be added in `lingui.config.ts`)
+- **Runtime config** — Override `VITE_*` via `public/config.js` without rebuilding
+
+### Not implemented yet
+
+Platform actions (ban/unban, unlock, impersonation), subscription lifecycle mutations, system health/jobs, global audit log, advanced dashboard metrics (MRR/ARR, trends), and multi-tab user/org detail views described in product specs.
+
+## Feature Status
+
+| Area                        | Status  | Notes                                   |
+| --------------------------- | ------- | --------------------------------------- |
+| Sign-in & session guards    | Done    | `PLATFORM_ADMIN` on `/admin/*`          |
+| Dashboard (count cards)     | Done    | Users, orgs, subscriptions              |
+| User list & detail          | Partial | List + edit/set password; 2 detail tabs |
+| Organization list & detail  | Partial | List + edit; overview, members, billing |
+| Invitations                 | Done    | Propose, edit, revoke                   |
+| Subscriptions (global list) | Partial | Read-only                               |
+| Plan catalog                | Done    | Create, edit, delete                    |
+| Operator account            | Done    | Profile + password                      |
+| Platform actions            | Planned | Ban, unlock, impersonation, etc.        |
+| System administration       | Planned | Health, jobs, audit log                 |
+| Advanced metrics            | Planned | MRR/ARR, growth charts                  |
 
 ## Quick Links
 
 - [Architecture Overview](./docs/architecture/README.md)
 - [Deployment Guide](./docs/deployment/README.md)
 - [Contributing Guidelines](.github/CONTRIBUTING.md)
-
-## Feature Status
-
-| Feature                        | Status         |
-| ------------------------------ | -------------- |
-| Dashboard & metrics            | 🚧 In progress |
-| User management                | 🚧 In progress |
-| Organization management        | 🚧 In progress |
-| Subscription & billing         | 📋 Planned     |
-| Platform actions (ban, unlock) | 📋 Planned     |
-| Impersonation                  | 📋 Planned     |
-| System administration          | 📋 Planned     |
-| Audit log                      | 📋 Planned     |
 
 ## Tech Stack
 
@@ -42,135 +53,156 @@ The admin UI is the admin surface of the platform:
 - TanStack Router + TanStack Query
 - Zustand (session store)
 - Lingui i18n
-- Zod + React Hook Form
-- Vite 8 + SWC
+- Zod + Mantine Form (most forms); React Hook Form (sign-in)
+- Vite + SWC
 - Vitest + Playwright
 - OxLint / OxFmt
 
 ## Prerequisites
 
-- Node.js >= 22.15.0
-- pnpm >= 10.33.2
+- Node.js `^20.19.0` or `^22.12.0` or `>=24.0.0` (see Vite engine requirements)
+- pnpm `>=10.33.2`
 
 ## Quick Start
 
 ```bash
-# Clone the repository
 git clone https://github.com/IQKV/foundation-ui-platform-admin.git
 cd foundation-ui-platform-admin
 
-# Install dependencies and git hooks
 pnpm install
 
-# Copy environment variables
 cp .env.example .env.local
-# Edit .env.local — set VITE_API_BASE_URL to your gateway address
+# Set VITE_API_SERVER_URL to your API gateway (see Environment Variables)
 
-# Start the dev server
 pnpm dev
-# → App: http://localhost:5173
+# → http://localhost:5173 (redirects to /admin when signed in)
 ```
+
+In development, the Vite dev server proxies `/api` to the configured backend so cookies/CORS behave predictably.
 
 ## Environment Variables
 
-| Variable            | Default                 | Description              |
-| ------------------- | ----------------------- | ------------------------ |
-| `VITE_API_BASE_URL` | `http://localhost:8080` | API Gateway base URL     |
-| `VITE_APP_NAME`     | `Platform Admin`        | Application display name |
+| Variable              | Example                       | Description                                 |
+| --------------------- | ----------------------------- | ------------------------------------------- |
+| `VITE_API_SERVER_URL` | `https://api.example.com/api` | API base URL (production build)             |
+| `VITE_LOG_LEVEL`      | `info`                        | Client log level: `silent`, `info`, `debug` |
 
-> Copy `.env.example` to `.env.local` / `.env.uat` / `.env.prd` and fill in values per environment. For runtime overrides without a rebuild, copy `public/config.js.example` to `public/config.js` and set values on `window.*`.
+Copy `.env.example` to `.env.local` for local overrides. For runtime overrides without a rebuild, use `public/config.js` (see below).
 
 ## Runtime Configuration
 
-Override build-time `VITE_*` variables at runtime without rebuilding:
-
 ```bash
 cp public/config.js.example public/config.js
-# Edit public/config.js with environment-specific values
+# Edit window.VITE_API_SERVER_URL and window.VITE_LOG_LEVEL
 ```
 
-Values set on `window.*` in `public/config.js` take precedence over build-time variables. Do not commit secrets.
+Values on `window.*` take precedence over build-time `VITE_*` variables. Do not commit secrets.
+
+## Routes
+
+| Path                                      | Description                           |
+| ----------------------------------------- | ------------------------------------- |
+| `/`                                       | Redirects to `/admin`                 |
+| `/sign-in`                                | Platform admin sign-in                |
+| `/unauthorized`                           | Shown when JWT lacks `PLATFORM_ADMIN` |
+| `/admin`                                  | Dashboard (count cards)               |
+| `/admin/users`                            | User list                             |
+| `/admin/users/:userId`                    | User detail                           |
+| `/admin/organizations`                    | Organization list                     |
+| `/admin/organizations/:tenantKey`         | Organization overview                 |
+| `/admin/organizations/:tenantKey/members` | Organization members                  |
+| `/admin/organizations/:tenantKey/billing` | Tenant billing settings               |
+| `/admin/invitations`                      | Invitation list                       |
+| `/admin/subscriptions`                    | Subscription list (read-only)         |
+| `/admin/plans`                            | Plan catalog                          |
+| `/admin/plans/:planCode`                  | Plan detail / edit                    |
+| `/admin/account`                          | Signed-in operator profile            |
 
 ## pnpm Scripts
 
 ```bash
 # Development
-pnpm dev                  # Start Vite dev server
+pnpm dev                  # Vite dev server
+pnpm preview              # Preview production build
 
 # Build
-pnpm build                # Type-check + extract/compile i18n + Vite build
+pnpm build                # Type-check + i18n extract/compile + Vite build
+pnpm type-check           # TypeScript only
 
 # Lint & format
 pnpm lint                 # OxLint (type-aware)
 pnpm lint:fix             # OxLint --fix + OxFmt write
-pnpm formatter:check      # OxFmt check only
+pnpm formatter:check      # OxFmt check
+pnpm formatter:write      # OxFmt write
 
 # Tests
-pnpm test                 # Vitest (single run)
-pnpm test:coverage        # Vitest with V8 coverage
-pnpm test:arch            # Architecture boundary tests
+pnpm test                 # Vitest
+pnpm test:coverage        # Vitest + coverage
+pnpm test:arch            # FSD architecture tests
 
 # E2E
-pnpm e2e                  # Playwright (all tests)
+pnpm e2e                  # Playwright (all projects)
 pnpm e2e:chrome           # Chromium only
-pnpm e2e:smoke            # Smoke suite, Chromium
+pnpm e2e:smoke            # Smoke suite (Chromium)
+pnpm playwright:install   # Install browsers (first time)
 
 # i18n
-pnpm messages:extract     # Extract translatable strings to .po files
-pnpm messages:compile     # Compile .po files to runtime catalogs
+pnpm messages:extract     # Extract strings to locales/
+pnpm messages:compile     # Compile .po catalogs
 ```
 
 ## Internationalization
 
-Supported locales are defined in `lingui.config.ts`. Default: `en`.
+Default locale: `en` (`lingui.config.ts`).
 
-To add a new locale: add it to the `locales` array in `lingui.config.ts`, run `pnpm messages:extract`, translate the new `.po` file under `locales/`, then run `pnpm messages:compile`.
+To add a locale: add it to `locales` in `lingui.config.ts`, run `pnpm messages:extract`, translate files under `locales/{locale}/`, then `pnpm messages:compile`.
 
 ## Project Structure
 
 ```
 src/
-├── app/          # Providers, router, theme, runtime config bootstrap
-├── processes/    # Cross-feature flows (session management, auth lifecycle)
-├── pages/        # Route components (/admin/*, /auth/*, tenant surface)
-├── widgets/      # Composed UI blocks (data grids, detail panels, dashboards)
-├── features/     # Business logic and user interactions (ban, invite, etc.)
-├── entities/     # Pure API methods and domain models (user, tenant, plan)
-├── shared/       # UI kit, utilities, Axios clients, MSW mocks, locales
+├── app/          # Providers, router bootstrap, runtime env
+├── processes/    # Session store, inactivity timer, theme
+├── pages/        # File-based routes (TanStack Router)
+├── features/     # User scenarios (sign-in, edit-user, invitations, …)
+├── shared/       # API clients, UI kit, utilities, locales
 └── types/        # Global TypeScript declarations
 ```
 
+UI for admin screens lives primarily in `pages/admin/*` with supporting logic in `features/*` and `shared/api/*`.
+
 ## Authorization Model
 
+JWT authorities include `PLATFORM_ADMIN` for full platform access. Tenant-scoped roles (`TENANT_OWNER`, `ADMIN`, `MEMBER`) exist on the platform but this app only admits users with `PLATFORM_ADMIN`.
+
 ```
-PLATFORM_ADMIN  — full platform access, bypasses all tenant restrictions
-TENANT_OWNER    — full management within their tenant
-ADMIN           — user management and invitations within their tenant
-MEMBER          — basic access within their tenant
+PLATFORM_ADMIN  — required for all /admin/* routes
 ```
 
-`/admin/*` routes are guarded at the router level. Non-platform users are redirected to the tenant surface.
+**Route guard** (`src/pages/admin.tsx`): If no access token, attempts refresh with the stored refresh token; on success checks `PLATFORM_ADMIN`. If a token exists, decodes it client-side and redirects to `/unauthorized` when the authority is missing.
+
+**Token storage**
+
+- Access token: Zustand store (memory only; cleared on full page reload)
+- Refresh token: `sessionStorage` (persists across reload within the same tab)
+- API calls: `Authorization: Bearer <accessToken>` via Axios interceptor; 401 triggers silent refresh, then retries the request
+
+Admin auth endpoints: `POST /v1/iam/auth/admin/signin`, `POST /v1/iam/auth/admin/refresh`, `POST /v1/iam/auth/signout`.
+
+## Architecture Notes
+
+- **FSD-style layers**: `app → processes → pages → features → shared` with public `index.ts` barrels; `pnpm test:arch` enforces boundaries
+- **Routing**: TanStack Router file-based routes under `src/pages/`
+- **Data**: TanStack Query for server state; IAM and billing HTTP clients in `shared/api/`
+- **Tables**: `mantine-datatable` with client-side pagination/filter patterns on list pages
+- **Quality**: OxLint, OxFmt, Stylelint, Vitest, Playwright, Knip
+
+See [AGENTS.md](AGENTS.md) for contributor and agent conventions.
 
 ## License
 
-This project is licensed under the Apache License. See the [LICENSE](LICENSE) file for details.
+MIT — see [LICENSE](LICENSE).
 
 ## Contributing
 
-Please read our [Contributing Guidelines](.github/CONTRIBUTING.md) and [Code of Conduct](.github/CODE_OF_CONDUCT.md).
-
----
-
-## 🧩 Boilerplate Architecture
-
-- **FSD layers**: `app → processes → pages → widgets → features → entities → shared`; each layer exposes a public API barrel; cross-layer imports are enforced by architecture tests
-- **Routing**: TanStack Router with file-based route tree generation (`tsr.config.json`); `_operator` route group guards enforce `PLATFORM_ADMIN` authority; separate layouts for admin and tenant surfaces
-- **State**: Zustand for session (access token in memory, never persisted); TanStack Query for server state with smart cache invalidation; Immer for complex state mutations
-- **Forms**: React Hook Form + Zod schemas via `mantine-form-zod-resolver`; typed resolvers per entity
-- **Data grids**: `mantine-datatable` for paginated, sortable, filterable tables; `nuqs` for URL-synced filter state
-- **Token security**: access token lives in a Zustand store (memory only); refresh token in an httpOnly cookie; Axios interceptor silently refreshes on 401 before retrying the original request
-- **Mocking**: MSW 2.x for API mocking in development and tests; MirageJS available for in-memory scenarios
-- **Observability**: structured error boundaries per route; TanStack Query Devtools and Router Devtools in development
-- **Quality tools**: OxLint (type-aware), OxFmt, Stylelint, Vitest (unit + arch), Playwright (E2E), Knip (dead code), commit convention enforcement
-
-> See [AGENTS.md](AGENTS.md) for FSD conventions, naming rules, and agent guidelines.
+[Contributing Guidelines](.github/CONTRIBUTING.md) · [Code of Conduct](.github/CODE_OF_CONDUCT.md)
