@@ -17,7 +17,11 @@ export interface AuthFixtures {
  * Used by global-setup to pre-authenticate and persist browser storage state.
  */
 export async function signInAsPlatformAdmin(page: Page): Promise<void> {
-  const { email, password } = TEST_CONFIG.PLATFORM_ADMIN;
+  const admin = TEST_CONFIG.ADMIN_CREDENTIALS;
+  if (!admin) {
+    throw new Error("TEST_CONFIG.ADMIN_CREDENTIALS is undefined");
+  }
+  const { email, password } = admin;
 
   await page.goto(TEST_CONFIG.ROUTES.SIGN_IN);
   await page.waitForLoadState("networkidle");

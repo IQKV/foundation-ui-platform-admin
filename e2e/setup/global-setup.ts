@@ -43,11 +43,17 @@ async function globalSetup(config: FullConfig) {
   // ── 3. Pre-authenticate and save storage state ────────────────────────────
   mkdirSync(resolve(process.cwd(), ".playwright/auth"), { recursive: true });
 
-  const authContext = await browser.newContext();
+  const authContext = await browser.newContext({ baseURL });
   const authPage = await authContext.newPage();
 
   try {
-    console.log(`🔐 Signing in as platform admin (${TEST_CONFIG.PLATFORM_ADMIN.email}) …`);
+    const adminEmail = TEST_CONFIG.ADMIN_CREDENTIALS?.email;
+    if (!adminEmail) {
+      throw new Error(
+        "TEST_CONFIG.ADMIN_CREDENTIALS.email is undefined. Check your test-config.ts and environment variables.",
+      );
+    }
+    console.log(`🔐 Signing in as platform admin (${adminEmail}) …`);
     await signInAsPlatformAdmin(authPage);
     await authContext.storageState({ path: TEST_CONFIG.STORAGE_STATE });
     console.log(`✅ Auth state saved → ${TEST_CONFIG.STORAGE_STATE}`);

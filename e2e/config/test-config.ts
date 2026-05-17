@@ -24,12 +24,12 @@ export const TEST_CONFIG = {
 
   /**
    * Platform admin credentials — the only account type that can sign in to
-   * this app.  Seeded by migration 20260517000004-demo-e2e-users.xml.
+   * this app. Seeded by migration 20260517000004-demo-e2e-users.xml.
    * Read from process.env so CI secrets override the .env.e2e defaults.
    */
-  PLATFORM_ADMIN: {
-    email: process.env["E2E_PLATFORM_ADMIN_EMAIL"] ?? "jonathan.pierce@iqkv.com",
-    password: process.env["E2E_PLATFORM_ADMIN_PASSWORD"] ?? "TenantAdmin123!",
+  ADMIN_CREDENTIALS: {
+    email: process.env["E2E_PLATFORM_ADMIN_EMAIL"] || "jonathan.pierce@iqkv.com",
+    password: process.env["E2E_PLATFORM_ADMIN_PASSWORD"] || "TenantAdmin123!",
   },
 
   /** Path where Playwright stores the authenticated browser state. */
