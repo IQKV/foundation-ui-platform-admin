@@ -48,8 +48,8 @@ sign-in network call needed.
 
 ### Demo accounts (staging only)
 
-| Account | Email | Password |
-|---|---|---|
+| Account        | Email                      | Password          |
+| -------------- | -------------------------- | ----------------- |
 | Platform admin | `jonathan.pierce@iqkv.com` | `TenantAdmin123!` |
 
 Credentials are committed in `.env.e2e` — they exist only in the demo/staging
@@ -123,12 +123,12 @@ test("two admins can be active simultaneously", async ({ adminPage, adminPage2 }
 
 ## Configuration
 
-| Variable | Default | Description |
-|---|---|---|
-| `BASE_URL` | `https://admin.iqkv.site` | Target host |
-| `CI` | — | Enables sequential workers, retries, GitHub reporter |
-| `ALL_BROWSERS` | — | Adds Firefox + WebKit projects |
-| `E2E_PLATFORM_ADMIN_EMAIL` | `jonathan.pierce@iqkv.com` | Override admin email |
-| `E2E_PLATFORM_ADMIN_PASSWORD` | `TenantAdmin123!` | Override admin password |
+| Variable                      | Default                    | Description                                          |
+| ----------------------------- | -------------------------- | ---------------------------------------------------- |
+| `BASE_URL`                    | `https://admin.iqkv.site`  | Target host                                          |
+| `CI`                          | —                          | Enables sequential workers, retries, GitHub reporter |
+| `ALL_BROWSERS`                | —                          | Adds Firefox + WebKit projects                       |
+| `E2E_PLATFORM_ADMIN_EMAIL`    | `jonathan.pierce@iqkv.com` | Override admin email                                 |
+| `E2E_PLATFORM_ADMIN_PASSWORD` | `TenantAdmin123!`          | Override admin password                              |
 
 All `E2E_*` variables can be set as CI secrets to override the `.env.e2e` defaults.

@@ -17,7 +17,11 @@ const isCI = Boolean(process.env["CI"]);
  * When BASE_URL points at a remote host (https://) we skip the local dev
  * server entirely — there is nothing to start.
  */
-const isRemote = baseURL.startsWith("https://") || baseURL.startsWith("http://") && !baseURL.includes("localhost") && !baseURL.includes("127.0.0.1");
+const isRemote =
+  baseURL.startsWith("https://") ||
+  (baseURL.startsWith("http://") &&
+    !baseURL.includes("localhost") &&
+    !baseURL.includes("127.0.0.1"));
 
 export default defineConfig({
   forbidOnly: isCI,
@@ -45,11 +49,7 @@ export default defineConfig({
         ]
       : []),
   ],
-  reporter: [
-    ["html", { open: "never" }],
-    ["list"],
-    ...(isCI ? ([["github"]] as const) : []),
-  ],
+  reporter: [["html", { open: "never" }], ["list"], ...(isCI ? ([["github"]] as const) : [])],
   retries: isCI ? 2 : 1,
   testDir: "./e2e",
   outputDir: "./.playwright/test-results",
