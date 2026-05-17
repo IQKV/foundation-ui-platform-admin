@@ -1,7 +1,7 @@
 import { test as base, expect, type Page } from "@playwright/test";
-import { TEST_CONFIG } from "../config/test-config";
-import { TestSelectors } from "../utils/test-selectors";
-import { byTestId } from "../utils/test-selectors";
+import { TEST_CONFIG } from "../config/test-config.js";
+import { TestSelectors } from "../utils/test-selectors.js";
+import { byTestId } from "../utils/test-selectors.js";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 

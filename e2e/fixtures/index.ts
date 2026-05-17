@@ -8,5 +8,5 @@
  * For unauthenticated specs (smoke, 404, etc.) import directly from
  * "@playwright/test".
  */
-export { test, expect } from "./auth.fixture";
-export type { AuthFixtures } from "./auth.fixture";
+export { test, expect } from "./auth.fixture.js";
+export type { AuthFixtures } from "./auth.fixture.js";

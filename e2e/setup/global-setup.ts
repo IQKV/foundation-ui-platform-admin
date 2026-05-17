@@ -2,8 +2,8 @@ import { chromium, type FullConfig } from "@playwright/test";
 import { config as loadDotenv } from "dotenv";
 import { resolve } from "path";
 import { mkdirSync } from "fs";
-import { TEST_CONFIG } from "../config/test-config";
-import { signInAsPlatformAdmin } from "../fixtures/auth.fixture";
+import { TEST_CONFIG } from "../config/test-config.js";
+import { signInAsPlatformAdmin } from "../fixtures/auth.fixture.js";
 
 /**
  * Global setup — runs once before the entire test suite.
