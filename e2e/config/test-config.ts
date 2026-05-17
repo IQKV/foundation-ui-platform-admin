@@ -29,7 +29,7 @@ export const TEST_CONFIG = {
    */
   ADMIN_CREDENTIALS: {
     email: process.env["E2E_PLATFORM_ADMIN_EMAIL"] || "jonathan.pierce@iqkv.com",
-    password: process.env["E2E_PLATFORM_ADMIN_PASSWORD"] || "TenantAdmin123!",
+    password: process.env["E2E_PLATFORM_ADMIN_PASSWORD"] || "ChangeMePass123!",
   },
 
   /** Path where Playwright stores the authenticated browser state. */
