@@ -17,7 +17,14 @@ import { useForm } from "@mantine/form";
 import { useDisclosure } from "@mantine/hooks";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { notifications } from "@mantine/notifications";
-import { IconAlertCircle, IconCheck, IconPlus, IconTrash, IconX } from "@tabler/icons-react";
+import {
+  IconAlertCircle,
+  IconCheck,
+  IconExternalLink,
+  IconPlus,
+  IconTrash,
+  IconX,
+} from "@tabler/icons-react";
 import { createElement } from "react";
 import { isAxiosError } from "axios";
 import dayjs from "dayjs";
@@ -241,6 +248,21 @@ export function TenantBillingSettingsTab({ tenantKey }: TenantBillingSettingsTab
       notifications.show({
         title: "Delete failed",
         message: "Could not delete billing settings.",
+        color: "red",
+        icon: createElement(IconX, { size: 16 }),
+      });
+    },
+  });
+
+  const portalMutation = useMutation({
+    mutationFn: () => billingApi.createPortalSession(tenantKey),
+    onSuccess: (res) => {
+      window.location.href = res.url;
+    },
+    onError: () => {
+      notifications.show({
+        title: t`Portal error`,
+        message: t`Could not create Stripe Customer Portal session.`,
         color: "red",
         icon: createElement(IconX, { size: 16 }),
       });
@@ -479,9 +501,20 @@ export function TenantBillingSettingsTab({ tenantKey }: TenantBillingSettingsTab
               >
                 <Trans>Delete billing settings</Trans>
               </Button>
-              <Button type="submit" loading={replaceMutation.isPending}>
-                <Trans>Save changes</Trans>
-              </Button>
+              <Group gap="sm">
+                <Button
+                  type="button"
+                  variant="outline"
+                  leftSection={<IconExternalLink size={16} />}
+                  onClick={() => portalMutation.mutate()}
+                  loading={portalMutation.isPending}
+                >
+                  <Trans>Open Billing Portal</Trans>
+                </Button>
+                <Button type="submit" loading={replaceMutation.isPending}>
+                  <Trans>Save changes</Trans>
+                </Button>
+              </Group>
             </Group>
           </Stack>
         </form>

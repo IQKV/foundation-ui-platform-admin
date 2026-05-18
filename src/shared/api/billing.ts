@@ -130,6 +130,10 @@ export interface AdminPatchBillingSettingsRequest {
   profileOwnerId?: string | null;
 }
 
+export interface PortalSessionResponse {
+  url: string;
+}
+
 // ─── API ──────────────────────────────────────────────────────────────────────
 
 export const billingApi = {
@@ -199,4 +203,9 @@ export const billingApi = {
 
   deleteAdminTenantBillingSettings: (tenantKey: string) =>
     httpClient.delete(adminTenantBillingSettingsPath(tenantKey)),
+
+  createPortalSession: (tenantKey: string) =>
+    httpClient
+      .post<PortalSessionResponse>(`/v1/billing/settings/${encodeURIComponent(tenantKey)}/portal`)
+      .then((r) => r.data),
 };
