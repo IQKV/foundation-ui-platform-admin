@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Container,
   Text,
@@ -20,7 +20,7 @@ import {
 import { useDisclosure, useDebouncedValue } from "@mantine/hooks";
 import { useQuery } from "@tanstack/react-query";
 import { DataTable, type DataTableSortStatus } from "mantine-datatable";
-import { IconSearch, IconRefresh, IconAlertCircle, IconFilter } from "@tabler/icons-react";
+import { IconSearch, IconRefresh, IconAlertCircle, IconFilter, IconEye } from "@tabler/icons-react";
 import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
 import { Helmet } from "@dr.pogodin/react-helmet";
@@ -360,6 +360,27 @@ function AdminSubscriptionsPage() {
                     <Text size="sm" c="dimmed">
                       {dayjs(subscription.createdAt).format("MMM D, YYYY")}
                     </Text>
+                  ),
+                },
+                {
+                  accessor: "actions",
+                  title: t`Actions`,
+                  textAlign: "right",
+                  render: (subscription) => (
+                    <Group gap={4} justify="flex-end">
+                      <Tooltip label={t`View details`}>
+                        <ActionIcon
+                          size="sm"
+                          variant="subtle"
+                          color="blue"
+                          component={Link}
+                          to="/admin/subscriptions/$subscriptionId"
+                          params={{ subscriptionId: subscription.id }}
+                        >
+                          <IconEye size={16} />
+                        </ActionIcon>
+                      </Tooltip>
+                    </Group>
                   ),
                 },
               ]}

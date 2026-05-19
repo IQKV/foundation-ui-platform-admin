@@ -8,6 +8,7 @@ import {
   IconTags,
   IconMail,
   IconUserCircle,
+  IconReceiptRefund,
 } from "@tabler/icons-react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useState } from "react";
@@ -42,6 +43,11 @@ export function AdminNav() {
       label: t`Subscriptions`,
       icon: <IconCreditCard size={16} />,
       to: "/admin/subscriptions",
+    },
+    {
+      label: t`Refunds`,
+      icon: <IconReceiptRefund size={16} />,
+      to: "/admin/refunds",
     },
     {
       label: t`Plans`,

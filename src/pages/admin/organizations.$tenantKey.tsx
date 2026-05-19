@@ -27,6 +27,7 @@ import {
   IconUsers,
   IconEdit,
   IconFileInvoice,
+  IconReceiptRefund,
 } from "@tabler/icons-react";
 import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
@@ -298,7 +299,40 @@ function OrganizationTenantLayout() {
               />
             )}
           >
-            <Trans>Billing settings</Trans>
+            <Trans>Billing Settings</Trans>
+          </Tabs.Tab>
+          <Tabs.Tab
+            value="subscriptions"
+            leftSection={<IconCreditCard size={14} />}
+            rightSection={
+              !subsLoading && subscriptionCount > 0 ? (
+                <Badge variant="light" color="gray" size="xs" radius="sm">
+                  {subscriptionCount}
+                </Badge>
+              ) : undefined
+            }
+            renderRoot={(props) => (
+              <Link
+                to="/admin/organizations/$tenantKey/subscriptions"
+                params={{ tenantKey }}
+                {...props}
+              />
+            )}
+          >
+            <Trans>Subscriptions</Trans>
+          </Tabs.Tab>
+          <Tabs.Tab
+            value="refunds"
+            leftSection={<IconReceiptRefund size={14} />}
+            renderRoot={(props) => (
+              <Link
+                to="/admin/organizations/$tenantKey/refunds"
+                params={{ tenantKey }}
+                {...props}
+              />
+            )}
+          >
+            <Trans>Refunds</Trans>
           </Tabs.Tab>
         </Tabs.List>
       </Tabs>

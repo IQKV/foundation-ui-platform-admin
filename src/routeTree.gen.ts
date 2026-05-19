@@ -17,20 +17,25 @@ import { Route as R500RouteImport } from "./pages/500"
 import { Route as R404RouteImport } from "./pages/404"
 import { Route as IndexRouteImport } from "./pages/index"
 import { Route as AdminIndexRouteImport } from "./pages/admin/index"
-import { Route as AdminAccountRouteImport } from "./pages/admin/account"
 import { Route as AdminUsersRouteImport } from "./pages/admin/users"
 import { Route as AdminSubscriptionsRouteImport } from "./pages/admin/subscriptions"
+import { Route as AdminRefundsRouteImport } from "./pages/admin/refunds"
 import { Route as AdminPlansRouteImport } from "./pages/admin/plans"
 import { Route as AdminOrganizationsRouteImport } from "./pages/admin/organizations"
 import { Route as AdminInvitationsRouteImport } from "./pages/admin/invitations"
+import { Route as AdminAccountRouteImport } from "./pages/admin/account"
 import { Route as AdminUsersIndexRouteImport } from "./pages/admin/users.index"
 import { Route as AdminPlansIndexRouteImport } from "./pages/admin/plans.index"
 import { Route as AdminOrganizationsIndexRouteImport } from "./pages/admin/organizations.index"
 import { Route as AdminInvitationsIndexRouteImport } from "./pages/admin/invitations.index"
 import { Route as AdminUsersUserIdRouteImport } from "./pages/admin/users.$userId"
+import { Route as AdminSubscriptionsSubscriptionIdRouteImport } from "./pages/admin/subscriptions.$subscriptionId"
+import { Route as AdminRefundsRefundIdRouteImport } from "./pages/admin/refunds.$refundId"
 import { Route as AdminPlansPlanCodeRouteImport } from "./pages/admin/plans.$planCode"
 import { Route as AdminOrganizationsTenantKeyRouteImport } from "./pages/admin/organizations.$tenantKey"
 import { Route as AdminOrganizationsTenantKeyIndexRouteImport } from "./pages/admin/organizations.$tenantKey.index"
+import { Route as AdminOrganizationsTenantKeySubscriptionsRouteImport } from "./pages/admin/organizations.$tenantKey.subscriptions"
+import { Route as AdminOrganizationsTenantKeyRefundsRouteImport } from "./pages/admin/organizations.$tenantKey.refunds"
 import { Route as AdminOrganizationsTenantKeyMembersRouteImport } from "./pages/admin/organizations.$tenantKey.members"
 import { Route as AdminOrganizationsTenantKeyBillingRouteImport } from "./pages/admin/organizations.$tenantKey.billing"
 
@@ -74,11 +79,6 @@ const AdminIndexRoute = AdminIndexRouteImport.update({
   path: "/",
   getParentRoute: () => AdminRoute,
 } as any)
-const AdminAccountRoute = AdminAccountRouteImport.update({
-  id: "/account",
-  path: "/account",
-  getParentRoute: () => AdminRoute,
-} as any)
 const AdminUsersRoute = AdminUsersRouteImport.update({
   id: "/users",
   path: "/users",
@@ -87,6 +87,11 @@ const AdminUsersRoute = AdminUsersRouteImport.update({
 const AdminSubscriptionsRoute = AdminSubscriptionsRouteImport.update({
   id: "/subscriptions",
   path: "/subscriptions",
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminRefundsRoute = AdminRefundsRouteImport.update({
+  id: "/refunds",
+  path: "/refunds",
   getParentRoute: () => AdminRoute,
 } as any)
 const AdminPlansRoute = AdminPlansRouteImport.update({
@@ -102,6 +107,11 @@ const AdminOrganizationsRoute = AdminOrganizationsRouteImport.update({
 const AdminInvitationsRoute = AdminInvitationsRouteImport.update({
   id: "/invitations",
   path: "/invitations",
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminAccountRoute = AdminAccountRouteImport.update({
+  id: "/account",
+  path: "/account",
   getParentRoute: () => AdminRoute,
 } as any)
 const AdminUsersIndexRoute = AdminUsersIndexRouteImport.update({
@@ -129,6 +139,17 @@ const AdminUsersUserIdRoute = AdminUsersUserIdRouteImport.update({
   path: "/$userId",
   getParentRoute: () => AdminUsersRoute,
 } as any)
+const AdminSubscriptionsSubscriptionIdRoute =
+  AdminSubscriptionsSubscriptionIdRouteImport.update({
+    id: "/$subscriptionId",
+    path: "/$subscriptionId",
+    getParentRoute: () => AdminSubscriptionsRoute,
+  } as any)
+const AdminRefundsRefundIdRoute = AdminRefundsRefundIdRouteImport.update({
+  id: "/$refundId",
+  path: "/$refundId",
+  getParentRoute: () => AdminRefundsRoute,
+} as any)
 const AdminPlansPlanCodeRoute = AdminPlansPlanCodeRouteImport.update({
   id: "/$planCode",
   path: "/$planCode",
@@ -144,6 +165,18 @@ const AdminOrganizationsTenantKeyIndexRoute =
   AdminOrganizationsTenantKeyIndexRouteImport.update({
     id: "/",
     path: "/",
+    getParentRoute: () => AdminOrganizationsTenantKeyRoute,
+  } as any)
+const AdminOrganizationsTenantKeySubscriptionsRoute =
+  AdminOrganizationsTenantKeySubscriptionsRouteImport.update({
+    id: "/subscriptions",
+    path: "/subscriptions",
+    getParentRoute: () => AdminOrganizationsTenantKeyRoute,
+  } as any)
+const AdminOrganizationsTenantKeyRefundsRoute =
+  AdminOrganizationsTenantKeyRefundsRouteImport.update({
+    id: "/refunds",
+    path: "/refunds",
     getParentRoute: () => AdminOrganizationsTenantKeyRoute,
   } as any)
 const AdminOrganizationsTenantKeyMembersRoute =
@@ -171,11 +204,14 @@ export interface FileRoutesByFullPath {
   "/admin/invitations": typeof AdminInvitationsRouteWithChildren
   "/admin/organizations": typeof AdminOrganizationsRouteWithChildren
   "/admin/plans": typeof AdminPlansRouteWithChildren
-  "/admin/subscriptions": typeof AdminSubscriptionsRoute
+  "/admin/refunds": typeof AdminRefundsRouteWithChildren
+  "/admin/subscriptions": typeof AdminSubscriptionsRouteWithChildren
   "/admin/users": typeof AdminUsersRouteWithChildren
   "/admin/": typeof AdminIndexRoute
   "/admin/organizations/$tenantKey": typeof AdminOrganizationsTenantKeyRouteWithChildren
   "/admin/plans/$planCode": typeof AdminPlansPlanCodeRoute
+  "/admin/refunds/$refundId": typeof AdminRefundsRefundIdRoute
+  "/admin/subscriptions/$subscriptionId": typeof AdminSubscriptionsSubscriptionIdRoute
   "/admin/users/$userId": typeof AdminUsersUserIdRoute
   "/admin/invitations/": typeof AdminInvitationsIndexRoute
   "/admin/organizations/": typeof AdminOrganizationsIndexRoute
@@ -183,6 +219,8 @@ export interface FileRoutesByFullPath {
   "/admin/users/": typeof AdminUsersIndexRoute
   "/admin/organizations/$tenantKey/billing": typeof AdminOrganizationsTenantKeyBillingRoute
   "/admin/organizations/$tenantKey/members": typeof AdminOrganizationsTenantKeyMembersRoute
+  "/admin/organizations/$tenantKey/refunds": typeof AdminOrganizationsTenantKeyRefundsRoute
+  "/admin/organizations/$tenantKey/subscriptions": typeof AdminOrganizationsTenantKeySubscriptionsRoute
   "/admin/organizations/$tenantKey/": typeof AdminOrganizationsTenantKeyIndexRoute
 }
 export interface FileRoutesByTo {
@@ -193,9 +231,12 @@ export interface FileRoutesByTo {
   "/sign-in": typeof SignInRoute
   "/unauthorized": typeof UnauthorizedRoute
   "/admin/account": typeof AdminAccountRoute
-  "/admin/subscriptions": typeof AdminSubscriptionsRoute
+  "/admin/refunds": typeof AdminRefundsRouteWithChildren
+  "/admin/subscriptions": typeof AdminSubscriptionsRouteWithChildren
   "/admin": typeof AdminIndexRoute
   "/admin/plans/$planCode": typeof AdminPlansPlanCodeRoute
+  "/admin/refunds/$refundId": typeof AdminRefundsRefundIdRoute
+  "/admin/subscriptions/$subscriptionId": typeof AdminSubscriptionsSubscriptionIdRoute
   "/admin/users/$userId": typeof AdminUsersUserIdRoute
   "/admin/invitations": typeof AdminInvitationsIndexRoute
   "/admin/organizations": typeof AdminOrganizationsIndexRoute
@@ -203,6 +244,8 @@ export interface FileRoutesByTo {
   "/admin/users": typeof AdminUsersIndexRoute
   "/admin/organizations/$tenantKey/billing": typeof AdminOrganizationsTenantKeyBillingRoute
   "/admin/organizations/$tenantKey/members": typeof AdminOrganizationsTenantKeyMembersRoute
+  "/admin/organizations/$tenantKey/refunds": typeof AdminOrganizationsTenantKeyRefundsRoute
+  "/admin/organizations/$tenantKey/subscriptions": typeof AdminOrganizationsTenantKeySubscriptionsRoute
   "/admin/organizations/$tenantKey": typeof AdminOrganizationsTenantKeyIndexRoute
 }
 export interface FileRoutesById {
@@ -218,11 +261,14 @@ export interface FileRoutesById {
   "/admin/invitations": typeof AdminInvitationsRouteWithChildren
   "/admin/organizations": typeof AdminOrganizationsRouteWithChildren
   "/admin/plans": typeof AdminPlansRouteWithChildren
-  "/admin/subscriptions": typeof AdminSubscriptionsRoute
+  "/admin/refunds": typeof AdminRefundsRouteWithChildren
+  "/admin/subscriptions": typeof AdminSubscriptionsRouteWithChildren
   "/admin/users": typeof AdminUsersRouteWithChildren
   "/admin/": typeof AdminIndexRoute
   "/admin/organizations/$tenantKey": typeof AdminOrganizationsTenantKeyRouteWithChildren
   "/admin/plans/$planCode": typeof AdminPlansPlanCodeRoute
+  "/admin/refunds/$refundId": typeof AdminRefundsRefundIdRoute
+  "/admin/subscriptions/$subscriptionId": typeof AdminSubscriptionsSubscriptionIdRoute
   "/admin/users/$userId": typeof AdminUsersUserIdRoute
   "/admin/invitations/": typeof AdminInvitationsIndexRoute
   "/admin/organizations/": typeof AdminOrganizationsIndexRoute
@@ -230,6 +276,8 @@ export interface FileRoutesById {
   "/admin/users/": typeof AdminUsersIndexRoute
   "/admin/organizations/$tenantKey/billing": typeof AdminOrganizationsTenantKeyBillingRoute
   "/admin/organizations/$tenantKey/members": typeof AdminOrganizationsTenantKeyMembersRoute
+  "/admin/organizations/$tenantKey/refunds": typeof AdminOrganizationsTenantKeyRefundsRoute
+  "/admin/organizations/$tenantKey/subscriptions": typeof AdminOrganizationsTenantKeySubscriptionsRoute
   "/admin/organizations/$tenantKey/": typeof AdminOrganizationsTenantKeyIndexRoute
 }
 export interface FileRouteTypes {
@@ -246,11 +294,14 @@ export interface FileRouteTypes {
     | "/admin/invitations"
     | "/admin/organizations"
     | "/admin/plans"
+    | "/admin/refunds"
     | "/admin/subscriptions"
     | "/admin/users"
     | "/admin/"
     | "/admin/organizations/$tenantKey"
     | "/admin/plans/$planCode"
+    | "/admin/refunds/$refundId"
+    | "/admin/subscriptions/$subscriptionId"
     | "/admin/users/$userId"
     | "/admin/invitations/"
     | "/admin/organizations/"
@@ -258,6 +309,8 @@ export interface FileRouteTypes {
     | "/admin/users/"
     | "/admin/organizations/$tenantKey/billing"
     | "/admin/organizations/$tenantKey/members"
+    | "/admin/organizations/$tenantKey/refunds"
+    | "/admin/organizations/$tenantKey/subscriptions"
     | "/admin/organizations/$tenantKey/"
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -268,9 +321,12 @@ export interface FileRouteTypes {
     | "/sign-in"
     | "/unauthorized"
     | "/admin/account"
+    | "/admin/refunds"
     | "/admin/subscriptions"
     | "/admin"
     | "/admin/plans/$planCode"
+    | "/admin/refunds/$refundId"
+    | "/admin/subscriptions/$subscriptionId"
     | "/admin/users/$userId"
     | "/admin/invitations"
     | "/admin/organizations"
@@ -278,6 +334,8 @@ export interface FileRouteTypes {
     | "/admin/users"
     | "/admin/organizations/$tenantKey/billing"
     | "/admin/organizations/$tenantKey/members"
+    | "/admin/organizations/$tenantKey/refunds"
+    | "/admin/organizations/$tenantKey/subscriptions"
     | "/admin/organizations/$tenantKey"
   id:
     | "__root__"
@@ -292,11 +350,14 @@ export interface FileRouteTypes {
     | "/admin/invitations"
     | "/admin/organizations"
     | "/admin/plans"
+    | "/admin/refunds"
     | "/admin/subscriptions"
     | "/admin/users"
     | "/admin/"
     | "/admin/organizations/$tenantKey"
     | "/admin/plans/$planCode"
+    | "/admin/refunds/$refundId"
+    | "/admin/subscriptions/$subscriptionId"
     | "/admin/users/$userId"
     | "/admin/invitations/"
     | "/admin/organizations/"
@@ -304,6 +365,8 @@ export interface FileRouteTypes {
     | "/admin/users/"
     | "/admin/organizations/$tenantKey/billing"
     | "/admin/organizations/$tenantKey/members"
+    | "/admin/organizations/$tenantKey/refunds"
+    | "/admin/organizations/$tenantKey/subscriptions"
     | "/admin/organizations/$tenantKey/"
   fileRoutesById: FileRoutesById
 }
@@ -375,13 +438,6 @@ declare module "@tanstack/react-router" {
       preLoaderRoute: typeof AdminIndexRouteImport
       parentRoute: typeof AdminRoute
     }
-    "/admin/account": {
-      id: "/admin/account"
-      path: "/account"
-      fullPath: "/admin/account"
-      preLoaderRoute: typeof AdminAccountRouteImport
-      parentRoute: typeof AdminRoute
-    }
     "/admin/users": {
       id: "/admin/users"
       path: "/users"
@@ -394,6 +450,13 @@ declare module "@tanstack/react-router" {
       path: "/subscriptions"
       fullPath: "/admin/subscriptions"
       preLoaderRoute: typeof AdminSubscriptionsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    "/admin/refunds": {
+      id: "/admin/refunds"
+      path: "/refunds"
+      fullPath: "/admin/refunds"
+      preLoaderRoute: typeof AdminRefundsRouteImport
       parentRoute: typeof AdminRoute
     }
     "/admin/plans": {
@@ -415,6 +478,13 @@ declare module "@tanstack/react-router" {
       path: "/invitations"
       fullPath: "/admin/invitations"
       preLoaderRoute: typeof AdminInvitationsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    "/admin/account": {
+      id: "/admin/account"
+      path: "/account"
+      fullPath: "/admin/account"
+      preLoaderRoute: typeof AdminAccountRouteImport
       parentRoute: typeof AdminRoute
     }
     "/admin/users/": {
@@ -452,6 +522,20 @@ declare module "@tanstack/react-router" {
       preLoaderRoute: typeof AdminUsersUserIdRouteImport
       parentRoute: typeof AdminUsersRoute
     }
+    "/admin/subscriptions/$subscriptionId": {
+      id: "/admin/subscriptions/$subscriptionId"
+      path: "/$subscriptionId"
+      fullPath: "/admin/subscriptions/$subscriptionId"
+      preLoaderRoute: typeof AdminSubscriptionsSubscriptionIdRouteImport
+      parentRoute: typeof AdminSubscriptionsRoute
+    }
+    "/admin/refunds/$refundId": {
+      id: "/admin/refunds/$refundId"
+      path: "/$refundId"
+      fullPath: "/admin/refunds/$refundId"
+      preLoaderRoute: typeof AdminRefundsRefundIdRouteImport
+      parentRoute: typeof AdminRefundsRoute
+    }
     "/admin/plans/$planCode": {
       id: "/admin/plans/$planCode"
       path: "/$planCode"
@@ -471,6 +555,20 @@ declare module "@tanstack/react-router" {
       path: "/"
       fullPath: "/admin/organizations/$tenantKey/"
       preLoaderRoute: typeof AdminOrganizationsTenantKeyIndexRouteImport
+      parentRoute: typeof AdminOrganizationsTenantKeyRoute
+    }
+    "/admin/organizations/$tenantKey/subscriptions": {
+      id: "/admin/organizations/$tenantKey/subscriptions"
+      path: "/subscriptions"
+      fullPath: "/admin/organizations/$tenantKey/subscriptions"
+      preLoaderRoute: typeof AdminOrganizationsTenantKeySubscriptionsRouteImport
+      parentRoute: typeof AdminOrganizationsTenantKeyRoute
+    }
+    "/admin/organizations/$tenantKey/refunds": {
+      id: "/admin/organizations/$tenantKey/refunds"
+      path: "/refunds"
+      fullPath: "/admin/organizations/$tenantKey/refunds"
+      preLoaderRoute: typeof AdminOrganizationsTenantKeyRefundsRouteImport
       parentRoute: typeof AdminOrganizationsTenantKeyRoute
     }
     "/admin/organizations/$tenantKey/members": {
@@ -504,6 +602,8 @@ const AdminInvitationsRouteWithChildren =
 interface AdminOrganizationsTenantKeyRouteChildren {
   AdminOrganizationsTenantKeyBillingRoute: typeof AdminOrganizationsTenantKeyBillingRoute
   AdminOrganizationsTenantKeyMembersRoute: typeof AdminOrganizationsTenantKeyMembersRoute
+  AdminOrganizationsTenantKeyRefundsRoute: typeof AdminOrganizationsTenantKeyRefundsRoute
+  AdminOrganizationsTenantKeySubscriptionsRoute: typeof AdminOrganizationsTenantKeySubscriptionsRoute
   AdminOrganizationsTenantKeyIndexRoute: typeof AdminOrganizationsTenantKeyIndexRoute
 }
 
@@ -513,6 +613,10 @@ const AdminOrganizationsTenantKeyRouteChildren: AdminOrganizationsTenantKeyRoute
       AdminOrganizationsTenantKeyBillingRoute,
     AdminOrganizationsTenantKeyMembersRoute:
       AdminOrganizationsTenantKeyMembersRoute,
+    AdminOrganizationsTenantKeyRefundsRoute:
+      AdminOrganizationsTenantKeyRefundsRoute,
+    AdminOrganizationsTenantKeySubscriptionsRoute:
+      AdminOrganizationsTenantKeySubscriptionsRoute,
     AdminOrganizationsTenantKeyIndexRoute:
       AdminOrganizationsTenantKeyIndexRoute,
   }
@@ -550,6 +654,29 @@ const AdminPlansRouteWithChildren = AdminPlansRoute._addFileChildren(
   AdminPlansRouteChildren,
 )
 
+interface AdminRefundsRouteChildren {
+  AdminRefundsRefundIdRoute: typeof AdminRefundsRefundIdRoute
+}
+
+const AdminRefundsRouteChildren: AdminRefundsRouteChildren = {
+  AdminRefundsRefundIdRoute: AdminRefundsRefundIdRoute,
+}
+
+const AdminRefundsRouteWithChildren = AdminRefundsRoute._addFileChildren(
+  AdminRefundsRouteChildren,
+)
+
+interface AdminSubscriptionsRouteChildren {
+  AdminSubscriptionsSubscriptionIdRoute: typeof AdminSubscriptionsSubscriptionIdRoute
+}
+
+const AdminSubscriptionsRouteChildren: AdminSubscriptionsRouteChildren = {
+  AdminSubscriptionsSubscriptionIdRoute: AdminSubscriptionsSubscriptionIdRoute,
+}
+
+const AdminSubscriptionsRouteWithChildren =
+  AdminSubscriptionsRoute._addFileChildren(AdminSubscriptionsRouteChildren)
+
 interface AdminUsersRouteChildren {
   AdminUsersUserIdRoute: typeof AdminUsersUserIdRoute
   AdminUsersIndexRoute: typeof AdminUsersIndexRoute
@@ -569,7 +696,8 @@ interface AdminRouteChildren {
   AdminInvitationsRoute: typeof AdminInvitationsRouteWithChildren
   AdminOrganizationsRoute: typeof AdminOrganizationsRouteWithChildren
   AdminPlansRoute: typeof AdminPlansRouteWithChildren
-  AdminSubscriptionsRoute: typeof AdminSubscriptionsRoute
+  AdminRefundsRoute: typeof AdminRefundsRouteWithChildren
+  AdminSubscriptionsRoute: typeof AdminSubscriptionsRouteWithChildren
   AdminUsersRoute: typeof AdminUsersRouteWithChildren
   AdminIndexRoute: typeof AdminIndexRoute
 }
@@ -579,7 +707,8 @@ const AdminRouteChildren: AdminRouteChildren = {
   AdminInvitationsRoute: AdminInvitationsRouteWithChildren,
   AdminOrganizationsRoute: AdminOrganizationsRouteWithChildren,
   AdminPlansRoute: AdminPlansRouteWithChildren,
-  AdminSubscriptionsRoute: AdminSubscriptionsRoute,
+  AdminRefundsRoute: AdminRefundsRouteWithChildren,
+  AdminSubscriptionsRoute: AdminSubscriptionsRouteWithChildren,
   AdminUsersRoute: AdminUsersRouteWithChildren,
   AdminIndexRoute: AdminIndexRoute,
 }

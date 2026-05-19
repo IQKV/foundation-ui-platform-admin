@@ -16,7 +16,9 @@ msgstr ""
 #. placeholder {0}: localeToNameMap[locale]
 #. placeholder {0}: o.label
 #: src/pages/admin/invitations.index.tsx
+#: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
 #: src/pages/admin/organizations.index.tsx
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
 #: src/pages/admin/subscriptions.tsx
 #: src/pages/admin/users.index.tsx
 #: src/shared/locales/index.ts
@@ -48,8 +50,8 @@ msgid "2. Page Transitions"
 msgstr "2. Page Transitions"
 
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
-msgid "8-character tenant key"
-msgstr "8-character tenant key"
+#~ msgid "8-character tenant key"
+#~ msgstr "8-character tenant key"
 
 #: src/features/invitation-admin/ui/edit-invitation-modal.tsx
 #: src/shared/ui/invitation-status-badge/invitation-status-badge.tsx
@@ -67,6 +69,17 @@ msgstr "Access Denied"
 #: src/pages/loading-demo.tsx
 msgid "Accessible with proper keyboard handling"
 msgstr "Accessible with proper keyboard handling"
+
+#: src/shared/ui/admin-layout/admin-nav.tsx
+msgid "Account"
+msgstr "Account"
+
+#: src/pages/admin/organizations.$tenantKey.refunds.tsx
+#: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
+#: src/pages/admin/refunds.tsx
+#: src/pages/admin/subscriptions.tsx
+msgid "Actions"
+msgstr "Actions"
 
 #: src/features/edit-tenant/model/types.ts
 #: src/features/edit-user/model/types.ts
@@ -87,21 +100,51 @@ msgstr "Active only"
 msgid "Active Subscriptions"
 msgstr "Active Subscriptions"
 
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
+msgid "Admin password override"
+msgstr "Admin password override"
+
 #: src/pages/admin/plans.index.tsx
 msgid "All plans"
 msgstr "All plans"
 
 #: src/pages/admin/invitations.index.tsx
+#: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
 #: src/pages/admin/organizations.index.tsx
 #: src/pages/admin/subscriptions.tsx
 #: src/pages/admin/users.index.tsx
 msgid "All statuses"
 msgstr "All statuses"
 
+#: src/pages/admin/organizations.$tenantKey.refunds.tsx
+#: src/pages/admin/refunds.$refundId.tsx
+#: src/pages/admin/refunds.tsx
+msgid "Amount"
+msgstr "Amount"
+
 #: src/features/plan-catalog/ui/create-plan-modal.tsx
 #: src/pages/admin/plans.$planCode.tsx
 msgid "Annual"
 msgstr "Annual"
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Are you sure you want to permanently delete this subscription record? This action cannot be undone and will remove the record from the local database."
+msgstr "Are you sure you want to permanently delete this subscription record? This action cannot be undone and will remove the record from the local database."
+
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
+msgid "At least 8 characters, at most 128"
+msgstr "At least 8 characters, at most 128"
+
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
+msgid "At least one digit"
+msgstr "At least one digit"
+
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
+msgid "At least one special character"
+msgstr "At least one special character"
 
 #: src/shared/ui/admin-layout/admin-nav.tsx
 #~ msgid "Audit Log"
@@ -121,6 +164,8 @@ msgid "Automatic router integration via <0>router.subscribe()</0>"
 msgstr "Automatic router integration via <0>router.subscribe()</0>"
 
 #: src/pages/admin/plans.$planCode.tsx
+#: src/pages/admin/refunds.$refundId.tsx
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Back to list"
 msgstr "Back to list"
 
@@ -146,23 +191,43 @@ msgid "Billing period"
 msgstr "Billing period"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
-#: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/organizations.index.tsx
 msgid "Billing settings"
 msgstr "Billing settings"
 
+#: src/pages/admin/organizations.$tenantKey.tsx
+msgid "Billing Settings"
+msgstr "Billing Settings"
+
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+#: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/features/edit-tenant/ui/edit-tenant-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 #: src/features/plan-catalog/ui/create-plan-modal.tsx
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/pages/admin/plans.$planCode.tsx
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Cancel"
 msgstr "Cancel"
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Cancel at period end"
+msgstr "Cancel at period end"
 
 #: src/pages/admin/subscriptions.tsx
 msgid "Canceling"
 msgstr "Canceling"
+
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+#: src/pages/admin/account.tsx
+msgid "Change password"
+msgstr "Change password"
+
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+msgid "Change Password"
+msgstr "Change Password"
 
 #: src/pages/admin/invitations.index.tsx
 #: src/pages/admin/organizations.index.tsx
@@ -200,6 +265,22 @@ msgstr "Company name"
 msgid "Complete"
 msgstr "Complete"
 
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Confirm delete"
+msgstr "Confirm delete"
+
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+msgid "Confirm new password"
+msgstr "Confirm new password"
+
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
+msgid "Confirm password"
+msgstr "Confirm password"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Could not create Stripe Customer Portal session."
+msgstr "Could not create Stripe Customer Portal session."
+
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Could not fetch billing settings."
 msgstr "Could not fetch billing settings."
@@ -228,6 +309,26 @@ msgstr "Could not fetch plan details."
 msgid "Could not fetch plans from the API."
 msgstr "Could not fetch plans from the API."
 
+#: src/pages/admin/refunds.$refundId.tsx
+msgid "Could not fetch refund details."
+msgstr "Could not fetch refund details."
+
+#: src/pages/admin/organizations.$tenantKey.refunds.tsx
+msgid "Could not fetch refunds for this organization."
+msgstr "Could not fetch refunds for this organization."
+
+#: src/pages/admin/refunds.tsx
+msgid "Could not fetch refunds from the API."
+msgstr "Could not fetch refunds from the API."
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Could not fetch subscription details."
+msgstr "Could not fetch subscription details."
+
+#: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
+msgid "Could not fetch subscriptions for this organization."
+msgstr "Could not fetch subscriptions for this organization."
+
 #: src/pages/admin/subscriptions.tsx
 msgid "Could not fetch subscriptions from the API."
 msgstr "Could not fetch subscriptions from the API."
@@ -239,6 +340,10 @@ msgstr "Could not fetch user details."
 #: src/pages/admin/users.index.tsx
 msgid "Could not fetch users from the API."
 msgstr "Could not fetch users from the API."
+
+#: src/pages/admin/account.tsx
+msgid "Could not fetch your account details."
+msgstr "Could not fetch your account details."
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Create"
@@ -256,12 +361,18 @@ msgstr "Create plan"
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/pages/admin/-organization-tenant-panels.tsx
 #: src/pages/admin/invitations.index.tsx
+#: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/organizations.index.tsx
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/subscriptions.tsx
 msgid "Created"
 msgstr "Created"
+
+#: src/pages/admin/refunds.$refundId.tsx
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Created:"
+msgstr "Created:"
 
 #: src/features/plan-catalog/ui/create-plan-modal.tsx
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
@@ -274,6 +385,18 @@ msgstr "Currency"
 #: src/pages/admin/plans.$planCode.tsx
 msgid "Currency must be a 3-letter ISO code"
 msgstr "Currency must be a 3-letter ISO code"
+
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+msgid "Current password"
+msgstr "Current password"
+
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+msgid "Current password is required"
+msgstr "Current password is required"
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Current Period End"
+msgstr "Current Period End"
 
 #: src/pages/admin/index.tsx
 #: src/shared/ui/admin-layout/admin-nav.tsx
@@ -303,6 +426,14 @@ msgstr "Delete billing settings"
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Delete billing settings?"
 msgstr "Delete billing settings?"
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Delete record"
+msgstr "Delete record"
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Delete subscription record"
+msgstr "Delete subscription record"
 
 #: src/shared/ui/tenant-status-badge/tenant-status-badge.tsx
 #: src/shared/ui/user-status-badge/user-status-badge.tsx
@@ -340,6 +471,14 @@ msgstr "Edit organization"
 msgid "Edit Organization"
 msgstr "Edit Organization"
 
+#: src/pages/admin/account.tsx
+msgid "Edit profile"
+msgstr "Edit profile"
+
+#: src/features/edit-account/ui/edit-account-modal.tsx
+msgid "Edit Profile"
+msgstr "Edit Profile"
+
 #: src/pages/admin/users.$userId.tsx
 #: src/pages/admin/users.index.tsx
 msgid "Edit user"
@@ -349,11 +488,13 @@ msgstr "Edit user"
 msgid "Edit User"
 msgstr "Edit User"
 
+#: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
 #: src/features/invitation-admin/ui/edit-invitation-modal.tsx
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 #: src/features/sign-in/ui/sign-in-form.tsx
 #: src/pages/admin/-organization-tenant-panels.tsx
+#: src/pages/admin/account.tsx
 #: src/pages/admin/users.$userId.tsx
 #: src/pages/admin/users.index.tsx
 msgid "Email"
@@ -363,14 +504,17 @@ msgstr "Email"
 msgid "Email is required"
 msgstr "Email is required"
 
+#: src/pages/admin/account.tsx
 #: src/pages/admin/users.$userId.tsx
 msgid "Email unverified"
 msgstr "Email unverified"
 
+#: src/pages/admin/account.tsx
 #: src/pages/admin/users.$userId.tsx
 msgid "Email verified"
 msgstr "Email verified"
 
+#: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
 msgid "Email verified:"
 msgstr "Email verified:"
@@ -382,6 +526,15 @@ msgstr "Enter a positive price (minor units, e.g. cents)"
 #: src/features/sign-in/model/use-sign-in.ts
 msgid "Enter a valid email address"
 msgstr "Enter a valid email address"
+
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
+msgid "Enter new password"
+msgstr "Enter new password"
+
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+msgid "Enter your current password"
+msgstr "Enter your current password"
 
 #: src/shared/ui/error-boundary.tsx
 msgid "Error Details (Development)"
@@ -406,13 +559,35 @@ msgstr "Expires"
 msgid "External customer id"
 msgstr "External customer id"
 
+#: src/pages/admin/refunds.$refundId.tsx
+msgid "External Customer ID"
+msgstr "External Customer ID"
+
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "External customer id is required"
 msgstr "External customer id is required"
 
+#: src/pages/admin/organizations.$tenantKey.refunds.tsx
+#: src/pages/admin/refunds.tsx
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "External ID"
+msgstr "External ID"
+
+#: src/pages/admin/refunds.$refundId.tsx
+msgid "External Payment ID"
+msgstr "External Payment ID"
+
+#: src/pages/admin/refunds.$refundId.tsx
+msgid "External Refund ID"
+msgstr "External Refund ID"
+
 #: src/pages/admin/index.tsx
 msgid "Failed to load"
 msgstr "Failed to load"
+
+#: src/pages/admin/account.tsx
+msgid "Failed to load account"
+msgstr "Failed to load account"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Failed to load billing settings"
@@ -426,6 +601,7 @@ msgstr "Failed to load invitations"
 msgid "Failed to load organization"
 msgstr "Failed to load organization"
 
+#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 #: src/pages/admin/organizations.index.tsx
 msgid "Failed to load organizations"
 msgstr "Failed to load organizations"
@@ -438,6 +614,20 @@ msgstr "Failed to load plan"
 msgid "Failed to load plans"
 msgstr "Failed to load plans"
 
+#: src/pages/admin/refunds.$refundId.tsx
+msgid "Failed to load refund"
+msgstr "Failed to load refund"
+
+#: src/pages/admin/organizations.$tenantKey.refunds.tsx
+#: src/pages/admin/refunds.tsx
+msgid "Failed to load refunds"
+msgstr "Failed to load refunds"
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Failed to load subscription"
+msgstr "Failed to load subscription"
+
+#: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
 #: src/pages/admin/subscriptions.tsx
 msgid "Failed to load subscriptions"
 msgstr "Failed to load subscriptions"
@@ -455,10 +645,16 @@ msgstr "Failed to load users"
 msgid "Feature set (JSON)"
 msgstr "Feature set (JSON)"
 
+#: src/pages/admin/refunds.tsx
+msgid "Filter by tenant key…"
+msgstr "Filter by tenant key…"
+
+#: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
 msgid "First name"
 msgstr "First name"
 
+#: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
 msgid "First name is required"
 msgstr "First name is required"
@@ -480,12 +676,16 @@ msgstr "Go home"
 msgid "Go to Home"
 msgstr "Go to Home"
 
+#: src/pages/admin/account.tsx
 #: src/pages/admin/index.tsx
 #: src/pages/admin/invitations.index.tsx
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/organizations.index.tsx
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/plans.index.tsx
+#: src/pages/admin/refunds.$refundId.tsx
+#: src/pages/admin/refunds.tsx
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
 #: src/pages/admin/subscriptions.tsx
 #: src/pages/admin/users.$userId.tsx
 #: src/pages/admin/users.index.tsx
@@ -548,6 +748,7 @@ msgid "invitee@example.com"
 msgstr "invitee@example.com"
 
 #: src/pages/admin/-organization-tenant-panels.tsx
+#: src/pages/admin/account.tsx
 #: src/pages/admin/users.$userId.tsx
 #: src/pages/admin/users.index.tsx
 msgid "Joined"
@@ -569,16 +770,19 @@ msgstr "Key:"
 msgid "Language"
 msgstr "Language"
 
+#: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
 msgid "Last name"
 msgstr "Last name"
 
+#: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
 msgid "Last name is required"
 msgstr "Last name is required"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/pages/admin/-organization-tenant-panels.tsx
+#: src/pages/admin/account.tsx
 #: src/pages/admin/organizations.index.tsx
 #: src/pages/admin/subscriptions.tsx
 #: src/pages/admin/users.$userId.tsx
@@ -594,6 +798,10 @@ msgstr "Loading Demo"
 #~ msgid "Loading Demo |Key Value Admin"
 #~ msgstr "Loading Demo |Key Value Admin"
 
+#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
+msgid "Loading organizations…"
+msgstr "Loading organizations…"
+
 #: src/pages/loading-demo.tsx
 msgid "Loading States Demo"
 msgstr "Loading States Demo"
@@ -601,6 +809,11 @@ msgstr "Loading States Demo"
 #: src/shared/ui/loading-overlay/loading-overlay.tsx
 msgid "Loading..."
 msgstr "Loading..."
+
+#: src/pages/admin/refunds.$refundId.tsx
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Loading…"
+msgstr "Loading…"
 
 #: src/features/edit-user/model/types.ts
 #: src/shared/ui/user-status-badge/user-status-badge.tsx
@@ -637,6 +850,10 @@ msgstr "member(s)"
 msgid "Members"
 msgstr "Members"
 
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Metadata"
+msgstr "Metadata"
+
 #: src/features/plan-catalog/ui/create-plan-modal.tsx
 #: src/pages/admin/plans.$planCode.tsx
 msgid "Monthly"
@@ -646,6 +863,11 @@ msgstr "Monthly"
 msgid "Must be a valid email address"
 msgstr "Must be a valid email address"
 
+#: src/pages/admin/account.tsx
+#: src/shared/ui/admin-layout/admin-nav.tsx
+msgid "My Account"
+msgstr "My Account"
+
 #: src/pages/admin/plans.index.tsx
 msgid "Name"
 msgstr "Name"
@@ -654,10 +876,19 @@ msgstr "Name"
 msgid "New billing settings"
 msgstr "New billing settings"
 
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
+msgid "New password"
+msgstr "New password"
+
 #: src/features/plan-catalog/ui/create-plan-modal.tsx
 #: src/pages/admin/plans.index.tsx
 msgid "New plan"
 msgstr "New plan"
+
+#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
+msgid "No active organizations found"
+msgstr "No active organizations found"
 
 #: src/pages/admin/organizations.$tenantKey.tsx
 #~ msgid "No active subscription"
@@ -699,6 +930,10 @@ msgstr "No plans in the catalog"
 msgid "No plans match the current filters"
 msgstr "No plans match the current filters"
 
+#: src/pages/admin/account.tsx
+msgid "No platform authorities assigned."
+msgstr "No platform authorities assigned."
+
 #: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "No results"
 msgstr "No results"
@@ -731,6 +966,16 @@ msgstr "No users match the current filters"
 #~ msgid "Notifications (coming soon)"
 #~ msgstr "Notifications (coming soon)"
 
+#: src/pages/admin/organizations.$tenantKey.refunds.tsx
+#: src/pages/admin/refunds.$refundId.tsx
+#: src/pages/admin/refunds.tsx
+msgid "Occurred At"
+msgstr "Occurred At"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Open Billing Portal"
+msgstr "Open Billing Portal"
+
 #: src/shared/ui/auth-layout/auth-layout.tsx
 msgid "Operator access only"
 msgstr "Operator access only"
@@ -743,6 +988,7 @@ msgstr "Optional structured address as JSON."
 msgid "Optional UUID of the user who owns the billing profile."
 msgstr "Optional UUID of the user who owns the billing profile."
 
+#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/organizations.index.tsx
 #: src/pages/admin/users.index.tsx
@@ -752,6 +998,10 @@ msgstr "Organization"
 #: src/pages/admin/organizations.$tenantKey.tsx
 #~ msgid "Organization |Key Value Admin"
 #~ msgstr "Organization |Key Value Admin"
+
+#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
+msgid "Organization is required"
+msgstr "Organization is required"
 
 #: src/features/edit-tenant/ui/edit-tenant-modal.tsx
 msgid "Organization name"
@@ -802,6 +1052,31 @@ msgstr "Password"
 msgid "Password is required"
 msgstr "Password is required"
 
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
+msgid "Password must be at least 8 characters"
+msgstr "Password must be at least 8 characters"
+
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
+msgid "Password must be at most 128 characters"
+msgstr "Password must be at most 128 characters"
+
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
+msgid "Password must contain uppercase, lowercase, digit, and special character"
+msgstr "Password must contain uppercase, lowercase, digit, and special character"
+
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
+msgid "Password requirements:"
+msgstr "Password requirements:"
+
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
+msgid "Passwords do not match"
+msgstr "Passwords do not match"
+
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Payment gateway customer identifier (e.g. Stripe cus_…)."
 msgstr "Payment gateway customer identifier (e.g. Stripe cus_…)."
@@ -822,10 +1097,12 @@ msgstr "Pending invitations can be revoked. The invitee will no longer be able t
 msgid "Period"
 msgstr "Period"
 
+#: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
 #: src/pages/admin/subscriptions.tsx
 msgid "Period End"
 msgstr "Period End"
 
+#: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/subscriptions.tsx
 msgid "Plan"
@@ -848,6 +1125,10 @@ msgstr "Plan code is required"
 msgid "Plan code:"
 msgstr "Plan code:"
 
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Plan ID"
+msgstr "Plan ID"
+
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/plans.index.tsx
 #: src/shared/ui/admin-layout/admin-nav.tsx
@@ -857,6 +1138,7 @@ msgstr "Plans"
 #: src/pages/admin/invitations.index.tsx
 #: src/pages/admin/organizations.index.tsx
 #: src/pages/admin/plans.index.tsx
+#: src/pages/admin/refunds.tsx
 #: src/pages/admin/subscriptions.tsx
 #: src/pages/admin/users.index.tsx
 #: src/shared/ui/admin-layout/admin-nav.tsx
@@ -867,9 +1149,17 @@ msgstr "Platform"
 msgid "Platform administration"
 msgstr "Platform administration"
 
+#: src/pages/admin/account.tsx
+msgid "Platform Authorities"
+msgstr "Platform Authorities"
+
 #: src/shared/ui/auth-layout/auth-layout.tsx
 msgid "Platform control,"
 msgstr "Platform control,"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Portal error"
+msgstr "Portal error"
 
 #: src/features/plan-catalog/ui/create-plan-modal.tsx
 #: src/pages/admin/plans.$planCode.tsx
@@ -897,6 +1187,11 @@ msgstr "Propose invitation"
 msgid "Propose Invitation"
 msgstr "Propose Invitation"
 
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Quantity"
+msgstr "Quantity"
+
+#: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/features/edit-tenant/ui/edit-tenant-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
 msgid "read-only"
@@ -904,6 +1199,7 @@ msgstr "read-only"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/pages/admin/-organization-tenant-panels.tsx
+#: src/pages/admin/account.tsx
 #: src/pages/admin/invitations.index.tsx
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/organizations.index.tsx
@@ -915,17 +1211,49 @@ msgstr "read-only"
 msgid "Refresh"
 msgstr "Refresh"
 
+#: src/pages/admin/refunds.$refundId.tsx
+msgid "Refund"
+msgstr "Refund"
+
+#: src/pages/admin/refunds.$refundId.tsx
+msgid "Refund ID"
+msgstr "Refund ID"
+
+#: src/pages/admin/organizations.$tenantKey.refunds.tsx
+#: src/pages/admin/organizations.$tenantKey.tsx
+#: src/pages/admin/refunds.$refundId.tsx
+#: src/pages/admin/refunds.tsx
+#: src/shared/ui/admin-layout/admin-nav.tsx
+msgid "Refunds"
+msgstr "Refunds"
+
 #: src/pages/admin/-organization-tenant-panels.tsx
 msgid "Renews"
 msgstr "Renews"
 
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
+msgid "Repeat new password"
+msgstr "Repeat new password"
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Reset"
+msgstr "Reset"
+
+#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/pages/admin/-organization-tenant-panels.tsx
+#: src/pages/admin/account.tsx
 #: src/pages/admin/invitations.index.tsx
+#: src/pages/admin/organizations.$tenantKey.refunds.tsx
+#: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/organizations.index.tsx
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/plans.index.tsx
+#: src/pages/admin/refunds.$refundId.tsx
+#: src/pages/admin/refunds.tsx
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
 #: src/pages/admin/subscriptions.tsx
 #: src/pages/admin/users.$userId.tsx
 #: src/pages/admin/users.index.tsx
@@ -940,10 +1268,12 @@ msgstr "Revoke invitation"
 msgid "Revoked"
 msgstr "Revoked"
 
+#: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/features/edit-tenant/ui/edit-tenant-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/pages/admin/plans.$planCode.tsx
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Save changes"
 msgstr "Save changes"
 
@@ -974,6 +1304,10 @@ msgstr "Search by name or key…"
 msgid "Search by tenant or plan…"
 msgstr "Search by tenant or plan…"
 
+#: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
+msgid "Search plan…"
+msgstr "Search plan…"
+
 #: src/pages/admin/users.tsx
 #~ msgid "Search users…"
 #~ msgstr "Search users…"
@@ -981,6 +1315,10 @@ msgstr "Search by tenant or plan…"
 #: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Search…"
 msgstr "Search…"
+
+#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
+msgid "Select an organization"
+msgstr "Select an organization"
 
 #: src/shared/ui/locale-switcher/locale-switcher.tsx
 msgid "Select language"
@@ -998,6 +1336,16 @@ msgstr "Server Error"
 #~ msgid "Server Error |Key Value Admin"
 #~ msgstr "Server Error |Key Value Admin"
 
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
+#: src/pages/admin/users.$userId.tsx
+#: src/pages/admin/users.index.tsx
+msgid "Set password"
+msgstr "Set password"
+
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
+msgid "Set Password"
+msgstr "Set Password"
+
 #: src/shared/ui/admin-layout/admin-nav.tsx
 #~ msgid "Settings"
 #~ msgstr "Settings"
@@ -1007,6 +1355,15 @@ msgstr "Server Error"
 #: src/pages/admin/-organization-tenant-panels.tsx
 msgid "Showing {0}–{1} of {totalElements} members"
 msgstr "Showing {0}–{1} of {totalElements} members"
+
+#: src/pages/admin/organizations.$tenantKey.refunds.tsx
+#: src/pages/admin/refunds.tsx
+msgid "Showing {rangeStart} – {rangeEnd} of {totalElements} refunds"
+msgstr "Showing {rangeStart} – {rangeEnd} of {totalElements} refunds"
+
+#: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
+msgid "Showing {rangeStart} – {rangeEnd} of {totalElements} subscriptions"
+msgstr "Showing {rangeStart} – {rangeEnd} of {totalElements} subscriptions"
 
 #: src/pages/admin/invitations.index.tsx
 msgid "Showing {rangeStart}–{rangeEnd} of {totalElements} invitations"
@@ -1073,14 +1430,38 @@ msgstr "Start"
 #: src/features/invitation-admin/ui/edit-invitation-modal.tsx
 #: src/pages/admin/-organization-tenant-panels.tsx
 #: src/pages/admin/invitations.index.tsx
+#: src/pages/admin/organizations.$tenantKey.refunds.tsx
+#: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
 #: src/pages/admin/organizations.index.tsx
 #: src/pages/admin/plans.index.tsx
+#: src/pages/admin/refunds.$refundId.tsx
+#: src/pages/admin/refunds.tsx
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
 #: src/pages/admin/subscriptions.tsx
 #: src/pages/admin/users.index.tsx
 msgid "Status"
 msgstr "Status"
 
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Subject Key:"
+msgstr "Subject Key:"
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Subject Type:"
+msgstr "Subject Type:"
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Subscription"
+msgstr "Subscription"
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Subscription ID"
+msgstr "Subscription ID"
+
 #: src/pages/admin/-organization-tenant-panels.tsx
+#: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
+#: src/pages/admin/organizations.$tenantKey.tsx
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
 #: src/pages/admin/subscriptions.tsx
 #: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Subscriptions"
@@ -1120,20 +1501,25 @@ msgstr "Tax id type"
 #: src/features/plan-catalog/ui/create-plan-modal.tsx
 #: src/pages/admin/invitations.index.tsx
 #: src/pages/admin/plans.$planCode.tsx
+#: src/pages/admin/refunds.tsx
 #: src/pages/admin/subscriptions.tsx
 msgid "Tenant"
 msgstr "Tenant"
 
 #: src/features/edit-tenant/ui/edit-tenant-modal.tsx
 #: src/features/invitation-admin/ui/edit-invitation-modal.tsx
-#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Tenant key"
 msgstr "Tenant key"
 
+#: src/pages/admin/refunds.$refundId.tsx
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Tenant Key"
+msgstr "Tenant Key"
+
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
-msgid "Tenant key must be at least 8 characters"
-msgstr "Tenant key must be at least 8 characters"
+#~ msgid "Tenant key must be at least 8 characters"
+#~ msgstr "Tenant key must be at least 8 characters"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Tenant key:"
@@ -1167,6 +1553,14 @@ msgstr "This template uses Mantine's official loading components for optimal UX.
 msgid "This user is not a member of any organization."
 msgstr "This user is not a member of any organization."
 
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
+msgid "This will immediately change the user's password and invalidate all their active sessions. The user will need to sign in again with the new password."
+msgstr "This will immediately change the user's password and invalidate all their active sessions. The user will need to sign in again with the new password."
+
+#: src/pages/admin/refunds.$refundId.tsx
+msgid "Timestamps"
+msgstr "Timestamps"
+
 #: src/features/sign-in/model/use-sign-in.ts
 msgid "Too many sign-in attempts. Please try again later."
 msgstr "Too many sign-in attempts. Please try again later."
@@ -1174,6 +1568,14 @@ msgstr "Too many sign-in attempts. Please try again later."
 #: src/pages/admin/index.tsx
 msgid "Total Users"
 msgstr "Total Users"
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Trial End"
+msgstr "Trial End"
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Trial Start"
+msgstr "Trial Start"
 
 #: src/shared/ui/error-boundary.tsx
 msgid "Try Again"
@@ -1183,8 +1585,10 @@ msgstr "Try Again"
 msgid "Unique identifier; use lowercase letters, numbers, and hyphens."
 msgstr "Unique identifier; use lowercase letters, numbers, and hyphens."
 
+#: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
 #: src/pages/admin/-organization-tenant-panels.tsx
+#: src/pages/admin/account.tsx
 #: src/pages/admin/users.$userId.tsx
 #: src/pages/admin/users.index.tsx
 msgid "Unverified"
@@ -1194,6 +1598,16 @@ msgstr "Unverified"
 #: src/pages/admin/plans.index.tsx
 msgid "Updated"
 msgstr "Updated"
+
+#: src/pages/admin/refunds.$refundId.tsx
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Updated:"
+msgstr "Updated:"
+
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
+msgid "Uppercase and lowercase letters"
+msgstr "Uppercase and lowercase letters"
 
 #: src/features/plan-catalog/ui/create-plan-modal.tsx
 #: src/pages/admin/plans.$planCode.tsx
@@ -1227,8 +1641,10 @@ msgstr "Uses <0>LoadingOverlay</0> component for full-screen loading"
 msgid "UUID or leave empty to clear."
 msgstr "UUID or leave empty to clear."
 
+#: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
 #: src/pages/admin/-organization-tenant-panels.tsx
+#: src/pages/admin/account.tsx
 #: src/pages/admin/users.$userId.tsx
 #: src/pages/admin/users.index.tsx
 msgid "Verified"
@@ -1237,6 +1653,13 @@ msgstr "Verified"
 #: src/pages/admin/invitations.index.tsx
 msgid "View / manage invitation"
 msgstr "View / manage invitation"
+
+#: src/pages/admin/organizations.$tenantKey.refunds.tsx
+#: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
+#: src/pages/admin/refunds.tsx
+#: src/pages/admin/subscriptions.tsx
+msgid "View details"
+msgstr "View details"
 
 #: src/pages/admin/organizations.index.tsx
 msgid "View organization"
