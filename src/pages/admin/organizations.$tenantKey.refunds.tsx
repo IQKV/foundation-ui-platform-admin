@@ -184,7 +184,7 @@ function OrganizationRefundsPage() {
                       color="blue"
                       component={Link}
                       to="/admin/refunds/$refundId"
-                      params={{ refundId: r.id }}
+                      params={{ refundId: r.id } as any}
                     >
                       <IconEye size={16} />
                     </ActionIcon>

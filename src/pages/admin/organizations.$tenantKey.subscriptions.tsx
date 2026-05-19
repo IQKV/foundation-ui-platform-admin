@@ -239,7 +239,7 @@ function OrganizationSubscriptionsPage() {
                       color="blue"
                       component={Link}
                       to="/admin/subscriptions/$subscriptionId"
-                      params={{ subscriptionId: r.id }}
+                      params={{ subscriptionId: r.id } as any}
                     >
                       <IconEye size={16} />
                     </ActionIcon>
