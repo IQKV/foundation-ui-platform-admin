@@ -23,8 +23,6 @@ export const Route = createFileRoute("/admin")({
    *    - Malformed / null payload → clear session, redirect /sign-in?redirect=<path>.
    *    - No PLATFORM_ADMIN       → redirect /unauthorized.
    *    - Has PLATFORM_ADMIN      → allow navigation (no network request).
-   *
-   * Requirements: 2.1–2.6, 3.1–3.7
    */
   beforeLoad: async ({ location }) => {
     const token = getAccessToken();
