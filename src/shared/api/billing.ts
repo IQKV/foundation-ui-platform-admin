@@ -7,7 +7,13 @@ function adminTenantBillingSettingsPath(tenantKey: string): string {
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
-export type SubscriptionStatus = "active" | "canceled" | "past_due" | "trialing" | "unpaid" | "paused";
+export type SubscriptionStatus =
+  | "active"
+  | "canceled"
+  | "past_due"
+  | "trialing"
+  | "unpaid"
+  | "paused";
 
 export type SubscriptionSortField = "tenantKey" | "planId" | "status" | "updatedAt" | "createdAt";
 
