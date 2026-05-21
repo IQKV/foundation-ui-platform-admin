@@ -68,6 +68,7 @@ const STATUS_OPTIONS: { value: string; label: string }[] = [
   { value: "past_due", label: "Past Due" },
   { value: "canceled", label: "Canceled" },
   { value: "unpaid", label: "Unpaid" },
+  { value: "paused", label: "Paused" },
 ];
 
 function getStatusColor(status: string): string {
@@ -82,6 +83,8 @@ function getStatusColor(status: string): string {
       return "gray";
     case "unpaid":
       return "red";
+    case "paused":
+      return "yellow";
     default:
       return "gray";
   }
