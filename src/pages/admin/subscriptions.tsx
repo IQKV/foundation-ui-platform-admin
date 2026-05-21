@@ -16,11 +16,24 @@ import {
   Badge,
   Select,
   CloseButton,
+  Menu,
+  NumberInput,
 } from "@mantine/core";
 import { useDisclosure, useDebouncedValue } from "@mantine/hooks";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { DataTable, type DataTableSortStatus } from "mantine-datatable";
-import { IconSearch, IconRefresh, IconAlertCircle, IconFilter, IconEye } from "@tabler/icons-react";
+import {
+  IconSearch,
+  IconRefresh,
+  IconAlertCircle,
+  IconFilter,
+  IconEye,
+  IconDots,
+  IconX,
+  IconPlayerPause,
+  IconPlayerPlay,
+  IconEdit,
+} from "@tabler/icons-react";
 import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
 import { Helmet } from "@dr.pogodin/react-helmet";
@@ -28,6 +41,8 @@ import { pageTitle } from "@/shared/lib/page-title";
 import { billingApi } from "@/shared/api";
 import type { Subscription, SubscriptionSortField, SortDirection } from "@/shared/api";
 import { PageHeader } from "@/shared/ui";
+import { modals } from "@mantine/modals";
+import { notifications } from "@mantine/notifications";
 
 export const Route = createFileRoute("/admin/subscriptions")({
   component: AdminSubscriptionsPage,
@@ -74,6 +89,7 @@ function getStatusColor(status: string): string {
 
 function AdminSubscriptionsPage() {
   const { t } = useLingui();
+  const queryClient = useQueryClient();
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState("");
   const [debouncedSearch] = useDebouncedValue(search, 300);
@@ -101,6 +117,153 @@ function AdminSubscriptionsPage() {
         ...(statusFilter ? { status: statusFilter } : {}),
       }),
   });
+
+  const cancelMutation = useMutation({
+    mutationFn: ({ id, atPeriodEnd }: { id: string; atPeriodEnd: boolean }) =>
+      billingApi.cancelSubscription(id, atPeriodEnd),
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: ["admin", "subscriptions"] });
+      notifications.show({
+        title: t`Success`,
+        message: t`Subscription cancellation processed`,
+        color: "green",
+      });
+    },
+    onError: () => {
+      notifications.show({
+        title: t`Error`,
+        message: t`Failed to cancel subscription`,
+        color: "red",
+      });
+    },
+  });
+
+  const pauseMutation = useMutation({
+    mutationFn: (id: string) => billingApi.pauseSubscription(id),
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: ["admin", "subscriptions"] });
+      notifications.show({
+        title: t`Success`,
+        message: t`Subscription paused`,
+        color: "green",
+      });
+    },
+    onError: () => {
+      notifications.show({
+        title: t`Error`,
+        message: t`Failed to pause subscription`,
+        color: "red",
+      });
+    },
+  });
+
+  const reactivateMutation = useMutation({
+    mutationFn: (id: string) => billingApi.reactivateSubscription(id),
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: ["admin", "subscriptions"] });
+      notifications.show({
+        title: t`Success`,
+        message: t`Subscription reactivated`,
+        color: "green",
+      });
+    },
+    onError: () => {
+      notifications.show({
+        title: t`Error`,
+        message: t`Failed to reactivate subscription`,
+        color: "red",
+      });
+    },
+  });
+
+  const updateMutation = useMutation({
+    mutationFn: ({ id, quantity }: { id: string; quantity: number }) =>
+      billingApi.updateSubscription(id, { quantity }),
+    onSuccess: () => {
+      void queryClient.invalidateQueries({ queryKey: ["admin", "subscriptions"] });
+      notifications.show({
+        title: t`Success`,
+        message: t`Subscription updated`,
+        color: "green",
+      });
+    },
+    onError: () => {
+      notifications.show({
+        title: t`Error`,
+        message: t`Failed to update subscription`,
+        color: "red",
+      });
+    },
+  });
+
+  const handleCancel = (subscription: Subscription) => {
+    modals.openConfirmModal({
+      title: t`Cancel Subscription`,
+      children: (
+        <Text size="sm">
+          <Trans>
+            Are you sure you want to cancel the subscription for <b>{subscription.tenantKey}</b>?
+          </Trans>
+        </Text>
+      ),
+      labels: { confirm: t`Cancel Immediately`, cancel: t`Keep Subscription` },
+      confirmProps: { color: "red" },
+      onConfirm: () => cancelMutation.mutate({ id: subscription.id, atPeriodEnd: false }),
+    });
+  };
+
+  const handlePause = (subscription: Subscription) => {
+    modals.openConfirmModal({
+      title: t`Pause Subscription`,
+      children: (
+        <Text size="sm">
+          <Trans>
+            Are you sure you want to pause the subscription for <b>{subscription.tenantKey}</b>?
+          </Trans>
+        </Text>
+      ),
+      labels: { confirm: t`Pause`, cancel: t`Cancel` },
+      onConfirm: () => pauseMutation.mutate(subscription.id),
+    });
+  };
+
+  const handleReactivate = (subscription: Subscription) => {
+    modals.openConfirmModal({
+      title: t`Reactivate Subscription`,
+      children: (
+        <Text size="sm">
+          <Trans>
+            Reactivate the subscription for <b>{subscription.tenantKey}</b>?
+          </Trans>
+        </Text>
+      ),
+      labels: { confirm: t`Reactivate`, cancel: t`Cancel` },
+      onConfirm: () => reactivateMutation.mutate(subscription.id),
+    });
+  };
+
+  const handleUpdateQuantity = (subscription: Subscription) => {
+    let quantity = subscription.quantity;
+    modals.openConfirmModal({
+      title: t`Update Subscription Quantity`,
+      children: (
+        <Stack gap="sm">
+          <Text size="sm">
+            <Trans>
+              Set new quantity for <b>{subscription.tenantKey}</b>:
+            </Trans>
+          </Text>
+          <NumberInput
+            defaultValue={subscription.quantity}
+            min={1}
+            onChange={(val) => (quantity = Number(val))}
+          />
+        </Stack>
+      ),
+      labels: { confirm: t`Update`, cancel: t`Cancel` },
+      onConfirm: () => updateMutation.mutate({ id: subscription.id, quantity }),
+    });
+  };
 
   const handleSortChange = (next: DataTableSortStatus<Subscription>) => {
     setSortStatus(next);
@@ -380,6 +543,53 @@ function AdminSubscriptionsPage() {
                           <IconEye size={16} />
                         </ActionIcon>
                       </Tooltip>
+
+                      <Menu position="bottom-end" shadow="md" width={200}>
+                        <Menu.Target>
+                          <ActionIcon size="sm" variant="subtle" color="gray">
+                            <IconDots size={16} />
+                          </ActionIcon>
+                        </Menu.Target>
+
+                        <Menu.Dropdown>
+                          <Menu.Label>
+                            <Trans>Management</Trans>
+                          </Menu.Label>
+                          <Menu.Item
+                            leftSection={<IconEdit size={14} />}
+                            onClick={() => handleUpdateQuantity(subscription)}
+                          >
+                            <Trans>Update Quantity</Trans>
+                          </Menu.Item>
+
+                          {subscription.status === "active" ? (
+                            <Menu.Item
+                              leftSection={<IconPlayerPause size={14} />}
+                              onClick={() => handlePause(subscription)}
+                            >
+                              <Trans>Pause Subscription</Trans>
+                            </Menu.Item>
+                          ) : subscription.status === "paused" ? (
+                            <Menu.Item
+                              leftSection={<IconPlayerPlay size={14} />}
+                              color="green"
+                              onClick={() => handleReactivate(subscription)}
+                            >
+                              <Trans>Reactivate Subscription</Trans>
+                            </Menu.Item>
+                          ) : null}
+
+                          <Menu.Divider />
+                          <Menu.Item
+                            color="red"
+                            leftSection={<IconX size={14} />}
+                            onClick={() => handleCancel(subscription)}
+                            disabled={subscription.status === "canceled"}
+                          >
+                            <Trans>Cancel Subscription</Trans>
+                          </Menu.Item>
+                        </Menu.Dropdown>
+                      </Menu>
                     </Group>
                   ),
                 },

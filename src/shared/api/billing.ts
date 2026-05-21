@@ -190,6 +190,23 @@ export const billingApi = {
       .patch<Subscription>(`/v1/billing/admin/subscriptions/${id}`, data)
       .then((r) => r.data),
 
+  cancelSubscription: (id: string, cancelAtPeriodEnd = true) =>
+    httpClient
+      .post<Subscription>(`/v1/billing/admin/subscriptions/${id}/cancel`, null, {
+        params: { cancelAtPeriodEnd },
+      })
+      .then((r) => r.data),
+
+  pauseSubscription: (id: string) =>
+    httpClient
+      .post<Subscription>(`/v1/billing/admin/subscriptions/${id}/pause`)
+      .then((r) => r.data),
+
+  reactivateSubscription: (id: string) =>
+    httpClient
+      .post<Subscription>(`/v1/billing/admin/subscriptions/${id}/reactivate`)
+      .then((r) => r.data),
+
   deleteSubscription: (id: string) => httpClient.delete(`/v1/billing/admin/subscriptions/${id}`),
 
   listRefunds: (params: ListRefundsParams = {}) =>
