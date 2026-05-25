@@ -33,6 +33,8 @@ export type {
   UpdateSiteAnnouncementRequest,
 } from "./iam";
 export { adminAccountApi } from "./iam";
+export { localesApi } from "./iam";
+export type { IamLocale } from "./iam";
 export { authApi } from "./auth";
 export type { SignInRequest, SignInResponse } from "./auth";
 export { billingApi } from "./billing";

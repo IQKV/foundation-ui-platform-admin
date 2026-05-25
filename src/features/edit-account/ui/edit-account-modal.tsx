@@ -1,8 +1,22 @@
 import { useEffect } from "react";
-import { Modal, Stack, TextInput, Group, Button, Text, Divider, Box, Badge } from "@mantine/core";
+import {
+  Modal,
+  Stack,
+  TextInput,
+  Select,
+  Group,
+  Button,
+  Text,
+  Divider,
+  Box,
+  Badge,
+  Loader,
+} from "@mantine/core";
 import { useForm } from "@mantine/form";
+import { useQuery } from "@tanstack/react-query";
 import { Trans, useLingui } from "@lingui/react/macro";
 import type { AdminAccount } from "@/shared/api";
+import { localesApi } from "@/shared/api";
 import { useEditAccount } from "../model";
 import type { EditAccountFormValues } from "../model";
 
@@ -15,10 +29,24 @@ interface EditAccountModalProps {
 export function EditAccountModal({ account, opened, onClose }: EditAccountModalProps) {
   const { t } = useLingui();
 
+  // Fetch available locales from the backend — public endpoint, no auth needed
+  const { data: locales, isLoading: localesLoading } = useQuery({
+    queryKey: ["locales"],
+    queryFn: () => localesApi.list(),
+    staleTime: Infinity,
+  });
+
+  const localeOptions =
+    locales?.map((l) => ({
+      value: l.code,
+      label: l.nativeName ? `${l.name} — ${l.nativeName}` : l.name,
+    })) ?? [];
+
   const form = useForm<EditAccountFormValues>({
     initialValues: {
       firstName: "",
       lastName: "",
+      locale: null,
     },
     validate: {
       firstName: (v) => (v.trim().length < 1 ? t`First name is required` : null),
@@ -31,6 +59,7 @@ export function EditAccountModal({ account, opened, onClose }: EditAccountModalP
       form.setValues({
         firstName: account.firstName,
         lastName: account.lastName,
+        locale: account.locale ?? null,
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -119,6 +148,18 @@ export function EditAccountModal({ account, opened, onClose }: EditAccountModalP
               </Text>
             }
             rightSectionWidth={72}
+          />
+
+          <Select
+            label={t`Language`}
+            description={t`Sets your preferred language for notifications and emails.`}
+            placeholder={localesLoading ? t`Loading…` : t`Select language`}
+            data={localeOptions}
+            rightSection={localesLoading ? <Loader size="xs" /> : undefined}
+            disabled={localesLoading}
+            clearable
+            searchable
+            {...form.getInputProps("locale")}
           />
 
           <Divider />

@@ -13,6 +13,8 @@ export interface AdminAccount {
   lastName: string;
   status: IamUserStatus;
   emailVerified: boolean;
+  /** BCP 47 locale tag (e.g. "en-US"). Null when not yet set. */
+  locale: string | null;
   platformAuthorities: string[];
   createdAt: string;
   updatedAt: string;
@@ -21,6 +23,8 @@ export interface AdminAccount {
 export interface UpdateAdminAccountRequest {
   firstName: string;
   lastName: string;
+  /** BCP 47 locale tag. Optional — omit to leave unchanged. */
+  locale?: string | null;
 }
 export type IamTenantStatus = "ACTIVE" | "SUSPENDED" | "DELETED";
 
@@ -319,4 +323,18 @@ export const adminAccountApi = {
   /** POST /v1/iam/auth/admin/me/password — change own password (requires current password). */
   changePassword: (data: { currentPassword: string; newPassword: string }): Promise<void> =>
     httpClient.post("/v1/iam/auth/admin/me/password", data).then(() => undefined),
+};
+
+// ─── Locales ──────────────────────────────────────────────────────────────────
+
+export interface IamLocale {
+  code: string;
+  name: string;
+  nativeName: string | null;
+  isDefault: boolean;
+}
+
+/** GET /v1/iam/locales — public, returns all active locales ordered by default first. */
+export const localesApi = {
+  list: () => httpClient.get<IamLocale[]>("/v1/iam/locales").then((r) => r.data),
 };
