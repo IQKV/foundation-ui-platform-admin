@@ -25,6 +25,12 @@ export type {
   ProposeIamInvitationRequest,
   AdminAccount,
   UpdateAdminAccountRequest,
+  SiteAnnouncement,
+  SiteAnnouncementStatus,
+  SiteAnnouncementTranslation,
+  SiteAnnouncementListResponse,
+  CreateSiteAnnouncementRequest,
+  UpdateSiteAnnouncementRequest,
 } from "./iam";
 export { adminAccountApi } from "./iam";
 export { authApi } from "./auth";

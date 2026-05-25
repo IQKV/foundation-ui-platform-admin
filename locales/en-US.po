@@ -13,8 +13,13 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: src/pages/admin/announcements.index.tsx
+msgid "(no title)"
+msgstr "(no title)"
+
 #. placeholder {0}: localeToNameMap[locale]
 #. placeholder {0}: o.label
+#: src/pages/admin/announcements.index.tsx
 #: src/pages/admin/invitations.index.tsx
 #: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
 #: src/pages/admin/organizations.index.tsx
@@ -100,6 +105,10 @@ msgstr "Active only"
 msgid "Active Subscriptions"
 msgstr "Active Subscriptions"
 
+#: src/features/announcement-admin/ui/translation-fields.tsx
+msgid "Add locale"
+msgstr "Add locale"
+
 #: src/features/set-user-password/ui/set-user-password-modal.tsx
 msgid "Admin password override"
 msgstr "Admin password override"
@@ -108,6 +117,7 @@ msgstr "Admin password override"
 msgid "All plans"
 msgstr "All plans"
 
+#: src/pages/admin/announcements.index.tsx
 #: src/pages/admin/invitations.index.tsx
 #: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
 #: src/pages/admin/organizations.index.tsx
@@ -116,16 +126,60 @@ msgstr "All plans"
 msgid "All statuses"
 msgstr "All statuses"
 
+#: src/pages/admin/announcements.index.tsx
+msgid "All types"
+msgstr "All types"
+
 #: src/pages/admin/organizations.$tenantKey.refunds.tsx
 #: src/pages/admin/refunds.$refundId.tsx
 #: src/pages/admin/refunds.tsx
 msgid "Amount"
 msgstr "Amount"
 
+#: src/features/announcement-admin/ui/create-announcement-modal.tsx
+#: src/features/announcement-admin/ui/edit-announcement-modal.tsx
+msgid "An English (en-US) translation is required."
+msgstr "An English (en-US) translation is required."
+
+#: src/pages/admin/announcements.index.tsx
+msgid "Announcement"
+msgstr "Announcement"
+
+#: src/features/announcement-admin/ui/translation-fields.tsx
+msgid "Announcement message body"
+msgstr "Announcement message body"
+
+#: src/features/announcement-admin/ui/translation-fields.tsx
+msgid "Announcement title"
+msgstr "Announcement title"
+
+#: src/pages/admin/announcements.index.tsx
+msgid "Announcements"
+msgstr "Announcements"
+
+#. placeholder {0}: announcement.status
+#: src/features/announcement-admin/ui/edit-announcement-modal.tsx
+msgid "Announcements in <0>{0}</0> status cannot be edited."
+msgstr "Announcements in <0>{0}</0> status cannot be edited."
+
 #: src/features/plan-catalog/ui/create-plan-modal.tsx
 #: src/pages/admin/plans.$planCode.tsx
 msgid "Annual"
 msgstr "Annual"
+
+#. placeholder {0}: subscription.tenantKey
+#: src/pages/admin/subscriptions.tsx
+msgid "Are you sure you want to cancel the subscription for <0>{0}</0>?"
+msgstr "Are you sure you want to cancel the subscription for <0>{0}</0>?"
+
+#: src/features/announcement-admin/ui/delete-announcement-modal.tsx
+msgid "Are you sure you want to delete <0>{enTitle}</0>? This action cannot be undone."
+msgstr "Are you sure you want to delete <0>{enTitle}</0>? This action cannot be undone."
+
+#. placeholder {0}: subscription.tenantKey
+#: src/pages/admin/subscriptions.tsx
+msgid "Are you sure you want to pause the subscription for <0>{0}</0>?"
+msgstr "Are you sure you want to pause the subscription for <0>{0}</0>?"
 
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Are you sure you want to permanently delete this subscription record? This action cannot be undone and will remove the record from the local database."
@@ -199,6 +253,9 @@ msgstr "Billing settings"
 msgid "Billing Settings"
 msgstr "Billing Settings"
 
+#: src/features/announcement-admin/ui/create-announcement-modal.tsx
+#: src/features/announcement-admin/ui/delete-announcement-modal.tsx
+#: src/features/announcement-admin/ui/edit-announcement-modal.tsx
 #: src/features/change-admin-password/ui/change-admin-password-modal.tsx
 #: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/features/edit-tenant/ui/edit-tenant-modal.tsx
@@ -209,6 +266,7 @@ msgstr "Billing Settings"
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
+#: src/pages/admin/subscriptions.tsx
 msgid "Cancel"
 msgstr "Cancel"
 
@@ -217,8 +275,20 @@ msgid "Cancel at period end"
 msgstr "Cancel at period end"
 
 #: src/pages/admin/subscriptions.tsx
+msgid "Cancel Immediately"
+msgstr "Cancel Immediately"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Cancel Subscription"
+msgstr "Cancel Subscription"
+
+#: src/pages/admin/subscriptions.tsx
 msgid "Canceling"
 msgstr "Canceling"
+
+#: src/pages/admin/announcements.index.tsx
+msgid "Cannot delete a published or in-progress announcement"
+msgstr "Cannot delete a published or in-progress announcement"
 
 #: src/features/change-admin-password/ui/change-admin-password-modal.tsx
 #: src/pages/admin/account.tsx
@@ -229,6 +299,7 @@ msgstr "Change password"
 msgid "Change Password"
 msgstr "Change Password"
 
+#: src/pages/admin/announcements.index.tsx
 #: src/pages/admin/invitations.index.tsx
 #: src/pages/admin/organizations.index.tsx
 #: src/pages/admin/plans.index.tsx
@@ -237,6 +308,7 @@ msgstr "Change Password"
 msgid "Clear"
 msgstr "Clear"
 
+#: src/pages/admin/announcements.index.tsx
 #: src/pages/admin/invitations.index.tsx
 #: src/pages/admin/organizations.index.tsx
 #: src/pages/admin/plans.index.tsx
@@ -280,6 +352,14 @@ msgstr "Confirm password"
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Could not create Stripe Customer Portal session."
 msgstr "Could not create Stripe Customer Portal session."
+
+#: src/features/announcement-admin/ui/delete-announcement-modal.tsx
+msgid "Could not delete the announcement. Please try again."
+msgstr "Could not delete the announcement. Please try again."
+
+#: src/pages/admin/announcements.index.tsx
+msgid "Could not fetch announcements from the API."
+msgstr "Could not fetch announcements from the API."
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Could not fetch billing settings."
@@ -349,6 +429,14 @@ msgstr "Could not fetch your account details."
 msgid "Create"
 msgstr "Create"
 
+#: src/features/announcement-admin/ui/create-announcement-modal.tsx
+msgid "Create announcement"
+msgstr "Create announcement"
+
+#: src/features/announcement-admin/ui/create-announcement-modal.tsx
+msgid "Create Announcement"
+msgstr "Create Announcement"
+
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Create billing settings"
 msgstr "Create billing settings"
@@ -360,6 +448,7 @@ msgstr "Create plan"
 #: src/features/invitation-admin/ui/edit-invitation-modal.tsx
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/pages/admin/-organization-tenant-panels.tsx
+#: src/pages/admin/announcements.index.tsx
 #: src/pages/admin/invitations.index.tsx
 #: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
 #: src/pages/admin/organizations.$tenantKey.tsx
@@ -415,9 +504,18 @@ msgstr "Deactivate"
 msgid "Deactivate plan?"
 msgstr "Deactivate plan?"
 
+#: src/features/announcement-admin/ui/delete-announcement-modal.tsx
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Delete"
 msgstr "Delete"
+
+#: src/pages/admin/announcements.index.tsx
+msgid "Delete announcement"
+msgstr "Delete announcement"
+
+#: src/features/announcement-admin/ui/delete-announcement-modal.tsx
+msgid "Delete Announcement"
+msgstr "Delete Announcement"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Delete billing settings"
@@ -426,6 +524,10 @@ msgstr "Delete billing settings"
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Delete billing settings?"
 msgstr "Delete billing settings?"
+
+#: src/features/announcement-admin/ui/delete-announcement-modal.tsx
+msgid "Delete failed"
+msgstr "Delete failed"
 
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Delete record"
@@ -458,9 +560,22 @@ msgstr "Display name"
 msgid "Display name is required"
 msgstr "Display name is required"
 
+#: src/features/announcement-admin/model/types.ts
+#: src/shared/ui/announcement-status-badge/announcement-status-badge.tsx
+msgid "Draft"
+msgstr "Draft"
+
 #: src/features/plan-catalog/ui/create-plan-modal.tsx
 msgid "e.g. pro-monthly"
 msgstr "e.g. pro-monthly"
+
+#: src/pages/admin/announcements.index.tsx
+msgid "Edit announcement"
+msgstr "Edit announcement"
+
+#: src/features/announcement-admin/ui/edit-announcement-modal.tsx
+msgid "Edit Announcement"
+msgstr "Edit Announcement"
 
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/organizations.index.tsx
@@ -536,6 +651,10 @@ msgstr "Enter new password"
 msgid "Enter your current password"
 msgstr "Enter your current password"
 
+#: src/pages/admin/subscriptions.tsx
+msgid "Error"
+msgstr "Error"
+
 #: src/shared/ui/error-boundary.tsx
 msgid "Error Details (Development)"
 msgstr "Error Details (Development)"
@@ -581,6 +700,19 @@ msgstr "External Payment ID"
 msgid "External Refund ID"
 msgstr "External Refund ID"
 
+#: src/features/announcement-admin/model/types.ts
+#: src/shared/ui/announcement-status-badge/announcement-status-badge.tsx
+msgid "Failed"
+msgstr "Failed"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Failed to cancel subscription"
+msgstr "Failed to cancel subscription"
+
+#: src/features/announcement-admin/ui/create-announcement-modal.tsx
+msgid "Failed to create announcement"
+msgstr "Failed to create announcement"
+
 #: src/pages/admin/index.tsx
 msgid "Failed to load"
 msgstr "Failed to load"
@@ -588,6 +720,10 @@ msgstr "Failed to load"
 #: src/pages/admin/account.tsx
 msgid "Failed to load account"
 msgstr "Failed to load account"
+
+#: src/pages/admin/announcements.index.tsx
+msgid "Failed to load announcements"
+msgstr "Failed to load announcements"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Failed to load billing settings"
@@ -640,6 +776,22 @@ msgstr "Failed to load user"
 msgid "Failed to load users"
 msgstr "Failed to load users"
 
+#: src/pages/admin/subscriptions.tsx
+msgid "Failed to pause subscription"
+msgstr "Failed to pause subscription"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Failed to reactivate subscription"
+msgstr "Failed to reactivate subscription"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Failed to update subscription"
+msgstr "Failed to update subscription"
+
+#: src/features/announcement-admin/model/types.ts
+msgid "Feature"
+msgstr "Feature"
+
 #: src/features/plan-catalog/ui/create-plan-modal.tsx
 #: src/pages/admin/plans.$planCode.tsx
 msgid "Feature set (JSON)"
@@ -677,6 +829,7 @@ msgid "Go to Home"
 msgstr "Go to Home"
 
 #: src/pages/admin/account.tsx
+#: src/pages/admin/announcements.index.tsx
 #: src/pages/admin/index.tsx
 #: src/pages/admin/invitations.index.tsx
 #: src/pages/admin/organizations.$tenantKey.tsx
@@ -696,7 +849,9 @@ msgstr "Home"
 msgid "ID:"
 msgstr "ID:"
 
+#. placeholder {0}: announcement.id
 #. placeholder {0}: user.id
+#: src/features/announcement-admin/ui/edit-announcement-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
 msgid "ID: {0}"
 msgstr "ID: {0}"
@@ -712,6 +867,14 @@ msgstr "Inactive"
 #: src/pages/admin/plans.index.tsx
 msgid "Inactive only"
 msgstr "Inactive only"
+
+#: src/features/announcement-admin/model/types.ts
+msgid "Info"
+msgstr "Info"
+
+#: src/features/announcement-admin/ui/create-announcement-modal.tsx
+msgid "Initial status"
+msgstr "Initial status"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/pages/admin/plans.$planCode.tsx
@@ -757,6 +920,10 @@ msgstr "Joined"
 #: src/pages/admin/users.$userId.tsx
 msgid "Joined Organizations"
 msgstr "Joined Organizations"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Keep Subscription"
+msgstr "Keep Subscription"
 
 #: src/pages/admin/organizations.index.tsx
 msgid "Key"
@@ -815,10 +982,23 @@ msgstr "Loading..."
 msgid "Loading…"
 msgstr "Loading…"
 
+#: src/features/announcement-admin/ui/create-announcement-modal.tsx
+#: src/features/announcement-admin/ui/edit-announcement-modal.tsx
+msgid "Locale is required"
+msgstr "Locale is required"
+
+#: src/pages/admin/announcements.index.tsx
+msgid "Locales"
+msgstr "Locales"
+
 #: src/features/edit-user/model/types.ts
 #: src/shared/ui/user-status-badge/user-status-badge.tsx
 msgid "Locked"
 msgstr "Locked"
+
+#: src/features/announcement-admin/model/types.ts
+msgid "Maintenance"
+msgstr "Maintenance"
 
 #: src/pages/admin/index.tsx
 msgid "Manage organizations"
@@ -836,6 +1016,10 @@ msgstr "Manage users"
 msgid "Manage users, organizations, and subscriptions across all tenants — secured by platform-level authentication."
 msgstr "Manage users, organizations, and subscriptions across all tenants — secured by platform-level authentication."
 
+#: src/pages/admin/subscriptions.tsx
+msgid "Management"
+msgstr "Management"
+
 #: src/pages/admin/-organization-tenant-panels.tsx
 #: src/pages/admin/users.index.tsx
 msgid "Member"
@@ -849,6 +1033,15 @@ msgstr "member(s)"
 #: src/pages/admin/organizations.$tenantKey.tsx
 msgid "Members"
 msgstr "Members"
+
+#: src/features/announcement-admin/ui/translation-fields.tsx
+msgid "Message"
+msgstr "Message"
+
+#: src/features/announcement-admin/ui/create-announcement-modal.tsx
+#: src/features/announcement-admin/ui/edit-announcement-modal.tsx
+msgid "Message is required"
+msgstr "Message is required"
 
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Metadata"
@@ -872,6 +1065,10 @@ msgstr "My Account"
 msgid "Name"
 msgstr "Name"
 
+#: src/pages/admin/announcements.index.tsx
+msgid "New announcement"
+msgstr "New announcement"
+
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "New billing settings"
 msgstr "New billing settings"
@@ -893,6 +1090,14 @@ msgstr "No active organizations found"
 #: src/pages/admin/organizations.$tenantKey.tsx
 #~ msgid "No active subscription"
 #~ msgstr "No active subscription"
+
+#: src/pages/admin/announcements.index.tsx
+msgid "No announcements found"
+msgstr "No announcements found"
+
+#: src/pages/admin/announcements.index.tsx
+msgid "No announcements match the current filters"
+msgstr "No announcements match the current filters"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "No billing settings"
@@ -954,6 +1159,10 @@ msgstr "No subscriptions found for this organization."
 msgid "No subscriptions match the current filters"
 msgstr "No subscriptions match the current filters"
 
+#: src/features/announcement-admin/ui/translation-fields.tsx
+msgid "No translations added. At least en-US is required."
+msgstr "No translations added. At least en-US is required."
+
 #: src/pages/admin/users.index.tsx
 msgid "No users found"
 msgstr "No users found"
@@ -975,6 +1184,10 @@ msgstr "Occurred At"
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Open Billing Portal"
 msgstr "Open Billing Portal"
+
+#: src/features/announcement-admin/ui/edit-announcement-modal.tsx
+msgid "Operation failed"
+msgstr "Operation failed"
 
 #: src/shared/ui/auth-layout/auth-layout.tsx
 msgid "Operator access only"
@@ -1077,6 +1290,14 @@ msgstr "Password requirements:"
 msgid "Passwords do not match"
 msgstr "Passwords do not match"
 
+#: src/pages/admin/subscriptions.tsx
+msgid "Pause"
+msgstr "Pause"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Pause Subscription"
+msgstr "Pause Subscription"
+
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Payment gateway customer identifier (e.g. Stripe cus_…)."
 msgstr "Payment gateway customer identifier (e.g. Stripe cus_…)."
@@ -1085,6 +1306,7 @@ msgstr "Payment gateway customer identifier (e.g. Stripe cus_…)."
 msgid "Payment gateway customer identifier."
 msgstr "Payment gateway customer identifier."
 
+#: src/shared/ui/announcement-status-badge/announcement-status-badge.tsx
 #: src/shared/ui/invitation-status-badge/invitation-status-badge.tsx
 msgid "Pending"
 msgstr "Pending"
@@ -1135,6 +1357,7 @@ msgstr "Plan ID"
 msgid "Plans"
 msgstr "Plans"
 
+#: src/pages/admin/announcements.index.tsx
 #: src/pages/admin/invitations.index.tsx
 #: src/pages/admin/organizations.index.tsx
 #: src/pages/admin/plans.index.tsx
@@ -1156,6 +1379,14 @@ msgstr "Platform Authorities"
 #: src/shared/ui/auth-layout/auth-layout.tsx
 msgid "Platform control,"
 msgstr "Platform control,"
+
+#: src/features/announcement-admin/ui/create-announcement-modal.tsx
+msgid "Please check the form and try again."
+msgstr "Please check the form and try again."
+
+#: src/features/announcement-admin/ui/edit-announcement-modal.tsx
+msgid "Please try again."
+msgstr "Please try again."
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Portal error"
@@ -1187,9 +1418,34 @@ msgstr "Propose invitation"
 msgid "Propose Invitation"
 msgstr "Propose Invitation"
 
+#: src/features/announcement-admin/ui/edit-announcement-modal.tsx
+msgid "Publish"
+msgstr "Publish"
+
+#: src/shared/ui/announcement-status-badge/announcement-status-badge.tsx
+msgid "Published"
+msgstr "Published"
+
+#: src/shared/ui/announcement-status-badge/announcement-status-badge.tsx
+msgid "Publishing"
+msgstr "Publishing"
+
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Quantity"
 msgstr "Quantity"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Reactivate"
+msgstr "Reactivate"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Reactivate Subscription"
+msgstr "Reactivate Subscription"
+
+#. placeholder {0}: subscription.tenantKey
+#: src/pages/admin/subscriptions.tsx
+msgid "Reactivate the subscription for <0>{0}</0>?"
+msgstr "Reactivate the subscription for <0>{0}</0>?"
 
 #: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/features/edit-tenant/ui/edit-tenant-modal.tsx
@@ -1197,9 +1453,14 @@ msgstr "Quantity"
 msgid "read-only"
 msgstr "read-only"
 
+#: src/features/announcement-admin/ui/edit-announcement-modal.tsx
+msgid "Read-only"
+msgstr "Read-only"
+
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/pages/admin/-organization-tenant-panels.tsx
 #: src/pages/admin/account.tsx
+#: src/pages/admin/announcements.index.tsx
 #: src/pages/admin/invitations.index.tsx
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/organizations.index.tsx
@@ -1236,6 +1497,10 @@ msgstr "Renews"
 msgid "Repeat new password"
 msgstr "Repeat new password"
 
+#: src/features/announcement-admin/ui/translation-fields.tsx
+msgid "Required"
+msgstr "Required"
+
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Reset"
 msgstr "Reset"
@@ -1244,6 +1509,7 @@ msgstr "Reset"
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/pages/admin/-organization-tenant-panels.tsx
 #: src/pages/admin/account.tsx
+#: src/pages/admin/announcements.index.tsx
 #: src/pages/admin/invitations.index.tsx
 #: src/pages/admin/organizations.$tenantKey.refunds.tsx
 #: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
@@ -1268,6 +1534,7 @@ msgstr "Revoke invitation"
 msgid "Revoked"
 msgstr "Revoked"
 
+#: src/features/announcement-admin/ui/edit-announcement-modal.tsx
 #: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/features/edit-tenant/ui/edit-tenant-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
@@ -1316,6 +1583,10 @@ msgstr "Search plan…"
 msgid "Search…"
 msgstr "Search…"
 
+#: src/features/announcement-admin/model/types.ts
+msgid "Security"
+msgstr "Security"
+
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 msgid "Select an organization"
 msgstr "Select an organization"
@@ -1335,6 +1606,11 @@ msgstr "Server Error"
 #: src/pages/500.tsx
 #~ msgid "Server Error |Key Value Admin"
 #~ msgstr "Server Error |Key Value Admin"
+
+#. placeholder {0}: subscription.tenantKey
+#: src/pages/admin/subscriptions.tsx
+msgid "Set new quantity for <0>{0}</0>:"
+msgstr "Set new quantity for <0>{0}</0>:"
 
 #: src/features/set-user-password/ui/set-user-password-modal.tsx
 #: src/pages/admin/users.$userId.tsx
@@ -1364,6 +1640,10 @@ msgstr "Showing {rangeStart} – {rangeEnd} of {totalElements} refunds"
 #: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
 msgid "Showing {rangeStart} – {rangeEnd} of {totalElements} subscriptions"
 msgstr "Showing {rangeStart} – {rangeEnd} of {totalElements} subscriptions"
+
+#: src/pages/admin/announcements.index.tsx
+msgid "Showing {rangeStart}–{rangeEnd} of {totalElements} announcements"
+msgstr "Showing {rangeStart}–{rangeEnd} of {totalElements} announcements"
 
 #: src/pages/admin/invitations.index.tsx
 msgid "Showing {rangeStart}–{rangeEnd} of {totalElements} invitations"
@@ -1405,6 +1685,10 @@ msgstr "Sign out"
 msgid "Sign-in failed. Please try again."
 msgstr "Sign-in failed. Please try again."
 
+#: src/pages/admin/announcements.index.tsx
+msgid "Site Announcements"
+msgstr "Site Announcements"
+
 #: src/pages/loading-demo.tsx
 msgid "Slim top progress bar for navigation between pages (automatic with router)."
 msgstr "Slim top progress bar for navigation between pages (automatic with router)."
@@ -1425,10 +1709,12 @@ msgstr "Something went wrong"
 msgid "Start"
 msgstr "Start"
 
+#: src/features/announcement-admin/ui/edit-announcement-modal.tsx
 #: src/features/edit-tenant/ui/edit-tenant-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
 #: src/features/invitation-admin/ui/edit-invitation-modal.tsx
 #: src/pages/admin/-organization-tenant-panels.tsx
+#: src/pages/admin/announcements.index.tsx
 #: src/pages/admin/invitations.index.tsx
 #: src/pages/admin/organizations.$tenantKey.refunds.tsx
 #: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
@@ -1454,9 +1740,25 @@ msgstr "Subject Type:"
 msgid "Subscription"
 msgstr "Subscription"
 
+#: src/pages/admin/subscriptions.tsx
+msgid "Subscription cancellation processed"
+msgstr "Subscription cancellation processed"
+
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Subscription ID"
 msgstr "Subscription ID"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Subscription paused"
+msgstr "Subscription paused"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Subscription reactivated"
+msgstr "Subscription reactivated"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Subscription updated"
+msgstr "Subscription updated"
 
 #: src/pages/admin/-organization-tenant-panels.tsx
 #: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
@@ -1470,6 +1772,10 @@ msgstr "Subscriptions"
 #: src/pages/admin/subscriptions.tsx
 #~ msgid "Subscriptions |Key Value Admin"
 #~ msgstr "Subscriptions |Key Value Admin"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Success"
+msgstr "Success"
 
 #: src/features/edit-tenant/model/types.ts
 #: src/features/edit-user/model/types.ts
@@ -1561,6 +1867,15 @@ msgstr "This will immediately change the user's password and invalidate all thei
 msgid "Timestamps"
 msgstr "Timestamps"
 
+#: src/features/announcement-admin/ui/translation-fields.tsx
+msgid "Title"
+msgstr "Title"
+
+#: src/features/announcement-admin/ui/create-announcement-modal.tsx
+#: src/features/announcement-admin/ui/edit-announcement-modal.tsx
+msgid "Title is required"
+msgstr "Title is required"
+
 #: src/features/sign-in/model/use-sign-in.ts
 msgid "Too many sign-in attempts. Please try again later."
 msgstr "Too many sign-in attempts. Please try again later."
@@ -1568,6 +1883,10 @@ msgstr "Too many sign-in attempts. Please try again later."
 #: src/pages/admin/index.tsx
 msgid "Total Users"
 msgstr "Total Users"
+
+#: src/features/announcement-admin/ui/translation-fields.tsx
+msgid "Translations"
+msgstr "Translations"
 
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Trial End"
@@ -1581,6 +1900,17 @@ msgstr "Trial Start"
 msgid "Try Again"
 msgstr "Try Again"
 
+#: src/features/announcement-admin/ui/create-announcement-modal.tsx
+#: src/features/announcement-admin/ui/edit-announcement-modal.tsx
+#: src/pages/admin/announcements.index.tsx
+msgid "Type"
+msgstr "Type"
+
+#: src/features/announcement-admin/ui/create-announcement-modal.tsx
+#: src/features/announcement-admin/ui/edit-announcement-modal.tsx
+msgid "Type is required"
+msgstr "Type is required"
+
 #: src/features/plan-catalog/ui/create-plan-modal.tsx
 msgid "Unique identifier; use lowercase letters, numbers, and hyphens."
 msgstr "Unique identifier; use lowercase letters, numbers, and hyphens."
@@ -1593,6 +1923,18 @@ msgstr "Unique identifier; use lowercase letters, numbers, and hyphens."
 #: src/pages/admin/users.index.tsx
 msgid "Unverified"
 msgstr "Unverified"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Update"
+msgstr "Update"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Update Quantity"
+msgstr "Update Quantity"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Update Subscription Quantity"
+msgstr "Update Subscription Quantity"
 
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/plans.index.tsx
@@ -1672,6 +2014,10 @@ msgstr "View plan"
 #: src/pages/admin/users.index.tsx
 msgid "View user"
 msgstr "View user"
+
+#: src/features/announcement-admin/model/types.ts
+msgid "Warning"
+msgstr "Warning"
 
 #: src/pages/sign-in.tsx
 msgid "Welcome back"

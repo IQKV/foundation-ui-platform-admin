@@ -126,6 +126,41 @@ export interface ListTenantMembersParams {
   sortDir?: SortDirection;
 }
 
+// ─── Announcement types ───────────────────────────────────────────────────────
+
+export type SiteAnnouncementStatus = "DRAFT" | "PENDING" | "PUBLISHING" | "PUBLISHED" | "FAILED";
+
+export interface SiteAnnouncementTranslation {
+  locale: string;
+  title: string;
+  message: string;
+}
+
+export interface SiteAnnouncement {
+  id: string;
+  type: string;
+  status: SiteAnnouncementStatus;
+  createdAt: string;
+  translations: SiteAnnouncementTranslation[];
+}
+
+export interface SiteAnnouncementListResponse {
+  items: SiteAnnouncement[];
+  totalElements: number;
+}
+
+export interface CreateSiteAnnouncementRequest {
+  type: string;
+  status: SiteAnnouncementStatus;
+  translations: SiteAnnouncementTranslation[];
+}
+
+export interface UpdateSiteAnnouncementRequest {
+  type: string;
+  status: SiteAnnouncementStatus;
+  translations: SiteAnnouncementTranslation[];
+}
+
 // ─── API ──────────────────────────────────────────────────────────────────────
 
 export const iamApi = {
@@ -189,6 +224,26 @@ export const iamApi = {
     httpClient.post<IamInvitation>("/v1/iam/admin/invitations", data).then((r) => r.data),
 
   revokeInvitation: (id: string) => httpClient.delete(`/v1/iam/admin/invitations/${id}`),
+
+  // ─── Announcements ──────────────────────────────────────────────────────────
+
+  listAnnouncements: (params: { limit?: number; offset?: number } = {}) =>
+    httpClient
+      .get<SiteAnnouncementListResponse>("/v1/iam/admin/announcements", { params })
+      .then((r) => r.data),
+
+  getAnnouncement: (id: string) =>
+    httpClient.get<SiteAnnouncement>(`/v1/iam/admin/announcements/${id}`).then((r) => r.data),
+
+  createAnnouncement: (data: CreateSiteAnnouncementRequest) =>
+    httpClient.post<SiteAnnouncement>("/v1/iam/admin/announcements", data).then((r) => r.data),
+
+  updateAnnouncement: (id: string, data: UpdateSiteAnnouncementRequest) =>
+    httpClient.put<SiteAnnouncement>(`/v1/iam/admin/announcements/${id}`, data).then((r) => r.data),
+
+  deleteAnnouncement: (id: string) => httpClient.delete(`/v1/iam/admin/announcements/${id}`),
+
+  publishAnnouncement: (id: string) => httpClient.post(`/v1/iam/admin/announcements/${id}/publish`),
 };
 
 // ─── Platform admin self-service account API ──────────────────────────────────

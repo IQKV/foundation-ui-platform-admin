@@ -9,6 +9,7 @@ import {
   IconMail,
   IconUserCircle,
   IconReceiptRefund,
+  IconSpeakerphone,
 } from "@tabler/icons-react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useState } from "react";
@@ -53,6 +54,11 @@ export function AdminNav() {
       label: t`Plans`,
       icon: <IconTags size={16} />,
       to: "/admin/plans",
+    },
+    {
+      label: t`Announcements`,
+      icon: <IconSpeakerphone size={16} />,
+      to: "/admin/announcements",
     },
   ];
 
