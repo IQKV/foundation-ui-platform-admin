@@ -17,6 +17,10 @@ export default defineConfig(({ mode }) => {
   const apiBasePath = url.pathname; // /api
 
   return {
+    define: {
+      global: "window",
+      "process.env": {},
+    },
     resolve: {
       tsconfigPaths: true,
     },
