@@ -55,3 +55,11 @@ export type {
 } from "./billing";
 export { useDashboardCounts } from "./use-dashboard-counts";
 export type { UseDashboardCountsResult, DashboardCountResult } from "./use-dashboard-counts";
+
+export { notificationApi } from "./iam";
+export type {
+  UserNotification,
+  UserNotificationListResponse,
+  UnreadCountResponse,
+  NotificationPatchRequest,
+} from "./iam";

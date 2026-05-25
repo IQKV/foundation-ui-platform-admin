@@ -2,6 +2,7 @@ import { Group, Text, Burger, Box, Divider, Tooltip, ActionIcon } from "@mantine
 import { IconShieldHalf, IconUserCircle } from "@tabler/icons-react";
 import { Link } from "@tanstack/react-router";
 import { SignOutButton } from "@/features/sign-out";
+import { NotificationBell } from "@/features/notification-bell";
 import { APP_NAME } from "@/shared/lib/page-title";
 import { ColorSchemeToggle } from "@/shared/ui/color-scheme-toggle/color-scheme-toggle";
 import { LocaleSwitcher } from "@/shared/ui/locale-switcher/locale-switcher";
@@ -68,6 +69,7 @@ export function AdminHeader({ opened, onToggle }: AdminHeaderProps) {
       <Group gap="xs" px="md" ml="auto">
         <LocaleSwitcher />
         <ColorSchemeToggle />
+        <NotificationBell />
         <Tooltip label="My Account" withArrow>
           <ActionIcon
             variant="subtle"
