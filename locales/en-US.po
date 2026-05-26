@@ -154,6 +154,7 @@ msgid "Announcement title"
 msgstr "Announcement title"
 
 #: src/pages/admin/announcements.index.tsx
+#: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Announcements"
 msgstr "Announcements"
 
@@ -307,6 +308,11 @@ msgstr "Change Password"
 #: src/pages/admin/users.index.tsx
 msgid "Clear"
 msgstr "Clear"
+
+#: src/features/notification-bell/ui/notification-bell.tsx
+#: src/pages/admin/notifications.tsx
+msgid "Clear all"
+msgstr "Clear all"
 
 #: src/pages/admin/announcements.index.tsx
 #: src/pages/admin/invitations.index.tsx
@@ -832,6 +838,7 @@ msgstr "Go to Home"
 #: src/pages/admin/announcements.index.tsx
 #: src/pages/admin/index.tsx
 #: src/pages/admin/invitations.index.tsx
+#: src/pages/admin/notifications.tsx
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/organizations.index.tsx
 #: src/pages/admin/plans.$planCode.tsx
@@ -933,6 +940,7 @@ msgstr "Key"
 msgid "Key:"
 msgstr "Key:"
 
+#: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/shared/ui/locale-switcher/locale-switcher.tsx
 msgid "Language"
 msgstr "Language"
@@ -977,6 +985,7 @@ msgstr "Loading States Demo"
 msgid "Loading..."
 msgstr "Loading..."
 
+#: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/pages/admin/refunds.$refundId.tsx
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Loading…"
@@ -1019,6 +1028,11 @@ msgstr "Manage users, organizations, and subscriptions across all tenants — se
 #: src/pages/admin/subscriptions.tsx
 msgid "Management"
 msgstr "Management"
+
+#: src/features/notification-bell/ui/notification-bell.tsx
+#: src/pages/admin/notifications.tsx
+msgid "Mark all as read"
+msgstr "Mark all as read"
 
 #: src/pages/admin/-organization-tenant-panels.tsx
 #: src/pages/admin/users.index.tsx
@@ -1119,6 +1133,11 @@ msgstr "No members found"
 msgid "No members match the search"
 msgstr "No members match the search"
 
+#: src/features/notification-bell/ui/notification-bell.tsx
+#: src/pages/admin/notifications.tsx
+msgid "No notifications yet"
+msgstr "No notifications yet"
+
 #: src/pages/admin/organizations.index.tsx
 msgid "No organizations found"
 msgstr "No organizations found"
@@ -1171,9 +1190,19 @@ msgstr "No users found"
 msgid "No users match the current filters"
 msgstr "No users match the current filters"
 
+#: src/features/notification-bell/ui/notification-bell.tsx
+#: src/pages/admin/notifications.tsx
+msgid "Notifications"
+msgstr "Notifications"
+
 #: src/shared/ui/admin-layout/admin-header.tsx
 #~ msgid "Notifications (coming soon)"
 #~ msgstr "Notifications (coming soon)"
+
+#. placeholder {0}: hasUnread ? `, ${unreadCount} unread` : ""
+#: src/features/notification-bell/ui/notification-bell.tsx
+msgid "Notifications{0}"
+msgstr "Notifications{0}"
 
 #: src/pages/admin/organizations.$tenantKey.refunds.tsx
 #: src/pages/admin/refunds.$refundId.tsx
@@ -1587,10 +1616,15 @@ msgstr "Search…"
 msgid "Security"
 msgstr "Security"
 
+#: src/features/notification-bell/ui/notification-bell.tsx
+msgid "See all notifications"
+msgstr "See all notifications"
+
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 msgid "Select an organization"
 msgstr "Select an organization"
 
+#: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/shared/ui/locale-switcher/locale-switcher.tsx
 msgid "Select language"
 msgstr "Select language"
@@ -1622,9 +1656,19 @@ msgstr "Set password"
 msgid "Set Password"
 msgstr "Set Password"
 
+#: src/features/edit-account/ui/edit-account-modal.tsx
+msgid "Sets your preferred language for notifications and emails."
+msgstr "Sets your preferred language for notifications and emails."
+
 #: src/shared/ui/admin-layout/admin-nav.tsx
 #~ msgid "Settings"
 #~ msgstr "Settings"
+
+#. placeholder {0}: notifications.length
+#. placeholder {1}: listData?.totalElements ?? 0
+#: src/features/notification-bell/ui/notification-bell.tsx
+msgid "Showing {0} of {1}"
+msgstr "Showing {0} of {1}"
 
 #. placeholder {0}: Math.min((page - 1) * ORG_MEMBERS_PAGE_SIZE + 1, totalElements)
 #. placeholder {1}: Math.min(page * ORG_MEMBERS_PAGE_SIZE, totalElements)
