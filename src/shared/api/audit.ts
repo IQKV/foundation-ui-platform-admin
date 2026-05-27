@@ -35,7 +35,7 @@ export interface ListAuditRecordsParams {
 export const auditApi = {
   listRecords: async (params: ListAuditRecordsParams) => {
     const { page, size, tenantKey, sortBy, sortDir } = params;
-    const response = await httpClient.get<PagedResponse<AuditRecord>>("/v1/audits", {
+    const response = await httpClient.get<PagedResponse<AuditRecord>>("/v1/audit/admin/logs", {
       params: {
         page,
         size,
@@ -47,12 +47,12 @@ export const auditApi = {
   },
 
   getRecordDetails: async (id: string) => {
-    const response = await httpClient.get<AuditRecord>(`/v1/audits/${id}`);
+    const response = await httpClient.get<AuditRecord>(`/v1/audit/admin/logs/${id}`);
     return response.data;
   },
 
   getActionStats: async (tenantKey?: string) => {
-    const response = await httpClient.get<AuditActionCount[]>("/v1/audits/stats/actions", {
+    const response = await httpClient.get<AuditActionCount[]>("/v1/audit/admin/logs/stats/actions", {
       params: { tenantKey },
     });
     return response.data;
