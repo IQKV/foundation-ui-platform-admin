@@ -10,6 +10,7 @@ import {
   IconUserCircle,
   IconReceiptRefund,
   IconSpeakerphone,
+  IconHistory,
 } from "@tabler/icons-react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useState } from "react";
@@ -34,6 +35,11 @@ export function AdminNav() {
       label: t`Organizations`,
       icon: <IconBuilding size={16} />,
       to: "/admin/organizations",
+    },
+    {
+      label: t`Audit Logs`,
+      icon: <IconHistory size={16} />,
+      to: "/admin/audit-logs",
     },
     {
       label: t`Invitations`,

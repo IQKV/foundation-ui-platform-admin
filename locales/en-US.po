@@ -79,6 +79,10 @@ msgstr "Accessible with proper keyboard handling"
 msgid "Account"
 msgstr "Account"
 
+#: src/pages/admin/audit-logs.tsx
+msgid "Action"
+msgstr "Action"
+
 #: src/pages/admin/organizations.$tenantKey.refunds.tsx
 #: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
 #: src/pages/admin/refunds.tsx
@@ -104,6 +108,22 @@ msgstr "Active only"
 #: src/pages/admin/index.tsx
 msgid "Active Subscriptions"
 msgstr "Active Subscriptions"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Activity History"
+msgstr "Activity History"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Actor"
+msgstr "Actor"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Actor Information"
+msgstr "Actor Information"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Actor Type"
+msgstr "Actor Type"
 
 #: src/features/announcement-admin/ui/translation-fields.tsx
 msgid "Add locale"
@@ -204,6 +224,15 @@ msgstr "At least one special character"
 #: src/shared/ui/admin-layout/admin-nav.tsx
 #~ msgid "Audit Log"
 #~ msgstr "Audit Log"
+
+#: src/pages/admin/audit-logs.tsx
+#: src/shared/ui/admin-layout/admin-nav.tsx
+msgid "Audit Logs"
+msgstr "Audit Logs"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Audit Record Details"
+msgstr "Audit Record Details"
 
 #: src/features/invitation-admin/ui/edit-invitation-modal.tsx
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
@@ -324,6 +353,7 @@ msgid "Clear filters"
 msgstr "Clear filters"
 
 #: src/features/invitation-admin/ui/edit-invitation-modal.tsx
+#: src/pages/admin/audit-logs.tsx
 msgid "Close"
 msgstr "Close"
 
@@ -355,6 +385,10 @@ msgstr "Confirm new password"
 msgid "Confirm password"
 msgstr "Confirm password"
 
+#: src/pages/admin/audit-logs.tsx
+msgid "Correlation ID"
+msgstr "Correlation ID"
+
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Could not create Stripe Customer Portal session."
 msgstr "Could not create Stripe Customer Portal session."
@@ -366,6 +400,10 @@ msgstr "Could not delete the announcement. Please try again."
 #: src/pages/admin/announcements.index.tsx
 msgid "Could not fetch announcements from the API."
 msgstr "Could not fetch announcements from the API."
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Could not fetch audit records from the API."
+msgstr "Could not fetch audit records from the API."
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Could not fetch billing settings."
@@ -657,6 +695,14 @@ msgstr "Enter new password"
 msgid "Enter your current password"
 msgstr "Enter your current password"
 
+#: src/pages/admin/audit-logs.tsx
+msgid "Entity ID"
+msgstr "Entity ID"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Entity Type"
+msgstr "Entity Type"
+
 #: src/pages/admin/subscriptions.tsx
 msgid "Error"
 msgstr "Error"
@@ -664,6 +710,10 @@ msgstr "Error"
 #: src/shared/ui/error-boundary.tsx
 msgid "Error Details (Development)"
 msgstr "Error Details (Development)"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Event Payload"
+msgstr "Event Payload"
 
 #: src/shared/ui/invitation-status-badge/invitation-status-badge.tsx
 msgid "Expired"
@@ -730,6 +780,10 @@ msgstr "Failed to load account"
 #: src/pages/admin/announcements.index.tsx
 msgid "Failed to load announcements"
 msgstr "Failed to load announcements"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Failed to load audit logs"
+msgstr "Failed to load audit logs"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Failed to load billing settings"
@@ -803,6 +857,7 @@ msgstr "Feature"
 msgid "Feature set (JSON)"
 msgstr "Feature set (JSON)"
 
+#: src/pages/admin/audit-logs.tsx
 #: src/pages/admin/refunds.tsx
 msgid "Filter by tenant key…"
 msgstr "Filter by tenant key…"
@@ -836,6 +891,7 @@ msgstr "Go to Home"
 
 #: src/pages/admin/account.tsx
 #: src/pages/admin/announcements.index.tsx
+#: src/pages/admin/audit-logs.tsx
 #: src/pages/admin/index.tsx
 #: src/pages/admin/invitations.index.tsx
 #: src/pages/admin/notifications.tsx
@@ -851,6 +907,10 @@ msgstr "Go to Home"
 #: src/pages/admin/users.index.tsx
 msgid "Home"
 msgstr "Home"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "ID / Email"
+msgstr "ID / Email"
 
 #: src/features/invitation-admin/ui/edit-invitation-modal.tsx
 msgid "ID:"
@@ -916,6 +976,10 @@ msgstr "Invitee"
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 msgid "invitee@example.com"
 msgstr "invitee@example.com"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "IP Address"
+msgstr "IP Address"
 
 #: src/pages/admin/-organization-tenant-panels.tsx
 #: src/pages/admin/account.tsx
@@ -1116,6 +1180,10 @@ msgstr "No announcements match the current filters"
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "No billing settings"
 msgstr "No billing settings"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "No event statistics available"
+msgstr "No event statistics available"
 
 #: src/pages/admin/invitations.index.tsx
 msgid "No invitations found"
@@ -1387,6 +1455,7 @@ msgid "Plans"
 msgstr "Plans"
 
 #: src/pages/admin/announcements.index.tsx
+#: src/pages/admin/audit-logs.tsx
 #: src/pages/admin/invitations.index.tsx
 #: src/pages/admin/organizations.index.tsx
 #: src/pages/admin/plans.index.tsx
@@ -1490,6 +1559,7 @@ msgstr "Read-only"
 #: src/pages/admin/-organization-tenant-panels.tsx
 #: src/pages/admin/account.tsx
 #: src/pages/admin/announcements.index.tsx
+#: src/pages/admin/audit-logs.tsx
 #: src/pages/admin/invitations.index.tsx
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/organizations.index.tsx
@@ -1664,6 +1734,10 @@ msgstr "Sets your preferred language for notifications and emails."
 #~ msgid "Settings"
 #~ msgstr "Settings"
 
+#: src/pages/admin/audit-logs.tsx
+msgid "Severity"
+msgstr "Severity"
+
 #. placeholder {0}: notifications.length
 #. placeholder {1}: listData?.totalElements ?? 0
 #: src/features/notification-bell/ui/notification-bell.tsx
@@ -1836,9 +1910,9 @@ msgstr "Switch to dark mode"
 msgid "Switch to light mode"
 msgstr "Switch to light mode"
 
-#: src/shared/ui/admin-layout/admin-nav.tsx
-#~ msgid "System"
-#~ msgstr "System"
+#: src/pages/admin/audit-logs.tsx
+msgid "System"
+msgstr "System"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Tax id"
@@ -1848,7 +1922,12 @@ msgstr "Tax id"
 msgid "Tax id type"
 msgstr "Tax id type"
 
+#: src/pages/admin/audit-logs.tsx
+msgid "Technical Context"
+msgstr "Technical Context"
+
 #: src/features/plan-catalog/ui/create-plan-modal.tsx
+#: src/pages/admin/audit-logs.tsx
 #: src/pages/admin/invitations.index.tsx
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/refunds.tsx
@@ -1862,6 +1941,7 @@ msgstr "Tenant"
 msgid "Tenant key"
 msgstr "Tenant key"
 
+#: src/pages/admin/audit-logs.tsx
 #: src/pages/admin/refunds.$refundId.tsx
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Tenant Key"
@@ -1907,6 +1987,10 @@ msgstr "This user is not a member of any organization."
 msgid "This will immediately change the user's password and invalidate all their active sessions. The user will need to sign in again with the new password."
 msgstr "This will immediately change the user's password and invalidate all their active sessions. The user will need to sign in again with the new password."
 
+#: src/pages/admin/audit-logs.tsx
+msgid "Timestamp"
+msgstr "Timestamp"
+
 #: src/pages/admin/refunds.$refundId.tsx
 msgid "Timestamps"
 msgstr "Timestamps"
@@ -1923,6 +2007,10 @@ msgstr "Title is required"
 #: src/features/sign-in/model/use-sign-in.ts
 msgid "Too many sign-in attempts. Please try again later."
 msgstr "Too many sign-in attempts. Please try again later."
+
+#: src/pages/admin/audit-logs.tsx
+msgid "total events"
+msgstr "total events"
 
 #: src/pages/admin/index.tsx
 msgid "Total Users"
@@ -2005,6 +2093,10 @@ msgstr "User"
 #~ msgid "User |Key Value Admin"
 #~ msgstr "User |Key Value Admin"
 
+#: src/pages/admin/audit-logs.tsx
+msgid "User Agent"
+msgstr "User Agent"
+
 #: src/pages/admin/users.$userId.tsx
 #: src/pages/admin/users.index.tsx
 #: src/shared/ui/admin-layout/admin-nav.tsx
@@ -2040,6 +2132,7 @@ msgstr "Verified"
 msgid "View / manage invitation"
 msgstr "View / manage invitation"
 
+#: src/pages/admin/audit-logs.tsx
 #: src/pages/admin/organizations.$tenantKey.refunds.tsx
 #: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
 #: src/pages/admin/refunds.tsx

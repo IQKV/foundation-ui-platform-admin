@@ -58,6 +58,9 @@ export type {
 export { useDashboardCounts } from "./use-dashboard-counts";
 export type { UseDashboardCountsResult, DashboardCountResult } from "./use-dashboard-counts";
 
+export { auditApi } from "./audit";
+export type { AuditRecord, AuditActionCount, ListAuditRecordsParams } from "./audit";
+
 export { notificationApi } from "./iam";
 export type {
   UserNotification,

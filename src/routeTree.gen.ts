@@ -24,6 +24,7 @@ import { Route as AdminPlansRouteImport } from "./pages/admin/plans"
 import { Route as AdminOrganizationsRouteImport } from "./pages/admin/organizations"
 import { Route as AdminNotificationsRouteImport } from "./pages/admin/notifications"
 import { Route as AdminInvitationsRouteImport } from "./pages/admin/invitations"
+import { Route as AdminAuditLogsRouteImport } from "./pages/admin/audit-logs"
 import { Route as AdminAnnouncementsRouteImport } from "./pages/admin/announcements"
 import { Route as AdminAccountRouteImport } from "./pages/admin/account"
 import { Route as AdminUsersIndexRouteImport } from "./pages/admin/users.index"
@@ -115,6 +116,11 @@ const AdminNotificationsRoute = AdminNotificationsRouteImport.update({
 const AdminInvitationsRoute = AdminInvitationsRouteImport.update({
   id: "/invitations",
   path: "/invitations",
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminAuditLogsRoute = AdminAuditLogsRouteImport.update({
+  id: "/audit-logs",
+  path: "/audit-logs",
   getParentRoute: () => AdminRoute,
 } as any)
 const AdminAnnouncementsRoute = AdminAnnouncementsRouteImport.update({
@@ -220,6 +226,7 @@ export interface FileRoutesByFullPath {
   "/unauthorized": typeof UnauthorizedRoute
   "/admin/account": typeof AdminAccountRoute
   "/admin/announcements": typeof AdminAnnouncementsRouteWithChildren
+  "/admin/audit-logs": typeof AdminAuditLogsRoute
   "/admin/invitations": typeof AdminInvitationsRouteWithChildren
   "/admin/notifications": typeof AdminNotificationsRoute
   "/admin/organizations": typeof AdminOrganizationsRouteWithChildren
@@ -252,6 +259,7 @@ export interface FileRoutesByTo {
   "/sign-in": typeof SignInRoute
   "/unauthorized": typeof UnauthorizedRoute
   "/admin/account": typeof AdminAccountRoute
+  "/admin/audit-logs": typeof AdminAuditLogsRoute
   "/admin/notifications": typeof AdminNotificationsRoute
   "/admin/refunds": typeof AdminRefundsRouteWithChildren
   "/admin/subscriptions": typeof AdminSubscriptionsRouteWithChildren
@@ -282,6 +290,7 @@ export interface FileRoutesById {
   "/unauthorized": typeof UnauthorizedRoute
   "/admin/account": typeof AdminAccountRoute
   "/admin/announcements": typeof AdminAnnouncementsRouteWithChildren
+  "/admin/audit-logs": typeof AdminAuditLogsRoute
   "/admin/invitations": typeof AdminInvitationsRouteWithChildren
   "/admin/notifications": typeof AdminNotificationsRoute
   "/admin/organizations": typeof AdminOrganizationsRouteWithChildren
@@ -318,6 +327,7 @@ export interface FileRouteTypes {
     | "/unauthorized"
     | "/admin/account"
     | "/admin/announcements"
+    | "/admin/audit-logs"
     | "/admin/invitations"
     | "/admin/notifications"
     | "/admin/organizations"
@@ -350,6 +360,7 @@ export interface FileRouteTypes {
     | "/sign-in"
     | "/unauthorized"
     | "/admin/account"
+    | "/admin/audit-logs"
     | "/admin/notifications"
     | "/admin/refunds"
     | "/admin/subscriptions"
@@ -379,6 +390,7 @@ export interface FileRouteTypes {
     | "/unauthorized"
     | "/admin/account"
     | "/admin/announcements"
+    | "/admin/audit-logs"
     | "/admin/invitations"
     | "/admin/notifications"
     | "/admin/organizations"
@@ -519,6 +531,13 @@ declare module "@tanstack/react-router" {
       path: "/invitations"
       fullPath: "/admin/invitations"
       preLoaderRoute: typeof AdminInvitationsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    "/admin/audit-logs": {
+      id: "/admin/audit-logs"
+      path: "/audit-logs"
+      fullPath: "/admin/audit-logs"
+      preLoaderRoute: typeof AdminAuditLogsRouteImport
       parentRoute: typeof AdminRoute
     }
     "/admin/announcements": {
@@ -760,6 +779,7 @@ const AdminUsersRouteWithChildren = AdminUsersRoute._addFileChildren(
 interface AdminRouteChildren {
   AdminAccountRoute: typeof AdminAccountRoute
   AdminAnnouncementsRoute: typeof AdminAnnouncementsRouteWithChildren
+  AdminAuditLogsRoute: typeof AdminAuditLogsRoute
   AdminInvitationsRoute: typeof AdminInvitationsRouteWithChildren
   AdminNotificationsRoute: typeof AdminNotificationsRoute
   AdminOrganizationsRoute: typeof AdminOrganizationsRouteWithChildren
@@ -773,6 +793,7 @@ interface AdminRouteChildren {
 const AdminRouteChildren: AdminRouteChildren = {
   AdminAccountRoute: AdminAccountRoute,
   AdminAnnouncementsRoute: AdminAnnouncementsRouteWithChildren,
+  AdminAuditLogsRoute: AdminAuditLogsRoute,
   AdminInvitationsRoute: AdminInvitationsRouteWithChildren,
   AdminNotificationsRoute: AdminNotificationsRoute,
   AdminOrganizationsRoute: AdminOrganizationsRouteWithChildren,
