@@ -52,9 +52,12 @@ export const auditApi = {
   },
 
   getActionStats: async (tenantKey?: string) => {
-    const response = await httpClient.get<AuditActionCount[]>("/v1/audit/admin/logs/stats/actions", {
-      params: { tenantKey },
-    });
+    const response = await httpClient.get<AuditActionCount[]>(
+      "/v1/audit/admin/logs/stats/actions",
+      {
+        params: { tenantKey },
+      },
+    );
     return response.data;
   },
 };
