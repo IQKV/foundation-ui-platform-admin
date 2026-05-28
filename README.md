@@ -12,33 +12,41 @@ This repository is the **platform admin surface only** (not the tenant-facing ap
 - **Session** — Access token in memory; refresh token in `sessionStorage` (survives reload within the tab); silent refresh on `/v1/iam/auth/admin/refresh`; inactivity timeout signs out
 - **Dashboard** — Parallel count cards for total users, organizations, and active subscriptions (with per-card loading/error states)
 - **Users** — Paginated, sortable, filterable list; detail view with Overview and Organizations tabs; edit profile; set password
-- **Organizations** — Paginated list with status filter; detail layout with Overview, Members, and Billing settings tabs; edit organization metadata
+- **Organizations** — Paginated list with status filter; detail layout with Overview, Members, Billing settings, Subscriptions, and Refunds tabs; edit organization metadata
 - **Invitations** — List with filters; propose, edit, and revoke invitations
-- **Subscriptions** — Read-only global list with search, status filter, and sorting
+- **Subscriptions** — Read-only global list with search, status filter, and sorting; detail view
 - **Plans** — Plan catalog list; create plan; plan detail with edit and delete
+- **Announcements** — Create, edit, publish, delete announcements with translation support
+- **Audit Logs** — Global audit log view
+- **Notifications** — In-app notifications with WebSocket support; notification bell UI
+- **Refunds** — Refund list and detail views
 - **My account** — View/edit operator profile; change password
 - **i18n** — Lingui with English catalog; locale switcher UI (additional locales can be added in `lingui.config.ts`)
 - **Runtime config** — Override `VITE_*` via `public/config.js` without rebuilding
 
 ### Not implemented yet
 
-Platform actions (ban/unban, unlock, impersonation), subscription lifecycle mutations, system health/jobs, global audit log, advanced dashboard metrics (MRR/ARR, trends), and multi-tab user/org detail views described in product specs.
+Platform actions (ban/unban, unlock, impersonation), subscription lifecycle mutations, system health/jobs, advanced dashboard metrics (MRR/ARR, trends), and multi-tab user/org detail views described in product specs.
 
 ## Feature Status
 
-| Area                        | Status  | Notes                                   |
-| --------------------------- | ------- | --------------------------------------- |
-| Sign-in & session guards    | Done    | `PLATFORM_ADMIN` on `/admin/*`          |
-| Dashboard (count cards)     | Done    | Users, orgs, subscriptions              |
-| User list & detail          | Partial | List + edit/set password; 2 detail tabs |
-| Organization list & detail  | Partial | List + edit; overview, members, billing |
-| Invitations                 | Done    | Propose, edit, revoke                   |
-| Subscriptions (global list) | Partial | Read-only                               |
-| Plan catalog                | Done    | Create, edit, delete                    |
-| Operator account            | Done    | Profile + password                      |
-| Platform actions            | Planned | Ban, unlock, impersonation, etc.        |
-| System administration       | Planned | Health, jobs, audit log                 |
-| Advanced metrics            | Planned | MRR/ARR, growth charts                  |
+| Area                       | Status  | Notes                                                           |
+| -------------------------- | ------- | --------------------------------------------------------------- |
+| Sign-in & session guards   | Done    | `PLATFORM_ADMIN` on `/admin/*`                                  |
+| Dashboard (count cards)    | Done    | Users, orgs, subscriptions                                      |
+| User list & detail         | Done    | List + edit/set password; 2 detail tabs                         |
+| Organization list & detail | Done    | List + edit; overview, members, billing, subscriptions, refunds |
+| Invitations                | Done    | Propose, edit, revoke                                           |
+| Subscriptions              | Done    | Read-only global list + detail view                             |
+| Plan catalog               | Done    | Create, edit, delete                                            |
+| Announcements              | Done    | Create, edit, publish, delete                                   |
+| Audit Logs                 | Done    | Global audit log view                                           |
+| Notifications              | Done    | In-app + WebSocket                                              |
+| Refunds                    | Done    | Refund list + detail                                            |
+| Operator account           | Done    | Profile + password                                              |
+| Platform actions           | Planned | Ban, unlock, impersonation, etc.                                |
+| System administration      | Partial | Audit log implemented; health/jobs planned                      |
+| Advanced metrics           | Planned | MRR/ARR, growth charts                                          |
 
 ## Quick Links
 
@@ -100,23 +108,31 @@ Values on `window.*` take precedence over build-time `VITE_*` variables. Do not 
 
 ## Routes
 
-| Path                                      | Description                           |
-| ----------------------------------------- | ------------------------------------- |
-| `/`                                       | Redirects to `/admin`                 |
-| `/sign-in`                                | Platform admin sign-in                |
-| `/unauthorized`                           | Shown when JWT lacks `PLATFORM_ADMIN` |
-| `/admin`                                  | Dashboard (count cards)               |
-| `/admin/users`                            | User list                             |
-| `/admin/users/:userId`                    | User detail                           |
-| `/admin/organizations`                    | Organization list                     |
-| `/admin/organizations/:tenantKey`         | Organization overview                 |
-| `/admin/organizations/:tenantKey/members` | Organization members                  |
-| `/admin/organizations/:tenantKey/billing` | Tenant billing settings               |
-| `/admin/invitations`                      | Invitation list                       |
-| `/admin/subscriptions`                    | Subscription list (read-only)         |
-| `/admin/plans`                            | Plan catalog                          |
-| `/admin/plans/:planCode`                  | Plan detail / edit                    |
-| `/admin/account`                          | Signed-in operator profile            |
+| Path                                            | Description                           |
+| ----------------------------------------------- | ------------------------------------- |
+| `/`                                             | Redirects to `/admin`                 |
+| `/sign-in`                                      | Platform admin sign-in                |
+| `/unauthorized`                                 | Shown when JWT lacks `PLATFORM_ADMIN` |
+| `/admin`                                        | Dashboard (count cards)               |
+| `/admin/users`                                  | User list                             |
+| `/admin/users/:userId`                          | User detail                           |
+| `/admin/organizations`                          | Organization list                     |
+| `/admin/organizations/:tenantKey`               | Organization overview                 |
+| `/admin/organizations/:tenantKey/members`       | Organization members                  |
+| `/admin/organizations/:tenantKey/billing`       | Tenant billing settings               |
+| `/admin/organizations/:tenantKey/subscriptions` | Tenant subscriptions                  |
+| `/admin/organizations/:tenantKey/refunds`       | Tenant refunds                        |
+| `/admin/invitations`                            | Invitation list                       |
+| `/admin/subscriptions`                          | Subscription list (read-only)         |
+| `/admin/subscriptions/:subscriptionId`          | Subscription detail                   |
+| `/admin/plans`                                  | Plan catalog                          |
+| `/admin/plans/:planCode`                        | Plan detail / edit                    |
+| `/admin/announcements`                          | Announcements list                    |
+| `/admin/audit-logs`                             | Global audit logs                     |
+| `/admin/notifications`                          | Notifications list                    |
+| `/admin/refunds`                                | Refunds list                          |
+| `/admin/refunds/:refundId`                      | Refund detail                         |
+| `/admin/account`                                | Signed-in operator profile            |
 
 ## pnpm Scripts
 
