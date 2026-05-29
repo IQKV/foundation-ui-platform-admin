@@ -59,12 +59,12 @@ export { useDashboardCounts } from "./use-dashboard-counts";
 export type { UseDashboardCountsResult, DashboardCountResult } from "./use-dashboard-counts";
 
 export { auditApi } from "./audit";
-export type { 
-  AuditRecord, 
-  AuditActionCount, 
+export type {
+  AuditRecord,
+  AuditActionCount,
   ListAuditRecordsParams,
   SigninAttemptRecord,
-  SigninAttemptDetails
+  SigninAttemptDetails,
 } from "./audit";
 
 export { notificationApi } from "./iam";
