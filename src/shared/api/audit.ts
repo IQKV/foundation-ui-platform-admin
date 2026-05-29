@@ -28,18 +28,45 @@ export interface ListAuditRecordsParams {
   page?: number;
   size?: number;
   tenantKey?: string;
+  action?: string;
   sortBy?: string;
   sortDir?: SortDirection;
 }
 
+// Signin-specific types for better type safety
+export interface SigninAttemptDetails {
+  email: string;
+  userId?: string;
+  tenantKey?: string;
+  result: "SUCCESS" | "FAILURE";
+  failureReason?:
+    | "INVALID_CREDENTIALS"
+    | "ACCOUNT_LOCKED"
+    | "ACCOUNT_NOT_ACTIVE"
+    | "TENANT_SUSPENDED"
+    | "TENANT_NOT_AVAILABLE"
+    | "EMAIL_NOT_VERIFIED"
+    | "UNKNOWN";
+  ipAddress?: string;
+  userAgent?: string;
+  occurredAt: string;
+}
+
+export interface SigninAttemptRecord extends AuditRecord {
+  action: "auth.signin.attempt";
+  entityType: "AUTHENTICATION";
+  details: SigninAttemptDetails;
+}
+
 export const auditApi = {
   listRecords: async (params: ListAuditRecordsParams) => {
-    const { page, size, tenantKey, sortBy, sortDir } = params;
+    const { page, size, tenantKey, action, sortBy, sortDir } = params;
     const response = await httpClient.get<PagedResponse<AuditRecord>>("/v1/audit/admin/logs", {
       params: {
         page,
         size,
         tenantKey,
+        action,
         sort: sortBy ? `${sortBy},${sortDir || "desc"}` : undefined,
       },
     });
@@ -59,5 +86,10 @@ export const auditApi = {
       },
     );
     return response.data;
+  },
+
+  // Convenience method for signin attempts
+  listSigninAttempts: async (params: Omit<ListAuditRecordsParams, "action">) => {
+    return auditApi.listRecords({ ...params, action: "auth.signin.attempt" });
   },
 };

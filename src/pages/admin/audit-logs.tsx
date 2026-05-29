@@ -19,6 +19,11 @@ import {
   Grid,
   SimpleGrid,
   Title,
+  Select,
+  Tabs,
+  Card,
+  ThemeIcon,
+  Flex,
 } from "@mantine/core";
 import { useDisclosure, useDebouncedValue } from "@mantine/hooks";
 import { useQuery } from "@tanstack/react-query";
@@ -33,13 +38,27 @@ import {
   IconUser,
   IconNetwork,
   IconDevices,
+  IconLogin,
+  IconShield,
+  IconFilter,
+  IconX,
+  IconCheck,
+  IconLock,
+  IconUserX,
+  IconBuildingSkyscraper,
 } from "@tabler/icons-react";
 import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
 import { Helmet } from "@dr.pogodin/react-helmet";
 import { pageTitle } from "@/shared/lib/page-title";
 import { auditApi } from "@/shared/api";
-import type { AuditRecord, AuditActionCount, SortDirection } from "@/shared/api";
+import type {
+  AuditRecord,
+  AuditActionCount,
+  SortDirection,
+  SigninAttemptRecord,
+  SigninAttemptDetails,
+} from "@/shared/api";
 import { PageHeader } from "@/shared/ui";
 
 export const Route = createFileRoute("/admin/audit-logs")({
@@ -62,10 +81,87 @@ function SeverityBadge({ severity }: { severity: AuditRecord["severity"] }) {
   );
 }
 
+function SigninResultBadge({ result }: { result: "SUCCESS" | "FAILURE" }) {
+  return (
+    <Badge
+      variant="light"
+      color={result === "SUCCESS" ? "green" : "red"}
+      size="sm"
+      radius="sm"
+      leftSection={result === "SUCCESS" ? <IconCheck size={12} /> : <IconX size={12} />}
+    >
+      {result}
+    </Badge>
+  );
+}
+
+function FailureReasonBadge({ reason }: { reason?: string }) {
+  if (!reason) return null;
+
+  const getReasonIcon = (reason: string) => {
+    switch (reason) {
+      case "INVALID_CREDENTIALS":
+        return <IconUserX size={12} />;
+      case "ACCOUNT_LOCKED":
+        return <IconLock size={12} />;
+      case "ACCOUNT_NOT_ACTIVE":
+        return <IconUserX size={12} />;
+      case "TENANT_SUSPENDED":
+        return <IconBuildingSkyscraper size={12} />;
+      case "TENANT_NOT_AVAILABLE":
+        return <IconBuildingSkyscraper size={12} />;
+      default:
+        return <IconAlertCircle size={12} />;
+    }
+  };
+
+  const getReasonColor = (reason: string) => {
+    switch (reason) {
+      case "INVALID_CREDENTIALS":
+        return "orange";
+      case "ACCOUNT_LOCKED":
+        return "red";
+      case "ACCOUNT_NOT_ACTIVE":
+        return "yellow";
+      case "TENANT_SUSPENDED":
+        return "red";
+      case "TENANT_NOT_AVAILABLE":
+        return "red";
+      default:
+        return "gray";
+    }
+  };
+
+  return (
+    <Badge
+      variant="light"
+      color={getReasonColor(reason)}
+      size="xs"
+      radius="sm"
+      leftSection={getReasonIcon(reason)}
+    >
+      {reason.replace(/_/g, " ")}
+    </Badge>
+  );
+}
+
+function isSigninAttempt(record: AuditRecord): record is SigninAttemptRecord {
+  return record.action === "auth.signin.attempt" && record.entityType === "AUTHENTICATION";
+}
+
+function getEmailFromRecord(record: AuditRecord): string {
+  if (isSigninAttempt(record)) {
+    return record.details.email;
+  }
+  return record.actorEmail || record.actorId || "System";
+}
+
 function AdminAuditLogsPage() {
   const { t } = useLingui();
   const [page, setPage] = useState(1);
   const [tenantKey, setTenantKey] = useState("");
+  const [actionFilter, setActionFilter] = useState<string>("");
+  const [activeTab, setActiveTab] = useState<string>("all");
   const [debouncedTenantKey] = useDebouncedValue(tenantKey, 300);
 
   const [sortStatus, setSortStatus] = useState<DataTableSortStatus<AuditRecord>>({
@@ -79,13 +175,26 @@ function AdminAuditLogsPage() {
   const sortBy = sortStatus.columnAccessor;
   const sortDir = sortStatus.direction as SortDirection;
 
+  // Determine action filter based on active tab
+  const getActionFilter = () => {
+    switch (activeTab) {
+      case "signin":
+        return "auth.signin.attempt";
+      case "all":
+        return actionFilter || undefined;
+      default:
+        return actionFilter || undefined;
+    }
+  };
+
   const { data, isLoading, isError, refetch, isFetching } = useQuery({
-    queryKey: ["admin", "audit-logs", page, debouncedTenantKey, sortBy, sortDir],
+    queryKey: ["admin", "audit-logs", page, debouncedTenantKey, getActionFilter(), sortBy, sortDir],
     queryFn: () =>
       auditApi.listRecords({
         page: page - 1,
         size: PAGE_SIZE,
         tenantKey: debouncedTenantKey || undefined,
+        action: getActionFilter(),
         sortBy,
         sortDir,
       }),
@@ -94,6 +203,18 @@ function AdminAuditLogsPage() {
   const { data: stats } = useQuery({
     queryKey: ["admin", "audit-stats", debouncedTenantKey],
     queryFn: () => auditApi.getActionStats(debouncedTenantKey || undefined),
+  });
+
+  // Get signin-specific stats
+  const { data: signinStats } = useQuery({
+    queryKey: ["admin", "signin-stats", debouncedTenantKey],
+    queryFn: () =>
+      auditApi.listSigninAttempts({
+        page: 0,
+        size: 1000, // Get more records for stats
+        tenantKey: debouncedTenantKey || undefined,
+      }),
+    enabled: activeTab === "signin",
   });
 
   const handleSortChange = (next: DataTableSortStatus<AuditRecord>) => {
@@ -106,7 +227,35 @@ function AdminAuditLogsPage() {
     openDetails();
   };
 
+  const handleTabChange = (value: string | null) => {
+    if (value) {
+      setActiveTab(value);
+      setPage(1);
+      // Clear action filter when switching tabs
+      if (value !== "all") {
+        setActionFilter("");
+      }
+    }
+  };
+
   const totalElements = data?.totalElements ?? 0;
+
+  // Calculate signin stats
+  const signinStatsData = signinStats?.content
+    ? (() => {
+        const attempts = signinStats.content;
+        const successful = attempts.filter(
+          (record) => isSigninAttempt(record) && record.details.result === "SUCCESS",
+        ).length;
+        const failed = attempts.filter(
+          (record) => isSigninAttempt(record) && record.details.result === "FAILURE",
+        ).length;
+        const uniqueUsers = new Set(attempts.map((record) => getEmailFromRecord(record))).size;
+        const successRate = attempts.length > 0 ? (successful / attempts.length) * 100 : 0;
+
+        return { total: attempts.length, successful, failed, uniqueUsers, successRate };
+      })()
+    : null;
 
   return (
     <Container size="xl" py={0}>
@@ -133,34 +282,108 @@ function AdminAuditLogsPage() {
       />
 
       <Stack gap="md">
-        {/* Stats Section */}
-        <SimpleGrid cols={{ base: 1, sm: 2, md: 4 }} spacing="md">
-          {stats?.slice(0, 4).map((stat: AuditActionCount) => (
-            <Paper key={stat.action} withBorder p="md" radius="md">
-              <Group justify="space-between">
-                <Text size="xs" c="dimmed" fw={700} tt="uppercase">
-                  {stat.action}
-                </Text>
-                <IconActivity size={16} color="var(--mantine-color-blue-6)" />
-              </Group>
-              <Group align="flex-end" gap="xs" mt="xs">
+        <Tabs value={activeTab} onChange={handleTabChange}>
+          <Tabs.List>
+            <Tabs.Tab value="all" leftSection={<IconActivity size={16} />}>
+              <Trans>All Events</Trans>
+            </Tabs.Tab>
+            <Tabs.Tab value="signin" leftSection={<IconLogin size={16} />}>
+              <Trans>Signin Attempts</Trans>
+            </Tabs.Tab>
+          </Tabs.List>
+
+          <Tabs.Panel value="all" pt="md">
+            {/* General Stats Section */}
+            <SimpleGrid cols={{ base: 1, sm: 2, md: 4 }} spacing="md" mb="md">
+              {stats?.slice(0, 4).map((stat: AuditActionCount) => (
+                <Paper key={stat.action} withBorder p="md" radius="md">
+                  <Group justify="space-between">
+                    <Text size="xs" c="dimmed" fw={700} tt="uppercase">
+                      {stat.action}
+                    </Text>
+                    <IconActivity size={16} color="var(--mantine-color-blue-6)" />
+                  </Group>
+                  <Group align="flex-end" gap="xs" mt="xs">
+                    <Text size="xl" fw={700}>
+                      {stat.count}
+                    </Text>
+                    <Text size="xs" c="dimmed" pb={3}>
+                      <Trans>total events</Trans>
+                    </Text>
+                  </Group>
+                </Paper>
+              ))}
+              {(!stats || stats.length === 0) && (
+                <Paper withBorder p="md" radius="md" style={{ gridColumn: "1 / -1" }}>
+                  <Text size="sm" c="dimmed" ta="center">
+                    <Trans>No event statistics available</Trans>
+                  </Text>
+                </Paper>
+              )}
+            </SimpleGrid>
+          </Tabs.Panel>
+
+          <Tabs.Panel value="signin" pt="md">
+            {/* Signin-specific Stats Section */}
+            <SimpleGrid cols={{ base: 1, sm: 2, md: 4 }} spacing="md" mb="md">
+              <Card withBorder p="md" radius="md">
+                <Group justify="space-between" mb="xs">
+                  <Text size="xs" c="dimmed" fw={700} tt="uppercase">
+                    <Trans>Total Attempts</Trans>
+                  </Text>
+                  <ThemeIcon size="sm" variant="light" color="blue">
+                    <IconLogin size={14} />
+                  </ThemeIcon>
+                </Group>
                 <Text size="xl" fw={700}>
-                  {stat.count}
+                  {signinStatsData?.total ?? 0}
                 </Text>
-                <Text size="xs" c="dimmed" pb={3}>
-                  <Trans>total events</Trans>
+              </Card>
+
+              <Card withBorder p="md" radius="md">
+                <Group justify="space-between" mb="xs">
+                  <Text size="xs" c="dimmed" fw={700} tt="uppercase">
+                    <Trans>Successful</Trans>
+                  </Text>
+                  <ThemeIcon size="sm" variant="light" color="green">
+                    <IconCheck size={14} />
+                  </ThemeIcon>
+                </Group>
+                <Text size="xl" fw={700} c="green">
+                  {signinStatsData?.successful ?? 0}
                 </Text>
-              </Group>
-            </Paper>
-          ))}
-          {(!stats || stats.length === 0) && (
-            <Paper withBorder p="md" radius="md" style={{ gridColumn: "1 / -1" }}>
-              <Text size="sm" c="dimmed" ta="center">
-                <Trans>No event statistics available</Trans>
-              </Text>
-            </Paper>
-          )}
-        </SimpleGrid>
+              </Card>
+
+              <Card withBorder p="md" radius="md">
+                <Group justify="space-between" mb="xs">
+                  <Text size="xs" c="dimmed" fw={700} tt="uppercase">
+                    <Trans>Failed</Trans>
+                  </Text>
+                  <ThemeIcon size="sm" variant="light" color="red">
+                    <IconX size={14} />
+                  </ThemeIcon>
+                </Group>
+                <Text size="xl" fw={700} c="red">
+                  {signinStatsData?.failed ?? 0}
+                </Text>
+              </Card>
+
+              <Card withBorder p="md" radius="md">
+                <Group justify="space-between" mb="xs">
+                  <Text size="xs" c="dimmed" fw={700} tt="uppercase">
+                    <Trans>Success Rate</Trans>
+                  </Text>
+                  <ThemeIcon size="sm" variant="light" color="teal">
+                    <IconShield size={14} />
+                  </ThemeIcon>
+                </Group>
+                <Text size="xl" fw={700} c="teal">
+                  {signinStatsData?.successRate?.toFixed(1) ?? 0}%
+                </Text>
+              </Card>
+            </SimpleGrid>
+          </Tabs.Panel>
+        </Tabs>
 
         {isError && (
           <Alert
@@ -210,11 +433,34 @@ function AdminAuditLogsPage() {
                       color="gray"
                       onClick={() => setTenantKey("")}
                     >
-                      <IconRefresh size={12} />
+                      <IconX size={12} />
                     </ActionIcon>
                   ) : null
                 }
               />
+
+              {activeTab === "all" && (
+                <Select
+                  placeholder={t`Filter by action…`}
+                  size="xs"
+                  value={actionFilter}
+                  onChange={(value) => {
+                    setActionFilter(value || "");
+                    setPage(1);
+                  }}
+                  data={[
+                    { value: "", label: t`All actions` },
+                    { value: "auth.signin.attempt", label: t`Signin attempts` },
+                    { value: "user.created", label: t`User created` },
+                    { value: "user.updated", label: t`User updated` },
+                    { value: "tenant.created", label: t`Tenant created` },
+                    { value: "tenant.updated", label: t`Tenant updated` },
+                  ]}
+                  leftSection={<IconFilter size={14} />}
+                  clearable
+                  searchable
+                />
+              )}
             </Group>
           </Group>
 
@@ -240,9 +486,17 @@ function AdminAuditLogsPage() {
                 title: t`Action`,
                 sortable: true,
                 render: (record) => (
-                  <Text size="xs" fw={500}>
-                    {record.action}
-                  </Text>
+                  <Flex direction="column" gap={4}>
+                    <Text size="xs" fw={500}>
+                      {record.action}
+                    </Text>
+                    {isSigninAttempt(record) && (
+                      <Group gap={4}>
+                        <SigninResultBadge result={record.details.result} />
+                        <FailureReasonBadge reason={record.details.failureReason} />
+                      </Group>
+                    )}
+                  </Flex>
                 ),
               },
               {
@@ -259,10 +513,20 @@ function AdminAuditLogsPage() {
                 accessor: "actorEmail",
                 title: t`Actor`,
                 render: (record) => (
-                  <Group gap="xs" wrap="nowrap">
-                    <IconUser size={14} color="gray" />
-                    <Text size="xs">{record.actorEmail || record.actorId || t`System`}</Text>
-                  </Group>
+                  <Flex direction="column" gap={2}>
+                    <Group gap="xs" wrap="nowrap">
+                      <IconUser size={14} color="gray" />
+                      <Text size="xs">{getEmailFromRecord(record)}</Text>
+                    </Group>
+                    {record.actorIp && (
+                      <Group gap="xs" wrap="nowrap">
+                        <IconNetwork size={12} color="gray" />
+                        <Text size="xs" c="dimmed">
+                          {record.actorIp}
+                        </Text>
+                      </Group>
+                    )}
+                  </Flex>
                 ),
               },
               {
