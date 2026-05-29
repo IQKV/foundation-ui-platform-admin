@@ -133,6 +133,14 @@ msgstr "Add locale"
 msgid "Admin password override"
 msgstr "Admin password override"
 
+#: src/pages/admin/audit-logs.tsx
+msgid "All actions"
+msgstr "All actions"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "All Events"
+msgstr "All Events"
+
 #: src/pages/admin/plans.index.tsx
 msgid "All plans"
 msgstr "All plans"
@@ -206,6 +214,10 @@ msgstr "Are you sure you want to pause the subscription for <0>{0}</0>?"
 msgid "Are you sure you want to permanently delete this subscription record? This action cannot be undone and will remove the record from the local database."
 msgstr "Are you sure you want to permanently delete this subscription record? This action cannot be undone and will remove the record from the local database."
 
+#: src/features/ban-user/ui/ban-user-modal.tsx
+msgid "Are you sure?"
+msgstr "Are you sure?"
+
 #: src/features/change-admin-password/ui/change-admin-password-modal.tsx
 #: src/features/set-user-password/ui/set-user-password-modal.tsx
 msgid "At least 8 characters, at most 128"
@@ -253,6 +265,19 @@ msgstr "Automatic router integration via <0>router.subscribe()</0>"
 msgid "Back to list"
 msgstr "Back to list"
 
+#: src/features/ban-user/ui/ban-user-modal.tsx
+#: src/pages/admin/users.index.tsx
+msgid "Ban user"
+msgstr "Ban user"
+
+#: src/features/ban-user/ui/ban-user-modal.tsx
+msgid "Ban User"
+msgstr "Ban User"
+
+#: src/features/ban-user/ui/ban-user-modal.tsx
+msgid "Banning this user will immediately invalidate all their active sessions, revoke their access, and send them a notification email. They will not be able to sign in again until unbanned."
+msgstr "Banning this user will immediately invalidate all their active sessions, revoke their access, and send them a notification email. They will not be able to sign in again until unbanned."
+
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Billing address (JSON)"
 msgstr "Billing address (JSON)"
@@ -286,6 +311,8 @@ msgstr "Billing Settings"
 #: src/features/announcement-admin/ui/create-announcement-modal.tsx
 #: src/features/announcement-admin/ui/delete-announcement-modal.tsx
 #: src/features/announcement-admin/ui/edit-announcement-modal.tsx
+#: src/features/ban-user/ui/ban-user-modal.tsx
+#: src/features/ban-user/ui/unban-user-modal.tsx
 #: src/features/change-admin-password/ui/change-admin-password-modal.tsx
 #: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/features/edit-tenant/ui/edit-tenant-modal.tsx
@@ -724,6 +751,10 @@ msgstr "Expired"
 msgid "Expires"
 msgstr "Expires"
 
+#: src/features/ban-user/ui/ban-user-modal.tsx
+msgid "Expires at (optional)"
+msgstr "Expires at (optional)"
+
 #: src/pages/admin/organizations.tsx
 #: src/pages/admin/subscriptions.tsx
 #: src/pages/admin/users.tsx
@@ -757,6 +788,7 @@ msgid "External Refund ID"
 msgstr "External Refund ID"
 
 #: src/features/announcement-admin/model/types.ts
+#: src/pages/admin/audit-logs.tsx
 #: src/shared/ui/announcement-status-badge/announcement-status-badge.tsx
 msgid "Failed"
 msgstr "Failed"
@@ -856,6 +888,10 @@ msgstr "Feature"
 #: src/pages/admin/plans.$planCode.tsx
 msgid "Feature set (JSON)"
 msgstr "Feature set (JSON)"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Filter by action…"
+msgstr "Filter by action…"
 
 #: src/pages/admin/audit-logs.tsx
 #: src/pages/admin/refunds.tsx
@@ -1421,6 +1457,10 @@ msgstr "Period"
 msgid "Period End"
 msgstr "Period End"
 
+#: src/features/ban-user/ui/ban-user-modal.tsx
+msgid "Pick a date and time"
+msgstr "Pick a date and time"
+
 #: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/subscriptions.tsx
@@ -1516,6 +1556,10 @@ msgstr "Propose invitation"
 msgid "Propose Invitation"
 msgstr "Propose Invitation"
 
+#: src/features/ban-user/ui/ban-user-modal.tsx
+msgid "Provide a reason for the ban…"
+msgstr "Provide a reason for the ban…"
+
 #: src/features/announcement-admin/ui/edit-announcement-modal.tsx
 msgid "Publish"
 msgstr "Publish"
@@ -1554,6 +1598,10 @@ msgstr "read-only"
 #: src/features/announcement-admin/ui/edit-announcement-modal.tsx
 msgid "Read-only"
 msgstr "Read-only"
+
+#: src/features/ban-user/ui/ban-user-modal.tsx
+msgid "Reason (optional)"
+msgstr "Reason (optional)"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/pages/admin/-organization-tenant-panels.tsx
@@ -1603,6 +1651,10 @@ msgstr "Required"
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Reset"
 msgstr "Reset"
+
+#: src/features/ban-user/ui/unban-user-modal.tsx
+msgid "Restore access"
+msgstr "Restore access"
 
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
@@ -1803,6 +1855,14 @@ msgstr "Sign out"
 msgid "Sign-in failed. Please try again."
 msgstr "Sign-in failed. Please try again."
 
+#: src/pages/admin/audit-logs.tsx
+msgid "Signin attempts"
+msgstr "Signin attempts"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Signin Attempts"
+msgstr "Signin Attempts"
+
 #: src/pages/admin/announcements.index.tsx
 msgid "Site Announcements"
 msgstr "Site Announcements"
@@ -1895,6 +1955,14 @@ msgstr "Subscriptions"
 msgid "Success"
 msgstr "Success"
 
+#: src/pages/admin/audit-logs.tsx
+msgid "Success Rate"
+msgstr "Success Rate"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Successful"
+msgstr "Successful"
+
 #: src/features/edit-tenant/model/types.ts
 #: src/features/edit-user/model/types.ts
 #: src/shared/ui/tenant-status-badge/tenant-status-badge.tsx
@@ -1911,8 +1979,8 @@ msgid "Switch to light mode"
 msgstr "Switch to light mode"
 
 #: src/pages/admin/audit-logs.tsx
-msgid "System"
-msgstr "System"
+#~ msgid "System"
+#~ msgstr "System"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Tax id"
@@ -1934,6 +2002,10 @@ msgstr "Technical Context"
 #: src/pages/admin/subscriptions.tsx
 msgid "Tenant"
 msgstr "Tenant"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Tenant created"
+msgstr "Tenant created"
 
 #: src/features/edit-tenant/ui/edit-tenant-modal.tsx
 #: src/features/invitation-admin/ui/edit-invitation-modal.tsx
@@ -1958,6 +2030,10 @@ msgstr "Tenant key:"
 #: src/pages/admin/invitations.index.tsx
 msgid "Tenant key…"
 msgstr "Tenant key…"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Tenant updated"
+msgstr "Tenant updated"
 
 #: src/pages/loading-demo.tsx
 msgid "Theme-aware (respects dark mode and color scheme)"
@@ -2009,6 +2085,10 @@ msgid "Too many sign-in attempts. Please try again later."
 msgstr "Too many sign-in attempts. Please try again later."
 
 #: src/pages/admin/audit-logs.tsx
+msgid "Total Attempts"
+msgstr "Total Attempts"
+
+#: src/pages/admin/audit-logs.tsx
 msgid "total events"
 msgstr "total events"
 
@@ -2042,6 +2122,19 @@ msgstr "Type"
 #: src/features/announcement-admin/ui/edit-announcement-modal.tsx
 msgid "Type is required"
 msgstr "Type is required"
+
+#: src/features/ban-user/ui/unban-user-modal.tsx
+#: src/pages/admin/users.index.tsx
+msgid "Unban user"
+msgstr "Unban user"
+
+#: src/features/ban-user/ui/unban-user-modal.tsx
+msgid "Unban User"
+msgstr "Unban User"
+
+#: src/features/ban-user/ui/unban-user-modal.tsx
+msgid "Unbanning this user will restore their access to the platform. They will be able to sign in again with their existing credentials."
+msgstr "Unbanning this user will restore their access to the platform. They will be able to sign in again with their existing credentials."
 
 #: src/features/plan-catalog/ui/create-plan-modal.tsx
 msgid "Unique identifier; use lowercase letters, numbers, and hyphens."
@@ -2096,6 +2189,14 @@ msgstr "User"
 #: src/pages/admin/audit-logs.tsx
 msgid "User Agent"
 msgstr "User Agent"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "User created"
+msgstr "User created"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "User updated"
+msgstr "User updated"
 
 #: src/pages/admin/users.$userId.tsx
 #: src/pages/admin/users.index.tsx

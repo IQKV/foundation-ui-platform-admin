@@ -167,6 +167,25 @@ export interface UpdateSiteAnnouncementRequest {
 
 // ─── API ──────────────────────────────────────────────────────────────────────
 
+// ─── Ban types ─────────────────────────────────────────────────────────────────
+
+export interface BanUserRequest {
+  reason?: string;
+  expiresAt?: string;
+}
+
+export interface BanResponse {
+  id: string;
+  userId: string;
+  initiatorId: string;
+  type: "PLATFORM" | "TENANT";
+  tenantKey?: string;
+  reason?: string;
+  expiresAt?: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
 export const iamApi = {
   countUsers: () => httpClient.get<CountResponse>("/v1/iam/admin/users/count").then((r) => r.data),
 
@@ -182,6 +201,11 @@ export const iamApi = {
     httpClient.post(`/v1/iam/admin/users/${id}/password`, { newPassword }),
 
   deleteUser: (id: string) => httpClient.delete(`/v1/iam/admin/users/${id}`),
+
+  banUser: (id: string, data: BanUserRequest) =>
+    httpClient.post<BanResponse>(`/v1/iam/admin/users/${id}/ban`, data).then((r) => r.data),
+
+  unbanUser: (id: string) => httpClient.post(`/v1/iam/admin/users/${id}/unban`),
 
   countTenants: () =>
     httpClient.get<CountResponse>("/v1/iam/admin/tenants/count").then((r) => r.data),

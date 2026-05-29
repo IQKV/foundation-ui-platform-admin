@@ -31,6 +31,8 @@ export type {
   SiteAnnouncementListResponse,
   CreateSiteAnnouncementRequest,
   UpdateSiteAnnouncementRequest,
+  BanUserRequest,
+  BanResponse,
 } from "./iam";
 export { adminAccountApi } from "./iam";
 export { localesApi } from "./iam";

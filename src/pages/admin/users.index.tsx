@@ -30,6 +30,8 @@ import {
   IconAlertCircle,
   IconFilter,
   IconKey,
+  IconBan,
+  IconUserCheck,
 } from "@tabler/icons-react";
 import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
@@ -40,6 +42,7 @@ import type { IamUser, IamUserSortField, IamUserStatus, SortDirection } from "@/
 import { UserStatusBadge, PageHeader } from "@/shared/ui";
 import { EditUserModal } from "@/features/edit-user";
 import { SetUserPasswordModal } from "@/features/set-user-password";
+import { BanUserModal, UnbanUserModal } from "@/features/ban-user";
 
 export const Route = createFileRoute("/admin/users/")({
   component: AdminUsersPage,
@@ -89,6 +92,12 @@ function AdminUsersPage() {
 
   const [pwModalOpened, { open: openPwModal, close: closePwModal }] = useDisclosure(false);
   const [pwUser, setPwUser] = useState<IamUser | null>(null);
+
+  const [banModalOpened, { open: openBanModal, close: closeBanModal }] = useDisclosure(false);
+  const [banUser, setBanUser] = useState<IamUser | null>(null);
+
+  const [unbanModalOpened, { open: openUnbanModal, close: closeUnbanModal }] = useDisclosure(false);
+  const [unbanUser, setUnbanUser] = useState<IamUser | null>(null);
 
   const sortBy = SORT_FIELD_MAP[sortStatus.columnAccessor] ?? "createdAt";
   const sortDir = sortStatus.direction as SortDirection;
@@ -146,6 +155,26 @@ function AdminUsersPage() {
   const handleClosePw = () => {
     closePwModal();
     setTimeout(() => setPwUser(null), 300);
+  };
+
+  const handleBan = (user: IamUser) => {
+    setBanUser(user);
+    openBanModal();
+  };
+
+  const handleCloseBan = () => {
+    closeBanModal();
+    setTimeout(() => setBanUser(null), 300);
+  };
+
+  const handleUnban = (user: IamUser) => {
+    setUnbanUser(user);
+    openUnbanModal();
+  };
+
+  const handleCloseUnban = () => {
+    closeUnbanModal();
+    setTimeout(() => setUnbanUser(null), 300);
   };
 
   const totalElements = data?.totalElements ?? 0;
@@ -446,6 +475,32 @@ function AdminUsersPage() {
                           <IconKey size={15} />
                         </ActionIcon>
                       </Tooltip>
+                      <Tooltip label={t`Ban user`} withArrow>
+                        <ActionIcon
+                          variant="subtle"
+                          color="red"
+                          size="sm"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleBan(user);
+                          }}
+                        >
+                          <IconBan size={15} />
+                        </ActionIcon>
+                      </Tooltip>
+                      <Tooltip label={t`Unban user`} withArrow>
+                        <ActionIcon
+                          variant="subtle"
+                          color="green"
+                          size="sm"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleUnban(user);
+                          }}
+                        >
+                          <IconUserCheck size={15} />
+                        </ActionIcon>
+                      </Tooltip>
                     </Group>
                   ),
                 },
@@ -465,6 +520,8 @@ function AdminUsersPage() {
 
       <EditUserModal user={selectedUser} opened={editModalOpened} onClose={handleCloseEdit} />
       <SetUserPasswordModal user={pwUser} opened={pwModalOpened} onClose={handleClosePw} />
+      <BanUserModal user={banUser} opened={banModalOpened} onClose={handleCloseBan} />
+      <UnbanUserModal user={unbanUser} opened={unbanModalOpened} onClose={handleCloseUnban} />
     </Container>
   );
 }
