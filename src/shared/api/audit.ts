@@ -5,18 +5,18 @@ export interface AuditRecord {
   id: string;
   action: string;
   entityType: string;
-  entityId: string;
-  actorId: string;
-  actorType: string;
-  actorEmail: string;
-  actorIp: string;
-  actorUa: string;
-  impersonatorId: string;
-  tenantKey: string;
+  entityId: string | null;
+  actorId: string | null;
+  actorType: string | null;
+  actorEmail: string | null;
+  actorIp: string | null;
+  actorUa: string | null;
+  impersonatorId: string | null;
+  tenantKey: string | null;
   severity: "LOW" | "MEDIUM" | "HIGH" | "CRITICAL";
   details: Record<string, any>;
   occurredAt: string;
-  correlationId: string;
+  correlationId: string | null;
 }
 
 export interface AuditActionCount {
