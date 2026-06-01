@@ -119,7 +119,7 @@
     "@lingui/swc-plugin": "^6.3.0",
     "@lingui/vite-plugin": "^6.1.0",
     "@playwright/test": "1.60.0",
-    "@release-it/conventional-changelog": "^11.0.0",
+    "@release-it/conventional-changelog": "^11.0.1",
     "@tanstack/react-query-devtools": "^5.100.14",
     "@tanstack/react-router-devtools": "^1.167.0",
     "@tanstack/router-plugin": "^1.168.11",
