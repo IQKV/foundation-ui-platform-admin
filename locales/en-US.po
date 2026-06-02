@@ -321,6 +321,7 @@ msgstr "Billing Settings"
 #: src/features/plan-catalog/ui/create-plan-modal.tsx
 #: src/features/set-user-password/ui/set-user-password-modal.tsx
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+#: src/features/unlock-user/ui/unlock-user-modal.tsx
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 #: src/pages/admin/subscriptions.tsx
@@ -1653,6 +1654,7 @@ msgid "Reset"
 msgstr "Reset"
 
 #: src/features/ban-user/ui/unban-user-modal.tsx
+#: src/features/unlock-user/ui/unlock-user-modal.tsx
 msgid "Restore access"
 msgstr "Restore access"
 
@@ -2139,6 +2141,19 @@ msgstr "Unbanning this user will restore their access to the platform. They will
 #: src/features/plan-catalog/ui/create-plan-modal.tsx
 msgid "Unique identifier; use lowercase letters, numbers, and hyphens."
 msgstr "Unique identifier; use lowercase letters, numbers, and hyphens."
+
+#: src/features/unlock-user/ui/unlock-user-modal.tsx
+#: src/pages/admin/users.$userId.tsx
+msgid "Unlock user"
+msgstr "Unlock user"
+
+#: src/features/unlock-user/ui/unlock-user-modal.tsx
+msgid "Unlock User"
+msgstr "Unlock User"
+
+#: src/features/unlock-user/ui/unlock-user-modal.tsx
+msgid "Unlocking this user will reset their failed login attempts, allowing them to sign in again with their existing credentials."
+msgstr "Unlocking this user will reset their failed login attempts, allowing them to sign in again with their existing credentials."
 
 #: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx

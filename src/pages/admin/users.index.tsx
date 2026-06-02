@@ -32,6 +32,7 @@ import {
   IconKey,
   IconBan,
   IconUserCheck,
+  IconLockOpen,
 } from "@tabler/icons-react";
 import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
@@ -43,6 +44,7 @@ import { UserStatusBadge, PageHeader } from "@/shared/ui";
 import { EditUserModal } from "@/features/edit-user";
 import { SetUserPasswordModal } from "@/features/set-user-password";
 import { BanUserModal, UnbanUserModal } from "@/features/ban-user";
+import { UnlockUserModal } from "@/features/unlock-user";
 
 export const Route = createFileRoute("/admin/users/")({
   component: AdminUsersPage,
@@ -98,6 +100,10 @@ function AdminUsersPage() {
 
   const [unbanModalOpened, { open: openUnbanModal, close: closeUnbanModal }] = useDisclosure(false);
   const [unbanUser, setUnbanUser] = useState<IamUser | null>(null);
+
+  const [unlockModalOpened, { open: openUnlockModal, close: closeUnlockModal }] =
+    useDisclosure(false);
+  const [unlockUser, setUnlockUser] = useState<IamUser | null>(null);
 
   const sortBy = SORT_FIELD_MAP[sortStatus.columnAccessor] ?? "createdAt";
   const sortDir = sortStatus.direction as SortDirection;
@@ -175,6 +181,16 @@ function AdminUsersPage() {
   const handleCloseUnban = () => {
     closeUnbanModal();
     setTimeout(() => setUnbanUser(null), 300);
+  };
+
+  const handleUnlock = (user: IamUser) => {
+    setUnlockUser(user);
+    openUnlockModal();
+  };
+
+  const handleCloseUnlock = () => {
+    closeUnlockModal();
+    setTimeout(() => setUnlockUser(null), 300);
   };
 
   const totalElements = data?.totalElements ?? 0;
@@ -522,6 +538,7 @@ function AdminUsersPage() {
       <SetUserPasswordModal user={pwUser} opened={pwModalOpened} onClose={handleClosePw} />
       <BanUserModal user={banUser} opened={banModalOpened} onClose={handleCloseBan} />
       <UnbanUserModal user={unbanUser} opened={unbanModalOpened} onClose={handleCloseUnban} />
+      <UnlockUserModal user={unlockUser} opened={unlockModalOpened} onClose={handleCloseUnlock} />
     </Container>
   );
 }

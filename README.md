@@ -11,7 +11,7 @@ This repository is the **platform admin surface only** (not the tenant-facing ap
 - **Sign-in** — Platform admin credentials via `POST /v1/iam/auth/admin/signin`; forbidden users see `/unauthorized`
 - **Session** — Access token in memory; refresh token in `sessionStorage` (survives reload within the tab); silent refresh on `/v1/iam/auth/admin/refresh`; inactivity timeout signs out
 - **Dashboard** — Parallel count cards for total users, organizations, and active subscriptions (with per-card loading/error states)
-- **Users** — Paginated, sortable, filterable list; detail view with Overview and Organizations tabs; edit profile; set password; ban/unban users
+- **Users** — Paginated, sortable, filterable list; detail view with Overview and Organizations tabs; edit profile; set password; ban/unban/unlock users
 - **Organizations** — Paginated list with status filter; detail layout with Overview, Members, Billing settings, Subscriptions, and Refunds tabs; edit organization metadata
 - **Invitations** — List with filters; propose, edit, and revoke invitations
 - **Subscriptions** — Read-only global list with search, status filter, and sorting; detail view
@@ -44,7 +44,7 @@ Platform actions (unlock, impersonation), subscription lifecycle mutations, syst
 | Notifications              | Done    | In-app + WebSocket                                              |
 | Refunds                    | Done    | Refund list + detail                                            |
 | Operator account           | Done    | Profile + password                                              |
-| Platform actions           | Partial | Ban/unban done; unlock, impersonation, etc. planned             |
+| Platform actions           | Partial | Ban/unban/unlock done; impersonation, etc. planned              |
 | System administration      | Partial | Audit log implemented; health/jobs planned                      |
 | Advanced metrics           | Planned | MRR/ARR, growth charts                                          |
 

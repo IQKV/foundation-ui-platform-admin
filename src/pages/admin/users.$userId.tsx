@@ -29,6 +29,7 @@ import {
   IconEdit,
   IconShieldCheck,
   IconKey,
+  IconLockOpen,
 } from "@tabler/icons-react";
 import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
@@ -40,6 +41,7 @@ import { useState } from "react";
 import type { IamUser } from "@/shared/api";
 import { EditUserModal } from "@/features/edit-user";
 import { SetUserPasswordModal } from "@/features/set-user-password";
+import { UnlockUserModal } from "@/features/unlock-user";
 
 // ─── Route ────────────────────────────────────────────────────────────────────
 
@@ -211,6 +213,7 @@ function UserDetailPage() {
   const [editTarget, setEditTarget] = useState<IamUser | null>(null);
 
   const [pwOpened, { open: openPw, close: closePw }] = useDisclosure(false);
+  const [unlockOpened, { open: openUnlock, close: closeUnlock }] = useDisclosure(false);
 
   const {
     data: user,
@@ -307,6 +310,17 @@ function UserDetailPage() {
                 disabled={isLoading}
               >
                 <IconKey size={15} />
+              </ActionIcon>
+            </Tooltip>
+            <Tooltip label={t`Unlock user`} withArrow>
+              <ActionIcon
+                variant="light"
+                color="teal"
+                size="md"
+                onClick={() => openUnlock()}
+                disabled={isLoading}
+              >
+                <IconLockOpen size={15} />
               </ActionIcon>
             </Tooltip>
             <Tooltip label={t`Refresh`} withArrow>
@@ -527,6 +541,7 @@ function UserDetailPage() {
 
       <EditUserModal user={editTarget} opened={editOpened} onClose={handleCloseEdit} />
       <SetUserPasswordModal user={user ?? null} opened={pwOpened} onClose={handleClosePw} />
+      <UnlockUserModal user={user ?? null} opened={unlockOpened} onClose={closeUnlock} />
     </Container>
   );
 }

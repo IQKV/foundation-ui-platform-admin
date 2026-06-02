@@ -207,6 +207,8 @@ export const iamApi = {
 
   unbanUser: (id: string) => httpClient.post(`/v1/iam/admin/users/${id}/unban`),
 
+  unlockUser: (id: string) => httpClient.post(`/v1/iam/admin/users/${id}/unlock`),
+
   countTenants: () =>
     httpClient.get<CountResponse>("/v1/iam/admin/tenants/count").then((r) => r.data),
 
