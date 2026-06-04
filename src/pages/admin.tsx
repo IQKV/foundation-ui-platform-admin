@@ -4,7 +4,13 @@ import { AdminLayout } from "@/shared/ui";
 import { httpClient } from "@/shared/api/http-client";
 import { decodeJwt, hasPlatformAdmin } from "@/shared/lib/jwt";
 import { authApi } from "@/shared/api/auth";
-import { clearSession, getAccessToken, getRefreshToken, setTokens, useSessionStore } from "@/processes/session";
+import {
+  clearSession,
+  getAccessToken,
+  getRefreshToken,
+  setTokens,
+  useSessionStore,
+} from "@/processes/session";
 import { useInactivityTimer } from "@/processes/inactivity-timer";
 
 // ─── Route ────────────────────────────────────────────────────────────────────
