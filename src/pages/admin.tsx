@@ -1,9 +1,10 @@
 import { createFileRoute, isRedirect, Outlet, redirect, useNavigate } from "@tanstack/react-router";
+import { Center, Loader } from "@mantine/core";
 import { AdminLayout } from "@/shared/ui";
 import { httpClient } from "@/shared/api/http-client";
 import { decodeJwt, hasPlatformAdmin } from "@/shared/lib/jwt";
 import { authApi } from "@/shared/api/auth";
-import { clearSession, getAccessToken, getRefreshToken, setTokens } from "@/processes/session";
+import { clearSession, getAccessToken, getRefreshToken, setTokens, useSessionStore } from "@/processes/session";
 import { useInactivityTimer } from "@/processes/inactivity-timer";
 
 // ─── Route ────────────────────────────────────────────────────────────────────
@@ -90,18 +91,29 @@ export const Route = createFileRoute("/admin")({
  */
 function AdminLayoutRoute() {
   const navigate = useNavigate();
+  const accessToken = useSessionStore((s) => s.accessToken);
+  const refreshToken = useSessionStore((s) => s.refreshToken);
+
+  // Show a spinner while the silent-refresh is in flight (page reload window:
+  // refreshToken exists in sessionStorage but accessToken not yet in memory).
+  // This prevents child components from firing authenticated queries prematurely.
+  const isLoading = !accessToken && !!refreshToken;
 
   useInactivityTimer({
     onTimeout: () => {
-      // Fire-and-forget: revoke the server-side refresh token, then clear the
-      // session and redirect regardless of the API outcome (Requirements 5.2, 5.3).
-      void authApi.signOut().catch(() => {
-        // Ignore sign-out API errors — session is cleared regardless.
-      });
+      void authApi.signOut().catch(() => {});
       clearSession();
       void navigate({ to: "/sign-in", search: { reason: "timeout" } });
     },
   });
+
+  if (isLoading) {
+    return (
+      <Center mih="100vh" data-testid="admin-auth-loading">
+        <Loader size="md" />
+      </Center>
+    );
+  }
 
   return (
     <AdminLayout>
