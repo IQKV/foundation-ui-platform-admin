@@ -517,6 +517,19 @@ function AdminUsersPage() {
                           <IconUserCheck size={15} />
                         </ActionIcon>
                       </Tooltip>
+                      <Tooltip label={t`Unlock user`} withArrow>
+                        <ActionIcon
+                          variant="subtle"
+                          color="teal"
+                          size="sm"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleUnlock(user);
+                          }}
+                        >
+                          <IconLockOpen size={15} />
+                        </ActionIcon>
+                      </Tooltip>
                     </Group>
                   ),
                 },
