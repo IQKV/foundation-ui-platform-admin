@@ -83,6 +83,7 @@ msgstr "Account"
 msgid "Action"
 msgstr "Action"
 
+#: src/pages/admin/-organization-tenant-panels.tsx
 #: src/pages/admin/organizations.$tenantKey.refunds.tsx
 #: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
 #: src/pages/admin/refunds.tsx
@@ -202,8 +203,10 @@ msgid "Are you sure you want to cancel the subscription for <0>{0}</0>?"
 msgstr "Are you sure you want to cancel the subscription for <0>{0}</0>?"
 
 #: src/features/announcement-admin/ui/delete-announcement-modal.tsx
-msgid "Are you sure you want to delete <0>{enTitle}</0>? This action cannot be undone."
-msgstr "Are you sure you want to delete <0>{enTitle}</0>? This action cannot be undone."
+msgid "Are you sure you want to delete <0>{enTitle}</0>? This action cannot be "
+"undone."
+msgstr "Are you sure you want to delete <0>{enTitle}</0>? This action cannot be "
+"undone."
 
 #. placeholder {0}: subscription.tenantKey
 #: src/pages/admin/subscriptions.tsx
@@ -211,8 +214,12 @@ msgid "Are you sure you want to pause the subscription for <0>{0}</0>?"
 msgstr "Are you sure you want to pause the subscription for <0>{0}</0>?"
 
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
-msgid "Are you sure you want to permanently delete this subscription record? This action cannot be undone and will remove the record from the local database."
-msgstr "Are you sure you want to permanently delete this subscription record? This action cannot be undone and will remove the record from the local database."
+msgid "Are you sure you want to permanently delete this subscription record? "
+"This action cannot be undone and will remove the record from the local "
+"database."
+msgstr "Are you sure you want to permanently delete this subscription record? "
+"This action cannot be undone and will remove the record from the local "
+"database."
 
 #: src/features/ban-user/ui/ban-user-modal.tsx
 msgid "Are you sure?"
@@ -246,6 +253,10 @@ msgstr "Audit Logs"
 msgid "Audit Record Details"
 msgstr "Audit Record Details"
 
+#: src/pages/admin/-organization-tenant-panels.tsx
+msgid "Authorities"
+msgstr "Authorities"
+
 #: src/features/invitation-admin/ui/edit-invitation-modal.tsx
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 msgid "Authority"
@@ -275,8 +286,12 @@ msgid "Ban User"
 msgstr "Ban User"
 
 #: src/features/ban-user/ui/ban-user-modal.tsx
-msgid "Banning this user will immediately invalidate all their active sessions, revoke their access, and send them a notification email. They will not be able to sign in again until unbanned."
-msgstr "Banning this user will immediately invalidate all their active sessions, revoke their access, and send them a notification email. They will not be able to sign in again until unbanned."
+msgid "Banning this user will immediately invalidate all their active sessions, "
+"revoke their access, and send them a notification email. They will not "
+"be able to sign in again until unbanned."
+msgstr "Banning this user will immediately invalidate all their active "
+"sessions, revoke their access, and send them a notification email. They "
+"will not be able to sign in again until unbanned."
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Billing address (JSON)"
@@ -322,6 +337,7 @@ msgstr "Billing Settings"
 #: src/features/set-user-password/ui/set-user-password-modal.tsx
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/features/unlock-user/ui/unlock-user-modal.tsx
+#: src/pages/admin/-organization-tenant-panels.tsx
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 #: src/pages/admin/subscriptions.tsx
@@ -649,6 +665,14 @@ msgstr "Edit announcement"
 msgid "Edit Announcement"
 msgstr "Edit Announcement"
 
+#: src/pages/admin/-organization-tenant-panels.tsx
+msgid "Edit member authorities"
+msgstr "Edit member authorities"
+
+#: src/pages/admin/-organization-tenant-panels.tsx
+msgid "Edit Member Authorities"
+msgstr "Edit Member Authorities"
+
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/organizations.index.tsx
 msgid "Edit organization"
@@ -910,8 +934,10 @@ msgid "First name is required"
 msgstr "First name is required"
 
 #: src/pages/loading-demo.tsx
-msgid "Full-screen centered loader shown on first app load (while locale initializes)."
-msgstr "Full-screen centered loader shown on first app load (while locale initializes)."
+msgid "Full-screen centered loader shown on first app load (while locale "
+"initializes)."
+msgstr "Full-screen centered loader shown on first app load (while locale "
+"initializes)."
 
 #: src/shared/ui/auth-layout/auth-layout.tsx
 msgid "fully in your hands."
@@ -1123,8 +1149,10 @@ msgid "Manage users"
 msgstr "Manage users"
 
 #: src/shared/ui/auth-layout/auth-layout.tsx
-msgid "Manage users, organizations, and subscriptions across all tenants — secured by platform-level authentication."
-msgstr "Manage users, organizations, and subscriptions across all tenants — secured by platform-level authentication."
+msgid "Manage users, organizations, and subscriptions across all tenants — "
+"secured by platform-level authentication."
+msgstr "Manage users, organizations, and subscriptions across all tenants — "
+"secured by platform-level authentication."
 
 #: src/pages/admin/subscriptions.tsx
 msgid "Management"
@@ -1412,7 +1440,8 @@ msgstr "Password must be at most 128 characters"
 #: src/features/change-admin-password/ui/change-admin-password-modal.tsx
 #: src/features/set-user-password/ui/set-user-password-modal.tsx
 msgid "Password must contain uppercase, lowercase, digit, and special character"
-msgstr "Password must contain uppercase, lowercase, digit, and special character"
+msgstr "Password must contain uppercase, lowercase, digit, and special "
+"character"
 
 #: src/features/change-admin-password/ui/change-admin-password-modal.tsx
 #: src/features/set-user-password/ui/set-user-password-modal.tsx
@@ -1446,8 +1475,10 @@ msgid "Pending"
 msgstr "Pending"
 
 #: src/features/invitation-admin/ui/edit-invitation-modal.tsx
-msgid "Pending invitations can be revoked. The invitee will no longer be able to accept this link."
-msgstr "Pending invitations can be revoked. The invitee will no longer be able to accept this link."
+msgid "Pending invitations can be revoked. The invitee will no longer be able "
+"to accept this link."
+msgstr "Pending invitations can be revoked. The invitee will no longer be able "
+"to accept this link."
 
 #: src/pages/admin/plans.index.tsx
 msgid "Period"
@@ -1697,6 +1728,10 @@ msgstr "Revoked"
 msgid "Save changes"
 msgstr "Save changes"
 
+#: src/pages/admin/-organization-tenant-panels.tsx
+msgid "Save Changes"
+msgstr "Save Changes"
+
 #: src/features/plan-catalog/ui/create-plan-modal.tsx
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/plans.index.tsx
@@ -1752,6 +1787,10 @@ msgstr "Select an organization"
 #: src/shared/ui/locale-switcher/locale-switcher.tsx
 msgid "Select language"
 msgstr "Select language"
+
+#: src/pages/admin/-organization-tenant-panels.tsx
+msgid "Select the authorities you want to assign to this member."
+msgstr "Select the authorities you want to assign to this member."
 
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 msgid "Send invitation"
@@ -1870,8 +1909,10 @@ msgid "Site Announcements"
 msgstr "Site Announcements"
 
 #: src/pages/loading-demo.tsx
-msgid "Slim top progress bar for navigation between pages (automatic with router)."
-msgstr "Slim top progress bar for navigation between pages (automatic with router)."
+msgid "Slim top progress bar for navigation between pages (automatic with "
+"router)."
+msgstr "Slim top progress bar for navigation between pages (automatic with "
+"router)."
 
 #: src/features/plan-catalog/ui/create-plan-modal.tsx
 msgid "Smallest currency unit (e.g. cents for USD)."
@@ -2042,28 +2083,39 @@ msgid "Theme-aware (respects dark mode and color scheme)"
 msgstr "Theme-aware (respects dark mode and color scheme)"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
-msgid "This organization does not have a billing settings row yet. Create one to attach gateway customer data and invoicing details."
-msgstr "This organization does not have a billing settings row yet. Create one to attach gateway customer data and invoicing details."
+msgid "This organization does not have a billing settings row yet. Create one "
+"to attach gateway customer data and invoicing details."
+msgstr "This organization does not have a billing settings row yet. Create one "
+"to attach gateway customer data and invoicing details."
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
-msgid "This permanently removes the billing settings row for this tenant. Subscriptions and gateway objects are not automatically deleted."
-msgstr "This permanently removes the billing settings row for this tenant. Subscriptions and gateway objects are not automatically deleted."
+msgid "This permanently removes the billing settings row for this tenant. "
+"Subscriptions and gateway objects are not automatically deleted."
+msgstr "This permanently removes the billing settings row for this tenant. "
+"Subscriptions and gateway objects are not automatically deleted."
 
 #: src/pages/admin/plans.$planCode.tsx
-msgid "This sets the plan to inactive. Existing subscriptions are not changed. You can set the plan back to active later from this page."
-msgstr "This sets the plan to inactive. Existing subscriptions are not changed. You can set the plan back to active later from this page."
+msgid "This sets the plan to inactive. Existing subscriptions are not changed. "
+"You can set the plan back to active later from this page."
+msgstr "This sets the plan to inactive. Existing subscriptions are not changed. "
+"You can set the plan back to active later from this page."
 
 #: src/pages/loading-demo.tsx
 msgid "This template uses Mantine's official loading components for optimal UX."
-msgstr "This template uses Mantine's official loading components for optimal UX."
+msgstr "This template uses Mantine's official loading components for optimal "
+"UX."
 
 #: src/pages/admin/users.$userId.tsx
 msgid "This user is not a member of any organization."
 msgstr "This user is not a member of any organization."
 
 #: src/features/set-user-password/ui/set-user-password-modal.tsx
-msgid "This will immediately change the user's password and invalidate all their active sessions. The user will need to sign in again with the new password."
-msgstr "This will immediately change the user's password and invalidate all their active sessions. The user will need to sign in again with the new password."
+msgid "This will immediately change the user's password and invalidate all "
+"their active sessions. The user will need to sign in again with the new "
+"password."
+msgstr "This will immediately change the user's password and invalidate all "
+"their active sessions. The user will need to sign in again with the new "
+"password."
 
 #: src/pages/admin/audit-logs.tsx
 msgid "Timestamp"
@@ -2135,8 +2187,10 @@ msgid "Unban User"
 msgstr "Unban User"
 
 #: src/features/ban-user/ui/unban-user-modal.tsx
-msgid "Unbanning this user will restore their access to the platform. They will be able to sign in again with their existing credentials."
-msgstr "Unbanning this user will restore their access to the platform. They will be able to sign in again with their existing credentials."
+msgid "Unbanning this user will restore their access to the platform. They will "
+"be able to sign in again with their existing credentials."
+msgstr "Unbanning this user will restore their access to the platform. They "
+"will be able to sign in again with their existing credentials."
 
 #: src/features/plan-catalog/ui/create-plan-modal.tsx
 msgid "Unique identifier; use lowercase letters, numbers, and hyphens."
@@ -2144,6 +2198,7 @@ msgstr "Unique identifier; use lowercase letters, numbers, and hyphens."
 
 #: src/features/unlock-user/ui/unlock-user-modal.tsx
 #: src/pages/admin/users.$userId.tsx
+#: src/pages/admin/users.index.tsx
 msgid "Unlock user"
 msgstr "Unlock user"
 
@@ -2152,8 +2207,10 @@ msgid "Unlock User"
 msgstr "Unlock User"
 
 #: src/features/unlock-user/ui/unlock-user-modal.tsx
-msgid "Unlocking this user will reset their failed login attempts, allowing them to sign in again with their existing credentials."
-msgstr "Unlocking this user will reset their failed login attempts, allowing them to sign in again with their existing credentials."
+msgid "Unlocking this user will reset their failed login attempts, allowing "
+"them to sign in again with their existing credentials."
+msgstr "Unlocking this user will reset their failed login attempts, allowing "
+"them to sign in again with their existing credentials."
 
 #: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
@@ -2281,8 +2338,12 @@ msgid "You do not have permission to access the admin area."
 msgstr "You do not have permission to access the admin area."
 
 #: src/pages/unauthorized.tsx
-msgid "You do not have the required <0>PLATFORM_ADMIN</0> authority to access this area. Please sign in with an account that has the appropriate permissions."
-msgstr "You do not have the required <0>PLATFORM_ADMIN</0> authority to access this area. Please sign in with an account that has the appropriate permissions."
+msgid "You do not have the required <0>PLATFORM_ADMIN</0> authority to access "
+"this area. Please sign in with an account that has the appropriate "
+"permissions."
+msgstr "You do not have the required <0>PLATFORM_ADMIN</0> authority to access "
+"this area. Please sign in with an account that has the appropriate "
+"permissions."
 
 #: src/features/sign-in/ui/sign-in-form.tsx
 msgid "you@example.com"

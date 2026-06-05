@@ -33,6 +33,8 @@ export type {
   UpdateSiteAnnouncementRequest,
   BanUserRequest,
   BanResponse,
+  TenantMemberAuthoritiesResponse,
+  AdminUpdateMemberAuthoritiesRequest,
 } from "./iam";
 export { adminAccountApi } from "./iam";
 export { localesApi } from "./iam";

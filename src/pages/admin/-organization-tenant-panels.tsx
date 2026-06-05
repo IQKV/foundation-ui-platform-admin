@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Text,
   Stack,
@@ -14,15 +14,31 @@ import {
   Tooltip,
   SimpleGrid,
   Avatar,
+  Modal,
+  Button,
+  Checkbox,
 } from "@mantine/core";
-import { useDebouncedValue } from "@mantine/hooks";
-import { useQuery } from "@tanstack/react-query";
+import { useDebouncedValue, useDisclosure } from "@mantine/hooks";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { DataTable } from "mantine-datatable";
-import { IconCreditCard, IconAlertCircle, IconSearch, IconRefresh } from "@tabler/icons-react";
+import {
+  IconCreditCard,
+  IconAlertCircle,
+  IconSearch,
+  IconRefresh,
+  IconEdit,
+} from "@tabler/icons-react";
 import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
 import { iamApi } from "@/shared/api";
-import type { IamTenant, PagedResponse, Subscription } from "@/shared/api";
+import type {
+  IamTenant,
+  IamUser,
+  PagedResponse,
+  Subscription,
+  TenantMemberAuthoritiesResponse,
+  AdminUpdateMemberAuthoritiesRequest,
+} from "@/shared/api";
 
 export const ORG_MEMBERS_PAGE_SIZE = 20;
 
@@ -185,11 +201,141 @@ export function OverviewTab({
   );
 }
 
+function EditMemberAuthoritiesModal({
+  tenantKey,
+  user,
+  opened,
+  onClose,
+}: {
+  tenantKey: string;
+  user: IamUser | null;
+  opened: boolean;
+  onClose: () => void;
+}) {
+  const { t } = useLingui();
+  const queryClient = useQueryClient();
+
+  const { data: authoritiesData } = useQuery({
+    queryKey: ["admin", "tenants", tenantKey, "members", user?.id, "authorities"],
+    queryFn: () => (user ? iamApi.getTenantMemberAuthorities(tenantKey, user.id) : null),
+    enabled: opened && !!user,
+  });
+
+  const [selectedAuthorities, setSelectedAuthorities] = useState<string[]>([]);
+
+  const mutation = useMutation({
+    mutationFn: (data: AdminUpdateMemberAuthoritiesRequest) =>
+      iamApi.updateTenantMemberAuthorities(tenantKey, user!.id, data),
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: ["admin", "tenants", tenantKey, "members"],
+      });
+      onClose();
+    },
+  });
+
+  const handleSubmit = () => {
+    mutation.mutate({ authorities: selectedAuthorities });
+  };
+
+  const handleClose = () => {
+    mutation.reset();
+    onClose();
+  };
+
+  // Update selected authorities when data is loaded
+  useEffect(() => {
+    if (authoritiesData) {
+      setSelectedAuthorities(authoritiesData.authorities);
+    }
+  }, [authoritiesData]);
+
+  return (
+    <Modal
+      opened={opened}
+      onClose={handleClose}
+      title={
+        <Stack gap={2}>
+          <Text fw={600} size="md">
+            <Trans>Edit Member Authorities</Trans>
+          </Text>
+          {user && (
+            <Text size="xs" c="dimmed">
+              {user.firstName} {user.lastName} ({user.email})
+            </Text>
+          )}
+        </Stack>
+      }
+      size="sm"
+      centered
+    >
+      <Stack gap="md">
+        <Text size="sm" c="dimmed">
+          <Trans>Select the authorities you want to assign to this member.</Trans>
+        </Text>
+        <Stack gap="sm">
+          <Checkbox
+            label="TENANT_OWNER"
+            checked={selectedAuthorities.includes("TENANT_OWNER")}
+            onChange={(e) => {
+              if (e.currentTarget.checked) {
+                setSelectedAuthorities(["TENANT_OWNER"]);
+              } else {
+                setSelectedAuthorities((prev) => prev.filter((a) => a !== "TENANT_OWNER"));
+              }
+            }}
+          />
+          <Checkbox
+            label="ADMIN"
+            checked={selectedAuthorities.includes("ADMIN")}
+            onChange={(e) => {
+              if (selectedAuthorities.includes("TENANT_OWNER")) {
+                return;
+              }
+              if (e.currentTarget.checked) {
+                setSelectedAuthorities([...selectedAuthorities, "ADMIN"]);
+              } else {
+                setSelectedAuthorities((prev) => prev.filter((a) => a !== "ADMIN"));
+              }
+            }}
+            disabled={selectedAuthorities.includes("TENANT_OWNER")}
+          />
+          <Checkbox
+            label="MEMBER"
+            checked={selectedAuthorities.includes("MEMBER")}
+            onChange={(e) => {
+              if (selectedAuthorities.includes("TENANT_OWNER")) {
+                return;
+              }
+              if (e.currentTarget.checked) {
+                setSelectedAuthorities([...selectedAuthorities, "MEMBER"]);
+              } else {
+                setSelectedAuthorities((prev) => prev.filter((a) => a !== "MEMBER"));
+              }
+            }}
+            disabled={selectedAuthorities.includes("TENANT_OWNER")}
+          />
+        </Stack>
+        <Group justify="flex-end" gap="sm" mt="md">
+          <Button variant="subtle" color="gray" onClick={handleClose} disabled={mutation.isPending}>
+            <Trans>Cancel</Trans>
+          </Button>
+          <Button onClick={handleSubmit} loading={mutation.isPending}>
+            <Trans>Save Changes</Trans>
+          </Button>
+        </Group>
+      </Stack>
+    </Modal>
+  );
+}
+
 export function MembersTab({ tenantKey }: { tenantKey: string }) {
   const { t } = useLingui();
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState("");
   const [debouncedSearch] = useDebouncedValue(search, 300);
+  const [editingUser, setEditingUser] = useState<IamUser | null>(null);
+  const [editModalOpened, { open: openEditModal, close: closeEditModal }] = useDisclosure(false);
 
   const { data, isLoading, isFetching, isError, refetch } = useQuery({
     queryKey: ["admin", "tenants", tenantKey, "members", page, debouncedSearch],
@@ -204,6 +350,11 @@ export function MembersTab({ tenantKey }: { tenantKey: string }) {
   });
 
   const totalElements = data?.totalElements ?? 0;
+
+  const handleEditMember = (user: IamUser) => {
+    setEditingUser(user);
+    openEditModal();
+  };
 
   return (
     <Stack gap="md" pt="md">
@@ -341,6 +492,19 @@ export function MembersTab({ tenantKey }: { tenantKey: string }) {
                 ),
               },
               {
+                accessor: "tenantAuthorities",
+                title: t`Authorities`,
+                render: (user) => (
+                  <Group gap="xs">
+                    {user.tenantAuthorities?.map((auth) => (
+                      <Badge key={auth} variant="light" color="blue" size="sm">
+                        {auth}
+                      </Badge>
+                    ))}
+                  </Group>
+                ),
+              },
+              {
                 accessor: "status",
                 title: t`Status`,
                 render: (user) => (
@@ -379,6 +543,22 @@ export function MembersTab({ tenantKey }: { tenantKey: string }) {
                   </Text>
                 ),
               },
+              {
+                accessor: "actions",
+                title: t`Actions`,
+                render: (user) => (
+                  <Tooltip label={t`Edit member authorities`} withArrow>
+                    <ActionIcon
+                      variant="subtle"
+                      color="blue"
+                      size="sm"
+                      onClick={() => handleEditMember(user)}
+                    >
+                      <IconEdit size={15} />
+                    </ActionIcon>
+                  </Tooltip>
+                ),
+              },
             ]}
           />
         )}
@@ -392,6 +572,16 @@ export function MembersTab({ tenantKey }: { tenantKey: string }) {
           </Trans>
         </Text>
       )}
+
+      <EditMemberAuthoritiesModal
+        tenantKey={tenantKey}
+        user={editingUser}
+        opened={editModalOpened}
+        onClose={() => {
+          closeEditModal();
+          setEditingUser(null);
+        }}
+      />
     </Stack>
   );
 }

@@ -52,6 +52,7 @@ export interface IamUser {
   lastName: string;
   status: IamUserStatus;
   emailVerified: boolean;
+  tenantAuthorities?: string[];
   organizations: string[];
   createdAt: string;
   updatedAt: string;
@@ -186,6 +187,16 @@ export interface BanResponse {
   updatedAt: string;
 }
 
+export interface TenantMemberAuthoritiesResponse {
+  userId: string;
+  tenantKey: string;
+  authorities: string[];
+}
+
+export interface AdminUpdateMemberAuthoritiesRequest {
+  authorities: string[];
+}
+
 export const iamApi = {
   countUsers: () => httpClient.get<CountResponse>("/v1/iam/admin/users/count").then((r) => r.data),
 
@@ -228,6 +239,25 @@ export const iamApi = {
   listTenantMembers: (tenantKey: string, params: ListTenantMembersParams = {}) =>
     httpClient
       .get<PagedResponse<IamUser>>(`/v1/iam/admin/tenants/${tenantKey}/members`, { params })
+      .then((r) => r.data),
+
+  getTenantMemberAuthorities: (tenantKey: string, userId: string) =>
+    httpClient
+      .get<TenantMemberAuthoritiesResponse>(
+        `/v1/iam/admin/tenants/${tenantKey}/members/${userId}/authorities`,
+      )
+      .then((r) => r.data),
+
+  updateTenantMemberAuthorities: (
+    tenantKey: string,
+    userId: string,
+    data: AdminUpdateMemberAuthoritiesRequest,
+  ) =>
+    httpClient
+      .put<TenantMemberAuthoritiesResponse>(
+        `/v1/iam/admin/tenants/${tenantKey}/members/${userId}/authorities`,
+        data,
+      )
       .then((r) => r.data),
 
   updateTenant: (tenantKey: string, data: Partial<Pick<IamTenant, "name" | "status">>) =>
