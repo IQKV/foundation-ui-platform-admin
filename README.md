@@ -12,7 +12,7 @@ This repository is the **platform admin surface only** (not the tenant-facing ap
 - **Session** — Access token in memory; refresh token in `sessionStorage` (survives reload within the tab); silent refresh on `/v1/iam/auth/admin/refresh`; inactivity timeout signs out
 - **Dashboard** — Parallel count cards for total users, organizations, and active subscriptions (with per-card loading/error states)
 - **Users** — Paginated, sortable, filterable list; detail view with Overview and Organizations tabs; edit profile; set password; ban/unban/unlock users
-- **Organizations** — Paginated list with status filter; detail layout with Overview, Members, Billing settings, Subscriptions, and Refunds tabs; edit organization metadata
+- **Organizations** — Paginated list with status filter; detail layout with Overview, Members, Billing settings, Subscriptions, and Refunds tabs; edit organization metadata; manage member tenant authorities (TENANT_OWNER, ADMIN, MEMBER)
 - **Invitations** — List with filters; propose, edit, and revoke invitations
 - **Subscriptions** — Read-only global list with search, status filter, and sorting; detail view
 - **Plans** — Plan catalog list; create plan; plan detail with edit and delete
