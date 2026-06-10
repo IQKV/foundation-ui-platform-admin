@@ -176,7 +176,7 @@ function AdminAnnouncementsPage() {
           </Alert>
         )}
 
-        <Paper radius="md" style={{ overflow: "hidden" }}>
+        <Paper style={{ overflow: "hidden" }}>
           {/* ─── Toolbar ──────────────────────────────────────────────────── */}
           <Group
             justify="space-between"

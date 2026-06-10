@@ -323,7 +323,7 @@ function AdminSubscriptionsPage() {
           </Alert>
         )}
 
-        <Paper radius="md" style={{ overflow: "hidden" }}>
+        <Paper style={{ overflow: "hidden" }}>
           {/* Card inner header */}
           <Group
             justify="space-between"

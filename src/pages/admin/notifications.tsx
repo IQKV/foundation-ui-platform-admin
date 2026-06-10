@@ -101,7 +101,7 @@ function NotificationsPage() {
         }
       />
 
-      <Paper radius="md" p={0}>
+      <Paper p={0}>
         {isLoading ? (
           <Center py="xl">
             <Loader />

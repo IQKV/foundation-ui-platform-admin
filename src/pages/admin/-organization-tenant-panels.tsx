@@ -97,7 +97,7 @@ export function OverviewTab({
 }: OverviewTabProps) {
   return (
     <Stack gap="md" pt="md">
-      <Paper radius="md" style={{ overflow: "hidden" }}>
+      <Paper style={{ overflow: "hidden" }}>
         <SimpleGrid cols={{ base: 2, sm: 4 }} spacing={0}>
           <StatCard label={<Trans>Members</Trans>} value={memberCount} isLoading={membersLoading} />
           <StatCard
@@ -118,7 +118,7 @@ export function OverviewTab({
         </SimpleGrid>
       </Paper>
 
-      <Paper radius="md" style={{ overflow: "hidden" }}>
+      <Paper style={{ overflow: "hidden" }}>
         <Group px="md" py="sm" style={{ borderBottom: "1px solid var(--mantine-color-gray-1)" }}>
           <IconCreditCard size={15} color="var(--mantine-color-gray-6)" />
           <Text fw={600} size="sm">
@@ -373,7 +373,7 @@ export function MembersTab({ tenantKey }: { tenantKey: string }) {
         </Alert>
       )}
 
-      <Paper radius="md" style={{ overflow: "hidden" }}>
+      <Paper style={{ overflow: "hidden" }}>
         <Group
           justify="space-between"
           align="center"

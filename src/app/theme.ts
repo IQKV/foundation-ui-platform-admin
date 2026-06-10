@@ -192,7 +192,7 @@ export const theme = createTheme({
       defaultProps: { radius: "sm" },
     },
     Paper: {
-      defaultProps: { radius: "sm" },
+      defaultProps: { radius: "md" },
       styles: {
         root: {
           boxShadow: "var(--mantine-shadow-xs)",
@@ -203,7 +203,7 @@ export const theme = createTheme({
       },
     },
     Card: {
-      defaultProps: { radius: "sm" },
+      defaultProps: { radius: "md" },
       styles: {
         root: {
           boxShadow: "var(--mantine-shadow-xs)",

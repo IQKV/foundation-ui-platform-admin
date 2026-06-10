@@ -103,7 +103,7 @@ function OrganizationRefundsPage() {
         </Alert>
       )}
 
-      <Paper radius="md" style={{ overflow: "hidden" }}>
+      <Paper style={{ overflow: "hidden" }}>
         <Group
           justify="space-between"
           align="center"

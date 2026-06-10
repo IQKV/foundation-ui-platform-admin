@@ -93,7 +93,7 @@ function OverviewTab({ user, isLoading }: { user: IamUser | undefined; isLoading
   return (
     <Stack gap="md" pt="md">
       {/* Stats bar */}
-      <Paper radius="md" style={{ overflow: "hidden" }}>
+      <Paper style={{ overflow: "hidden" }}>
         <SimpleGrid cols={{ base: 2, sm: 4 }} spacing={0}>
           <StatCard
             label={<Trans>Organizations</Trans>}
@@ -132,7 +132,7 @@ function OverviewTab({ user, isLoading }: { user: IamUser | undefined; isLoading
       </Paper>
 
       {/* Organizations list */}
-      <Paper radius="md" style={{ overflow: "hidden" }}>
+      <Paper style={{ overflow: "hidden" }}>
         <Group px="md" py="sm" style={{ borderBottom: "1px solid var(--mantine-color-gray-1)" }}>
           <IconBuilding size={15} color="var(--mantine-color-gray-6)" />
           <Text fw={600} size="sm">
@@ -339,7 +339,7 @@ function UserDetailPage() {
       />
 
       {/* ── Hero card ───────────────────────────────────────────────────── */}
-      <Paper radius="md" p="xl" mb="md">
+      <Paper p="xl" mb="md">
         <Stack align="center" gap="xs">
           {/* Avatar */}
           {isLoading ? (
@@ -463,7 +463,7 @@ function UserDetailPage() {
 
         <Tabs.Panel value="organizations">
           <Stack gap="md" pt="md">
-            <Paper radius="md" style={{ overflow: "hidden" }}>
+            <Paper style={{ overflow: "hidden" }}>
               <Group
                 px="md"
                 py="sm"

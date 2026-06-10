@@ -296,7 +296,7 @@ function AdminAuditLogsPage() {
             {/* General Stats Section */}
             <SimpleGrid cols={{ base: 1, sm: 2, md: 4 }} spacing="md" mb="md">
               {stats?.slice(0, 4).map((stat: AuditActionCount) => (
-                <Paper key={stat.action} p="md" radius="md">
+                <Paper key={stat.action} p="md">
                   <Group justify="space-between">
                     <Text size="xs" c="dimmed" fw={700} tt="uppercase">
                       {stat.action}
@@ -314,7 +314,7 @@ function AdminAuditLogsPage() {
                 </Paper>
               ))}
               {(!stats || stats.length === 0) && (
-                <Paper p="md" radius="md" style={{ gridColumn: "1 / -1" }}>
+                <Paper p="md" style={{ gridColumn: "1 / -1" }}>
                   <Text size="sm" c="dimmed" ta="center">
                     <Trans>No event statistics available</Trans>
                   </Text>
@@ -326,7 +326,7 @@ function AdminAuditLogsPage() {
           <Tabs.Panel value="signin" pt="md">
             {/* Signin-specific Stats Section */}
             <SimpleGrid cols={{ base: 1, sm: 2, md: 4 }} spacing="md" mb="md">
-              <Card p="md" radius="md">
+              <Card p="md">
                 <Group justify="space-between" mb="xs">
                   <Text size="xs" c="dimmed" fw={700} tt="uppercase">
                     <Trans>Total Attempts</Trans>
@@ -340,7 +340,7 @@ function AdminAuditLogsPage() {
                 </Text>
               </Card>
 
-              <Card p="md" radius="md">
+              <Card p="md">
                 <Group justify="space-between" mb="xs">
                   <Text size="xs" c="dimmed" fw={700} tt="uppercase">
                     <Trans>Successful</Trans>
@@ -354,7 +354,7 @@ function AdminAuditLogsPage() {
                 </Text>
               </Card>
 
-              <Card p="md" radius="md">
+              <Card p="md">
                 <Group justify="space-between" mb="xs">
                   <Text size="xs" c="dimmed" fw={700} tt="uppercase">
                     <Trans>Failed</Trans>
@@ -368,7 +368,7 @@ function AdminAuditLogsPage() {
                 </Text>
               </Card>
 
-              <Card p="md" radius="md">
+              <Card p="md">
                 <Group justify="space-between" mb="xs">
                   <Text size="xs" c="dimmed" fw={700} tt="uppercase">
                     <Trans>Success Rate</Trans>
@@ -396,7 +396,7 @@ function AdminAuditLogsPage() {
           </Alert>
         )}
 
-        <Paper radius="md" style={{ overflow: "hidden" }}>
+        <Paper style={{ overflow: "hidden" }}>
           <Group
             justify="space-between"
             align="center"
@@ -582,7 +582,7 @@ function AdminAuditLogsPage() {
       >
         {selectedRecord && (
           <Stack gap="md">
-            <Paper p="md" radius="md" bg="var(--mantine-color-gray-0)">
+            <Paper p="md" bg="var(--mantine-color-gray-0)">
               <Grid gutter="md">
                 <Grid.Col span={6}>
                   <Text size="xs" c="dimmed" tt="uppercase" fw={700}>

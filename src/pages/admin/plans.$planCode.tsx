@@ -243,7 +243,7 @@ function PlanDetailPage() {
         }
       />
 
-      <Paper radius="md" p="lg">
+      <Paper p="lg">
         <form onSubmit={handleSubmit}>
           <Stack gap="md">
             <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="md">

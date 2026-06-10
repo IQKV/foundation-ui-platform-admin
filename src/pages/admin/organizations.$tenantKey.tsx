@@ -163,7 +163,7 @@ function OrganizationTenantLayout() {
         }
       />
 
-      <Paper radius="md" p="xl" mb="md">
+      <Paper p="xl" mb="md">
         <Stack align="center" gap="xs">
           <Box
             style={{

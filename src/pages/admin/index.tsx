@@ -67,7 +67,7 @@ function AdminDashboardPage() {
       />
 
       <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing="md">
-        <Card radius="md" p="lg">
+        <Card p="lg">
           <Group justify="space-between" mb="md">
             <ThemeIcon size="lg" radius="md" variant="light" color="blue">
               <IconUsers size={20} />
@@ -90,7 +90,7 @@ function AdminDashboardPage() {
           </Button>
         </Card>
 
-        <Card radius="md" p="lg">
+        <Card p="lg">
           <Group justify="space-between" mb="md">
             <ThemeIcon size="lg" radius="md" variant="light" color="violet">
               <IconBuilding size={20} />
@@ -113,7 +113,7 @@ function AdminDashboardPage() {
           </Button>
         </Card>
 
-        <Card radius="md" p="lg">
+        <Card p="lg">
           <Group justify="space-between" mb="md">
             <ThemeIcon size="lg" radius="md" variant="light" color="teal">
               <IconCreditCard size={20} />
