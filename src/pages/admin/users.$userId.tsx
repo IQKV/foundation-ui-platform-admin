@@ -93,7 +93,7 @@ function OverviewTab({ user, isLoading }: { user: IamUser | undefined; isLoading
   return (
     <Stack gap="md" pt="md">
       {/* Stats bar */}
-      <Paper withBorder radius="md" style={{ overflow: "hidden" }}>
+      <Paper radius="md" style={{ overflow: "hidden" }}>
         <SimpleGrid cols={{ base: 2, sm: 4 }} spacing={0}>
           <StatCard
             label={<Trans>Organizations</Trans>}
@@ -132,8 +132,8 @@ function OverviewTab({ user, isLoading }: { user: IamUser | undefined; isLoading
       </Paper>
 
       {/* Organizations list */}
-      <Paper withBorder radius="md" style={{ overflow: "hidden" }}>
-        <Group px="md" py="sm" style={{ borderBottom: "1px solid var(--mantine-color-gray-2)" }}>
+      <Paper radius="md" style={{ overflow: "hidden" }}>
+        <Group px="md" py="sm" style={{ borderBottom: "1px solid var(--mantine-color-gray-1)" }}>
           <IconBuilding size={15} color="var(--mantine-color-gray-6)" />
           <Text fw={600} size="sm">
             <Trans>Organizations</Trans>
@@ -339,7 +339,7 @@ function UserDetailPage() {
       />
 
       {/* ── Hero card ───────────────────────────────────────────────────── */}
-      <Paper withBorder radius="md" p="xl" mb="md">
+      <Paper radius="md" p="xl" mb="md">
         <Stack align="center" gap="xs">
           {/* Avatar */}
           {isLoading ? (
@@ -435,7 +435,7 @@ function UserDetailPage() {
         onChange={setActiveTab}
         styles={{
           tab: { fontSize: "var(--mantine-font-size-sm)" },
-          list: { borderBottom: "1px solid var(--mantine-color-gray-2)" },
+          list: { borderBottom: "1px solid var(--mantine-color-gray-1)" },
         }}
       >
         <Tabs.List>
@@ -463,11 +463,11 @@ function UserDetailPage() {
 
         <Tabs.Panel value="organizations">
           <Stack gap="md" pt="md">
-            <Paper withBorder radius="md" style={{ overflow: "hidden" }}>
+            <Paper radius="md" style={{ overflow: "hidden" }}>
               <Group
                 px="md"
                 py="sm"
-                style={{ borderBottom: "1px solid var(--mantine-color-gray-2)" }}
+                style={{ borderBottom: "1px solid var(--mantine-color-gray-1)" }}
               >
                 <IconBuilding size={15} color="var(--mantine-color-gray-6)" />
                 <Text fw={600} size="sm">

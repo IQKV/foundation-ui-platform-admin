@@ -124,7 +124,7 @@ function RefundDetailPage() {
           <Trans>Back to list</Trans>
         </Button>
 
-        <Paper withBorder p="xl" radius="md">
+        <Paper p="xl" radius="md">
           {isLoading ? (
             <Stack>
               <Skeleton height={40} />

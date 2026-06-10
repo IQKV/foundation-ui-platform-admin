@@ -184,7 +184,7 @@ function AccountPage() {
       />
 
       {/* ── Hero card ───────────────────────────────────────────────────── */}
-      <Paper withBorder radius="md" p="xl" mb="md">
+      <Paper radius="md" p="xl" mb="md">
         <Stack align="center" gap="xs">
           {/* Avatar */}
           {isLoading ? (
@@ -276,7 +276,7 @@ function AccountPage() {
       </Paper>
 
       {/* ── Stats bar ───────────────────────────────────────────────────── */}
-      <Paper withBorder radius="md" mb="md" style={{ overflow: "hidden" }}>
+      <Paper radius="md" mb="md" style={{ overflow: "hidden" }}>
         <SimpleGrid cols={{ base: 2, sm: 3 }} spacing={0}>
           <StatCard
             label={<Trans>Email</Trans>}
@@ -310,8 +310,8 @@ function AccountPage() {
       </Paper>
 
       {/* ── Platform authorities ─────────────────────────────────────────── */}
-      <Paper withBorder radius="md" style={{ overflow: "hidden" }}>
-        <Group px="md" py="sm" style={{ borderBottom: "1px solid var(--mantine-color-gray-2)" }}>
+      <Paper radius="md" style={{ overflow: "hidden" }}>
+        <Group px="md" py="sm" style={{ borderBottom: "1px solid var(--mantine-color-gray-1)" }}>
           <IconShieldHalf size={15} color="var(--mantine-color-gray-6)" />
           <Text fw={600} size="sm">
             <Trans>Platform Authorities</Trans>

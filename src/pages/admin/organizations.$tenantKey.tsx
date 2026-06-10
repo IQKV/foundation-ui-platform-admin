@@ -163,7 +163,7 @@ function OrganizationTenantLayout() {
         }
       />
 
-      <Paper withBorder radius="md" p="xl" mb="md">
+      <Paper radius="md" p="xl" mb="md">
         <Stack align="center" gap="xs">
           <Box
             style={{
@@ -255,7 +255,7 @@ function OrganizationTenantLayout() {
         value={activeTab}
         styles={{
           tab: { fontSize: "var(--mantine-font-size-sm)" },
-          list: { borderBottom: "1px solid var(--mantine-color-gray-2)" },
+          list: { borderBottom: "1px solid var(--mantine-color-gray-1)" },
         }}
       >
         <Tabs.List>

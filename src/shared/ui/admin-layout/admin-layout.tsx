@@ -20,10 +20,20 @@ export function AdminLayout({ children }: AdminLayoutProps) {
       }}
       padding="md"
       data-testid="admin-layout"
+      styles={{
+        // Page canvas — off-white / deep navy depending on color scheme
+        root: { background: "var(--app-shell-bg)" },
+        main: { background: "var(--app-shell-bg)", minHeight: "calc(100vh - 52px)" },
+      }}
     >
       <AppShell.Header
         style={{
-          borderBottom: "1px solid var(--mantine-color-default-border)",
+          background: "var(--app-header-bg)",
+          // Border is part of the shadow token so we suppress the default border
+          border: "none",
+          boxShadow: "var(--app-header-shadow)",
+          // Ensure header sits above sidebar shadow
+          zIndex: 101,
         }}
       >
         <AdminHeader opened={opened} onToggle={toggle} />
@@ -31,7 +41,9 @@ export function AdminLayout({ children }: AdminLayoutProps) {
 
       <AppShell.Navbar
         style={{
-          borderRight: "1px solid var(--mantine-color-default-border)",
+          background: "var(--app-sidebar-bg)",
+          border: "none",
+          boxShadow: "var(--app-sidebar-shadow)",
         }}
         data-testid="admin-nav"
       >
@@ -40,14 +52,7 @@ export function AdminLayout({ children }: AdminLayoutProps) {
         </AppShell.Section>
       </AppShell.Navbar>
 
-      <AppShell.Main
-        style={{
-          minHeight: "calc(100vh - 52px)",
-          background: "var(--mantine-color-gray-0)",
-        }}
-      >
-        {children}
-      </AppShell.Main>
+      <AppShell.Main>{children}</AppShell.Main>
     </AppShell>
   );
 }

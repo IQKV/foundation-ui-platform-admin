@@ -259,7 +259,7 @@ function SubscriptionDetailPage() {
           <Trans>Back to list</Trans>
         </Button>
 
-        <Paper withBorder p="xl" radius="md">
+        <Paper p="xl" radius="md">
           {isLoading ? (
             <Stack>
               <Skeleton height={40} />
@@ -356,7 +356,7 @@ function SubscriptionDetailPage() {
         </Paper>
 
         {subscription && (
-          <Paper withBorder p="md" radius="md" bg="var(--mantine-color-gray-0)">
+          <Paper p="md" radius="md" bg="var(--mantine-color-gray-0)">
             <Stack gap="xs">
               <Text size="xs" fw={700} c="dimmed" tt="uppercase">
                 <Trans>Metadata</Trans>

@@ -1,4 +1,4 @@
-import { createTheme, type MantineThemeOverride } from "@mantine/core";
+import { createTheme, type MantineThemeOverride, type CSSVariablesResolver } from "@mantine/core";
 
 /**
  * Enterprise design tokens.
@@ -192,10 +192,24 @@ export const theme = createTheme({
       defaultProps: { radius: "sm" },
     },
     Paper: {
-      defaultProps: { radius: "sm", shadow: "xs" },
+      defaultProps: { radius: "sm" },
+      styles: {
+        root: {
+          boxShadow: "var(--mantine-shadow-xs)",
+          // Explicit surface color — prevents Paper from inheriting page background
+          // and becoming invisible when withBorder is not used.
+          backgroundColor: "var(--app-surface-bg)",
+        },
+      },
     },
     Card: {
-      defaultProps: { radius: "sm", shadow: "xs" },
+      defaultProps: { radius: "sm" },
+      styles: {
+        root: {
+          boxShadow: "var(--mantine-shadow-xs)",
+          backgroundColor: "var(--app-surface-bg)",
+        },
+      },
     },
     Table: {
       styles: {
@@ -259,5 +273,48 @@ export const theme = createTheme({
     Code: {
       defaultProps: { radius: "xs" },
     },
+  },
+});
+
+/**
+ * Custom CSS variables injected into :root / [data-mantine-color-scheme].
+ *
+ * --app-shell-bg        — page canvas (slightly off-white / off-black)
+ * --app-header-bg       — header surface
+ * --app-sidebar-bg      — sidebar surface
+ * --app-header-shadow   — directional shadow under the header
+ * --app-sidebar-shadow  — directional shadow to the right of the sidebar
+ *
+ * Using CSS variables (not inline styles) means the shell components stay
+ * free of color-scheme logic — they just consume the variable and both themes
+ * are handled here in one place.
+ */
+export const cssVariablesResolver: CSSVariablesResolver = () => ({
+  variables: {},
+  light: {
+    // Canvas: a touch warmer than pure white — reads as intentional, not default
+    "--app-shell-bg": "#f4f6f9",
+    // Header: clean white so it "floats" above the canvas
+    "--app-header-bg": "#ffffff",
+    // Sidebar: ever-so-slightly tinted — distinguishes it from main content
+    "--app-sidebar-bg": "#fafbfd",
+    // Surface: white cards on a gray canvas — depth without borders
+    "--app-surface-bg": "#ffffff",
+    // Shadows use the darkest slate tone with low opacity
+    "--app-header-shadow": "0 1px 0 #e4e8ef, 0 2px 8px rgba(17,28,43,0.06)",
+    "--app-sidebar-shadow": "1px 0 0 #e4e8ef, 2px 0 8px rgba(17,28,43,0.04)",
+  },
+  dark: {
+    // Canvas: deep navy-slate — not pure #000 or Mantine's default dark.7
+    "--app-shell-bg": "#0f1621",
+    // Header: one step lighter than canvas, clearly elevated
+    "--app-header-bg": "#151d2b",
+    // Sidebar: same as header — unified dark chrome feel
+    "--app-sidebar-bg": "#151d2b",
+    // Surface: slightly lighter than canvas so cards read as elevated
+    "--app-surface-bg": "#1a2436",
+    // Shadows are nearly invisible in dark mode; border does the work instead
+    "--app-header-shadow": "0 1px 0 rgba(255,255,255,0.06), 0 2px 8px rgba(0,0,0,0.3)",
+    "--app-sidebar-shadow": "1px 0 0 rgba(255,255,255,0.06), 2px 0 8px rgba(0,0,0,0.2)",
   },
 });

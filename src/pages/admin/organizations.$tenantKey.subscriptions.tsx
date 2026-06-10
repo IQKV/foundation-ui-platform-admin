@@ -138,13 +138,13 @@ function OrganizationSubscriptionsPage() {
         </Alert>
       )}
 
-      <Paper withBorder radius="md" style={{ overflow: "hidden" }}>
+      <Paper radius="md" style={{ overflow: "hidden" }}>
         <Group
           justify="space-between"
           align="center"
           px="md"
           py="sm"
-          style={{ borderBottom: "1px solid var(--mantine-color-gray-2)" }}
+          style={{ borderBottom: "1px solid var(--mantine-color-gray-1)" }}
         >
           <Group gap="xs">
             <Text fw={600} size="sm">
