@@ -70,7 +70,11 @@ export function App() {
       <HelmetProvider>
         <I18nProvider i18n={i18n}>
           <ErrorBoundary>
-            <MantineProvider theme={theme} colorSchemeManager={colorSchemeManager} cssVariablesResolver={cssVariablesResolver}>
+            <MantineProvider
+              theme={theme}
+              colorSchemeManager={colorSchemeManager}
+              cssVariablesResolver={cssVariablesResolver}
+            >
               <ModalsProvider>
                 <NavigationProgress />
                 <Notifications />
