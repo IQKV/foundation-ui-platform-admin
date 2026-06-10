@@ -88,6 +88,7 @@ msgstr "Action"
 #: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
 #: src/pages/admin/refunds.tsx
 #: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/users.index.tsx
 msgid "Actions"
 msgstr "Actions"
 
@@ -2322,8 +2323,8 @@ msgid "View plan"
 msgstr "View plan"
 
 #: src/pages/admin/users.index.tsx
-msgid "View user"
-msgstr "View user"
+#~ msgid "View user"
+#~ msgstr "View user"
 
 #: src/features/announcement-admin/model/types.ts
 msgid "Warning"

@@ -18,6 +18,7 @@ import {
   Select,
   CloseButton,
   Anchor,
+  Menu,
 } from "@mantine/core";
 import { useDisclosure, useDebouncedValue } from "@mantine/hooks";
 import { useQuery } from "@tanstack/react-query";
@@ -33,6 +34,7 @@ import {
   IconBan,
   IconUserCheck,
   IconLockOpen,
+  IconDots,
 } from "@tabler/icons-react";
 import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
@@ -452,84 +454,76 @@ function AdminUsersPage() {
                   title: "",
                   textAlign: "right",
                   render: (user) => (
-                    <Group gap={4} justify="flex-end" wrap="nowrap">
-                      <Tooltip label={t`View user`} withArrow>
-                        <ActionIcon
-                          variant="subtle"
-                          color="gray"
-                          size="sm"
-                          component={Link}
-                          to={`/admin/users/${user.id}`}
-                          onClick={(e: React.MouseEvent) => e.stopPropagation()}
-                        >
-                          <IconEye size={15} />
-                        </ActionIcon>
-                      </Tooltip>
-                      <Tooltip label={t`Edit user`} withArrow>
-                        <ActionIcon
-                          variant="subtle"
-                          color="blue"
-                          size="sm"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            handleEdit(user);
-                          }}
-                        >
-                          <IconEdit size={15} />
-                        </ActionIcon>
-                      </Tooltip>
-                      <Tooltip label={t`Set password`} withArrow>
-                        <ActionIcon
-                          variant="subtle"
-                          color="orange"
-                          size="sm"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            handleSetPassword(user);
-                          }}
-                        >
-                          <IconKey size={15} />
-                        </ActionIcon>
-                      </Tooltip>
-                      <Tooltip label={t`Ban user`} withArrow>
-                        <ActionIcon
-                          variant="subtle"
-                          color="red"
-                          size="sm"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            handleBan(user);
-                          }}
-                        >
-                          <IconBan size={15} />
-                        </ActionIcon>
-                      </Tooltip>
-                      <Tooltip label={t`Unban user`} withArrow>
-                        <ActionIcon
-                          variant="subtle"
-                          color="green"
-                          size="sm"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            handleUnban(user);
-                          }}
-                        >
-                          <IconUserCheck size={15} />
-                        </ActionIcon>
-                      </Tooltip>
-                      <Tooltip label={t`Unlock user`} withArrow>
-                        <ActionIcon
-                          variant="subtle"
-                          color="teal"
-                          size="sm"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            handleUnlock(user);
-                          }}
-                        >
-                          <IconLockOpen size={15} />
-                        </ActionIcon>
-                      </Tooltip>
+                    <Group
+                      gap={4}
+                      justify="flex-end"
+                      wrap="nowrap"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <ActionIcon
+                        variant="subtle"
+                        color="gray"
+                        size="sm"
+                        component={Link}
+                        to={`/admin/users/${user.id}`}
+                        onClick={(e: React.MouseEvent) => e.stopPropagation()}
+                      >
+                        <IconEye size={15} />
+                      </ActionIcon>
+
+                      <Menu position="bottom-end" shadow="md" width={200} withinPortal>
+                        <Menu.Target>
+                          <ActionIcon
+                            variant="subtle"
+                            color="gray"
+                            size="sm"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <IconDots size={15} />
+                          </ActionIcon>
+                        </Menu.Target>
+
+                        <Menu.Dropdown>
+                          <Menu.Label>
+                            <Trans>Actions</Trans>
+                          </Menu.Label>
+                          <Menu.Item
+                            leftSection={<IconEdit size={14} />}
+                            onClick={() => handleEdit(user)}
+                          >
+                            <Trans>Edit user</Trans>
+                          </Menu.Item>
+                          <Menu.Item
+                            leftSection={<IconKey size={14} />}
+                            onClick={() => handleSetPassword(user)}
+                          >
+                            <Trans>Set password</Trans>
+                          </Menu.Item>
+                          <Menu.Divider />
+                          <Menu.Item
+                            leftSection={<IconUserCheck size={14} />}
+                            color="green"
+                            onClick={() => handleUnban(user)}
+                          >
+                            <Trans>Unban user</Trans>
+                          </Menu.Item>
+                          <Menu.Item
+                            leftSection={<IconLockOpen size={14} />}
+                            color="teal"
+                            onClick={() => handleUnlock(user)}
+                          >
+                            <Trans>Unlock user</Trans>
+                          </Menu.Item>
+                          <Menu.Divider />
+                          <Menu.Item
+                            leftSection={<IconBan size={14} />}
+                            color="red"
+                            onClick={() => handleBan(user)}
+                          >
+                            <Trans>Ban user</Trans>
+                          </Menu.Item>
+                        </Menu.Dropdown>
+                      </Menu>
                     </Group>
                   ),
                 },

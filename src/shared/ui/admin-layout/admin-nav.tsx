@@ -22,6 +22,25 @@ interface NavItem {
   to: string;
 }
 
+/** Section label above a group of nav items */
+function SectionLabel({ children }: { children: React.ReactNode }) {
+  return (
+    <Text
+      size="xs"
+      fw={600}
+      c="dimmed"
+      tt="uppercase"
+      lts="0.06em"
+      px={12}
+      pt={8}
+      pb={4}
+      style={{ userSelect: "none" }}
+    >
+      {children}
+    </Text>
+  );
+}
+
 export function AdminNav() {
   const { t } = useLingui();
   const routerState = useRouterState();
@@ -29,48 +48,20 @@ export function AdminNav() {
   const [search, setSearch] = useState("");
 
   const navItems: NavItem[] = [
-    { label: t`Dashboard`, icon: <IconDashboard size={16} />, to: "/admin/" },
-    { label: t`Users`, icon: <IconUsers size={16} />, to: "/admin/users" },
-    {
-      label: t`Organizations`,
-      icon: <IconBuilding size={16} />,
-      to: "/admin/organizations",
-    },
-    {
-      label: t`Audit Logs`,
-      icon: <IconHistory size={16} />,
-      to: "/admin/audit-logs",
-    },
-    {
-      label: t`Invitations`,
-      icon: <IconMail size={16} />,
-      to: "/admin/invitations",
-    },
-    {
-      label: t`Subscriptions`,
-      icon: <IconCreditCard size={16} />,
-      to: "/admin/subscriptions",
-    },
-    {
-      label: t`Refunds`,
-      icon: <IconReceiptRefund size={16} />,
-      to: "/admin/refunds",
-    },
-    {
-      label: t`Plans`,
-      icon: <IconTags size={16} />,
-      to: "/admin/plans",
-    },
-    {
-      label: t`Announcements`,
-      icon: <IconSpeakerphone size={16} />,
-      to: "/admin/announcements",
-    },
+    { label: t`Dashboard`, icon: <IconDashboard size={15} />, to: "/admin/" },
+    { label: t`Users`, icon: <IconUsers size={15} />, to: "/admin/users" },
+    { label: t`Organizations`, icon: <IconBuilding size={15} />, to: "/admin/organizations" },
+    { label: t`Audit Logs`, icon: <IconHistory size={15} />, to: "/admin/audit-logs" },
+    { label: t`Invitations`, icon: <IconMail size={15} />, to: "/admin/invitations" },
+    { label: t`Subscriptions`, icon: <IconCreditCard size={15} />, to: "/admin/subscriptions" },
+    { label: t`Refunds`, icon: <IconReceiptRefund size={15} />, to: "/admin/refunds" },
+    { label: t`Plans`, icon: <IconTags size={15} />, to: "/admin/plans" },
+    { label: t`Announcements`, icon: <IconSpeakerphone size={15} />, to: "/admin/announcements" },
   ];
 
   const accountItem: NavItem = {
     label: t`My Account`,
-    icon: <IconUserCircle size={16} />,
+    icon: <IconUserCircle size={15} />,
     to: "/admin/account",
   };
 
@@ -93,12 +84,19 @@ export function AdminNav() {
         to={item.to}
         styles={{
           root: {
-            borderRadius: "var(--mantine-radius-sm)",
-            marginInline: "var(--mantine-spacing-xs)",
-            fontSize: "var(--mantine-font-size-sm)",
+            borderRadius: "var(--mantine-radius-xs)",
+            marginInline: "6px",
+            paddingBlock: "6px",
+            paddingInline: "10px",
           },
           label: {
             fontSize: "var(--mantine-font-size-sm)",
+            fontWeight: isActive ? 600 : 400,
+          },
+          section: {
+            // icon column — fixed width keeps labels aligned
+            width: 20,
+            marginRight: 8,
           },
         }}
       />
@@ -106,20 +104,26 @@ export function AdminNav() {
   };
 
   return (
-    <Stack gap={0} py="sm">
+    <Stack gap={0} py="xs">
       {/* Search */}
-      <Box px="sm" pb="sm">
+      <Box px="sm" pb="xs">
         <TextInput
           placeholder={t`Search…`}
           size="xs"
-          leftSection={<IconSearch size={13} />}
+          radius="xs"
+          leftSection={<IconSearch size={12} />}
           value={search}
           onChange={(e) => setSearch(e.currentTarget.value)}
-          styles={{ input: { background: "var(--mantine-color-default)" } }}
+          styles={{
+            input: {
+              background: "var(--mantine-color-default)",
+              fontSize: "var(--mantine-font-size-xs)",
+            },
+          }}
         />
       </Box>
 
-      {/* Nav items */}
+      {/* Results / full nav */}
       {filtered ? (
         filtered.length > 0 ? (
           filtered.map(renderItem)
@@ -130,21 +134,17 @@ export function AdminNav() {
         )
       ) : (
         <>
-          <Box px="md" pb={4}>
-            <Text size="xs" fw={600} c="dimmed" tt="uppercase" lts={1}>
-              <Trans>Platform</Trans>
-            </Text>
-          </Box>
+          <SectionLabel>
+            <Trans>Platform</Trans>
+          </SectionLabel>
 
           {navItems.map(renderItem)}
 
-          <Divider mx="sm" my="xs" />
+          <Divider mx="sm" my={6} />
 
-          <Box px="md" pb={4}>
-            <Text size="xs" fw={600} c="dimmed" tt="uppercase" lts={1}>
-              <Trans>Account</Trans>
-            </Text>
-          </Box>
+          <SectionLabel>
+            <Trans>Account</Trans>
+          </SectionLabel>
 
           {renderItem(accountItem)}
         </>

@@ -12,9 +12,9 @@ export function AdminLayout({ children }: AdminLayoutProps) {
 
   return (
     <AppShell
-      header={{ height: 56 }}
+      header={{ height: 52 }}
       navbar={{
-        width: 220,
+        width: 216,
         breakpoint: "sm",
         collapsed: { mobile: !opened },
       }}
@@ -42,7 +42,8 @@ export function AdminLayout({ children }: AdminLayoutProps) {
 
       <AppShell.Main
         style={{
-          minHeight: "calc(100vh - 56px)",
+          minHeight: "calc(100vh - 52px)",
+          background: "var(--mantine-color-gray-0)",
         }}
       >
         {children}

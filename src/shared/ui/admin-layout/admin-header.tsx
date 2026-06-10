@@ -1,4 +1,4 @@
-import { Group, Text, Burger, Box, Divider, Tooltip, ActionIcon } from "@mantine/core";
+import { Group, Text, Burger, Box, Tooltip, ActionIcon } from "@mantine/core";
 import { IconShieldHalf, IconUserCircle } from "@tabler/icons-react";
 import { Link } from "@tanstack/react-router";
 import { SignOutButton } from "@/features/sign-out";
@@ -15,13 +15,13 @@ interface AdminHeaderProps {
 export function AdminHeader({ opened, onToggle }: AdminHeaderProps) {
   return (
     <Group h="100%" px={0} justify="space-between" gap={0} data-testid="admin-header">
-      {/* Brand block — same width as sidebar so content aligns */}
+      {/* Brand block — exact same width as the sidebar for pixel-perfect alignment */}
       <Group
         h="100%"
         px="md"
         gap="xs"
         style={{
-          width: 220,
+          width: 216,
           borderRight: "1px solid var(--mantine-color-default-border)",
           flexShrink: 0,
         }}
@@ -35,13 +35,13 @@ export function AdminHeader({ opened, onToggle }: AdminHeaderProps) {
         />
 
         <Group gap={8} visibleFrom="sm" style={{ cursor: "default" }}>
-          {/* Logo mark */}
+          {/* Logo mark — uses primary accent so it responds to theme primaryColor */}
           <Box
             style={{
-              width: 32,
-              height: 32,
-              borderRadius: "var(--mantine-radius-md)",
-              background: "var(--mantine-color-dark-8)",
+              width: 28,
+              height: 28,
+              borderRadius: "var(--mantine-radius-sm)",
+              background: "var(--mantine-color-blue-6)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -49,24 +49,17 @@ export function AdminHeader({ opened, onToggle }: AdminHeaderProps) {
             }}
             data-testid="header-logo"
           >
-            <IconShieldHalf size={18} color="white" />
+            <IconShieldHalf size={15} color="white" />
           </Box>
 
-          <Text
-            fw={700}
-            size="sm"
-            c="var(--mantine-color-text)"
-            style={{ letterSpacing: "-0.01em" }}
-          >
+          <Text fw={600} size="sm" style={{ letterSpacing: "-0.02em" }}>
             {APP_NAME}
           </Text>
         </Group>
       </Group>
 
-      <Divider orientation="vertical" />
-
-      {/* Right side actions */}
-      <Group gap="xs" px="md" ml="auto">
+      {/* Right-side controls */}
+      <Group gap={4} px="md" ml="auto">
         <LocaleSwitcher />
         <ColorSchemeToggle />
         <NotificationBell />
@@ -74,12 +67,12 @@ export function AdminHeader({ opened, onToggle }: AdminHeaderProps) {
           <ActionIcon
             variant="subtle"
             color="gray"
-            size="md"
+            size="sm"
             component={Link}
             to="/admin/account"
             data-testid="header-account-link"
           >
-            <IconUserCircle size={18} />
+            <IconUserCircle size={16} />
           </ActionIcon>
         </Tooltip>
         <SignOutButton />

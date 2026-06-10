@@ -11,26 +11,25 @@ export interface BreadcrumbItem {
 interface PageHeaderProps {
   title: ReactNode;
   breadcrumbs?: BreadcrumbItem[];
-  /** Optional toolbar row rendered below the title/breadcrumb line. */
+  /** Optional toolbar rendered below the title / breadcrumb row. */
   toolbar?: React.ReactNode;
-  /** Optional element rendered on the right side of the title. */
+  /** Optional element inlined to the right of the title. */
   rightSection?: React.ReactNode;
 }
 
 export function PageHeader({ title, breadcrumbs, toolbar, rightSection }: PageHeaderProps) {
   return (
-    <Stack gap={0} mb="lg">
-      {/* Title row */}
+    <Stack gap={0} mb="md">
       <Group
         justify="space-between"
         align="center"
-        py="md"
+        py="sm"
         style={{
           borderBottom: toolbar ? "none" : "1px solid var(--mantine-color-gray-2)",
         }}
       >
-        <Group align="center" gap="md">
-          <Title order={2} fw={700} size="h3">
+        <Group align="center" gap="sm">
+          <Title order={2} size="h4" fw={600} style={{ letterSpacing: "-0.02em" }}>
             {title}
           </Title>
           {rightSection}
@@ -39,9 +38,12 @@ export function PageHeader({ title, breadcrumbs, toolbar, rightSection }: PageHe
         {breadcrumbs && breadcrumbs.length > 0 && (
           <Breadcrumbs
             separator="/"
-            separatorMargin={6}
+            separatorMargin={4}
             styles={{
-              separator: { color: "var(--mantine-color-gray-4)", fontSize: 13 },
+              separator: {
+                color: "var(--mantine-color-gray-4)",
+                fontSize: "var(--mantine-font-size-xs)",
+              },
             }}
           >
             {breadcrumbs.map((crumb, i) =>
@@ -50,15 +52,18 @@ export function PageHeader({ title, breadcrumbs, toolbar, rightSection }: PageHe
                   key={i}
                   component={Link}
                   to={crumb.to}
-                  size="sm"
+                  size="xs"
                   c="dimmed"
+                  fw={400}
                   style={{ textDecoration: "none" }}
-                  styles={{ root: { "&:hover": { color: "var(--mantine-color-blue-6)" } } }}
+                  styles={{
+                    root: { "&:hover": { color: "var(--mantine-color-blue-6)" } },
+                  }}
                 >
                   {crumb.label}
                 </Anchor>
               ) : (
-                <Text key={i} size="sm" c="dark" fw={500}>
+                <Text key={i} size="xs" c="dark" fw={500}>
                   {crumb.label}
                 </Text>
               ),
@@ -67,9 +72,8 @@ export function PageHeader({ title, breadcrumbs, toolbar, rightSection }: PageHe
         )}
       </Group>
 
-      {/* Optional toolbar row */}
       {toolbar && (
-        <Group py="sm" style={{ borderBottom: "1px solid var(--mantine-color-gray-2)" }}>
+        <Group py="xs" style={{ borderBottom: "1px solid var(--mantine-color-gray-2)" }}>
           {toolbar}
         </Group>
       )}
