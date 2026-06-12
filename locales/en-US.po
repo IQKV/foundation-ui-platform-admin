@@ -255,6 +255,10 @@ msgstr "At least one digit"
 msgid "At least one special character"
 msgstr "At least one special character"
 
+#: src/pages/admin/index.tsx
+msgid "Attention Required"
+msgstr "Attention Required"
+
 #: src/shared/ui/admin-layout/admin-nav.tsx
 #~ msgid "Audit Log"
 #~ msgstr "Audit Log"
@@ -1593,6 +1597,10 @@ msgstr "Platform Authorities"
 #: src/shared/ui/auth-layout/auth-layout.tsx
 msgid "Platform control,"
 msgstr "Platform control,"
+
+#: src/pages/admin/index.tsx
+msgid "Platform Overview"
+msgstr "Platform Overview"
 
 #: src/features/announcement-admin/ui/create-announcement-modal.tsx
 msgid "Please check the form and try again."
