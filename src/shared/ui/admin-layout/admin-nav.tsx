@@ -22,19 +22,22 @@ interface NavItem {
   to: string;
 }
 
-/** Section label above a group of nav items */
+/** Uppercase section label styled for the dark sidebar */
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
     <Text
       size="xs"
       fw={600}
-      c="dimmed"
       tt="uppercase"
       lts="0.06em"
-      px={12}
-      pt={8}
+      px={14}
+      pt={12}
       pb={4}
-      style={{ userSelect: "none" }}
+      style={{
+        color: "var(--app-nav-section-label)",
+        userSelect: "none",
+        fontSize: "0.625rem",
+      }}
     >
       {children}
     </Text>
@@ -85,18 +88,24 @@ export function AdminNav() {
         styles={{
           root: {
             borderRadius: "var(--mantine-radius-xs)",
-            marginInline: "6px",
-            paddingBlock: "6px",
+            marginInline: "8px",
+            paddingBlock: "7px",
             paddingInline: "10px",
+            // Active: indigo pill; Hover: subtle white tint
+            background: isActive ? "var(--app-nav-active-bg)" : "transparent",
+            "&:hover": {
+              background: isActive ? "var(--app-nav-active-bg)" : "var(--app-nav-hover-bg)",
+            },
           },
           label: {
             fontSize: "var(--mantine-font-size-sm)",
             fontWeight: isActive ? 600 : 400,
+            color: isActive ? "var(--app-nav-text-active)" : "var(--app-nav-text)",
           },
           section: {
-            // icon column — fixed width keeps labels aligned
             width: 20,
             marginRight: 8,
+            color: isActive ? "var(--app-nav-icon-active)" : "var(--app-nav-icon)",
           },
         }}
       />
@@ -104,20 +113,25 @@ export function AdminNav() {
   };
 
   return (
-    <Stack gap={0} py="xs">
+    <Stack gap={0} py={6}>
       {/* Search */}
-      <Box px="sm" pb="xs">
+      <Box px={10} pb={6}>
         <TextInput
           placeholder={t`Search…`}
           size="xs"
           radius="xs"
-          leftSection={<IconSearch size={12} />}
+          leftSection={<IconSearch size={12} color="var(--app-nav-search-placeholder)" />}
           value={search}
           onChange={(e) => setSearch(e.currentTarget.value)}
           styles={{
             input: {
-              background: "var(--mantine-color-default)",
+              background: "var(--app-nav-search-bg)",
+              border: "1px solid var(--app-nav-search-border)",
+              color: "var(--app-nav-search-text)",
               fontSize: "var(--mantine-font-size-xs)",
+              "&::placeholder": {
+                color: "var(--app-nav-search-placeholder)",
+              },
             },
           }}
         />
@@ -128,7 +142,7 @@ export function AdminNav() {
         filtered.length > 0 ? (
           filtered.map(renderItem)
         ) : (
-          <Text size="xs" c="dimmed" px="md" py="xs">
+          <Text size="xs" px="md" py="xs" style={{ color: "var(--app-nav-section-label)" }}>
             <Trans>No results</Trans>
           </Text>
         )
@@ -140,7 +154,7 @@ export function AdminNav() {
 
           {navItems.map(renderItem)}
 
-          <Divider mx="sm" my={6} />
+          <Divider mx={10} my={6} style={{ borderColor: "var(--app-nav-divider)" }} />
 
           <SectionLabel>
             <Trans>Account</Trans>

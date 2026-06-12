@@ -2,6 +2,7 @@ import { AppShell, ScrollArea } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { AdminHeader } from "./admin-header";
 import { AdminNav } from "./admin-nav";
+import { AdminNavLogo } from "./admin-nav-logo";
 
 interface AdminLayoutProps {
   children: React.ReactNode;
@@ -21,7 +22,6 @@ export function AdminLayout({ children }: AdminLayoutProps) {
       padding="md"
       data-testid="admin-layout"
       styles={{
-        // Page canvas — off-white / deep navy depending on color scheme
         root: { background: "var(--app-shell-bg)" },
         main: { background: "var(--app-shell-bg)", minHeight: "calc(100vh - 52px)" },
       }}
@@ -29,16 +29,19 @@ export function AdminLayout({ children }: AdminLayoutProps) {
       <AppShell.Header
         style={{
           background: "var(--app-header-bg)",
-          // Border is part of the shadow token so we suppress the default border
           border: "none",
           boxShadow: "var(--app-header-shadow)",
-          // Ensure header sits above sidebar shadow
           zIndex: 101,
         }}
       >
         <AdminHeader opened={opened} onToggle={toggle} />
       </AppShell.Header>
 
+      {/*
+       * The navbar is always dark — sidebar + logo are one unified visual column.
+       * The logo zone sits in a non-scrolling AppShell.Section at the top,
+       * followed by the scrollable nav list below.
+       */}
       <AppShell.Navbar
         style={{
           background: "var(--app-sidebar-bg)",
@@ -47,6 +50,12 @@ export function AdminLayout({ children }: AdminLayoutProps) {
         }}
         data-testid="admin-nav"
       >
+        {/* Logo zone — matches the header height so it feels like the same stripe */}
+        <AppShell.Section>
+          <AdminNavLogo opened={opened} onToggle={toggle} />
+        </AppShell.Section>
+
+        {/* Scrollable nav items */}
         <AppShell.Section grow component={ScrollArea}>
           <AdminNav />
         </AppShell.Section>

@@ -290,31 +290,51 @@ export const theme = createTheme({
  * are handled here in one place.
  */
 export const cssVariablesResolver: CSSVariablesResolver = () => ({
-  variables: {},
+  variables: {
+    // ── Sidebar is always dark, independent of color scheme ──────────────────
+    // Deep navy-charcoal — echoes Zoho-style unified left rail.
+    // The brand logo section and the nav live inside the same dark column.
+    "--app-sidebar-bg": "#1b2332",
+    "--app-sidebar-logo-bg": "#141b27", // slightly deeper band for the logo zone
+    "--app-sidebar-border": "rgba(255,255,255,0.06)",
+    "--app-sidebar-shadow": "1px 0 0 rgba(0,0,0,0.35)",
+
+    // Nav item colours on the dark sidebar
+    "--app-nav-text": "rgba(255,255,255,0.65)",
+    "--app-nav-text-active": "#ffffff",
+    "--app-nav-icon": "rgba(255,255,255,0.45)",
+    "--app-nav-icon-active": "#ffffff",
+    "--app-nav-hover-bg": "rgba(255,255,255,0.07)",
+    "--app-nav-active-bg": "rgba(59,78,240,0.75)", // indigo-6 at 75% — brand accent
+
+    // Section label on dark
+    "--app-nav-section-label": "rgba(255,255,255,0.30)",
+
+    // Search input on dark
+    "--app-nav-search-bg": "rgba(255,255,255,0.08)",
+    "--app-nav-search-border": "rgba(255,255,255,0.12)",
+    "--app-nav-search-placeholder": "rgba(255,255,255,0.35)",
+    "--app-nav-search-text": "rgba(255,255,255,0.80)",
+    "--app-nav-divider": "rgba(255,255,255,0.10)",
+  },
   light: {
     // Canvas: a touch warmer than pure white — reads as intentional, not default
     "--app-shell-bg": "#f4f6f9",
     // Header: clean white so it "floats" above the canvas
     "--app-header-bg": "#ffffff",
-    // Sidebar: ever-so-slightly tinted — distinguishes it from main content
-    "--app-sidebar-bg": "#fafbfd",
     // Surface: white cards on a gray canvas — depth without borders
     "--app-surface-bg": "#ffffff",
     // Shadows use the darkest slate tone with low opacity
     "--app-header-shadow": "0 1px 0 #e4e8ef, 0 2px 8px rgba(17,28,43,0.06)",
-    "--app-sidebar-shadow": "1px 0 0 #e4e8ef, 2px 0 8px rgba(17,28,43,0.04)",
   },
   dark: {
     // Canvas: deep navy-slate — not pure #000 or Mantine's default dark.7
     "--app-shell-bg": "#0f1621",
     // Header: one step lighter than canvas, clearly elevated
     "--app-header-bg": "#151d2b",
-    // Sidebar: same as header — unified dark chrome feel
-    "--app-sidebar-bg": "#151d2b",
     // Surface: slightly lighter than canvas so cards read as elevated
     "--app-surface-bg": "#1a2436",
     // Shadows are nearly invisible in dark mode; border does the work instead
     "--app-header-shadow": "0 1px 0 rgba(255,255,255,0.06), 0 2px 8px rgba(0,0,0,0.3)",
-    "--app-sidebar-shadow": "1px 0 0 rgba(255,255,255,0.06), 2px 0 8px rgba(0,0,0,0.2)",
   },
 });
