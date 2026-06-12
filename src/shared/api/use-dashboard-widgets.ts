@@ -81,7 +81,14 @@ const STATUS_COLORS: Record<string, string> = {
 };
 
 // Subscription statuses tracked in the breakdown chart
-const BREAKDOWN_STATUSES = ["active", "trialing", "past_due", "paused", "canceled", "unpaid"] as const;
+const BREAKDOWN_STATUSES = [
+  "active",
+  "trialing",
+  "past_due",
+  "paused",
+  "canceled",
+  "unpaid",
+] as const;
 type BreakdownStatus = (typeof BREAKDOWN_STATUSES)[number];
 
 /**
