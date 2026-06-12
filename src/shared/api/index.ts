@@ -61,6 +61,16 @@ export type {
 } from "./billing";
 export { useDashboardCounts } from "./use-dashboard-counts";
 export type { UseDashboardCountsResult, DashboardCountResult } from "./use-dashboard-counts";
+export { useDashboardWidgets } from "./use-dashboard-widgets";
+export type {
+  UseDashboardWidgetsResult,
+  WidgetCountResult,
+  SubscriptionBreakdownItem,
+  SubscriptionBreakdownResult,
+  RecentAuditResult,
+  FailedTenantsResult,
+  RecentRefundsResult,
+} from "./use-dashboard-widgets";
 
 export { auditApi } from "./audit";
 export type {
