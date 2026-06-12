@@ -29,6 +29,7 @@ export interface ListAuditRecordsParams {
   size?: number;
   tenantKey?: string;
   action?: string;
+  severity?: "LOW" | "MEDIUM" | "HIGH" | "CRITICAL";
   sortBy?: string;
   sortDir?: SortDirection;
 }
@@ -60,13 +61,14 @@ export interface SigninAttemptRecord extends AuditRecord {
 
 export const auditApi = {
   listRecords: async (params: ListAuditRecordsParams) => {
-    const { page, size, tenantKey, action, sortBy, sortDir } = params;
+    const { page, size, tenantKey, action, severity, sortBy, sortDir } = params;
     const response = await httpClient.get<PagedResponse<AuditRecord>>("/v1/audit/admin/logs", {
       params: {
         page,
         size,
         tenantKey,
         action,
+        severity,
         sort: sortBy ? `${sortBy},${sortDir || "desc"}` : undefined,
       },
     });

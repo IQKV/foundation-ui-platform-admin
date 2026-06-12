@@ -80,10 +80,24 @@ const STATUS_COLORS: Record<string, string> = {
   unpaid: "red",
 };
 
+// Subscription statuses tracked in the breakdown chart
+const BREAKDOWN_STATUSES = ["active", "trialing", "past_due", "paused", "canceled", "unpaid"] as const;
+type BreakdownStatus = (typeof BREAKDOWN_STATUSES)[number];
+
 /**
  * Fires all dashboard widget data requests in parallel via useQueries.
- * Each widget has independent loading/error state.
- * All queries are disabled until the access token is present to avoid 401s.
+ *
+ * Each widget has independent loading/error state so a single failure does not
+ * block the rest. All queries gate on the access token to avoid 401s during the
+ * silent-refresh window on page reload.
+ *
+ * Subscription breakdown and KPI counts now use the dedicated
+ * GET /v1/billing/admin/subscriptions/count?status=<status> endpoint instead of
+ * fetching a page of size=1 — one lightweight COUNT(*) per status at the DB level.
+ *
+ * The recent-critical-audit feed now passes severity=HIGH to the backend so the
+ * API returns only HIGH/CRITICAL records directly, eliminating the previous
+ * client-side post-filter that could miss events beyond the first page.
  */
 export function useDashboardWidgets(): UseDashboardWidgetsResult {
   const accessToken = useSessionStore((s) => s.accessToken);
@@ -95,15 +109,7 @@ export function useDashboardWidgets(): UseDashboardWidgetsResult {
     pendingInvitationsQuery,
     pastDueQuery,
     trialingQuery,
-    breakdownActiveQuery,
-    breakdownTrialingQuery,
-    breakdownPastDueQuery,
-    breakdownPausedQuery,
-    breakdownCanceledQuery,
-    breakdownUnpaidQuery,
-    criticalAuditQuery,
-    failedTenantsQuery,
-    recentRefundsQuery,
+    ...rest
   ] = useQueries({
     queries: [
       // ── Locked users count ──────────────────────────────────────────────────
@@ -127,77 +133,45 @@ export function useDashboardWidgets(): UseDashboardWidgetsResult {
         enabled: isAuthenticated,
         select: (data: Awaited<ReturnType<typeof iamApi.countInvitations>>) => data.total,
       },
-      // ── Past-due subscriptions count ────────────────────────────────────────
+      // ── Past-due subscriptions count ── uses new /count?status= endpoint ────
       {
         queryKey: dashboardWidgetKeys.pastDueSubscriptions,
-        queryFn: () => billingApi.listSubscriptionsByStatus("past_due", 1),
+        queryFn: () => billingApi.countSubscriptionsByStatus("past_due"),
         enabled: isAuthenticated,
-        select: (data: Awaited<ReturnType<typeof billingApi.listSubscriptionsByStatus>>) =>
-          data.totalElements,
+        select: (data: Awaited<ReturnType<typeof billingApi.countSubscriptionsByStatus>>) =>
+          data.total,
       },
-      // ── Trialing subscriptions count ────────────────────────────────────────
+      // ── Trialing subscriptions count ── uses new /count?status= endpoint ────
       {
         queryKey: dashboardWidgetKeys.trialingSubscriptions,
-        queryFn: () => billingApi.listSubscriptionsByStatus("trialing", 1),
+        queryFn: () => billingApi.countSubscriptionsByStatus("trialing"),
         enabled: isAuthenticated,
-        select: (data: Awaited<ReturnType<typeof billingApi.listSubscriptionsByStatus>>) =>
-          data.totalElements,
+        select: (data: Awaited<ReturnType<typeof billingApi.countSubscriptionsByStatus>>) =>
+          data.total,
       },
-      // ── Subscription breakdown (one query per status) ───────────────────────
-      {
-        queryKey: [...dashboardWidgetKeys.subscriptionBreakdown, "active"],
-        queryFn: () => billingApi.listSubscriptionsByStatus("active", 1),
+      // ── Subscription breakdown (one COUNT per status) ───────────────────────
+      ...BREAKDOWN_STATUSES.map((status) => ({
+        queryKey: [...dashboardWidgetKeys.subscriptionBreakdown, status] as const,
+        queryFn: () => billingApi.countSubscriptionsByStatus(status as BreakdownStatus),
         enabled: isAuthenticated,
-        select: (data: Awaited<ReturnType<typeof billingApi.listSubscriptionsByStatus>>) =>
-          data.totalElements,
-      },
-      {
-        queryKey: [...dashboardWidgetKeys.subscriptionBreakdown, "trialing"],
-        queryFn: () => billingApi.listSubscriptionsByStatus("trialing", 1),
-        enabled: isAuthenticated,
-        select: (data: Awaited<ReturnType<typeof billingApi.listSubscriptionsByStatus>>) =>
-          data.totalElements,
-      },
-      {
-        queryKey: [...dashboardWidgetKeys.subscriptionBreakdown, "past_due"],
-        queryFn: () => billingApi.listSubscriptionsByStatus("past_due", 1),
-        enabled: isAuthenticated,
-        select: (data: Awaited<ReturnType<typeof billingApi.listSubscriptionsByStatus>>) =>
-          data.totalElements,
-      },
-      {
-        queryKey: [...dashboardWidgetKeys.subscriptionBreakdown, "paused"],
-        queryFn: () => billingApi.listSubscriptionsByStatus("paused", 1),
-        enabled: isAuthenticated,
-        select: (data: Awaited<ReturnType<typeof billingApi.listSubscriptionsByStatus>>) =>
-          data.totalElements,
-      },
-      {
-        queryKey: [...dashboardWidgetKeys.subscriptionBreakdown, "canceled"],
-        queryFn: () => billingApi.listSubscriptionsByStatus("canceled", 1),
-        enabled: isAuthenticated,
-        select: (data: Awaited<ReturnType<typeof billingApi.listSubscriptionsByStatus>>) =>
-          data.totalElements,
-      },
-      {
-        queryKey: [...dashboardWidgetKeys.subscriptionBreakdown, "unpaid"],
-        queryFn: () => billingApi.listSubscriptionsByStatus("unpaid", 1),
-        enabled: isAuthenticated,
-        select: (data: Awaited<ReturnType<typeof billingApi.listSubscriptionsByStatus>>) =>
-          data.totalElements,
-      },
-      // ── Recent HIGH/CRITICAL audit events ───────────────────────────────────
+        select: (data: Awaited<ReturnType<typeof billingApi.countSubscriptionsByStatus>>) =>
+          data.total,
+      })),
+      // ── Recent HIGH/CRITICAL audit events — server-side severity filter ─────
       {
         queryKey: dashboardWidgetKeys.recentCriticalAudit,
         queryFn: () =>
-          auditApi.listRecords({ page: 0, size: 8, sortBy: "occurredAt", sortDir: "desc" }),
+          auditApi.listRecords({
+            page: 0,
+            size: 6,
+            severity: "HIGH",
+            sortBy: "occurredAt",
+            sortDir: "desc",
+          }),
         enabled: isAuthenticated,
-        select: (data: Awaited<ReturnType<typeof auditApi.listRecords>>) =>
-          data.content
-            .filter((r) => r.severity === "HIGH" || r.severity === "CRITICAL")
-            .slice(0, 6),
+        select: (data: Awaited<ReturnType<typeof auditApi.listRecords>>) => data.content,
       },
-      // ── Orgs in bad state (PROVISIONING_FAILED / SUSPENDED) ────────────────
+      // ── Suspended / failed organisations ────────────────────────────────────
       {
         queryKey: dashboardWidgetKeys.failedTenants,
         queryFn: () => iamApi.listTenants({ status: "SUSPENDED", page: 0, size: 10 }),
@@ -215,23 +189,17 @@ export function useDashboardWidgets(): UseDashboardWidgetsResult {
     ],
   });
 
-  // Build breakdown array from individual status queries
-  const breakdownStatuses = ["active", "trialing", "past_due", "paused", "canceled", "unpaid"];
-  const breakdownQueries = [
-    breakdownActiveQuery,
-    breakdownTrialingQuery,
-    breakdownPastDueQuery,
-    breakdownPausedQuery,
-    breakdownCanceledQuery,
-    breakdownUnpaidQuery,
-  ];
-  const breakdownData: SubscriptionBreakdownItem[] = breakdownStatuses
-    .map((status, i) => ({
-      status,
-      count: (breakdownQueries[i]?.data as number | undefined) ?? 0,
-      color: STATUS_COLORS[status] ?? "gray",
-    }))
-    .filter((item) => item.count > 0);
+  // rest[] = [breakdown×6, criticalAudit, failedTenants, recentRefunds]
+  const breakdownQueries = rest.slice(0, BREAKDOWN_STATUSES.length);
+  const criticalAuditQuery = rest[BREAKDOWN_STATUSES.length];
+  const failedTenantsQuery = rest[BREAKDOWN_STATUSES.length + 1];
+  const recentRefundsQuery = rest[BREAKDOWN_STATUSES.length + 2];
+
+  const breakdownData: SubscriptionBreakdownItem[] = BREAKDOWN_STATUSES.map((status, i) => ({
+    status,
+    count: (breakdownQueries[i]?.data as number | undefined) ?? 0,
+    color: STATUS_COLORS[status] ?? "gray",
+  })).filter((item) => item.count > 0);
 
   const isBreakdownLoading = breakdownQueries.some((q) => q.isLoading);
   const isBreakdownError = breakdownQueries.some((q) => q.isError);
@@ -268,19 +236,19 @@ export function useDashboardWidgets(): UseDashboardWidgetsResult {
       isError: isBreakdownError,
     },
     recentCriticalAudit: {
-      records: (criticalAuditQuery.data as AuditRecord[] | undefined) ?? [],
-      isLoading: criticalAuditQuery.isLoading,
-      isError: criticalAuditQuery.isError,
+      records: (criticalAuditQuery?.data as AuditRecord[] | undefined) ?? [],
+      isLoading: criticalAuditQuery?.isLoading ?? false,
+      isError: criticalAuditQuery?.isError ?? false,
     },
     failedTenants: {
-      tenants: (failedTenantsQuery.data as IamTenant[] | undefined) ?? [],
-      isLoading: failedTenantsQuery.isLoading,
-      isError: failedTenantsQuery.isError,
+      tenants: (failedTenantsQuery?.data as IamTenant[] | undefined) ?? [],
+      isLoading: failedTenantsQuery?.isLoading ?? false,
+      isError: failedTenantsQuery?.isError ?? false,
     },
     recentRefunds: {
-      refunds: (recentRefundsQuery.data as AdminRefund[] | undefined) ?? [],
-      isLoading: recentRefundsQuery.isLoading,
-      isError: recentRefundsQuery.isError,
+      refunds: (recentRefundsQuery?.data as AdminRefund[] | undefined) ?? [],
+      isLoading: recentRefundsQuery?.isLoading ?? false,
+      isError: recentRefundsQuery?.isError ?? false,
     },
   };
 }

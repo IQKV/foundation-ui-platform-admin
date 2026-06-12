@@ -183,7 +183,13 @@ export const billingApi = {
   countSubscriptions: () =>
     httpClient.get<CountResponse>("/v1/billing/admin/subscriptions/count").then((r) => r.data),
 
-  /** Returns subscriptions filtered by status, used for dashboard KPI cards (past_due, trialing). */
+  /** Count subscriptions by a specific status — uses the new ?status= param on /count. */
+  countSubscriptionsByStatus: (status: SubscriptionStatus) =>
+    httpClient
+      .get<CountResponse>("/v1/billing/admin/subscriptions/count", { params: { status } })
+      .then((r) => r.data),
+
+  /** Returns subscriptions filtered by status, used as fallback when size info is needed. */
   listSubscriptionsByStatus: (status: SubscriptionStatus, size = 1) =>
     httpClient
       .get<PagedResponse<Subscription>>("/v1/billing/admin/subscriptions", {
