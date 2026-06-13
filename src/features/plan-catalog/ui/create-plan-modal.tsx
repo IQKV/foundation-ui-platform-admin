@@ -139,33 +139,41 @@ export function CreatePlanModal({ opened, onClose }: CreatePlanModalProps) {
       size="md"
       centered
     >
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} data-testid="modal--create-plan">
         <Stack gap="md">
           <TextInput
             label={t`Plan code`}
             placeholder={t`e.g. pro-monthly`}
             description={t`Unique identifier; use lowercase letters, numbers, and hyphens.`}
+            data-testid="input--plan-code"
             {...form.getInputProps("planCode")}
           />
-          <TextInput label={t`Display name`} {...form.getInputProps("displayName")} />
+          <TextInput
+            label={t`Display name`}
+            data-testid="input--display-name"
+            {...form.getInputProps("displayName")}
+          />
           <Select
             label={t`Billing period`}
             data={[
               { value: "MONTHLY", label: t`Monthly` },
               { value: "ANNUAL", label: t`Annual` },
             ]}
+            data-testid="input--billing-period"
             {...form.getInputProps("billingPeriod")}
           />
           <NumberInput
             label={t`Price (minor units)`}
             description={t`Smallest currency unit (e.g. cents for USD).`}
             min={1}
+            data-testid="input--price-minor"
             {...form.getInputProps("priceMinor")}
           />
           <TextInput
             label={t`Currency`}
             placeholder="USD"
             maxLength={3}
+            data-testid="input--currency"
             {...form.getInputProps("currency")}
           />
           <Select
@@ -174,6 +182,7 @@ export function CreatePlanModal({ opened, onClose }: CreatePlanModalProps) {
               { value: "TENANT", label: t`Tenant` },
               { value: "USER", label: t`User` },
             ]}
+            data-testid="input--scope"
             {...form.getInputProps("scope")}
           />
           <Textarea
@@ -181,9 +190,14 @@ export function CreatePlanModal({ opened, onClose }: CreatePlanModalProps) {
             placeholder='{"seats": 10}'
             minRows={3}
             autosize
+            data-testid="input--feature-set"
             {...form.getInputProps("featureSet")}
           />
-          <Switch label={t`Active`} {...form.getInputProps("active", { type: "checkbox" })} />
+          <Switch
+            label={t`Active`}
+            data-testid="input--active"
+            {...form.getInputProps("active", { type: "checkbox" })}
+          />
 
           <Group justify="flex-end" gap="sm">
             <Button
@@ -191,10 +205,11 @@ export function CreatePlanModal({ opened, onClose }: CreatePlanModalProps) {
               color="gray"
               onClick={handleClose}
               disabled={mutation.isPending}
+              data-testid="button--cancel"
             >
               <Trans>Cancel</Trans>
             </Button>
-            <Button type="submit" loading={mutation.isPending}>
+            <Button type="submit" loading={mutation.isPending} data-testid="button--create-plan">
               <Trans>Create plan</Trans>
             </Button>
           </Group>

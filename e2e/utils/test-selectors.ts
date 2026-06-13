@@ -38,10 +38,15 @@ export const TestSelectors = {
   PAGE_HEADER: (name: string) => `page-header--${name}`,
 
   // Auth
+  SIGN_IN_PAGE: "page-sign-in",
+  SIGN_IN_WELCOME_HEADING: "sign-in-welcome-heading",
+  SIGN_IN_SUBHEADING: "sign-in-subheading",
   SIGN_IN_FORM: "sign-in-form",
   SIGN_IN_EMAIL_INPUT: "sign-in-email-input",
   SIGN_IN_PASSWORD_INPUT: "sign-in-password-input",
   SIGN_IN_SUBMIT_BUTTON: "sign-in-submit-button",
+  ALERT_SESSION_TIMEOUT: "alert--session-timeout",
+  ALERT_ACCESS_FORBIDDEN: "alert--access-forbidden",
 
   // Error Pages
   PAGE_404: "page-404",
@@ -57,6 +62,36 @@ export const TestSelectors = {
   MODAL_CLOSE_BUTTON: "modal-close-button",
   MODAL_CONFIRM_BUTTON: "modal-confirm-button",
   MODAL_CANCEL_BUTTON: "modal-cancel-button",
+
+  // User Management Modals
+  MODAL_EDIT_USER: "modal--edit-user",
+  MODAL_SET_USER_PASSWORD: "modal--set-password",
+  MODAL_BAN_USER: "modal--ban-user",
+  MODAL_UNBAN_USER: "modal--unban-user",
+  MODAL_UNLOCK_USER: "modal--unlock-user",
+
+  // Tenant Management Modals
+  MODAL_EDIT_TENANT: "modal--edit-tenant",
+
+  // Account Management Modals
+  MODAL_EDIT_ACCOUNT: "modal--edit-account",
+  MODAL_CHANGE_ADMIN_PASSWORD: "modal--change-admin-password",
+
+  // Platform Authority Modals
+  MODAL_GRANT_PLATFORM_ADMIN: "modal--grant-platform-admin",
+  MODAL_REVOKE_PLATFORM_ADMIN: "modal--revoke-platform-admin",
+
+  // Announcement Modals
+  MODAL_CREATE_ANNOUNCEMENT: "modal--create-announcement",
+  MODAL_EDIT_ANNOUNCEMENT: "modal--edit-announcement",
+  MODAL_DELETE_ANNOUNCEMENT: "modal--delete-announcement",
+
+  // Invitation Modals
+  MODAL_PROPOSE_INVITATION: "modal--propose-invitation",
+  MODAL_EDIT_INVITATION: "modal--edit-invitation",
+
+  // Plan Modals
+  MODAL_CREATE_PLAN: "modal--create-plan",
 } as const;
 
 /**

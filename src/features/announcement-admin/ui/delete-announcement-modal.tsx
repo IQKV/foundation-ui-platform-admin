@@ -43,7 +43,7 @@ export function DeleteAnnouncementModal({
       size="sm"
       centered
     >
-      <Stack gap="md">
+      <Stack gap="md" data-testid="modal--delete-announcement">
         {mutation.isError && (
           <Alert
             icon={<IconAlertCircle size={16} />}
@@ -63,10 +63,21 @@ export function DeleteAnnouncementModal({
         </Text>
 
         <Group justify="flex-end" gap="sm">
-          <Button variant="subtle" color="gray" onClick={handleClose} disabled={mutation.isPending}>
+          <Button
+            variant="subtle"
+            color="gray"
+            onClick={handleClose}
+            disabled={mutation.isPending}
+            data-testid="button--cancel"
+          >
             <Trans>Cancel</Trans>
           </Button>
-          <Button color="red" loading={mutation.isPending} onClick={handleConfirm}>
+          <Button
+            color="red"
+            loading={mutation.isPending}
+            onClick={handleConfirm}
+            data-testid="button--delete"
+          >
             <Trans>Delete</Trans>
           </Button>
         </Group>

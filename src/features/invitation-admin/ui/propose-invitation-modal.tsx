@@ -58,7 +58,7 @@ export function ProposeInvitationModal({ opened, onClose }: ProposeInvitationMod
       size="md"
       centered
     >
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} data-testid="modal--propose-invitation">
         <Stack gap="md">
           {isOrganizationsError && (
             <Alert
@@ -72,6 +72,7 @@ export function ProposeInvitationModal({ opened, onClose }: ProposeInvitationMod
                 color="red"
                 size="xs"
                 onClick={() => void refetchOrganizations()}
+                data-testid="button--retry"
               >
                 <Trans>Retry</Trans>
               </Button>
@@ -89,6 +90,7 @@ export function ProposeInvitationModal({ opened, onClose }: ProposeInvitationMod
             disabled={
               isLoadingOrganizations || isOrganizationsError || organizationOptions.length === 0
             }
+            data-testid="input--tenant-key"
             {...form.getInputProps("tenantKey")}
           />
 
@@ -96,12 +98,14 @@ export function ProposeInvitationModal({ opened, onClose }: ProposeInvitationMod
             label={t`Email`}
             placeholder={t`invitee@example.com`}
             type="email"
+            data-testid="input--email"
             {...form.getInputProps("email")}
           />
 
           <Select
             label={t`Authority`}
             data={getAuthorityOptions()}
+            data-testid="input--authority"
             {...form.getInputProps("authority")}
           />
 
@@ -111,6 +115,7 @@ export function ProposeInvitationModal({ opened, onClose }: ProposeInvitationMod
               color="gray"
               onClick={handleClose}
               disabled={mutation.isPending}
+              data-testid="button--cancel"
             >
               <Trans>Cancel</Trans>
             </Button>
@@ -120,6 +125,7 @@ export function ProposeInvitationModal({ opened, onClose }: ProposeInvitationMod
               disabled={
                 isLoadingOrganizations || isOrganizationsError || organizationOptions.length === 0
               }
+              data-testid="button--send-invitation"
             >
               <Trans>Send invitation</Trans>
             </Button>

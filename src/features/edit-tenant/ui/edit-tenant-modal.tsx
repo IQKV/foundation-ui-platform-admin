@@ -70,11 +70,12 @@ export function EditTenantModal({ tenant, opened, onClose }: EditTenantModalProp
       size="md"
       centered
     >
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} data-testid="modal--edit-tenant">
         <Stack gap="md">
           <TextInput
             label={t`Organization name`}
             placeholder={t`Organization name`}
+            data-testid="input--organization-name"
             {...form.getInputProps("name")}
           />
 
@@ -98,7 +99,12 @@ export function EditTenantModal({ tenant, opened, onClose }: EditTenantModalProp
             rightSectionWidth={72}
           />
 
-          <Select label={t`Status`} data={getStatusOptions()} {...form.getInputProps("status")} />
+          <Select
+            label={t`Status`}
+            data={getStatusOptions()}
+            data-testid="input--status"
+            {...form.getInputProps("status")}
+          />
 
           <Divider />
 
@@ -108,10 +114,11 @@ export function EditTenantModal({ tenant, opened, onClose }: EditTenantModalProp
               color="gray"
               onClick={handleClose}
               disabled={mutation.isPending}
+              data-testid="button--cancel"
             >
               <Trans>Cancel</Trans>
             </Button>
-            <Button type="submit" loading={mutation.isPending}>
+            <Button type="submit" loading={mutation.isPending} data-testid="button--save-changes">
               <Trans>Save changes</Trans>
             </Button>
           </Group>

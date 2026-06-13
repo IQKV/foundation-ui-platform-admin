@@ -1,21 +1,22 @@
 import { expect, type Page, type Locator } from "@playwright/test";
 import { TestSelectors, byTestId } from "./test-selectors.js";
+import { TEST_CONFIG } from "../config/test-config.js";
 
 export class AppPage {
-  constructor(private page: Page) {}
+  constructor(readonly page: Page) {}
 
   async goToHome() {
-    await this.page.goto("/");
+    await this.page.goto(TEST_CONFIG.ROUTES.HOME);
     await this.page.waitForLoadState("networkidle");
   }
 
   async goTo404() {
-    await this.page.goto("/404");
+    await this.page.goto(TEST_CONFIG.ROUTES.NOT_FOUND);
     await this.page.waitForLoadState("networkidle");
   }
 
-  async goToAdmin() {
-    await this.page.goto("/admin");
+  async goToSignIn() {
+    await this.page.goto(TEST_CONFIG.ROUTES.SIGN_IN);
     await this.page.waitForLoadState("networkidle");
   }
 
@@ -27,11 +28,6 @@ export class AppPage {
   async expect404PageVisible() {
     await expect(this.page.locator(byTestId(TestSelectors.PAGE_404))).toBeVisible();
     await expect(this.page.getByRole("heading", { name: "404" })).toBeVisible();
-  }
-
-  async expectAdminLayoutVisible() {
-    await expect(this.page.locator(byTestId(TestSelectors.ADMIN_LAYOUT))).toBeVisible();
-    await expect(this.page.locator(byTestId(TestSelectors.ADMIN_HEADER))).toBeVisible();
   }
 
   // Helper methods for common test operations
@@ -50,6 +46,50 @@ export class AppPage {
   }
 }
 
+export class AdminPage extends AppPage {
+  constructor(page: Page) {
+    super(page);
+  }
+
+  async goToUsers() {
+    await this.page.goto(TEST_CONFIG.ROUTES.ADMIN_USERS);
+    await this.page.waitForLoadState("networkidle");
+  }
+
+  async goToTenants() {
+    await this.page.goto(TEST_CONFIG.ROUTES.ADMIN_TENANTS);
+    await this.page.waitForLoadState("networkidle");
+  }
+
+  async goToInvitations() {
+    await this.page.goto(TEST_CONFIG.ROUTES.ADMIN_INVITATIONS);
+    await this.page.waitForLoadState("networkidle");
+  }
+
+  async goToPlans() {
+    await this.page.goto(TEST_CONFIG.ROUTES.ADMIN_PLANS);
+    await this.page.waitForLoadState("networkidle");
+  }
+
+  async goToAccount() {
+    await this.page.goto(TEST_CONFIG.ROUTES.ADMIN_ACCOUNT);
+    await this.page.waitForLoadState("networkidle");
+  }
+
+  async expectAdminLayoutVisible() {
+    await expect(this.page.locator(byTestId(TestSelectors.ADMIN_LAYOUT))).toBeVisible();
+    await expect(this.page.locator(byTestId(TestSelectors.ADMIN_HEADER))).toBeVisible();
+  }
+
+  async toggleColorScheme() {
+    await this.clickByTestId(TestSelectors.HEADER_COLOR_SCHEME_TOGGLE);
+  }
+
+  async toggleMobileMenu() {
+    await this.clickByTestId(TestSelectors.HEADER_MOBILE_MENU_TOGGLE);
+  }
+}
+
 export const testUtils = {
   async waitForPageReady(page: Page) {
     await page.waitForLoadState("networkidle");
@@ -57,11 +97,7 @@ export const testUtils = {
   },
 
   async testResponsiveDesign(page: Page, testCallback: (page: Page) => Promise<void>) {
-    const viewports = [
-      { width: 375, height: 667 },
-      { width: 768, height: 1024 },
-      { width: 1920, height: 1080 },
-    ];
+    const viewports = Object.values(TEST_CONFIG.VIEWPORTS);
     for (const viewport of viewports) {
       await page.setViewportSize(viewport);
       await testCallback(page);

@@ -55,7 +55,7 @@ export function EditInvitationModal({ invitation, opened, onClose }: EditInvitat
       centered
     >
       {invitation && (
-        <Stack gap="md">
+        <Stack gap="md" data-testid="modal--edit-invitation">
           <TextInput
             label={t`Email`}
             value={invitation.email}
@@ -142,6 +142,7 @@ export function EditInvitationModal({ invitation, opened, onClose }: EditInvitat
               color="gray"
               onClick={handleClose}
               disabled={revokeMutation.isPending}
+              data-testid="button--close"
             >
               <Trans>Close</Trans>
             </Button>
@@ -151,6 +152,7 @@ export function EditInvitationModal({ invitation, opened, onClose }: EditInvitat
                 variant="light"
                 loading={revokeMutation.isPending}
                 onClick={() => revokeMutation.mutate()}
+                data-testid="button--revoke-invitation"
               >
                 <Trans>Revoke invitation</Trans>
               </Button>

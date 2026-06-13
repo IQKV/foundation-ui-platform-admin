@@ -71,10 +71,16 @@ export function CreateAnnouncementModal({ opened, onClose }: CreateAnnouncementM
           )}
 
           <Group grow>
-            <Select label={t`Type`} data={getTypeOptions()} {...form.getInputProps("type")} />
+            <Select
+              label={t`Type`}
+              data={getTypeOptions()}
+              data-testid="input--type"
+              {...form.getInputProps("type")}
+            />
             <Select
               label={t`Initial status`}
               data={getStatusOptions()}
+              data-testid="input--status"
               {...form.getInputProps("status")}
             />
           </Group>

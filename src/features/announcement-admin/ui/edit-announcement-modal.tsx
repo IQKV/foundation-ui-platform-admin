@@ -129,7 +129,7 @@ export function EditAnnouncementModal({
         </Alert>
       )}
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} data-testid="modal--edit-announcement">
         <Stack gap="md">
           {(updateMutation.isError || publishMutation.isError) && (
             <Alert
@@ -147,12 +147,14 @@ export function EditAnnouncementModal({
               label={t`Type`}
               data={getTypeOptions()}
               disabled={!isEditable}
+              data-testid="input--type"
               {...form.getInputProps("type")}
             />
             <Select
               label={t`Status`}
               data={getStatusOptions()}
               disabled={!isEditable}
+              data-testid="input--status"
               {...form.getInputProps("status")}
             />
           </Group>
@@ -178,6 +180,7 @@ export function EditAnnouncementModal({
                   loading={publishMutation.isPending}
                   disabled={updateMutation.isPending}
                   onClick={handlePublish}
+                  data-testid="button--publish"
                 >
                   <Trans>Publish</Trans>
                 </Button>
@@ -185,7 +188,13 @@ export function EditAnnouncementModal({
             </Box>
 
             <Group gap="sm">
-              <Button variant="subtle" color="gray" onClick={handleClose} disabled={isPending}>
+              <Button
+                variant="subtle"
+                color="gray"
+                onClick={handleClose}
+                disabled={isPending}
+                data-testid="button--cancel"
+              >
                 <Trans>Cancel</Trans>
               </Button>
               {isEditable && (
@@ -193,6 +202,7 @@ export function EditAnnouncementModal({
                   type="submit"
                   loading={updateMutation.isPending}
                   disabled={publishMutation.isPending || !hasEnUs}
+                  data-testid="button--save-changes"
                 >
                   <Trans>Save changes</Trans>
                 </Button>

@@ -46,17 +46,17 @@ function SignInPage() {
   const { redirect: redirectTo, reason } = Route.useSearch();
 
   return (
-    <AuthLayout>
+    <AuthLayout data-testid="page-sign-in">
       <Helmet>
         <title>{pageTitle(t`Sign In`)}</title>
       </Helmet>
 
       {/* Heading */}
       <Box>
-        <Title order={2} fw={700} size="h3" mb={6}>
+        <Title order={2} fw={700} size="h3" mb={6} data-testid="sign-in-welcome-heading">
           <Trans>Welcome back</Trans>
         </Title>
-        <Text c="dimmed" size="sm">
+        <Text c="dimmed" size="sm" data-testid="sign-in-subheading">
           <Trans>Platform administration</Trans>
         </Text>
       </Box>
@@ -69,6 +69,7 @@ function SignInPage() {
           variant="light"
           aria-live="polite"
           aria-atomic="true"
+          data-testid="alert--session-timeout"
         >
           <Trans>Your session expired due to inactivity.</Trans>
         </Alert>
@@ -81,6 +82,7 @@ function SignInPage() {
           variant="light"
           aria-live="polite"
           aria-atomic="true"
+          data-testid="alert--access-forbidden"
         >
           <Trans>You do not have permission to access the admin area.</Trans>
         </Alert>

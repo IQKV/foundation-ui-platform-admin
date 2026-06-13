@@ -96,7 +96,7 @@ export function EditAccountModal({ account, opened, onClose }: EditAccountModalP
       size="md"
       centered
     >
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} data-testid="modal--edit-account">
         <Stack gap="md">
           {account && (
             <Box
@@ -122,11 +122,13 @@ export function EditAccountModal({ account, opened, onClose }: EditAccountModalP
             <TextInput
               label={t`First name`}
               placeholder={t`First name`}
+              data-testid="input--first-name"
               {...form.getInputProps("firstName")}
             />
             <TextInput
               label={t`Last name`}
               placeholder={t`Last name`}
+              data-testid="input--last-name"
               {...form.getInputProps("lastName")}
             />
           </Group>
@@ -154,6 +156,7 @@ export function EditAccountModal({ account, opened, onClose }: EditAccountModalP
             label={t`Language`}
             description={t`Sets your preferred language for notifications and emails.`}
             placeholder={localesLoading ? t`Loading…` : t`Select language`}
+            data-testid="input--language"
             data={localeOptions}
             rightSection={localesLoading ? <Loader size="xs" /> : undefined}
             disabled={localesLoading}
@@ -170,10 +173,11 @@ export function EditAccountModal({ account, opened, onClose }: EditAccountModalP
               color="gray"
               onClick={handleClose}
               disabled={mutation.isPending}
+              data-testid="button--cancel"
             >
               <Trans>Cancel</Trans>
             </Button>
-            <Button type="submit" loading={mutation.isPending}>
+            <Button type="submit" loading={mutation.isPending} data-testid="button--save-changes">
               <Trans>Save changes</Trans>
             </Button>
           </Group>

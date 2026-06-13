@@ -2,12 +2,13 @@ import { test as base, expect, type Page } from "@playwright/test";
 import { TEST_CONFIG } from "../config/test-config.js";
 import { TestSelectors } from "../utils/test-selectors.js";
 import { byTestId } from "../utils/test-selectors.js";
+import { AdminPage, AppPage } from "../utils/test-helpers.js";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 export interface AuthFixtures {
   /** Page pre-authenticated as the platform admin. Navigated to /admin on setup. */
-  adminPage: Page;
+  adminPage: AdminPage;
 }
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
@@ -26,9 +27,9 @@ export async function signInAsPlatformAdmin(page: Page): Promise<void> {
   await page.goto(TEST_CONFIG.ROUTES.SIGN_IN);
   await page.waitForLoadState("networkidle");
 
-  await page.getByLabel(/email/i).fill(email);
-  await page.getByLabel(/password/i).fill(password);
-  await page.getByRole("button", { name: /sign in/i }).click();
+  await page.locator(byTestId(TestSelectors.SIGN_IN_EMAIL_INPUT)).fill(email);
+  await page.locator(byTestId(TestSelectors.SIGN_IN_PASSWORD_INPUT)).fill(password);
+  await page.locator(byTestId(TestSelectors.SIGN_IN_SUBMIT_BUTTON)).click();
 
   await page.waitForURL(`**${TEST_CONFIG.ROUTES.ADMIN}**`, {
     timeout: TEST_CONFIG.NAVIGATION_TIMEOUT,
@@ -62,11 +63,11 @@ export async function restoreAdminSession(page: Page): Promise<void> {
  * has expired.
  *
  * Usage:
- * ```ts
+ * ```
  * import { test, expect } from "../fixtures";
  *
  * test("admin dashboard loads", async ({ adminPage }) => {
- *   await expect(adminPage.locator("[data-testid='admin-layout']")).toBeVisible();
+ *   await adminPage.expectAdminLayoutVisible();
  * });
  * ```
  */
@@ -76,8 +77,9 @@ export const test = base.extend<AuthFixtures>({
       storageState: TEST_CONFIG.STORAGE_STATE,
     });
     const page = await context.newPage();
+    const adminPage = new AdminPage(page);
     await restoreAdminSession(page);
-    await use(page);
+    await use(adminPage);
     await context.close();
   },
 });
