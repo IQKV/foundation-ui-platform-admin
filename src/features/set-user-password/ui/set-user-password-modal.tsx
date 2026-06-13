@@ -166,7 +166,12 @@ export function SetUserPasswordModal({ user, opened, onClose }: SetUserPasswordM
             >
               <Trans>Cancel</Trans>
             </Button>
-            <Button type="submit" color="orange" loading={mutation.isPending} data-testid="button--set-password">
+            <Button
+              type="submit"
+              color="orange"
+              loading={mutation.isPending}
+              data-testid="button--set-password"
+            >
               <Trans>Set password</Trans>
             </Button>
           </Group>

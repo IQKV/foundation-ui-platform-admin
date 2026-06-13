@@ -140,7 +140,12 @@ export function EditUserModal({ user, opened, onClose }: EditUserModalProps) {
             rightSectionWidth={72}
           />
 
-          <Select label={t`Status`} data={getStatusOptions()} data-testid="input--status" {...form.getInputProps("status")} />
+          <Select
+            label={t`Status`}
+            data={getStatusOptions()}
+            data-testid="input--status"
+            {...form.getInputProps("status")}
+          />
 
           <Divider />
 

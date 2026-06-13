@@ -119,7 +119,12 @@ export function BanUserModal({ user, opened, onClose }: BanUserModalProps) {
             >
               <Trans>Cancel</Trans>
             </Button>
-            <Button type="submit" color="red" loading={mutation.isPending} data-testid="button--ban-user">
+            <Button
+              type="submit"
+              color="red"
+              loading={mutation.isPending}
+              data-testid="button--ban-user"
+            >
               <Trans>Ban user</Trans>
             </Button>
           </Group>

@@ -65,10 +65,21 @@ export function UnbanUserModal({ user, opened, onClose }: UnbanUserModalProps) {
         <Divider />
 
         <Group justify="flex-end" gap="sm">
-          <Button variant="subtle" color="gray" onClick={handleClose} disabled={mutation.isPending} data-testid="button--cancel">
+          <Button
+            variant="subtle"
+            color="gray"
+            onClick={handleClose}
+            disabled={mutation.isPending}
+            data-testid="button--cancel"
+          >
             <Trans>Cancel</Trans>
           </Button>
-          <Button color="blue" loading={mutation.isPending} onClick={handleConfirm} data-testid="button--unban-user">
+          <Button
+            color="blue"
+            loading={mutation.isPending}
+            onClick={handleConfirm}
+            data-testid="button--unban-user"
+          >
             <Trans>Unban user</Trans>
           </Button>
         </Group>

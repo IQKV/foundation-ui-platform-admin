@@ -97,7 +97,12 @@ export function CreateAnnouncementModal({ opened, onClose }: CreateAnnouncementM
             >
               <Trans>Cancel</Trans>
             </Button>
-            <Button type="submit" loading={mutation.isPending} disabled={!hasEnUs} data-testid="button--create-announcement">
+            <Button
+              type="submit"
+              loading={mutation.isPending}
+              disabled={!hasEnUs}
+              data-testid="button--create-announcement"
+            >
               <Trans>Create announcement</Trans>
             </Button>
           </Group>
