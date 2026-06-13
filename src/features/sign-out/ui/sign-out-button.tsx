@@ -21,6 +21,7 @@ export function SignOutButton() {
       loading={isLoading}
       disabled={isLoading}
       onClick={() => void signOut()}
+      data-testid="button--sign-out"
     >
       <Trans>Sign out</Trans>
     </Button>

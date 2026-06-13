@@ -31,12 +31,12 @@ export function SignInForm({ redirectTo }: SignInFormProps) {
   const handleFormSubmit = handleSubmit((values: SignInFormValues) => onSubmit(values));
 
   return (
-    <form onSubmit={(e) => void handleFormSubmit(e)} noValidate>
+    <form onSubmit={(e) => void handleFormSubmit(e)} noValidate data-testid="sign-in-form">
       <Stack gap="md">
         {/* ARIA live region for server-side error messages (Requirement 8.5) */}
         <div aria-live="polite" aria-atomic="true">
           {errorMessage && (
-            <Alert icon={<IconAlertCircle size={16} />} color="red" variant="light" role="alert">
+            <Alert icon={<IconAlertCircle size={16} />} color="red" variant="light" role="alert" data-testid="sign-in-error-alert">
               {errorMessage}
             </Alert>
           )}
@@ -50,6 +50,7 @@ export function SignInForm({ redirectTo }: SignInFormProps) {
             <TextInput
               {...field}
               id="sign-in-email"
+              data-testid="sign-in-email-input"
               label={t`Email`}
               type="email"
               placeholder={t`you@example.com`}
@@ -70,6 +71,7 @@ export function SignInForm({ redirectTo }: SignInFormProps) {
             <TextInput
               {...field}
               id="sign-in-password"
+              data-testid="sign-in-password-input"
               label={t`Password`}
               type="password"
               placeholder={t`Your password`}
@@ -82,7 +84,7 @@ export function SignInForm({ redirectTo }: SignInFormProps) {
         />
 
         {/* Submit button — disabled and shows loading indicator while in flight (Requirement 1.11) */}
-        <Button type="submit" fullWidth loading={isLoading} disabled={isLoading}>
+        <Button type="submit" fullWidth loading={isLoading} disabled={isLoading} data-testid="sign-in-submit-button">
           <Trans>Sign in</Trans>
         </Button>
       </Stack>

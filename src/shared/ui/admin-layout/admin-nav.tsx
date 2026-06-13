@@ -77,6 +77,12 @@ export function AdminNav() {
       currentPath === item.to ||
       (item.to !== "/admin/" && item.to !== "/admin" && currentPath.startsWith(item.to));
 
+    // Derive a stable slug from the route, e.g. "/admin/users" → "users"
+    const slug = item.to
+      .replace(/^\/admin\/?/, "")
+      .replace(/\//g, "-")
+      .replace(/^$/, "dashboard");
+
     return (
       <NavLink
         key={item.to}
@@ -85,6 +91,7 @@ export function AdminNav() {
         active={isActive}
         component={Link}
         to={item.to}
+        data-testid={`nav-item--${slug}`}
         styles={{
           root: {
             borderRadius: "var(--mantine-radius-xs)",
@@ -123,6 +130,7 @@ export function AdminNav() {
           leftSection={<IconSearch size={12} color="var(--app-nav-search-placeholder)" />}
           value={search}
           onChange={(e) => setSearch(e.currentTarget.value)}
+          data-testid="nav-search-input"
           styles={{
             input: {
               background: "var(--app-nav-search-bg)",

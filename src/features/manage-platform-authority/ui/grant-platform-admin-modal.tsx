@@ -60,10 +60,10 @@ export function GrantPlatformAdminModal({ user, opened, onClose }: GrantPlatform
         <Divider />
 
         <Group justify="flex-end" gap="sm">
-          <Button variant="subtle" color="gray" onClick={handleClose} disabled={mutation.isPending}>
+          <Button variant="subtle" color="gray" onClick={handleClose} disabled={mutation.isPending} data-testid="button--cancel">
             <Trans>Cancel</Trans>
           </Button>
-          <Button color="blue" loading={mutation.isPending} onClick={() => mutation.mutate()}>
+          <Button color="blue" loading={mutation.isPending} onClick={() => mutation.mutate()} data-testid="button--grant-platform-admin">
             <Trans>Grant Platform Admin</Trans>
           </Button>
         </Group>

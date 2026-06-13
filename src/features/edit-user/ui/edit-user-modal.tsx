@@ -84,7 +84,7 @@ export function EditUserModal({ user, opened, onClose }: EditUserModalProps) {
       size="md"
       centered
     >
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} data-testid="modal--edit-user">
         <Stack gap="md">
           {user && (
             <Box
@@ -110,11 +110,13 @@ export function EditUserModal({ user, opened, onClose }: EditUserModalProps) {
             <TextInput
               label={t`First name`}
               placeholder={t`First name`}
+              data-testid="input--first-name"
               {...form.getInputProps("firstName")}
             />
             <TextInput
               label={t`Last name`}
               placeholder={t`Last name`}
+              data-testid="input--last-name"
               {...form.getInputProps("lastName")}
             />
           </Group>
@@ -138,7 +140,7 @@ export function EditUserModal({ user, opened, onClose }: EditUserModalProps) {
             rightSectionWidth={72}
           />
 
-          <Select label={t`Status`} data={getStatusOptions()} {...form.getInputProps("status")} />
+          <Select label={t`Status`} data={getStatusOptions()} data-testid="input--status" {...form.getInputProps("status")} />
 
           <Divider />
 
@@ -148,10 +150,11 @@ export function EditUserModal({ user, opened, onClose }: EditUserModalProps) {
               color="gray"
               onClick={handleClose}
               disabled={mutation.isPending}
+              data-testid="button--cancel"
             >
               <Trans>Cancel</Trans>
             </Button>
-            <Button type="submit" loading={mutation.isPending}>
+            <Button type="submit" loading={mutation.isPending} data-testid="button--save-changes">
               <Trans>Save changes</Trans>
             </Button>
           </Group>

@@ -57,7 +57,7 @@ export function CreateAnnouncementModal({ opened, onClose }: CreateAnnouncementM
       centered
       scrollAreaComponent={undefined}
     >
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} data-testid="modal--create-announcement">
         <Stack gap="md">
           {mutation.isError && (
             <Alert
@@ -93,10 +93,11 @@ export function CreateAnnouncementModal({ opened, onClose }: CreateAnnouncementM
               color="gray"
               onClick={handleClose}
               disabled={mutation.isPending}
+              data-testid="button--cancel"
             >
               <Trans>Cancel</Trans>
             </Button>
-            <Button type="submit" loading={mutation.isPending} disabled={!hasEnUs}>
+            <Button type="submit" loading={mutation.isPending} disabled={!hasEnUs} data-testid="button--create-announcement">
               <Trans>Create announcement</Trans>
             </Button>
           </Group>

@@ -74,7 +74,7 @@ export function BanUserModal({ user, opened, onClose }: BanUserModalProps) {
       size="md"
       centered
     >
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} data-testid="modal--ban-user">
         <Stack gap="md">
           <Alert
             icon={<IconAlertTriangle size={16} />}
@@ -95,6 +95,7 @@ export function BanUserModal({ user, opened, onClose }: BanUserModalProps) {
             autosize
             minRows={2}
             maxRows={4}
+            data-testid="input--ban-reason"
             {...form.getInputProps("reason")}
           />
 
@@ -114,10 +115,11 @@ export function BanUserModal({ user, opened, onClose }: BanUserModalProps) {
               color="gray"
               onClick={handleClose}
               disabled={mutation.isPending}
+              data-testid="button--cancel"
             >
               <Trans>Cancel</Trans>
             </Button>
-            <Button type="submit" color="red" loading={mutation.isPending}>
+            <Button type="submit" color="red" loading={mutation.isPending} data-testid="button--ban-user">
               <Trans>Ban user</Trans>
             </Button>
           </Group>

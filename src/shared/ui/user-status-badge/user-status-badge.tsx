@@ -19,7 +19,12 @@ interface UserStatusBadgeProps {
 export function UserStatusBadge({ status }: UserStatusBadgeProps) {
   const config = getStatusConfig(status);
   return (
-    <Badge color={config.color} variant="light" size="sm">
+    <Badge
+      color={config.color}
+      variant="light"
+      size="sm"
+      data-testid={`user-status-badge--${status.toLowerCase()}`}
+    >
       {config.label}
     </Badge>
   );

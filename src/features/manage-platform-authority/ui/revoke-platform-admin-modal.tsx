@@ -60,10 +60,10 @@ export function RevokePlatformAdminModal({ user, opened, onClose }: RevokePlatfo
         <Divider />
 
         <Group justify="flex-end" gap="sm">
-          <Button variant="subtle" color="gray" onClick={handleClose} disabled={mutation.isPending}>
+          <Button variant="subtle" color="gray" onClick={handleClose} disabled={mutation.isPending} data-testid="button--cancel">
             <Trans>Cancel</Trans>
           </Button>
-          <Button color="orange" loading={mutation.isPending} onClick={() => mutation.mutate()}>
+          <Button color="orange" loading={mutation.isPending} onClick={() => mutation.mutate()} data-testid="button--revoke-platform-admin">
             <Trans>Revoke Platform Admin</Trans>
           </Button>
         </Group>

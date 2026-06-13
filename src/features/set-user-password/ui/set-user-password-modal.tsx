@@ -95,7 +95,7 @@ export function SetUserPasswordModal({ user, opened, onClose }: SetUserPasswordM
       size="md"
       centered
     >
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} data-testid="modal--set-password">
         <Stack gap="md">
           {/* Warning banner */}
           <Alert
@@ -113,12 +113,14 @@ export function SetUserPasswordModal({ user, opened, onClose }: SetUserPasswordM
           <PasswordInput
             label={t`New password`}
             placeholder={t`Enter new password`}
+            data-testid="input--new-password"
             {...form.getInputProps("newPassword")}
           />
 
           <PasswordInput
             label={t`Confirm password`}
             placeholder={t`Repeat new password`}
+            data-testid="input--confirm-password"
             {...form.getInputProps("confirmPassword")}
           />
 
@@ -160,10 +162,11 @@ export function SetUserPasswordModal({ user, opened, onClose }: SetUserPasswordM
               color="gray"
               onClick={handleClose}
               disabled={mutation.isPending}
+              data-testid="button--cancel"
             >
               <Trans>Cancel</Trans>
             </Button>
-            <Button type="submit" color="orange" loading={mutation.isPending}>
+            <Button type="submit" color="orange" loading={mutation.isPending} data-testid="button--set-password">
               <Trans>Set password</Trans>
             </Button>
           </Group>

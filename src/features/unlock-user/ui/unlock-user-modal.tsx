@@ -65,10 +65,10 @@ export function UnlockUserModal({ user, opened, onClose }: UnlockUserModalProps)
         <Divider />
 
         <Group justify="flex-end" gap="sm">
-          <Button variant="subtle" color="gray" onClick={handleClose} disabled={mutation.isPending}>
+          <Button variant="subtle" color="gray" onClick={handleClose} disabled={mutation.isPending} data-testid="button--cancel">
             <Trans>Cancel</Trans>
           </Button>
-          <Button color="blue" loading={mutation.isPending} onClick={handleConfirm}>
+          <Button color="blue" loading={mutation.isPending} onClick={handleConfirm} data-testid="button--unlock-user">
             <Trans>Unlock user</Trans>
           </Button>
         </Group>
