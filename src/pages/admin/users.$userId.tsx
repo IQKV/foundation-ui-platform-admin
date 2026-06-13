@@ -16,6 +16,7 @@ import {
   Tooltip,
   Tabs,
   Code,
+  Button,
 } from "@mantine/core";
 import { useQuery } from "@tanstack/react-query";
 import { useDisclosure } from "@mantine/hooks";
@@ -28,8 +29,10 @@ import {
   IconBuilding,
   IconEdit,
   IconShieldCheck,
+  IconShieldOff,
   IconKey,
   IconLockOpen,
+  IconShield,
 } from "@tabler/icons-react";
 import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
@@ -42,6 +45,12 @@ import type { IamUser } from "@/shared/api";
 import { EditUserModal } from "@/features/edit-user";
 import { SetUserPasswordModal } from "@/features/set-user-password";
 import { UnlockUserModal } from "@/features/unlock-user";
+import {
+  GrantPlatformAdminModal,
+  RevokePlatformAdminModal,
+} from "@/features/manage-platform-authority";
+import { useSessionStore } from "@/processes/session";
+import { decodeJwt } from "@/shared/lib/jwt";
 
 // ─── Route ────────────────────────────────────────────────────────────────────
 
@@ -84,6 +93,134 @@ function StatCard({ label, value, isLoading }: StatCardProps) {
         {label}
       </Text>
     </Stack>
+  );
+}
+
+// ─── Tab: Platform Authority ──────────────────────────────────────────────────
+
+interface PlatformAuthorityTabProps {
+  user: IamUser | undefined;
+  isLoading: boolean;
+  isSelf: boolean;
+}
+
+function PlatformAuthorityTab({ user, isLoading, isSelf }: PlatformAuthorityTabProps) {
+  const [grantOpened, { open: openGrant, close: closeGrant }] = useDisclosure(false);
+  const [revokeOpened, { open: openRevoke, close: closeRevoke }] = useDisclosure(false);
+
+  const {
+    data: authoritiesData,
+    isLoading: authsLoading,
+    refetch: refetchAuths,
+  } = useQuery({
+    queryKey: ["admin", "users", user?.id, "authorities"],
+    queryFn: () => iamApi.getUserPlatformAuthorities(user!.id),
+    enabled: !!user?.id,
+  });
+
+  const isPlatformAdmin = authoritiesData?.authorities?.includes("PLATFORM_ADMIN") ?? false;
+  const loading = isLoading || authsLoading;
+
+  return (
+    <>
+      <Stack gap="md" pt="md">
+        <Paper style={{ overflow: "hidden" }}>
+          <Group px="md" py="sm" style={{ borderBottom: "1px solid var(--mantine-color-gray-1)" }}>
+            <IconShield size={15} color="var(--mantine-color-gray-6)" />
+            <Text fw={600} size="sm">
+              <Trans>Platform Authority</Trans>
+            </Text>
+          </Group>
+
+          <Stack gap={0} px="md" py="md">
+            {loading ? (
+              <Skeleton height={40} radius="sm" />
+            ) : (
+              <Group justify="space-between" align="center">
+                <Group gap="sm">
+                  <ThemeIcon
+                    size="md"
+                    variant="light"
+                    color={isPlatformAdmin ? "blue" : "gray"}
+                    radius="sm"
+                  >
+                    {isPlatformAdmin ? <IconShieldCheck size={16} /> : <IconShieldOff size={16} />}
+                  </ThemeIcon>
+                  <Stack gap={2}>
+                    <Text size="sm" fw={500}>
+                      <Trans>Platform Admin</Trans>
+                    </Text>
+                    <Text size="xs" c="dimmed">
+                      {isPlatformAdmin ? (
+                        <Trans>This user has full administrative access to the platform.</Trans>
+                      ) : (
+                        <Trans>This user does not have platform admin access.</Trans>
+                      )}
+                    </Text>
+                  </Stack>
+                </Group>
+
+                <Group gap="xs">
+                  <Badge
+                    variant="light"
+                    color={isPlatformAdmin ? "blue" : "gray"}
+                    size="sm"
+                    radius="sm"
+                  >
+                    {isPlatformAdmin ? <Trans>Active</Trans> : <Trans>Not granted</Trans>}
+                  </Badge>
+
+                  {isSelf ? (
+                    <Tooltip
+                      label={<Trans>You cannot modify your own platform authority</Trans>}
+                      withArrow
+                    >
+                      <Button variant="light" color="gray" size="xs" disabled>
+                        {isPlatformAdmin ? <Trans>Revoke</Trans> : <Trans>Grant</Trans>}
+                      </Button>
+                    </Tooltip>
+                  ) : isPlatformAdmin ? (
+                    <Button
+                      variant="light"
+                      color="orange"
+                      size="xs"
+                      leftSection={<IconShieldOff size={13} />}
+                      onClick={openRevoke}
+                    >
+                      <Trans>Revoke</Trans>
+                    </Button>
+                  ) : (
+                    <Button
+                      variant="light"
+                      color="blue"
+                      size="xs"
+                      leftSection={<IconShieldCheck size={13} />}
+                      onClick={openGrant}
+                    >
+                      <Trans>Grant</Trans>
+                    </Button>
+                  )}
+
+                  <Tooltip label={<Trans>Refresh</Trans>} withArrow>
+                    <ActionIcon
+                      variant="subtle"
+                      color="gray"
+                      size="sm"
+                      onClick={() => void refetchAuths()}
+                    >
+                      <IconRefresh size={13} />
+                    </ActionIcon>
+                  </Tooltip>
+                </Group>
+              </Group>
+            )}
+          </Stack>
+        </Paper>
+      </Stack>
+
+      <GrantPlatformAdminModal user={user ?? null} opened={grantOpened} onClose={closeGrant} />
+      <RevokePlatformAdminModal user={user ?? null} opened={revokeOpened} onClose={closeRevoke} />
+    </>
   );
 }
 
@@ -214,6 +351,11 @@ function UserDetailPage() {
 
   const [pwOpened, { open: openPw, close: closePw }] = useDisclosure(false);
   const [unlockOpened, { open: openUnlock, close: closeUnlock }] = useDisclosure(false);
+
+  // Determine if we're viewing the currently logged-in admin's own profile
+  const accessToken = useSessionStore((s) => s.accessToken);
+  const currentUserId = accessToken ? (decodeJwt(accessToken)?.userId ?? null) : null;
+  const isSelf = !!currentUserId && currentUserId === userId;
 
   const {
     data: user,
@@ -455,6 +597,9 @@ function UserDetailPage() {
           >
             <Trans>Organizations</Trans>
           </Tabs.Tab>
+          <Tabs.Tab value="platform-authority" leftSection={<IconShield size={14} />}>
+            <Trans>Platform Authority</Trans>
+          </Tabs.Tab>
         </Tabs.List>
 
         <Tabs.Panel value="overview">
@@ -536,6 +681,10 @@ function UserDetailPage() {
               )}
             </Paper>
           </Stack>
+        </Tabs.Panel>
+
+        <Tabs.Panel value="platform-authority">
+          <PlatformAuthorityTab user={user} isLoading={isLoading} isSelf={isSelf} />
         </Tabs.Panel>
       </Tabs>
 

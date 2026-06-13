@@ -193,6 +193,11 @@ export interface TenantMemberAuthoritiesResponse {
   authorities: string[];
 }
 
+export interface UserAuthoritiesResponse {
+  userId: string;
+  authorities: string[];
+}
+
 export interface AdminUpdateMemberAuthoritiesRequest {
   authorities: string[];
 }
@@ -219,6 +224,16 @@ export const iamApi = {
   unbanUser: (id: string) => httpClient.post(`/v1/iam/admin/users/${id}/unban`),
 
   unlockUser: (id: string) => httpClient.post(`/v1/iam/admin/users/${id}/unlock`),
+
+  getUserPlatformAuthorities: (id: string) =>
+    httpClient
+      .get<UserAuthoritiesResponse>(`/v1/iam/admin/users/${id}/authorities`)
+      .then((r) => r.data),
+
+  updateUserPlatformAuthorities: (id: string, authorities: string[]) =>
+    httpClient
+      .put<UserAuthoritiesResponse>(`/v1/iam/admin/users/${id}/authorities`, { authorities })
+      .then((r) => r.data),
 
   countTenants: () =>
     httpClient.get<CountResponse>("/v1/iam/admin/tenants/count").then((r) => r.data),

@@ -2,6 +2,7 @@ import { jwtDecode } from "jwt-decode";
 
 export interface AdminJwtPayload {
   sub: string;
+  userId: string;
   authorities: string[];
   exp: number;
   iat: number;
