@@ -20,7 +20,8 @@ export class AppPage {
   }
 
   async expectHomePageVisible() {
-    await expect(this.page.getByRole("heading", { name: "Welcome" })).toBeVisible();
+    // The home page (/) redirects to /admin, so we expect admin layout
+    await expect(this.page.locator(byTestId(TestSelectors.ADMIN_LAYOUT))).toBeVisible();
   }
 
   async expect404PageVisible() {

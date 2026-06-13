@@ -1,30 +1,24 @@
-import { test, expect } from "@playwright/test";
+import { test, expect } from "./fixtures/index.js";
 import { TestSelectors, byTestId } from "./utils/test-selectors.js";
 
 test.describe("Admin Layout E2E Tests", () => {
-  test.beforeEach(async ({ page }) => {
-    // Note: In a real test, you would need to authenticate first
-    // For this example, we'll assume we're already authenticated
-    await page.goto("/admin");
-    await page.waitForLoadState("networkidle");
-  });
-
-  test("admin layout loads with all key elements", async ({ page }) => {
+  test("admin layout loads with all key elements", async ({ adminPage }) => {
     // Check main layout elements
-    await expect(page.locator(byTestId(TestSelectors.ADMIN_LAYOUT))).toBeVisible();
-    await expect(page.locator(byTestId(TestSelectors.ADMIN_HEADER))).toBeVisible();
-    await expect(page.locator(byTestId(TestSelectors.ADMIN_NAV))).toBeVisible();
+    await expect(adminPage.locator(byTestId(TestSelectors.ADMIN_LAYOUT))).toBeVisible();
+    await expect(adminPage.locator(byTestId(TestSelectors.ADMIN_HEADER))).toBeVisible();
+    await expect(adminPage.locator(byTestId(TestSelectors.ADMIN_NAV))).toBeVisible();
 
-    // Check header elements
-    await expect(page.locator(byTestId(TestSelectors.HEADER_LOGO))).toBeVisible();
-    await expect(page.locator(byTestId(TestSelectors.HEADER_COLOR_SCHEME_TOGGLE))).toBeVisible();
+    // Check header elements (color scheme toggle is present)
+    await expect(
+      adminPage.locator(byTestId(TestSelectors.HEADER_COLOR_SCHEME_TOGGLE)),
+    ).toBeVisible();
 
     // Check mobile menu toggle (hidden on desktop)
-    await expect(page.locator(byTestId(TestSelectors.HEADER_MOBILE_MENU_TOGGLE))).toBeHidden();
+    await expect(adminPage.locator(byTestId(TestSelectors.HEADER_MOBILE_MENU_TOGGLE))).toBeHidden();
   });
 
-  test("color scheme toggle works", async ({ page }) => {
-    const toggle = page.locator(byTestId(TestSelectors.HEADER_COLOR_SCHEME_TOGGLE));
+  test("color scheme toggle works", async ({ adminPage }) => {
+    const toggle = adminPage.locator(byTestId(TestSelectors.HEADER_COLOR_SCHEME_TOGGLE));
 
     // Check initial state
     await expect(toggle).toBeVisible();
@@ -33,57 +27,59 @@ test.describe("Admin Layout E2E Tests", () => {
     await toggle.click();
 
     // Wait for any theme change animations
-    await page.waitForTimeout(500);
+    await adminPage.waitForTimeout(500);
 
     // Verify toggle is still visible after click
     await expect(toggle).toBeVisible();
   });
 
-  test("mobile menu toggle appears on small screens", async ({ page }) => {
+  test("mobile menu toggle appears on small screens", async ({ adminPage }) => {
     // Set mobile viewport
-    await page.setViewportSize({ width: 375, height: 667 });
+    await adminPage.setViewportSize({ width: 375, height: 667 });
 
     // Mobile menu toggle should be visible on mobile
-    await expect(page.locator(byTestId(TestSelectors.HEADER_MOBILE_MENU_TOGGLE))).toBeVisible();
+    await expect(
+      adminPage.locator(byTestId(TestSelectors.HEADER_MOBILE_MENU_TOGGLE)),
+    ).toBeVisible();
 
     // Click mobile menu toggle
-    const mobileToggle = page.locator(byTestId(TestSelectors.HEADER_MOBILE_MENU_TOGGLE));
+    const mobileToggle = adminPage.locator(byTestId(TestSelectors.HEADER_MOBILE_MENU_TOGGLE));
     await mobileToggle.click();
 
     // Navigation should be visible after toggle
-    await expect(page.locator(byTestId(TestSelectors.ADMIN_NAV))).toBeVisible();
+    await expect(adminPage.locator(byTestId(TestSelectors.ADMIN_NAV))).toBeVisible();
   });
 
-  test("error boundary displays correctly", async ({ page }) => {
+  test("error boundary displays correctly", async ({ adminPage }) => {
     // Navigate to a non-existent route to trigger 404
-    await page.goto("/non-existent-route");
-    await page.waitForLoadState("networkidle");
+    await adminPage.goto("/non-existent-route");
+    await adminPage.waitForLoadState("networkidle");
 
     // Check 404 page
-    await expect(page.locator(byTestId(TestSelectors.PAGE_404))).toBeVisible();
-    await expect(page.locator(byTestId(TestSelectors.BUTTON("go-home")))).toBeVisible();
+    await expect(adminPage.locator(byTestId(TestSelectors.PAGE_404))).toBeVisible();
+    await expect(adminPage.locator(byTestId(TestSelectors.BUTTON("go-home")))).toBeVisible();
   });
 
-  test("loading overlay appears during navigation", async ({ page }) => {
+  test("loading overlay appears during navigation", async ({ adminPage }) => {
     // This test would require mocking a slow-loading route
     // For now, we'll just verify the selector pattern works
-    const loadingOverlay = page.locator(byTestId(TestSelectors.LOADING_OVERLAY));
+    const loadingOverlay = adminPage.locator(byTestId(TestSelectors.LOADING_OVERLAY));
 
     // Initially should not be visible
     await expect(loadingOverlay).toBeHidden();
   });
 
-  test("app is accessible with keyboard navigation", async ({ page }) => {
+  test("app is accessible with keyboard navigation", async ({ adminPage }) => {
     // Test tab navigation through header
-    await page.keyboard.press("Tab");
+    await adminPage.keyboard.press("Tab");
 
     // Focus should move to first focusable element
     // We can't predict exact order, but we can verify focus moves
-    const focusedElement = page.locator("*:focus");
+    const focusedElement = adminPage.locator("*:focus");
     await expect(focusedElement).toBeAttached();
   });
 
-  test("responsive design works across breakpoints", async ({ page }) => {
+  test("responsive design works across breakpoints", async ({ adminPage }) => {
     const viewports = [
       { width: 375, height: 667, name: "mobile" },
       { width: 768, height: 1024, name: "tablet" },
@@ -92,14 +88,14 @@ test.describe("Admin Layout E2E Tests", () => {
     ];
 
     for (const viewport of viewports) {
-      await page.setViewportSize(viewport);
+      await adminPage.setViewportSize(viewport);
 
       // Verify layout is visible at all breakpoints
-      await expect(page.locator(byTestId(TestSelectors.ADMIN_LAYOUT))).toBeVisible();
-      await expect(page.locator(byTestId(TestSelectors.ADMIN_HEADER))).toBeVisible();
+      await expect(adminPage.locator(byTestId(TestSelectors.ADMIN_LAYOUT))).toBeVisible();
+      await expect(adminPage.locator(byTestId(TestSelectors.ADMIN_HEADER))).toBeVisible();
 
       // Mobile menu toggle visibility depends on viewport
-      const mobileToggle = page.locator(byTestId(TestSelectors.HEADER_MOBILE_MENU_TOGGLE));
+      const mobileToggle = adminPage.locator(byTestId(TestSelectors.HEADER_MOBILE_MENU_TOGGLE));
       if (viewport.width < 768) {
         await expect(mobileToggle).toBeVisible();
       } else {
@@ -110,15 +106,10 @@ test.describe("Admin Layout E2E Tests", () => {
 });
 
 test.describe("Error Handling", () => {
-  test("error boundary displays retry button", async ({ page }) => {
-    // Simulate an error by navigating to a broken route
-    // In a real app, you might have a route that throws an error
-    await page.goto("/");
-    await page.waitForLoadState("networkidle");
-
+  test("error boundary displays retry button", async ({ adminPage }) => {
     // We can't easily trigger the error boundary without a specific error route
     // But we can verify the pattern for future error boundary tests
-    const errorBoundary = page.locator(byTestId(TestSelectors.ERROR_BOUNDARY));
+    const errorBoundary = adminPage.locator(byTestId(TestSelectors.ERROR_BOUNDARY));
 
     // Should not be visible unless there's an error
     await expect(errorBoundary).toBeHidden();

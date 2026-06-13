@@ -6,7 +6,8 @@ test.describe("App Smoke Tests", () => {
   test("homepage loads successfully", async ({ page }) => {
     const app = new AppPage(page);
     await app.goToHome();
-    await expect(page).toHaveURL(/\/?$/);
+    // The home page (/) redirects to /admin
+    await expect(page).toHaveURL(/\/admin\/?$/);
     await app.expectHomePageVisible();
   });
 
