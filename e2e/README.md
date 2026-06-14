@@ -2,22 +2,39 @@
 
 End-to-end tests for `foundation-ui-platform-admin` using [Playwright](https://playwright.dev/).
 
-## Directory structure
+## Directory structure (FSD-aligned)
 
 ```
 e2e/
-├── config/
-│   └── test-config.ts       # Centralised constants: routes, users, viewports, storage paths
-├── fixtures/
-│   ├── auth.fixture.ts      # Extended test object with authenticated page fixtures
-│   └── index.ts             # Re-exports test + expect for use in specs
-├── setup/
-│   └── global-setup.ts      # Runs once before the suite: verifies host, pre-authenticates admins
-├── utils/
-│   ├── test-helpers.ts      # AppPage class + testUtils helpers
-│   └── test-selectors.ts    # Centralised data-testid constants + byTestId helper
-├── smoke.spec.ts            # Unauthenticated smoke tests (page load, 404, console errors)
-├── admin-layout.spec.ts     # Admin layout tests (requires auth)
+├── app/                    # Test app configuration and global setup
+│   ├── config/
+│   │   └── test-config.ts  # Centralised constants: routes, users, viewports, storage paths
+│   ├── fixtures/
+│   │   ├── auth.fixture.ts # Extended test object with authenticated page fixtures
+│   │   └── index.ts        # Re-exports test + expect for use in specs
+│   └── setup/
+│       └── global-setup.ts # Runs once before the suite: verifies host, pre-authenticates admins
+├── pages/                  # Page Object Models (POMs) organized by app pages
+│   ├── admin/
+│   │   ├── admin-layout.spec.ts
+│   │   └── index.ts
+│   └── index.ts
+├── features/               # Feature-specific tests, matching src/features
+│   ├── sign-in/
+│   │   └── index.ts
+│   └── sign-out/
+│       └── index.ts
+├── smoke/                  # Smoke tests (unauthenticated, quick checks)
+│   └── smoke.spec.ts
+├── shared/                 # Shared utilities, selectors, helpers
+│   ├── selectors/
+│   │   ├── test-selectors.ts
+│   │   └── index.ts
+│   └── utils/
+│       ├── test-helpers.ts
+│       └── index.ts
+├── .gitignore
+├── README.md
 └── tsconfig.json
 ```
 
@@ -102,22 +119,11 @@ test("404 page loads", async ({ page }) => {
 ### Authenticated test
 
 ```ts
-import { test, expect } from "../fixtures";
-import { TestSelectors, byTestId } from "../utils/test-selectors";
+import { test, expect } from "../../app/fixtures";
+import { TestSelectors, byTestId } from "../../shared/selectors";
 
 test("admin dashboard is visible", async ({ adminPage }) => {
   await expect(adminPage.locator(byTestId(TestSelectors.ADMIN_LAYOUT))).toBeVisible();
-});
-```
-
-### Two concurrent admin sessions
-
-```ts
-import { test, expect } from "../fixtures";
-
-test("two admins can be active simultaneously", async ({ adminPage, adminPage2 }) => {
-  await expect(adminPage.locator(byTestId("admin-layout"))).toBeVisible();
-  await expect(adminPage2.locator(byTestId("admin-layout"))).toBeVisible();
 });
 ```
 

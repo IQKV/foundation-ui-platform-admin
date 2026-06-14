@@ -1,5 +1,5 @@
-import { test, expect } from "./fixtures/index.js";
-import { TestSelectors, byTestId } from "./utils/test-selectors.js";
+import { test, expect } from "../../app/fixtures/index.js";
+import { TestSelectors, byTestId } from "../../shared/selectors/test-selectors.js";
 
 test.describe("Admin Layout E2E Tests", () => {
   test("admin layout loads with all key elements", async ({ adminPage }) => {

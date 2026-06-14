@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
-import { AppPage, testUtils } from "./utils/test-helpers.js";
-import { TestSelectors } from "./utils/test-selectors.js";
+import { AppPage, testUtils } from "../shared/utils/test-helpers.js";
+import { TestSelectors } from "../shared/selectors/test-selectors.js";
 
 test.describe("App Smoke Tests", () => {
   test("homepage loads successfully", async ({ page }) => {

@@ -30,7 +30,7 @@ export default defineConfig({
   expect: {
     timeout: 10_000,
   },
-  globalSetup: "./e2e/setup/global-setup.ts",
+  globalSetup: "./e2e/app/setup/global-setup.ts",
   projects: [
     {
       name: "chromium",

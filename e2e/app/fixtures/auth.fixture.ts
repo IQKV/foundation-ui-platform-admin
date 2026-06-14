@@ -1,8 +1,7 @@
 import { test as base, expect, type Page } from "@playwright/test";
 import { TEST_CONFIG } from "../config/test-config.js";
-import { TestSelectors } from "../utils/test-selectors.js";
-import { byTestId } from "../utils/test-selectors.js";
-import { AdminPage, AppPage } from "../utils/test-helpers.js";
+import { TestSelectors, byTestId } from "../../shared/selectors/test-selectors.js";
+import { AdminPage, AppPage } from "../../shared/utils/test-helpers.js";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
