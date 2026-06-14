@@ -1,6 +1,6 @@
 import { expect, type Page, type Locator } from "@playwright/test";
-import { TestSelectors, byTestId } from "./test-selectors.js";
-import { TEST_CONFIG } from "../config/test-config.js";
+import { TestSelectors, byTestId } from "../selectors/test-selectors.js";
+import { TEST_CONFIG } from "../../app/config/test-config.js";
 
 export class AppPage {
   constructor(readonly page: Page) {}
@@ -99,7 +99,7 @@ export const testUtils = {
   async testResponsiveDesign(page: Page, testCallback: (page: Page) => Promise<void>) {
     const viewports = Object.values(TEST_CONFIG.VIEWPORTS);
     for (const viewport of viewports) {
-      await page.setViewportSize(viewport);
+      await page.setViewportSize(viewport as { width: number; height: number });
       await testCallback(page);
     }
   },
