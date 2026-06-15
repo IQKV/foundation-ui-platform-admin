@@ -75,7 +75,13 @@ function SeverityBadge({ severity }: { severity: AuditRecord["severity"] }) {
     CRITICAL: "red",
   };
   return (
-    <Badge variant="light" color={colors[severity]} size="sm" radius="sm">
+    <Badge
+      data-testid={`badge-audit-severity--${severity.toLowerCase()}`}
+      variant="light"
+      color={colors[severity]}
+      size="sm"
+      radius="sm"
+    >
       {severity}
     </Badge>
   );
@@ -84,6 +90,7 @@ function SeverityBadge({ severity }: { severity: AuditRecord["severity"] }) {
 function SigninResultBadge({ result }: { result: "SUCCESS" | "FAILURE" }) {
   return (
     <Badge
+      data-testid={`badge-signin-result--${result.toLowerCase()}`}
       variant="light"
       color={result === "SUCCESS" ? "green" : "red"}
       size="sm"
@@ -134,6 +141,7 @@ function FailureReasonBadge({ reason }: { reason?: string }) {
 
   return (
     <Badge
+      data-testid={`badge-signin-failure-reason--${reason.toLowerCase()}`}
       variant="light"
       color={getReasonColor(reason)}
       size="xs"
@@ -271,6 +279,7 @@ function AdminAuditLogsPage() {
         ]}
         toolbar={
           <Button
+            data-testid="button-audit-refresh"
             variant="light"
             leftSection={<IconRefresh size={16} />}
             onClick={() => void refetch()}
@@ -284,10 +293,10 @@ function AdminAuditLogsPage() {
       <Stack gap="md">
         <Tabs value={activeTab} onChange={handleTabChange}>
           <Tabs.List>
-            <Tabs.Tab value="all" leftSection={<IconActivity size={16} />}>
+            <Tabs.Tab data-testid="tab-audit-all-events" value="all" leftSection={<IconActivity size={16} />}>
               <Trans>All Events</Trans>
             </Tabs.Tab>
-            <Tabs.Tab value="signin" leftSection={<IconLogin size={16} />}>
+            <Tabs.Tab data-testid="tab-audit-signin-attempts" value="signin" leftSection={<IconLogin size={16} />}>
               <Trans>Signin Attempts</Trans>
             </Tabs.Tab>
           </Tabs.List>
@@ -296,7 +305,7 @@ function AdminAuditLogsPage() {
             {/* General Stats Section */}
             <SimpleGrid cols={{ base: 1, sm: 2, md: 4 }} spacing="md" mb="md">
               {stats?.slice(0, 4).map((stat: AuditActionCount) => (
-                <Paper key={stat.action} p="md">
+                <Paper data-testid={`stat-card-audit-action--${stat.action}`} key={stat.action} p="md">
                   <Group justify="space-between">
                     <Text size="xs" c="dimmed" fw={700} tt="uppercase">
                       {stat.action}
@@ -326,7 +335,7 @@ function AdminAuditLogsPage() {
           <Tabs.Panel value="signin" pt="md">
             {/* Signin-specific Stats Section */}
             <SimpleGrid cols={{ base: 1, sm: 2, md: 4 }} spacing="md" mb="md">
-              <Card p="md">
+              <Card data-testid="stat-card-signin-total" p="md">
                 <Group justify="space-between" mb="xs">
                   <Text size="xs" c="dimmed" fw={700} tt="uppercase">
                     <Trans>Total Attempts</Trans>
@@ -335,12 +344,12 @@ function AdminAuditLogsPage() {
                     <IconLogin size={14} />
                   </ThemeIcon>
                 </Group>
-                <Text size="xl" fw={700}>
+                <Text data-testid="stat-value-signin-total" size="xl" fw={700}>
                   {signinStatsData?.total ?? 0}
                 </Text>
               </Card>
 
-              <Card p="md">
+              <Card data-testid="stat-card-signin-successful" p="md">
                 <Group justify="space-between" mb="xs">
                   <Text size="xs" c="dimmed" fw={700} tt="uppercase">
                     <Trans>Successful</Trans>
@@ -349,12 +358,12 @@ function AdminAuditLogsPage() {
                     <IconCheck size={14} />
                   </ThemeIcon>
                 </Group>
-                <Text size="xl" fw={700} c="green">
+                <Text data-testid="stat-value-signin-successful" size="xl" fw={700} c="green">
                   {signinStatsData?.successful ?? 0}
                 </Text>
               </Card>
 
-              <Card p="md">
+              <Card data-testid="stat-card-signin-failed" p="md">
                 <Group justify="space-between" mb="xs">
                   <Text size="xs" c="dimmed" fw={700} tt="uppercase">
                     <Trans>Failed</Trans>
@@ -363,12 +372,12 @@ function AdminAuditLogsPage() {
                     <IconX size={14} />
                   </ThemeIcon>
                 </Group>
-                <Text size="xl" fw={700} c="red">
+                <Text data-testid="stat-value-signin-failed" size="xl" fw={700} c="red">
                   {signinStatsData?.failed ?? 0}
                 </Text>
               </Card>
 
-              <Card p="md">
+              <Card data-testid="stat-card-signin-success-rate" p="md">
                 <Group justify="space-between" mb="xs">
                   <Text size="xs" c="dimmed" fw={700} tt="uppercase">
                     <Trans>Success Rate</Trans>
@@ -377,7 +386,7 @@ function AdminAuditLogsPage() {
                     <IconShield size={14} />
                   </ThemeIcon>
                 </Group>
-                <Text size="xl" fw={700} c="teal">
+                <Text data-testid="stat-value-signin-success-rate" size="xl" fw={700} c="teal">
                   {signinStatsData?.successRate?.toFixed(1) ?? 0}%
                 </Text>
               </Card>
@@ -409,7 +418,7 @@ function AdminAuditLogsPage() {
                 <Trans>Activity History</Trans>
               </Text>
               {!isLoading && (
-                <Badge variant="light" color="gray" size="sm" radius="sm">
+                <Badge data-testid="badge-audit-total-count" variant="light" color="gray" size="sm" radius="sm">
                   {totalElements}
                 </Badge>
               )}
@@ -417,6 +426,7 @@ function AdminAuditLogsPage() {
 
             <Group gap="xs">
               <TextInput
+                data-testid="input-audit-tenant-key-filter"
                 placeholder={t`Filter by tenant key…`}
                 size="xs"
                 value={tenantKey}
@@ -428,6 +438,7 @@ function AdminAuditLogsPage() {
                 rightSection={
                   tenantKey ? (
                     <ActionIcon
+                      data-testid="button-audit-tenant-key-clear"
                       size="xs"
                       variant="subtle"
                       color="gray"
@@ -441,6 +452,7 @@ function AdminAuditLogsPage() {
 
               {activeTab === "all" && (
                 <Select
+                  data-testid="select-audit-action-filter"
                   placeholder={t`Filter by action…`}
                   size="xs"
                   value={actionFilter}
@@ -543,6 +555,7 @@ function AdminAuditLogsPage() {
                   <Group gap={4} justify="flex-end" wrap="nowrap">
                     <Tooltip label={t`View details`}>
                       <ActionIcon
+                        data-testid={`button-audit-record-view--${record.id}`}
                         size="sm"
                         variant="subtle"
                         color="blue"
@@ -691,7 +704,7 @@ function AdminAuditLogsPage() {
             </ScrollArea.Autosize>
 
             <Group justify="flex-end" mt="md">
-              <Button onClick={closeDetails}>
+              <Button data-testid="button-audit-detail-close" onClick={closeDetails}>
                 <Trans>Close</Trans>
               </Button>
             </Group>

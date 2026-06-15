@@ -139,7 +139,7 @@ function AdminRefundsPage() {
                 <Trans>Refunds</Trans>
               </Text>
               {!isLoading && (
-                <Badge variant="light" color="gray" size="sm" radius="sm">
+                <Badge data-testid="badge-refunds-total-count" variant="light" color="gray" size="sm" radius="sm">
                   {totalElements}
                 </Badge>
               )}
@@ -147,6 +147,7 @@ function AdminRefundsPage() {
 
             <Group gap="xs">
               <TextInput
+                data-testid="input-refunds-tenant-key-filter"
                 placeholder={t`Filter by tenant key…`}
                 leftSection={<IconSearch size={14} />}
                 value={tenantKey}
@@ -155,7 +156,11 @@ function AdminRefundsPage() {
                 style={{ width: 220 }}
                 rightSection={
                   tenantKey ? (
-                    <CloseButton size="xs" onClick={() => handleTenantKeyChange("")} />
+                    <CloseButton
+                      data-testid="button-refunds-tenant-key-clear"
+                      size="xs"
+                      onClick={() => handleTenantKeyChange("")}
+                    />
                   ) : null
                 }
               />
@@ -198,7 +203,13 @@ function AdminRefundsPage() {
                 title: t`Status`,
                 sortable: true,
                 render: (r) => (
-                  <Badge color={getStatusColor(r.status)} variant="light" size="sm" radius="sm">
+                  <Badge
+                    data-testid={`badge-refund-status--${r.id}`}
+                    color={getStatusColor(r.status)}
+                    variant="light"
+                    size="sm"
+                    radius="sm"
+                  >
                     {r.status}
                   </Badge>
                 ),
@@ -228,6 +239,7 @@ function AdminRefundsPage() {
                   <Group gap={4} justify="flex-end">
                     <Tooltip label={t`View details`}>
                       <ActionIcon
+                        data-testid={`button-refund-view--${r.id}`}
                         size="sm"
                         variant="subtle"
                         color="blue"

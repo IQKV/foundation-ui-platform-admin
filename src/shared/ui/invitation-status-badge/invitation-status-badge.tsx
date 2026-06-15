@@ -19,7 +19,12 @@ interface InvitationStatusBadgeProps {
 export function InvitationStatusBadge({ status }: InvitationStatusBadgeProps) {
   const config = getStatusConfig(status);
   return (
-    <Badge color={config.color} variant="light" size="sm">
+    <Badge
+      data-testid={`badge-invitation-status--${status.toLowerCase()}`}
+      color={config.color}
+      variant="light"
+      size="sm"
+    >
       {config.label}
     </Badge>
   );

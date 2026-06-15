@@ -155,7 +155,12 @@ function AdminAnnouncementsPage() {
           { label: <Trans>Announcements</Trans> },
         ]}
         toolbar={
-          <Button leftSection={<IconPlus size={16} />} size="sm" onClick={openCreate}>
+          <Button
+            data-testid="button-announcements-create"
+            leftSection={<IconPlus size={16} />}
+            size="sm"
+            onClick={openCreate}
+          >
             <Trans>New announcement</Trans>
           </Button>
         }
@@ -190,7 +195,7 @@ function AdminAnnouncementsPage() {
                 <Trans>Announcements</Trans>
               </Text>
               {!isLoading && (
-                <Badge variant="light" color="gray" size="sm" radius="sm">
+                <Badge data-testid="badge-announcements-total-count" variant="light" color="gray" size="sm" radius="sm">
                   {data?.totalElements ?? 0}
                 </Badge>
               )}
@@ -198,6 +203,7 @@ function AdminAnnouncementsPage() {
 
             <Group gap="xs">
               <Select
+                data-testid="select-announcements-type-filter"
                 placeholder={t`All types`}
                 leftSection={<IconFilter size={14} />}
                 data={typeOptions}
@@ -214,6 +220,7 @@ function AdminAnnouncementsPage() {
               />
 
               <Select
+                data-testid="select-announcements-status-filter"
                 placeholder={t`All statuses`}
                 leftSection={<IconFilter size={14} />}
                 data={STATUS_OPTIONS.map((o) => ({ value: o.value, label: t`${o.label}` }))}
@@ -226,7 +233,13 @@ function AdminAnnouncementsPage() {
 
               {hasActiveFilters && (
                 <Tooltip label={t`Clear filters`} withArrow>
-                  <Button variant="subtle" color="gray" size="xs" onClick={handleClearFilters}>
+                  <Button
+                    data-testid="button-announcements-clear-filters"
+                    variant="subtle"
+                    color="gray"
+                    size="xs"
+                    onClick={handleClearFilters}
+                  >
                     <Trans>Clear</Trans>
                   </Button>
                 </Tooltip>
@@ -234,6 +247,7 @@ function AdminAnnouncementsPage() {
 
               <Tooltip label={t`Refresh`} withArrow>
                 <ActionIcon
+                  data-testid="button-announcements-refresh"
                   variant="subtle"
                   color="gray"
                   size="sm"
@@ -342,6 +356,7 @@ function AdminAnnouncementsPage() {
                   title: t`Type`,
                   render: (announcement) => (
                     <Badge
+                      data-testid={`badge-announcement-type--${announcement.id}`}
                       color={TYPE_COLOR[announcement.type] ?? "gray"}
                       variant="light"
                       size="sm"
@@ -363,7 +378,14 @@ function AdminAnnouncementsPage() {
                   render: (announcement) => (
                     <Group gap={4} wrap="wrap">
                       {announcement.translations.map((tr) => (
-                        <Badge key={tr.locale} variant="outline" color="gray" size="xs" radius="sm">
+                        <Badge
+                          data-testid={`badge-announcement-locale--${announcement.id}--${tr.locale}`}
+                          key={tr.locale}
+                          variant="outline"
+                          color="gray"
+                          size="xs"
+                          radius="sm"
+                        >
                           {tr.locale}
                         </Badge>
                       ))}
@@ -389,6 +411,7 @@ function AdminAnnouncementsPage() {
                       <Group gap={4} justify="flex-end" wrap="nowrap">
                         <Tooltip label={t`Edit announcement`} withArrow>
                           <ActionIcon
+                            data-testid={`button-announcement-edit--${announcement.id}`}
                             variant="subtle"
                             color="blue"
                             size="sm"
@@ -409,6 +432,7 @@ function AdminAnnouncementsPage() {
                           withArrow
                         >
                           <ActionIcon
+                            data-testid={`button-announcement-delete--${announcement.id}`}
                             variant="subtle"
                             color="red"
                             size="sm"

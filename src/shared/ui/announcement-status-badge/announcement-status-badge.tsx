@@ -20,7 +20,12 @@ interface AnnouncementStatusBadgeProps {
 export function AnnouncementStatusBadge({ status }: AnnouncementStatusBadgeProps) {
   const config = getStatusConfig(status);
   return (
-    <Badge color={config.color} variant="light" size="sm">
+    <Badge
+      data-testid={`badge-announcement-status--${status.toLowerCase()}`}
+      color={config.color}
+      variant="light"
+      size="sm"
+    >
       {config.label}
     </Badge>
   );

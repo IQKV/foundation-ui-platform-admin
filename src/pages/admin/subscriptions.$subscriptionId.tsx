@@ -203,6 +203,7 @@ function SubscriptionDetailPage() {
         >
           <Trans>Could not fetch subscription details.</Trans>{" "}
           <Text
+            data-testid="button-sub-detail-error-retry"
             component="span"
             size="sm"
             c="red"
@@ -227,6 +228,7 @@ function SubscriptionDetailPage() {
             <Group gap="sm">
               <Trans>Subscription</Trans>
               <Badge
+                data-testid="badge-sub-detail-status"
                 color={getStatusColor(subscription.status)}
                 variant="light"
                 size="lg"
@@ -267,28 +269,32 @@ function SubscriptionDetailPage() {
               <Skeleton height={40} />
             </Stack>
           ) : (
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} data-testid="form-sub-detail">
               <Stack gap="xl">
                 <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="lg">
                   <TextInput
+                    data-testid="input-sub-id"
                     label={<Trans>Subscription ID</Trans>}
                     value={subscription?.id}
                     readOnly
                     disabled
                   />
                   <TextInput
+                    data-testid="input-sub-tenant-key"
                     label={<Trans>Tenant Key</Trans>}
                     value={subscription?.tenantKey}
                     readOnly
                     disabled
                   />
                   <TextInput
+                    data-testid="input-sub-plan-id"
                     label={<Trans>Plan ID</Trans>}
                     value={subscription?.planId}
                     readOnly
                     disabled
                   />
                   <TextInput
+                    data-testid="input-sub-external-id"
                     label={<Trans>External ID</Trans>}
                     value={subscription?.externalSubscriptionId}
                     readOnly
@@ -298,11 +304,13 @@ function SubscriptionDetailPage() {
 
                 <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="lg">
                   <Select
+                    data-testid="input-sub-status"
                     label={<Trans>Status</Trans>}
                     data={STATUS_OPTIONS.map((o) => ({ value: o.value, label: t`${o.label}` }))}
                     {...form.getInputProps("status")}
                   />
                   <NumberInput
+                    data-testid="input-sub-quantity"
                     label={<Trans>Quantity</Trans>}
                     min={1}
                     {...form.getInputProps("quantity")}
@@ -311,21 +319,25 @@ function SubscriptionDetailPage() {
 
                 <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="lg">
                   <TextInput
+                    data-testid="input-sub-trial-start"
                     type="datetime-local"
                     label={<Trans>Trial Start</Trans>}
                     {...form.getInputProps("trialStart")}
                   />
                   <TextInput
+                    data-testid="input-sub-trial-end"
                     type="datetime-local"
                     label={<Trans>Trial End</Trans>}
                     {...form.getInputProps("trialEnd")}
                   />
                   <TextInput
+                    data-testid="input-sub-period-end"
                     type="datetime-local"
                     label={<Trans>Current Period End</Trans>}
                     {...form.getInputProps("currentPeriodEnd")}
                   />
                   <Switch
+                    data-testid="input-sub-cancel-at-period-end"
                     label={<Trans>Cancel at period end</Trans>}
                     pt="xl"
                     {...form.getInputProps("cancelAtPeriodEnd", { type: "checkbox" })}
@@ -334,6 +346,7 @@ function SubscriptionDetailPage() {
 
                 <Group justify="space-between" pt="md">
                   <Button
+                    data-testid="button-sub-delete"
                     variant="light"
                     color="red"
                     leftSection={<IconTrash size={16} />}
@@ -342,10 +355,19 @@ function SubscriptionDetailPage() {
                     <Trans>Delete record</Trans>
                   </Button>
                   <Group>
-                    <Button variant="subtle" color="gray" onClick={() => void refetch()}>
+                    <Button
+                      data-testid="button-sub-reset"
+                      variant="subtle"
+                      color="gray"
+                      onClick={() => void refetch()}
+                    >
                       <Trans>Reset</Trans>
                     </Button>
-                    <Button type="submit" loading={updateMutation.isPending}>
+                    <Button
+                      data-testid="button-sub-save"
+                      type="submit"
+                      loading={updateMutation.isPending}
+                    >
                       <Trans>Save changes</Trans>
                     </Button>
                   </Group>
@@ -396,10 +418,16 @@ function SubscriptionDetailPage() {
             </Trans>
           </Text>
           <Group justify="flex-end" mt="md">
-            <Button variant="subtle" color="gray" onClick={closeDelete}>
+            <Button
+              data-testid="button-sub-delete-cancel"
+              variant="subtle"
+              color="gray"
+              onClick={closeDelete}
+            >
               <Trans>Cancel</Trans>
             </Button>
             <Button
+              data-testid="button-sub-delete-confirm"
               color="red"
               onClick={() => deleteMutation.mutate()}
               loading={deleteMutation.isPending}

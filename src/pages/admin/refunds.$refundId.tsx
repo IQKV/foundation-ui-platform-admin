@@ -73,6 +73,7 @@ function RefundDetailPage() {
         >
           <Trans>Could not fetch refund details.</Trans>{" "}
           <Text
+            data-testid="button-refund-detail-error-retry"
             component="span"
             size="sm"
             c="red"
@@ -96,9 +97,15 @@ function RefundDetailPage() {
           refund ? (
             <Group gap="sm">
               <Trans>Refund</Trans>
-              <Badge color={getStatusColor(refund.status)} variant="light" size="lg" radius="sm">
-                {refund.status}
-              </Badge>
+              <Badge
+            data-testid="badge-refund-detail-status"
+            color={getStatusColor(refund.status)}
+            variant="light"
+            size="lg"
+            radius="sm"
+          >
+            {refund.status}
+          </Badge>
             </Group>
           ) : (
             <Trans>Loading…</Trans>
@@ -135,18 +142,21 @@ function RefundDetailPage() {
             <Stack gap="xl">
               <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="lg">
                 <TextInput
+                  data-testid="input-refund-id"
                   label={<Trans>Refund ID</Trans>}
                   value={refund?.id}
                   readOnly
                   variant="filled"
                 />
                 <TextInput
+                  data-testid="input-refund-tenant-key"
                   label={<Trans>Tenant Key</Trans>}
                   value={refund?.tenantKey}
                   readOnly
                   variant="filled"
                 />
                 <TextInput
+                  data-testid="input-refund-amount"
                   label={<Trans>Amount</Trans>}
                   value={
                     refund
@@ -157,6 +167,7 @@ function RefundDetailPage() {
                   variant="filled"
                 />
                 <TextInput
+                  data-testid="input-refund-status"
                   label={<Trans>Status</Trans>}
                   value={refund?.status}
                   readOnly
@@ -166,24 +177,28 @@ function RefundDetailPage() {
 
               <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="lg">
                 <TextInput
+                  data-testid="input-refund-external-refund-id"
                   label={<Trans>External Refund ID</Trans>}
                   value={refund?.externalRefundId}
                   readOnly
                   variant="filled"
                 />
                 <TextInput
+                  data-testid="input-refund-external-payment-id"
                   label={<Trans>External Payment ID</Trans>}
                   value={refund?.externalPaymentId}
                   readOnly
                   variant="filled"
                 />
                 <TextInput
+                  data-testid="input-refund-external-customer-id"
                   label={<Trans>External Customer ID</Trans>}
                   value={refund?.externalCustomerId}
                   readOnly
                   variant="filled"
                 />
                 <TextInput
+                  data-testid="input-refund-occurred-at"
                   label={<Trans>Occurred At</Trans>}
                   value={refund ? dayjs(refund.occurredAt).format("YYYY-MM-DD HH:mm:ss") : ""}
                   readOnly

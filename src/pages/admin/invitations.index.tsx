@@ -168,7 +168,12 @@ function AdminInvitationsPage() {
           { label: <Trans>Invitations</Trans> },
         ]}
         toolbar={
-          <Button leftSection={<IconPlus size={16} />} size="sm" onClick={openProposeModal}>
+          <Button
+            data-testid="button-invitations-propose"
+            leftSection={<IconPlus size={16} />}
+            size="sm"
+            onClick={openProposeModal}
+          >
             <Trans>Propose invitation</Trans>
           </Button>
         }
@@ -202,7 +207,7 @@ function AdminInvitationsPage() {
                 <Trans>Invitations</Trans>
               </Text>
               {!isLoading && (
-                <Badge variant="light" color="gray" size="sm" radius="sm">
+                <Badge data-testid="badge-invitations-total-count" variant="light" color="gray" size="sm" radius="sm">
                   {totalElements}
                 </Badge>
               )}
@@ -210,6 +215,7 @@ function AdminInvitationsPage() {
 
             <Group gap="xs">
               <TextInput
+                data-testid="input-invitations-search"
                 placeholder={t`Search by email…`}
                 leftSection={<IconSearch size={14} />}
                 value={search}
@@ -217,11 +223,18 @@ function AdminInvitationsPage() {
                 size="xs"
                 style={{ width: 200 }}
                 rightSection={
-                  search ? <CloseButton size="xs" onClick={() => handleSearchChange("")} /> : null
+                  search ? (
+                    <CloseButton
+                      data-testid="button-invitations-search-clear"
+                      size="xs"
+                      onClick={() => handleSearchChange("")}
+                    />
+                  ) : null
                 }
               />
 
               <TextInput
+                data-testid="input-invitations-tenant-key-filter"
                 placeholder={t`Tenant key…`}
                 value={tenantKeyFilter}
                 onChange={(e) => handleTenantKeyChange(e.currentTarget.value)}
@@ -229,12 +242,17 @@ function AdminInvitationsPage() {
                 style={{ width: 140 }}
                 rightSection={
                   tenantKeyFilter ? (
-                    <CloseButton size="xs" onClick={() => handleTenantKeyChange("")} />
+                    <CloseButton
+                      data-testid="button-invitations-tenant-key-clear"
+                      size="xs"
+                      onClick={() => handleTenantKeyChange("")}
+                    />
                   ) : null
                 }
               />
 
               <Select
+                data-testid="select-invitations-status-filter"
                 placeholder={t`All statuses`}
                 leftSection={<IconFilter size={14} />}
                 data={STATUS_OPTIONS.map((o) => ({ value: o.value, label: t`${o.label}` }))}
@@ -247,7 +265,13 @@ function AdminInvitationsPage() {
 
               {hasActiveFilters && (
                 <Tooltip label={t`Clear filters`} withArrow>
-                  <Button variant="subtle" color="gray" size="xs" onClick={handleClearFilters}>
+                  <Button
+                    data-testid="button-invitations-clear-filters"
+                    variant="subtle"
+                    color="gray"
+                    size="xs"
+                    onClick={handleClearFilters}
+                  >
                     <Trans>Clear</Trans>
                   </Button>
                 </Tooltip>
@@ -255,6 +279,7 @@ function AdminInvitationsPage() {
 
               <Tooltip label={t`Refresh`} withArrow>
                 <ActionIcon
+                  data-testid="button-invitations-refresh"
                   variant="subtle"
                   color="gray"
                   size="sm"
@@ -398,6 +423,7 @@ function AdminInvitationsPage() {
                     <Group gap={4} justify="flex-end" wrap="nowrap">
                       <Tooltip label={t`View / manage invitation`} withArrow>
                         <ActionIcon
+                          data-testid={`button-invitation-manage--${invitation.invitationId}`}
                           variant="subtle"
                           color="blue"
                           size="sm"

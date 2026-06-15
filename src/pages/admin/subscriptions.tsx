@@ -337,7 +337,7 @@ function AdminSubscriptionsPage() {
                 <Trans>Subscriptions</Trans>
               </Text>
               {!isLoading && (
-                <Badge variant="light" color="gray" size="sm" radius="sm">
+                <Badge data-testid="badge-subs-total-count" variant="light" color="gray" size="sm" radius="sm">
                   {totalElements}
                 </Badge>
               )}
@@ -346,6 +346,7 @@ function AdminSubscriptionsPage() {
             <Group gap="xs">
               {/* Search */}
               <TextInput
+                data-testid="input-subs-search"
                 placeholder={t`Search by tenant or plan…`}
                 leftSection={<IconSearch size={14} />}
                 value={search}
@@ -353,12 +354,19 @@ function AdminSubscriptionsPage() {
                 size="xs"
                 style={{ width: 220 }}
                 rightSection={
-                  search ? <CloseButton size="xs" onClick={() => handleSearchChange("")} /> : null
+                  search ? (
+                    <CloseButton
+                      data-testid="button-subs-search-clear"
+                      size="xs"
+                      onClick={() => handleSearchChange("")}
+                    />
+                  ) : null
                 }
               />
 
               {/* Status filter */}
               <Select
+                data-testid="select-subs-status-filter"
                 placeholder={t`All statuses`}
                 leftSection={<IconFilter size={14} />}
                 data={STATUS_OPTIONS.map((o) => ({ value: o.value, label: t`${o.label}` }))}
@@ -372,7 +380,13 @@ function AdminSubscriptionsPage() {
               {/* Clear all filters */}
               {hasActiveFilters && (
                 <Tooltip label={t`Clear filters`} withArrow>
-                  <Button variant="subtle" color="gray" size="xs" onClick={handleClearFilters}>
+                  <Button
+                    data-testid="button-subs-clear-filters"
+                    variant="subtle"
+                    color="gray"
+                    size="xs"
+                    onClick={handleClearFilters}
+                  >
                     <Trans>Clear</Trans>
                   </Button>
                 </Tooltip>
@@ -380,6 +394,7 @@ function AdminSubscriptionsPage() {
 
               <Tooltip label={t`Refresh`} withArrow>
                 <ActionIcon
+                  data-testid="button-subs-refresh"
                   variant="subtle"
                   color="gray"
                   size="sm"
@@ -475,6 +490,7 @@ function AdminSubscriptionsPage() {
                   sortable: true,
                   render: (subscription) => (
                     <Badge
+                      data-testid={`badge-sub-status--${subscription.id}`}
                       variant="light"
                       color={getStatusColor(subscription.status)}
                       size="sm"
@@ -498,6 +514,7 @@ function AdminSubscriptionsPage() {
                   title: t`Auto-Renew`,
                   render: (subscription) => (
                     <Badge
+                      data-testid={`badge-sub-auto-renew--${subscription.id}`}
                       variant="dot"
                       color={subscription.cancelAtPeriodEnd ? "orange" : "green"}
                       size="sm"
@@ -536,6 +553,7 @@ function AdminSubscriptionsPage() {
                     <Group gap={4} justify="flex-end">
                       <Tooltip label={t`View details`}>
                         <ActionIcon
+                          data-testid={`button-sub-view--${subscription.id}`}
                           size="sm"
                           variant="subtle"
                           color="blue"
@@ -549,7 +567,12 @@ function AdminSubscriptionsPage() {
 
                       <Menu position="bottom-end" shadow="md" width={200}>
                         <Menu.Target>
-                          <ActionIcon size="sm" variant="subtle" color="gray">
+                          <ActionIcon
+                            data-testid={`button-sub-menu--${subscription.id}`}
+                            size="sm"
+                            variant="subtle"
+                            color="gray"
+                          >
                             <IconDots size={16} />
                           </ActionIcon>
                         </Menu.Target>
@@ -559,6 +582,7 @@ function AdminSubscriptionsPage() {
                             <Trans>Management</Trans>
                           </Menu.Label>
                           <Menu.Item
+                            data-testid={`menu-item-sub-update-qty--${subscription.id}`}
                             leftSection={<IconEdit size={14} />}
                             onClick={() => handleUpdateQuantity(subscription)}
                           >
@@ -567,6 +591,7 @@ function AdminSubscriptionsPage() {
 
                           {subscription.status === "active" ? (
                             <Menu.Item
+                              data-testid={`menu-item-sub-pause--${subscription.id}`}
                               leftSection={<IconPlayerPause size={14} />}
                               onClick={() => handlePause(subscription)}
                             >
@@ -574,6 +599,7 @@ function AdminSubscriptionsPage() {
                             </Menu.Item>
                           ) : subscription.status === "paused" ? (
                             <Menu.Item
+                              data-testid={`menu-item-sub-reactivate--${subscription.id}`}
                               leftSection={<IconPlayerPlay size={14} />}
                               color="green"
                               onClick={() => handleReactivate(subscription)}
@@ -584,6 +610,7 @@ function AdminSubscriptionsPage() {
 
                           <Menu.Divider />
                           <Menu.Item
+                            data-testid={`menu-item-sub-cancel--${subscription.id}`}
                             color="red"
                             leftSection={<IconX size={14} />}
                             onClick={() => handleCancel(subscription)}

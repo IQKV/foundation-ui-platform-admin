@@ -43,6 +43,7 @@ export function TranslationFields({ form }: TranslationFieldsProps) {
           <Trans>Translations</Trans>
         </Text>
         <Button
+          data-testid="button-translation-add-locale"
           size="xs"
           variant="light"
           leftSection={<IconPlus size={13} />}
@@ -84,6 +85,7 @@ export function TranslationFields({ form }: TranslationFieldsProps) {
                 />
                 {!isEnUs && (
                   <ActionIcon
+                    data-testid={`button-translation-remove--${index}`}
                     variant="subtle"
                     color="red"
                     size="sm"
@@ -95,6 +97,7 @@ export function TranslationFields({ form }: TranslationFieldsProps) {
               </Group>
 
               <TextInput
+                data-testid={`input-translation-title--${index}`}
                 label={t`Title`}
                 placeholder={t`Announcement title`}
                 size="sm"
@@ -102,6 +105,7 @@ export function TranslationFields({ form }: TranslationFieldsProps) {
               />
 
               <Textarea
+                data-testid={`input-translation-message--${index}`}
                 label={t`Message`}
                 placeholder={t`Announcement message body`}
                 size="sm"
