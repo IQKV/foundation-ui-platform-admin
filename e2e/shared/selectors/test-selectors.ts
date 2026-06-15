@@ -242,7 +242,8 @@ export const TestSelectors = {
 
   // Badges
   BADGE: {
-    ANNOUNCEMENT_LOCALE: (id: string, locale: string) => `badge-announcement-locale--${id}--${locale}`,
+    ANNOUNCEMENT_LOCALE: (id: string, locale: string) =>
+      `badge-announcement-locale--${id}--${locale}`,
     ANNOUNCEMENT_STATUS: (status: string) => `badge-announcement-status--${status}`,
     ANNOUNCEMENT_TYPE: (id: string) => `badge-announcement-type--${id}`,
     ANNOUNCEMENTS_TOTAL_COUNT: "badge-announcements-total-count",
@@ -253,7 +254,8 @@ export const TestSelectors = {
     INVITATION_STATUS: (status: string) => `badge-invitation-status--${status}`,
     INVITATIONS_TOTAL_COUNT: "badge-invitations-total-count",
     LOCKED_USERS_ACTION_NEEDED: "badge-locked-users-action-needed",
-    MEMBER_AUTHORITY: (userId: string, auth: string) => `badge-member-authority--${userId}--${auth}`,
+    MEMBER_AUTHORITY: (userId: string, auth: string) =>
+      `badge-member-authority--${userId}--${auth}`,
     MEMBER_EMAIL_VERIFIED: (userId: string) => `badge-member-email-verified--${userId}`,
     MEMBER_STATUS: (userId: string) => `badge-member-status--${userId}`,
     MEMBERS_TOTAL_COUNT: "badge-members-total-count",
