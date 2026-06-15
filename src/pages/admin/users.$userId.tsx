@@ -77,11 +77,12 @@ interface StatCardProps {
   label: React.ReactNode;
   value: React.ReactNode;
   isLoading?: boolean;
+  "data-testid"?: string;
 }
 
-function StatCard({ label, value, isLoading }: StatCardProps) {
+function StatCard({ label, value, isLoading, "data-testid": testId }: StatCardProps) {
   return (
-    <Stack gap={4} align="center" py="md">
+    <Stack gap={4} align="center" py="md" data-testid={testId}>
       {isLoading ? (
         <Skeleton height={28} width={60} radius="sm" />
       ) : (
@@ -162,6 +163,7 @@ function PlatformAuthorityTab({ user, isLoading, isSelf }: PlatformAuthorityTabP
 
                 <Group gap="xs">
                   <Badge
+                    data-testid="badge-platform-admin-status"
                     variant="light"
                     color={isPlatformAdmin ? "blue" : "gray"}
                     size="sm"
@@ -181,6 +183,7 @@ function PlatformAuthorityTab({ user, isLoading, isSelf }: PlatformAuthorityTabP
                     </Tooltip>
                   ) : isPlatformAdmin ? (
                     <Button
+                      data-testid="button-revoke-platform-admin"
                       variant="light"
                       color="orange"
                       size="xs"
@@ -191,6 +194,7 @@ function PlatformAuthorityTab({ user, isLoading, isSelf }: PlatformAuthorityTabP
                     </Button>
                   ) : (
                     <Button
+                      data-testid="button-grant-platform-admin"
                       variant="light"
                       color="blue"
                       size="xs"
@@ -203,6 +207,7 @@ function PlatformAuthorityTab({ user, isLoading, isSelf }: PlatformAuthorityTabP
 
                   <Tooltip label={<Trans>Refresh</Trans>} withArrow>
                     <ActionIcon
+                      data-testid="button-platform-authority-refresh"
                       variant="subtle"
                       color="gray"
                       size="sm"
@@ -236,12 +241,14 @@ function OverviewTab({ user, isLoading }: { user: IamUser | undefined; isLoading
             label={<Trans>Organizations</Trans>}
             value={user?.organizations?.length ?? 0}
             isLoading={isLoading}
+            data-testid="stat-user-org-count"
           />
           <StatCard
             label={<Trans>Email</Trans>}
             value={
               user ? (
                 <Badge
+                  data-testid="stat-user-email-verified-badge"
                   variant="light"
                   color={user.emailVerified ? "green" : "orange"}
                   size="sm"
@@ -254,16 +261,19 @@ function OverviewTab({ user, isLoading }: { user: IamUser | undefined; isLoading
               )
             }
             isLoading={isLoading}
+            data-testid="stat-user-email-verified"
           />
           <StatCard
             label={<Trans>Joined</Trans>}
             value={user ? dayjs(user.createdAt).format("MMM D, YYYY") : "—"}
             isLoading={isLoading}
+            data-testid="stat-user-joined-at"
           />
           <StatCard
             label={<Trans>Last updated</Trans>}
             value={user?.updatedAt ? dayjs(user.updatedAt).format("MMM D, YYYY") : "—"}
             isLoading={isLoading}
+            data-testid="stat-user-updated-at"
           />
         </SimpleGrid>
       </Paper>
@@ -276,7 +286,7 @@ function OverviewTab({ user, isLoading }: { user: IamUser | undefined; isLoading
             <Trans>Organizations</Trans>
           </Text>
           {!isLoading && (
-            <Badge variant="light" color="gray" size="sm" radius="sm" ml="auto">
+            <Badge data-testid="badge-overview-org-count" variant="light" color="gray" size="sm" radius="sm" ml="auto">
               {user?.organizations?.length ?? 0}
             </Badge>
           )}
@@ -404,6 +414,7 @@ function UserDetailPage() {
         >
           <Trans>Could not fetch user details.</Trans>{" "}
           <Text
+            data-testid="button-user-detail-error-retry"
             component="span"
             size="sm"
             c="red"
@@ -434,6 +445,7 @@ function UserDetailPage() {
           <Group gap="xs">
             <Tooltip label={t`Edit user`} withArrow>
               <ActionIcon
+                data-testid="button-user-detail-edit"
                 variant="light"
                 color="blue"
                 size="md"
@@ -445,6 +457,7 @@ function UserDetailPage() {
             </Tooltip>
             <Tooltip label={t`Set password`} withArrow>
               <ActionIcon
+                data-testid="button-user-detail-set-password"
                 variant="light"
                 color="orange"
                 size="md"
@@ -456,6 +469,7 @@ function UserDetailPage() {
             </Tooltip>
             <Tooltip label={t`Unlock user`} withArrow>
               <ActionIcon
+                data-testid="button-user-detail-unlock"
                 variant="light"
                 color="teal"
                 size="md"
@@ -467,6 +481,7 @@ function UserDetailPage() {
             </Tooltip>
             <Tooltip label={t`Refresh`} withArrow>
               <ActionIcon
+                data-testid="button-user-detail-refresh"
                 variant="subtle"
                 color="gray"
                 size="md"
@@ -481,13 +496,14 @@ function UserDetailPage() {
       />
 
       {/* ── Hero card ───────────────────────────────────────────────────── */}
-      <Paper p="xl" mb="md">
+      <Paper data-testid="user-detail-hero-card" p="xl" mb="md">
         <Stack align="center" gap="xs">
           {/* Avatar */}
           {isLoading ? (
             <Skeleton circle height={72} width={72} />
           ) : (
             <Avatar
+              data-testid="user-detail-avatar"
               size={72}
               radius="xl"
               color={user ? avatarColor(user.email) : "gray"}
@@ -503,7 +519,7 @@ function UserDetailPage() {
             {isLoading ? (
               <Skeleton height={24} width={180} radius="sm" />
             ) : (
-              <Text size="xl" fw={700}>
+              <Text data-testid="user-detail-display-name" size="xl" fw={700}>
                 {displayName}
               </Text>
             )}
@@ -519,7 +535,7 @@ function UserDetailPage() {
               {isLoading ? (
                 <Skeleton height={14} width={160} radius="sm" />
               ) : (
-                <Text size="sm" c="dimmed">
+                <Text data-testid="user-detail-email" size="sm" c="dimmed">
                   {user?.email}
                 </Text>
               )}
@@ -532,7 +548,12 @@ function UserDetailPage() {
               {isLoading ? (
                 <Skeleton height={14} width={80} radius="sm" />
               ) : (
-                <Badge variant="dot" color={user?.emailVerified ? "green" : "orange"} size="sm">
+                <Badge
+                  data-testid="user-detail-email-verified-badge"
+                  variant="dot"
+                  color={user?.emailVerified ? "green" : "orange"}
+                  size="sm"
+                >
                   {user?.emailVerified ? (
                     <Trans>Email verified</Trans>
                   ) : (
@@ -549,7 +570,7 @@ function UserDetailPage() {
               {isLoading ? (
                 <Skeleton height={14} width={100} radius="sm" />
               ) : (
-                <Text size="sm" c="dimmed">
+                <Text data-testid="user-detail-joined-at" size="sm" c="dimmed">
                   <Trans>Joined</Trans> {user ? dayjs(user.createdAt).format("MMM D, YYYY") : "—"}
                 </Text>
               )}
@@ -562,7 +583,7 @@ function UserDetailPage() {
               {isLoading ? (
                 <Skeleton height={14} width={80} radius="sm" />
               ) : (
-                <Text size="sm" c="dimmed">
+                <Text data-testid="user-detail-org-count" size="sm" c="dimmed">
                   {user?.organizations?.length ?? 0} <Trans>organization(s)</Trans>
                 </Text>
               )}
@@ -581,10 +602,11 @@ function UserDetailPage() {
         }}
       >
         <Tabs.List>
-          <Tabs.Tab value="overview" leftSection={<IconUser size={14} />}>
+          <Tabs.Tab data-testid="tab-user-overview" value="overview" leftSection={<IconUser size={14} />}>
             <Trans>Overview</Trans>
           </Tabs.Tab>
           <Tabs.Tab
+            data-testid="tab-user-organizations"
             value="organizations"
             leftSection={<IconBuilding size={14} />}
             rightSection={
@@ -597,7 +619,7 @@ function UserDetailPage() {
           >
             <Trans>Organizations</Trans>
           </Tabs.Tab>
-          <Tabs.Tab value="platform-authority" leftSection={<IconShield size={14} />}>
+          <Tabs.Tab data-testid="tab-user-platform-authority" value="platform-authority" leftSection={<IconShield size={14} />}>
             <Trans>Platform Authority</Trans>
           </Tabs.Tab>
         </Tabs.List>
@@ -619,7 +641,7 @@ function UserDetailPage() {
                   <Trans>Joined Organizations</Trans>
                 </Text>
                 {!isLoading && (
-                  <Badge variant="light" color="gray" size="sm" radius="sm" ml="auto">
+                  <Badge data-testid="badge-orgs-tab-count" variant="light" color="gray" size="sm" radius="sm" ml="auto">
                     {user?.organizations?.length ?? 0}
                   </Badge>
                 )}

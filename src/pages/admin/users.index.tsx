@@ -242,7 +242,13 @@ function AdminUsersPage() {
                 <Trans>Users</Trans>
               </Text>
               {!isLoading && (
-                <Badge variant="light" color="gray" size="sm" radius="sm">
+                <Badge
+                  data-testid="badge-users-total-count"
+                  variant="light"
+                  color="gray"
+                  size="sm"
+                  radius="sm"
+                >
                   {totalElements}
                 </Badge>
               )}
@@ -250,6 +256,7 @@ function AdminUsersPage() {
 
             <Group gap="xs">
               <TextInput
+                data-testid="input-users-search"
                 placeholder={t`Search by name or email…`}
                 leftSection={<IconSearch size={14} />}
                 value={search}
@@ -257,10 +264,17 @@ function AdminUsersPage() {
                 size="xs"
                 style={{ width: 220 }}
                 rightSection={
-                  search ? <CloseButton size="xs" onClick={() => handleSearchChange("")} /> : null
+                  search ? (
+                    <CloseButton
+                      data-testid="button-users-search-clear"
+                      size="xs"
+                      onClick={() => handleSearchChange("")}
+                    />
+                  ) : null
                 }
               />
               <Select
+                data-testid="select-users-status-filter"
                 placeholder={t`All statuses`}
                 leftSection={<IconFilter size={14} />}
                 data={STATUS_OPTIONS.map((o) => ({ value: o.value, label: t`${o.label}` }))}
@@ -272,13 +286,20 @@ function AdminUsersPage() {
               />
               {hasActiveFilters && (
                 <Tooltip label={t`Clear filters`} withArrow>
-                  <Button variant="subtle" color="gray" size="xs" onClick={handleClearFilters}>
+                  <Button
+                    data-testid="button-users-clear-filters"
+                    variant="subtle"
+                    color="gray"
+                    size="xs"
+                    onClick={handleClearFilters}
+                  >
                     <Trans>Clear</Trans>
                   </Button>
                 </Tooltip>
               )}
               <Tooltip label={t`Refresh`} withArrow>
                 <ActionIcon
+                  data-testid="button-users-refresh"
                   variant="subtle"
                   color="gray"
                   size="sm"
@@ -394,7 +415,12 @@ function AdminUsersPage() {
                   accessor: "emailVerified",
                   title: t`Email`,
                   render: (user) => (
-                    <Badge variant="dot" color={user.emailVerified ? "green" : "orange"} size="sm">
+                    <Badge
+                      data-testid={`badge-email-verified--${user.id}`}
+                      variant="dot"
+                      color={user.emailVerified ? "green" : "orange"}
+                      size="sm"
+                    >
                       {user.emailVerified ? t`Verified` : t`Unverified`}
                     </Badge>
                   ),
@@ -461,6 +487,7 @@ function AdminUsersPage() {
                       onClick={(e) => e.stopPropagation()}
                     >
                       <ActionIcon
+                        data-testid={`button-user-view--${user.id}`}
                         variant="subtle"
                         color="gray"
                         size="sm"
@@ -474,6 +501,7 @@ function AdminUsersPage() {
                       <Menu position="bottom-end" shadow="md" width={200} withinPortal>
                         <Menu.Target>
                           <ActionIcon
+                            data-testid={`button-user-menu--${user.id}`}
                             variant="subtle"
                             color="gray"
                             size="sm"
@@ -488,12 +516,14 @@ function AdminUsersPage() {
                             <Trans>Actions</Trans>
                           </Menu.Label>
                           <Menu.Item
+                            data-testid={`menu-item-edit-user--${user.id}`}
                             leftSection={<IconEdit size={14} />}
                             onClick={() => handleEdit(user)}
                           >
                             <Trans>Edit user</Trans>
                           </Menu.Item>
                           <Menu.Item
+                            data-testid={`menu-item-set-password--${user.id}`}
                             leftSection={<IconKey size={14} />}
                             onClick={() => handleSetPassword(user)}
                           >
@@ -501,6 +531,7 @@ function AdminUsersPage() {
                           </Menu.Item>
                           <Menu.Divider />
                           <Menu.Item
+                            data-testid={`menu-item-unban-user--${user.id}`}
                             leftSection={<IconUserCheck size={14} />}
                             color="green"
                             onClick={() => handleUnban(user)}
@@ -508,6 +539,7 @@ function AdminUsersPage() {
                             <Trans>Unban user</Trans>
                           </Menu.Item>
                           <Menu.Item
+                            data-testid={`menu-item-unlock-user--${user.id}`}
                             leftSection={<IconLockOpen size={14} />}
                             color="teal"
                             onClick={() => handleUnlock(user)}
@@ -516,6 +548,7 @@ function AdminUsersPage() {
                           </Menu.Item>
                           <Menu.Divider />
                           <Menu.Item
+                            data-testid={`menu-item-ban-user--${user.id}`}
                             leftSection={<IconBan size={14} />}
                             color="red"
                             onClick={() => handleBan(user)}

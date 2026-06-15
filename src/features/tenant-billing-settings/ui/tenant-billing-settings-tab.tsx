@@ -348,7 +348,11 @@ export function TenantBillingSettingsTab({ tenantKey }: TenantBillingSettingsTab
               <Trans>Tenant key:</Trans> <Code>{tenantKey}</Code>
             </Text>
             <div>
-              <Button leftSection={<IconPlus size={16} />} onClick={openCreate}>
+              <Button
+                data-testid="button-billing-create"
+                leftSection={<IconPlus size={16} />}
+                onClick={openCreate}
+              >
                 <Trans>Create billing settings</Trans>
               </Button>
             </div>
@@ -405,6 +409,7 @@ export function TenantBillingSettingsTab({ tenantKey }: TenantBillingSettingsTab
               />
               <Group justify="flex-end" gap="sm">
                 <Button
+                  data-testid="button-billing-create-cancel"
                   variant="subtle"
                   color="gray"
                   onClick={() => {
@@ -415,7 +420,7 @@ export function TenantBillingSettingsTab({ tenantKey }: TenantBillingSettingsTab
                 >
                   <Trans>Cancel</Trans>
                 </Button>
-                <Button type="submit" loading={createMutation.isPending}>
+                <Button data-testid="button-billing-create-submit" type="submit" loading={createMutation.isPending}>
                   <Trans>Create</Trans>
                 </Button>
               </Group>
@@ -493,6 +498,7 @@ export function TenantBillingSettingsTab({ tenantKey }: TenantBillingSettingsTab
 
             <Group justify="space-between" mt="md" wrap="wrap">
               <Button
+                data-testid="button-billing-delete"
                 type="button"
                 variant="light"
                 color="red"
@@ -503,6 +509,7 @@ export function TenantBillingSettingsTab({ tenantKey }: TenantBillingSettingsTab
               </Button>
               <Group gap="sm">
                 <Button
+                  data-testid="button-billing-open-portal"
                   type="button"
                   variant="outline"
                   leftSection={<IconExternalLink size={16} />}
@@ -511,7 +518,7 @@ export function TenantBillingSettingsTab({ tenantKey }: TenantBillingSettingsTab
                 >
                   <Trans>Open Billing Portal</Trans>
                 </Button>
-                <Button type="submit" loading={replaceMutation.isPending}>
+                <Button data-testid="button-billing-save" type="submit" loading={replaceMutation.isPending}>
                   <Trans>Save changes</Trans>
                 </Button>
               </Group>
@@ -534,10 +541,16 @@ export function TenantBillingSettingsTab({ tenantKey }: TenantBillingSettingsTab
             </Trans>
           </Text>
           <Group justify="flex-end" gap="sm">
-            <Button variant="subtle" color="gray" onClick={closeDelete}>
+            <Button
+              data-testid="button-billing-delete-cancel"
+              variant="subtle"
+              color="gray"
+              onClick={closeDelete}
+            >
               <Trans>Cancel</Trans>
             </Button>
             <Button
+              data-testid="button-billing-delete-confirm"
               color="red"
               loading={deleteMutation.isPending}
               onClick={() => deleteMutation.mutate()}

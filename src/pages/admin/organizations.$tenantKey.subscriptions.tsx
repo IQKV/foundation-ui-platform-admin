@@ -151,7 +151,7 @@ function OrganizationSubscriptionsPage() {
               <Trans>Subscriptions</Trans>
             </Text>
             {!isLoading && (
-              <Badge variant="light" color="gray" size="sm" radius="sm">
+              <Badge data-testid="badge-org-subs-total-count" variant="light" color="gray" size="sm" radius="sm">
                 {totalElements}
               </Badge>
             )}
@@ -159,6 +159,7 @@ function OrganizationSubscriptionsPage() {
 
           <Group gap="xs">
             <TextInput
+              data-testid="input-org-subs-search"
               placeholder={t`Search plan…`}
               leftSection={<IconSearch size={14} />}
               value={search}
@@ -166,10 +167,17 @@ function OrganizationSubscriptionsPage() {
               size="xs"
               style={{ width: 180 }}
               rightSection={
-                search ? <CloseButton size="xs" onClick={() => handleSearchChange("")} /> : null
+                search ? (
+                  <CloseButton
+                    data-testid="button-org-subs-search-clear"
+                    size="xs"
+                    onClick={() => handleSearchChange("")}
+                  />
+                ) : null
               }
             />
             <Select
+              data-testid="select-org-subs-status-filter"
               placeholder={t`All statuses`}
               leftSection={<IconFilter size={14} />}
               data={STATUS_OPTIONS.map((o) => ({ value: o.value, label: t`${o.label}` }))}
@@ -208,7 +216,13 @@ function OrganizationSubscriptionsPage() {
               title: t`Status`,
               sortable: true,
               render: (r) => (
-                <Badge color={getStatusColor(r.status)} variant="light" size="sm" radius="sm">
+                <Badge
+                  data-testid={`badge-org-sub-status--${r.id}`}
+                  color={getStatusColor(r.status)}
+                  variant="light"
+                  size="sm"
+                  radius="sm"
+                >
                   {r.status}
                 </Badge>
               ),
@@ -234,6 +248,7 @@ function OrganizationSubscriptionsPage() {
                 <Group gap={4} justify="flex-end">
                   <Tooltip label={t`View details`}>
                     <ActionIcon
+                      data-testid={`button-org-sub-view--${r.id}`}
                       size="sm"
                       variant="subtle"
                       color="blue"

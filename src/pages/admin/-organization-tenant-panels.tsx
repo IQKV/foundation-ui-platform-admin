@@ -57,11 +57,12 @@ interface StatCardProps {
   label: React.ReactNode;
   value: React.ReactNode;
   isLoading?: boolean;
+  "data-testid"?: string;
 }
 
-function StatCard({ label, value, isLoading }: StatCardProps) {
+function StatCard({ label, value, isLoading, "data-testid": testId }: StatCardProps) {
   return (
-    <Stack gap={4} align="center" py="md">
+    <Stack gap={4} align="center" py="md" data-testid={testId}>
       {isLoading ? (
         <Skeleton height={28} width={60} radius="sm" />
       ) : (
@@ -99,18 +100,21 @@ export function OverviewTab({
     <Stack gap="md" pt="md">
       <Paper style={{ overflow: "hidden" }}>
         <SimpleGrid cols={{ base: 2, sm: 4 }} spacing={0}>
-          <StatCard label={<Trans>Members</Trans>} value={memberCount} isLoading={membersLoading} />
+          <StatCard data-testid="stat-org-member-count" label={<Trans>Members</Trans>} value={memberCount} isLoading={membersLoading} />
           <StatCard
+            data-testid="stat-org-subscription-count"
             label={<Trans>Subscriptions</Trans>}
             value={subscriptionCount}
             isLoading={subsLoading}
           />
           <StatCard
+            data-testid="stat-org-created-at"
             label={<Trans>Created</Trans>}
             value={tenant ? dayjs(tenant.createdAt).format("MMM D, YYYY") : "—"}
             isLoading={isLoading}
           />
           <StatCard
+            data-testid="stat-org-updated-at"
             label={<Trans>Last updated</Trans>}
             value={tenant?.updatedAt ? dayjs(tenant.updatedAt).format("MMM D, YYYY") : "—"}
             isLoading={isLoading}
@@ -125,7 +129,7 @@ export function OverviewTab({
             <Trans>Subscriptions</Trans>
           </Text>
           {!subsLoading && (
-            <Badge variant="light" color="gray" size="sm" radius="sm" ml="auto">
+            <Badge data-testid="badge-overview-subscription-count" variant="light" color="gray" size="sm" radius="sm" ml="auto">
               {subscriptionCount}
             </Badge>
           )}
@@ -175,6 +179,7 @@ export function OverviewTab({
                       <Trans>Renews</Trans> {dayjs(sub.currentPeriodEnd).format("MMM D, YYYY")}
                     </Text>
                     <Badge
+                      data-testid={`badge-overview-sub-status--${sub.id}`}
                       variant="light"
                       size="sm"
                       radius="sm"
@@ -317,10 +322,20 @@ function EditMemberAuthoritiesModal({
           />
         </Stack>
         <Group justify="flex-end" gap="sm" mt="md">
-          <Button variant="subtle" color="gray" onClick={handleClose} disabled={mutation.isPending}>
+          <Button
+            data-testid="button-edit-authorities-cancel"
+            variant="subtle"
+            color="gray"
+            onClick={handleClose}
+            disabled={mutation.isPending}
+          >
             <Trans>Cancel</Trans>
           </Button>
-          <Button onClick={handleSubmit} loading={mutation.isPending}>
+          <Button
+            data-testid="button-edit-authorities-save"
+            onClick={handleSubmit}
+            loading={mutation.isPending}
+          >
             <Trans>Save Changes</Trans>
           </Button>
         </Group>
@@ -386,13 +401,14 @@ export function MembersTab({ tenantKey }: { tenantKey: string }) {
               <Trans>Members</Trans>
             </Text>
             {!isLoading && (
-              <Badge variant="light" color="gray" size="sm" radius="sm">
+              <Badge data-testid="badge-members-total-count" variant="light" color="gray" size="sm" radius="sm">
                 {totalElements}
               </Badge>
             )}
           </Group>
           <Group gap="xs">
             <TextInput
+              data-testid="input-members-search"
               placeholder={t`Search by name or email…`}
               leftSection={<IconSearch size={14} />}
               value={search}
@@ -405,6 +421,7 @@ export function MembersTab({ tenantKey }: { tenantKey: string }) {
               rightSection={
                 search ? (
                   <CloseButton
+                    data-testid="button-members-search-clear"
                     size="xs"
                     onClick={() => {
                       setSearch("");
@@ -416,6 +433,7 @@ export function MembersTab({ tenantKey }: { tenantKey: string }) {
             />
             <Tooltip label={t`Refresh`} withArrow>
               <ActionIcon
+                data-testid="button-members-refresh"
                 variant="subtle"
                 color="gray"
                 size="sm"
@@ -497,7 +515,7 @@ export function MembersTab({ tenantKey }: { tenantKey: string }) {
                 render: (user) => (
                   <Group gap="xs">
                     {user.tenantAuthorities?.map((auth) => (
-                      <Badge key={auth} variant="light" color="blue" size="sm">
+                      <Badge data-testid={`badge-member-authority--${user.id}--${auth}`} key={auth} variant="light" color="blue" size="sm">
                         {auth}
                       </Badge>
                     ))}
@@ -509,6 +527,7 @@ export function MembersTab({ tenantKey }: { tenantKey: string }) {
                 title: t`Status`,
                 render: (user) => (
                   <Badge
+                    data-testid={`badge-member-status--${user.id}`}
                     variant="light"
                     size="sm"
                     color={
@@ -529,7 +548,12 @@ export function MembersTab({ tenantKey }: { tenantKey: string }) {
                 accessor: "emailVerified",
                 title: t`Email`,
                 render: (user) => (
-                  <Badge variant="dot" color={user.emailVerified ? "green" : "orange"} size="sm">
+                  <Badge
+                    data-testid={`badge-member-email-verified--${user.id}`}
+                    variant="dot"
+                    color={user.emailVerified ? "green" : "orange"}
+                    size="sm"
+                  >
                     {user.emailVerified ? t`Verified` : t`Unverified`}
                   </Badge>
                 ),
@@ -549,6 +573,7 @@ export function MembersTab({ tenantKey }: { tenantKey: string }) {
                 render: (user) => (
                   <Tooltip label={t`Edit member authorities`} withArrow>
                     <ActionIcon
+                      data-testid={`button-member-edit-authorities--${user.id}`}
                       variant="subtle"
                       color="blue"
                       size="sm"

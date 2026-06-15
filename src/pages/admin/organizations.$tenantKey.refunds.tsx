@@ -116,7 +116,7 @@ function OrganizationRefundsPage() {
               <Trans>Refunds</Trans>
             </Text>
             {!isLoading && (
-              <Badge variant="light" color="gray" size="sm" radius="sm">
+              <Badge data-testid="badge-org-refunds-total-count" variant="light" color="gray" size="sm" radius="sm">
                 {totalElements}
               </Badge>
             )}
@@ -149,7 +149,13 @@ function OrganizationRefundsPage() {
               title: t`Status`,
               sortable: true,
               render: (r) => (
-                <Badge color={getStatusColor(r.status)} variant="light" size="sm" radius="sm">
+                <Badge
+                  data-testid={`badge-org-refund-status--${r.id}`}
+                  color={getStatusColor(r.status)}
+                  variant="light"
+                  size="sm"
+                  radius="sm"
+                >
                   {r.status}
                 </Badge>
               ),
@@ -179,6 +185,7 @@ function OrganizationRefundsPage() {
                 <Group gap={4} justify="flex-end">
                   <Tooltip label={t`View details`}>
                     <ActionIcon
+                      data-testid={`button-org-refund-view--${r.id}`}
                       size="sm"
                       variant="subtle"
                       color="blue"

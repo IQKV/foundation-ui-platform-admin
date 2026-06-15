@@ -129,41 +129,41 @@ function CardGroup({ title, children }: CardGroupProps) {
 
 // ─── Stat display components ──────────────────────────────────────────────────
 
-function StatValue({ count }: { count: DashboardCountResult }) {
+function StatValue({ count, "data-testid": testId }: { count: DashboardCountResult; "data-testid"?: string }) {
   if (count.isLoading) {
     return <Skeleton height={28} width={60} radius="sm" mb={4} />;
   }
   if (count.isError) {
     return (
       <Tooltip label={<Trans>Failed to load</Trans>} withArrow>
-        <Text size="xl" fw={700} c="red" mb={4} style={{ cursor: "default" }}>
+        <Text size="xl" fw={700} c="red" mb={4} style={{ cursor: "default" }} data-testid={testId}>
           <IconAlertCircle size={20} style={{ verticalAlign: "middle" }} />
         </Text>
       </Tooltip>
     );
   }
   return (
-    <Text size="xl" fw={700} mb={4}>
+    <Text size="xl" fw={700} mb={4} data-testid={testId}>
       {count.value?.toLocaleString() ?? "—"}
     </Text>
   );
 }
 
-function WidgetStatValue({ count }: { count: WidgetCountResult }) {
+function WidgetStatValue({ count, "data-testid": testId }: { count: WidgetCountResult; "data-testid"?: string }) {
   if (count.isLoading) {
     return <Skeleton height={28} width={60} radius="sm" mb={4} />;
   }
   if (count.isError) {
     return (
       <Tooltip label={<Trans>Failed to load</Trans>} withArrow>
-        <Text size="xl" fw={700} c="red" mb={4} style={{ cursor: "default" }}>
+        <Text size="xl" fw={700} c="red" mb={4} style={{ cursor: "default" }} data-testid={testId}>
           <IconAlertCircle size={20} style={{ verticalAlign: "middle" }} />
         </Text>
       </Tooltip>
     );
   }
   return (
-    <Text size="xl" fw={700} mb={4}>
+    <Text size="xl" fw={700} mb={4} data-testid={testId}>
       {count.value?.toLocaleString() ?? "—"}
     </Text>
   );
@@ -196,7 +196,7 @@ function AdminDashboardPage() {
                   <IconUsers size={20} />
                 </ThemeIcon>
               </Group>
-              <StatValue count={counts.users} />
+              <StatValue count={counts.users} data-testid="stat-total-users" />
               <Text size="sm" c="dimmed">
                 <Trans>Total Users</Trans>
               </Text>
@@ -219,7 +219,7 @@ function AdminDashboardPage() {
                   <IconBuilding size={20} />
                 </ThemeIcon>
               </Group>
-              <StatValue count={counts.tenants} />
+              <StatValue count={counts.tenants} data-testid="stat-total-organizations" />
               <Text size="sm" c="dimmed">
                 <Trans>Organizations</Trans>
               </Text>
@@ -242,7 +242,7 @@ function AdminDashboardPage() {
                   <IconCreditCard size={20} />
                 </ThemeIcon>
               </Group>
-              <StatValue count={counts.subscriptions} />
+              <StatValue count={counts.subscriptions} data-testid="stat-active-subscriptions" />
               <Text size="sm" c="dimmed">
                 <Trans>Active Subscriptions</Trans>
               </Text>
@@ -271,12 +271,18 @@ function AdminDashboardPage() {
                   <IconLock size={20} />
                 </ThemeIcon>
                 {(widgets.lockedUsers.value ?? 0) > 0 && (
-                  <Badge color="red" variant="filled" size="sm" radius="sm">
+                  <Badge
+                    data-testid="badge-locked-users-action-needed"
+                    color="red"
+                    variant="filled"
+                    size="sm"
+                    radius="sm"
+                  >
                     <Trans>Action needed</Trans>
                   </Badge>
                 )}
               </Group>
-              <WidgetStatValue count={widgets.lockedUsers} />
+              <WidgetStatValue count={widgets.lockedUsers} data-testid="stat-locked-users" />
               <Text size="sm" c="dimmed">
                 <Trans>Locked Accounts</Trans>
               </Text>
@@ -301,7 +307,7 @@ function AdminDashboardPage() {
                   <IconUserX size={20} />
                 </ThemeIcon>
               </Group>
-              <WidgetStatValue count={widgets.suspendedUsers} />
+              <WidgetStatValue count={widgets.suspendedUsers} data-testid="stat-suspended-users" />
               <Text size="sm" c="dimmed">
                 <Trans>Suspended Users</Trans>
               </Text>
@@ -325,12 +331,18 @@ function AdminDashboardPage() {
                   <IconClockExclamation size={20} />
                 </ThemeIcon>
                 {(widgets.pastDueSubscriptions.value ?? 0) > 0 && (
-                  <Badge color="orange" variant="filled" size="sm" radius="sm">
+                  <Badge
+                    data-testid="badge-past-due-subscriptions-revenue-risk"
+                    color="orange"
+                    variant="filled"
+                    size="sm"
+                    radius="sm"
+                  >
                     <Trans>Revenue risk</Trans>
                   </Badge>
                 )}
               </Group>
-              <WidgetStatValue count={widgets.pastDueSubscriptions} />
+              <WidgetStatValue count={widgets.pastDueSubscriptions} data-testid="stat-past-due-subscriptions" />
               <Text size="sm" c="dimmed">
                 <Trans>Past-Due Subscriptions</Trans>
               </Text>
@@ -355,12 +367,18 @@ function AdminDashboardPage() {
                   <IconMailQuestion size={20} />
                 </ThemeIcon>
                 {(widgets.pendingInvitations.value ?? 0) > 0 && (
-                  <Badge color="indigo" variant="light" size="sm" radius="sm">
+                  <Badge
+                    data-testid="badge-pending-invitations-count"
+                    color="indigo"
+                    variant="light"
+                    size="sm"
+                    radius="sm"
+                  >
                     {widgets.pendingInvitations.value}
                   </Badge>
                 )}
               </Group>
-              <WidgetStatValue count={widgets.pendingInvitations} />
+              <WidgetStatValue count={widgets.pendingInvitations} data-testid="stat-pending-invitations" />
               <Text size="sm" c="dimmed">
                 <Trans>Pending Invitations</Trans>
               </Text>
@@ -517,6 +535,7 @@ function AdminDashboardPage() {
                             </Stack>
                             <Stack gap={4} align="flex-end" style={{ flexShrink: 0 }}>
                               <Badge
+                                data-testid={`badge-audit-severity-${record.severity.toLowerCase()}`}
                                 color={getSeverityColor(record.severity)}
                                 variant="light"
                                 size="xs"
@@ -591,6 +610,7 @@ function AdminDashboardPage() {
                             </Stack>
                             <Group gap="xs" style={{ flexShrink: 0 }}>
                               <Badge
+                                data-testid={`badge-refund-status-${refund.status.toLowerCase()}`}
                                 color={getRefundStatusColor(refund.status)}
                                 variant="light"
                                 size="xs"
@@ -671,7 +691,13 @@ function AdminDashboardPage() {
                               </Code>
                             </Stack>
                             <Group gap="xs" style={{ flexShrink: 0 }}>
-                              <Badge color="orange" variant="light" size="xs" radius="sm">
+                              <Badge
+                                data-testid={`badge-suspended-org-status-${tenant.tenantKey}`}
+                                color="orange"
+                                variant="light"
+                                size="xs"
+                                radius="sm"
+                              >
                                 {tenant.status}
                               </Badge>
                               <Button

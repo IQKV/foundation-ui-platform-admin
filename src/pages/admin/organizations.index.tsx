@@ -170,7 +170,7 @@ function AdminOrganizationsPage() {
                 <Trans>Organizations</Trans>
               </Text>
               {!isLoading && (
-                <Badge variant="light" color="gray" size="sm" radius="sm">
+                <Badge data-testid="badge-orgs-total-count" variant="light" color="gray" size="sm" radius="sm">
                   {totalElements}
                 </Badge>
               )}
@@ -178,6 +178,7 @@ function AdminOrganizationsPage() {
 
             <Group gap="xs">
               <TextInput
+                data-testid="input-orgs-search"
                 placeholder={t`Search by name or key…`}
                 leftSection={<IconSearch size={14} />}
                 value={search}
@@ -185,11 +186,18 @@ function AdminOrganizationsPage() {
                 size="xs"
                 style={{ width: 220 }}
                 rightSection={
-                  search ? <CloseButton size="xs" onClick={() => handleSearchChange("")} /> : null
+                  search ? (
+                    <CloseButton
+                      data-testid="button-orgs-search-clear"
+                      size="xs"
+                      onClick={() => handleSearchChange("")}
+                    />
+                  ) : null
                 }
               />
 
               <Select
+                data-testid="select-orgs-status-filter"
                 placeholder={t`All statuses`}
                 leftSection={<IconFilter size={14} />}
                 data={STATUS_OPTIONS.map((o) => ({ value: o.value, label: t`${o.label}` }))}
@@ -202,7 +210,13 @@ function AdminOrganizationsPage() {
 
               {hasActiveFilters && (
                 <Tooltip label={t`Clear filters`} withArrow>
-                  <Button variant="subtle" color="gray" size="xs" onClick={handleClearFilters}>
+                  <Button
+                    data-testid="button-orgs-clear-filters"
+                    variant="subtle"
+                    color="gray"
+                    size="xs"
+                    onClick={handleClearFilters}
+                  >
                     <Trans>Clear</Trans>
                   </Button>
                 </Tooltip>
@@ -210,6 +224,7 @@ function AdminOrganizationsPage() {
 
               <Tooltip label={t`Refresh`} withArrow>
                 <ActionIcon
+                  data-testid="button-orgs-refresh"
                   variant="subtle"
                   color="gray"
                   size="sm"
@@ -347,6 +362,7 @@ function AdminOrganizationsPage() {
                     <Group gap={4} justify="flex-end" wrap="nowrap">
                       <Tooltip label={t`View organization`} withArrow>
                         <ActionIcon
+                          data-testid={`button-org-view--${tenant.tenantKey}`}
                           variant="subtle"
                           color="gray"
                           size="sm"
@@ -360,6 +376,7 @@ function AdminOrganizationsPage() {
                       </Tooltip>
                       <Tooltip label={t`Billing settings`} withArrow>
                         <ActionIcon
+                          data-testid={`button-org-billing--${tenant.tenantKey}`}
                           variant="subtle"
                           color="gray"
                           size="sm"
@@ -373,6 +390,7 @@ function AdminOrganizationsPage() {
                       </Tooltip>
                       <Tooltip label={t`Edit organization`} withArrow>
                         <ActionIcon
+                          data-testid={`button-org-edit--${tenant.tenantKey}`}
                           variant="subtle"
                           color="blue"
                           size="sm"

@@ -109,6 +109,7 @@ function OrganizationTenantLayout() {
         >
           <Trans>Could not fetch organization details.</Trans>{" "}
           <Text
+            data-testid="button-org-detail-error-retry"
             component="span"
             size="sm"
             c="red"
@@ -139,6 +140,7 @@ function OrganizationTenantLayout() {
           <Group gap="xs">
             <Tooltip label={t`Edit organization`} withArrow>
               <ActionIcon
+                data-testid="button-org-detail-edit"
                 variant="light"
                 color="blue"
                 size="md"
@@ -150,6 +152,7 @@ function OrganizationTenantLayout() {
             </Tooltip>
             <Tooltip label={t`Refresh`} withArrow>
               <ActionIcon
+                data-testid="button-org-detail-refresh"
                 variant="subtle"
                 color="gray"
                 size="md"
@@ -163,9 +166,10 @@ function OrganizationTenantLayout() {
         }
       />
 
-      <Paper p="xl" mb="md">
+      <Paper data-testid="org-detail-hero-card" p="xl" mb="md">
         <Stack align="center" gap="xs">
           <Box
+            data-testid="org-detail-icon"
             style={{
               width: 72,
               height: 72,
@@ -185,7 +189,7 @@ function OrganizationTenantLayout() {
             {isLoading ? (
               <Skeleton height={24} width={180} radius="sm" />
             ) : (
-              <Text size="xl" fw={700}>
+              <Text data-testid="org-detail-name" size="xl" fw={700}>
                 {tenant?.name}
               </Text>
             )}
@@ -200,7 +204,7 @@ function OrganizationTenantLayout() {
               {isLoading ? (
                 <Skeleton height={14} width={80} radius="sm" />
               ) : (
-                <Code style={{ fontSize: "var(--mantine-font-size-sm)" }}>{tenant?.tenantKey}</Code>
+                <Code data-testid="org-detail-tenant-key" style={{ fontSize: "var(--mantine-font-size-sm)" }}>{tenant?.tenantKey}</Code>
               )}
             </Group>
 
@@ -211,7 +215,7 @@ function OrganizationTenantLayout() {
               {isLoading ? (
                 <Skeleton height={14} width={100} radius="sm" />
               ) : (
-                <Text size="sm" c="dimmed">
+                <Text data-testid="org-detail-created-at" size="sm" c="dimmed">
                   <Trans>Created</Trans>{" "}
                   {tenant ? dayjs(tenant.createdAt).format("MMM D, YYYY") : "—"}
                 </Text>
@@ -225,7 +229,7 @@ function OrganizationTenantLayout() {
               {membersLoading ? (
                 <Skeleton height={14} width={60} radius="sm" />
               ) : (
-                <Text size="sm" c="dimmed">
+                <Text data-testid="org-detail-member-count" size="sm" c="dimmed">
                   {memberCount} <Trans>member(s)</Trans>
                 </Text>
               )}
@@ -238,7 +242,7 @@ function OrganizationTenantLayout() {
               {subsLoading ? (
                 <Skeleton height={14} width={80} radius="sm" />
               ) : (
-                <Text size="sm" c="dimmed">
+                <Text data-testid="org-detail-subscription-count" size="sm" c="dimmed">
                   {subscriptionCount > 0 ? (
                     <Trans>{subscriptionCount} subscription(s)</Trans>
                   ) : (
@@ -260,6 +264,7 @@ function OrganizationTenantLayout() {
       >
         <Tabs.List>
           <Tabs.Tab
+            data-testid="tab-org-overview"
             value="overview"
             leftSection={<IconBuilding size={14} />}
             renderRoot={(props) => (
@@ -269,11 +274,12 @@ function OrganizationTenantLayout() {
             <Trans>Overview</Trans>
           </Tabs.Tab>
           <Tabs.Tab
+            data-testid="tab-org-members"
             value="members"
             leftSection={<IconUsers size={14} />}
             rightSection={
               !membersLoading && memberCount > 0 ? (
-                <Badge variant="light" color="gray" size="xs" radius="sm">
+                <Badge data-testid="badge-org-member-count" variant="light" color="gray" size="xs" radius="sm">
                   {memberCount}
                 </Badge>
               ) : undefined
@@ -289,6 +295,7 @@ function OrganizationTenantLayout() {
             <Trans>Members</Trans>
           </Tabs.Tab>
           <Tabs.Tab
+            data-testid="tab-org-billing"
             value="billing"
             leftSection={<IconFileInvoice size={14} />}
             renderRoot={(props) => (
@@ -302,11 +309,12 @@ function OrganizationTenantLayout() {
             <Trans>Billing Settings</Trans>
           </Tabs.Tab>
           <Tabs.Tab
+            data-testid="tab-org-subscriptions"
             value="subscriptions"
             leftSection={<IconCreditCard size={14} />}
             rightSection={
               !subsLoading && subscriptionCount > 0 ? (
-                <Badge variant="light" color="gray" size="xs" radius="sm">
+                <Badge data-testid="badge-org-subscription-count" variant="light" color="gray" size="xs" radius="sm">
                   {subscriptionCount}
                 </Badge>
               ) : undefined
@@ -322,6 +330,7 @@ function OrganizationTenantLayout() {
             <Trans>Subscriptions</Trans>
           </Tabs.Tab>
           <Tabs.Tab
+            data-testid="tab-org-refunds"
             value="refunds"
             leftSection={<IconReceiptRefund size={14} />}
             renderRoot={(props) => (
