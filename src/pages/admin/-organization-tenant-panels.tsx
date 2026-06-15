@@ -100,7 +100,12 @@ export function OverviewTab({
     <Stack gap="md" pt="md">
       <Paper style={{ overflow: "hidden" }}>
         <SimpleGrid cols={{ base: 2, sm: 4 }} spacing={0}>
-          <StatCard data-testid="stat-org-member-count" label={<Trans>Members</Trans>} value={memberCount} isLoading={membersLoading} />
+          <StatCard
+            data-testid="stat-org-member-count"
+            label={<Trans>Members</Trans>}
+            value={memberCount}
+            isLoading={membersLoading}
+          />
           <StatCard
             data-testid="stat-org-subscription-count"
             label={<Trans>Subscriptions</Trans>}
@@ -129,7 +134,14 @@ export function OverviewTab({
             <Trans>Subscriptions</Trans>
           </Text>
           {!subsLoading && (
-            <Badge data-testid="badge-overview-subscription-count" variant="light" color="gray" size="sm" radius="sm" ml="auto">
+            <Badge
+              data-testid="badge-overview-subscription-count"
+              variant="light"
+              color="gray"
+              size="sm"
+              radius="sm"
+              ml="auto"
+            >
               {subscriptionCount}
             </Badge>
           )}
@@ -401,7 +413,13 @@ export function MembersTab({ tenantKey }: { tenantKey: string }) {
               <Trans>Members</Trans>
             </Text>
             {!isLoading && (
-              <Badge data-testid="badge-members-total-count" variant="light" color="gray" size="sm" radius="sm">
+              <Badge
+                data-testid="badge-members-total-count"
+                variant="light"
+                color="gray"
+                size="sm"
+                radius="sm"
+              >
                 {totalElements}
               </Badge>
             )}
@@ -515,7 +533,13 @@ export function MembersTab({ tenantKey }: { tenantKey: string }) {
                 render: (user) => (
                   <Group gap="xs">
                     {user.tenantAuthorities?.map((auth) => (
-                      <Badge data-testid={`badge-member-authority--${user.id}--${auth}`} key={auth} variant="light" color="blue" size="sm">
+                      <Badge
+                        data-testid={`badge-member-authority--${user.id}--${auth}`}
+                        key={auth}
+                        variant="light"
+                        color="blue"
+                        size="sm"
+                      >
                         {auth}
                       </Badge>
                     ))}

@@ -151,7 +151,13 @@ function OrganizationSubscriptionsPage() {
               <Trans>Subscriptions</Trans>
             </Text>
             {!isLoading && (
-              <Badge data-testid="badge-org-subs-total-count" variant="light" color="gray" size="sm" radius="sm">
+              <Badge
+                data-testid="badge-org-subs-total-count"
+                variant="light"
+                color="gray"
+                size="sm"
+                radius="sm"
+              >
                 {totalElements}
               </Badge>
             )}

@@ -62,11 +62,12 @@ interface StatCardProps {
   label: React.ReactNode;
   value: React.ReactNode;
   isLoading?: boolean;
+  testId?: string;
 }
 
-function StatCard({ label, value, isLoading }: StatCardProps) {
+function StatCard({ label, value, isLoading, testId }: StatCardProps) {
   return (
-    <Stack gap={4} align="center" py="md">
+    <Stack gap={4} align="center" py="md" data-testid={testId}>
       {isLoading ? (
         <Skeleton height={28} width={60} radius="sm" />
       ) : (
@@ -133,7 +134,7 @@ function AccountPage() {
   }
 
   return (
-    <Container size="xl" py={0}>
+    <Container size="xl" py={0} data-testid="page--account">
       <Helmet>
         <title>{pageTitle(isLoading ? t`My Account` : displayName)}</title>
       </Helmet>
@@ -148,6 +149,7 @@ function AccountPage() {
           <Group gap="xs">
             <Tooltip label={t`Edit profile`} withArrow>
               <ActionIcon
+                data-testid="button--account-edit"
                 variant="light"
                 color="blue"
                 size="md"
@@ -159,6 +161,7 @@ function AccountPage() {
             </Tooltip>
             <Tooltip label={t`Change password`} withArrow>
               <ActionIcon
+                data-testid="button--account-change-password"
                 variant="light"
                 color="orange"
                 size="md"
@@ -170,6 +173,7 @@ function AccountPage() {
             </Tooltip>
             <Tooltip label={t`Refresh`} withArrow>
               <ActionIcon
+                data-testid="button--account-refresh"
                 variant="subtle"
                 color="gray"
                 size="md"
@@ -191,6 +195,7 @@ function AccountPage() {
             <Skeleton circle height={72} width={72} />
           ) : (
             <Avatar
+              data-testid="account-avatar"
               size={72}
               radius="xl"
               color={account ? avatarColor(account.email) : "gray"}
@@ -206,7 +211,7 @@ function AccountPage() {
             {isLoading ? (
               <Skeleton height={24} width={180} radius="sm" />
             ) : (
-              <Text size="xl" fw={700}>
+              <Text data-testid="account-display-name" size="xl" fw={700}>
                 {displayName}
               </Text>
             )}
@@ -222,7 +227,7 @@ function AccountPage() {
               {isLoading ? (
                 <Skeleton height={14} width={160} radius="sm" />
               ) : (
-                <Text size="sm" c="dimmed">
+                <Text data-testid="account-email" size="sm" c="dimmed">
                   {account?.email}
                 </Text>
               )}
@@ -235,7 +240,12 @@ function AccountPage() {
               {isLoading ? (
                 <Skeleton height={14} width={80} radius="sm" />
               ) : (
-                <Badge variant="dot" color={account?.emailVerified ? "green" : "orange"} size="sm">
+                <Badge
+                  data-testid="account-email-verification-status"
+                  variant="dot"
+                  color={account?.emailVerified ? "green" : "orange"}
+                  size="sm"
+                >
                   {account?.emailVerified ? (
                     <Trans>Email verified</Trans>
                   ) : (
@@ -252,7 +262,7 @@ function AccountPage() {
               {isLoading ? (
                 <Skeleton height={14} width={100} radius="sm" />
               ) : (
-                <Text size="sm" c="dimmed">
+                <Text data-testid="account-joined-date" size="sm" c="dimmed">
                   <Trans>Joined</Trans>{" "}
                   {account ? dayjs(account.createdAt).format("MMM D, YYYY") : "—"}
                 </Text>
@@ -266,7 +276,7 @@ function AccountPage() {
               {isLoading ? (
                 <Skeleton height={14} width={60} radius="sm" />
               ) : (
-                <Text size="sm" c="dimmed">
+                <Text data-testid="account-locale" size="sm" c="dimmed">
                   {account?.locale ?? "en-US"}
                 </Text>
               )}
@@ -279,6 +289,7 @@ function AccountPage() {
       <Paper mb="md" style={{ overflow: "hidden" }}>
         <SimpleGrid cols={{ base: 2, sm: 3 }} spacing={0}>
           <StatCard
+            testId="account-stat-email"
             label={<Trans>Email</Trans>}
             value={
               account ? (
@@ -297,11 +308,13 @@ function AccountPage() {
             isLoading={isLoading}
           />
           <StatCard
+            testId="account-stat-joined"
             label={<Trans>Joined</Trans>}
             value={account ? dayjs(account.createdAt).format("MMM D, YYYY") : "—"}
             isLoading={isLoading}
           />
           <StatCard
+            testId="account-stat-last-updated"
             label={<Trans>Last updated</Trans>}
             value={account?.updatedAt ? dayjs(account.updatedAt).format("MMM D, YYYY") : "—"}
             isLoading={isLoading}
@@ -310,7 +323,7 @@ function AccountPage() {
       </Paper>
 
       {/* ── Platform authorities ─────────────────────────────────────────── */}
-      <Paper style={{ overflow: "hidden" }}>
+      <Paper data-testid="account-platform-authorities" style={{ overflow: "hidden" }}>
         <Group px="md" py="sm" style={{ borderBottom: "1px solid var(--mantine-color-gray-1)" }}>
           <IconShieldHalf size={15} color="var(--mantine-color-gray-6)" />
           <Text fw={600} size="sm">
@@ -345,6 +358,7 @@ function AccountPage() {
             {account.platformAuthorities.map((authority) => (
               <Box
                 key={authority}
+                data-testid={`account-platform-authority--${authority}`}
                 px="md"
                 py="sm"
                 style={{ borderBottom: "1px solid var(--mantine-color-gray-1)" }}

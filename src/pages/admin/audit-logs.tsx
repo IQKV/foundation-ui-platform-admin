@@ -293,10 +293,18 @@ function AdminAuditLogsPage() {
       <Stack gap="md">
         <Tabs value={activeTab} onChange={handleTabChange}>
           <Tabs.List>
-            <Tabs.Tab data-testid="tab-audit-all-events" value="all" leftSection={<IconActivity size={16} />}>
+            <Tabs.Tab
+              data-testid="tab-audit-all-events"
+              value="all"
+              leftSection={<IconActivity size={16} />}
+            >
               <Trans>All Events</Trans>
             </Tabs.Tab>
-            <Tabs.Tab data-testid="tab-audit-signin-attempts" value="signin" leftSection={<IconLogin size={16} />}>
+            <Tabs.Tab
+              data-testid="tab-audit-signin-attempts"
+              value="signin"
+              leftSection={<IconLogin size={16} />}
+            >
               <Trans>Signin Attempts</Trans>
             </Tabs.Tab>
           </Tabs.List>
@@ -305,7 +313,11 @@ function AdminAuditLogsPage() {
             {/* General Stats Section */}
             <SimpleGrid cols={{ base: 1, sm: 2, md: 4 }} spacing="md" mb="md">
               {stats?.slice(0, 4).map((stat: AuditActionCount) => (
-                <Paper data-testid={`stat-card-audit-action--${stat.action}`} key={stat.action} p="md">
+                <Paper
+                  data-testid={`stat-card-audit-action--${stat.action}`}
+                  key={stat.action}
+                  p="md"
+                >
                   <Group justify="space-between">
                     <Text size="xs" c="dimmed" fw={700} tt="uppercase">
                       {stat.action}
@@ -418,7 +430,13 @@ function AdminAuditLogsPage() {
                 <Trans>Activity History</Trans>
               </Text>
               {!isLoading && (
-                <Badge data-testid="badge-audit-total-count" variant="light" color="gray" size="sm" radius="sm">
+                <Badge
+                  data-testid="badge-audit-total-count"
+                  variant="light"
+                  color="gray"
+                  size="sm"
+                  radius="sm"
+                >
                   {totalElements}
                 </Badge>
               )}

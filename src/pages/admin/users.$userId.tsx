@@ -286,7 +286,14 @@ function OverviewTab({ user, isLoading }: { user: IamUser | undefined; isLoading
             <Trans>Organizations</Trans>
           </Text>
           {!isLoading && (
-            <Badge data-testid="badge-overview-org-count" variant="light" color="gray" size="sm" radius="sm" ml="auto">
+            <Badge
+              data-testid="badge-overview-org-count"
+              variant="light"
+              color="gray"
+              size="sm"
+              radius="sm"
+              ml="auto"
+            >
               {user?.organizations?.length ?? 0}
             </Badge>
           )}
@@ -602,7 +609,11 @@ function UserDetailPage() {
         }}
       >
         <Tabs.List>
-          <Tabs.Tab data-testid="tab-user-overview" value="overview" leftSection={<IconUser size={14} />}>
+          <Tabs.Tab
+            data-testid="tab-user-overview"
+            value="overview"
+            leftSection={<IconUser size={14} />}
+          >
             <Trans>Overview</Trans>
           </Tabs.Tab>
           <Tabs.Tab
@@ -619,7 +630,11 @@ function UserDetailPage() {
           >
             <Trans>Organizations</Trans>
           </Tabs.Tab>
-          <Tabs.Tab data-testid="tab-user-platform-authority" value="platform-authority" leftSection={<IconShield size={14} />}>
+          <Tabs.Tab
+            data-testid="tab-user-platform-authority"
+            value="platform-authority"
+            leftSection={<IconShield size={14} />}
+          >
             <Trans>Platform Authority</Trans>
           </Tabs.Tab>
         </Tabs.List>
@@ -641,7 +656,14 @@ function UserDetailPage() {
                   <Trans>Joined Organizations</Trans>
                 </Text>
                 {!isLoading && (
-                  <Badge data-testid="badge-orgs-tab-count" variant="light" color="gray" size="sm" radius="sm" ml="auto">
+                  <Badge
+                    data-testid="badge-orgs-tab-count"
+                    variant="light"
+                    color="gray"
+                    size="sm"
+                    radius="sm"
+                    ml="auto"
+                  >
                     {user?.organizations?.length ?? 0}
                   </Badge>
                 )}

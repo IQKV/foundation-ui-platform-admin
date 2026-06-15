@@ -420,7 +420,11 @@ export function TenantBillingSettingsTab({ tenantKey }: TenantBillingSettingsTab
                 >
                   <Trans>Cancel</Trans>
                 </Button>
-                <Button data-testid="button-billing-create-submit" type="submit" loading={createMutation.isPending}>
+                <Button
+                  data-testid="button-billing-create-submit"
+                  type="submit"
+                  loading={createMutation.isPending}
+                >
                   <Trans>Create</Trans>
                 </Button>
               </Group>
@@ -518,7 +522,11 @@ export function TenantBillingSettingsTab({ tenantKey }: TenantBillingSettingsTab
                 >
                   <Trans>Open Billing Portal</Trans>
                 </Button>
-                <Button data-testid="button-billing-save" type="submit" loading={replaceMutation.isPending}>
+                <Button
+                  data-testid="button-billing-save"
+                  type="submit"
+                  loading={replaceMutation.isPending}
+                >
                   <Trans>Save changes</Trans>
                 </Button>
               </Group>

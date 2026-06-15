@@ -337,7 +337,13 @@ function AdminSubscriptionsPage() {
                 <Trans>Subscriptions</Trans>
               </Text>
               {!isLoading && (
-                <Badge data-testid="badge-subs-total-count" variant="light" color="gray" size="sm" radius="sm">
+                <Badge
+                  data-testid="badge-subs-total-count"
+                  variant="light"
+                  color="gray"
+                  size="sm"
+                  radius="sm"
+                >
                   {totalElements}
                 </Badge>
               )}

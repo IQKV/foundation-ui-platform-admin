@@ -204,7 +204,12 @@ function OrganizationTenantLayout() {
               {isLoading ? (
                 <Skeleton height={14} width={80} radius="sm" />
               ) : (
-                <Code data-testid="org-detail-tenant-key" style={{ fontSize: "var(--mantine-font-size-sm)" }}>{tenant?.tenantKey}</Code>
+                <Code
+                  data-testid="org-detail-tenant-key"
+                  style={{ fontSize: "var(--mantine-font-size-sm)" }}
+                >
+                  {tenant?.tenantKey}
+                </Code>
               )}
             </Group>
 
@@ -279,7 +284,13 @@ function OrganizationTenantLayout() {
             leftSection={<IconUsers size={14} />}
             rightSection={
               !membersLoading && memberCount > 0 ? (
-                <Badge data-testid="badge-org-member-count" variant="light" color="gray" size="xs" radius="sm">
+                <Badge
+                  data-testid="badge-org-member-count"
+                  variant="light"
+                  color="gray"
+                  size="xs"
+                  radius="sm"
+                >
                   {memberCount}
                 </Badge>
               ) : undefined
@@ -314,7 +325,13 @@ function OrganizationTenantLayout() {
             leftSection={<IconCreditCard size={14} />}
             rightSection={
               !subsLoading && subscriptionCount > 0 ? (
-                <Badge data-testid="badge-org-subscription-count" variant="light" color="gray" size="xs" radius="sm">
+                <Badge
+                  data-testid="badge-org-subscription-count"
+                  variant="light"
+                  color="gray"
+                  size="xs"
+                  radius="sm"
+                >
                   {subscriptionCount}
                 </Badge>
               ) : undefined

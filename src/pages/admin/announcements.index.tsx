@@ -195,7 +195,13 @@ function AdminAnnouncementsPage() {
                 <Trans>Announcements</Trans>
               </Text>
               {!isLoading && (
-                <Badge data-testid="badge-announcements-total-count" variant="light" color="gray" size="sm" radius="sm">
+                <Badge
+                  data-testid="badge-announcements-total-count"
+                  variant="light"
+                  color="gray"
+                  size="sm"
+                  radius="sm"
+                >
                   {data?.totalElements ?? 0}
                 </Badge>
               )}

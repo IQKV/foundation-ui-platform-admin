@@ -77,6 +77,23 @@ export const TestSelectors = {
   MODAL_EDIT_ACCOUNT: "modal--edit-account",
   MODAL_CHANGE_ADMIN_PASSWORD: "modal--change-admin-password",
 
+  // Account Page
+  PAGE_ACCOUNT: "page--account",
+  ACCOUNT_AVATAR: "account-avatar",
+  ACCOUNT_DISPLAY_NAME: "account-display-name",
+  ACCOUNT_EMAIL: "account-email",
+  ACCOUNT_EMAIL_VERIFICATION_STATUS: "account-email-verification-status",
+  ACCOUNT_JOINED_DATE: "account-joined-date",
+  ACCOUNT_LOCALE: "account-locale",
+  ACCOUNT_STAT_EMAIL: "account-stat-email",
+  ACCOUNT_STAT_JOINED: "account-stat-joined",
+  ACCOUNT_STAT_LAST_UPDATED: "account-stat-last-updated",
+  ACCOUNT_PLATFORM_AUTHORITIES: "account-platform-authorities",
+  ACCOUNT_PLATFORM_AUTHORITY: (authority: string) => `account-platform-authority--${authority}`,
+  BUTTON_ACCOUNT_EDIT: "button--account-edit",
+  BUTTON_ACCOUNT_CHANGE_PASSWORD: "button--account-change-password",
+  BUTTON_ACCOUNT_REFRESH: "button--account-refresh",
+
   // Platform Authority Modals
   MODAL_GRANT_PLATFORM_ADMIN: "modal--grant-platform-admin",
   MODAL_REVOKE_PLATFORM_ADMIN: "modal--revoke-platform-admin",

@@ -116,7 +116,13 @@ function OrganizationRefundsPage() {
               <Trans>Refunds</Trans>
             </Text>
             {!isLoading && (
-              <Badge data-testid="badge-org-refunds-total-count" variant="light" color="gray" size="sm" radius="sm">
+              <Badge
+                data-testid="badge-org-refunds-total-count"
+                variant="light"
+                color="gray"
+                size="sm"
+                radius="sm"
+              >
                 {totalElements}
               </Badge>
             )}

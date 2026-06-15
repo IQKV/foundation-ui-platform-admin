@@ -207,7 +207,13 @@ function AdminInvitationsPage() {
                 <Trans>Invitations</Trans>
               </Text>
               {!isLoading && (
-                <Badge data-testid="badge-invitations-total-count" variant="light" color="gray" size="sm" radius="sm">
+                <Badge
+                  data-testid="badge-invitations-total-count"
+                  variant="light"
+                  color="gray"
+                  size="sm"
+                  radius="sm"
+                >
                   {totalElements}
                 </Badge>
               )}

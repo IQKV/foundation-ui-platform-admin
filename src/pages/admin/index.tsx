@@ -129,7 +129,13 @@ function CardGroup({ title, children }: CardGroupProps) {
 
 // ─── Stat display components ──────────────────────────────────────────────────
 
-function StatValue({ count, "data-testid": testId }: { count: DashboardCountResult; "data-testid"?: string }) {
+function StatValue({
+  count,
+  "data-testid": testId,
+}: {
+  count: DashboardCountResult;
+  "data-testid"?: string;
+}) {
   if (count.isLoading) {
     return <Skeleton height={28} width={60} radius="sm" mb={4} />;
   }
@@ -149,7 +155,13 @@ function StatValue({ count, "data-testid": testId }: { count: DashboardCountResu
   );
 }
 
-function WidgetStatValue({ count, "data-testid": testId }: { count: WidgetCountResult; "data-testid"?: string }) {
+function WidgetStatValue({
+  count,
+  "data-testid": testId,
+}: {
+  count: WidgetCountResult;
+  "data-testid"?: string;
+}) {
   if (count.isLoading) {
     return <Skeleton height={28} width={60} radius="sm" mb={4} />;
   }
@@ -342,7 +354,10 @@ function AdminDashboardPage() {
                   </Badge>
                 )}
               </Group>
-              <WidgetStatValue count={widgets.pastDueSubscriptions} data-testid="stat-past-due-subscriptions" />
+              <WidgetStatValue
+                count={widgets.pastDueSubscriptions}
+                data-testid="stat-past-due-subscriptions"
+              />
               <Text size="sm" c="dimmed">
                 <Trans>Past-Due Subscriptions</Trans>
               </Text>
@@ -378,7 +393,10 @@ function AdminDashboardPage() {
                   </Badge>
                 )}
               </Group>
-              <WidgetStatValue count={widgets.pendingInvitations} data-testid="stat-pending-invitations" />
+              <WidgetStatValue
+                count={widgets.pendingInvitations}
+                data-testid="stat-pending-invitations"
+              />
               <Text size="sm" c="dimmed">
                 <Trans>Pending Invitations</Trans>
               </Text>

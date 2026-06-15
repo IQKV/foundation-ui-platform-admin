@@ -98,14 +98,14 @@ function RefundDetailPage() {
             <Group gap="sm">
               <Trans>Refund</Trans>
               <Badge
-            data-testid="badge-refund-detail-status"
-            color={getStatusColor(refund.status)}
-            variant="light"
-            size="lg"
-            radius="sm"
-          >
-            {refund.status}
-          </Badge>
+                data-testid="badge-refund-detail-status"
+                color={getStatusColor(refund.status)}
+                variant="light"
+                size="lg"
+                radius="sm"
+              >
+                {refund.status}
+              </Badge>
             </Group>
           ) : (
             <Trans>Loading…</Trans>
