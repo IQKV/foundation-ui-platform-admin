@@ -17,7 +17,7 @@ test.describe("App Smoke Tests", () => {
     await app.expect404PageVisible();
     // Verify test ID is present
     await testUtils.expectVisibleByTestId(page, TestSelectors.PAGE_404);
-    await testUtils.expectVisibleByTestId(page, TestSelectors.BUTTON("go-home"));
+    await testUtils.expectVisibleByTestId(page, TestSelectors.BUTTON.GO_HOME);
   });
 
   /**
@@ -79,7 +79,7 @@ test.describe("App Smoke Tests", () => {
     const app = new AppPage(page);
     await app.goTo404();
     // Use test ID to find the button
-    await page.locator(testUtils.byTestId(TestSelectors.BUTTON("go-home"))).click();
+    await page.locator(testUtils.byTestId(TestSelectors.BUTTON.GO_HOME)).click();
     await expect(page).toHaveURL(/\/?$/);
     await app.expectHomePageVisible();
   });

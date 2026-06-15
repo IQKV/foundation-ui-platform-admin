@@ -34,7 +34,7 @@ test.describe("Admin Layout E2E Tests", () => {
     await adminPage.page.goto("/non-existent-route");
     await adminPage.page.waitForLoadState("networkidle");
     await expect(adminPage.page.locator(byTestId(TestSelectors.PAGE_404))).toBeVisible();
-    await expect(adminPage.page.locator(byTestId(TestSelectors.BUTTON("go-home")))).toBeVisible();
+    await expect(adminPage.page.locator(byTestId(TestSelectors.BUTTON.GO_HOME))).toBeVisible();
   });
 
   test("loading overlay appears during navigation", async ({ adminPage }) => {
