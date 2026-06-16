@@ -28,7 +28,7 @@ export const TEST_CONFIG = {
    * Read from process.env so CI secrets override the .env.e2e defaults.
    */
   ADMIN_CREDENTIALS: {
-    email: process.env["E2E_PLATFORM_ADMIN_EMAIL"] || "jonathan.pierce@iqkv.com",
+    email: process.env["E2E_PLATFORM_ADMIN_EMAIL"] || "jonathan.pierce@demo.iqkv.com",
     password: process.env["E2E_PLATFORM_ADMIN_PASSWORD"] || "ChangeMePass123!",
   },
 

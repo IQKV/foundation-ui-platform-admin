@@ -2,8 +2,10 @@ import { Alert, Button, Stack, TextInput } from "@mantine/core";
 import { IconAlertCircle } from "@tabler/icons-react";
 import { Controller } from "react-hook-form";
 import { Trans, useLingui } from "@lingui/react/macro";
+import { isDemoMode } from "@/app/config/runtime-env";
 import { useSignIn } from "../model/use-sign-in";
 import type { SignInFormValues } from "../model/use-sign-in";
+import { DemoCredentialsHint } from "./demo-credentials-hint";
 
 interface SignInFormProps {
   /** Path to redirect to after successful sign-in. Defaults to "/admin". */
@@ -33,6 +35,9 @@ export function SignInForm({ redirectTo }: SignInFormProps) {
   return (
     <form onSubmit={(e) => void handleFormSubmit(e)} noValidate data-testid="sign-in-form">
       <Stack gap="md">
+        {/* Demo credentials hint — visible only in demo environments */}
+        {isDemoMode && <DemoCredentialsHint />}
+
         {/* ARIA live region for server-side error messages (Requirement 8.5) */}
         <div aria-live="polite" aria-atomic="true">
           {errorMessage && (
