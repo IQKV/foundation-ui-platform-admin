@@ -614,7 +614,7 @@ function AdminAuditLogsPage() {
         {selectedRecord && (
           <Stack gap="md">
             <Paper p="md" bg="var(--mantine-color-gray-0)">
-              <Grid gutter="md">
+              <Grid gap="md">
                 <Grid.Col span={6}>
                   <Text size="xs" c="dimmed" tt="uppercase" fw={700}>
                     <Trans>Action</Trans>
