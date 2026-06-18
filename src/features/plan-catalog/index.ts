@@ -1,1 +1,2 @@
-export { CreatePlanModal } from "./ui/create-plan-modal";
+// Plan catalog feature — read-only (list + detail view).
+// Plans are config-driven via application.yml; no creation or mutation UI is provided.

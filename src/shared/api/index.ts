@@ -52,8 +52,6 @@ export type {
   RefundSortField,
   ListRefundsParams,
   Plan,
-  PlanRequest,
-  PlanPatchRequest,
   AdminBillingSettings,
   AdminCreateBillingSettingsRequest,
   AdminReplaceBillingSettingsRequest,

@@ -17,17 +17,10 @@ import {
   Select,
   CloseButton,
 } from "@mantine/core";
-import { useDisclosure, useDebouncedValue } from "@mantine/hooks";
+import { useDebouncedValue } from "@mantine/hooks";
 import { useQuery } from "@tanstack/react-query";
 import { DataTable, type DataTableSortStatus } from "mantine-datatable";
-import {
-  IconSearch,
-  IconEye,
-  IconRefresh,
-  IconAlertCircle,
-  IconFilter,
-  IconPlus,
-} from "@tabler/icons-react";
+import { IconSearch, IconEye, IconRefresh, IconAlertCircle, IconFilter } from "@tabler/icons-react";
 import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
 import { Helmet } from "@dr.pogodin/react-helmet";
@@ -35,7 +28,6 @@ import { pageTitle } from "@/shared/lib/page-title";
 import { billingApi } from "@/shared/api";
 import type { Plan } from "@/shared/api";
 import { PageHeader } from "@/shared/ui";
-import { CreatePlanModal } from "@/features/plan-catalog";
 
 export const Route = createFileRoute("/admin/plans/")({
   component: AdminPlansPage,
@@ -77,7 +69,6 @@ function AdminPlansPage() {
   const [search, setSearch] = useState("");
   const [debouncedSearch] = useDebouncedValue(search, 300);
   const [activeFilter, setActiveFilter] = useState<ActiveFilter>(null);
-  const [createOpened, { open: openCreate, close: closeCreate }] = useDisclosure(false);
 
   const [sortStatus, setSortStatus] = useState<DataTableSortStatus<Plan>>({
     columnAccessor: "planCode",
@@ -152,11 +143,6 @@ function AdminPlansPage() {
           { label: <Trans>Platform</Trans> },
           { label: <Trans>Plans</Trans> },
         ]}
-        toolbar={
-          <Button size="xs" leftSection={<IconPlus size={14} />} onClick={openCreate}>
-            <Trans>New plan</Trans>
-          </Button>
-        }
       />
 
       <Stack gap="md">
@@ -395,8 +381,6 @@ function AdminPlansPage() {
           </Text>
         )}
       </Stack>
-
-      <CreatePlanModal opened={createOpened} onClose={closeCreate} />
     </Container>
   );
 }
