@@ -202,6 +202,32 @@ export interface AdminUpdateMemberAuthoritiesRequest {
   authorities: string[];
 }
 
+// ─── Tenant user stats types ──────────────────────────────────────────────────
+
+export interface UserSignupSeriesPoint {
+  period: string;
+  signups: number;
+}
+
+export interface TenantUserStatsResponse {
+  tenantKey: string;
+  totalMembers: number;
+  activeMembers: number;
+  lockedMembers: number;
+  suspendedMembers: number;
+  emailVerifiedCount: number;
+  signupSeries: UserSignupSeriesPoint[];
+  periodFrom: string;
+  periodTo: string;
+  granularity: "day" | "month";
+}
+
+export interface TenantUserStatsParams {
+  from?: string;
+  to?: string;
+  granularity?: "day" | "month";
+}
+
 export const iamApi = {
   countUsers: () => httpClient.get<CountResponse>("/v1/iam/admin/users/count").then((r) => r.data),
 
@@ -319,6 +345,21 @@ export const iamApi = {
   deleteAnnouncement: (id: string) => httpClient.delete(`/v1/iam/admin/announcements/${id}`),
 
   publishAnnouncement: (id: string) => httpClient.post(`/v1/iam/admin/announcements/${id}/publish`),
+
+  // ── Tenant user stats (PLATFORM_ADMIN) ────────────────────────────────────
+
+  /**
+   * Returns aggregated member counts and a time-bucketed signup series for the
+   * given tenant. Uses the admin endpoint — no X-Tenant-ID or tenant-scoped
+   * token required; PLATFORM_ADMIN authority is the only gate.
+   */
+  getTenantUserStats: (tenantKey: string, params: TenantUserStatsParams = {}) =>
+    httpClient
+      .get<TenantUserStatsResponse>(
+        `/v1/iam/admin/tenants/${encodeURIComponent(tenantKey)}/members/stats`,
+        { params },
+      )
+      .then((r) => r.data),
 };
 
 // ─── Notification types ───────────────────────────────────────────────────────
