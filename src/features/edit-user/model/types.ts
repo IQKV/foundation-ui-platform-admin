@@ -1,11 +1,16 @@
 import type { IamUserStatus } from "@/shared/api";
 import { t } from "@lingui/core/macro";
+import { z } from "zod";
 
-export interface EditUserFormValues {
-  firstName: string;
-  lastName: string;
-  status: IamUserStatus;
+export function buildEditUserSchema() {
+  return z.object({
+    firstName: z.string().min(1, t`First name is required`),
+    lastName: z.string().min(1, t`Last name is required`),
+    status: z.string() as z.ZodType<IamUserStatus>,
+  });
 }
+
+export type EditUserFormValues = z.infer<ReturnType<typeof buildEditUserSchema>>;
 
 /** Returns translated status options. Call inside a component or hook. */
 export function getStatusOptions(): { value: IamUserStatus; label: string }[] {

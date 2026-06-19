@@ -12,23 +12,18 @@ import {
   ThemeIcon,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
+import { zodResolver } from "mantine-form-zod-resolver";
 import { Trans, useLingui } from "@lingui/react/macro";
 import { IconAlertTriangle, IconCircleCheck } from "@tabler/icons-react";
 import type { IamUser } from "@/shared/api";
-import { useSetUserPassword } from "../model";
+import { useSetUserPassword, buildSetPasswordSchema } from "../model";
+import type { SetPasswordFormValues } from "../model";
 
 interface SetUserPasswordModalProps {
   user: IamUser | null;
   opened: boolean;
   onClose: () => void;
 }
-
-interface SetPasswordFormValues {
-  newPassword: string;
-  confirmPassword: string;
-}
-
-const PASSWORD_PATTERN = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z0-9]).+$/;
 
 export function SetUserPasswordModal({ user, opened, onClose }: SetUserPasswordModalProps) {
   const { t } = useLingui();
@@ -38,16 +33,7 @@ export function SetUserPasswordModal({ user, opened, onClose }: SetUserPasswordM
       newPassword: "",
       confirmPassword: "",
     },
-    validate: {
-      newPassword: (v) => {
-        if (v.length < 8) return t`Password must be at least 8 characters`;
-        if (v.length > 128) return t`Password must be at most 128 characters`;
-        if (!PASSWORD_PATTERN.test(v))
-          return t`Password must contain uppercase, lowercase, digit, and special character`;
-        return null;
-      },
-      confirmPassword: (v, values) => (v !== values.newPassword ? t`Passwords do not match` : null),
-    },
+    validate: zodResolver(buildSetPasswordSchema()),
   });
 
   // Reset form whenever the modal is opened for a new user

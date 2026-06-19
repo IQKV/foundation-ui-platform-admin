@@ -12,9 +12,10 @@ import {
   Badge,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
+import { zodResolver } from "mantine-form-zod-resolver";
 import { Trans, useLingui } from "@lingui/react/macro";
 import type { IamUser } from "@/shared/api";
-import { useEditUser, STATUS_OPTIONS, getStatusOptions } from "../model";
+import { useEditUser, STATUS_OPTIONS, getStatusOptions, buildEditUserSchema } from "../model";
 import type { EditUserFormValues } from "../model";
 
 interface EditUserModalProps {
@@ -32,10 +33,7 @@ export function EditUserModal({ user, opened, onClose }: EditUserModalProps) {
       lastName: "",
       status: "ACTIVE",
     },
-    validate: {
-      firstName: (v) => (v.trim().length < 1 ? t`First name is required` : null),
-      lastName: (v) => (v.trim().length < 1 ? t`Last name is required` : null),
-    },
+    validate: zodResolver(buildEditUserSchema()),
   });
 
   useEffect(() => {

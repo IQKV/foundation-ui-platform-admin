@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 import { Modal, Stack, TextInput, Select, Group, Button, Text, Divider, Code } from "@mantine/core";
 import { useForm } from "@mantine/form";
+import { zodResolver } from "mantine-form-zod-resolver";
 import { Trans, useLingui } from "@lingui/react/macro";
 import type { IamTenant } from "@/shared/api";
-import { useEditTenant, getStatusOptions } from "../model";
+import { useEditTenant, getStatusOptions, buildEditTenantSchema } from "../model";
 import type { EditTenantFormValues } from "../model";
 
 interface EditTenantModalProps {
@@ -20,9 +21,7 @@ export function EditTenantModal({ tenant, opened, onClose }: EditTenantModalProp
       name: "",
       status: "ACTIVE",
     },
-    validate: {
-      name: (v) => (v.trim().length < 1 ? t`Organization name is required` : null),
-    },
+    validate: zodResolver(buildEditTenantSchema()),
   });
 
   useEffect(() => {

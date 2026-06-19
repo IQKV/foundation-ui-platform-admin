@@ -1,17 +1,30 @@
 import { t } from "@lingui/core/macro";
 import type { SiteAnnouncementStatus } from "@/shared/api";
+import { z } from "zod";
 
-export interface AnnouncementTranslationFormValues {
-  locale: string;
-  title: string;
-  message: string;
+export function buildAnnouncementTranslationSchema() {
+  return z.object({
+    locale: z.string().min(1, t`Locale is required`),
+    title: z.string().min(1, t`Title is required`),
+    message: z.string().min(1, t`Message is required`),
+  });
 }
 
-export interface AnnouncementFormValues {
-  type: string;
-  status: SiteAnnouncementStatus;
-  translations: AnnouncementTranslationFormValues[];
+export function buildAnnouncementSchema() {
+  return z.object({
+    type: z.string().min(1, t`Type is required`),
+    status: z.string() as z.ZodType<SiteAnnouncementStatus>,
+    translations: z
+      .array(buildAnnouncementTranslationSchema())
+      .min(1, t`At least one translation is required`),
+  });
 }
+
+export type AnnouncementTranslationFormValues = z.infer<
+  ReturnType<typeof buildAnnouncementTranslationSchema>
+>;
+
+export type AnnouncementFormValues = z.infer<ReturnType<typeof buildAnnouncementSchema>>;
 
 export const ANNOUNCEMENT_TYPE_OPTIONS = [
   "INFO",
@@ -40,12 +53,4 @@ export function getStatusOptions(): { value: SiteAnnouncementStatus; label: stri
   ];
 }
 
-export const SUPPORTED_LOCALES = [
-  { value: "en-US", label: "English (en-US)" },
-  { value: "de-DE", label: "German (de-DE)" },
-  { value: "fr-FR", label: "French (fr-FR)" },
-  { value: "es-ES", label: "Spanish (es-ES)" },
-  { value: "pt-BR", label: "Portuguese (pt-BR)" },
-  { value: "ja-JP", label: "Japanese (ja-JP)" },
-  { value: "zh-CN", label: "Chinese Simplified (zh-CN)" },
-];
+export const SUPPORTED_LOCALES = [{ value: "en-US", label: "English (en-US)" }];
