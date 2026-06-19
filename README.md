@@ -57,7 +57,7 @@ Platform actions (unlock, impersonation), subscription lifecycle mutations, syst
 ## Tech Stack
 
 - React 19 + TypeScript
-- Mantine UI 8 + mantine-datatable
+- Mantine UI 9 + mantine-datatable
 - TanStack Router + TanStack Query
 - Zustand (session store)
 - Lingui i18n
