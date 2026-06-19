@@ -1,10 +1,8 @@
-import { Alert, Button, Stack, TextInput } from "@mantine/core";
+import { Alert, Button, Stack, TextInput, PasswordInput } from "@mantine/core";
 import { IconAlertCircle } from "@tabler/icons-react";
-import { Controller } from "react-hook-form";
 import { Trans, useLingui } from "@lingui/react/macro";
 import { isDemoMode } from "@/app/config/runtime-env";
 import { useSignIn } from "../model/use-sign-in";
-import type { SignInFormValues } from "../model/use-sign-in";
 import { DemoCredentialsHint } from "./demo-credentials-hint";
 
 interface SignInFormProps {
@@ -24,16 +22,10 @@ export function SignInForm({ redirectTo }: SignInFormProps) {
   const { t } = useLingui();
   const { form, isLoading, errorMessage, onSubmit } = useSignIn(redirectTo);
 
-  const {
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = form;
-
-  const handleFormSubmit = handleSubmit((values: SignInFormValues) => onSubmit(values));
+  const handleFormSubmit = form.onSubmit(onSubmit);
 
   return (
-    <form onSubmit={(e) => void handleFormSubmit(e)} noValidate data-testid="sign-in-form">
+    <form onSubmit={handleFormSubmit} noValidate data-testid="sign-in-form">
       <Stack gap="md">
         {/* Demo credentials hint — visible only in demo environments */}
         {isDemoMode && <DemoCredentialsHint />}
@@ -54,44 +46,29 @@ export function SignInForm({ redirectTo }: SignInFormProps) {
         </div>
 
         {/* Email field — label/id relationship satisfies Requirement 8.4 */}
-        <Controller
-          name="email"
-          control={control}
-          render={({ field }) => (
-            <TextInput
-              {...field}
-              id="sign-in-email"
-              data-testid="sign-in-email-input"
-              label={t`Email`}
-              type="email"
-              placeholder={t`you@example.com`}
-              autoComplete="email"
-              inputMode="email"
-              error={errors.email?.message}
-              disabled={isLoading}
-              inputWrapperOrder={["label", "input", "error"]}
-            />
-          )}
+        <TextInput
+          id="sign-in-email"
+          data-testid="sign-in-email-input"
+          label={t`Email`}
+          type="email"
+          placeholder={t`you@example.com`}
+          autoComplete="email"
+          inputMode="email"
+          disabled={isLoading}
+          inputWrapperOrder={["label", "input", "error"]}
+          {...form.getInputProps("email")}
         />
 
         {/* Password field — label/id relationship satisfies Requirement 8.4 */}
-        <Controller
-          name="password"
-          control={control}
-          render={({ field }) => (
-            <TextInput
-              {...field}
-              id="sign-in-password"
-              data-testid="sign-in-password-input"
-              label={t`Password`}
-              type="password"
-              placeholder={t`Your password`}
-              autoComplete="current-password"
-              error={errors.password?.message}
-              disabled={isLoading}
-              inputWrapperOrder={["label", "input", "error"]}
-            />
-          )}
+        <PasswordInput
+          id="sign-in-password"
+          data-testid="sign-in-password-input"
+          label={t`Password`}
+          placeholder={t`Your password`}
+          autoComplete="current-password"
+          disabled={isLoading}
+          inputWrapperOrder={["label", "input", "error"]}
+          {...form.getInputProps("password")}
         />
 
         {/* Submit button — disabled and shows loading indicator while in flight (Requirement 1.11) */}

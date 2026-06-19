@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "@mantine/form";
+import { zodResolver } from "mantine-form-zod-resolver";
 import { useNavigate } from "@tanstack/react-router";
 import { isAxiosError } from "axios";
 import { z } from "zod";
-import type { UseFormReturn } from "react-hook-form";
+import type { UseFormReturnType } from "@mantine/form";
 import { t } from "@lingui/core/macro";
 import { authApi } from "@/shared/api/auth";
 import type { SignInResponse } from "@/shared/api/auth";
@@ -31,7 +31,7 @@ type SignInSchema = ReturnType<typeof buildSignInSchema>;
 export type SignInFormValues = z.infer<SignInSchema>;
 
 export interface UseSignInReturn {
-  form: UseFormReturn<SignInFormValues>;
+  form: UseFormReturnType<SignInFormValues>;
   isLoading: boolean;
   errorMessage: string | null;
   onSubmit: (values: SignInFormValues) => Promise<void>;
@@ -43,7 +43,7 @@ export interface UseSignInReturn {
  * Reserved MFA step — no-op in this release.
  *
  * Future MFA implementation replaces this function without restructuring the
- * sign-in sequence (Requirement 1.15).
+ * sign-in sequence.
  */
 async function runMfaStep(_response: SignInResponse): Promise<void> {
   // no-op: MFA is not implemented in this release
@@ -78,11 +78,11 @@ export function useSignIn(redirectTo?: string): UseSignInReturn {
   const navigate = useNavigate();
 
   const form = useForm<SignInFormValues>({
-    resolver: zodResolver(buildSignInSchema()),
-    defaultValues: {
+    initialValues: {
       email: "",
       password: "",
     },
+    validate: zodResolver(buildSignInSchema()),
   });
 
   const onSubmit = async (values: SignInFormValues): Promise<void> => {
@@ -92,22 +92,22 @@ export function useSignIn(redirectTo?: string): UseSignInReturn {
     try {
       const response = await authApi.signIn({ email: values.email, password: values.password });
 
-      // MFA placeholder — no-op in this release (Requirement 1.15)
+      // MFA placeholder — no-op in this release
       await runMfaStep(response);
 
-      // Store both tokens in memory only (Requirement 1.4, 7.1)
+      // Store both tokens in memory only
       setTokens(response.accessToken, response.refreshToken);
 
-      // Navigate to the redirect target or default admin route (Requirements 1.5, 1.6)
+      // Navigate to the redirect target or default admin route
       void navigate({ to: redirectTo ?? "/admin" });
     } catch (err) {
       const status = isAxiosError(err) ? (err.response?.status ?? 0) : 0;
       const message = mapHttpErrorToMessage(status);
       setErrorMessage(message);
 
-      // On 401: preserve email, clear only the password field (Requirement 1.7)
+      // On 401: preserve email, clear only the password field
       if (status === 401) {
-        form.resetField("password");
+        form.setFieldValue("password", "");
       }
     } finally {
       setIsLoading(false);

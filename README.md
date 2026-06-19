@@ -61,7 +61,7 @@ Platform actions (unlock, impersonation), subscription lifecycle mutations, syst
 - TanStack Router + TanStack Query
 - Zustand (session store)
 - Lingui i18n
-- Zod + Mantine Form (most forms); React Hook Form (sign-in)
+- Zod + Mantine Form
 - Vite + SWC
 - Vitest + Playwright
 - OxLint / OxFmt
