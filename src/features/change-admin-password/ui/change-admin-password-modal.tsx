@@ -11,11 +11,11 @@ import {
   ThemeIcon,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
-import { zodResolver } from "mantine-form-zod-resolver";
 import { Trans, useLingui } from "@lingui/react/macro";
 import { IconCircleCheck } from "@tabler/icons-react";
 import { useChangeAdminPassword, buildChangePasswordSchema } from "../model";
 import type { ChangePasswordFormValues } from "../model";
+import { validateWithZod } from "@/shared/lib/zod-form-validation";
 
 interface ChangeAdminPasswordModalProps {
   opened: boolean;
@@ -31,7 +31,7 @@ export function ChangeAdminPasswordModal({ opened, onClose }: ChangeAdminPasswor
       newPassword: "",
       confirmPassword: "",
     },
-    validate: zodResolver(buildChangePasswordSchema()),
+    validate: (values) => validateWithZod(buildChangePasswordSchema(), values),
   });
 
   // Reset form whenever the modal opens

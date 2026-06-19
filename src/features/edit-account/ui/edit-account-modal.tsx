@@ -13,13 +13,13 @@ import {
   Loader,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
-import { zodResolver } from "mantine-form-zod-resolver";
 import { useQuery } from "@tanstack/react-query";
 import { Trans, useLingui } from "@lingui/react/macro";
 import type { AdminAccount } from "@/shared/api";
 import { localesApi } from "@/shared/api";
 import { useEditAccount, buildEditAccountSchema } from "../model";
 import type { EditAccountFormValues } from "../model";
+import { validateWithZod } from "@/shared/lib/zod-form-validation";
 
 interface EditAccountModalProps {
   account: AdminAccount | null;
@@ -49,7 +49,7 @@ export function EditAccountModal({ account, opened, onClose }: EditAccountModalP
       lastName: "",
       locale: null,
     },
-    validate: zodResolver(buildEditAccountSchema()),
+    validate: (values) => validateWithZod(buildEditAccountSchema(), values),
   });
 
   useEffect(() => {

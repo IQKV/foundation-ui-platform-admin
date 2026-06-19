@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { Modal, Stack, Select, Group, Button, Text, Alert, Box, Divider } from "@mantine/core";
 import { useForm } from "@mantine/form";
-import { zodResolver } from "mantine-form-zod-resolver";
 import { Trans, useLingui } from "@lingui/react/macro";
 import { IconAlertCircle, IconSend } from "@tabler/icons-react";
 import type { SiteAnnouncement } from "@/shared/api";
@@ -15,6 +14,7 @@ import {
 import type { AnnouncementFormValues } from "../model";
 import { TranslationFields } from "./translation-fields";
 import { AnnouncementStatusBadge } from "@/shared/ui";
+import { validateWithZod } from "@/shared/lib/zod-form-validation";
 
 interface EditAnnouncementModalProps {
   announcement: SiteAnnouncement | null;
@@ -39,7 +39,7 @@ export function EditAnnouncementModal({
       status: "DRAFT",
       translations: [{ locale: "en-US", title: "", message: "" }],
     },
-    validate: zodResolver(buildAnnouncementSchema()),
+    validate: (values) => validateWithZod(buildAnnouncementSchema(), values),
   });
 
   useEffect(() => {

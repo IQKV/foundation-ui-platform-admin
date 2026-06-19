@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useForm } from "@mantine/form";
-import { zodResolver } from "mantine-form-zod-resolver";
 import { useNavigate } from "@tanstack/react-router";
 import { isAxiosError } from "axios";
 import { z } from "zod";
@@ -9,6 +8,7 @@ import { t } from "@lingui/core/macro";
 import { authApi } from "@/shared/api/auth";
 import type { SignInResponse } from "@/shared/api/auth";
 import { setTokens } from "@/processes/session";
+import { validateWithZod } from "@/shared/lib/zod-form-validation";
 
 // ─── Schema factory ───────────────────────────────────────────────────────────
 // Schema is created inside the hook so that `t` is called at render time,
@@ -82,7 +82,7 @@ export function useSignIn(redirectTo?: string): UseSignInReturn {
       email: "",
       password: "",
     },
-    validate: zodResolver(buildSignInSchema()),
+    validate: (values) => validateWithZod(buildSignInSchema(), values),
   });
 
   const onSubmit = async (values: SignInFormValues): Promise<void> => {

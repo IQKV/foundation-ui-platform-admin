@@ -1,6 +1,5 @@
 import { Modal, Stack, TextInput, Select, Group, Button, Text, Alert } from "@mantine/core";
 import { useForm } from "@mantine/form";
-import { zodResolver } from "mantine-form-zod-resolver";
 import { Trans, useLingui } from "@lingui/react/macro";
 import { IconAlertCircle } from "@tabler/icons-react";
 import {
@@ -10,6 +9,7 @@ import {
   buildProposeInvitationSchema,
 } from "../model";
 import type { ProposeInvitationFormValues } from "../model";
+import { validateWithZod } from "@/shared/lib/zod-form-validation";
 
 interface ProposeInvitationModalProps {
   opened: boolean;
@@ -32,7 +32,7 @@ export function ProposeInvitationModal({ opened, onClose }: ProposeInvitationMod
       email: "",
       authority: "MEMBER",
     },
-    validate: zodResolver(buildProposeInvitationSchema()),
+    validate: (values) => validateWithZod(buildProposeInvitationSchema(), values),
   });
 
   const mutation = useProposeInvitation({

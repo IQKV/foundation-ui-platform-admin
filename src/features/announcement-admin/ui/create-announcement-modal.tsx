@@ -1,6 +1,5 @@
 import { Modal, Stack, TextInput, Select, Group, Button, Text, Alert } from "@mantine/core";
 import { useForm } from "@mantine/form";
-import { zodResolver } from "mantine-form-zod-resolver";
 import { Trans, useLingui } from "@lingui/react/macro";
 import { IconAlertCircle } from "@tabler/icons-react";
 import {
@@ -10,6 +9,7 @@ import {
   buildAnnouncementSchema,
 } from "../model";
 import type { AnnouncementFormValues } from "../model";
+import { validateWithZod } from "@/shared/lib/zod-form-validation";
 import { TranslationFields } from "./translation-fields";
 
 interface CreateAnnouncementModalProps {
@@ -26,7 +26,7 @@ export function CreateAnnouncementModal({ opened, onClose }: CreateAnnouncementM
       status: "DRAFT",
       translations: [{ locale: "en-US", title: "", message: "" }],
     },
-    validate: zodResolver(buildAnnouncementSchema()),
+    validate: (values) => validateWithZod(buildAnnouncementSchema(), values),
   });
 
   const mutation = useCreateAnnouncement({ onSuccess: handleClose });

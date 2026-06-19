@@ -12,12 +12,12 @@ import {
   ThemeIcon,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
-import { zodResolver } from "mantine-form-zod-resolver";
 import { Trans, useLingui } from "@lingui/react/macro";
 import { IconAlertTriangle, IconCircleCheck } from "@tabler/icons-react";
 import type { IamUser } from "@/shared/api";
 import { useSetUserPassword, buildSetPasswordSchema } from "../model";
 import type { SetPasswordFormValues } from "../model";
+import { validateWithZod } from "@/shared/lib/zod-form-validation";
 
 interface SetUserPasswordModalProps {
   user: IamUser | null;
@@ -33,7 +33,7 @@ export function SetUserPasswordModal({ user, opened, onClose }: SetUserPasswordM
       newPassword: "",
       confirmPassword: "",
     },
-    validate: zodResolver(buildSetPasswordSchema()),
+    validate: (values) => validateWithZod(buildSetPasswordSchema(), values),
   });
 
   // Reset form whenever the modal is opened for a new user
