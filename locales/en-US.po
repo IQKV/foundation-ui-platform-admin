@@ -14,6 +14,7 @@ msgstr ""
 "Plural-Forms: \n"
 
 #: src/pages/admin/announcements.index.tsx
+#: src/pages/admin/cms-pages.index.tsx
 msgid "(no title)"
 msgstr "(no title)"
 
@@ -57,6 +58,12 @@ msgstr "2. Page Transitions"
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 #~ msgid "8-character tenant key"
 #~ msgstr "8-character tenant key"
+
+#. placeholder {0}: defaultLocale ?? "default"
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "A translation for the default locale ({0}) is required."
+msgstr "A translation for the default locale ({0}) is required."
 
 #: src/features/invitation-admin/ui/edit-invitation-modal.tsx
 #: src/shared/ui/invitation-status-badge/invitation-status-badge.tsx
@@ -133,6 +140,7 @@ msgid "Actor Type"
 msgstr "Actor Type"
 
 #: src/features/announcement-admin/ui/translation-fields.tsx
+#: src/features/page-admin/ui/page-translation-fields.tsx
 msgid "Add locale"
 msgstr "Add locale"
 
@@ -165,6 +173,7 @@ msgid "All refunds"
 msgstr "All refunds"
 
 #: src/pages/admin/announcements.index.tsx
+#: src/pages/admin/cms-pages.index.tsx
 #: src/pages/admin/invitations.index.tsx
 #: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
 #: src/pages/admin/organizations.index.tsx
@@ -218,10 +227,19 @@ msgstr "Announcements in <0>{0}</0> status cannot be edited."
 msgid "Annual"
 msgstr "Annual"
 
+#: src/features/page-admin/model/types.ts
+#: src/pages/admin/cms-pages.index.tsx
+msgid "Archived"
+msgstr "Archived"
+
 #. placeholder {0}: subscription.tenantKey
 #: src/pages/admin/subscriptions.tsx
 msgid "Are you sure you want to cancel the subscription for <0>{0}</0>?"
 msgstr "Are you sure you want to cancel the subscription for <0>{0}</0>?"
+
+#: src/features/page-admin/ui/delete-page-modal.tsx
+msgid "Are you sure you want to delete <0>{displayName}</0>? This action cannot be undone."
+msgstr "Are you sure you want to delete <0>{displayName}</0>? This action cannot be undone."
 
 #: src/features/announcement-admin/ui/delete-announcement-modal.tsx
 msgid "Are you sure you want to delete <0>{enTitle}</0>? This action cannot be undone."
@@ -256,6 +274,7 @@ msgid "At least one special character"
 msgstr "At least one special character"
 
 #: src/features/announcement-admin/model/types.ts
+#: src/features/page-admin/model/types.ts
 msgid "At least one translation is required"
 msgstr "At least one translation is required"
 
@@ -293,6 +312,8 @@ msgstr "Auto-Renew"
 msgid "Automatic router integration via <0>router.subscribe()</0>"
 msgstr "Automatic router integration via <0>router.subscribe()</0>"
 
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/refunds.$refundId.tsx
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
@@ -353,10 +374,12 @@ msgstr "Billing Settings"
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 #: src/features/manage-platform-authority/ui/grant-platform-admin-modal.tsx
 #: src/features/manage-platform-authority/ui/revoke-platform-admin-modal.tsx
+#: src/features/page-admin/ui/delete-page-modal.tsx
 #: src/features/set-user-password/ui/set-user-password-modal.tsx
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/features/unlock-user/ui/unlock-user-modal.tsx
 #: src/pages/admin/-organization-tenant-panels.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 #: src/pages/admin/subscriptions.tsx
 msgid "Cancel"
@@ -381,6 +404,10 @@ msgstr "Canceling"
 #: src/pages/admin/announcements.index.tsx
 msgid "Cannot delete a published or in-progress announcement"
 msgstr "Cannot delete a published or in-progress announcement"
+
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "Canonical URL"
+msgstr "Canonical URL"
 
 #: src/features/change-admin-password/ui/change-admin-password-modal.tsx
 #: src/pages/admin/account.tsx
@@ -419,6 +446,13 @@ msgstr "Clear filters"
 msgid "Close"
 msgstr "Close"
 
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+#: src/pages/admin/cms-pages.index.tsx
+#: src/shared/ui/admin-layout/admin-nav.tsx
+msgid "CMS Pages"
+msgstr "CMS Pages"
+
 #: src/pages/admin/plans.index.tsx
 msgid "Code"
 msgstr "Code"
@@ -455,6 +489,15 @@ msgstr "Confirm privilege escalation"
 msgid "Confirm privilege removal"
 msgstr "Confirm privilege removal"
 
+#: src/features/page-admin/ui/page-translation-fields.tsx
+#: src/pages/admin/cms-pages.index.tsx
+msgid "Content"
+msgstr "Content"
+
+#: src/features/page-admin/model/types.ts
+msgid "Content is required for the default locale"
+msgstr "Content is required for the default locale"
+
 #: src/features/sign-in/ui/demo-credentials-hint.tsx
 msgid "Copied!"
 msgstr "Copied!"
@@ -471,9 +514,17 @@ msgstr "Correlation ID"
 msgid "Could not create Stripe Customer Portal session."
 msgstr "Could not create Stripe Customer Portal session."
 
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "Could not create the page. Please check the form and try again."
+msgstr "Could not create the page. Please check the form and try again."
+
 #: src/features/announcement-admin/ui/delete-announcement-modal.tsx
 msgid "Could not delete the announcement. Please try again."
 msgstr "Could not delete the announcement. Please try again."
+
+#: src/features/page-admin/ui/delete-page-modal.tsx
+msgid "Could not delete the page. It may be published."
+msgstr "Could not delete the page. It may be published."
 
 #: src/pages/admin/announcements.index.tsx
 msgid "Could not fetch announcements from the API."
@@ -502,6 +553,10 @@ msgstr "Could not fetch organization details."
 #: src/pages/admin/organizations.index.tsx
 msgid "Could not fetch organizations from the API."
 msgstr "Could not fetch organizations from the API."
+
+#: src/pages/admin/cms-pages.index.tsx
+msgid "Could not fetch pages from the API."
+msgstr "Could not fetch pages from the API."
 
 #: src/pages/admin/plans.$planCode.tsx
 msgid "Could not fetch plan details."
@@ -535,6 +590,10 @@ msgstr "Could not fetch subscriptions for this organization."
 msgid "Could not fetch subscriptions from the API."
 msgstr "Could not fetch subscriptions from the API."
 
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+msgid "Could not fetch the page details."
+msgstr "Could not fetch the page details."
+
 #: src/pages/admin/users.$userId.tsx
 msgid "Could not fetch user details."
 msgstr "Could not fetch user details."
@@ -546,6 +605,10 @@ msgstr "Could not fetch users from the API."
 #: src/pages/admin/account.tsx
 msgid "Could not fetch your account details."
 msgstr "Could not fetch your account details."
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+msgid "Could not save the page. Please check the form and try again."
+msgstr "Could not save the page. Please check the form and try again."
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Create"
@@ -562,6 +625,10 @@ msgstr "Create Announcement"
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Create billing settings"
 msgstr "Create billing settings"
+
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "Create page"
+msgstr "Create page"
 
 #: src/features/plan-catalog/ui/create-plan-modal.tsx
 #~ msgid "Create plan"
@@ -584,6 +651,10 @@ msgstr "Created"
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Created:"
 msgstr "Created:"
+
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "Creation failed"
+msgstr "Creation failed"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/pages/admin/plans.$planCode.tsx
@@ -627,8 +698,14 @@ msgstr "Dashboard"
 #~ msgid "Deactivate plan?"
 #~ msgstr "Deactivate plan?"
 
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "Default locale — required"
+msgstr "Default locale — required"
+
 #: src/features/announcement-admin/ui/delete-announcement-modal.tsx
+#: src/features/page-admin/ui/delete-page-modal.tsx
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+#: src/pages/admin/cms-pages.index.tsx
 msgid "Delete"
 msgstr "Delete"
 
@@ -649,8 +726,13 @@ msgid "Delete billing settings?"
 msgstr "Delete billing settings?"
 
 #: src/features/announcement-admin/ui/delete-announcement-modal.tsx
+#: src/features/page-admin/ui/delete-page-modal.tsx
 msgid "Delete failed"
 msgstr "Delete failed"
+
+#: src/features/page-admin/ui/delete-page-modal.tsx
+msgid "Delete Page"
+msgstr "Delete Page"
 
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Delete record"
@@ -687,13 +769,29 @@ msgstr "Display name"
 #~ msgstr "Display name is required"
 
 #: src/features/announcement-admin/model/types.ts
+#: src/features/page-admin/model/types.ts
+#: src/pages/admin/cms-pages.index.tsx
 #: src/shared/ui/announcement-status-badge/announcement-status-badge.tsx
 msgid "Draft"
 msgstr "Draft"
 
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "e.g. default, landing"
+msgstr "e.g. default, landing"
+
 #: src/features/plan-catalog/ui/create-plan-modal.tsx
 #~ msgid "e.g. pro-monthly"
 #~ msgstr "e.g. pro-monthly"
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.index.tsx
+msgid "Edit"
+msgstr "Edit"
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+msgid "Edit — {defaultTitle} — {tenantKey}"
+msgstr "Edit — {defaultTitle} — {tenantKey}"
 
 #: src/pages/admin/announcements.index.tsx
 msgid "Edit announcement"
@@ -719,6 +817,10 @@ msgstr "Edit organization"
 #: src/features/edit-tenant/ui/edit-tenant-modal.tsx
 msgid "Edit Organization"
 msgstr "Edit Organization"
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+msgid "Edit Page"
+msgstr "Edit Page"
 
 #: src/pages/admin/account.tsx
 msgid "Edit profile"
@@ -906,6 +1008,14 @@ msgstr "Failed to load organization data"
 msgid "Failed to load organizations"
 msgstr "Failed to load organizations"
 
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+msgid "Failed to load page"
+msgstr "Failed to load page"
+
+#: src/pages/admin/cms-pages.index.tsx
+msgid "Failed to load pages"
+msgstr "Failed to load pages"
+
 #: src/pages/admin/plans.$planCode.tsx
 msgid "Failed to load plan"
 msgstr "Failed to load plan"
@@ -1020,9 +1130,17 @@ msgstr "Grant Platform Admin"
 msgid "Granting Platform Admin to <0>{displayName}</0> will give them full administrative access to this platform, including user management, tenant management, and all admin-only operations."
 msgstr "Granting Platform Admin to <0>{displayName}</0> will give them full administrative access to this platform, including user management, tenant management, and all admin-only operations."
 
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "Hierarchy"
+msgstr "Hierarchy"
+
 #: src/pages/admin/account.tsx
 #: src/pages/admin/announcements.index.tsx
 #: src/pages/admin/audit-logs.tsx
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+#: src/pages/admin/cms-pages.index.tsx
 #: src/pages/admin/index.tsx
 #: src/pages/admin/invitations.index.tsx
 #: src/pages/admin/notifications.tsx
@@ -1039,6 +1157,14 @@ msgstr "Granting Platform Admin to <0>{displayName}</0> will give them full admi
 msgid "Home"
 msgstr "Home"
 
+#: src/features/page-admin/ui/rich-content-editor.tsx
+msgid "HTML content. At least one paragraph required for the default locale."
+msgstr "HTML content. At least one paragraph required for the default locale."
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+msgid "ID"
+msgstr "ID"
+
 #: src/pages/admin/audit-logs.tsx
 msgid "ID / Email"
 msgstr "ID / Email"
@@ -1053,6 +1179,10 @@ msgstr "ID:"
 #: src/features/edit-user/ui/edit-user-modal.tsx
 msgid "ID: {0}"
 msgstr "ID: {0}"
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+msgid "Identity"
+msgstr "Identity"
 
 #: src/pages/loading-demo.tsx
 msgid "Implementation Details"
@@ -1189,6 +1319,7 @@ msgid "Loading…"
 msgstr "Loading…"
 
 #: src/features/announcement-admin/model/types.ts
+#: src/features/page-admin/model/types.ts
 msgid "Locale is required"
 msgstr "Locale is required"
 
@@ -1261,6 +1392,10 @@ msgstr "Message"
 msgid "Message is required"
 msgstr "Message is required"
 
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "Meta description for search engines"
+msgstr "Meta description for search engines"
+
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Metadata"
 msgstr "Metadata"
@@ -1274,6 +1409,10 @@ msgstr "Monthly"
 msgid "Must be a valid email address"
 msgstr "Must be a valid email address"
 
+#: src/features/page-admin/model/types.ts
+msgid "Must be a valid UUID"
+msgstr "Must be a valid UUID"
+
 #: src/pages/admin/account.tsx
 #: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "My Account"
@@ -1283,6 +1422,10 @@ msgstr "My Account"
 msgid "Name"
 msgstr "Name"
 
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "New"
+msgstr "New"
+
 #: src/pages/admin/announcements.index.tsx
 msgid "New announcement"
 msgstr "New announcement"
@@ -1290,6 +1433,18 @@ msgstr "New announcement"
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "New billing settings"
 msgstr "New billing settings"
+
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "New CMS Page — {tenantKey}"
+msgstr "New CMS Page — {tenantKey}"
+
+#: src/pages/admin/cms-pages.index.tsx
+msgid "New page"
+msgstr "New page"
+
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "New Page"
+msgstr "New Page"
 
 #: src/features/change-admin-password/ui/change-admin-password-modal.tsx
 #: src/features/set-user-password/ui/set-user-password-modal.tsx
@@ -1363,6 +1518,14 @@ msgstr "No organizations found"
 msgid "No organizations match the current filters"
 msgstr "No organizations match the current filters"
 
+#: src/pages/admin/cms-pages.index.tsx
+msgid "No pages found for this tenant"
+msgstr "No pages found for this tenant"
+
+#: src/pages/admin/cms-pages.index.tsx
+msgid "No pages match the current filter"
+msgstr "No pages match the current filter"
+
 #: src/pages/admin/plans.index.tsx
 msgid "No plans in the catalog"
 msgstr "No plans in the catalog"
@@ -1407,6 +1570,10 @@ msgstr "No subscriptions match the current filters"
 msgid "No translations added. At least en-US is required."
 msgstr "No translations added. At least en-US is required."
 
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "No translations added. At least the default locale is required."
+msgstr "No translations added. At least the default locale is required."
+
 #: src/pages/admin/users.index.tsx
 msgid "No users found"
 msgstr "No users found"
@@ -1414,6 +1581,11 @@ msgstr "No users found"
 #: src/pages/admin/users.index.tsx
 msgid "No users match the current filters"
 msgstr "No users match the current filters"
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "None (top-level)"
+msgstr "None (top-level)"
 
 #: src/pages/admin/users.$userId.tsx
 msgid "Not granted"
@@ -1439,9 +1611,25 @@ msgstr "Notifications{0}"
 msgid "Occurred At"
 msgstr "Occurred At"
 
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "OG description"
+msgstr "OG description"
+
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "OG title"
+msgstr "OG title"
+
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Open Billing Portal"
 msgstr "Open Billing Portal"
+
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "Open Graph description"
+msgstr "Open Graph description"
+
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "Open Graph title"
+msgstr "Open Graph title"
 
 #: src/features/announcement-admin/ui/edit-announcement-modal.tsx
 msgid "Operation failed"
@@ -1451,15 +1639,30 @@ msgstr "Operation failed"
 msgid "Operator access only"
 msgstr "Operator access only"
 
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "Optional — makes this a child page"
+msgstr "Optional — makes this a child page"
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "Optional layout key"
+msgstr "Optional layout key"
+
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Optional structured address as JSON."
 msgstr "Optional structured address as JSON."
+
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "Optional translation"
+msgstr "Optional translation"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Optional UUID of the user who owns the billing profile."
 msgstr "Optional UUID of the user who owns the billing profile."
 
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
+#: src/pages/admin/cms-pages.index.tsx
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/organizations.index.tsx
 #: src/pages/admin/users.index.tsx
@@ -1498,10 +1701,18 @@ msgstr "Organizations"
 #~ msgid "Organizations |Key Value Admin"
 #~ msgstr "Organizations |Key Value Admin"
 
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "Override page title for search engines"
+msgstr "Override page title for search engines"
+
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/users.$userId.tsx
 msgid "Overview"
 msgstr "Overview"
+
+#: src/pages/admin/cms-pages.index.tsx
+msgid "Page"
+msgstr "Page"
 
 #: src/pages/404.tsx
 msgid "Page Not Found"
@@ -1514,6 +1725,29 @@ msgstr "Page Not Found"
 #: src/pages/404.tsx
 msgid "Page not found."
 msgstr "Page not found."
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "Page settings"
+msgstr "Page settings"
+
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "Page title"
+msgstr "Page title"
+
+#: src/pages/admin/cms-pages.index.tsx
+msgid "Pages"
+msgstr "Pages"
+
+#. placeholder {0}: page.status
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+msgid "Pages with status <0>{0}</0> cannot be edited."
+msgstr "Pages with status <0>{0}</0> cannot be edited."
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "Parent page"
+msgstr "Parent page"
 
 #: src/features/sign-in/ui/sign-in-form.tsx
 msgid "Password"
@@ -1568,6 +1802,8 @@ msgstr "Payment gateway customer identifier (e.g. Stripe cus_…)."
 msgid "Payment gateway customer identifier."
 msgstr "Payment gateway customer identifier."
 
+#: src/features/page-admin/model/types.ts
+#: src/pages/admin/cms-pages.index.tsx
 #: src/shared/ui/announcement-status-badge/announcement-status-badge.tsx
 #: src/shared/ui/invitation-status-badge/invitation-status-badge.tsx
 msgid "Pending"
@@ -1708,6 +1944,8 @@ msgstr "Provide a reason for the ban…"
 msgid "Publish"
 msgstr "Publish"
 
+#: src/features/page-admin/model/types.ts
+#: src/pages/admin/cms-pages.index.tsx
 #: src/shared/ui/announcement-status-badge/announcement-status-badge.tsx
 msgid "Published"
 msgstr "Published"
@@ -1740,6 +1978,7 @@ msgid "read-only"
 msgstr "read-only"
 
 #: src/features/announcement-admin/ui/edit-announcement-modal.tsx
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 msgid "Read-only"
 msgstr "Read-only"
 
@@ -1760,6 +1999,7 @@ msgstr "Recent Refunds"
 #: src/pages/admin/account.tsx
 #: src/pages/admin/announcements.index.tsx
 #: src/pages/admin/audit-logs.tsx
+#: src/pages/admin/cms-pages.index.tsx
 #: src/pages/admin/invitations.index.tsx
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/organizations.index.tsx
@@ -1814,6 +2054,8 @@ msgstr "Restore access"
 #: src/pages/admin/-organization-tenant-panels.tsx
 #: src/pages/admin/account.tsx
 #: src/pages/admin/announcements.index.tsx
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.index.tsx
 #: src/pages/admin/invitations.index.tsx
 #: src/pages/admin/organizations.$tenantKey.refunds.tsx
 #: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
@@ -1859,6 +2101,7 @@ msgstr "Revoking Platform Admin from <0>{displayName}</0> will remove their full
 #: src/features/edit-tenant/ui/edit-tenant-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Save changes"
 msgstr "Save changes"
@@ -1866,6 +2109,10 @@ msgstr "Save changes"
 #: src/pages/admin/-organization-tenant-panels.tsx
 msgid "Save Changes"
 msgstr "Save Changes"
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+msgid "Save failed"
+msgstr "Save failed"
 
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/plans.index.tsx
@@ -1913,6 +2160,10 @@ msgstr "Security"
 msgid "See all notifications"
 msgstr "See all notifications"
 
+#: src/pages/admin/cms-pages.index.tsx
+msgid "Select a tenant to view its pages"
+msgstr "Select a tenant to view its pages"
+
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 msgid "Select an organization"
 msgstr "Select an organization"
@@ -1920,6 +2171,10 @@ msgstr "Select an organization"
 #: src/pages/admin/index.tsx
 msgid "Select an organization above to view its member signup trend."
 msgstr "Select an organization above to view its member signup trend."
+
+#: src/pages/admin/cms-pages.index.tsx
+msgid "Select an organization to manage its CMS pages."
+msgstr "Select an organization to manage its CMS pages."
 
 #: src/pages/admin/index.tsx
 msgid "Select an organization…"
@@ -1937,6 +2192,18 @@ msgstr "Select the authorities you want to assign to this member."
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 msgid "Send invitation"
 msgstr "Send invitation"
+
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "SEO description"
+msgstr "SEO description"
+
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "SEO fields"
+msgstr "SEO fields"
+
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "SEO title"
+msgstr "SEO title"
 
 #: src/pages/500.tsx
 msgid "Server Error"
@@ -2054,6 +2321,19 @@ msgstr "Site Announcements"
 msgid "Slim top progress bar for navigation between pages (automatic with router)."
 msgstr "Slim top progress bar for navigation between pages (automatic with router)."
 
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "Slug"
+msgstr "Slug"
+
+#: src/features/page-admin/model/types.ts
+msgid "Slug is required"
+msgstr "Slug is required"
+
+#: src/features/page-admin/model/types.ts
+msgid "Slug must be lowercase alphanumeric with hyphens (e.g. about-us or blog/post-title)"
+msgstr "Slug must be lowercase alphanumeric with hyphens (e.g. about-us or blog/post-title)"
+
 #: src/features/plan-catalog/ui/create-plan-modal.tsx
 #~ msgid "Smallest currency unit (e.g. cents for USD)."
 #~ msgstr "Smallest currency unit (e.g. cents for USD)."
@@ -2076,6 +2356,9 @@ msgstr "Start"
 #: src/features/invitation-admin/ui/edit-invitation-modal.tsx
 #: src/pages/admin/-organization-tenant-panels.tsx
 #: src/pages/admin/announcements.index.tsx
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+#: src/pages/admin/cms-pages.index.tsx
 #: src/pages/admin/invitations.index.tsx
 #: src/pages/admin/organizations.$tenantKey.refunds.tsx
 #: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
@@ -2190,7 +2473,15 @@ msgstr "Tax id type"
 msgid "Technical Context"
 msgstr "Technical Context"
 
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+#: src/pages/admin/cms-pages.index.tsx
+msgid "Template"
+msgstr "Template"
+
 #: src/pages/admin/audit-logs.tsx
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
 #: src/pages/admin/invitations.index.tsx
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/refunds.tsx
@@ -2275,12 +2566,17 @@ msgid "Timestamps"
 msgstr "Timestamps"
 
 #: src/features/announcement-admin/ui/translation-fields.tsx
+#: src/features/page-admin/ui/page-translation-fields.tsx
 msgid "Title"
 msgstr "Title"
 
 #: src/features/announcement-admin/model/types.ts
 msgid "Title is required"
 msgstr "Title is required"
+
+#: src/features/page-admin/model/types.ts
+msgid "Title is required for the default locale"
+msgstr "Title is required for the default locale"
 
 #: src/features/sign-in/model/use-sign-in.ts
 msgid "Too many sign-in attempts. Please try again later."
@@ -2303,6 +2599,7 @@ msgid "Total Users"
 msgstr "Total Users"
 
 #: src/features/announcement-admin/ui/translation-fields.tsx
+#: src/features/page-admin/ui/page-translation-fields.tsx
 msgid "Translations"
 msgstr "Translations"
 
@@ -2380,6 +2677,7 @@ msgstr "Update Quantity"
 msgid "Update Subscription Quantity"
 msgstr "Update Subscription Quantity"
 
+#: src/pages/admin/cms-pages.index.tsx
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/plans.index.tsx
 msgid "Updated"
@@ -2394,6 +2692,11 @@ msgstr "Updated:"
 #: src/features/set-user-password/ui/set-user-password-modal.tsx
 msgid "Uppercase and lowercase letters"
 msgstr "Uppercase and lowercase letters"
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "URL path, e.g. about-us or blog/post"
+msgstr "URL path, e.g. about-us or blog/post"
 
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/users.$userId.tsx

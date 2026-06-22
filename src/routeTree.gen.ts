@@ -24,6 +24,7 @@ import { Route as AdminPlansRouteImport } from "./pages/admin/plans"
 import { Route as AdminOrganizationsRouteImport } from "./pages/admin/organizations"
 import { Route as AdminNotificationsRouteImport } from "./pages/admin/notifications"
 import { Route as AdminInvitationsRouteImport } from "./pages/admin/invitations"
+import { Route as AdminCmsPagesRouteImport } from "./pages/admin/cms-pages"
 import { Route as AdminAuditLogsRouteImport } from "./pages/admin/audit-logs"
 import { Route as AdminAnnouncementsRouteImport } from "./pages/admin/announcements"
 import { Route as AdminAccountRouteImport } from "./pages/admin/account"
@@ -31,6 +32,7 @@ import { Route as AdminUsersIndexRouteImport } from "./pages/admin/users.index"
 import { Route as AdminPlansIndexRouteImport } from "./pages/admin/plans.index"
 import { Route as AdminOrganizationsIndexRouteImport } from "./pages/admin/organizations.index"
 import { Route as AdminInvitationsIndexRouteImport } from "./pages/admin/invitations.index"
+import { Route as AdminCmsPagesIndexRouteImport } from "./pages/admin/cms-pages.index"
 import { Route as AdminAnnouncementsIndexRouteImport } from "./pages/admin/announcements.index"
 import { Route as AdminUsersUserIdRouteImport } from "./pages/admin/users.$userId"
 import { Route as AdminSubscriptionsSubscriptionIdRouteImport } from "./pages/admin/subscriptions.$subscriptionId"
@@ -42,6 +44,8 @@ import { Route as AdminOrganizationsTenantKeySubscriptionsRouteImport } from "./
 import { Route as AdminOrganizationsTenantKeyRefundsRouteImport } from "./pages/admin/organizations.$tenantKey.refunds"
 import { Route as AdminOrganizationsTenantKeyMembersRouteImport } from "./pages/admin/organizations.$tenantKey.members"
 import { Route as AdminOrganizationsTenantKeyBillingRouteImport } from "./pages/admin/organizations.$tenantKey.billing"
+import { Route as AdminCmsPagesTenantKeyCreateRouteImport } from "./pages/admin/cms-pages.$tenantKey.create"
+import { Route as AdminCmsPagesTenantKeyPageIdRouteImport } from "./pages/admin/cms-pages.$tenantKey.$pageId"
 
 const UnauthorizedRoute = UnauthorizedRouteImport.update({
   id: "/unauthorized",
@@ -118,6 +122,11 @@ const AdminInvitationsRoute = AdminInvitationsRouteImport.update({
   path: "/invitations",
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminCmsPagesRoute = AdminCmsPagesRouteImport.update({
+  id: "/cms-pages",
+  path: "/cms-pages",
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminAuditLogsRoute = AdminAuditLogsRouteImport.update({
   id: "/audit-logs",
   path: "/audit-logs",
@@ -152,6 +161,11 @@ const AdminInvitationsIndexRoute = AdminInvitationsIndexRouteImport.update({
   id: "/",
   path: "/",
   getParentRoute: () => AdminInvitationsRoute,
+} as any)
+const AdminCmsPagesIndexRoute = AdminCmsPagesIndexRouteImport.update({
+  id: "/",
+  path: "/",
+  getParentRoute: () => AdminCmsPagesRoute,
 } as any)
 const AdminAnnouncementsIndexRoute = AdminAnnouncementsIndexRouteImport.update({
   id: "/",
@@ -215,6 +229,18 @@ const AdminOrganizationsTenantKeyBillingRoute =
     path: "/billing",
     getParentRoute: () => AdminOrganizationsTenantKeyRoute,
   } as any)
+const AdminCmsPagesTenantKeyCreateRoute =
+  AdminCmsPagesTenantKeyCreateRouteImport.update({
+    id: "/$tenantKey/create",
+    path: "/$tenantKey/create",
+    getParentRoute: () => AdminCmsPagesRoute,
+  } as any)
+const AdminCmsPagesTenantKeyPageIdRoute =
+  AdminCmsPagesTenantKeyPageIdRouteImport.update({
+    id: "/$tenantKey/$pageId",
+    path: "/$tenantKey/$pageId",
+    getParentRoute: () => AdminCmsPagesRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   "/": typeof IndexRoute
@@ -227,6 +253,7 @@ export interface FileRoutesByFullPath {
   "/admin/account": typeof AdminAccountRoute
   "/admin/announcements": typeof AdminAnnouncementsRouteWithChildren
   "/admin/audit-logs": typeof AdminAuditLogsRoute
+  "/admin/cms-pages": typeof AdminCmsPagesRouteWithChildren
   "/admin/invitations": typeof AdminInvitationsRouteWithChildren
   "/admin/notifications": typeof AdminNotificationsRoute
   "/admin/organizations": typeof AdminOrganizationsRouteWithChildren
@@ -241,10 +268,13 @@ export interface FileRoutesByFullPath {
   "/admin/subscriptions/$subscriptionId": typeof AdminSubscriptionsSubscriptionIdRoute
   "/admin/users/$userId": typeof AdminUsersUserIdRoute
   "/admin/announcements/": typeof AdminAnnouncementsIndexRoute
+  "/admin/cms-pages/": typeof AdminCmsPagesIndexRoute
   "/admin/invitations/": typeof AdminInvitationsIndexRoute
   "/admin/organizations/": typeof AdminOrganizationsIndexRoute
   "/admin/plans/": typeof AdminPlansIndexRoute
   "/admin/users/": typeof AdminUsersIndexRoute
+  "/admin/cms-pages/$tenantKey/$pageId": typeof AdminCmsPagesTenantKeyPageIdRoute
+  "/admin/cms-pages/$tenantKey/create": typeof AdminCmsPagesTenantKeyCreateRoute
   "/admin/organizations/$tenantKey/billing": typeof AdminOrganizationsTenantKeyBillingRoute
   "/admin/organizations/$tenantKey/members": typeof AdminOrganizationsTenantKeyMembersRoute
   "/admin/organizations/$tenantKey/refunds": typeof AdminOrganizationsTenantKeyRefundsRoute
@@ -269,10 +299,13 @@ export interface FileRoutesByTo {
   "/admin/subscriptions/$subscriptionId": typeof AdminSubscriptionsSubscriptionIdRoute
   "/admin/users/$userId": typeof AdminUsersUserIdRoute
   "/admin/announcements": typeof AdminAnnouncementsIndexRoute
+  "/admin/cms-pages": typeof AdminCmsPagesIndexRoute
   "/admin/invitations": typeof AdminInvitationsIndexRoute
   "/admin/organizations": typeof AdminOrganizationsIndexRoute
   "/admin/plans": typeof AdminPlansIndexRoute
   "/admin/users": typeof AdminUsersIndexRoute
+  "/admin/cms-pages/$tenantKey/$pageId": typeof AdminCmsPagesTenantKeyPageIdRoute
+  "/admin/cms-pages/$tenantKey/create": typeof AdminCmsPagesTenantKeyCreateRoute
   "/admin/organizations/$tenantKey/billing": typeof AdminOrganizationsTenantKeyBillingRoute
   "/admin/organizations/$tenantKey/members": typeof AdminOrganizationsTenantKeyMembersRoute
   "/admin/organizations/$tenantKey/refunds": typeof AdminOrganizationsTenantKeyRefundsRoute
@@ -291,6 +324,7 @@ export interface FileRoutesById {
   "/admin/account": typeof AdminAccountRoute
   "/admin/announcements": typeof AdminAnnouncementsRouteWithChildren
   "/admin/audit-logs": typeof AdminAuditLogsRoute
+  "/admin/cms-pages": typeof AdminCmsPagesRouteWithChildren
   "/admin/invitations": typeof AdminInvitationsRouteWithChildren
   "/admin/notifications": typeof AdminNotificationsRoute
   "/admin/organizations": typeof AdminOrganizationsRouteWithChildren
@@ -305,10 +339,13 @@ export interface FileRoutesById {
   "/admin/subscriptions/$subscriptionId": typeof AdminSubscriptionsSubscriptionIdRoute
   "/admin/users/$userId": typeof AdminUsersUserIdRoute
   "/admin/announcements/": typeof AdminAnnouncementsIndexRoute
+  "/admin/cms-pages/": typeof AdminCmsPagesIndexRoute
   "/admin/invitations/": typeof AdminInvitationsIndexRoute
   "/admin/organizations/": typeof AdminOrganizationsIndexRoute
   "/admin/plans/": typeof AdminPlansIndexRoute
   "/admin/users/": typeof AdminUsersIndexRoute
+  "/admin/cms-pages/$tenantKey/$pageId": typeof AdminCmsPagesTenantKeyPageIdRoute
+  "/admin/cms-pages/$tenantKey/create": typeof AdminCmsPagesTenantKeyCreateRoute
   "/admin/organizations/$tenantKey/billing": typeof AdminOrganizationsTenantKeyBillingRoute
   "/admin/organizations/$tenantKey/members": typeof AdminOrganizationsTenantKeyMembersRoute
   "/admin/organizations/$tenantKey/refunds": typeof AdminOrganizationsTenantKeyRefundsRoute
@@ -328,6 +365,7 @@ export interface FileRouteTypes {
     | "/admin/account"
     | "/admin/announcements"
     | "/admin/audit-logs"
+    | "/admin/cms-pages"
     | "/admin/invitations"
     | "/admin/notifications"
     | "/admin/organizations"
@@ -342,10 +380,13 @@ export interface FileRouteTypes {
     | "/admin/subscriptions/$subscriptionId"
     | "/admin/users/$userId"
     | "/admin/announcements/"
+    | "/admin/cms-pages/"
     | "/admin/invitations/"
     | "/admin/organizations/"
     | "/admin/plans/"
     | "/admin/users/"
+    | "/admin/cms-pages/$tenantKey/$pageId"
+    | "/admin/cms-pages/$tenantKey/create"
     | "/admin/organizations/$tenantKey/billing"
     | "/admin/organizations/$tenantKey/members"
     | "/admin/organizations/$tenantKey/refunds"
@@ -370,10 +411,13 @@ export interface FileRouteTypes {
     | "/admin/subscriptions/$subscriptionId"
     | "/admin/users/$userId"
     | "/admin/announcements"
+    | "/admin/cms-pages"
     | "/admin/invitations"
     | "/admin/organizations"
     | "/admin/plans"
     | "/admin/users"
+    | "/admin/cms-pages/$tenantKey/$pageId"
+    | "/admin/cms-pages/$tenantKey/create"
     | "/admin/organizations/$tenantKey/billing"
     | "/admin/organizations/$tenantKey/members"
     | "/admin/organizations/$tenantKey/refunds"
@@ -391,6 +435,7 @@ export interface FileRouteTypes {
     | "/admin/account"
     | "/admin/announcements"
     | "/admin/audit-logs"
+    | "/admin/cms-pages"
     | "/admin/invitations"
     | "/admin/notifications"
     | "/admin/organizations"
@@ -405,10 +450,13 @@ export interface FileRouteTypes {
     | "/admin/subscriptions/$subscriptionId"
     | "/admin/users/$userId"
     | "/admin/announcements/"
+    | "/admin/cms-pages/"
     | "/admin/invitations/"
     | "/admin/organizations/"
     | "/admin/plans/"
     | "/admin/users/"
+    | "/admin/cms-pages/$tenantKey/$pageId"
+    | "/admin/cms-pages/$tenantKey/create"
     | "/admin/organizations/$tenantKey/billing"
     | "/admin/organizations/$tenantKey/members"
     | "/admin/organizations/$tenantKey/refunds"
@@ -533,6 +581,13 @@ declare module "@tanstack/react-router" {
       preLoaderRoute: typeof AdminInvitationsRouteImport
       parentRoute: typeof AdminRoute
     }
+    "/admin/cms-pages": {
+      id: "/admin/cms-pages"
+      path: "/cms-pages"
+      fullPath: "/admin/cms-pages"
+      preLoaderRoute: typeof AdminCmsPagesRouteImport
+      parentRoute: typeof AdminRoute
+    }
     "/admin/audit-logs": {
       id: "/admin/audit-logs"
       path: "/audit-logs"
@@ -581,6 +636,13 @@ declare module "@tanstack/react-router" {
       fullPath: "/admin/invitations/"
       preLoaderRoute: typeof AdminInvitationsIndexRouteImport
       parentRoute: typeof AdminInvitationsRoute
+    }
+    "/admin/cms-pages/": {
+      id: "/admin/cms-pages/"
+      path: "/"
+      fullPath: "/admin/cms-pages/"
+      preLoaderRoute: typeof AdminCmsPagesIndexRouteImport
+      parentRoute: typeof AdminCmsPagesRoute
     }
     "/admin/announcements/": {
       id: "/admin/announcements/"
@@ -659,6 +721,20 @@ declare module "@tanstack/react-router" {
       preLoaderRoute: typeof AdminOrganizationsTenantKeyBillingRouteImport
       parentRoute: typeof AdminOrganizationsTenantKeyRoute
     }
+    "/admin/cms-pages/$tenantKey/create": {
+      id: "/admin/cms-pages/$tenantKey/create"
+      path: "/$tenantKey/create"
+      fullPath: "/admin/cms-pages/$tenantKey/create"
+      preLoaderRoute: typeof AdminCmsPagesTenantKeyCreateRouteImport
+      parentRoute: typeof AdminCmsPagesRoute
+    }
+    "/admin/cms-pages/$tenantKey/$pageId": {
+      id: "/admin/cms-pages/$tenantKey/$pageId"
+      path: "/$tenantKey/$pageId"
+      fullPath: "/admin/cms-pages/$tenantKey/$pageId"
+      preLoaderRoute: typeof AdminCmsPagesTenantKeyPageIdRouteImport
+      parentRoute: typeof AdminCmsPagesRoute
+    }
   }
 }
 
@@ -672,6 +748,22 @@ const AdminAnnouncementsRouteChildren: AdminAnnouncementsRouteChildren = {
 
 const AdminAnnouncementsRouteWithChildren =
   AdminAnnouncementsRoute._addFileChildren(AdminAnnouncementsRouteChildren)
+
+interface AdminCmsPagesRouteChildren {
+  AdminCmsPagesIndexRoute: typeof AdminCmsPagesIndexRoute
+  AdminCmsPagesTenantKeyPageIdRoute: typeof AdminCmsPagesTenantKeyPageIdRoute
+  AdminCmsPagesTenantKeyCreateRoute: typeof AdminCmsPagesTenantKeyCreateRoute
+}
+
+const AdminCmsPagesRouteChildren: AdminCmsPagesRouteChildren = {
+  AdminCmsPagesIndexRoute: AdminCmsPagesIndexRoute,
+  AdminCmsPagesTenantKeyPageIdRoute: AdminCmsPagesTenantKeyPageIdRoute,
+  AdminCmsPagesTenantKeyCreateRoute: AdminCmsPagesTenantKeyCreateRoute,
+}
+
+const AdminCmsPagesRouteWithChildren = AdminCmsPagesRoute._addFileChildren(
+  AdminCmsPagesRouteChildren,
+)
 
 interface AdminInvitationsRouteChildren {
   AdminInvitationsIndexRoute: typeof AdminInvitationsIndexRoute
@@ -780,6 +872,7 @@ interface AdminRouteChildren {
   AdminAccountRoute: typeof AdminAccountRoute
   AdminAnnouncementsRoute: typeof AdminAnnouncementsRouteWithChildren
   AdminAuditLogsRoute: typeof AdminAuditLogsRoute
+  AdminCmsPagesRoute: typeof AdminCmsPagesRouteWithChildren
   AdminInvitationsRoute: typeof AdminInvitationsRouteWithChildren
   AdminNotificationsRoute: typeof AdminNotificationsRoute
   AdminOrganizationsRoute: typeof AdminOrganizationsRouteWithChildren
@@ -794,6 +887,7 @@ const AdminRouteChildren: AdminRouteChildren = {
   AdminAccountRoute: AdminAccountRoute,
   AdminAnnouncementsRoute: AdminAnnouncementsRouteWithChildren,
   AdminAuditLogsRoute: AdminAuditLogsRoute,
+  AdminCmsPagesRoute: AdminCmsPagesRouteWithChildren,
   AdminInvitationsRoute: AdminInvitationsRouteWithChildren,
   AdminNotificationsRoute: AdminNotificationsRoute,
   AdminOrganizationsRoute: AdminOrganizationsRouteWithChildren,

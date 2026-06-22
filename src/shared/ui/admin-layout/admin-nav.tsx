@@ -11,6 +11,7 @@ import {
   IconReceiptRefund,
   IconSpeakerphone,
   IconHistory,
+  IconFileText,
 } from "@tabler/icons-react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useState } from "react";
@@ -60,6 +61,7 @@ export function AdminNav() {
     { label: t`Refunds`, icon: <IconReceiptRefund size={15} />, to: "/admin/refunds" },
     { label: t`Plans`, icon: <IconTags size={15} />, to: "/admin/plans" },
     { label: t`Announcements`, icon: <IconSpeakerphone size={15} />, to: "/admin/announcements" },
+    { label: t`CMS Pages`, icon: <IconFileText size={15} />, to: "/admin/cms-pages" },
   ];
 
   const accountItem: NavItem = {

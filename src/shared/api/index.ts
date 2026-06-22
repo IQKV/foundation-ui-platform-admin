@@ -79,6 +79,20 @@ export type {
   SigninAttemptDetails,
 } from "./audit";
 
+export { cmsApi } from "./cms";
+export type {
+  CmsPage,
+  CmsPageSummary,
+  CmsPageSummaryListResponse,
+  CmsPageStatus,
+  CmsPageTranslation,
+  CmsPageTranslationRequest,
+  CreateCmsPageRequest,
+  UpdateCmsPageRequest,
+  ListCmsPageParams,
+  CmsPageHierarchyItem,
+} from "./cms";
+
 export { notificationApi } from "./iam";
 export type {
   UserNotification,
