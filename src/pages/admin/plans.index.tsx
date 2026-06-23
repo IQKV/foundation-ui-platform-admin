@@ -314,7 +314,7 @@ function AdminPlansPage() {
                   sortable: true,
                   render: (plan) => (
                     <Text size="sm">
-                      {plan.priceMinor.toLocaleString()} {plan.currency}
+                      {(plan.priceMinor / 100).toFixed(2)} {plan.currency.toUpperCase()}
                     </Text>
                   ),
                 },
