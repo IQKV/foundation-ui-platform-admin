@@ -52,6 +52,16 @@ export interface IamUser {
   lastName: string;
   status: IamUserStatus;
   emailVerified: boolean;
+  /** BCP 47 locale tag (e.g. "en-US"). Null when not yet set. */
+  locale: string | null;
+  /** Public URL of the user's avatar image. Null when no avatar has been uploaded. */
+  avatarUrl: string | null;
+  /** ISO-8601 timestamp of the user's first sign-in. Null if they haven't signed in yet. */
+  firstSignInAt: string | null;
+  /** Whether the user has completed the welcome onboarding flow. */
+  onboardingCompleted: boolean;
+  /** Whether the user has completed initial profile setup (name fields populated). */
+  profileCompleted: boolean;
   tenantAuthorities?: string[];
   organizations: string[];
   createdAt: string;
