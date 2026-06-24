@@ -390,7 +390,7 @@ function UserDetailPage() {
     closePw();
   };
 
-  const displayName = user ? (formatName(user.firstName, user.lastName) || user.email) : userId;
+  const displayName = user ? formatName(user.firstName, user.lastName) || user.email : userId;
 
   if (isError) {
     return (

@@ -367,22 +367,22 @@ function AdminUsersPage() {
                       </Avatar>
                       <Stack gap={1}>
                         <Text
-                        component={Link}
-                        to={`/admin/users/${user.id}`}
-                        size="sm"
-                        fw={500}
-                        style={{ lineHeight: 1.3, textDecoration: "none", color: "inherit" }}
-                        styles={{
-                          root: {
-                            "&:hover": {
-                              color: "var(--mantine-color-blue-6)",
-                              textDecoration: "underline",
+                          component={Link}
+                          to={`/admin/users/${user.id}`}
+                          size="sm"
+                          fw={500}
+                          style={{ lineHeight: 1.3, textDecoration: "none", color: "inherit" }}
+                          styles={{
+                            root: {
+                              "&:hover": {
+                                color: "var(--mantine-color-blue-6)",
+                                textDecoration: "underline",
+                              },
                             },
-                          },
-                        }}
-                      >
-                        {formatName(user.firstName, user.lastName) || user.email}
-                      </Text>
+                          }}
+                        >
+                          {formatName(user.firstName, user.lastName) || user.email}
+                        </Text>
                         <Text size="xs" c="dimmed" style={{ lineHeight: 1.3 }}>
                           {user.email}
                         </Text>

@@ -90,7 +90,9 @@ function AccountPage() {
     queryFn: () => adminAccountApi.getAccount(),
   });
 
-  const displayName = account ? (formatName(account.firstName, account.lastName) || account.email) : t`My Account`;
+  const displayName = account
+    ? formatName(account.firstName, account.lastName) || account.email
+    : t`My Account`;
 
   if (isError) {
     return (
