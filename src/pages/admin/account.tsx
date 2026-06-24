@@ -32,6 +32,7 @@ import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
 import { Helmet } from "@dr.pogodin/react-helmet";
 import { pageTitle } from "@/shared/lib/page-title";
+import { avatarColor, initials, formatName } from "@/shared/lib/user-utils";
 import { adminAccountApi } from "@/shared/api";
 import { UserStatusBadge, PageHeader } from "@/shared/ui";
 import { EditAccountModal } from "@/features/edit-account";
@@ -44,17 +45,6 @@ export const Route = createFileRoute("/admin/account")({
 });
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
-
-function avatarColor(str: string): string {
-  const colors = ["blue", "cyan", "teal", "green", "violet", "grape", "pink", "orange", "red"];
-  let hash = 0;
-  for (let i = 0; i < str.length; i++) hash = str.charCodeAt(i) + ((hash << 5) - hash);
-  return colors[Math.abs(hash) % colors.length];
-}
-
-function initials(first: string, last: string): string {
-  return `${first.charAt(0)}${last.charAt(0)}`.toUpperCase();
-}
 
 // ─── Stat card ────────────────────────────────────────────────────────────────
 
@@ -100,7 +90,7 @@ function AccountPage() {
     queryFn: () => adminAccountApi.getAccount(),
   });
 
-  const displayName = account ? `${account.firstName} ${account.lastName}` : t`My Account`;
+  const displayName = account ? (formatName(account.firstName, account.lastName) || account.email) : t`My Account`;
 
   if (isError) {
     return (

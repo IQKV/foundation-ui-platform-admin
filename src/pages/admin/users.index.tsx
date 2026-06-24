@@ -40,6 +40,7 @@ import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
 import { Helmet } from "@dr.pogodin/react-helmet";
 import { pageTitle } from "@/shared/lib/page-title";
+import { avatarColor, initials, formatName } from "@/shared/lib/user-utils";
 import { iamApi } from "@/shared/api";
 import type { IamUser, IamUserSortField, IamUserStatus, SortDirection } from "@/shared/api";
 import { UserStatusBadge, PageHeader } from "@/shared/ui";
@@ -53,17 +54,6 @@ export const Route = createFileRoute("/admin/users/")({
 });
 
 const PAGE_SIZE = 20;
-
-function avatarColor(str: string): string {
-  const colors = ["blue", "cyan", "teal", "green", "violet", "grape", "pink", "orange", "red"];
-  let hash = 0;
-  for (let i = 0; i < str.length; i++) hash = str.charCodeAt(i) + ((hash << 5) - hash);
-  return colors[Math.abs(hash) % colors.length];
-}
-
-function initials(first: string, last: string): string {
-  return `${first.charAt(0)}${last.charAt(0)}`.toUpperCase();
-}
 
 const SORT_FIELD_MAP: Record<string, IamUserSortField> = {
   firstName: "firstName",
@@ -377,22 +367,22 @@ function AdminUsersPage() {
                       </Avatar>
                       <Stack gap={1}>
                         <Text
-                          component={Link}
-                          to={`/admin/users/${user.id}`}
-                          size="sm"
-                          fw={500}
-                          style={{ lineHeight: 1.3, textDecoration: "none", color: "inherit" }}
-                          styles={{
-                            root: {
-                              "&:hover": {
-                                color: "var(--mantine-color-blue-6)",
-                                textDecoration: "underline",
-                              },
+                        component={Link}
+                        to={`/admin/users/${user.id}`}
+                        size="sm"
+                        fw={500}
+                        style={{ lineHeight: 1.3, textDecoration: "none", color: "inherit" }}
+                        styles={{
+                          root: {
+                            "&:hover": {
+                              color: "var(--mantine-color-blue-6)",
+                              textDecoration: "underline",
                             },
-                          }}
-                        >
-                          {user.firstName} {user.lastName}
-                        </Text>
+                          },
+                        }}
+                      >
+                        {formatName(user.firstName, user.lastName) || user.email}
+                      </Text>
                         <Text size="xs" c="dimmed" style={{ lineHeight: 1.3 }}>
                           {user.email}
                         </Text>

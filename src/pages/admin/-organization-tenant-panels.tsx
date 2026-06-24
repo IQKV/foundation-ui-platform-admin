@@ -31,6 +31,7 @@ import {
 import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
 import { iamApi } from "@/shared/api";
+import { avatarColor, initials, formatName } from "@/shared/lib/user-utils";
 import type {
   IamTenant,
   IamUser,
@@ -41,17 +42,6 @@ import type {
 } from "@/shared/api";
 
 export const ORG_MEMBERS_PAGE_SIZE = 20;
-
-export function avatarColor(str: string): string {
-  const colors = ["blue", "cyan", "teal", "green", "violet", "grape", "pink", "orange", "red"];
-  let hash = 0;
-  for (let i = 0; i < str.length; i++) hash = str.charCodeAt(i) + ((hash << 5) - hash);
-  return colors[Math.abs(hash) % colors.length];
-}
-
-export function initials(first: string, last: string): string {
-  return `${first.charAt(0)}${last.charAt(0)}`.toUpperCase();
-}
 
 interface StatCardProps {
   label: React.ReactNode;
@@ -278,7 +268,7 @@ function EditMemberAuthoritiesModal({
           </Text>
           {user && (
             <Text size="xs" c="dimmed">
-              {user.firstName} {user.lastName} ({user.email})
+              {formatName(user.firstName, user.lastName) || user.email} ({user.email})
             </Text>
           )}
         </Stack>
@@ -518,7 +508,7 @@ export function MembersTab({ tenantKey }: { tenantKey: string }) {
                     </Avatar>
                     <Stack gap={1}>
                       <Text size="sm" fw={500} style={{ lineHeight: 1.3 }}>
-                        {user.firstName} {user.lastName}
+                        {formatName(user.firstName, user.lastName) || user.email}
                       </Text>
                       <Text size="xs" c="dimmed" style={{ lineHeight: 1.3 }}>
                         {user.email}
