@@ -31,6 +31,22 @@ const slateGray: MantineThemeOverride["colors"] = {
   ],
 };
 
+// ── Mantine dark color ramp for dark theme components ─────────────────────────
+const darkColors: MantineThemeOverride["colors"] = {
+  dark: [
+    "#C1C2C5", // 0
+    "#A6A7AB", // 1
+    "#909296", // 2
+    "#5c5f66", // 3
+    "#373A40", // 4
+    "#2C2E33", // 5
+    "#25262b", // 6
+    "#1A1B1E", // 7
+    "#141517", // 8
+    "#101113", // 9
+  ],
+};
+
 // ── Deep indigo accent ────────────────────────────────────────────────────────
 // Replaces Mantine's default blue.6 (#228be6) with a saturated indigo that
 // signals deliberate brand identity rather than "I left the default".
@@ -42,8 +58,8 @@ const indigoAccent: MantineThemeOverride["colors"] = {
     "#95a0fb", // 3
     "#7280f8", // 4
     "#5465f5", // 5 — hover state
-    "#3b4ef0", // 6 — primary ← main action color
-    "#2c3dd4", // 7 — pressed / focus ring
+    "#3b4ef0", // 6 — primary ← main action color (light)
+    "#2c3dd4", // 7 — pressed / focus ring (dark)
     "#1e2ea8", // 8 — deep accent
     "#111b7a", // 9 — darkest
   ],
@@ -53,10 +69,11 @@ export const theme = createTheme({
   // ── Colors ─────────────────────────────────────────────────────────────────
   colors: {
     ...slateGray,
+    ...darkColors,
     ...indigoAccent,
   },
   primaryColor: "blue",
-  primaryShade: { light: 6, dark: 5 },
+  primaryShade: { light: 6, dark: 7 },
 
   // ── Typography ──────────────────────────────────────────────────────────────
   // Inter is already loaded by most modern OS / browsers; fall back cleanly.
