@@ -16,6 +16,7 @@ import {
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useState } from "react";
 import { Trans, useLingui } from "@lingui/react/macro";
+import { TestSelectors } from "@/shared/lib/test-selectors";
 
 interface NavItem {
   label: string;
@@ -93,7 +94,7 @@ export function AdminNav() {
         active={isActive}
         component={Link}
         to={item.to}
-        data-testid={`nav-item--${slug}`}
+        data-testid={TestSelectors.NAV_ITEM(slug)}
         styles={{
           root: {
             borderRadius: "var(--mantine-radius-xs)",
@@ -132,7 +133,7 @@ export function AdminNav() {
           leftSection={<IconSearch size={12} color="var(--app-nav-search-placeholder)" />}
           value={search}
           onChange={(e) => setSearch(e.currentTarget.value)}
-          data-testid="nav-search-input"
+          data-testid={TestSelectors.NAV_SEARCH_INPUT}
           styles={{
             input: {
               background: "var(--app-nav-search-bg)",

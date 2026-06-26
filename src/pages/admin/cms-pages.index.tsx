@@ -34,6 +34,7 @@ import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
 import { Helmet } from "@dr.pogodin/react-helmet";
 import { pageTitle } from "@/shared/lib/page-title";
+import { TestSelectors } from "@/shared/lib/test-selectors";
 import { iamApi, cmsApi } from "@/shared/api";
 import type { CmsPageSummary, CmsPageStatus } from "@/shared/api";
 import { PageHeader } from "@/shared/ui";
@@ -149,7 +150,7 @@ function AdminCmsPagesPage() {
             disabled={!tenantKey}
             component={tenantKey ? Link : undefined}
             {...(tenantKey ? { to: `/admin/cms-pages/${tenantKey}/create` } : {})}
-            data-testid="button-cms-pages-create"
+            data-testid={TestSelectors.BUTTON.CMS_PAGES_CREATE_NEW_PAGE}
           >
             <Trans>New page</Trans>
           </Button>
@@ -177,7 +178,7 @@ function AdminCmsPagesPage() {
               clearable
               disabled={tenantsLoading}
               style={{ minWidth: 320 }}
-              data-testid="select-cms-pages-tenant"
+              data-testid={TestSelectors.SELECT.CMS_PAGES_TENANT}
             />
             {!tenantKey && (
               <Text size="sm" c="dimmed" pb={6}>
@@ -221,7 +222,7 @@ function AdminCmsPagesPage() {
                     color="gray"
                     size="sm"
                     radius="sm"
-                    data-testid="badge-cms-pages-total-count"
+                    data-testid={TestSelectors.BADGE.CMS_PAGES_TOTAL_COUNT}
                   >
                     {data?.totalElements ?? 0}
                   </Badge>
@@ -243,7 +244,7 @@ function AdminCmsPagesPage() {
                   clearable
                   size="xs"
                   style={{ width: 150 }}
-                  data-testid="select-cms-pages-status-filter"
+                  data-testid={TestSelectors.INPUT.CMS_PAGES_STATUS_FILTER}
                 />
 
                 <Tooltip label={t`Refresh`} withArrow>
@@ -253,7 +254,7 @@ function AdminCmsPagesPage() {
                     size="sm"
                     onClick={() => void refetch()}
                     loading={isFetching}
-                    data-testid="button-cms-pages-refresh"
+                    data-testid={TestSelectors.BUTTON.CMS_PAGES_REFRESH}
                   >
                     <IconRefresh size={15} />
                   </ActionIcon>
@@ -393,7 +394,7 @@ function AdminCmsPagesPage() {
                             variant="subtle"
                             color="gray"
                             size="sm"
-                            data-testid={`button-cms-page-actions--${p.id}`}
+                            data-testid={TestSelectors.BUTTON.CMS_PAGE_ACTIONS_MENU_TRIGGER(p.id)}
                           >
                             <IconDots size={15} />
                           </ActionIcon>
@@ -403,7 +404,7 @@ function AdminCmsPagesPage() {
                             leftSection={<IconEdit size={14} />}
                             component={Link}
                             to={`/admin/cms-pages/${tenantKey}/${p.id}`}
-                            data-testid={`button-cms-page-edit--${p.id}`}
+                            data-testid={TestSelectors.BUTTON.CMS_PAGE_EDIT_BUTTON(p.id)}
                           >
                             <Trans>Edit</Trans>
                           </Menu.Item>
@@ -412,7 +413,7 @@ function AdminCmsPagesPage() {
                             color="red"
                             disabled={p.status === "PUBLISHED"}
                             onClick={() => handleDelete(p)}
-                            data-testid={`button-cms-page-delete--${p.id}`}
+                            data-testid={TestSelectors.BUTTON.CMS_PAGE_DELETE_BUTTON(p.id)}
                           >
                             <Trans>Delete</Trans>
                           </Menu.Item>

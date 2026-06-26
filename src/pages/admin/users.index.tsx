@@ -48,6 +48,7 @@ import { EditUserModal } from "@/features/edit-user";
 import { SetUserPasswordModal } from "@/features/set-user-password";
 import { BanUserModal, UnbanUserModal } from "@/features/ban-user";
 import { UnlockUserModal } from "@/features/unlock-user";
+import { TestSelectors } from "@/shared/lib/test-selectors";
 
 export const Route = createFileRoute("/admin/users/")({
   component: AdminUsersPage,
@@ -233,7 +234,7 @@ function AdminUsersPage() {
               </Text>
               {!isLoading && (
                 <Badge
-                  data-testid="badge-users-total-count"
+                  data-testid={TestSelectors.BADGE.USERS_TOTAL_COUNT}
                   variant="light"
                   color="gray"
                   size="sm"
@@ -246,7 +247,7 @@ function AdminUsersPage() {
 
             <Group gap="xs">
               <TextInput
-                data-testid="input-users-search"
+                data-testid={TestSelectors.INPUT.USERS_SEARCH}
                 placeholder={t`Search by name or email…`}
                 leftSection={<IconSearch size={14} />}
                 value={search}
@@ -256,7 +257,7 @@ function AdminUsersPage() {
                 rightSection={
                   search ? (
                     <CloseButton
-                      data-testid="button-users-search-clear"
+                      data-testid={TestSelectors.BUTTON.USERS_SEARCH_CLEAR}
                       size="xs"
                       onClick={() => handleSearchChange("")}
                     />
@@ -264,7 +265,7 @@ function AdminUsersPage() {
                 }
               />
               <Select
-                data-testid="select-users-status-filter"
+                data-testid={TestSelectors.SELECT.USERS_STATUS_FILTER}
                 placeholder={t`All statuses`}
                 leftSection={<IconFilter size={14} />}
                 data={STATUS_OPTIONS.map((o) => ({ value: o.value, label: t`${o.label}` }))}
@@ -277,7 +278,7 @@ function AdminUsersPage() {
               {hasActiveFilters && (
                 <Tooltip label={t`Clear filters`} withArrow>
                   <Button
-                    data-testid="button-users-clear-filters"
+                    data-testid={TestSelectors.BUTTON.USERS_CLEAR_FILTERS}
                     variant="subtle"
                     color="gray"
                     size="xs"
@@ -289,7 +290,7 @@ function AdminUsersPage() {
               )}
               <Tooltip label={t`Refresh`} withArrow>
                 <ActionIcon
-                  data-testid="button-users-refresh"
+                  data-testid={TestSelectors.BUTTON.USERS_REFRESH}
                   variant="subtle"
                   color="gray"
                   size="sm"
@@ -406,7 +407,7 @@ function AdminUsersPage() {
                   title: t`Email`,
                   render: (user) => (
                     <Badge
-                      data-testid={`badge-email-verified--${user.id}`}
+                      data-testid={TestSelectors.BADGE.EMAIL_VERIFIED(user.id)}
                       variant="dot"
                       color={user.emailVerified ? "green" : "orange"}
                       size="sm"
@@ -477,7 +478,7 @@ function AdminUsersPage() {
                       onClick={(e) => e.stopPropagation()}
                     >
                       <ActionIcon
-                        data-testid={`button-user-view--${user.id}`}
+                        data-testid={TestSelectors.BUTTON.USER_VIEW(user.id)}
                         variant="subtle"
                         color="gray"
                         size="sm"
@@ -491,7 +492,7 @@ function AdminUsersPage() {
                       <Menu position="bottom-end" shadow="md" width={200} withinPortal>
                         <Menu.Target>
                           <ActionIcon
-                            data-testid={`button-user-menu--${user.id}`}
+                            data-testid={TestSelectors.BUTTON.USER_MENU(user.id)}
                             variant="subtle"
                             color="gray"
                             size="sm"
@@ -506,14 +507,14 @@ function AdminUsersPage() {
                             <Trans>Actions</Trans>
                           </Menu.Label>
                           <Menu.Item
-                            data-testid={`menu-item-edit-user--${user.id}`}
+                            data-testid={TestSelectors.MENU_ITEM.EDIT_USER(user.id)}
                             leftSection={<IconEdit size={14} />}
                             onClick={() => handleEdit(user)}
                           >
                             <Trans>Edit user</Trans>
                           </Menu.Item>
                           <Menu.Item
-                            data-testid={`menu-item-set-password--${user.id}`}
+                            data-testid={TestSelectors.MENU_ITEM.SET_PASSWORD(user.id)}
                             leftSection={<IconKey size={14} />}
                             onClick={() => handleSetPassword(user)}
                           >
@@ -521,7 +522,7 @@ function AdminUsersPage() {
                           </Menu.Item>
                           <Menu.Divider />
                           <Menu.Item
-                            data-testid={`menu-item-unban-user--${user.id}`}
+                            data-testid={TestSelectors.MENU_ITEM.UNBAN_USER(user.id)}
                             leftSection={<IconUserCheck size={14} />}
                             color="green"
                             onClick={() => handleUnban(user)}
@@ -529,7 +530,7 @@ function AdminUsersPage() {
                             <Trans>Unban user</Trans>
                           </Menu.Item>
                           <Menu.Item
-                            data-testid={`menu-item-unlock-user--${user.id}`}
+                            data-testid={TestSelectors.MENU_ITEM.UNLOCK_USER(user.id)}
                             leftSection={<IconLockOpen size={14} />}
                             color="teal"
                             onClick={() => handleUnlock(user)}
@@ -538,7 +539,7 @@ function AdminUsersPage() {
                           </Menu.Item>
                           <Menu.Divider />
                           <Menu.Item
-                            data-testid={`menu-item-ban-user--${user.id}`}
+                            data-testid={TestSelectors.MENU_ITEM.BAN_USER(user.id)}
                             leftSection={<IconBan size={14} />}
                             color="red"
                             onClick={() => handleBan(user)}

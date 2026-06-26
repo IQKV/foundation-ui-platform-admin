@@ -4,6 +4,7 @@ import dayjs from "dayjs";
 import type { IamInvitation } from "@/shared/api";
 import { InvitationStatusBadge } from "@/shared/ui";
 import { useRevokeInvitation } from "../model";
+import { TestSelectors } from "@/shared/lib/test-selectors";
 
 interface EditInvitationModalProps {
   invitation: IamInvitation | null;
@@ -55,7 +56,7 @@ export function EditInvitationModal({ invitation, opened, onClose }: EditInvitat
       centered
     >
       {invitation && (
-        <Stack gap="md" data-testid="modal--edit-invitation">
+        <Stack gap="md" data-testid={TestSelectors.MODAL.EDIT_INVITATION}>
           <TextInput
             label={t`Email`}
             value={invitation.email}
@@ -142,7 +143,7 @@ export function EditInvitationModal({ invitation, opened, onClose }: EditInvitat
               color="gray"
               onClick={handleClose}
               disabled={revokeMutation.isPending}
-              data-testid="button--close"
+              data-testid={TestSelectors.BUTTON.CLOSE}
             >
               <Trans>Close</Trans>
             </Button>
@@ -152,7 +153,7 @@ export function EditInvitationModal({ invitation, opened, onClose }: EditInvitat
                 variant="light"
                 loading={revokeMutation.isPending}
                 onClick={() => revokeMutation.mutate()}
-                data-testid="button--revoke-invitation"
+                data-testid={TestSelectors.BUTTON.REVOKE_INVITATION}
               >
                 <Trans>Revoke invitation</Trans>
               </Button>

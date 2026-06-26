@@ -10,6 +10,7 @@ import {
 } from "../model";
 import type { ProposeInvitationFormValues } from "../model";
 import { validateWithZod } from "@/shared/lib/zod-form-validation";
+import { TestSelectors } from "@/shared/lib/test-selectors";
 
 interface ProposeInvitationModalProps {
   opened: boolean;
@@ -61,7 +62,7 @@ export function ProposeInvitationModal({ opened, onClose }: ProposeInvitationMod
       size="md"
       centered
     >
-      <form onSubmit={handleSubmit} data-testid="modal--propose-invitation">
+      <form onSubmit={handleSubmit} data-testid={TestSelectors.MODAL.PROPOSE_INVITATION}>
         <Stack gap="md">
           {isOrganizationsError && (
             <Alert
@@ -75,7 +76,7 @@ export function ProposeInvitationModal({ opened, onClose }: ProposeInvitationMod
                 color="red"
                 size="xs"
                 onClick={() => void refetchOrganizations()}
-                data-testid="button--retry"
+                data-testid={TestSelectors.BUTTON.RETRY}
               >
                 <Trans>Retry</Trans>
               </Button>
@@ -93,7 +94,7 @@ export function ProposeInvitationModal({ opened, onClose }: ProposeInvitationMod
             disabled={
               isLoadingOrganizations || isOrganizationsError || organizationOptions.length === 0
             }
-            data-testid="input--tenant-key"
+            data-testid={TestSelectors.INPUT.TENANT_KEY}
             {...form.getInputProps("tenantKey")}
           />
 
@@ -101,14 +102,14 @@ export function ProposeInvitationModal({ opened, onClose }: ProposeInvitationMod
             label={t`Email`}
             placeholder={t`invitee@example.com`}
             type="email"
-            data-testid="input--email"
+            data-testid={TestSelectors.INPUT.EMAIL}
             {...form.getInputProps("email")}
           />
 
           <Select
             label={t`Authority`}
             data={getAuthorityOptions()}
-            data-testid="input--authority"
+            data-testid={TestSelectors.INPUT.AUTHORITY}
             {...form.getInputProps("authority")}
           />
 
@@ -118,7 +119,7 @@ export function ProposeInvitationModal({ opened, onClose }: ProposeInvitationMod
               color="gray"
               onClick={handleClose}
               disabled={mutation.isPending}
-              data-testid="button--cancel"
+              data-testid={TestSelectors.BUTTON.CANCEL}
             >
               <Trans>Cancel</Trans>
             </Button>
@@ -128,7 +129,7 @@ export function ProposeInvitationModal({ opened, onClose }: ProposeInvitationMod
               disabled={
                 isLoadingOrganizations || isOrganizationsError || organizationOptions.length === 0
               }
-              data-testid="button--send-invitation"
+              data-testid={TestSelectors.BUTTON.SEND_INVITATION}
             >
               <Trans>Send invitation</Trans>
             </Button>

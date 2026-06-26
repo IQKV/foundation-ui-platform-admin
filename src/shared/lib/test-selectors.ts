@@ -122,12 +122,12 @@ export const TestSelectors = {
     USERS_CLEAR_FILTERS: "button-users-clear-filters",
     USERS_REFRESH: "button-users-refresh",
     USERS_SEARCH_CLEAR: "button-users-search-clear",
-    // CMS Pages
+    // CMS
     CMS_PAGES_CREATE_NEW_PAGE: "button-cms-pages-create",
     CMS_PAGES_REFRESH: "button-cms-pages-refresh",
-    CMS_PAGE_ACTIONS_MENU_TRIGGER: (id: string) => `button-cms-page-actions--${id}`,
-    CMS_PAGE_EDIT_BUTTON: (id: string) => `button-cms-page-edit--${id}`,
-    CMS_PAGE_DELETE_BUTTON: (id: string) => `button-cms-page-delete--${id}`,
+    CMS_PAGE_ACTIONS_MENU_TRIGGER: (pageId: string) => `button-cms-page-actions--${pageId}`,
+    CMS_PAGE_EDIT_BUTTON: (pageId: string) => `button-cms-page-edit--${pageId}`,
+    CMS_PAGE_DELETE_BUTTON: (pageId: string) => `button-cms-page-delete--${pageId}`,
     CMS_PAGE_CREATE_SUBMIT: "button--create-page",
     CMS_PAGE_CREATE_CANCEL: "button--cancel",
     CMS_PAGE_EDIT_SAVE: "button--save",
@@ -185,7 +185,7 @@ export const TestSelectors = {
     TRANSLATION_MESSAGE: (index: number) => `input-translation-message--${index}`,
     TRANSLATION_TITLE: (index: number) => `input-translation-title--${index}`,
     USERS_SEARCH: "input-users-search",
-    // CMS Pages
+    // CMS
     CMS_PAGE_CREATE_SLUG: "input--slug",
     CMS_PAGE_CREATE_STATUS: "input--status",
     CMS_PAGE_CREATE_TEMPLATE: "input--template",
@@ -198,7 +198,6 @@ export const TestSelectors = {
   },
   FORM: {
     SUB_DETAIL: "form-sub-detail",
-    // CMS Pages
     CMS_PAGE_CREATE: "form--create-page",
     CMS_PAGE_EDIT: "form--edit-page",
   },
@@ -215,7 +214,7 @@ export const TestSelectors = {
     EDIT_USER: "modal--edit-user",
     PROPOSE_INVITATION: "modal--propose-invitation",
     SET_PASSWORD: "modal--set-password",
-    // CMS Pages
+    // CMS
     CMS_DELETE_PAGE: "modal--delete-page",
   },
   ALERT: {
@@ -310,7 +309,6 @@ export const TestSelectors = {
     SUBS_TOTAL_COUNT: "badge-subs-total-count",
     SUSPENDED_ORG_STATUS: (tenantKey: string) => `badge-suspended-org-status-${tenantKey}`,
     USERS_TOTAL_COUNT: "badge-users-total-count",
-    // CMS Pages
     CMS_PAGES_TOTAL_COUNT: "badge-cms-pages-total-count",
   },
 
@@ -380,7 +378,6 @@ export const TestSelectors = {
     ORGS_STATUS_FILTER: "select-orgs-status-filter",
     SUBS_STATUS_FILTER: "select-subs-status-filter",
     USERS_STATUS_FILTER: "select-users-status-filter",
-    // CMS Pages
     CMS_PAGES_TENANT: "select-cms-pages-tenant",
   },
 

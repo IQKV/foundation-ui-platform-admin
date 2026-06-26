@@ -29,6 +29,7 @@ import {
 import { Trans, useLingui } from "@lingui/react/macro";
 import { Helmet } from "@dr.pogodin/react-helmet";
 import { pageTitle } from "@/shared/lib/page-title";
+import { TestSelectors } from "@/shared/lib/test-selectors";
 import { validateWithZod } from "@/shared/lib/zod-form-validation";
 import { cmsApi, localesApi } from "@/shared/api";
 import type { CmsPageStatus } from "@/shared/api";
@@ -279,7 +280,7 @@ function EditCmsPagePage() {
         </Alert>
       )}
 
-      <form onSubmit={handleSubmit} data-testid="form--edit-page">
+      <form onSubmit={handleSubmit} data-testid={TestSelectors.FORM.CMS_PAGE_EDIT}>
         <SimpleGrid cols={{ base: 1, md: 3 }} spacing="md" style={{ alignItems: "start" }}>
           {/* ─── Main: translations ─────────────────────────────────────── */}
           <Box style={{ gridColumn: "span 2" }}>
@@ -355,7 +356,7 @@ function EditCmsPagePage() {
                   required
                   size="sm"
                   disabled={!isEditable}
-                  data-testid="input--slug"
+                  data-testid={TestSelectors.INPUT.CMS_PAGE_EDIT_SLUG}
                   {...form.getInputProps("slug")}
                 />
 
@@ -364,7 +365,7 @@ function EditCmsPagePage() {
                   data={isEditable ? getEditablePageStatusOptions() : getPageStatusOptions()}
                   size="sm"
                   disabled={!isEditable}
-                  data-testid="input--status"
+                  data-testid={TestSelectors.INPUT.CMS_PAGE_EDIT_STATUS}
                   {...form.getInputProps("status")}
                 />
 
@@ -374,7 +375,7 @@ function EditCmsPagePage() {
                   description={t`Optional layout key`}
                   size="sm"
                   disabled={!isEditable}
-                  data-testid="input--template"
+                  data-testid={TestSelectors.INPUT.CMS_PAGE_EDIT_TEMPLATE}
                   {...form.getInputProps("template")}
                 />
               </Stack>
@@ -398,7 +399,7 @@ function EditCmsPagePage() {
                   clearable
                   size="sm"
                   disabled={!isEditable || parentOptions.length === 0}
-                  data-testid="input--parentId"
+                  data-testid={TestSelectors.INPUT.CMS_PAGE_EDIT_PARENT_ID}
                 />
               </Stack>
             </Paper>
@@ -413,7 +414,7 @@ function EditCmsPagePage() {
                     loading={mutation.isPending}
                     disabled={!hasDefaultLocale}
                     fullWidth
-                    data-testid="button--save"
+                    data-testid={TestSelectors.BUTTON.CMS_PAGE_EDIT_SAVE}
                   >
                     <Trans>Save changes</Trans>
                   </Button>
@@ -425,7 +426,7 @@ function EditCmsPagePage() {
                   to="/admin/cms-pages"
                   disabled={mutation.isPending}
                   fullWidth
-                  data-testid="button--cancel"
+                  data-testid={TestSelectors.BUTTON.CMS_PAGE_EDIT_CANCEL}
                 >
                   <Trans>Back to list</Trans>
                 </Button>

@@ -43,6 +43,7 @@ import type {
 } from "@/shared/api";
 import { InvitationStatusBadge, PageHeader } from "@/shared/ui";
 import { EditInvitationModal, ProposeInvitationModal } from "@/features/invitation-admin";
+import { TestSelectors } from "@/shared/lib/test-selectors";
 
 export const Route = createFileRoute("/admin/invitations/")({
   component: AdminInvitationsPage,
@@ -169,7 +170,7 @@ function AdminInvitationsPage() {
         ]}
         toolbar={
           <Button
-            data-testid="button-invitations-propose"
+            data-testid={TestSelectors.BUTTON.INVITATIONS_PROPOSE}
             leftSection={<IconPlus size={16} />}
             size="sm"
             onClick={openProposeModal}
@@ -208,7 +209,7 @@ function AdminInvitationsPage() {
               </Text>
               {!isLoading && (
                 <Badge
-                  data-testid="badge-invitations-total-count"
+                  data-testid={TestSelectors.BADGE.INVITATIONS_TOTAL_COUNT}
                   variant="light"
                   color="gray"
                   size="sm"
@@ -221,7 +222,7 @@ function AdminInvitationsPage() {
 
             <Group gap="xs">
               <TextInput
-                data-testid="input-invitations-search"
+                data-testid={TestSelectors.INPUT.INVITATIONS_SEARCH}
                 placeholder={t`Search by email…`}
                 leftSection={<IconSearch size={14} />}
                 value={search}
@@ -231,7 +232,7 @@ function AdminInvitationsPage() {
                 rightSection={
                   search ? (
                     <CloseButton
-                      data-testid="button-invitations-search-clear"
+                      data-testid={TestSelectors.BUTTON.INVITATIONS_SEARCH_CLEAR}
                       size="xs"
                       onClick={() => handleSearchChange("")}
                     />
@@ -240,7 +241,7 @@ function AdminInvitationsPage() {
               />
 
               <TextInput
-                data-testid="input-invitations-tenant-key-filter"
+                data-testid={TestSelectors.INPUT.INVITATIONS_TENANT_KEY_FILTER}
                 placeholder={t`Tenant key…`}
                 value={tenantKeyFilter}
                 onChange={(e) => handleTenantKeyChange(e.currentTarget.value)}
@@ -249,7 +250,7 @@ function AdminInvitationsPage() {
                 rightSection={
                   tenantKeyFilter ? (
                     <CloseButton
-                      data-testid="button-invitations-tenant-key-clear"
+                      data-testid={TestSelectors.BUTTON.INVITATIONS_TENANT_KEY_CLEAR}
                       size="xs"
                       onClick={() => handleTenantKeyChange("")}
                     />
@@ -258,7 +259,7 @@ function AdminInvitationsPage() {
               />
 
               <Select
-                data-testid="select-invitations-status-filter"
+                data-testid={TestSelectors.SELECT.INVITATIONS_STATUS_FILTER}
                 placeholder={t`All statuses`}
                 leftSection={<IconFilter size={14} />}
                 data={STATUS_OPTIONS.map((o) => ({ value: o.value, label: t`${o.label}` }))}
@@ -272,7 +273,7 @@ function AdminInvitationsPage() {
               {hasActiveFilters && (
                 <Tooltip label={t`Clear filters`} withArrow>
                   <Button
-                    data-testid="button-invitations-clear-filters"
+                    data-testid={TestSelectors.BUTTON.INVITATIONS_CLEAR_FILTERS}
                     variant="subtle"
                     color="gray"
                     size="xs"
@@ -285,7 +286,7 @@ function AdminInvitationsPage() {
 
               <Tooltip label={t`Refresh`} withArrow>
                 <ActionIcon
-                  data-testid="button-invitations-refresh"
+                  data-testid={TestSelectors.BUTTON.INVITATIONS_REFRESH}
                   variant="subtle"
                   color="gray"
                   size="sm"
@@ -429,7 +430,9 @@ function AdminInvitationsPage() {
                     <Group gap={4} justify="flex-end" wrap="nowrap">
                       <Tooltip label={t`View / manage invitation`} withArrow>
                         <ActionIcon
-                          data-testid={`button-invitation-manage--${invitation.invitationId}`}
+                          data-testid={TestSelectors.BUTTON.INVITATION_MANAGE(
+                            invitation.invitationId,
+                          )}
                           variant="subtle"
                           color="blue"
                           size="sm"

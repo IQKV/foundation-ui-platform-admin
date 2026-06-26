@@ -52,6 +52,7 @@ import {
 } from "@/features/manage-platform-authority";
 import { useSessionStore } from "@/processes/session";
 import { decodeJwt } from "@/shared/lib/jwt";
+import { TestSelectors } from "@/shared/lib/test-selectors";
 
 // ─── Route ────────────────────────────────────────────────────────────────────
 
@@ -153,7 +154,7 @@ function PlatformAuthorityTab({ user, isLoading, isSelf }: PlatformAuthorityTabP
 
                 <Group gap="xs">
                   <Badge
-                    data-testid="badge-platform-admin-status"
+                    data-testid={TestSelectors.BADGE.PLATFORM_ADMIN_STATUS}
                     variant="light"
                     color={isPlatformAdmin ? "blue" : "gray"}
                     size="sm"
@@ -173,7 +174,7 @@ function PlatformAuthorityTab({ user, isLoading, isSelf }: PlatformAuthorityTabP
                     </Tooltip>
                   ) : isPlatformAdmin ? (
                     <Button
-                      data-testid="button-revoke-platform-admin"
+                      data-testid={TestSelectors.BUTTON.REVOKE_PLATFORM_ADMIN}
                       variant="light"
                       color="orange"
                       size="xs"
@@ -184,7 +185,7 @@ function PlatformAuthorityTab({ user, isLoading, isSelf }: PlatformAuthorityTabP
                     </Button>
                   ) : (
                     <Button
-                      data-testid="button-grant-platform-admin"
+                      data-testid={TestSelectors.BUTTON.GRANT_PLATFORM_ADMIN}
                       variant="light"
                       color="blue"
                       size="xs"
@@ -197,7 +198,7 @@ function PlatformAuthorityTab({ user, isLoading, isSelf }: PlatformAuthorityTabP
 
                   <Tooltip label={<Trans>Refresh</Trans>} withArrow>
                     <ActionIcon
-                      data-testid="button-platform-authority-refresh"
+                      data-testid={TestSelectors.BUTTON.PLATFORM_AUTHORITY_REFRESH}
                       variant="subtle"
                       color="gray"
                       size="sm"
@@ -231,14 +232,14 @@ function OverviewTab({ user, isLoading }: { user: IamUser | undefined; isLoading
             label={<Trans>Organizations</Trans>}
             value={user?.organizations?.length ?? 0}
             isLoading={isLoading}
-            data-testid="stat-user-org-count"
+            data-testid={TestSelectors.STAT.USER_ORG_COUNT}
           />
           <StatCard
             label={<Trans>Email</Trans>}
             value={
               user ? (
                 <Badge
-                  data-testid="stat-user-email-verified-badge"
+                  data-testid={TestSelectors.STAT.USER_EMAIL_VERIFIED_BADGE}
                   variant="light"
                   color={user.emailVerified ? "green" : "orange"}
                   size="sm"
@@ -251,19 +252,19 @@ function OverviewTab({ user, isLoading }: { user: IamUser | undefined; isLoading
               )
             }
             isLoading={isLoading}
-            data-testid="stat-user-email-verified"
+            data-testid={TestSelectors.STAT.USER_EMAIL_VERIFIED}
           />
           <StatCard
             label={<Trans>Joined</Trans>}
             value={user ? dayjs(user.createdAt).format("MMM D, YYYY") : "—"}
             isLoading={isLoading}
-            data-testid="stat-user-joined-at"
+            data-testid={TestSelectors.STAT.USER_JOINED_AT}
           />
           <StatCard
             label={<Trans>Last updated</Trans>}
             value={user?.updatedAt ? dayjs(user.updatedAt).format("MMM D, YYYY") : "—"}
             isLoading={isLoading}
-            data-testid="stat-user-updated-at"
+            data-testid={TestSelectors.STAT.USER_UPDATED_AT}
           />
         </SimpleGrid>
       </Paper>
@@ -277,7 +278,7 @@ function OverviewTab({ user, isLoading }: { user: IamUser | undefined; isLoading
           </Text>
           {!isLoading && (
             <Badge
-              data-testid="badge-overview-org-count"
+              data-testid={TestSelectors.BADGE.OVERVIEW_ORG_COUNT}
               variant="light"
               color="gray"
               size="sm"
@@ -411,7 +412,7 @@ function UserDetailPage() {
         >
           <Trans>Could not fetch user details.</Trans>{" "}
           <Text
-            data-testid="button-user-detail-error-retry"
+            data-testid={TestSelectors.BUTTON.USER_DETAIL_ERROR_RETRY}
             component="span"
             size="sm"
             c="red"
@@ -442,7 +443,7 @@ function UserDetailPage() {
           <Group gap="xs">
             <Tooltip label={t`Edit user`} withArrow>
               <ActionIcon
-                data-testid="button-user-detail-edit"
+                data-testid={TestSelectors.BUTTON.USER_DETAIL_EDIT}
                 variant="light"
                 color="blue"
                 size="md"
@@ -454,7 +455,7 @@ function UserDetailPage() {
             </Tooltip>
             <Tooltip label={t`Set password`} withArrow>
               <ActionIcon
-                data-testid="button-user-detail-set-password"
+                data-testid={TestSelectors.BUTTON.USER_DETAIL_SET_PASSWORD}
                 variant="light"
                 color="orange"
                 size="md"
@@ -466,7 +467,7 @@ function UserDetailPage() {
             </Tooltip>
             <Tooltip label={t`Unlock user`} withArrow>
               <ActionIcon
-                data-testid="button-user-detail-unlock"
+                data-testid={TestSelectors.BUTTON.USER_DETAIL_UNLOCK}
                 variant="light"
                 color="teal"
                 size="md"
@@ -478,7 +479,7 @@ function UserDetailPage() {
             </Tooltip>
             <Tooltip label={t`Refresh`} withArrow>
               <ActionIcon
-                data-testid="button-user-detail-refresh"
+                data-testid={TestSelectors.BUTTON.USER_DETAIL_REFRESH}
                 variant="subtle"
                 color="gray"
                 size="md"
@@ -493,14 +494,14 @@ function UserDetailPage() {
       />
 
       {/* ── Hero card ───────────────────────────────────────────────────── */}
-      <Paper data-testid="user-detail-hero-card" p="xl" mb="md">
+      <Paper data-testid={TestSelectors.ORG_DETAIL_HERO_CARD} p="xl" mb="md">
         <Stack align="center" gap="xs">
           {/* Avatar */}
           {isLoading ? (
             <Skeleton circle height={72} width={72} />
           ) : (
             <Avatar
-              data-testid="user-detail-avatar"
+              data-testid={TestSelectors.USER_DETAIL_AVATAR}
               size={72}
               radius="xl"
               color={user ? avatarColor(user.email) : "gray"}
@@ -516,7 +517,7 @@ function UserDetailPage() {
             {isLoading ? (
               <Skeleton height={24} width={180} radius="sm" />
             ) : (
-              <Text data-testid="user-detail-display-name" size="xl" fw={700}>
+              <Text data-testid={TestSelectors.USER_DETAIL_DISPLAY_NAME} size="xl" fw={700}>
                 {displayName}
               </Text>
             )}
@@ -532,7 +533,7 @@ function UserDetailPage() {
               {isLoading ? (
                 <Skeleton height={14} width={160} radius="sm" />
               ) : (
-                <Text data-testid="user-detail-email" size="sm" c="dimmed">
+                <Text data-testid={TestSelectors.USER_DETAIL_EMAIL} size="sm" c="dimmed">
                   {user?.email}
                 </Text>
               )}
@@ -546,7 +547,7 @@ function UserDetailPage() {
                 <Skeleton height={14} width={80} radius="sm" />
               ) : (
                 <Badge
-                  data-testid="user-detail-email-verified-badge"
+                  data-testid={TestSelectors.USER_DETAIL_EMAIL_VERIFIED_BADGE}
                   variant="dot"
                   color={user?.emailVerified ? "green" : "orange"}
                   size="sm"
@@ -567,7 +568,7 @@ function UserDetailPage() {
               {isLoading ? (
                 <Skeleton height={14} width={100} radius="sm" />
               ) : (
-                <Text data-testid="user-detail-joined-at" size="sm" c="dimmed">
+                <Text data-testid={TestSelectors.USER_DETAIL_JOINED_AT} size="sm" c="dimmed">
                   <Trans>Joined</Trans> {user ? dayjs(user.createdAt).format("MMM D, YYYY") : "—"}
                 </Text>
               )}
@@ -580,7 +581,7 @@ function UserDetailPage() {
               {isLoading ? (
                 <Skeleton height={14} width={80} radius="sm" />
               ) : (
-                <Text data-testid="user-detail-org-count" size="sm" c="dimmed">
+                <Text data-testid={TestSelectors.USER_DETAIL_ORG_COUNT} size="sm" c="dimmed">
                   {user?.organizations?.length ?? 0} <Trans>organization(s)</Trans>
                 </Text>
               )}
@@ -600,14 +601,14 @@ function UserDetailPage() {
       >
         <Tabs.List>
           <Tabs.Tab
-            data-testid="tab-user-overview"
+            data-testid={TestSelectors.TAB.USER_OVERVIEW}
             value="overview"
             leftSection={<IconUser size={14} />}
           >
             <Trans>Overview</Trans>
           </Tabs.Tab>
           <Tabs.Tab
-            data-testid="tab-user-organizations"
+            data-testid={TestSelectors.TAB.USER_ORGANIZATIONS}
             value="organizations"
             leftSection={<IconBuilding size={14} />}
             rightSection={
@@ -621,7 +622,7 @@ function UserDetailPage() {
             <Trans>Organizations</Trans>
           </Tabs.Tab>
           <Tabs.Tab
-            data-testid="tab-user-platform-authority"
+            data-testid={TestSelectors.TAB.USER_PLATFORM_AUTHORITY}
             value="platform-authority"
             leftSection={<IconShield size={14} />}
           >
@@ -647,7 +648,7 @@ function UserDetailPage() {
                 </Text>
                 {!isLoading && (
                   <Badge
-                    data-testid="badge-orgs-tab-count"
+                    data-testid={TestSelectors.BADGE.ORGS_TAB_COUNT}
                     variant="light"
                     color="gray"
                     size="sm"

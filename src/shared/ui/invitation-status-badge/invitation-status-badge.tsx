@@ -1,5 +1,6 @@
 import { Badge } from "@mantine/core";
 import { t } from "@lingui/core/macro";
+import { TestSelectors } from "@/shared/lib/test-selectors";
 import type { IamInvitationStatus } from "@/shared/api";
 
 function getStatusConfig(status: IamInvitationStatus): { color: string; label: string } {
@@ -20,7 +21,7 @@ export function InvitationStatusBadge({ status }: InvitationStatusBadgeProps) {
   const config = getStatusConfig(status);
   return (
     <Badge
-      data-testid={`badge-invitation-status--${status.toLowerCase()}`}
+      data-testid={TestSelectors.BADGE.INVITATION_STATUS(status.toLowerCase())}
       color={config.color}
       variant="light"
       size="sm"
