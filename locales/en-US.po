@@ -105,13 +105,13 @@ msgstr "Actions"
 
 #: src/features/edit-tenant/model/types.ts
 #: src/features/edit-user/model/types.ts
-#: src/pages/admin/index.tsx
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/plans.index.tsx
 #: src/pages/admin/subscriptions.tsx
 #: src/pages/admin/users.$userId.tsx
 #: src/shared/ui/tenant-status-badge/tenant-status-badge.tsx
 #: src/shared/ui/user-status-badge/user-status-badge.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Active"
 msgstr "Active"
 
@@ -156,11 +156,12 @@ msgstr "All actions"
 msgid "All Events"
 msgstr "All Events"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-suspended-tenants/ui/suspended-tenants.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "All organizations"
 msgstr "All organizations"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-suspended-tenants/ui/suspended-tenants.tsx
 msgid "All organizations are in good standing"
 msgstr "All organizations are in good standing"
 
@@ -168,7 +169,7 @@ msgstr "All organizations are in good standing"
 msgid "All plans"
 msgstr "All plans"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-recent-refunds/ui/recent-refunds.tsx
 msgid "All refunds"
 msgstr "All refunds"
 
@@ -182,7 +183,7 @@ msgstr "All refunds"
 msgid "All statuses"
 msgstr "All statuses"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-subscription-breakdown/ui/subscription-breakdown.tsx
 msgid "All subscriptions"
 msgstr "All subscriptions"
 
@@ -677,7 +678,7 @@ msgstr "Current password is required"
 msgid "Current Period End"
 msgstr "Current Period End"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Daily"
 msgstr "Daily"
 
@@ -861,8 +862,8 @@ msgid "Email unverified"
 msgstr "Email unverified"
 
 #: src/pages/admin/account.tsx
-#: src/pages/admin/index.tsx
 #: src/pages/admin/users.$userId.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Email verified"
 msgstr "Email verified"
 
@@ -967,7 +968,7 @@ msgstr "Failed to cancel subscription"
 msgid "Failed to create announcement"
 msgstr "Failed to create announcement"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-stat-value/ui/stat-value.tsx
 msgid "Failed to load"
 msgstr "Failed to load"
 
@@ -979,7 +980,7 @@ msgstr "Failed to load account"
 msgid "Failed to load announcements"
 msgstr "Failed to load announcements"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-recent-critical-audit/ui/recent-critical-audit.tsx
 msgid "Failed to load audit events"
 msgstr "Failed to load audit events"
 
@@ -999,7 +1000,7 @@ msgstr "Failed to load invitations"
 msgid "Failed to load organization"
 msgstr "Failed to load organization"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-suspended-tenants/ui/suspended-tenants.tsx
 msgid "Failed to load organization data"
 msgstr "Failed to load organization data"
 
@@ -1024,7 +1025,7 @@ msgstr "Failed to load plan"
 msgid "Failed to load plans"
 msgstr "Failed to load plans"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-recent-refunds/ui/recent-refunds.tsx
 msgid "Failed to load recent refunds"
 msgstr "Failed to load recent refunds"
 
@@ -1037,7 +1038,7 @@ msgstr "Failed to load refund"
 msgid "Failed to load refunds"
 msgstr "Failed to load refunds"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Failed to load stats for the selected organization."
 msgstr "Failed to load stats for the selected organization."
 
@@ -1045,7 +1046,7 @@ msgstr "Failed to load stats for the selected organization."
 msgid "Failed to load subscription"
 msgstr "Failed to load subscription"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-subscription-breakdown/ui/subscription-breakdown.tsx
 msgid "Failed to load subscription breakdown"
 msgstr "Failed to load subscription breakdown"
 
@@ -1262,6 +1263,10 @@ msgstr "Keep Subscription"
 msgid "Key"
 msgstr "Key"
 
+#: src/pages/admin/index.tsx
+msgid "Key Value Admin"
+msgstr "Key Value Admin"
+
 #: src/features/edit-tenant/ui/edit-tenant-modal.tsx
 msgid "Key:"
 msgstr "Key:"
@@ -1300,7 +1305,7 @@ msgstr "Loading Demo"
 #~ msgstr "Loading Demo |Key Value Admin"
 
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Loading organizations…"
 msgstr "Loading organizations…"
 
@@ -1328,8 +1333,8 @@ msgid "Locales"
 msgstr "Locales"
 
 #: src/features/edit-user/model/types.ts
-#: src/pages/admin/index.tsx
 #: src/shared/ui/user-status-badge/user-status-badge.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Locked"
 msgstr "Locked"
 
@@ -1371,7 +1376,7 @@ msgstr "Mark all as read"
 msgid "Member"
 msgstr "Member"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Member Signup Trend"
 msgstr "Member Signup Trend"
 
@@ -1400,8 +1405,8 @@ msgstr "Meta description for search engines"
 msgid "Metadata"
 msgstr "Metadata"
 
-#: src/pages/admin/index.tsx
 #: src/pages/admin/plans.$planCode.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Monthly"
 msgstr "Monthly"
 
@@ -1456,7 +1461,7 @@ msgstr "New password"
 #~ msgid "New plan"
 #~ msgstr "New plan"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "New signups"
 msgstr "New signups"
 
@@ -1480,7 +1485,7 @@ msgstr "No announcements match the current filters"
 msgid "No billing settings"
 msgstr "No billing settings"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-recent-critical-audit/ui/recent-critical-audit.tsx
 msgid "No critical events — all clear"
 msgstr "No critical events — all clear"
 
@@ -1509,8 +1514,8 @@ msgstr "No members match the search"
 msgid "No notifications yet"
 msgstr "No notifications yet"
 
-#: src/pages/admin/index.tsx
 #: src/pages/admin/organizations.index.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "No organizations found"
 msgstr "No organizations found"
 
@@ -1538,7 +1543,7 @@ msgstr "No plans match the current filters"
 msgid "No platform authorities assigned."
 msgstr "No platform authorities assigned."
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-recent-refunds/ui/recent-refunds.tsx
 msgid "No refunds recorded yet"
 msgstr "No refunds recorded yet"
 
@@ -1546,7 +1551,7 @@ msgstr "No refunds recorded yet"
 msgid "No results"
 msgstr "No results"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-subscription-breakdown/ui/subscription-breakdown.tsx
 msgid "No subscription data available"
 msgstr "No subscription data available"
 
@@ -1817,8 +1822,8 @@ msgstr "Pending Invitations"
 msgid "Pending invitations can be revoked. The invitee will no longer be able to accept this link."
 msgstr "Pending invitations can be revoked. The invitee will no longer be able to accept this link."
 
-#: src/pages/admin/index.tsx
 #: src/pages/admin/plans.index.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Period"
 msgstr "Period"
 
@@ -1986,11 +1991,11 @@ msgstr "Read-only"
 msgid "Reason (optional)"
 msgstr "Reason (optional)"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-recent-critical-audit/ui/recent-critical-audit.tsx
 msgid "Recent Critical Events"
 msgstr "Recent Critical Events"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-recent-refunds/ui/recent-refunds.tsx
 msgid "Recent Refunds"
 msgstr "Recent Refunds"
 
@@ -2168,7 +2173,7 @@ msgstr "Select a tenant to view its pages"
 msgid "Select an organization"
 msgstr "Select an organization"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Select an organization above to view its member signup trend."
 msgstr "Select an organization above to view its member signup trend."
 
@@ -2176,7 +2181,7 @@ msgstr "Select an organization above to view its member signup trend."
 msgid "Select an organization to manage its CMS pages."
 msgstr "Select an organization to manage its CMS pages."
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Select an organization…"
 msgstr "Select an organization…"
 
@@ -2384,7 +2389,7 @@ msgstr "Subject Type:"
 msgid "Subscription"
 msgstr "Subscription"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-subscription-breakdown/ui/subscription-breakdown.tsx
 msgid "Subscription Breakdown"
 msgstr "Subscription Breakdown"
 
@@ -2435,13 +2440,13 @@ msgstr "Successful"
 
 #: src/features/edit-tenant/model/types.ts
 #: src/features/edit-user/model/types.ts
-#: src/pages/admin/index.tsx
 #: src/shared/ui/tenant-status-badge/tenant-status-badge.tsx
 #: src/shared/ui/user-status-badge/user-status-badge.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Suspended"
 msgstr "Suspended"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-suspended-tenants/ui/suspended-tenants.tsx
 msgid "Suspended Organizations"
 msgstr "Suspended Organizations"
 
@@ -2590,7 +2595,7 @@ msgstr "Total Attempts"
 msgid "total events"
 msgstr "total events"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Total members"
 msgstr "Total members"
 
@@ -2750,7 +2755,7 @@ msgstr "UUID or leave empty to clear."
 msgid "Verified"
 msgstr "Verified"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-suspended-tenants/ui/suspended-tenants.tsx
 msgid "View"
 msgstr "View"
 
@@ -2758,7 +2763,7 @@ msgstr "View"
 msgid "View / manage invitation"
 msgstr "View / manage invitation"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-recent-critical-audit/ui/recent-critical-audit.tsx
 msgid "View all audit logs"
 msgstr "View all audit logs"
 

@@ -85,13 +85,13 @@ msgstr "Действия"
 
 #: src/features/edit-tenant/model/types.ts
 #: src/features/edit-user/model/types.ts
-#: src/pages/admin/index.tsx
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/plans.index.tsx
 #: src/pages/admin/subscriptions.tsx
 #: src/pages/admin/users.$userId.tsx
 #: src/shared/ui/tenant-status-badge/tenant-status-badge.tsx
 #: src/shared/ui/user-status-badge/user-status-badge.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Active"
 msgstr "Активен"
 
@@ -136,11 +136,12 @@ msgstr "Всички действия"
 msgid "All Events"
 msgstr "Всички събития"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-suspended-tenants/ui/suspended-tenants.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "All organizations"
 msgstr "Всички организации"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-suspended-tenants/ui/suspended-tenants.tsx
 msgid "All organizations are in good standing"
 msgstr "Всички организации са в добро състояние"
 
@@ -148,7 +149,7 @@ msgstr "Всички организации са в добро състояни�
 msgid "All plans"
 msgstr "Всички планове"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-recent-refunds/ui/recent-refunds.tsx
 msgid "All refunds"
 msgstr "Всички възстановявания"
 
@@ -162,7 +163,7 @@ msgstr "Всички възстановявания"
 msgid "All statuses"
 msgstr "Всички статуси"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-subscription-breakdown/ui/subscription-breakdown.tsx
 msgid "All subscriptions"
 msgstr "Всички абонаменти"
 
@@ -649,7 +650,7 @@ msgstr "Текущата парола е задължителна"
 msgid "Current Period End"
 msgstr "Край на текущия период"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Daily"
 msgstr ""
 
@@ -829,8 +830,8 @@ msgid "Email unverified"
 msgstr "Имейлът не е потвърден"
 
 #: src/pages/admin/account.tsx
-#: src/pages/admin/index.tsx
 #: src/pages/admin/users.$userId.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Email verified"
 msgstr "Имейлът е потвърден"
 
@@ -929,7 +930,7 @@ msgstr "Неуспешна отмяна на абонамент"
 msgid "Failed to create announcement"
 msgstr "Неуспешно създаване на обявление"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-stat-value/ui/stat-value.tsx
 msgid "Failed to load"
 msgstr "Зареждането не успя"
 
@@ -941,7 +942,7 @@ msgstr "Зареждането на акаунта не успя"
 msgid "Failed to load announcements"
 msgstr "Зареждането на обявленията не успя"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-recent-critical-audit/ui/recent-critical-audit.tsx
 msgid "Failed to load audit events"
 msgstr "Зареждането на одиторски събития не успя"
 
@@ -961,7 +962,7 @@ msgstr "Зареждането на поканите не успя"
 msgid "Failed to load organization"
 msgstr "Зареждането на организацията не успя"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-suspended-tenants/ui/suspended-tenants.tsx
 msgid "Failed to load organization data"
 msgstr "Зареждането на данните за организацията не успя"
 
@@ -986,7 +987,7 @@ msgstr "Зареждането на плана не успя"
 msgid "Failed to load plans"
 msgstr "Зареждането на плановете не успя"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-recent-refunds/ui/recent-refunds.tsx
 msgid "Failed to load recent refunds"
 msgstr "Зареждането на последните възстановявания не успя"
 
@@ -999,7 +1000,7 @@ msgstr "Зареждането на възстановяването не усп
 msgid "Failed to load refunds"
 msgstr "Зареждането на възстановяванията не успя"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Failed to load stats for the selected organization."
 msgstr ""
 
@@ -1007,7 +1008,7 @@ msgstr ""
 msgid "Failed to load subscription"
 msgstr "Зареждането на абонамента не успя"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-subscription-breakdown/ui/subscription-breakdown.tsx
 msgid "Failed to load subscription breakdown"
 msgstr "Зареждането на разбивката на абонамент не успя"
 
@@ -1224,6 +1225,10 @@ msgstr "Запази абонамента"
 msgid "Key"
 msgstr "Ключ"
 
+#: src/pages/admin/index.tsx
+msgid "Key Value Admin"
+msgstr ""
+
 #: src/features/edit-tenant/ui/edit-tenant-modal.tsx
 msgid "Key:"
 msgstr "Ключ:"
@@ -1258,7 +1263,7 @@ msgid "Loading Demo"
 msgstr "Демо на зареждане"
 
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Loading organizations…"
 msgstr "Зареждане на организации…"
 
@@ -1286,8 +1291,8 @@ msgid "Locales"
 msgstr "Локали"
 
 #: src/features/edit-user/model/types.ts
-#: src/pages/admin/index.tsx
 #: src/shared/ui/user-status-badge/user-status-badge.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Locked"
 msgstr "Заключен"
 
@@ -1329,7 +1334,7 @@ msgstr "Маркирай всички като прочетени"
 msgid "Member"
 msgstr "Член"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Member Signup Trend"
 msgstr ""
 
@@ -1358,8 +1363,8 @@ msgstr ""
 msgid "Metadata"
 msgstr "Метаданни"
 
-#: src/pages/admin/index.tsx
 #: src/pages/admin/plans.$planCode.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Monthly"
 msgstr "Месечно"
 
@@ -1414,7 +1419,7 @@ msgstr "Нова парола"
 #~ msgid "New plan"
 #~ msgstr "Нов план"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "New signups"
 msgstr ""
 
@@ -1434,7 +1439,7 @@ msgstr "Няма обявления, съответстващи на текущ�
 msgid "No billing settings"
 msgstr "Няма настройки за фактуриране"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-recent-critical-audit/ui/recent-critical-audit.tsx
 msgid "No critical events — all clear"
 msgstr "Няма критични събития — всичко е наред"
 
@@ -1463,8 +1468,8 @@ msgstr "Няма членове, съответстващи на търсене�
 msgid "No notifications yet"
 msgstr "Все още няма известия"
 
-#: src/pages/admin/index.tsx
 #: src/pages/admin/organizations.index.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "No organizations found"
 msgstr "Не са намерени организации"
 
@@ -1492,7 +1497,7 @@ msgstr "Няма планове, съответстващи на текущит�
 msgid "No platform authorities assigned."
 msgstr "Не са присвоени платформени права."
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-recent-refunds/ui/recent-refunds.tsx
 msgid "No refunds recorded yet"
 msgstr "Все още няма записани възстановявания"
 
@@ -1500,7 +1505,7 @@ msgstr "Все още няма записани възстановявания"
 msgid "No results"
 msgstr "Няма резултати"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-subscription-breakdown/ui/subscription-breakdown.tsx
 msgid "No subscription data available"
 msgstr "Няма налични данни за абонамент"
 
@@ -1755,8 +1760,8 @@ msgstr "Изчакващи покани"
 msgid "Pending invitations can be revoked. The invitee will no longer be able to accept this link."
 msgstr "Изчакващите покани могат да бъдат отменени. Поканеният вече няма да може да приеме тази връзка."
 
-#: src/pages/admin/index.tsx
 #: src/pages/admin/plans.index.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Period"
 msgstr "Период"
 
@@ -1924,11 +1929,11 @@ msgstr "Само за четене"
 msgid "Reason (optional)"
 msgstr "Причина (по избор)"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-recent-critical-audit/ui/recent-critical-audit.tsx
 msgid "Recent Critical Events"
 msgstr "Последни критични събития"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-recent-refunds/ui/recent-refunds.tsx
 msgid "Recent Refunds"
 msgstr "Последни възстановявания"
 
@@ -2102,7 +2107,7 @@ msgstr ""
 msgid "Select an organization"
 msgstr "Изберете организация"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Select an organization above to view its member signup trend."
 msgstr ""
 
@@ -2110,7 +2115,7 @@ msgstr ""
 msgid "Select an organization to manage its CMS pages."
 msgstr ""
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Select an organization…"
 msgstr ""
 
@@ -2306,7 +2311,7 @@ msgstr "Тип субект:"
 msgid "Subscription"
 msgstr "Абонамент"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-subscription-breakdown/ui/subscription-breakdown.tsx
 msgid "Subscription Breakdown"
 msgstr "Разбивка на абонаменти"
 
@@ -2353,13 +2358,13 @@ msgstr "Успешно"
 
 #: src/features/edit-tenant/model/types.ts
 #: src/features/edit-user/model/types.ts
-#: src/pages/admin/index.tsx
 #: src/shared/ui/tenant-status-badge/tenant-status-badge.tsx
 #: src/shared/ui/user-status-badge/user-status-badge.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Suspended"
 msgstr "Спрян"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-suspended-tenants/ui/suspended-tenants.tsx
 msgid "Suspended Organizations"
 msgstr "Спряни организации"
 
@@ -2500,7 +2505,7 @@ msgstr "Общ брой опити"
 msgid "total events"
 msgstr "общо събития"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Total members"
 msgstr ""
 
@@ -2652,7 +2657,7 @@ msgstr "UUID или оставете празно за изчистване."
 msgid "Verified"
 msgstr "Потвърден"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-suspended-tenants/ui/suspended-tenants.tsx
 msgid "View"
 msgstr "Преглед"
 
@@ -2660,7 +2665,7 @@ msgstr "Преглед"
 msgid "View / manage invitation"
 msgstr "Преглед / управление на покана"
 
-#: src/pages/admin/index.tsx
+#: src/widgets/dashboard-recent-critical-audit/ui/recent-critical-audit.tsx
 msgid "View all audit logs"
 msgstr "Прегледайте всички одиторски регистри"
 

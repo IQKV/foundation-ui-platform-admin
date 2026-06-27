@@ -222,9 +222,7 @@ function EditCmsPagePage() {
 
   return (
     <Container size="xl" py={0}>
-      <Helmet>
-        <title>{pageTitle(t`Edit — ${defaultTitle} — ${tenantKey}`)}</title>
-      </Helmet>
+      <PageTitle segments={[t`Edit — ${defaultTitle} — ${tenantKey}`]} appTitle="Key Value Admin" />
 
       <PageHeader
         title={
