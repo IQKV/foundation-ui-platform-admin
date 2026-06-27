@@ -3,8 +3,7 @@ import { Alert, Box, Stack, Text, Title } from "@mantine/core";
 import { IconAlertCircle, IconInfoCircle } from "@tabler/icons-react";
 import { z } from "zod";
 import { Trans, useLingui } from "@lingui/react/macro";
-import { Helmet } from "@dr.pogodin/react-helmet";
-import { pageTitle } from "@/shared/lib/page-title";
+import { PageTitle } from "@/shared/lib/page-title";
 import { AuthLayout } from "@/shared/ui";
 import { SignInForm } from "@/features/sign-in";
 import { decodeJwt, hasPlatformAdmin } from "@/shared/lib/jwt";
@@ -47,9 +46,7 @@ function SignInPage() {
 
   return (
     <AuthLayout data-testid="page-sign-in">
-      <Helmet>
-        <title>{pageTitle(t`Sign In`)}</title>
-      </Helmet>
+      <PageTitle segments={[t`Sign In`]} appTitle="Key Value Admin" />
 
       {/* Heading */}
       <Box>

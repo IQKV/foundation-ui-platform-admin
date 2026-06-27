@@ -36,8 +36,7 @@ import {
 } from "@tabler/icons-react";
 import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
-import { Helmet } from "@dr.pogodin/react-helmet";
-import { pageTitle } from "@/shared/lib/page-title";
+import { PageTitle } from "@/shared/lib/page-title";
 import { billingApi } from "@/shared/api";
 import type { Subscription, SubscriptionSortField, SortDirection } from "@/shared/api";
 import { PageHeader } from "@/shared/ui";
@@ -295,9 +294,7 @@ function AdminSubscriptionsPage() {
 
   return (
     <Container size="xl" py={0}>
-      <Helmet>
-        <title>{pageTitle(t`Subscriptions`)}</title>
-      </Helmet>
+      <PageTitle segments={[t`Subscriptions`]} appTitle="Key Value Admin" />
       <PageHeader
         title={<Trans>Subscriptions</Trans>}
         breadcrumbs={[

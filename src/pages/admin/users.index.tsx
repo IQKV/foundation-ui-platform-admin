@@ -38,8 +38,7 @@ import {
 } from "@tabler/icons-react";
 import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
-import { Helmet } from "@dr.pogodin/react-helmet";
-import { pageTitle } from "@/shared/lib/page-title";
+import { PageTitle } from "@/shared/lib/page-title";
 import { avatarColor, initials, formatName } from "@/shared/lib/user-utils";
 import { iamApi } from "@/shared/api";
 import type { IamUser, IamUserSortField, IamUserStatus, SortDirection } from "@/shared/api";
@@ -192,9 +191,7 @@ function AdminUsersPage() {
 
   return (
     <Container size="xl" py={0}>
-      <Helmet>
-        <title>{pageTitle(t`Users`)}</title>
-      </Helmet>
+      <PageTitle segments={[t`Users`]} appTitle="Key Value Admin" />
       <PageHeader
         title={<Trans>Users</Trans>}
         breadcrumbs={[

@@ -49,8 +49,7 @@ import {
 } from "@tabler/icons-react";
 import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
-import { Helmet } from "@dr.pogodin/react-helmet";
-import { pageTitle } from "@/shared/lib/page-title";
+import { PageTitle } from "@/shared/lib/page-title";
 import { auditApi } from "@/shared/api";
 import type {
   AuditRecord,
@@ -267,9 +266,7 @@ function AdminAuditLogsPage() {
 
   return (
     <Container size="xl" py={0}>
-      <Helmet>
-        <title>{pageTitle(t`Audit Logs`)}</title>
-      </Helmet>
+      <PageTitle segments={[t`Audit Logs`]} appTitle="Key Value Admin" />
       <PageHeader
         title={<Trans>Audit Logs</Trans>}
         breadcrumbs={[

@@ -1,8 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Container, Title, Text, Button, Stack } from "@mantine/core";
 import { Trans, useLingui } from "@lingui/react/macro";
-import { Helmet } from "@dr.pogodin/react-helmet";
-import { pageTitle } from "@/shared/lib/page-title";
+import { PageTitle } from "@/shared/lib/page-title";
 
 export const Route = createFileRoute("/404")({
   component: NotFoundPage,
@@ -12,9 +11,7 @@ function NotFoundPage() {
   const { t } = useLingui();
   return (
     <Container size="sm" py="xl" data-testid="page-404">
-      <Helmet>
-        <title>{pageTitle(t`Page Not Found`)}</title>
-      </Helmet>
+      <PageTitle segments={[t`Page Not Found`]} appTitle="Key Value Admin" />
       <Stack align="center" gap="md">
         <Title>404</Title>
         <Text c="dimmed">

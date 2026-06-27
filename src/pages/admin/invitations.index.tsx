@@ -32,8 +32,7 @@ import {
 } from "@tabler/icons-react";
 import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
-import { Helmet } from "@dr.pogodin/react-helmet";
-import { pageTitle } from "@/shared/lib/page-title";
+import { PageTitle } from "@/shared/lib/page-title";
 import { iamApi } from "@/shared/api";
 import type {
   IamInvitation,
@@ -158,9 +157,7 @@ function AdminInvitationsPage() {
 
   return (
     <Container size="xl" py={0}>
-      <Helmet>
-        <title>{pageTitle(t`Invitations`)}</title>
-      </Helmet>
+      <PageTitle segments={[t`Invitations`]} appTitle="Key Value Admin" />
       <PageHeader
         title={<Trans>Invitations</Trans>}
         breadcrumbs={[

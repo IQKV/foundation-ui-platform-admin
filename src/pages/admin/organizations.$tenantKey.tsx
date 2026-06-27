@@ -31,8 +31,7 @@ import {
 } from "@tabler/icons-react";
 import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
-import { Helmet } from "@dr.pogodin/react-helmet";
-import { pageTitle } from "@/shared/lib/page-title";
+import { PageTitle } from "@/shared/lib/page-title";
 import { iamApi, billingApi } from "@/shared/api";
 import { TenantStatusBadge, PageHeader } from "@/shared/ui";
 import { useState } from "react";
@@ -125,9 +124,7 @@ function OrganizationTenantLayout() {
 
   return (
     <Container size="xl" py={0}>
-      <Helmet>
-        <title>{pageTitle(isLoading ? t`Organization` : (tenant?.name ?? t`Organization`))}</title>
-      </Helmet>
+      <PageTitle segments={[isLoading ? t`Organization` : (tenant?.name ?? t`Organization`)]} appTitle="Key Value Admin" />
 
       <PageHeader
         title={isLoading ? <Skeleton height={24} width={160} radius="sm" /> : <>{tenant?.name}</>}

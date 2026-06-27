@@ -23,8 +23,7 @@ import { DataTable, type DataTableSortStatus } from "mantine-datatable";
 import { IconSearch, IconEye, IconRefresh, IconAlertCircle, IconFilter } from "@tabler/icons-react";
 import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
-import { Helmet } from "@dr.pogodin/react-helmet";
-import { pageTitle } from "@/shared/lib/page-title";
+import { PageTitle } from "@/shared/lib/page-title";
 import { billingApi } from "@/shared/api";
 import type { Plan } from "@/shared/api";
 import { PageHeader } from "@/shared/ui";
@@ -133,9 +132,7 @@ function AdminPlansPage() {
 
   return (
     <Container size="xl" py={0}>
-      <Helmet>
-        <title>{pageTitle(t`Plans`)}</title>
-      </Helmet>
+      <PageTitle segments={[t`Plans`]} appTitle="Key Value Admin" />
       <PageHeader
         title={<Trans>Plan catalog</Trans>}
         breadcrumbs={[

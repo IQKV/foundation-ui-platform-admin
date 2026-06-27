@@ -21,8 +21,7 @@ import { useQuery } from "@tanstack/react-query";
 import { IconAlertCircle, IconArrowLeft, IconRefresh } from "@tabler/icons-react";
 import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
-import { Helmet } from "@dr.pogodin/react-helmet";
-import { pageTitle } from "@/shared/lib/page-title";
+import { PageTitle } from "@/shared/lib/page-title";
 import { billingApi } from "@/shared/api";
 import { PageHeader } from "@/shared/ui";
 
@@ -80,9 +79,7 @@ function PlanDetailPage() {
 
   return (
     <Container size="md" py={0}>
-      <Helmet>
-        <title>{pageTitle(isLoading ? t`Plan` : displayTitle)}</title>
-      </Helmet>
+      <PageTitle segments={[isLoading ? t`Plan` : displayTitle]} appTitle="Key Value Admin" />
 
       <PageHeader
         title={isLoading ? <Skeleton height={24} width={200} radius="sm" /> : displayTitle}

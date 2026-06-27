@@ -1,8 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Button, Center, Container, Stack, Text, Title } from "@mantine/core";
 import { Trans, useLingui } from "@lingui/react/macro";
-import { Helmet } from "@dr.pogodin/react-helmet";
-import { pageTitle } from "@/shared/lib/page-title";
+import { PageTitle } from "@/shared/lib/page-title";
 import { SignOutButton } from "@/features/sign-out";
 
 // ─── Route ────────────────────────────────────────────────────────────────────
@@ -21,9 +20,7 @@ function UnauthorizedPage() {
   const { t } = useLingui();
   return (
     <Center mih="100vh" bg="gray.0" data-testid="page-unauthorized">
-      <Helmet>
-        <title>{pageTitle(t`Access Denied`)}</title>
-      </Helmet>
+      <PageTitle segments={[t`Access Denied`]} appTitle="Key Value Admin" />
       <Container size="sm">
         <Stack align="center" gap="md">
           {/* Requirement 4.2 — heading and explanatory message */}

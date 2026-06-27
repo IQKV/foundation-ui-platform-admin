@@ -36,8 +36,7 @@ import {
 } from "@tabler/icons-react";
 import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
-import { Helmet } from "@dr.pogodin/react-helmet";
-import { pageTitle } from "@/shared/lib/page-title";
+import { PageTitle } from "@/shared/lib/page-title";
 import { avatarColor, initials, formatName } from "@/shared/lib/user-utils";
 import { iamApi } from "@/shared/api";
 import { UserStatusBadge, PageHeader } from "@/shared/ui";
@@ -428,9 +427,7 @@ function UserDetailPage() {
 
   return (
     <Container size="xl" py={0}>
-      <Helmet>
-        <title>{pageTitle(isLoading ? t`User` : displayName)}</title>
-      </Helmet>
+      <PageTitle segments={[isLoading ? t`User` : displayName]} appTitle="Key Value Admin" />
 
       <PageHeader
         title={isLoading ? <Skeleton height={24} width={160} radius="sm" /> : <>{displayName}</>}

@@ -30,8 +30,7 @@ import {
 } from "@tabler/icons-react";
 import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
-import { Helmet } from "@dr.pogodin/react-helmet";
-import { pageTitle } from "@/shared/lib/page-title";
+import { PageTitle } from "@/shared/lib/page-title";
 import { iamApi } from "@/shared/api";
 import type { SiteAnnouncement, SiteAnnouncementStatus } from "@/shared/api";
 import { AnnouncementStatusBadge, PageHeader } from "@/shared/ui";
@@ -144,9 +143,7 @@ function AdminAnnouncementsPage() {
 
   return (
     <Container size="xl" py={0}>
-      <Helmet>
-        <title>{pageTitle(t`Announcements`)}</title>
-      </Helmet>
+      <PageTitle segments={[t`Announcements`]} appTitle="Key Value Admin" />
       <PageHeader
         title={<Trans>Site Announcements</Trans>}
         breadcrumbs={[

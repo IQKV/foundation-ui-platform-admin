@@ -17,8 +17,7 @@ import { useQuery } from "@tanstack/react-query";
 import { IconAlertCircle, IconArrowLeft, IconRefresh } from "@tabler/icons-react";
 import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
-import { Helmet } from "@dr.pogodin/react-helmet";
-import { pageTitle } from "@/shared/lib/page-title";
+import { PageTitle } from "@/shared/lib/page-title";
 import { billingApi } from "@/shared/api";
 import { PageHeader } from "@/shared/ui";
 

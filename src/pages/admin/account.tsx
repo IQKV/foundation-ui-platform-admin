@@ -30,8 +30,7 @@ import {
 } from "@tabler/icons-react";
 import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
-import { Helmet } from "@dr.pogodin/react-helmet";
-import { pageTitle } from "@/shared/lib/page-title";
+import { PageTitle } from "@/shared/lib/page-title";
 import { avatarColor, initials, formatName } from "@/shared/lib/user-utils";
 import { adminAccountApi } from "@/shared/api";
 import { UserStatusBadge, PageHeader } from "@/shared/ui";
@@ -128,9 +127,7 @@ function AccountPage() {
 
   return (
     <Container size="xl" py={0} data-testid={TestSelectors.PAGE_ACCOUNT}>
-      <Helmet>
-        <title>{pageTitle(isLoading ? t`My Account` : displayName)}</title>
-      </Helmet>
+      <PageTitle segments={[isLoading ? t`My Account` : displayName]} appTitle="Key Value Admin" />
 
       <PageHeader
         title={<Trans>My Account</Trans>}

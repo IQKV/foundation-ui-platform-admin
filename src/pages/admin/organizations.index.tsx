@@ -33,8 +33,7 @@ import {
 } from "@tabler/icons-react";
 import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
-import { Helmet } from "@dr.pogodin/react-helmet";
-import { pageTitle } from "@/shared/lib/page-title";
+import { PageTitle } from "@/shared/lib/page-title";
 import { iamApi } from "@/shared/api";
 import type { IamTenant, IamTenantSortField, IamTenantStatus, SortDirection } from "@/shared/api";
 import { TenantStatusBadge, PageHeader } from "@/shared/ui";
@@ -129,9 +128,7 @@ function AdminOrganizationsPage() {
 
   return (
     <Container size="xl" py={0}>
-      <Helmet>
-        <title>{pageTitle(t`Organizations`)}</title>
-      </Helmet>
+      <PageTitle segments={[t`Organizations`]} appTitle="Key Value Admin" />
       <PageHeader
         title={<Trans>Organizations</Trans>}
         breadcrumbs={[

@@ -21,8 +21,7 @@ import { DataTable, type DataTableSortStatus } from "mantine-datatable";
 import { IconSearch, IconAlertCircle, IconReceiptRefund, IconEye } from "@tabler/icons-react";
 import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
-import { Helmet } from "@dr.pogodin/react-helmet";
-import { pageTitle } from "@/shared/lib/page-title";
+import { PageTitle } from "@/shared/lib/page-title";
 import { billingApi } from "@/shared/api";
 import type { AdminRefund, RefundSortField, SortDirection } from "@/shared/api";
 import { PageHeader } from "@/shared/ui";
@@ -99,9 +98,7 @@ function AdminRefundsPage() {
 
   return (
     <Container size="xl" py={0}>
-      <Helmet>
-        <title>{pageTitle(t`Refunds`)}</title>
-      </Helmet>
+      <PageTitle segments={[t`Refunds`]} appTitle="Key Value Admin" />
       <PageHeader
         title={<Trans>Refunds</Trans>}
         breadcrumbs={[

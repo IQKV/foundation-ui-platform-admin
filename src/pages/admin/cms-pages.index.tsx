@@ -32,8 +32,7 @@ import {
 } from "@tabler/icons-react";
 import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
-import { Helmet } from "@dr.pogodin/react-helmet";
-import { pageTitle } from "@/shared/lib/page-title";
+import { PageTitle } from "@/shared/lib/page-title";
 import { TestSelectors } from "@/shared/lib/test-selectors";
 import { iamApi, cmsApi } from "@/shared/api";
 import type { CmsPageSummary, CmsPageStatus } from "@/shared/api";
@@ -133,9 +132,7 @@ function AdminCmsPagesPage() {
 
   return (
     <Container size="xl" py={0}>
-      <Helmet>
-        <title>{pageTitle(t`CMS Pages`)}</title>
-      </Helmet>
+      <PageTitle segments={[t`CMS Pages`]} appTitle="Key Value Admin" />
       <PageHeader
         title={<Trans>CMS Pages</Trans>}
         breadcrumbs={[
