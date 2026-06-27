@@ -41,7 +41,7 @@ import { avatarColor, initials, formatName } from "@/shared/lib/user-utils";
 import { iamApi } from "@/shared/api";
 import { UserStatusBadge, PageHeader } from "@/shared/ui";
 import { useState } from "react";
-import type { IamUser } from "@/shared/api";
+import type { User } from "@/entities";
 import { EditUserModal } from "@/features/edit-user";
 import { SetUserPasswordModal } from "@/features/set-user-password";
 import { UnlockUserModal } from "@/features/unlock-user";
@@ -90,7 +90,7 @@ function StatCard({ label, value, isLoading, "data-testid": testId }: StatCardPr
 // ─── Tab: Platform Authority ──────────────────────────────────────────────────
 
 interface PlatformAuthorityTabProps {
-  user: IamUser | undefined;
+  user: User | undefined;
   isLoading: boolean;
   isSelf: boolean;
 }
@@ -221,7 +221,7 @@ function PlatformAuthorityTab({ user, isLoading, isSelf }: PlatformAuthorityTabP
 
 // ─── Tab: Overview ────────────────────────────────────────────────────────────
 
-function OverviewTab({ user, isLoading }: { user: IamUser | undefined; isLoading: boolean }) {
+function OverviewTab({ user, isLoading }: { user: User | undefined; isLoading: boolean }) {
   return (
     <Stack gap="md" pt="md">
       {/* Stats bar */}
@@ -354,7 +354,7 @@ function UserDetailPage() {
   const [activeTab, setActiveTab] = useState<string | null>("overview");
 
   const [editOpened, { open: openEdit, close: closeEdit }] = useDisclosure(false);
-  const [editTarget, setEditTarget] = useState<IamUser | null>(null);
+  const [editTarget, setEditTarget] = useState<User | null>(null);
 
   const [pwOpened, { open: openPw, close: closePw }] = useDisclosure(false);
   const [unlockOpened, { open: openUnlock, close: closeUnlock }] = useDisclosure(false);

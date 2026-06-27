@@ -21,7 +21,8 @@ import { IconSearch, IconAlertCircle, IconEye } from "@tabler/icons-react";
 import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
 import { billingApi } from "@/shared/api";
-import type { AdminRefund, RefundSortField, SortDirection } from "@/shared/api";
+import type { Refund } from "@/entities";
+import type { RefundSortField, SortDirection } from "@/shared/api";
 
 export const Route = createFileRoute("/admin/organizations/$tenantKey/refunds")({
   component: OrganizationRefundsPage,
@@ -58,7 +59,7 @@ function OrganizationRefundsPage() {
   const { tenantKey } = Route.useParams();
   const [page, setPage] = useState(1);
 
-  const [sortStatus, setSortStatus] = useState<DataTableSortStatus<AdminRefund>>({
+  const [sortStatus, setSortStatus] = useState<DataTableSortStatus<Refund>>({
     columnAccessor: "occurredAt",
     direction: "desc",
   });
@@ -78,7 +79,7 @@ function OrganizationRefundsPage() {
       }),
   });
 
-  const handleSortChange = (next: DataTableSortStatus<AdminRefund>) => {
+  const handleSortChange = (next: DataTableSortStatus<Refund>) => {
     setSortStatus(next);
     setPage(1);
   };

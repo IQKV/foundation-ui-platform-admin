@@ -1,71 +1,38 @@
 import { httpClient } from "./http-client";
+import type {
+  User,
+  UserStatus,
+  AdminAccount,
+  Tenant,
+  TenantStatus,
+  Subscription,
+  SubscriptionStatus,
+  Plan,
+  AdminBillingSettings,
+  Refund,
+  Notification,
+  Invitation,
+  InvitationStatus,
+  InvitationAuthority,
+  CmsPage,
+  CmsPageStatus,
+  CmsPageTranslation,
+  CmsPageSummary,
+  CmsPageHierarchyItem,
+  AuditRecord,
+  AuditSeverity,
+  AuditActionCount,
+  Announcement,
+  AnnouncementStatus,
+  AnnouncementTranslation,
+} from "../../entities";
 
-// ─── Types ────────────────────────────────────────────────────────────────────
+// ─── Shared API types ─────────────────────────────────────────────────────────
 
-export type IamUserStatus = "ACTIVE" | "LOCKED" | "SUSPENDED" | "DELETED";
-
-// ─── Platform admin account ───────────────────────────────────────────────────
-
-export interface AdminAccount {
-  userId: string;
-  email: string;
-  firstName: string;
-  lastName: string;
-  status: IamUserStatus;
-  emailVerified: boolean;
-  /** BCP 47 locale tag (e.g. "en-US"). Null when not yet set. */
-  locale: string | null;
-  platformAuthorities: string[];
-  createdAt: string;
-  updatedAt: string;
-}
-
-export interface UpdateAdminAccountRequest {
-  firstName: string;
-  lastName: string;
-  /** BCP 47 locale tag. Optional — omit to leave unchanged. */
-  locale?: string | null;
-}
-export type IamTenantStatus = "ACTIVE" | "SUSPENDED" | "DELETED";
-
-export type IamUserSortField = "email" | "firstName" | "lastName" | "updatedAt" | "createdAt";
-export type IamTenantSortField = "name" | "tenantKey" | "updatedAt" | "createdAt";
-export type IamInvitationStatus = "PENDING" | "ACCEPTED" | "REVOKED" | "EXPIRED";
-export type IamInvitationAuthority = "ADMIN" | "MEMBER";
-export type IamInvitationSortField =
-  | "email"
-  | "tenantKey"
-  | "status"
-  | "expiresAt"
-  | "createdAt"
-  | "updatedAt";
 export type SortDirection = "asc" | "desc";
 
 export interface CountResponse {
   total: number;
-}
-
-export interface IamUser {
-  id: string;
-  email: string;
-  firstName: string;
-  lastName: string;
-  status: IamUserStatus;
-  emailVerified: boolean;
-  /** BCP 47 locale tag (e.g. "en-US"). Null when not yet set. */
-  locale: string | null;
-  /** Public URL of the user's avatar image. Null when no avatar has been uploaded. */
-  avatarUrl: string | null;
-  /** ISO-8601 timestamp of the user's first sign-in. Null if they haven't signed in yet. */
-  firstSignInAt: string | null;
-  /** Whether the user has completed the welcome onboarding flow. */
-  onboardingCompleted: boolean;
-  /** Whether the user has completed initial profile setup (name fields populated). */
-  profileCompleted: boolean;
-  tenantAuthorities?: string[];
-  organizations: string[];
-  createdAt: string;
-  updatedAt: string;
 }
 
 export interface PagedResponse<T> {
@@ -76,109 +43,87 @@ export interface PagedResponse<T> {
   totalPages: number;
 }
 
-export interface ListIamUsersParams {
+// ─── IAM-specific API types ───────────────────────────────────────────────────
+
+export type UserSortField = "email" | "firstName" | "lastName" | "updatedAt" | "createdAt";
+export type TenantSortField = "name" | "tenantKey" | "updatedAt" | "createdAt";
+export type InvitationSortField =
+  | "email"
+  | "tenantKey"
+  | "status"
+  | "expiresAt"
+  | "createdAt"
+  | "updatedAt";
+
+export interface ListUsersParams {
   page?: number;
   size?: number;
   search?: string;
-  status?: IamUserStatus;
-  sortBy?: IamUserSortField;
+  status?: UserStatus;
+  sortBy?: UserSortField;
   sortDir?: SortDirection;
 }
 
-export interface IamTenant {
-  id: string;
-  tenantKey: string;
-  name: string;
-  status: IamTenantStatus;
-  createdAt: string;
-  updatedAt: string;
-}
-
-export interface ListIamTenantsParams {
+export interface ListTenantsParams {
   page?: number;
   size?: number;
   search?: string;
-  status?: IamTenantStatus;
-  sortBy?: IamTenantSortField;
+  status?: TenantStatus;
+  sortBy?: TenantSortField;
   sortDir?: SortDirection;
 }
 
-export interface IamInvitation {
-  invitationId: string;
-  tenantKey: string;
-  email: string;
-  authority: IamInvitationAuthority;
-  status: IamInvitationStatus;
-  invitedBy: string;
-  expiresAt: string;
-  acceptedAt: string | null;
-  createdAt: string;
-  updatedAt: string;
-}
-
-export interface ListIamInvitationsParams {
+export interface ListInvitationsParams {
   page?: number;
   size?: number;
   search?: string;
-  status?: IamInvitationStatus;
+  status?: InvitationStatus;
   tenantKey?: string;
-  sortBy?: IamInvitationSortField;
+  sortBy?: InvitationSortField;
   sortDir?: SortDirection;
 }
 
-export interface ProposeIamInvitationRequest {
+export interface ProposeInvitationRequest {
   tenantKey: string;
   email: string;
-  authority?: IamInvitationAuthority;
+  authority?: InvitationAuthority;
 }
 
 export interface ListTenantMembersParams {
   page?: number;
   size?: number;
   search?: string;
-  status?: IamUserStatus;
-  sortBy?: IamUserSortField;
+  status?: UserStatus;
+  sortBy?: UserSortField;
   sortDir?: SortDirection;
 }
 
-// ─── Announcement types ───────────────────────────────────────────────────────
-
-export type SiteAnnouncementStatus = "DRAFT" | "PENDING" | "PUBLISHING" | "PUBLISHED" | "FAILED";
-
-export interface SiteAnnouncementTranslation {
-  locale: string;
-  title: string;
-  message: string;
+export interface UpdateAdminAccountRequest {
+  firstName: string;
+  lastName: string;
+  locale?: string | null;
 }
 
-export interface SiteAnnouncement {
-  id: string;
-  type: string;
-  status: SiteAnnouncementStatus;
-  createdAt: string;
-  translations: SiteAnnouncementTranslation[];
-}
+// ─── Announcement API types ───────────────────────────────────────────────────
 
-export interface SiteAnnouncementListResponse {
-  items: SiteAnnouncement[];
+export interface AnnouncementListResponse {
+  items: Announcement[];
   totalElements: number;
 }
 
-export interface CreateSiteAnnouncementRequest {
+export interface CreateAnnouncementRequest {
   type: string;
-  status: SiteAnnouncementStatus;
-  translations: SiteAnnouncementTranslation[];
+  status: AnnouncementStatus;
+  translations: AnnouncementTranslation[];
 }
 
-export interface UpdateSiteAnnouncementRequest {
+export interface UpdateAnnouncementRequest {
   type: string;
-  status: SiteAnnouncementStatus;
-  translations: SiteAnnouncementTranslation[];
+  status: AnnouncementStatus;
+  translations: AnnouncementTranslation[];
 }
 
-// ─── API ──────────────────────────────────────────────────────────────────────
-
-// ─── Ban types ─────────────────────────────────────────────────────────────────
+// ─── Ban API types ────────────────────────────────────────────────────────────
 
 export interface BanUserRequest {
   reason?: string;
@@ -238,16 +183,43 @@ export interface TenantUserStatsParams {
   granularity?: "day" | "month";
 }
 
+// ─── Notification API types ───────────────────────────────────────────────────
+
+export interface NotificationListResponse {
+  items: Notification[];
+  totalElements: number;
+  unreadCount: number;
+}
+
+export interface UnreadCountResponse {
+  unreadCount: number;
+}
+
+export interface NotificationPatchRequest {
+  isRead: boolean;
+}
+
+// ─── Locales API types ────────────────────────────────────────────────────────
+
+export interface IamLocale {
+  code: string;
+  name: string;
+  nativeName: string | null;
+  isDefault: boolean;
+}
+
+// ─── API ──────────────────────────────────────────────────────────────────────
+
 export const iamApi = {
   countUsers: () => httpClient.get<CountResponse>("/v1/iam/admin/users/count").then((r) => r.data),
 
-  listUsers: (params: ListIamUsersParams = {}) =>
-    httpClient.get<PagedResponse<IamUser>>("/v1/iam/admin/users", { params }).then((r) => r.data),
+  listUsers: (params: ListUsersParams = {}) =>
+    httpClient.get<PagedResponse<User>>("/v1/iam/admin/users", { params }).then((r) => r.data),
 
-  getUser: (id: string) => httpClient.get<IamUser>(`/v1/iam/admin/users/${id}`).then((r) => r.data),
+  getUser: (id: string) => httpClient.get<User>(`/v1/iam/admin/users/${id}`).then((r) => r.data),
 
-  updateUser: (id: string, data: Partial<Pick<IamUser, "firstName" | "lastName" | "status">>) =>
-    httpClient.patch<IamUser>(`/v1/iam/admin/users/${id}`, data).then((r) => r.data),
+  updateUser: (id: string, data: Partial<Pick<User, "firstName" | "lastName" | "status">>) =>
+    httpClient.patch<User>(`/v1/iam/admin/users/${id}`, data).then((r) => r.data),
 
   setUserPassword: (id: string, newPassword: string) =>
     httpClient.post(`/v1/iam/admin/users/${id}/password`, { newPassword }),
@@ -274,13 +246,11 @@ export const iamApi = {
   countTenants: () =>
     httpClient.get<CountResponse>("/v1/iam/admin/tenants/count").then((r) => r.data),
 
-  listTenants: (params: ListIamTenantsParams = {}) =>
-    httpClient
-      .get<PagedResponse<IamTenant>>("/v1/iam/admin/tenants", { params })
-      .then((r) => r.data),
+  listTenants: (params: ListTenantsParams = {}) =>
+    httpClient.get<PagedResponse<Tenant>>("/v1/iam/admin/tenants", { params }).then((r) => r.data),
 
   getTenant: (tenantKey: string) =>
-    httpClient.get<IamTenant>(`/v1/iam/admin/tenants/${tenantKey}`).then((r) => r.data),
+    httpClient.get<Tenant>(`/v1/iam/admin/tenants/${tenantKey}`).then((r) => r.data),
 
   countTenantMembers: (tenantKey: string) =>
     httpClient
@@ -289,7 +259,7 @@ export const iamApi = {
 
   listTenantMembers: (tenantKey: string, params: ListTenantMembersParams = {}) =>
     httpClient
-      .get<PagedResponse<IamUser>>(`/v1/iam/admin/tenants/${tenantKey}/members`, { params })
+      .get<PagedResponse<User>>(`/v1/iam/admin/tenants/${tenantKey}/members`, { params })
       .then((r) => r.data),
 
   getTenantMemberAuthorities: (tenantKey: string, userId: string) =>
@@ -311,28 +281,28 @@ export const iamApi = {
       )
       .then((r) => r.data),
 
-  updateTenant: (tenantKey: string, data: Partial<Pick<IamTenant, "name" | "status">>) =>
-    httpClient.patch<IamTenant>(`/v1/iam/admin/tenants/${tenantKey}`, data).then((r) => r.data),
+  updateTenant: (tenantKey: string, data: Partial<Pick<Tenant, "name" | "status">>) =>
+    httpClient.patch<Tenant>(`/v1/iam/admin/tenants/${tenantKey}`, data).then((r) => r.data),
 
   deleteTenant: (tenantKey: string) => httpClient.delete(`/v1/iam/admin/tenants/${tenantKey}`),
 
   countInvitations: (
-    params: Omit<ListIamInvitationsParams, "page" | "size" | "sortBy" | "sortDir"> = {},
+    params: Omit<ListInvitationsParams, "page" | "size" | "sortBy" | "sortDir"> = {},
   ) =>
     httpClient
       .get<CountResponse>("/v1/iam/admin/invitations/count", { params })
       .then((r) => r.data),
 
-  listInvitations: (params: ListIamInvitationsParams = {}) =>
+  listInvitations: (params: ListInvitationsParams = {}) =>
     httpClient
-      .get<PagedResponse<IamInvitation>>("/v1/iam/admin/invitations", { params })
+      .get<PagedResponse<Invitation>>("/v1/iam/admin/invitations", { params })
       .then((r) => r.data),
 
   getInvitation: (id: string) =>
-    httpClient.get<IamInvitation>(`/v1/iam/admin/invitations/${id}`).then((r) => r.data),
+    httpClient.get<Invitation>(`/v1/iam/admin/invitations/${id}`).then((r) => r.data),
 
-  proposeInvitation: (data: ProposeIamInvitationRequest) =>
-    httpClient.post<IamInvitation>("/v1/iam/admin/invitations", data).then((r) => r.data),
+  proposeInvitation: (data: ProposeInvitationRequest) =>
+    httpClient.post<Invitation>("/v1/iam/admin/invitations", data).then((r) => r.data),
 
   revokeInvitation: (id: string) => httpClient.delete(`/v1/iam/admin/invitations/${id}`),
 
@@ -340,17 +310,17 @@ export const iamApi = {
 
   listAnnouncements: (params: { limit?: number; offset?: number } = {}) =>
     httpClient
-      .get<SiteAnnouncementListResponse>("/v1/iam/admin/announcements", { params })
+      .get<AnnouncementListResponse>("/v1/iam/admin/announcements", { params })
       .then((r) => r.data),
 
   getAnnouncement: (id: string) =>
-    httpClient.get<SiteAnnouncement>(`/v1/iam/admin/announcements/${id}`).then((r) => r.data),
+    httpClient.get<Announcement>(`/v1/iam/admin/announcements/${id}`).then((r) => r.data),
 
-  createAnnouncement: (data: CreateSiteAnnouncementRequest) =>
-    httpClient.post<SiteAnnouncement>("/v1/iam/admin/announcements", data).then((r) => r.data),
+  createAnnouncement: (data: CreateAnnouncementRequest) =>
+    httpClient.post<Announcement>("/v1/iam/admin/announcements", data).then((r) => r.data),
 
-  updateAnnouncement: (id: string, data: UpdateSiteAnnouncementRequest) =>
-    httpClient.put<SiteAnnouncement>(`/v1/iam/admin/announcements/${id}`, data).then((r) => r.data),
+  updateAnnouncement: (id: string, data: UpdateAnnouncementRequest) =>
+    httpClient.put<Announcement>(`/v1/iam/admin/announcements/${id}`, data).then((r) => r.data),
 
   deleteAnnouncement: (id: string) => httpClient.delete(`/v1/iam/admin/announcements/${id}`),
 
@@ -358,11 +328,6 @@ export const iamApi = {
 
   // ── Tenant user stats (PLATFORM_ADMIN) ────────────────────────────────────
 
-  /**
-   * Returns aggregated member counts and a time-bucketed signup series for the
-   * given tenant. Uses the admin endpoint — no X-Tenant-ID or tenant-scoped
-   * token required; PLATFORM_ADMIN authority is the only gate.
-   */
   getTenantUserStats: (tenantKey: string, params: TenantUserStatsParams = {}) =>
     httpClient
       .get<TenantUserStatsResponse>(
@@ -372,91 +337,45 @@ export const iamApi = {
       .then((r) => r.data),
 };
 
-// ─── Notification types ───────────────────────────────────────────────────────
-
-export interface UserNotification {
-  id: string;
-  type: string;
-  severity: string;
-  title: string;
-  message: string | null;
-  /** Raw JSON string — use JSON.parse if you need the object. */
-  payload: string | null;
-  isRead: boolean;
-  createdAt: string;
-  readAt: string | null;
-}
-
-export interface UserNotificationListResponse {
-  items: UserNotification[];
-  totalElements: number;
-  unreadCount: number;
-}
-
-export interface UnreadCountResponse {
-  unreadCount: number;
-}
-
-export interface NotificationPatchRequest {
-  isRead: boolean;
-}
-
 // ─── Notification API ─────────────────────────────────────────────────────────
 
 export const notificationApi = {
-  /** GET /v1/iam/users/notifications — paginated list with optional isRead filter. */
   list: (params: { limit?: number; offset?: number; isRead?: boolean } = {}) =>
     httpClient
-      .get<UserNotificationListResponse>("/v1/iam/users/notifications", { params })
+      .get<NotificationListResponse>("/v1/iam/users/notifications", { params })
       .then((r) => r.data),
 
-  /** GET /v1/iam/users/notifications/unread/count — badge count. */
   unreadCount: () =>
     httpClient
       .get<UnreadCountResponse>("/v1/iam/users/notifications/unread/count")
       .then((r) => r.data),
 
-  /** PATCH /v1/iam/users/notifications/{id} — mark single as read. */
   patch: (id: string, data: NotificationPatchRequest) =>
     httpClient.patch(`/v1/iam/users/notifications/${id}`, data),
 
-  /** PATCH /v1/iam/users/notifications — bulk update (mark all as read). */
   patchAll: (data: NotificationPatchRequest) =>
     httpClient.patch("/v1/iam/users/notifications", data),
 
-  /** DELETE /v1/iam/users/notifications/{id} — delete single. */
   deleteOne: (id: string) => httpClient.delete(`/v1/iam/users/notifications/${id}`),
 
-  /** DELETE /v1/iam/users/notifications — delete all. */
   deleteAll: () => httpClient.delete("/v1/iam/users/notifications"),
 };
 
 // ─── Platform admin self-service account API ──────────────────────────────────
 
 export const adminAccountApi = {
-  /** GET /v1/iam/auth/admin/me — fetch the authenticated platform operator's profile. */
   getAccount: (): Promise<AdminAccount> =>
     httpClient.get<AdminAccount>("/v1/iam/auth/admin/me").then((r) => r.data),
 
-  /** PATCH /v1/iam/auth/admin/me — update firstName and lastName. */
   updateAccount: (data: UpdateAdminAccountRequest): Promise<AdminAccount> =>
     httpClient.patch<AdminAccount>("/v1/iam/auth/admin/me", data).then((r) => r.data),
 
-  /** POST /v1/iam/auth/admin/me/password — change own password (requires current password). */
   changePassword: (data: { currentPassword: string; newPassword: string }): Promise<void> =>
     httpClient.post("/v1/iam/auth/admin/me/password", data).then(() => undefined),
 };
 
-// ─── Locales ──────────────────────────────────────────────────────────────────
+// ─── Locales API ──────────────────────────────────────────────────────────────
 
-export interface IamLocale {
-  code: string;
-  name: string;
-  nativeName: string | null;
-  isDefault: boolean;
-}
-
-/** GET /v1/iam/locales — public, returns all active locales ordered by default first. */
 export const localesApi = {
   list: () => httpClient.get<IamLocale[]>("/v1/iam/locales").then((r) => r.data),
 };

@@ -1,5 +1,6 @@
 import { iamApi } from "@/shared/api";
-import type { IamTenant, ListIamTenantsParams } from "@/shared/api";
+import type { Tenant } from "@/entities";
+import type { ListTenantsParams } from "@/shared/api";
 
 const PAGE_SIZE = 100;
 
@@ -7,9 +8,9 @@ const PAGE_SIZE = 100;
  * Loads every tenant page from {@link iamApi.listTenants} (admin API, max 100 per page).
  */
 export async function fetchAllTenants(
-  params: Omit<ListIamTenantsParams, "page" | "size"> = {},
-): Promise<IamTenant[]> {
-  const tenants: IamTenant[] = [];
+  params: Omit<ListTenantsParams, "page" | "size"> = {},
+): Promise<Tenant[]> {
+  const tenants: Tenant[] = [];
   let page = 0;
 
   while (true) {

@@ -32,7 +32,7 @@ import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
 import { PageTitle } from "@/shared/lib/page-title";
 import { iamApi } from "@/shared/api";
-import type { SiteAnnouncement, SiteAnnouncementStatus } from "@/shared/api";
+import type { Announcement, AnnouncementStatus } from "@/entities";
 import { AnnouncementStatusBadge, PageHeader } from "@/shared/ui";
 import {
   CreateAnnouncementModal,
@@ -46,7 +46,7 @@ export const Route = createFileRoute("/admin/announcements/")({
 
 const PAGE_SIZE = 20;
 
-const STATUS_OPTIONS: { value: SiteAnnouncementStatus; label: string }[] = [
+const STATUS_OPTIONS: { value: AnnouncementStatus; label: string }[] = [
   { value: "DRAFT", label: "Draft" },
   { value: "PENDING", label: "Pending" },
   { value: "PUBLISHING", label: "Publishing" },
@@ -69,14 +69,14 @@ function AdminAnnouncementsPage() {
   const [page, setPage] = useState(1);
 
   // ─── Filters ────────────────────────────────────────────────────────────────
-  const [statusFilter, setStatusFilter] = useState<SiteAnnouncementStatus | null>(null);
+  const [statusFilter, setStatusFilter] = useState<AnnouncementStatus | null>(null);
   const [typeFilter, setTypeFilter] = useState<string | null>(null);
 
   // ─── Modal state ────────────────────────────────────────────────────────────
   const [createOpened, { open: openCreate, close: closeCreate }] = useDisclosure(false);
   const [editOpened, { open: openEdit, close: closeEdit }] = useDisclosure(false);
   const [deleteOpened, { open: openDelete, close: closeDelete }] = useDisclosure(false);
-  const [selectedAnnouncement, setSelectedAnnouncement] = useState<SiteAnnouncement | null>(null);
+  const [selectedAnnouncement, setSelectedAnnouncement] = useState<Announcement | null>(null);
 
   const hasActiveFilters = statusFilter !== null || typeFilter !== null;
 
@@ -100,12 +100,12 @@ function AdminAnnouncementsPage() {
   const rangeStart = totalElements === 0 ? 0 : offset + 1;
   const rangeEnd = Math.min(offset + PAGE_SIZE, totalElements);
 
-  const handleEdit = (announcement: SiteAnnouncement) => {
+  const handleEdit = (announcement: Announcement) => {
     setSelectedAnnouncement(announcement);
     openEdit();
   };
 
-  const handleDelete = (announcement: SiteAnnouncement) => {
+  const handleDelete = (announcement: Announcement) => {
     setSelectedAnnouncement(announcement);
     openDelete();
   };
@@ -121,7 +121,7 @@ function AdminAnnouncementsPage() {
   };
 
   const handleStatusChange = (value: string | null) => {
-    setStatusFilter(value as SiteAnnouncementStatus | null);
+    setStatusFilter(value as AnnouncementStatus | null);
     setPage(1);
   };
 

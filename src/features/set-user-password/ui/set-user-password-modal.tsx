@@ -14,13 +14,13 @@ import {
 import { useForm } from "@mantine/form";
 import { Trans, useLingui } from "@lingui/react/macro";
 import { IconAlertTriangle, IconCircleCheck } from "@tabler/icons-react";
-import type { IamUser } from "@/shared/api";
+import type { User } from "@/entities";
 import { useSetUserPassword, buildSetPasswordSchema } from "../model";
 import type { SetPasswordFormValues } from "../model";
 import { validateWithZod } from "@/shared/lib/zod-form-validation";
 
 interface SetUserPasswordModalProps {
-  user: IamUser | null;
+  user: User | null;
   opened: boolean;
   onClose: () => void;
 }

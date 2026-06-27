@@ -23,6 +23,7 @@ export interface AdminAccount {
   userId: string;
   email: string;
   firstName: string;
+  lastName: string;
   status: UserStatus;
   emailVerified: boolean;
   locale: string | null;

@@ -3,7 +3,10 @@ import { Modal, Stack, Select, Group, Button, Text, Alert, Box, Divider } from "
 import { useForm } from "@mantine/form";
 import { Trans, useLingui } from "@lingui/react/macro";
 import { IconAlertCircle, IconSend } from "@tabler/icons-react";
-import type { SiteAnnouncement } from "@/shared/api";
+import type { Announcement } from "@/entities";
+
+// For the translation map:
+import type { AnnouncementTranslation } from "@/entities";
 import {
   useUpdateAnnouncement,
   usePublishAnnouncement,
@@ -17,7 +20,7 @@ import { AnnouncementStatusBadge } from "@/shared/ui";
 import { validateWithZod } from "@/shared/lib/zod-form-validation";
 
 interface EditAnnouncementModalProps {
-  announcement: SiteAnnouncement | null;
+  announcement: Announcement | null;
   opened: boolean;
   onClose: () => void;
 }
@@ -50,7 +53,7 @@ export function EditAnnouncementModal({
           announcement.status === "DRAFT" || announcement.status === "FAILED"
             ? announcement.status
             : "DRAFT",
-        translations: announcement.translations.map((tr) => ({
+        translations: announcement.translations.map((tr: AnnouncementTranslation) => ({
           locale: tr.locale,
           title: tr.title,
           message: tr.message,

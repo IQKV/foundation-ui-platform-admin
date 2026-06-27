@@ -35,7 +35,8 @@ import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
 import { PageTitle } from "@/shared/lib/page-title";
 import { iamApi } from "@/shared/api";
-import type { IamTenant, IamTenantSortField, IamTenantStatus, SortDirection } from "@/shared/api";
+import type { Tenant, TenantStatus } from "@/entities";
+import type { TenantSortField, SortDirection } from "@/shared/api";
 import { TenantStatusBadge, PageHeader } from "@/shared/ui";
 import { EditTenantModal } from "@/features/edit-tenant";
 
@@ -45,14 +46,14 @@ export const Route = createFileRoute("/admin/organizations/")({
 
 const PAGE_SIZE = 20;
 
-const SORT_FIELD_MAP: Record<string, IamTenantSortField> = {
+const SORT_FIELD_MAP: Record<string, TenantSortField> = {
   name: "name",
   tenantKey: "tenantKey",
   updatedAt: "updatedAt",
   createdAt: "createdAt",
 };
 
-const STATUS_OPTIONS: { value: IamTenantStatus; label: string }[] = [
+const STATUS_OPTIONS: { value: TenantStatus; label: string }[] = [
   { value: "ACTIVE", label: "Active" },
   { value: "SUSPENDED", label: "Suspended" },
   { value: "DELETED", label: "Deleted" },
@@ -63,17 +64,17 @@ function AdminOrganizationsPage() {
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState("");
   const [debouncedSearch] = useDebouncedValue(search, 300);
-  const [statusFilter, setStatusFilter] = useState<IamTenantStatus | null>(null);
+  const [statusFilter, setStatusFilter] = useState<TenantStatus | null>(null);
 
-  const [sortStatus, setSortStatus] = useState<DataTableSortStatus<IamTenant>>({
+  const [sortStatus, setSortStatus] = useState<DataTableSortStatus<Tenant>>({
     columnAccessor: "createdAt",
     direction: "desc",
   });
 
   const [editModalOpened, { open: openEditModal, close: closeEditModal }] = useDisclosure(false);
-  const [selectedTenant, setSelectedTenant] = useState<IamTenant | null>(null);
+  const [selectedTenant, setSelectedTenant] = useState<Tenant | null>(null);
 
-  const sortBy = SORT_FIELD_MAP[sortStatus.columnAccessor] ?? "createdAt";
+  const sortBy = SORT_FIELD_MAP[sortStatus.columnAccessor as string] ?? "createdAt";
   const sortDir = sortStatus.direction as SortDirection;
 
   const hasActiveFilters = debouncedSearch !== "" || statusFilter !== null;
@@ -91,7 +92,7 @@ function AdminOrganizationsPage() {
       }),
   });
 
-  const handleSortChange = (next: DataTableSortStatus<IamTenant>) => {
+  const handleSortChange = (next: DataTableSortStatus<Tenant>) => {
     setSortStatus(next);
     setPage(1);
   };
@@ -102,7 +103,7 @@ function AdminOrganizationsPage() {
   };
 
   const handleStatusChange = (value: string | null) => {
-    setStatusFilter(value as IamTenantStatus | null);
+    setStatusFilter(value as TenantStatus | null);
     setPage(1);
   };
 
@@ -112,7 +113,7 @@ function AdminOrganizationsPage() {
     setPage(1);
   };
 
-  const handleEdit = (tenant: IamTenant) => {
+  const handleEdit = (tenant: Tenant) => {
     setSelectedTenant(tenant);
     openEditModal();
   };

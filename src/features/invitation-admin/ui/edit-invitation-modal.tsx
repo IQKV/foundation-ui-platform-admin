@@ -1,13 +1,13 @@
 import { Modal, Stack, TextInput, Group, Button, Text, Divider, Code, Alert } from "@mantine/core";
 import { Trans, useLingui } from "@lingui/react/macro";
 import dayjs from "dayjs";
-import type { IamInvitation } from "@/shared/api";
+import type { Invitation } from "@/entities";
 import { InvitationStatusBadge } from "@/shared/ui";
 import { useRevokeInvitation } from "../model";
 import { TestSelectors } from "@/shared/lib/test-selectors";
 
 interface EditInvitationModalProps {
-  invitation: IamInvitation | null;
+  invitation: Invitation | null;
   opened: boolean;
   onClose: () => void;
 }

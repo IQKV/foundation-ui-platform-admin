@@ -23,7 +23,8 @@ import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
 import { PageTitle } from "@/shared/lib/page-title";
 import { billingApi } from "@/shared/api";
-import type { AdminRefund, RefundSortField, SortDirection } from "@/shared/api";
+import type { Refund } from "@/entities";
+import type { RefundSortField, SortDirection } from "@/shared/api";
 import { PageHeader } from "@/shared/ui";
 
 export const Route = createFileRoute("/admin/refunds")({
@@ -62,12 +63,12 @@ function AdminRefundsPage() {
   const [tenantKey, setTenantKey] = useState("");
   const [debouncedTenantKey] = useDebouncedValue(tenantKey, 300);
 
-  const [sortStatus, setSortStatus] = useState<DataTableSortStatus<AdminRefund>>({
+  const [sortStatus, setSortStatus] = useState<DataTableSortStatus<Refund>>({
     columnAccessor: "occurredAt",
     direction: "desc",
   });
 
-  const sortBy = SORT_FIELD_MAP[sortStatus.columnAccessor] ?? "occurredAt";
+  const sortBy = SORT_FIELD_MAP[sortStatus.columnAccessor as string] ?? "occurredAt";
   const sortDir = sortStatus.direction as SortDirection;
 
   const { data, isLoading, isError, refetch, isFetching } = useQuery({
@@ -82,7 +83,7 @@ function AdminRefundsPage() {
       }),
   });
 
-  const handleSortChange = (next: DataTableSortStatus<AdminRefund>) => {
+  const handleSortChange = (next: DataTableSortStatus<Refund>) => {
     setSortStatus(next);
     setPage(1);
   };

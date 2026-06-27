@@ -3,9 +3,7 @@ import { iamApi } from "./iam";
 import { billingApi } from "./billing";
 import { auditApi } from "./audit";
 import { useSessionStore } from "@/processes/session";
-import type { AuditRecord } from "./audit";
-import type { IamTenant } from "./iam";
-import type { AdminRefund } from "./billing";
+import type { AuditRecord, Tenant, Refund } from "@/entities";
 
 // ─── Query keys ───────────────────────────────────────────────────────────────
 
@@ -48,13 +46,13 @@ export interface RecentAuditResult {
 }
 
 export interface FailedTenantsResult {
-  tenants: IamTenant[];
+  tenants: Tenant[];
   isLoading: boolean;
   isError: boolean;
 }
 
 export interface RecentRefundsResult {
-  refunds: AdminRefund[];
+  refunds: Refund[];
   isLoading: boolean;
   isError: boolean;
 }
@@ -248,12 +246,12 @@ export function useDashboardWidgets(): UseDashboardWidgetsResult {
       isError: criticalAuditQuery?.isError ?? false,
     },
     failedTenants: {
-      tenants: (failedTenantsQuery?.data as IamTenant[] | undefined) ?? [],
+      tenants: (failedTenantsQuery?.data as Tenant[] | undefined) ?? [],
       isLoading: failedTenantsQuery?.isLoading ?? false,
       isError: failedTenantsQuery?.isError ?? false,
     },
     recentRefunds: {
-      refunds: (recentRefundsQuery?.data as AdminRefund[] | undefined) ?? [],
+      refunds: (recentRefundsQuery?.data as Refund[] | undefined) ?? [],
       isLoading: recentRefundsQuery?.isLoading ?? false,
       isError: recentRefundsQuery?.isError ?? false,
     },

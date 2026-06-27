@@ -2,13 +2,13 @@ import { useEffect } from "react";
 import { Modal, Stack, TextInput, Select, Group, Button, Text, Divider, Code } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { Trans, useLingui } from "@lingui/react/macro";
-import type { IamTenant } from "@/shared/api";
+import type { Tenant } from "@/entities";
 import { useEditTenant, getStatusOptions, buildEditTenantSchema } from "../model";
 import type { EditTenantFormValues } from "../model";
 import { validateWithZod } from "@/shared/lib/zod-form-validation";
 
 interface EditTenantModalProps {
-  tenant: IamTenant | null;
+  tenant: Tenant | null;
   opened: boolean;
   onClose: () => void;
 }

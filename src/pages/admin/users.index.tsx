@@ -41,7 +41,8 @@ import { Trans, useLingui } from "@lingui/react/macro";
 import { PageTitle } from "@/shared/lib/page-title";
 import { avatarColor, initials, formatName } from "@/shared/lib/user-utils";
 import { iamApi } from "@/shared/api";
-import type { IamUser, IamUserSortField, IamUserStatus, SortDirection } from "@/shared/api";
+import type { User, UserStatus } from "@/entities";
+import type { UserSortField, SortDirection } from "@/shared/api";
 import { UserStatusBadge, PageHeader } from "@/shared/ui";
 import { EditUserModal } from "@/features/edit-user";
 import { SetUserPasswordModal } from "@/features/set-user-password";
@@ -55,14 +56,14 @@ export const Route = createFileRoute("/admin/users/")({
 
 const PAGE_SIZE = 20;
 
-const SORT_FIELD_MAP: Record<string, IamUserSortField> = {
+const SORT_FIELD_MAP: Record<string, UserSortField> = {
   firstName: "firstName",
   email: "email",
   updatedAt: "updatedAt",
   createdAt: "createdAt",
 };
 
-const STATUS_OPTIONS: { value: IamUserStatus; label: string }[] = [
+const STATUS_OPTIONS: { value: UserStatus; label: string }[] = [
   { value: "ACTIVE", label: "Active" },
   { value: "LOCKED", label: "Locked" },
   { value: "SUSPENDED", label: "Suspended" },
@@ -74,28 +75,28 @@ function AdminUsersPage() {
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState("");
   const [debouncedSearch] = useDebouncedValue(search, 300);
-  const [statusFilter, setStatusFilter] = useState<IamUserStatus | null>(null);
+  const [statusFilter, setStatusFilter] = useState<UserStatus | null>(null);
 
-  const [sortStatus, setSortStatus] = useState<DataTableSortStatus<IamUser>>({
+  const [sortStatus, setSortStatus] = useState<DataTableSortStatus<User>>({
     columnAccessor: "createdAt",
     direction: "desc",
   });
 
   const [editModalOpened, { open: openEditModal, close: closeEditModal }] = useDisclosure(false);
-  const [selectedUser, setSelectedUser] = useState<IamUser | null>(null);
+  const [selectedUser, setSelectedUser] = useState<User | null>(null);
 
   const [pwModalOpened, { open: openPwModal, close: closePwModal }] = useDisclosure(false);
-  const [pwUser, setPwUser] = useState<IamUser | null>(null);
+  const [pwUser, setPwUser] = useState<User | null>(null);
 
   const [banModalOpened, { open: openBanModal, close: closeBanModal }] = useDisclosure(false);
-  const [banUser, setBanUser] = useState<IamUser | null>(null);
+  const [banUser, setBanUser] = useState<User | null>(null);
 
   const [unbanModalOpened, { open: openUnbanModal, close: closeUnbanModal }] = useDisclosure(false);
-  const [unbanUser, setUnbanUser] = useState<IamUser | null>(null);
+  const [unbanUser, setUnbanUser] = useState<User | null>(null);
 
   const [unlockModalOpened, { open: openUnlockModal, close: closeUnlockModal }] =
     useDisclosure(false);
-  const [unlockUser, setUnlockUser] = useState<IamUser | null>(null);
+  const [unlockUser, setUnlockUser] = useState<User | null>(null);
 
   const sortBy = SORT_FIELD_MAP[sortStatus.columnAccessor] ?? "createdAt";
   const sortDir = sortStatus.direction as SortDirection;
@@ -114,7 +115,7 @@ function AdminUsersPage() {
       }),
   });
 
-  const handleSortChange = (next: DataTableSortStatus<IamUser>) => {
+  const handleSortChange = (next: DataTableSortStatus<User>) => {
     setSortStatus(next);
     setPage(1);
   };
@@ -125,7 +126,7 @@ function AdminUsersPage() {
   };
 
   const handleStatusChange = (value: string | null) => {
-    setStatusFilter(value as IamUserStatus | null);
+    setStatusFilter(value as UserStatus | null);
     setPage(1);
   };
 
@@ -135,7 +136,7 @@ function AdminUsersPage() {
     setPage(1);
   };
 
-  const handleEdit = (user: IamUser) => {
+  const handleEdit = (user: User) => {
     setSelectedUser(user);
     openEditModal();
   };
@@ -145,7 +146,7 @@ function AdminUsersPage() {
     setTimeout(() => setSelectedUser(null), 300);
   };
 
-  const handleSetPassword = (user: IamUser) => {
+  const handleSetPassword = (user: User) => {
     setPwUser(user);
     openPwModal();
   };
@@ -155,7 +156,7 @@ function AdminUsersPage() {
     setTimeout(() => setPwUser(null), 300);
   };
 
-  const handleBan = (user: IamUser) => {
+  const handleBan = (user: User) => {
     setBanUser(user);
     openBanModal();
   };
@@ -165,7 +166,7 @@ function AdminUsersPage() {
     setTimeout(() => setBanUser(null), 300);
   };
 
-  const handleUnban = (user: IamUser) => {
+  const handleUnban = (user: User) => {
     setUnbanUser(user);
     openUnbanModal();
   };
@@ -175,7 +176,7 @@ function AdminUsersPage() {
     setTimeout(() => setUnbanUser(null), 300);
   };
 
-  const handleUnlock = (user: IamUser) => {
+  const handleUnlock = (user: User) => {
     setUnlockUser(user);
     openUnlockModal();
   };

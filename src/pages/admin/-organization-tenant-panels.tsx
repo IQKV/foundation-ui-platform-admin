@@ -32,9 +32,8 @@ import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
 import { iamApi } from "@/shared/api";
 import { avatarColor, initials, formatName } from "@/shared/lib/user-utils";
+import type { Tenant, User } from "@/entities";
 import type {
-  IamTenant,
-  IamUser,
   PagedResponse,
   Subscription,
   TenantMemberAuthoritiesResponse,
@@ -74,7 +73,7 @@ export interface OverviewTabProps {
   memberCount: number;
   membersLoading: boolean;
   isLoading: boolean;
-  tenant: IamTenant | undefined;
+  tenant: Tenant | undefined;
 }
 
 export function OverviewTab({
@@ -215,7 +214,7 @@ function EditMemberAuthoritiesModal({
   onClose,
 }: {
   tenantKey: string;
-  user: IamUser | null;
+  user: User | null;
   opened: boolean;
   onClose: () => void;
 }) {
@@ -351,7 +350,7 @@ export function MembersTab({ tenantKey }: { tenantKey: string }) {
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState("");
   const [debouncedSearch] = useDebouncedValue(search, 300);
-  const [editingUser, setEditingUser] = useState<IamUser | null>(null);
+  const [editingUser, setEditingUser] = useState<User | null>(null);
   const [editModalOpened, { open: openEditModal, close: closeEditModal }] = useDisclosure(false);
 
   const { data, isLoading, isFetching, isError, refetch } = useQuery({
@@ -368,7 +367,7 @@ export function MembersTab({ tenantKey }: { tenantKey: string }) {
 
   const totalElements = data?.totalElements ?? 0;
 
-  const handleEditMember = (user: IamUser) => {
+  const handleEditMember = (user: User) => {
     setEditingUser(user);
     openEditModal();
   };

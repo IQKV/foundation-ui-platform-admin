@@ -51,12 +51,12 @@ import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
 import { PageTitle } from "@/shared/lib/page-title";
 import { auditApi } from "@/shared/api";
+import type { AuditRecord, AuditSeverity, AuditActionCount } from "@/entities";
 import type {
-  AuditRecord,
-  AuditActionCount,
   SortDirection,
   SigninAttemptRecord,
   SigninAttemptDetails,
+  ListAuditRecordsParams,
 } from "@/shared/api";
 import { PageHeader } from "@/shared/ui";
 
@@ -179,7 +179,7 @@ function AdminAuditLogsPage() {
   const [detailsOpened, { open: openDetails, close: closeDetails }] = useDisclosure(false);
   const [selectedRecord, setSelectedRecord] = useState<AuditRecord | null>(null);
 
-  const sortBy = sortStatus.columnAccessor;
+  const sortBy = sortStatus.columnAccessor as string;
   const sortDir = sortStatus.direction as SortDirection;
 
   // Determine action filter based on active tab

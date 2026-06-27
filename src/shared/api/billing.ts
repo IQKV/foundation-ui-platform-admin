@@ -1,19 +1,18 @@
 import { httpClient } from "./http-client";
 import type { PagedResponse, SortDirection, CountResponse } from "./iam";
+import type {
+  Subscription,
+  SubscriptionStatus,
+  Plan,
+  AdminBillingSettings,
+  Refund,
+} from "../../entities";
 
 function adminTenantBillingSettingsPath(tenantKey: string): string {
   return `/v1/billing/admin/tenants/${encodeURIComponent(tenantKey)}/billing-settings`;
 }
 
-// ─── Types ────────────────────────────────────────────────────────────────────
-
-export type SubscriptionStatus =
-  | "active"
-  | "canceled"
-  | "past_due"
-  | "trialing"
-  | "unpaid"
-  | "paused";
+// ─── API-specific types ───────────────────────────────────────────────────────
 
 export type SubscriptionSortField = "tenantKey" | "planId" | "status" | "updatedAt" | "createdAt";
 
@@ -25,25 +24,6 @@ export type RefundSortField =
   | "occurredAt"
   | "createdAt"
   | "updatedAt";
-
-export interface Subscription {
-  id: string;
-  tenantKey: string;
-  externalSubscriptionId: string;
-  status: SubscriptionStatus;
-  planId: string;
-  quantity: number;
-  trialStart: string | null;
-  trialEnd: string | null;
-  currentPeriodStart: string;
-  currentPeriodEnd: string;
-  cancelAtPeriodEnd: boolean;
-  canceledAt: string | null;
-  subjectType: string | null;
-  subjectKey: string | null;
-  createdAt: string;
-  updatedAt: string;
-}
 
 export interface ListSubscriptionsParams {
   page?: number;
@@ -64,57 +44,12 @@ export interface UpdateSubscriptionRequest {
   cancelAtPeriodEnd?: boolean;
 }
 
-export interface AdminRefund {
-  id: string;
-  tenantKey: string;
-  externalRefundId: string;
-  externalPaymentId: string;
-  externalCustomerId: string;
-  amount: number;
-  currency: string;
-  status: string;
-  occurredAt: string;
-  createdAt: string;
-  updatedAt: string;
-}
-
 export interface ListRefundsParams {
   page?: number;
   size?: number;
   tenantKey?: string;
   sortBy?: RefundSortField;
   sortDir?: SortDirection;
-}
-
-/** Subscription plan catalog entry (admin list includes inactive). */
-export interface Plan {
-  id: string;
-  planCode: string;
-  displayName: string;
-  billingPeriod: string;
-  priceMinor: number;
-  currency: string;
-  featureSet: string | null;
-  scope: string;
-  active: boolean;
-  createdAt: string;
-  updatedAt: string;
-}
-
-/** Admin GET response — includes gateway customer id and profile owner. */
-export interface AdminBillingSettings {
-  id: string;
-  tenantKey: string;
-  externalCustomerId: string;
-  billingEmail: string;
-  companyName: string | null;
-  billingAddress: string | null;
-  taxId: string | null;
-  taxIdType: string | null;
-  currency: string;
-  profileOwnerId: string | null;
-  createdAt: string;
-  updatedAt: string;
 }
 
 export interface AdminCreateBillingSettingsRequest {
@@ -160,13 +95,11 @@ export const billingApi = {
   countSubscriptions: () =>
     httpClient.get<CountResponse>("/v1/billing/admin/subscriptions/count").then((r) => r.data),
 
-  /** Count subscriptions by a specific status — uses the new ?status= param on /count. */
   countSubscriptionsByStatus: (status: SubscriptionStatus) =>
     httpClient
       .get<CountResponse>("/v1/billing/admin/subscriptions/count", { params: { status } })
       .then((r) => r.data),
 
-  /** Returns subscriptions filtered by status, used as fallback when size info is needed. */
   listSubscriptionsByStatus: (status: SubscriptionStatus, size = 1) =>
     httpClient
       .get<PagedResponse<Subscription>>("/v1/billing/admin/subscriptions", {
@@ -208,11 +141,11 @@ export const billingApi = {
 
   listRefunds: (params: ListRefundsParams = {}) =>
     httpClient
-      .get<PagedResponse<AdminRefund>>("/v1/billing/admin/refunds", { params })
+      .get<PagedResponse<Refund>>("/v1/billing/admin/refunds", { params })
       .then((r) => r.data),
 
   getRefund: (id: string) =>
-    httpClient.get<AdminRefund>(`/v1/billing/admin/refunds/${id}`).then((r) => r.data),
+    httpClient.get<Refund>(`/v1/billing/admin/refunds/${id}`).then((r) => r.data),
 
   listPlans: () => httpClient.get<Plan[]>("/v1/billing/admin/plans").then((r) => r.data),
 

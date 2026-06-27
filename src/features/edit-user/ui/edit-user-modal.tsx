@@ -13,13 +13,13 @@ import {
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { Trans, useLingui } from "@lingui/react/macro";
-import type { IamUser } from "@/shared/api";
+import type { User } from "@/entities";
 import { useEditUser, STATUS_OPTIONS, getStatusOptions, buildEditUserSchema } from "../model";
 import type { EditUserFormValues } from "../model";
 import { validateWithZod } from "@/shared/lib/zod-form-validation";
 
 interface EditUserModalProps {
-  user: IamUser | null;
+  user: User | null;
   opened: boolean;
   onClose: () => void;
 }

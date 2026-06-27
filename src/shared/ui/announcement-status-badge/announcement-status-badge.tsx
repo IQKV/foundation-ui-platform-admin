@@ -1,9 +1,9 @@
 import { Badge } from "@mantine/core";
 import { t } from "@lingui/core/macro";
-import type { SiteAnnouncementStatus } from "@/shared/api";
+import type { AnnouncementStatus } from "@/entities";
 
-function getStatusConfig(status: SiteAnnouncementStatus): { color: string; label: string } {
-  const map: Record<SiteAnnouncementStatus, { color: string; label: string }> = {
+function getStatusConfig(status: AnnouncementStatus): { color: string; label: string } {
+  const map: Record<AnnouncementStatus, { color: string; label: string }> = {
     DRAFT: { color: "gray", label: t`Draft` },
     PENDING: { color: "blue", label: t`Pending` },
     PUBLISHING: { color: "violet", label: t`Publishing` },
@@ -14,7 +14,7 @@ function getStatusConfig(status: SiteAnnouncementStatus): { color: string; label
 }
 
 interface AnnouncementStatusBadgeProps {
-  status: SiteAnnouncementStatus;
+  status: AnnouncementStatus;
 }
 
 export function AnnouncementStatusBadge({ status }: AnnouncementStatusBadgeProps) {

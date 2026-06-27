@@ -1,35 +1,13 @@
 import { httpClient } from "./http-client";
 import type { PagedResponse, SortDirection } from "./iam";
-
-export interface AuditRecord {
-  id: string;
-  action: string;
-  entityType: string;
-  entityId: string | null;
-  actorId: string | null;
-  actorType: string | null;
-  actorEmail: string | null;
-  actorIp: string | null;
-  actorUa: string | null;
-  impersonatorId: string | null;
-  tenantKey: string | null;
-  severity: "LOW" | "MEDIUM" | "HIGH" | "CRITICAL";
-  details: Record<string, any>;
-  occurredAt: string;
-  correlationId: string | null;
-}
-
-export interface AuditActionCount {
-  action: string;
-  count: number;
-}
+import type { AuditRecord, AuditSeverity, AuditActionCount } from "../../entities";
 
 export interface ListAuditRecordsParams {
   page?: number;
   size?: number;
   tenantKey?: string;
   action?: string;
-  severity?: "LOW" | "MEDIUM" | "HIGH" | "CRITICAL";
+  severity?: AuditSeverity;
   sortBy?: string;
   sortDir?: SortDirection;
 }
@@ -90,7 +68,6 @@ export const auditApi = {
     return response.data;
   },
 
-  // Convenience method for signin attempts
   listSigninAttempts: async (params: Omit<ListAuditRecordsParams, "action">) => {
     return auditApi.listRecords({ ...params, action: "auth.signin.attempt" });
   },

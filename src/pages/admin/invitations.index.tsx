@@ -34,12 +34,8 @@ import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
 import { PageTitle } from "@/shared/lib/page-title";
 import { iamApi } from "@/shared/api";
-import type {
-  IamInvitation,
-  IamInvitationSortField,
-  IamInvitationStatus,
-  SortDirection,
-} from "@/shared/api";
+import type { Invitation, InvitationStatus } from "@/entities";
+import type { InvitationSortField, SortDirection } from "@/shared/api";
 import { InvitationStatusBadge, PageHeader } from "@/shared/ui";
 import { EditInvitationModal, ProposeInvitationModal } from "@/features/invitation-admin";
 import { TestSelectors } from "@/shared/lib/test-selectors";
@@ -50,7 +46,7 @@ export const Route = createFileRoute("/admin/invitations/")({
 
 const PAGE_SIZE = 20;
 
-const SORT_FIELD_MAP: Record<string, IamInvitationSortField> = {
+const SORT_FIELD_MAP: Record<string, InvitationSortField> = {
   email: "email",
   tenantKey: "tenantKey",
   status: "status",
@@ -59,7 +55,7 @@ const SORT_FIELD_MAP: Record<string, IamInvitationSortField> = {
   createdAt: "createdAt",
 };
 
-const STATUS_OPTIONS: { value: IamInvitationStatus; label: string }[] = [
+const STATUS_OPTIONS: { value: InvitationStatus; label: string }[] = [
   { value: "PENDING", label: "Pending" },
   { value: "ACCEPTED", label: "Accepted" },
   { value: "REVOKED", label: "Revoked" },
@@ -73,9 +69,9 @@ function AdminInvitationsPage() {
   const [debouncedSearch] = useDebouncedValue(search, 300);
   const [tenantKeyFilter, setTenantKeyFilter] = useState("");
   const [debouncedTenantKey] = useDebouncedValue(tenantKeyFilter, 300);
-  const [statusFilter, setStatusFilter] = useState<IamInvitationStatus | null>(null);
+  const [statusFilter, setStatusFilter] = useState<InvitationStatus | null>(null);
 
-  const [sortStatus, setSortStatus] = useState<DataTableSortStatus<IamInvitation>>({
+  const [sortStatus, setSortStatus] = useState<DataTableSortStatus<Invitation>>({
     columnAccessor: "createdAt",
     direction: "desc",
   });
@@ -83,7 +79,7 @@ function AdminInvitationsPage() {
   const [editModalOpened, { open: openEditModal, close: closeEditModal }] = useDisclosure(false);
   const [proposeModalOpened, { open: openProposeModal, close: closeProposeModal }] =
     useDisclosure(false);
-  const [selectedInvitation, setSelectedInvitation] = useState<IamInvitation | null>(null);
+  const [selectedInvitation, setSelectedInvitation] = useState<Invitation | null>(null);
 
   const sortBy = SORT_FIELD_MAP[sortStatus.columnAccessor] ?? "createdAt";
   const sortDir = sortStatus.direction as SortDirection;
@@ -114,7 +110,7 @@ function AdminInvitationsPage() {
       }),
   });
 
-  const handleSortChange = (next: DataTableSortStatus<IamInvitation>) => {
+  const handleSortChange = (next: DataTableSortStatus<Invitation>) => {
     setSortStatus(next);
     setPage(1);
   };
@@ -130,7 +126,7 @@ function AdminInvitationsPage() {
   };
 
   const handleStatusChange = (value: string | null) => {
-    setStatusFilter(value as IamInvitationStatus | null);
+    setStatusFilter(value as InvitationStatus | null);
     setPage(1);
   };
 
@@ -141,7 +137,7 @@ function AdminInvitationsPage() {
     setPage(1);
   };
 
-  const handleEdit = (invitation: IamInvitation) => {
+  const handleEdit = (invitation: Invitation) => {
     setSelectedInvitation(invitation);
     openEditModal();
   };

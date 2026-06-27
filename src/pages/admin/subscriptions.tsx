@@ -38,7 +38,8 @@ import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
 import { PageTitle } from "@/shared/lib/page-title";
 import { billingApi } from "@/shared/api";
-import type { Subscription, SubscriptionSortField, SortDirection } from "@/shared/api";
+import type { Subscription } from "@/entities";
+import type { SubscriptionSortField, SortDirection } from "@/shared/api";
 import { PageHeader } from "@/shared/ui";
 import { modals } from "@mantine/modals";
 import { notifications } from "@mantine/notifications";
@@ -102,7 +103,7 @@ function AdminSubscriptionsPage() {
     direction: "desc",
   });
 
-  const sortBy = SORT_FIELD_MAP[sortStatus.columnAccessor] ?? "createdAt";
+  const sortBy = SORT_FIELD_MAP[sortStatus.columnAccessor as string] ?? "createdAt";
   const sortDir = sortStatus.direction as SortDirection;
 
   const hasActiveFilters = debouncedSearch !== "" || statusFilter !== null;

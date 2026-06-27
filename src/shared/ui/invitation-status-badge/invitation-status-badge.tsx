@@ -1,10 +1,10 @@
 import { Badge } from "@mantine/core";
 import { t } from "@lingui/core/macro";
 import { TestSelectors } from "@/shared/lib/test-selectors";
-import type { IamInvitationStatus } from "@/shared/api";
+import type { InvitationStatus } from "@/entities";
 
-function getStatusConfig(status: IamInvitationStatus): { color: string; label: string } {
-  const map: Record<IamInvitationStatus, { color: string; label: string }> = {
+function getStatusConfig(status: InvitationStatus): { color: string; label: string } {
+  const map: Record<InvitationStatus, { color: string; label: string }> = {
     PENDING: { color: "blue", label: t`Pending` },
     ACCEPTED: { color: "green", label: t`Accepted` },
     REVOKED: { color: "gray", label: t`Revoked` },
@@ -14,7 +14,7 @@ function getStatusConfig(status: IamInvitationStatus): { color: string; label: s
 }
 
 interface InvitationStatusBadgeProps {
-  status: IamInvitationStatus;
+  status: InvitationStatus;
 }
 
 export function InvitationStatusBadge({ status }: InvitationStatusBadgeProps) {

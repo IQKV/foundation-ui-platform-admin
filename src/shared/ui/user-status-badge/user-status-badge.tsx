@@ -1,9 +1,9 @@
 import { Badge } from "@mantine/core";
 import { t } from "@lingui/core/macro";
-import type { IamUserStatus } from "@/shared/api";
+import type { UserStatus } from "@/entities";
 
-function getStatusConfig(status: IamUserStatus): { color: string; label: string } {
-  const map: Record<IamUserStatus, { color: string; label: string }> = {
+function getStatusConfig(status: UserStatus): { color: string; label: string } {
+  const map: Record<UserStatus, { color: string; label: string }> = {
     ACTIVE: { color: "green", label: t`Active` },
     LOCKED: { color: "orange", label: t`Locked` },
     SUSPENDED: { color: "red", label: t`Suspended` },
@@ -13,7 +13,7 @@ function getStatusConfig(status: IamUserStatus): { color: string; label: string 
 }
 
 interface UserStatusBadgeProps {
-  status: IamUserStatus;
+  status: UserStatus;
 }
 
 export function UserStatusBadge({ status }: UserStatusBadgeProps) {

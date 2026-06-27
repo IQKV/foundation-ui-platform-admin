@@ -1,9 +1,9 @@
 import { ActionIcon, Group, Stack, Text, Tooltip, UnstyledButton } from "@mantine/core";
 import { IconTrash } from "@tabler/icons-react";
-import type { UserNotification } from "@/shared/api";
+import type { Notification } from "@/entities";
 
 interface NotificationItemProps {
-  notification: UserNotification;
+  notification: Notification;
   onMarkAsRead: (id: string) => void;
   onDelete: (id: string) => void;
 }

@@ -5,57 +5,49 @@ import "./auth-interceptor";
 export { httpClient } from "./http-client";
 export { iamApi } from "./iam";
 export type {
-  IamUser,
-  IamUserStatus,
-  IamUserSortField,
-  IamTenant,
-  IamTenantStatus,
-  IamTenantSortField,
   SortDirection,
   PagedResponse,
   CountResponse,
-  ListIamUsersParams,
-  ListIamTenantsParams,
+  UserSortField,
+  TenantSortField,
+  InvitationSortField,
+  ListUsersParams,
+  ListTenantsParams,
   ListTenantMembersParams,
-  IamInvitation,
-  IamInvitationStatus,
-  IamInvitationAuthority,
-  IamInvitationSortField,
-  ListIamInvitationsParams,
-  ProposeIamInvitationRequest,
-  AdminAccount,
+  ListInvitationsParams,
+  ProposeInvitationRequest,
   UpdateAdminAccountRequest,
-  SiteAnnouncement,
-  SiteAnnouncementStatus,
-  SiteAnnouncementTranslation,
-  SiteAnnouncementListResponse,
-  CreateSiteAnnouncementRequest,
-  UpdateSiteAnnouncementRequest,
+  AnnouncementListResponse,
+  CreateAnnouncementRequest,
+  UpdateAnnouncementRequest,
   BanUserRequest,
   BanResponse,
   TenantMemberAuthoritiesResponse,
+  UserAuthoritiesResponse,
   AdminUpdateMemberAuthoritiesRequest,
+  UserSignupSeriesPoint,
+  TenantUserStatsResponse,
+  TenantUserStatsParams,
+  NotificationListResponse,
+  UnreadCountResponse,
+  NotificationPatchRequest,
+  IamLocale,
 } from "./iam";
 export { adminAccountApi } from "./iam";
 export { localesApi } from "./iam";
-export type { IamLocale } from "./iam";
 export { authApi } from "./auth";
 export type { SignInRequest, SignInResponse } from "./auth";
 export { billingApi } from "./billing";
 export type {
-  Subscription,
-  SubscriptionStatus,
   SubscriptionSortField,
   ListSubscriptionsParams,
   UpdateSubscriptionRequest,
-  AdminRefund,
   RefundSortField,
   ListRefundsParams,
-  Plan,
-  AdminBillingSettings,
   AdminCreateBillingSettingsRequest,
   AdminReplaceBillingSettingsRequest,
   AdminPatchBillingSettingsRequest,
+  PortalSessionResponse,
 } from "./billing";
 export { useDashboardCounts } from "./use-dashboard-counts";
 export type { UseDashboardCountsResult, DashboardCountResult } from "./use-dashboard-counts";
@@ -71,32 +63,44 @@ export type {
 } from "./use-dashboard-widgets";
 
 export { auditApi } from "./audit";
-export type {
-  AuditRecord,
-  AuditActionCount,
-  ListAuditRecordsParams,
-  SigninAttemptRecord,
-  SigninAttemptDetails,
-} from "./audit";
+export type { ListAuditRecordsParams, SigninAttemptRecord, SigninAttemptDetails } from "./audit";
 
 export { cmsApi } from "./cms";
 export type {
-  CmsPage,
-  CmsPageSummary,
   CmsPageSummaryListResponse,
-  CmsPageStatus,
-  CmsPageTranslation,
   CmsPageTranslationRequest,
   CreateCmsPageRequest,
   UpdateCmsPageRequest,
   ListCmsPageParams,
-  CmsPageHierarchyItem,
 } from "./cms";
 
 export { notificationApi } from "./iam";
+
+// Re-export all entity types for convenience
 export type {
-  UserNotification,
-  UserNotificationListResponse,
-  UnreadCountResponse,
-  NotificationPatchRequest,
-} from "./iam";
+  User,
+  UserStatus,
+  AdminAccount,
+  Tenant,
+  TenantStatus,
+  Invitation,
+  InvitationStatus,
+  InvitationAuthority,
+  Subscription,
+  SubscriptionStatus,
+  Plan,
+  AdminBillingSettings,
+  Refund,
+  Notification,
+  Announcement,
+  AnnouncementStatus,
+  AnnouncementTranslation,
+  CmsPage,
+  CmsPageStatus,
+  CmsPageTranslation,
+  CmsPageSummary,
+  CmsPageHierarchyItem,
+  AuditRecord,
+  AuditSeverity,
+  AuditActionCount,
+} from "../../entities";

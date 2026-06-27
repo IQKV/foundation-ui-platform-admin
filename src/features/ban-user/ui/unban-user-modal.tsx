@@ -1,11 +1,11 @@
 import { Modal, Stack, Group, Button, Text, Divider, Alert } from "@mantine/core";
 import { Trans, useLingui } from "@lingui/react/macro";
 import { IconUserCheck } from "@tabler/icons-react";
-import type { IamUser } from "@/shared/api";
+import type { User } from "@/entities";
 import { useUnbanUser } from "../model";
 
 interface UnbanUserModalProps {
-  user: IamUser | null;
+  user: User | null;
   opened: boolean;
   onClose: () => void;
 }

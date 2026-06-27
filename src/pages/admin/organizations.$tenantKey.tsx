@@ -35,7 +35,7 @@ import { PageTitle } from "@/shared/lib/page-title";
 import { iamApi, billingApi } from "@/shared/api";
 import { TenantStatusBadge, PageHeader } from "@/shared/ui";
 import { useState } from "react";
-import type { IamTenant } from "@/shared/api";
+import type { Tenant } from "@/entities";
 import { EditTenantModal } from "@/features/edit-tenant";
 import { organizationTenantSubtab } from "./-organization-tenant-subtab";
 
@@ -50,7 +50,7 @@ function OrganizationTenantLayout() {
   const activeTab = organizationTenantSubtab(pathname);
 
   const [editOpened, { open: openEdit, close: closeEdit }] = useDisclosure(false);
-  const [editTarget, setEditTarget] = useState<IamTenant | null>(null);
+  const [editTarget, setEditTarget] = useState<Tenant | null>(null);
 
   const {
     data: tenant,

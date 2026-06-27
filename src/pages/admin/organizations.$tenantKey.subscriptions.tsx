@@ -22,7 +22,8 @@ import { IconSearch, IconAlertCircle, IconFilter, IconEye } from "@tabler/icons-
 import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
 import { billingApi } from "@/shared/api";
-import type { Subscription, SubscriptionSortField, SortDirection } from "@/shared/api";
+import type { Subscription } from "@/entities";
+import type { SubscriptionSortField, SortDirection } from "@/shared/api";
 
 export const Route = createFileRoute("/admin/organizations/$tenantKey/subscriptions")({
   component: OrganizationSubscriptionsPage,

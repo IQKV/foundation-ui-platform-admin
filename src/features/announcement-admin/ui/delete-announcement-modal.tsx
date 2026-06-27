@@ -1,11 +1,11 @@
 import { Modal, Stack, Text, Group, Button, Alert } from "@mantine/core";
 import { Trans } from "@lingui/react/macro";
 import { IconAlertCircle } from "@tabler/icons-react";
-import type { SiteAnnouncement } from "@/shared/api";
+import type { Announcement, AnnouncementTranslation } from "@/entities";
 import { useDeleteAnnouncement } from "../model";
 
 interface DeleteAnnouncementModalProps {
-  announcement: SiteAnnouncement | null;
+  announcement: Announcement | null;
   opened: boolean;
   onClose: () => void;
 }
@@ -18,7 +18,10 @@ export function DeleteAnnouncementModal({
   const mutation = useDeleteAnnouncement({ onSuccess: onClose });
 
   const enTitle =
-    announcement?.translations.find((tr) => tr.locale === "en-US")?.title ?? announcement?.id ?? "";
+    announcement?.translations.find((tr: AnnouncementTranslation) => tr.locale === "en-US")
+      ?.title ??
+    announcement?.id ??
+    "";
 
   const handleConfirm = () => {
     if (announcement) {

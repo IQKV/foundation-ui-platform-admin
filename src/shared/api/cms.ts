@@ -1,43 +1,13 @@
 import { httpClient } from "./http-client";
+import type {
+  CmsPage,
+  CmsPageStatus,
+  CmsPageTranslation,
+  CmsPageSummary,
+  CmsPageHierarchyItem,
+} from "../../entities";
 
-// ─── Types ────────────────────────────────────────────────────────────────────
-
-export type CmsPageStatus = "DRAFT" | "PENDING" | "PUBLISHED" | "ARCHIVED";
-
-export interface CmsPageTranslation {
-  locale: string;
-  title: string;
-  content: string;
-  seoTitle: string | null;
-  seoDescription: string | null;
-  seoOpenGraphTitle: string | null;
-  seoOpenGraphDescription: string | null;
-  seoCanonicalUrl: string | null;
-}
-
-export interface CmsPage {
-  id: string;
-  slug: string;
-  parentId: string | null;
-  template: string | null;
-  status: CmsPageStatus;
-  createdAt: string;
-  updatedAt: string;
-  translations: CmsPageTranslation[];
-}
-
-/** Lightweight summary row returned by the admin list endpoint (en-US title included). */
-export interface CmsPageSummary {
-  id: string;
-  slug: string;
-  parentId: string | null;
-  template: string | null;
-  status: CmsPageStatus;
-  /** en-US fallback title — may be null if no en-US translation exists yet. */
-  title: string | null;
-  createdAt: string;
-  updatedAt: string;
-}
+// ─── API-specific types ───────────────────────────────────────────────────────
 
 export interface CmsPageSummaryListResponse {
   items: CmsPageSummary[];
@@ -77,15 +47,6 @@ export interface ListCmsPageParams {
 }
 
 // ─── API ──────────────────────────────────────────────────────────────────────
-
-/** Lightweight item for the parent-page picker. Returned by the hierarchy endpoint. */
-export interface CmsPageHierarchyItem {
-  id: string;
-  slug: string;
-  parentId: string | null;
-  /** en-US fallback title — may be null if no en-US translation exists yet. */
-  title: string | null;
-}
 
 export const cmsApi = {
   listPages: (tenantKey: string, params: ListCmsPageParams = {}) =>

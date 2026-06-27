@@ -1,5 +1,5 @@
 import { t } from "@lingui/core/macro";
-import type { SiteAnnouncementStatus } from "@/shared/api";
+import type { AnnouncementStatus } from "@/entities";
 import { z } from "zod";
 
 export function buildAnnouncementTranslationSchema() {
@@ -13,7 +13,7 @@ export function buildAnnouncementTranslationSchema() {
 export function buildAnnouncementSchema() {
   return z.object({
     type: z.string().min(1, t`Type is required`),
-    status: z.string() as z.ZodType<SiteAnnouncementStatus>,
+    status: z.string() as z.ZodType<AnnouncementStatus>,
     translations: z
       .array(buildAnnouncementTranslationSchema())
       .min(1, t`At least one translation is required`),
@@ -46,7 +46,7 @@ export function getTypeOptions(): { value: string; label: string }[] {
   ];
 }
 
-export function getStatusOptions(): { value: SiteAnnouncementStatus; label: string }[] {
+export function getStatusOptions(): { value: AnnouncementStatus; label: string }[] {
   return [
     { value: "DRAFT", label: t`Draft` },
     { value: "FAILED", label: t`Failed` },

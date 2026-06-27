@@ -4,11 +4,11 @@ import { DateTimePicker } from "@mantine/dates";
 import { useForm } from "@mantine/form";
 import { Trans, useLingui } from "@lingui/react/macro";
 import { IconAlertTriangle } from "@tabler/icons-react";
-import type { IamUser } from "@/shared/api";
+import type { User } from "@/entities";
 import { useBanUser } from "../model";
 
 interface BanUserModalProps {
-  user: IamUser | null;
+  user: User | null;
   opened: boolean;
   onClose: () => void;
 }
