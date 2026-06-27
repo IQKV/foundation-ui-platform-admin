@@ -19,8 +19,8 @@ export function RecentRefundsWidget({ data }: RecentRefundsWidgetProps) {
         {data.isLoading && (
           <Stack gap="xs">
             {Array.from({ length: 4 }).map((_, i) => (
-            <Skeleton key={i} height={36} radius="sm" />
-          ))}
+              <Skeleton key={i} height={36} radius="sm" />
+            ))}
           </Stack>
         )}
 
@@ -39,40 +39,40 @@ export function RecentRefundsWidget({ data }: RecentRefundsWidgetProps) {
             ) : (
               <Stack gap={4}>
                 {data.refunds.map((refund) => (
-                <Paper key={refund.id} px="sm" py={8} withBorder>
-                  <Group justify="space-between" wrap="nowrap">
-                    <Stack gap={2} style={{ minWidth: 0 }}>
-                      <Text size="xs" ff="monospace" truncate>
-                        {refund.tenantKey}
-                      </Text>
-                      <Text size="xs" c="dimmed">
-                        {dayjs(refund.occurredAt).format("MMM D, YYYY HH:mm")}
-                      </Text>
-                    </Stack>
-                    <Group gap="xs" style={{ flexShrink: 0 }}>
-                      <Badge
-                        data-testid={`badge-refund-status-${refund.status.toLowerCase()}`}
-                        color={getRefundStatusColor(refund.status)}
-                        variant="light"
-                        size="xs"
-                        radius="sm"
-                      >
-                        {refund.status}
-                      </Badge>
-                      <Text size="sm" fw={600}>
-                        {(refund.amount / 100).toFixed(2)}{" "}
-                        <Text span size="xs" c="dimmed">
-                          {refund.currency.toUpperCase()}
+                  <Paper key={refund.id} px="sm" py={8} withBorder>
+                    <Group justify="space-between" wrap="nowrap">
+                      <Stack gap={2} style={{ minWidth: 0 }}>
+                        <Text size="xs" ff="monospace" truncate>
+                          {refund.tenantKey}
                         </Text>
-                      </Text>
+                        <Text size="xs" c="dimmed">
+                          {dayjs(refund.occurredAt).format("MMM D, YYYY HH:mm")}
+                        </Text>
+                      </Stack>
+                      <Group gap="xs" style={{ flexShrink: 0 }}>
+                        <Badge
+                          data-testid={`badge-refund-status-${refund.status.toLowerCase()}`}
+                          color={getRefundStatusColor(refund.status)}
+                          variant="light"
+                          size="xs"
+                          radius="sm"
+                        >
+                          {refund.status}
+                        </Badge>
+                        <Text size="sm" fw={600}>
+                          {(refund.amount / 100).toFixed(2)}{" "}
+                          <Text span size="xs" c="dimmed">
+                            {refund.currency.toUpperCase()}
+                          </Text>
+                        </Text>
+                      </Group>
                     </Group>
-                  </Group>
-                </Paper>
-              ))}
-            </Stack>
-          )}
-        </>
-      )}
+                  </Paper>
+                ))}
+              </Stack>
+            )}
+          </>
+        )}
 
         <Button
           component={Link}

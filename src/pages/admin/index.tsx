@@ -1,14 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import {
-  Container,
-  Text,
-  SimpleGrid,
-  Group,
-  ThemeIcon,
-  Button,
-  Badge,
-  Stack,
-} from "@mantine/core";
+import { Container, Text, SimpleGrid, Group, ThemeIcon, Button, Badge, Stack } from "@mantine/core";
 import {
   IconUsers,
   IconBuilding,

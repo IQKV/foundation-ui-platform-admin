@@ -39,8 +39,7 @@ export function SubscriptionBreakdownWidget({ data }: SubscriptionBreakdownWidge
                 <DonutChart
                   data={data.data.map((item) => ({
                     name:
-                      item.status.charAt(0).toUpperCase() +
-                      item.status.slice(1).replace(/_/g, " "),
+                      item.status.charAt(0).toUpperCase() + item.status.slice(1).replace(/_/g, " "),
                     value: item.count,
                     color: item.color,
                   }))}

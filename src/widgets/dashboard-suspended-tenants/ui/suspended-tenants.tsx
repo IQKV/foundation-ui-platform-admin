@@ -17,8 +17,8 @@ export function SuspendedTenantsWidget({ data }: SuspendedTenantsWidgetProps) {
         {data.isLoading && (
           <Stack gap="xs">
             {Array.from({ length: 3 }).map((_, i) => (
-            <Skeleton key={i} height={44} radius="sm" />
-          ))}
+              <Skeleton key={i} height={44} radius="sm" />
+            ))}
           </Stack>
         )}
 
@@ -37,53 +37,53 @@ export function SuspendedTenantsWidget({ data }: SuspendedTenantsWidgetProps) {
             ) : (
               <Stack gap={4}>
                 {data.tenants.map((tenant) => (
-                <Paper key={tenant.id} px="sm" py={8} withBorder>
-                  <Group justify="space-between" wrap="nowrap">
-                    <Stack gap={2} style={{ minWidth: 0 }}>
-                      <Text size="xs" fw={500} truncate>
-                        {tenant.name}
-                      </Text>
-                      <Code
-                        style={{
-                          fontSize: "var(--mantine-font-size-xs)",
-                          padding: "0 4px",
-                          lineHeight: 1.4,
-                          display: "inline-block",
-                        }}
-                      >
-                        {tenant.tenantKey}
-                      </Code>
-                    </Stack>
-                    <Group gap="xs" style={{ flexShrink: 0 }}>
-                      <Badge
-                        data-testid={`badge-suspended-org-status-${tenant.tenantKey}`}
-                        color="orange"
-                        variant="light"
-                        size="xs"
-                        radius="sm"
-                      >
-                        {tenant.status}
-                      </Badge>
-                      <Button
-                        component={Link}
-                        to="/admin/organizations/$tenantKey"
-                        params={{ tenantKey: tenant.tenantKey } as never}
-                        variant="subtle"
-                        color="orange"
-                        size="xs"
-                        px={4}
-                        rightSection={<IconArrowRight size={12} />}
-                      >
-                        <Trans>View</Trans>
-                      </Button>
+                  <Paper key={tenant.id} px="sm" py={8} withBorder>
+                    <Group justify="space-between" wrap="nowrap">
+                      <Stack gap={2} style={{ minWidth: 0 }}>
+                        <Text size="xs" fw={500} truncate>
+                          {tenant.name}
+                        </Text>
+                        <Code
+                          style={{
+                            fontSize: "var(--mantine-font-size-xs)",
+                            padding: "0 4px",
+                            lineHeight: 1.4,
+                            display: "inline-block",
+                          }}
+                        >
+                          {tenant.tenantKey}
+                        </Code>
+                      </Stack>
+                      <Group gap="xs" style={{ flexShrink: 0 }}>
+                        <Badge
+                          data-testid={`badge-suspended-org-status-${tenant.tenantKey}`}
+                          color="orange"
+                          variant="light"
+                          size="xs"
+                          radius="sm"
+                        >
+                          {tenant.status}
+                        </Badge>
+                        <Button
+                          component={Link}
+                          to="/admin/organizations/$tenantKey"
+                          params={{ tenantKey: tenant.tenantKey } as never}
+                          variant="subtle"
+                          color="orange"
+                          size="xs"
+                          px={4}
+                          rightSection={<IconArrowRight size={12} />}
+                        >
+                          <Trans>View</Trans>
+                        </Button>
+                      </Group>
                     </Group>
-                  </Group>
-                </Paper>
-              ))}
-            </Stack>
-          )}
-        </>
-      )}
+                  </Paper>
+                ))}
+              </Stack>
+            )}
+          </>
+        )}
 
         <Button
           component={Link}

@@ -124,7 +124,10 @@ function OrganizationTenantLayout() {
 
   return (
     <Container size="xl" py={0}>
-      <PageTitle segments={[isLoading ? t`Organization` : (tenant?.name ?? t`Organization`)]} appTitle="Key Value Admin" />
+      <PageTitle
+        segments={[isLoading ? t`Organization` : (tenant?.name ?? t`Organization`)]}
+        appTitle="Key Value Admin"
+      />
 
       <PageHeader
         title={isLoading ? <Skeleton height={24} width={160} radius="sm" /> : <>{tenant?.name}</>}

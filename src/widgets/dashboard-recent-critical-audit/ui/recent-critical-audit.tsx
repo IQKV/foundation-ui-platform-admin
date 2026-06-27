@@ -2,14 +2,11 @@ import { Link } from "@tanstack/react-router";
 import { Group, Text, Skeleton, Alert, Stack, Button, Paper, Badge, Code } from "@mantine/core";
 import { IconArrowRight, IconAlertCircle } from "@tabler/icons-react";
 import { Trans } from "@lingui/react/macro";
-import dayjs from "dayjs";
-import relativeTime from "dayjs/plugin/relativeTime";
+import { dayjs } from "@/shared/lib/date-utils";
 import { CardGroup } from "@/widgets/dashboard-card-group";
 import { SubCard } from "@/widgets/dashboard-sub-card";
 import { getSeverityColor } from "@/shared/lib/color-utils";
 import type { UseDashboardWidgetsResult } from "@/shared/api";
-
-dayjs.extend(relativeTime);
 
 interface RecentCriticalAuditWidgetProps {
   data: UseDashboardWidgetsResult["recentCriticalAudit"];
@@ -22,8 +19,8 @@ export function RecentCriticalAuditWidget({ data }: RecentCriticalAuditWidgetPro
         {data.isLoading && (
           <Stack gap="xs">
             {Array.from({ length: 4 }).map((_, i) => (
-            <Skeleton key={i} height={40} radius="sm" />
-          ))}
+              <Skeleton key={i} height={40} radius="sm" />
+            ))}
           </Stack>
         )}
 
@@ -42,58 +39,58 @@ export function RecentCriticalAuditWidget({ data }: RecentCriticalAuditWidgetPro
             ) : (
               <Stack gap={4}>
                 {data.records.map((record) => (
-                <Paper
-                  key={record.id}
-                  px="sm"
-                  py={8}
-                  withBorder
-                  style={{
-                    borderLeft: `3px solid var(--mantine-color-${getSeverityColor(record.severity)}-6)`,
-                  }}
-                >
-                  <Group justify="space-between" wrap="nowrap">
-                    <Stack gap={2} style={{ minWidth: 0 }}>
-                      <Text size="xs" fw={500} truncate>
-                        {record.action}
-                      </Text>
-                      <Group gap="xs">
-                        <Text size="xs" c="dimmed">
-                          {record.actorEmail ?? record.actorId ?? "system"}
+                  <Paper
+                    key={record.id}
+                    px="sm"
+                    py={8}
+                    withBorder
+                    style={{
+                      borderLeft: `3px solid var(--mantine-color-${getSeverityColor(record.severity)}-6)`,
+                    }}
+                  >
+                    <Group justify="space-between" wrap="nowrap">
+                      <Stack gap={2} style={{ minWidth: 0 }}>
+                        <Text size="xs" fw={500} truncate>
+                          {record.action}
                         </Text>
-                        {record.tenantKey && (
-                          <Code
-                            style={{
-                              fontSize: "var(--mantine-font-size-xs)",
-                              padding: "0 4px",
-                              lineHeight: 1.4,
-                            }}
-                          >
-                            {record.tenantKey}
-                          </Code>
-                        )}
-                      </Group>
-                    </Stack>
-                    <Stack gap={4} align="flex-end" style={{ flexShrink: 0 }}>
-                      <Badge
-                        data-testid={`badge-audit-severity-${record.severity.toLowerCase()}`}
-                        color={getSeverityColor(record.severity)}
-                        variant="light"
-                        size="xs"
-                        radius="sm"
-                      >
-                        {record.severity}
-                      </Badge>
-                      <Text size="xs" c="dimmed">
-                        {dayjs(record.occurredAt).fromNow()}
-                      </Text>
-                    </Stack>
-                  </Group>
-                </Paper>
-              ))}
-            </Stack>
-          )}
-        </>
-      )}
+                        <Group gap="xs">
+                          <Text size="xs" c="dimmed">
+                            {record.actorEmail ?? record.actorId ?? "system"}
+                          </Text>
+                          {record.tenantKey && (
+                            <Code
+                              style={{
+                                fontSize: "var(--mantine-font-size-xs)",
+                                padding: "0 4px",
+                                lineHeight: 1.4,
+                              }}
+                            >
+                              {record.tenantKey}
+                            </Code>
+                          )}
+                        </Group>
+                      </Stack>
+                      <Stack gap={4} align="flex-end" style={{ flexShrink: 0 }}>
+                        <Badge
+                          data-testid={`badge-audit-severity-${record.severity.toLowerCase()}`}
+                          color={getSeverityColor(record.severity)}
+                          variant="light"
+                          size="xs"
+                          radius="sm"
+                        >
+                          {record.severity}
+                        </Badge>
+                        <Text size="xs" c="dimmed">
+                          {dayjs(record.occurredAt).fromNow()}
+                        </Text>
+                      </Stack>
+                    </Group>
+                  </Paper>
+                ))}
+              </Stack>
+            )}
+          </>
+        )}
 
         <Button
           component={Link}

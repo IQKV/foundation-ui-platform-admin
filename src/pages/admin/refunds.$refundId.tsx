@@ -88,7 +88,10 @@ function RefundDetailPage() {
 
   return (
     <Container size="md" py={0}>
-      <PageTitle segments={[refund ? `Refund ${refund.id}` : t`Loading…`]} appTitle="Key Value Admin" />
+      <PageTitle
+        segments={[refund ? `Refund ${refund.id}` : t`Loading…`]}
+        appTitle="Key Value Admin"
+      />
       <PageHeader
         title={
           refund ? (
