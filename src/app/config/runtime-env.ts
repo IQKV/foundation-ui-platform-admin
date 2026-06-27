@@ -14,3 +14,5 @@ export const getConfig = (key: string, fallback?: string): string | undefined =>
 };
 
 export const isDemoMode = getConfig("VITE_DEMO_MODE", "false") === "true";
+
+export const appTitle = getConfig("VITE_APP_TITLE", "Key Value Admin")!;
