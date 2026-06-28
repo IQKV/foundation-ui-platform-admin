@@ -1,4 +1,4 @@
-import { test as base } from "@playwright/test";
+import { test } from "@playwright/test";
 import { test as authTest } from "../../app/fixtures/index.js";
 import { checkA11y } from "../../shared/utils/a11y.js";
 import { TestSelectors, byTestId } from "../../shared/selectors/test-selectors.js";
@@ -15,14 +15,14 @@ import { TIMEOUTS } from "../../app/config/timeouts.js";
 
 // ─── Unauthenticated pages ────────────────────────────────────────────────────
 
-base.describe("A11y — Unauthenticated pages", () => {
-  base.test("sign-in page has no violations", async ({ page }) => {
+test.describe("A11y — Unauthenticated pages", () => {
+  test("sign-in page has no violations", async ({ page }) => {
     await page.goto(ROUTES.SIGN_IN);
     await page.locator(byTestId(TestSelectors.SIGN_IN_FORM)).waitFor({ state: "visible" });
     await checkA11y(page);
   });
 
-  base.test("404 error page has no violations", async ({ page }) => {
+  test("404 error page has no violations", async ({ page }) => {
     await page.goto(ROUTES.NOT_FOUND);
     await page.locator(byTestId(TestSelectors.PAGE_404)).waitFor({ state: "visible" });
     await checkA11y(page);
