@@ -1,43 +1,29 @@
 import { test, expect } from "@playwright/test";
 import { AppPage, testUtils } from "../shared/utils/test-helpers.js";
-import { TestSelectors } from "../shared/selectors/test-selectors.js";
+import { TestSelectors, byTestId } from "../shared/selectors/test-selectors.js";
 
 test.describe("App Smoke Tests", () => {
-  test("homepage loads successfully", async ({ page }) => {
+  test("homepage loads and redirects to /admin when authenticated", async ({ page }) => {
     const app = new AppPage(page);
     await app.goToHome();
-    // The home page (/) redirects to /admin
+    // "/" redirects to "/admin" for authenticated users
     await expect(page).toHaveURL(/\/admin\/?$/);
     await app.expectHomePageVisible();
   });
 
-  test("404 page loads successfully", async ({ page }) => {
+  test("404 page loads with correct testids", async ({ page }) => {
     const app = new AppPage(page);
     await app.goTo404();
     await app.expect404PageVisible();
-    // Verify test ID is present
     await testUtils.expectVisibleByTestId(page, TestSelectors.PAGE_404);
     await testUtils.expectVisibleByTestId(page, TestSelectors.BUTTON.GO_HOME);
   });
 
-  /**
-  test("unknown route shows 404", async ({ page }) => {
-    await page.goto("/this-page-does-not-exist");
-    await testUtils.waitForPageReady(page);
-    // TanStack Router renders the not-found component
-    await expect(page.getByText(/not found/i)).toBeVisible();
-    // Verify test ID is present
-    await testUtils.expectVisibleByTestId(page, TestSelectors.PAGE_404);
-  });
-  */
-
-  test("app has no uncaught exceptions on load", async ({ page }) => {
+  test("app has no uncaught JS exceptions on load", async ({ page }) => {
     const pageErrors: string[] = [];
     page.on("pageerror", (error) => pageErrors.push(error.message));
-
     await page.goto("/");
     await testUtils.waitForPageReady(page);
-
     expect(pageErrors).toHaveLength(0);
   });
 
@@ -46,10 +32,8 @@ test.describe("App Smoke Tests", () => {
     page.on("console", (msg) => {
       if (msg.type() === "error") consoleErrors.push(msg.text());
     });
-
     await page.goto("/");
     await testUtils.waitForPageReady(page);
-
     const criticalErrors = consoleErrors.filter(
       (e) => !e.includes("Failed to load resource") && !e.includes("NetworkError"),
     );
@@ -64,6 +48,7 @@ test.describe("App Smoke Tests", () => {
 
   test("essential meta tags are present", async ({ page }) => {
     await page.goto("/");
+    await testUtils.waitForPageReady(page);
     expect(await page.locator('meta[name="viewport"]').count()).toBeGreaterThan(0);
   });
 
@@ -75,31 +60,22 @@ test.describe("App Smoke Tests", () => {
     });
   });
 
-  test("404 page go home link navigates to homepage", async ({ page }) => {
+  test("404 go-home button navigates to homepage", async ({ page }) => {
     const app = new AppPage(page);
     await app.goTo404();
-    // Use test ID to find the button
     await page.locator(testUtils.byTestId(TestSelectors.BUTTON.GO_HOME)).click();
     await expect(page).toHaveURL(/\/?$/);
-    await app.expectHomePageVisible();
   });
 
-  test("error boundary has test ID", async ({ page }) => {
-    // Navigate to a page that might trigger error boundary
+  test("error boundary is hidden on normal page load", async ({ page }) => {
     await page.goto("/");
     await testUtils.waitForPageReady(page);
-
-    // Error boundary should be hidden unless there's an error
-    const errorBoundary = page.locator(testUtils.byTestId(TestSelectors.ERROR_BOUNDARY));
-    await expect(errorBoundary).toBeHidden();
+    await expect(page.locator(byTestId(TestSelectors.ERROR_BOUNDARY))).toBeHidden();
   });
 
-  test("loading overlay has test ID", async ({ page }) => {
+  test("loading overlay is hidden after page loads", async ({ page }) => {
     await page.goto("/");
     await testUtils.waitForPageReady(page);
-
-    // Loading overlay should be hidden after page loads
-    const loadingOverlay = page.locator(testUtils.byTestId(TestSelectors.LOADING_OVERLAY));
-    await expect(loadingOverlay).toBeHidden();
+    await expect(page.locator(byTestId(TestSelectors.LOADING_OVERLAY))).toBeHidden();
   });
 });

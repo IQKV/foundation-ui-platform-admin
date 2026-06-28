@@ -1,27 +1,36 @@
 import { expect, type Page, type Locator } from "@playwright/test";
 import { TestSelectors, byTestId } from "../selectors/test-selectors.js";
-import { TEST_CONFIG } from "../../app/config/test-config.js";
+import { ROUTES } from "../../app/config/routes.js";
+import { TIMEOUTS } from "../../app/config/timeouts.js";
+import { VIEWPORTS } from "../../app/config/viewports.js";
 
 export class AppPage {
   constructor(readonly page: Page) {}
 
   async goToHome() {
-    await this.page.goto(TEST_CONFIG.ROUTES.HOME);
-    await this.page.waitForLoadState("networkidle");
+    await this.page.goto(ROUTES.HOME);
+    // Wait for the admin layout (authenticated) or the sign-in form (unauthenticated)
+    await this.page
+      .locator(`${byTestId(TestSelectors.ADMIN_LAYOUT)}, ${byTestId(TestSelectors.SIGN_IN_FORM)}`)
+      .first()
+      .waitFor({ state: "visible", timeout: TIMEOUTS.NAVIGATION });
   }
 
   async goTo404() {
-    await this.page.goto(TEST_CONFIG.ROUTES.NOT_FOUND);
-    await this.page.waitForLoadState("networkidle");
+    await this.page.goto(ROUTES.NOT_FOUND);
+    await this.page
+      .locator(byTestId(TestSelectors.PAGE_404))
+      .waitFor({ state: "visible", timeout: TIMEOUTS.NAVIGATION });
   }
 
   async goToSignIn() {
-    await this.page.goto(TEST_CONFIG.ROUTES.SIGN_IN);
-    await this.page.waitForLoadState("networkidle");
+    await this.page.goto(ROUTES.SIGN_IN);
+    await this.page
+      .locator(byTestId(TestSelectors.SIGN_IN_FORM))
+      .waitFor({ state: "visible", timeout: TIMEOUTS.NAVIGATION });
   }
 
   async expectHomePageVisible() {
-    // The home page (/) redirects to /admin, so we expect admin layout
     await expect(this.page.locator(byTestId(TestSelectors.ADMIN_LAYOUT))).toBeVisible();
   }
 
@@ -30,19 +39,16 @@ export class AppPage {
     await expect(this.page.getByRole("heading", { name: "404" })).toBeVisible();
   }
 
-  // Helper methods for common test operations
-  async getByTestId(testId: string): Promise<Locator> {
+  getByTestId(testId: string): Locator {
     return this.page.locator(byTestId(testId));
   }
 
   async clickByTestId(testId: string) {
-    const element = await this.getByTestId(testId);
-    await element.click();
+    await this.getByTestId(testId).click();
   }
 
   async waitForTestId(testId: string, options?: { state?: "attached" | "visible" | "hidden" }) {
-    const element = await this.getByTestId(testId);
-    await element.waitFor(options);
+    await this.getByTestId(testId).waitFor(options);
   }
 }
 
@@ -52,28 +58,38 @@ export class AdminPage extends AppPage {
   }
 
   async goToUsers() {
-    await this.page.goto(TEST_CONFIG.ROUTES.ADMIN_USERS);
-    await this.page.waitForLoadState("networkidle");
+    await this.page.goto(ROUTES.ADMIN_USERS);
+    await this.page
+      .locator(byTestId(TestSelectors.ADMIN_LAYOUT))
+      .waitFor({ state: "visible", timeout: TIMEOUTS.NAVIGATION });
   }
 
   async goToTenants() {
-    await this.page.goto(TEST_CONFIG.ROUTES.ADMIN_TENANTS);
-    await this.page.waitForLoadState("networkidle");
+    await this.page.goto(ROUTES.ADMIN_TENANTS);
+    await this.page
+      .locator(byTestId(TestSelectors.ADMIN_LAYOUT))
+      .waitFor({ state: "visible", timeout: TIMEOUTS.NAVIGATION });
   }
 
   async goToInvitations() {
-    await this.page.goto(TEST_CONFIG.ROUTES.ADMIN_INVITATIONS);
-    await this.page.waitForLoadState("networkidle");
+    await this.page.goto(ROUTES.ADMIN_INVITATIONS);
+    await this.page
+      .locator(byTestId(TestSelectors.ADMIN_LAYOUT))
+      .waitFor({ state: "visible", timeout: TIMEOUTS.NAVIGATION });
   }
 
   async goToPlans() {
-    await this.page.goto(TEST_CONFIG.ROUTES.ADMIN_PLANS);
-    await this.page.waitForLoadState("networkidle");
+    await this.page.goto(ROUTES.ADMIN_PLANS);
+    await this.page
+      .locator(byTestId(TestSelectors.ADMIN_LAYOUT))
+      .waitFor({ state: "visible", timeout: TIMEOUTS.NAVIGATION });
   }
 
   async goToAccount() {
-    await this.page.goto(TEST_CONFIG.ROUTES.ADMIN_ACCOUNT);
-    await this.page.waitForLoadState("networkidle");
+    await this.page.goto(ROUTES.ADMIN_ACCOUNT);
+    await this.page
+      .locator(byTestId(TestSelectors.PAGE_ACCOUNT))
+      .waitFor({ state: "visible", timeout: TIMEOUTS.NAVIGATION });
   }
 
   async expectAdminLayoutVisible() {
@@ -82,7 +98,10 @@ export class AdminPage extends AppPage {
   }
 
   async toggleColorScheme() {
+    const htmlEl = this.page.locator("html");
+    const before = await htmlEl.getAttribute("data-mantine-color-scheme");
     await this.clickByTestId(TestSelectors.HEADER_COLOR_SCHEME_TOGGLE);
+    await expect(htmlEl).not.toHaveAttribute("data-mantine-color-scheme", before ?? "");
   }
 
   async toggleMobileMenu() {
@@ -91,20 +110,28 @@ export class AdminPage extends AppPage {
 }
 
 export const testUtils = {
+  /**
+   * Waits for the page to be interactive without networkidle.
+   * networkidle is unreliable when the app holds open WS/SSE connections.
+   */
   async waitForPageReady(page: Page) {
-    await page.waitForLoadState("networkidle");
     await page.waitForLoadState("domcontentloaded");
+    await page.waitForLoadState("load");
+  },
+
+  async waitForAdminShell(page: Page) {
+    await expect(page.locator(byTestId(TestSelectors.ADMIN_LAYOUT))).toBeVisible({
+      timeout: TIMEOUTS.NAVIGATION,
+    });
   },
 
   async testResponsiveDesign(page: Page, testCallback: (page: Page) => Promise<void>) {
-    const viewports = Object.values(TEST_CONFIG.VIEWPORTS);
-    for (const viewport of viewports) {
+    for (const viewport of Object.values(VIEWPORTS)) {
       await page.setViewportSize(viewport as { width: number; height: number });
       await testCallback(page);
     }
   },
 
-  // Test ID utilities
   byTestId,
 
   async expectVisibleByTestId(page: Page, testId: string) {

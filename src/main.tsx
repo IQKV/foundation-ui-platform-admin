@@ -7,8 +7,21 @@ import "@/shared/api";
 
 initializeDefaultLocale();
 
-const rootElement = document.getElementById("root")!;
-if (!rootElement.innerHTML) {
-  const root = ReactDOM.createRoot(rootElement);
-  root.render(<App />);
+async function bootstrap() {
+  // Start MSW browser worker in development when explicitly enabled.
+  if (import.meta.env.VITE_ENABLE_MSW === "true") {
+    const { worker } = await import("@/shared/mocks/browser");
+    await worker.start({
+      onUnhandledRequest: "warn",
+      serviceWorker: { url: "/mockServiceWorker.js" },
+    });
+  }
+
+  const rootElement = document.getElementById("root")!;
+  if (!rootElement.innerHTML) {
+    const root = ReactDOM.createRoot(rootElement);
+    root.render(<App />);
+  }
 }
+
+bootstrap();

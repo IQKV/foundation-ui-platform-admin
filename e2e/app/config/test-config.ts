@@ -1,37 +1,33 @@
+/**
+ * Backward-compatible re-export of all config modules.
+ *
+ * New code should import directly from the focused modules:
+ *   import { ROUTES }       from "./routes.js"
+ *   import { TIMEOUTS }     from "./timeouts.js"
+ *   import { AUTH_CONFIG }  from "./auth.js"
+ *   import { VIEWPORTS }    from "./viewports.js"
+ *
+ * Existing code that imports TEST_CONFIG from this file continues to work.
+ */
+export { ROUTES } from "./routes.js";
+export { TIMEOUTS } from "./timeouts.js";
+export { AUTH_CONFIG } from "./auth.js";
+export { VIEWPORTS } from "./viewports.js";
+
+import { ROUTES } from "./routes.js";
+import { TIMEOUTS } from "./timeouts.js";
+import { AUTH_CONFIG } from "./auth.js";
+import { VIEWPORTS } from "./viewports.js";
+
+/**
+ * @deprecated Import directly from the focused config modules instead.
+ * Kept for backward compatibility with existing test files.
+ */
 export const TEST_CONFIG = {
-  DEFAULT_TIMEOUT: 10_000,
-  NAVIGATION_TIMEOUT: 15_000,
-
-  VIEWPORTS: {
-    mobile: { width: 375, height: 667 },
-    tablet: { width: 768, height: 1024 },
-    desktop: { width: 1920, height: 1080 },
-  },
-
-  ROUTES: {
-    HOME: "/",
-    SIGN_IN: "/sign-in",
-    ADMIN: "/admin",
-    ADMIN_USERS: "/admin/users",
-    ADMIN_TENANTS: "/admin/organizations",
-    ADMIN_INVITATIONS: "/admin/invitations",
-    ADMIN_PLANS: "/admin/plans",
-    ADMIN_ACCOUNT: "/admin/account",
-    NOT_FOUND: "/404",
-    UNAUTHORIZED: "/unauthorized",
-    UNKNOWN: "/this-page-does-not-exist",
-  },
-
-  /**
-   * Platform admin credentials — the only account type that can sign in to
-   * this app. Seeded by migration 20260517000004-demo-e2e-users.xml.
-   * Read from process.env so CI secrets override the .env.e2e defaults.
-   */
-  ADMIN_CREDENTIALS: {
-    email: process.env["E2E_PLATFORM_ADMIN_EMAIL"] || "jonathan.pierce@demo.iqkv.com",
-    password: process.env["E2E_PLATFORM_ADMIN_PASSWORD"] || "ChangeMePass123!",
-  },
-
-  /** Path where Playwright stores the authenticated browser state. */
-  STORAGE_STATE: ".playwright/auth/platform-admin.json",
+  DEFAULT_TIMEOUT: TIMEOUTS.DEFAULT,
+  NAVIGATION_TIMEOUT: TIMEOUTS.NAVIGATION,
+  VIEWPORTS,
+  ROUTES,
+  ADMIN_CREDENTIALS: AUTH_CONFIG.ADMIN_CREDENTIALS,
+  STORAGE_STATE: AUTH_CONFIG.STORAGE_STATE,
 } as const;
