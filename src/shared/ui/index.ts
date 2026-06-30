@@ -8,6 +8,8 @@ export { UserStatusBadge } from "./user-status-badge";
 export { TenantStatusBadge } from "./tenant-status-badge";
 export { InvitationStatusBadge } from "./invitation-status-badge";
 export { AnnouncementStatusBadge } from "./announcement-status-badge";
+export { GatewayTypeBadge } from "./gateway-type-badge";
+export type { GatewayType } from "./gateway-type-badge";
 export { PageHeader } from "./page-header";
 export type { BreadcrumbItem } from "./page-header";
 export { ColorSchemeToggle } from "./color-scheme-toggle";

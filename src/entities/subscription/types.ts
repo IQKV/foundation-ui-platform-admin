@@ -50,6 +50,7 @@ export interface AdminBillingSettings {
   taxIdType: string | null;
   currency: string;
   profileOwnerId: string | null;
+  gatewayType: string | null;
   createdAt: string;
   updatedAt: string;
 }

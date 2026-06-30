@@ -30,6 +30,7 @@ import { isAxiosError } from "axios";
 import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
 import { billingApi } from "@/shared/api";
+import { GatewayTypeBadge } from "@/shared/ui";
 import type {
   AdminBillingSettings,
   AdminCreateBillingSettingsRequest,
@@ -262,7 +263,7 @@ export function TenantBillingSettingsTab({ tenantKey }: TenantBillingSettingsTab
     onError: () => {
       notifications.show({
         title: t`Portal error`,
-        message: t`Could not create Stripe Customer Portal session.`,
+        message: t`Could not open the billing portal. Please try again.`,
         color: "red",
         icon: createElement(IconX, { size: 16 }),
       });
@@ -440,9 +441,12 @@ export function TenantBillingSettingsTab({ tenantKey }: TenantBillingSettingsTab
       <Paper withBorder radius="md" p="lg">
         <Group justify="space-between" mb="md" wrap="wrap">
           <div>
-            <Text fw={600} size="sm">
-              <Trans>Billing settings</Trans>
-            </Text>
+            <Group gap="xs" align="center">
+              <Text fw={600} size="sm">
+                <Trans>Billing settings</Trans>
+              </Text>
+              {settings.gatewayType && <GatewayTypeBadge gatewayType={settings.gatewayType} />}
+            </Group>
             <Text size="xs" c="dimmed" mt={4}>
               <Trans>Last updated</Trans> {dayjs(settings.updatedAt).format("MMM D, YYYY HH:mm")}
             </Text>

@@ -89,6 +89,10 @@ export interface PortalSessionResponse {
   url: string;
 }
 
+export interface GatewayConfigResponse {
+  activeGateway: string;
+}
+
 // ─── API ──────────────────────────────────────────────────────────────────────
 
 export const billingApi = {
@@ -184,4 +188,7 @@ export const billingApi = {
     httpClient
       .post<PortalSessionResponse>(`/v1/billing/settings/${encodeURIComponent(tenantKey)}/portal`)
       .then((r) => r.data),
+
+  getActiveGateway: () =>
+    httpClient.get<GatewayConfigResponse>("/v1/billing/admin/gateway").then((r) => r.data),
 };
