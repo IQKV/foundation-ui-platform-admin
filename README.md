@@ -91,11 +91,11 @@ In development, the Vite dev server proxies `/api` to the configured backend so 
 
 ## Environment Variables
 
-| Variable              | Example                       | Description                                          |
-| --------------------- | ----------------------------- | ---------------------------------------------------- |
-| `VITE_API_SERVER_URL` | `https://api.example.com/api` | API base URL (production build)                      |
-| `VITE_LOG_LEVEL`      | `info`                        | Client log level: `silent`, `info`, `debug`          |
-| `VITE_DEMO_MODE`      | `false`                       | Show demo sign-in helper UI (non-production only)    |
+| Variable              | Example                       | Description                                       |
+| --------------------- | ----------------------------- | ------------------------------------------------- |
+| `VITE_API_SERVER_URL` | `https://api.example.com/api` | API base URL (production build)                   |
+| `VITE_LOG_LEVEL`      | `info`                        | Client log level: `silent`, `info`, `debug`       |
+| `VITE_DEMO_MODE`      | `false`                       | Show demo sign-in helper UI (non-production only) |
 
 Copy `.env.example` to `.env.local` for local overrides. For runtime overrides without a rebuild, use `public/config.js` (see below).
 
@@ -110,31 +110,31 @@ Values on `window.*` take precedence over build-time `VITE_*` variables. Do not 
 
 ## Routes
 
-| Path                                            | Description                           |
-| ----------------------------------------------- | ------------------------------------- |
-| `/`                                             | Redirects to `/admin`                 |
-| `/sign-in`                                      | Platform admin sign-in                |
-| `/unauthorized`                                 | Shown when JWT lacks `PLATFORM_ADMIN` |
-| `/admin`                                        | Dashboard (count cards)               |
-| `/admin/users`                                  | User list                             |
+| Path                                            | Description                                              |
+| ----------------------------------------------- | -------------------------------------------------------- |
+| `/`                                             | Redirects to `/admin`                                    |
+| `/sign-in`                                      | Platform admin sign-in                                   |
+| `/unauthorized`                                 | Shown when JWT lacks `PLATFORM_ADMIN`                    |
+| `/admin`                                        | Dashboard (count cards)                                  |
+| `/admin/users`                                  | User list                                                |
 | `/admin/users/:userId`                          | User detail (overview, orgs, authority, OIDC identities) |
-| `/admin/organizations`                          | Organization list                     |
-| `/admin/organizations/:tenantKey`               | Organization overview                 |
-| `/admin/organizations/:tenantKey/members`       | Organization members                  |
-| `/admin/organizations/:tenantKey/billing`       | Tenant billing settings               |
-| `/admin/organizations/:tenantKey/subscriptions` | Tenant subscriptions                  |
-| `/admin/organizations/:tenantKey/refunds`       | Tenant refunds                        |
-| `/admin/invitations`                            | Invitation list                       |
-| `/admin/subscriptions`                          | Subscription list (read-only)         |
-| `/admin/subscriptions/:subscriptionId`          | Subscription detail                   |
-| `/admin/plans`                                  | Plan catalog                          |
-| `/admin/plans/:planCode`                        | Plan detail / edit                    |
-| `/admin/announcements`                          | Announcements list                    |
-| `/admin/audit-logs`                             | Global audit logs                     |
-| `/admin/notifications`                          | Notifications list                    |
-| `/admin/refunds`                                | Refunds list                          |
-| `/admin/refunds/:refundId`                      | Refund detail                         |
-| `/admin/account`                                | Signed-in operator profile            |
+| `/admin/organizations`                          | Organization list                                        |
+| `/admin/organizations/:tenantKey`               | Organization overview                                    |
+| `/admin/organizations/:tenantKey/members`       | Organization members                                     |
+| `/admin/organizations/:tenantKey/billing`       | Tenant billing settings                                  |
+| `/admin/organizations/:tenantKey/subscriptions` | Tenant subscriptions                                     |
+| `/admin/organizations/:tenantKey/refunds`       | Tenant refunds                                           |
+| `/admin/invitations`                            | Invitation list                                          |
+| `/admin/subscriptions`                          | Subscription list (read-only)                            |
+| `/admin/subscriptions/:subscriptionId`          | Subscription detail                                      |
+| `/admin/plans`                                  | Plan catalog                                             |
+| `/admin/plans/:planCode`                        | Plan detail / edit                                       |
+| `/admin/announcements`                          | Announcements list                                       |
+| `/admin/audit-logs`                             | Global audit logs                                        |
+| `/admin/notifications`                          | Notifications list                                       |
+| `/admin/refunds`                                | Refunds list                                             |
+| `/admin/refunds/:refundId`                      | Refund detail                                            |
+| `/admin/account`                                | Signed-in operator profile                               |
 
 ## pnpm Scripts
 
