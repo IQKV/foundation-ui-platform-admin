@@ -11,10 +11,10 @@ This repository is the **platform admin surface only** (not the tenant-facing ap
 - **Sign-in** — Platform admin credentials via `POST /v1/iam/auth/admin/signin`; forbidden users see `/unauthorized`
 - **Session** — Access token in memory; refresh token in `sessionStorage` (survives reload within the tab); silent refresh on `/v1/iam/auth/admin/refresh`; inactivity timeout signs out
 - **Dashboard** — Parallel count cards for total users, organizations, and active subscriptions (with per-card loading/error states)
-- **Users** — Paginated, sortable, filterable list; detail view with Overview and Organizations tabs; edit profile; set password; ban/unban/unlock users
+- **Users** — Paginated, sortable, filterable list; detail view with Overview, Organizations, Platform Authority, and OIDC Identities tabs; edit profile; set password; ban/unban/unlock users; grant/revoke `PLATFORM_ADMIN`; force-unmerge linked OIDC identities
 - **Organizations** — Paginated list with status filter; detail layout with Overview, Members, Billing settings, Subscriptions, and Refunds tabs; edit organization metadata; manage member tenant authorities (TENANT_OWNER, ADMIN, MEMBER)
 - **Invitations** — List with filters; propose, edit, and revoke invitations
-- **Subscriptions** — Read-only global list with search, status filter, and sorting; detail view
+- **Subscriptions** — Global list with search, status filter, and sorting; lifecycle actions (cancel, pause, reactivate), and quantity update; detail view
 - **Plans** — Plan catalog list; create plan; plan detail with edit and delete
 - **Announcements** — Create, edit, publish, delete announcements with translation support
 - **Audit Logs** — Global audit log view
@@ -26,7 +26,7 @@ This repository is the **platform admin surface only** (not the tenant-facing ap
 
 ### Not implemented yet
 
-Platform actions (unlock, impersonation), subscription lifecycle mutations, system health/jobs, advanced dashboard metrics (MRR/ARR, trends), and multi-tab user/org detail views described in product specs.
+Platform actions (impersonation), system health/jobs, advanced dashboard metrics (MRR/ARR, trends), and additional admin remediation flows described in product specs.
 
 ## Feature Status
 
@@ -34,16 +34,17 @@ Platform actions (unlock, impersonation), subscription lifecycle mutations, syst
 | -------------------------- | ------- | --------------------------------------------------------------- |
 | Sign-in & session guards   | Done    | `PLATFORM_ADMIN` on `/admin/*`                                  |
 | Dashboard (count cards)    | Done    | Users, orgs, subscriptions                                      |
-| User list & detail         | Done    | List + edit/set password; 2 detail tabs                         |
+| User list & detail         | Done    | List + edit/set password; authority + OIDC identities tabs      |
 | Organization list & detail | Done    | List + edit; overview, members, billing, subscriptions, refunds |
 | Invitations                | Done    | Propose, edit, revoke                                           |
-| Subscriptions              | Done    | Read-only global list + detail view                             |
+| Subscriptions              | Done    | List + detail; cancel/pause/reactivate; update quantity         |
 | Plan catalog               | Done    | Create, edit, delete                                            |
 | Announcements              | Done    | Create, edit, publish, delete                                   |
 | Audit Logs                 | Done    | Global audit log view                                           |
 | Notifications              | Done    | In-app + WebSocket                                              |
 | Refunds                    | Done    | Refund list + detail                                            |
 | Operator account           | Done    | Profile + password                                              |
+| OIDC admin remediation     | Done    | View user identities + force-unmerge                            |
 | Platform actions           | Partial | Ban/unban/unlock done; impersonation, etc. planned              |
 | System administration      | Partial | Audit log implemented; health/jobs planned                      |
 | Advanced metrics           | Planned | MRR/ARR, growth charts                                          |
@@ -90,10 +91,11 @@ In development, the Vite dev server proxies `/api` to the configured backend so 
 
 ## Environment Variables
 
-| Variable              | Example                       | Description                                 |
-| --------------------- | ----------------------------- | ------------------------------------------- |
-| `VITE_API_SERVER_URL` | `https://api.example.com/api` | API base URL (production build)             |
-| `VITE_LOG_LEVEL`      | `info`                        | Client log level: `silent`, `info`, `debug` |
+| Variable              | Example                       | Description                                          |
+| --------------------- | ----------------------------- | ---------------------------------------------------- |
+| `VITE_API_SERVER_URL` | `https://api.example.com/api` | API base URL (production build)                      |
+| `VITE_LOG_LEVEL`      | `info`                        | Client log level: `silent`, `info`, `debug`          |
+| `VITE_DEMO_MODE`      | `false`                       | Show demo sign-in helper UI (non-production only)    |
 
 Copy `.env.example` to `.env.local` for local overrides. For runtime overrides without a rebuild, use `public/config.js` (see below).
 
@@ -115,7 +117,7 @@ Values on `window.*` take precedence over build-time `VITE_*` variables. Do not 
 | `/unauthorized`                                 | Shown when JWT lacks `PLATFORM_ADMIN` |
 | `/admin`                                        | Dashboard (count cards)               |
 | `/admin/users`                                  | User list                             |
-| `/admin/users/:userId`                          | User detail                           |
+| `/admin/users/:userId`                          | User detail (overview, orgs, authority, OIDC identities) |
 | `/admin/organizations`                          | Organization list                     |
 | `/admin/organizations/:tenantKey`               | Organization overview                 |
 | `/admin/organizations/:tenantKey/members`       | Organization members                  |
@@ -204,6 +206,15 @@ PLATFORM_ADMIN  — required for all /admin/* routes
 - API calls: `Authorization: Bearer <accessToken>` via Axios interceptor; 401 triggers silent refresh, then retries the request
 
 Admin auth endpoints: `POST /v1/iam/auth/admin/signin`, `POST /v1/iam/auth/admin/refresh`, `POST /v1/iam/auth/signout`.
+
+### OIDC Admin Remediation
+
+The user detail screen includes an **OIDC Identities** tab for platform operators:
+
+- List linked identities: `GET /v1/iam/admin/oidc/users/{userId}/identities`
+- Force-unmerge identity: `DELETE /v1/iam/admin/oidc/users/{userId}/identities/{identityId}`
+
+These endpoints require `PLATFORM_ADMIN` and are intended for account recovery / remediation.
 
 ## Architecture Notes
 
