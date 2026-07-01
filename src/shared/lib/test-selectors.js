@@ -4,7 +4,6 @@
  * Centralized location for all data-testid values to ensure consistency
  * and make test maintenance easier.
  */
-
 export const TestSelectors = {
   // Layout
   APP_ROOT: "app-root",
@@ -13,7 +12,6 @@ export const TestSelectors = {
   ADMIN_HEADER_BAR: "admin-header-bar",
   ADMIN_NAV_LOGO: "admin-nav-logo",
   AUTH_LAYOUT: "auth-layout",
-
   // Header
   ADMIN_HEADER: "admin-header",
   HEADER_LOGO: "header-logo",
@@ -22,14 +20,12 @@ export const TestSelectors = {
   HEADER_COLOR_SCHEME_TOGGLE: "header-color-scheme-toggle",
   HEADER_MOBILE_MENU_TOGGLE: "header-mobile-menu-toggle",
   HEADER_ACCOUNT_LINK: "header-account-link",
-
   // Navigation
   ADMIN_NAV: "admin-nav",
-  NAV_ITEM: (slug: string) => `nav-item--${slug}`,
+  NAV_ITEM: (slug) => `nav-item--${slug}`,
   NAV_SEARCH_INPUT: "nav-search-input",
   SIDEBAR_LOGO_MARK: "sidebar-logo-mark",
   SIDEBAR_MOBILE_MENU_TOGGLE: "sidebar-mobile-menu-toggle",
-
   // Common UI Elements
   BUTTON: {
     ACCOUNT_CHANGE_PASSWORD: "button--account-change-password",
@@ -55,13 +51,13 @@ export const TestSelectors = {
     TRY_AGAIN: "button--try-again",
     UNBAN_USER: "button--unban-user",
     UNLOCK_USER: "button--unlock-user",
-    ANNOUNCEMENT_DELETE: (id: string) => `button-announcement-delete--${id}`,
-    ANNOUNCEMENT_EDIT: (id: string) => `button-announcement-edit--${id}`,
+    ANNOUNCEMENT_DELETE: (id) => `button-announcement-delete--${id}`,
+    ANNOUNCEMENT_EDIT: (id) => `button-announcement-edit--${id}`,
     ANNOUNCEMENTS_CLEAR_FILTERS: "button-announcements-clear-filters",
     ANNOUNCEMENTS_CREATE: "button-announcements-create",
     ANNOUNCEMENTS_REFRESH: "button-announcements-refresh",
     AUDIT_DETAIL_CLOSE: "button-audit-detail-close",
-    AUDIT_RECORD_VIEW: (id: string) => `button-audit-record-view--${id}`,
+    AUDIT_RECORD_VIEW: (id) => `button-audit-record-view--${id}`,
     AUDIT_REFRESH: "button-audit-refresh",
     AUDIT_TENANT_KEY_CLEAR: "button-audit-tenant-key-clear",
     BILLING_CREATE: "button-billing-create",
@@ -74,66 +70,66 @@ export const TestSelectors = {
     BILLING_SAVE: "button-billing-save",
     EDIT_AUTHORITIES_CANCEL: "button-edit-authorities-cancel",
     EDIT_AUTHORITIES_SAVE: "button-edit-authorities-save",
-    INVITATION_MANAGE: (invitationId: string) => `button-invitation-manage--${invitationId}`,
+    INVITATION_MANAGE: (invitationId) => `button-invitation-manage--${invitationId}`,
     INVITATIONS_CLEAR_FILTERS: "button-invitations-clear-filters",
     INVITATIONS_PROPOSE: "button-invitations-propose",
     INVITATIONS_REFRESH: "button-invitations-refresh",
     INVITATIONS_SEARCH_CLEAR: "button-invitations-search-clear",
     INVITATIONS_TENANT_KEY_CLEAR: "button-invitations-tenant-key-clear",
-    MEMBER_EDIT_AUTHORITIES: (userId: string) => `button-member-edit-authorities--${userId}`,
+    MEMBER_EDIT_AUTHORITIES: (userId) => `button-member-edit-authorities--${userId}`,
     MEMBERS_REFRESH: "button-members-refresh",
     MEMBERS_SEARCH_CLEAR: "button-members-search-clear",
-    ORG_BILLING: (tenantKey: string) => `button-org-billing--${tenantKey}`,
+    ORG_BILLING: (tenantKey) => `button-org-billing--${tenantKey}`,
     ORG_DETAIL_EDIT: "button-org-detail-edit",
     ORG_DETAIL_ERROR_RETRY: "button-org-detail-error-retry",
     ORG_DETAIL_REFRESH: "button-org-detail-refresh",
-    ORG_EDIT: (tenantKey: string) => `button-org-edit--${tenantKey}`,
-    ORG_REFUND_VIEW: (id: string) => `button-org-refund-view--${id}`,
-    ORG_SUB_VIEW: (id: string) => `button-org-sub-view--${id}`,
+    ORG_EDIT: (tenantKey) => `button-org-edit--${tenantKey}`,
+    ORG_REFUND_VIEW: (id) => `button-org-refund-view--${id}`,
+    ORG_SUB_VIEW: (id) => `button-org-sub-view--${id}`,
     ORG_SUBS_SEARCH_CLEAR: "button-org-subs-search-clear",
-    ORG_VIEW: (tenantKey: string) => `button-org-view--${tenantKey}`,
+    ORG_VIEW: (tenantKey) => `button-org-view--${tenantKey}`,
     ORGS_CLEAR_FILTERS: "button-orgs-clear-filters",
     ORGS_REFRESH: "button-orgs-refresh",
     ORGS_SEARCH_CLEAR: "button-orgs-search-clear",
     PLATFORM_AUTHORITY_REFRESH: "button-platform-authority-refresh",
     REFUND_DETAIL_ERROR_RETRY: "button-refund-detail-error-retry",
-    REFUND_VIEW: (id: string) => `button-refund-view--${id}`,
+    REFUND_VIEW: (id) => `button-refund-view--${id}`,
     REFUNDS_TENANT_KEY_CLEAR: "button-refunds-tenant-key-clear",
     SUB_DELETE: "button-sub-delete",
     SUB_DELETE_CANCEL: "button-sub-delete-cancel",
     SUB_DELETE_CONFIRM: "button-sub-delete-confirm",
     SUB_DETAIL_ERROR_RETRY: "button-sub-detail-error-retry",
-    SUB_MENU: (subscriptionId: string) => `button-sub-menu--${subscriptionId}`,
+    SUB_MENU: (subscriptionId) => `button-sub-menu--${subscriptionId}`,
     SUB_RESET: "button-sub-reset",
     SUB_SAVE: "button-sub-save",
-    SUB_VIEW: (subscriptionId: string) => `button-sub-view--${subscriptionId}`,
+    SUB_VIEW: (subscriptionId) => `button-sub-view--${subscriptionId}`,
     SUBS_CLEAR_FILTERS: "button-subs-clear-filters",
     SUBS_REFRESH: "button-subs-refresh",
     SUBS_SEARCH_CLEAR: "button-subs-search-clear",
     TRANSLATION_ADD_LOCALE: "button-translation-add-locale",
-    TRANSLATION_REMOVE: (index: number) => `button-translation-remove--${index}`,
+    TRANSLATION_REMOVE: (index) => `button-translation-remove--${index}`,
     USER_DETAIL_EDIT: "button-user-detail-edit",
     USER_DETAIL_ERROR_RETRY: "button-user-detail-error-retry",
     USER_DETAIL_REFRESH: "button-user-detail-refresh",
     USER_DETAIL_SET_PASSWORD: "button-user-detail-set-password",
     USER_DETAIL_UNLOCK: "button-user-detail-unlock",
-    USER_MENU: (userId: string) => `button-user-menu--${userId}`,
-    USER_VIEW: (userId: string) => `button-user-view--${userId}`,
+    USER_MENU: (userId) => `button-user-menu--${userId}`,
+    USER_VIEW: (userId) => `button-user-view--${userId}`,
     USERS_CLEAR_FILTERS: "button-users-clear-filters",
     USERS_REFRESH: "button-users-refresh",
     USERS_SEARCH_CLEAR: "button-users-search-clear",
     // CMS
     CMS_PAGES_CREATE_NEW_PAGE: "button-cms-pages-create",
     CMS_PAGES_REFRESH: "button-cms-pages-refresh",
-    CMS_PAGE_ACTIONS_MENU_TRIGGER: (pageId: string) => `button-cms-page-actions--${pageId}`,
-    CMS_PAGE_EDIT_BUTTON: (pageId: string) => `button-cms-page-edit--${pageId}`,
-    CMS_PAGE_DELETE_BUTTON: (pageId: string) => `button-cms-page-delete--${pageId}`,
+    CMS_PAGE_ACTIONS_MENU_TRIGGER: (pageId) => `button-cms-page-actions--${pageId}`,
+    CMS_PAGE_EDIT_BUTTON: (pageId) => `button-cms-page-edit--${pageId}`,
+    CMS_PAGE_DELETE_BUTTON: (pageId) => `button-cms-page-delete--${pageId}`,
     CMS_PAGE_CREATE_SUBMIT: "button--create-page",
     CMS_PAGE_CREATE_CANCEL: "button--cancel",
     CMS_PAGE_EDIT_SAVE: "button--save",
     CMS_PAGE_EDIT_CANCEL: "button--cancel",
   },
-  LINK: (name: string) => `link--${name}`,
+  LINK: (name) => `link--${name}`,
   INPUT: {
     ACTIVE: "input--active",
     AUTHORITY: "input--authority",
@@ -182,8 +178,8 @@ export const TestSelectors = {
     SUB_TRIAL_END: "input-sub-trial-end",
     SUB_TRIAL_START: "input-sub-trial-start",
     SUBS_SEARCH: "input-subs-search",
-    TRANSLATION_MESSAGE: (index: number) => `input-translation-message--${index}`,
-    TRANSLATION_TITLE: (index: number) => `input-translation-title--${index}`,
+    TRANSLATION_MESSAGE: (index) => `input-translation-message--${index}`,
+    TRANSLATION_TITLE: (index) => `input-translation-title--${index}`,
     USERS_SEARCH: "input-users-search",
     // CMS
     CMS_PAGE_CREATE_SLUG: "input--slug",
@@ -225,16 +221,14 @@ export const TestSelectors = {
   LOADING_OVERLAY: "loading-overlay",
   ERROR_BOUNDARY: "error-boundary",
   LOCALE_SWITCHER: "locale-switcher",
-
   // Pages
-  PAGE: (name: string) => `page--${name}`,
-  PAGE_HEADER: (name: string) => `page-header--${name}`,
+  PAGE: (name) => `page--${name}`,
+  PAGE_HEADER: (name) => `page-header--${name}`,
   SIGN_IN_PAGE: "page-sign-in",
   PAGE_404: "page-404",
   PAGE_500: "page-500",
   PAGE_UNAUTHORIZED: "page-unauthorized",
   PAGE_ACCOUNT: "page--account",
-
   // Sign In
   SIGN_IN_WELCOME_HEADING: "sign-in-welcome-heading",
   SIGN_IN_SUBHEADING: "sign-in-subheading",
@@ -242,7 +236,6 @@ export const TestSelectors = {
   SIGN_IN_EMAIL_INPUT: "sign-in-email-input",
   SIGN_IN_PASSWORD_INPUT: "sign-in-password-input",
   SIGN_IN_SUBMIT_BUTTON: "sign-in-submit-button",
-
   // Account
   ACCOUNT_AVATAR: "account-avatar",
   ACCOUNT_DISPLAY_NAME: "account-display-name",
@@ -251,84 +244,78 @@ export const TestSelectors = {
   ACCOUNT_JOINED_DATE: "account-joined-date",
   ACCOUNT_LOCALE: "account-locale",
   ACCOUNT_PLATFORM_AUTHORITIES: "account-platform-authorities",
-  ACCOUNT_PLATFORM_AUTHORITY: (authority: string) => `account-platform-authority--${authority}`,
-
+  ACCOUNT_PLATFORM_AUTHORITY: (authority) => `account-platform-authority--${authority}`,
   // Notifications
-  NOTIFICATION: (type: string) => `notification--${type}`,
+  NOTIFICATION: (type) => `notification--${type}`,
   NOTIFICATION_CONTAINER: "notifications-container",
   NOTIFICATION_BELL_BUTTON: "notification-bell-button",
   NOTIFICATION_BELL_DROPDOWN: "notification-bell-dropdown",
-  NOTIFICATION_DELETE: (id: string) => `notification-delete-${id}`,
+  NOTIFICATION_DELETE: (id) => `notification-delete-${id}`,
   NOTIFICATION_DELETE_ALL: "notification-delete-all",
-  NOTIFICATION_ITEM: (id: string) => `notification-item-${id}`,
+  NOTIFICATION_ITEM: (id) => `notification-item-${id}`,
   NOTIFICATION_MARK_ALL_READ: "notification-mark-all-read",
   NOTIFICATION_SEE_ALL: "notification-see-all",
-
   // Badges
   BADGE: {
-    ANNOUNCEMENT_LOCALE: (id: string, locale: string) =>
-      `badge-announcement-locale--${id}--${locale}`,
-    ANNOUNCEMENT_STATUS: (status: string) => `badge-announcement-status--${status}`,
-    ANNOUNCEMENT_TYPE: (id: string) => `badge-announcement-type--${id}`,
+    ANNOUNCEMENT_LOCALE: (id, locale) => `badge-announcement-locale--${id}--${locale}`,
+    ANNOUNCEMENT_STATUS: (status) => `badge-announcement-status--${status}`,
+    ANNOUNCEMENT_TYPE: (id) => `badge-announcement-type--${id}`,
     ANNOUNCEMENTS_TOTAL_COUNT: "badge-announcements-total-count",
-    AUDIT_SEVERITY: (severity: string) => `badge-audit-severity--${severity}`,
-    AUDIT_SEVERITY_RECORD: (severity: string) => `badge-audit-severity-${severity}`,
+    AUDIT_SEVERITY: (severity) => `badge-audit-severity--${severity}`,
+    AUDIT_SEVERITY_RECORD: (severity) => `badge-audit-severity-${severity}`,
     AUDIT_TOTAL_COUNT: "badge-audit-total-count",
-    EMAIL_VERIFIED: (userId: string) => `badge-email-verified--${userId}`,
-    INVITATION_STATUS: (status: string) => `badge-invitation-status--${status}`,
+    EMAIL_VERIFIED: (userId) => `badge-email-verified--${userId}`,
+    INVITATION_STATUS: (status) => `badge-invitation-status--${status}`,
     INVITATIONS_TOTAL_COUNT: "badge-invitations-total-count",
     LOCKED_USERS_ACTION_NEEDED: "badge-locked-users-action-needed",
-    MEMBER_AUTHORITY: (userId: string, auth: string) =>
-      `badge-member-authority--${userId}--${auth}`,
-    MEMBER_EMAIL_VERIFIED: (userId: string) => `badge-member-email-verified--${userId}`,
-    MEMBER_STATUS: (userId: string) => `badge-member-status--${userId}`,
+    MEMBER_AUTHORITY: (userId, auth) => `badge-member-authority--${userId}--${auth}`,
+    MEMBER_EMAIL_VERIFIED: (userId) => `badge-member-email-verified--${userId}`,
+    MEMBER_STATUS: (userId) => `badge-member-status--${userId}`,
     MEMBERS_TOTAL_COUNT: "badge-members-total-count",
     ORG_MEMBER_COUNT: "badge-org-member-count",
-    ORG_REFUND_STATUS: (id: string) => `badge-org-refund-status--${id}`,
+    ORG_REFUND_STATUS: (id) => `badge-org-refund-status--${id}`,
     ORG_REFUNDS_TOTAL_COUNT: "badge-org-refunds-total-count",
-    ORG_SUB_STATUS: (id: string) => `badge-org-sub-status--${id}`,
+    ORG_SUB_STATUS: (id) => `badge-org-sub-status--${id}`,
     ORG_SUBS_TOTAL_COUNT: "badge-org-subs-total-count",
     ORG_SUBSCRIPTION_COUNT: "badge-org-subscription-count",
     ORGS_TAB_COUNT: "badge-orgs-tab-count",
     ORGS_TOTAL_COUNT: "badge-orgs-total-count",
     OVERVIEW_ORG_COUNT: "badge-overview-org-count",
-    OVERVIEW_SUB_STATUS: (subId: string) => `badge-overview-sub-status--${subId}`,
+    OVERVIEW_SUB_STATUS: (subId) => `badge-overview-sub-status--${subId}`,
     OVERVIEW_SUBSCRIPTION_COUNT: "badge-overview-subscription-count",
     PAST_DUE_SUBSCRIPTIONS_REVENUE_RISK: "badge-past-due-subscriptions-revenue-risk",
     PENDING_INVITATIONS_COUNT: "badge-pending-invitations-count",
     PLATFORM_ADMIN_STATUS: "badge-platform-admin-status",
     REFUND_DETAIL_STATUS: "badge-refund-detail-status",
-    REFUND_STATUS: (status: string) => `badge-refund-status-${status}`,
-    REFUND_STATUS_ID: (id: string) => `badge-refund-status--${id}`,
+    REFUND_STATUS: (status) => `badge-refund-status-${status}`,
+    REFUND_STATUS_ID: (id) => `badge-refund-status--${id}`,
     REFUNDS_TOTAL_COUNT: "badge-refunds-total-count",
-    SIGNIN_FAILURE_REASON: (reason: string) => `badge-signin-failure-reason--${reason}`,
-    SIGNIN_RESULT: (result: string) => `badge-signin-result--${result}`,
-    SUB_AUTO_RENEW: (subscriptionId: string) => `badge-sub-auto-renew--${subscriptionId}`,
+    SIGNIN_FAILURE_REASON: (reason) => `badge-signin-failure-reason--${reason}`,
+    SIGNIN_RESULT: (result) => `badge-signin-result--${result}`,
+    SUB_AUTO_RENEW: (subscriptionId) => `badge-sub-auto-renew--${subscriptionId}`,
     SUB_DETAIL_STATUS: "badge-sub-detail-status",
-    SUB_STATUS: (subscriptionId: string) => `badge-sub-status--${subscriptionId}`,
+    SUB_STATUS: (subscriptionId) => `badge-sub-status--${subscriptionId}`,
     SUBS_TOTAL_COUNT: "badge-subs-total-count",
-    SUSPENDED_ORG_STATUS: (tenantKey: string) => `badge-suspended-org-status-${tenantKey}`,
+    SUSPENDED_ORG_STATUS: (tenantKey) => `badge-suspended-org-status-${tenantKey}`,
     USERS_TOTAL_COUNT: "badge-users-total-count",
     CMS_PAGES_TOTAL_COUNT: "badge-cms-pages-total-count",
   },
-
   // Menu Items
   MENU_ITEM: {
-    BAN_USER: (userId: string) => `menu-item-ban-user--${userId}`,
-    EDIT_USER: (userId: string) => `menu-item-edit-user--${userId}`,
-    SET_PASSWORD: (userId: string) => `menu-item-set-password--${userId}`,
-    SUB_CANCEL: (subscriptionId: string) => `menu-item-sub-cancel--${subscriptionId}`,
-    SUB_PAUSE: (subscriptionId: string) => `menu-item-sub-pause--${subscriptionId}`,
-    SUB_REACTIVATE: (subscriptionId: string) => `menu-item-sub-reactivate--${subscriptionId}`,
-    SUB_UPDATE_QTY: (subscriptionId: string) => `menu-item-sub-update-qty--${subscriptionId}`,
-    UNBAN_USER: (userId: string) => `menu-item-unban-user--${userId}`,
-    UNLOCK_USER: (userId: string) => `menu-item-unlock-user--${userId}`,
+    BAN_USER: (userId) => `menu-item-ban-user--${userId}`,
+    EDIT_USER: (userId) => `menu-item-edit-user--${userId}`,
+    SET_PASSWORD: (userId) => `menu-item-set-password--${userId}`,
+    SUB_CANCEL: (subscriptionId) => `menu-item-sub-cancel--${subscriptionId}`,
+    SUB_PAUSE: (subscriptionId) => `menu-item-sub-pause--${subscriptionId}`,
+    SUB_REACTIVATE: (subscriptionId) => `menu-item-sub-reactivate--${subscriptionId}`,
+    SUB_UPDATE_QTY: (subscriptionId) => `menu-item-sub-update-qty--${subscriptionId}`,
+    UNBAN_USER: (userId) => `menu-item-unban-user--${userId}`,
+    UNLOCK_USER: (userId) => `menu-item-unlock-user--${userId}`,
   },
-
   // Stats
   STAT: {
     ACTIVE_SUBSCRIPTIONS: "stat-active-subscriptions",
-    CARD_AUDIT_ACTION: (action: string) => `stat-card-audit-action--${action}`,
+    CARD_AUDIT_ACTION: (action) => `stat-card-audit-action--${action}`,
     CARD_SIGNIN_FAILED: "stat-card-signin-failed",
     CARD_SIGNIN_SUCCESS_RATE: "stat-card-signin-success-rate",
     CARD_SIGNIN_SUCCESSFUL: "stat-card-signin-successful",
@@ -353,7 +340,6 @@ export const TestSelectors = {
     VALUE_SIGNIN_SUCCESSFUL: "stat-value-signin-successful",
     VALUE_SIGNIN_TOTAL: "stat-value-signin-total",
   },
-
   // Tabs
   TAB: {
     AUDIT_ALL_EVENTS: "tab-audit-all-events",
@@ -368,7 +354,6 @@ export const TestSelectors = {
     USER_OVERVIEW: "tab-user-overview",
     USER_PLATFORM_AUTHORITY: "tab-user-platform-authority",
   },
-
   // Selects
   SELECT: {
     ANNOUNCEMENTS_STATUS_FILTER: "select-announcements-status-filter",
@@ -381,7 +366,6 @@ export const TestSelectors = {
     USERS_STATUS_FILTER: "select-users-status-filter",
     CMS_PAGES_TENANT: "select-cms-pages-tenant",
   },
-
   // Org Detail
   ORG_DETAIL_HERO_CARD: "org-detail-hero-card",
   ORG_DETAIL_ICON: "org-detail-icon",
@@ -390,7 +374,6 @@ export const TestSelectors = {
   ORG_DETAIL_CREATED_AT: "org-detail-created-at",
   ORG_DETAIL_MEMBER_COUNT: "org-detail-member-count",
   ORG_DETAIL_SUBSCRIPTION_COUNT: "org-detail-subscription-count",
-
   // User Detail
   USER_DETAIL_HERO_CARD: "user-detail-hero-card",
   USER_DETAIL_AVATAR: "user-detail-avatar",
@@ -399,17 +382,15 @@ export const TestSelectors = {
   USER_DETAIL_EMAIL_VERIFIED_BADGE: "user-detail-email-verified-badge",
   USER_DETAIL_JOINED_AT: "user-detail-joined-at",
   USER_DETAIL_ORG_COUNT: "user-detail-org-count",
-  USER_STATUS_BADGE: (status: string) => `user-status-badge--${status}`,
-} as const;
-
+  USER_STATUS_BADGE: (status) => `user-status-badge--${status}`,
+};
 /**
  * Helper function to create data-testid attribute
  */
-export const testId = (value: string): { "data-testid": string } => ({
+export const testId = (value) => ({
   "data-testid": value,
 });
-
 /**
  * Helper function to create test selector for Playwright
  */
-export const byTestId = (value: string): string => `[data-testid="${value}"]`;
+export const byTestId = (value) => `[data-testid="${value}"]`;

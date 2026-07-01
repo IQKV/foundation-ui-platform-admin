@@ -18,7 +18,7 @@ import {
   Code,
   Button,
 } from "@mantine/core";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useDisclosure } from "@mantine/hooks";
 import {
   IconUser,
@@ -33,6 +33,8 @@ import {
   IconKey,
   IconLockOpen,
   IconShield,
+  IconLink,
+  IconUnlink,
 } from "@tabler/icons-react";
 import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
@@ -41,7 +43,7 @@ import { avatarColor, initials, formatName } from "@/shared/lib/user-utils";
 import { iamApi } from "@/shared/api";
 import { UserStatusBadge, PageHeader } from "@/shared/ui";
 import { useState } from "react";
-import type { User } from "@/entities";
+import type { AdminLinkedOidcIdentity, User } from "@/entities";
 import { EditUserModal } from "@/features/edit-user";
 import { SetUserPasswordModal } from "@/features/set-user-password";
 import { UnlockUserModal } from "@/features/unlock-user";
@@ -52,6 +54,8 @@ import {
 import { useSessionStore } from "@/processes/session";
 import { decodeJwt } from "@/shared/lib/jwt";
 import { TestSelectors } from "@/shared/lib/test-selectors";
+import { modals } from "@mantine/modals";
+import { notifications } from "@mantine/notifications";
 
 // ─── Route ────────────────────────────────────────────────────────────────────
 
@@ -216,6 +220,203 @@ function PlatformAuthorityTab({ user, isLoading, isSelf }: PlatformAuthorityTabP
       <GrantPlatformAdminModal user={user ?? null} opened={grantOpened} onClose={closeGrant} />
       <RevokePlatformAdminModal user={user ?? null} opened={revokeOpened} onClose={closeRevoke} />
     </>
+  );
+}
+
+// ─── Tab: OIDC Identities (Admin) ─────────────────────────────────────────────
+
+function OidcIdentitiesTab({ userId }: { userId: string }) {
+  const { t } = useLingui();
+  const queryClient = useQueryClient();
+
+  const {
+    data: identities,
+    isLoading,
+    isError,
+    refetch,
+  } = useQuery({
+    queryKey: ["admin", "users", userId, "oidc-identities"],
+    queryFn: () => iamApi.listUserOidcIdentities(userId),
+  });
+
+  const unmergeMutation = useMutation({
+    mutationFn: ({ identityId }: { identityId: string }) =>
+      iamApi.unmergeUserOidcIdentity(userId, identityId),
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({
+        queryKey: ["admin", "users", userId, "oidc-identities"],
+      });
+      notifications.show({
+        title: t`Success`,
+        message: t`Identity unmerged`,
+        color: "green",
+      });
+    },
+    onError: () => {
+      notifications.show({
+        title: t`Error`,
+        message: t`Failed to unmerge identity`,
+        color: "red",
+      });
+    },
+  });
+
+  const openUnmergeConfirm = (identity: AdminLinkedOidcIdentity) => {
+    modals.openConfirmModal({
+      title: t`Unmerge linked identity`,
+      children: (
+        <Stack gap="xs">
+          <Text size="sm">
+            <Trans>This will force-remove the external sign-in method from the user account.</Trans>
+          </Text>
+          <Text size="sm">
+            <Trans>
+              Provider: <b>{identity.provider}</b>
+            </Trans>
+          </Text>
+          {identity.email && (
+            <Text size="sm">
+              <Trans>
+                Email: <b>{identity.email}</b>
+              </Trans>
+            </Text>
+          )}
+          <Text size="sm">
+            <Trans>
+              Subject: <b>{identity.providerSub}</b>
+            </Trans>
+          </Text>
+        </Stack>
+      ),
+      labels: { confirm: t`Unmerge`, cancel: t`Cancel` },
+      confirmProps: { color: "red" },
+      onConfirm: () => unmergeMutation.mutate({ identityId: identity.id }),
+    });
+  };
+
+  return (
+    <Stack gap="md" pt="md">
+      <Paper style={{ overflow: "hidden" }}>
+        <Group px="md" py="sm" style={{ borderBottom: "1px solid var(--mantine-color-gray-1)" }}>
+          <IconLink size={15} color="var(--mantine-color-gray-6)" />
+          <Text fw={600} size="sm">
+            <Trans>OIDC Identities</Trans>
+          </Text>
+          {!isLoading && (
+            <Badge variant="light" color="gray" size="sm" radius="sm" ml="auto">
+              {identities?.length ?? 0}
+            </Badge>
+          )}
+          <Tooltip label={<Trans>Refresh</Trans>} withArrow>
+            <ActionIcon variant="subtle" color="gray" size="sm" onClick={() => void refetch()}>
+              <IconRefresh size={13} />
+            </ActionIcon>
+          </Tooltip>
+        </Group>
+
+        {isLoading ? (
+          <Stack gap={0} px="md" py="md">
+            {Array.from({ length: 2 }).map((_, i) => (
+              <Skeleton key={i} height={44} radius="sm" />
+            ))}
+          </Stack>
+        ) : isError ? (
+          <Alert
+            m="md"
+            icon={<IconAlertCircle size={16} />}
+            title={<Trans>Failed to load identities</Trans>}
+            color="red"
+            variant="light"
+          >
+            <Trans>Could not fetch linked identities for this user.</Trans>
+          </Alert>
+        ) : !identities || identities.length === 0 ? (
+          <Text size="sm" c="dimmed" px="md" py="xl" ta="center">
+            <Trans>No linked OIDC identities found.</Trans>
+          </Text>
+        ) : (
+          <Stack gap={0}>
+            {identities.map((identity) => (
+              <Box
+                key={identity.id}
+                px="md"
+                py="sm"
+                style={{ borderBottom: "1px solid var(--mantine-color-gray-1)" }}
+              >
+                <Group justify="space-between" align="flex-start" wrap="nowrap">
+                  <Group gap="sm" align="center" wrap="nowrap">
+                    <Avatar
+                      size={36}
+                      radius="xl"
+                      src={identity.avatarUrl ?? undefined}
+                      color="blue"
+                      variant="light"
+                    >
+                      {(identity.provider || "?").slice(0, 1).toUpperCase()}
+                    </Avatar>
+                    <Stack gap={2}>
+                      <Group gap="xs" wrap="wrap">
+                        <Badge variant="light" color="blue" size="sm" radius="sm">
+                          {identity.provider}
+                        </Badge>
+                        {identity.email && (
+                          <Text size="sm" fw={600}>
+                            {identity.email}
+                          </Text>
+                        )}
+                        {!identity.email && identity.displayName && (
+                          <Text size="sm" fw={600}>
+                            {identity.displayName}
+                          </Text>
+                        )}
+                      </Group>
+
+                      <Group gap="xs" wrap="wrap">
+                        <Text size="xs" c="dimmed">
+                          <Trans>Identity</Trans>
+                        </Text>
+                        <Code fz={11}>{identity.id}</Code>
+                      </Group>
+
+                      <Group gap="xs" wrap="wrap">
+                        <Text size="xs" c="dimmed">
+                          <Trans>Subject</Trans>
+                        </Text>
+                        <Code fz={11}>{identity.providerSub}</Code>
+                      </Group>
+
+                      <Group gap="lg" wrap="wrap">
+                        <Text size="xs" c="dimmed">
+                          <Trans>Linked</Trans>{" "}
+                          {identity.linkedAt ? dayjs(identity.linkedAt).format("MMM D, YYYY") : "—"}
+                        </Text>
+                        <Text size="xs" c="dimmed">
+                          <Trans>Last used</Trans>{" "}
+                          {identity.lastUsedAt
+                            ? dayjs(identity.lastUsedAt).format("MMM D, YYYY")
+                            : "—"}
+                        </Text>
+                      </Group>
+                    </Stack>
+                  </Group>
+
+                  <Button
+                    variant="light"
+                    color="red"
+                    size="xs"
+                    leftSection={<IconUnlink size={14} />}
+                    onClick={() => openUnmergeConfirm(identity)}
+                    loading={unmergeMutation.isPending}
+                  >
+                    <Trans>Unmerge</Trans>
+                  </Button>
+                </Group>
+              </Box>
+            ))}
+          </Stack>
+        )}
+      </Paper>
+    </Stack>
   );
 }
 
@@ -625,6 +826,13 @@ function UserDetailPage() {
           >
             <Trans>Platform Authority</Trans>
           </Tabs.Tab>
+          <Tabs.Tab
+            data-testid={TestSelectors.TAB.USER_OIDC_IDENTITIES}
+            value="oidc-identities"
+            leftSection={<IconLink size={14} />}
+          >
+            <Trans>OIDC Identities</Trans>
+          </Tabs.Tab>
         </Tabs.List>
 
         <Tabs.Panel value="overview">
@@ -717,6 +925,10 @@ function UserDetailPage() {
 
         <Tabs.Panel value="platform-authority">
           <PlatformAuthorityTab user={user} isLoading={isLoading} isSelf={isSelf} />
+        </Tabs.Panel>
+
+        <Tabs.Panel value="oidc-identities">
+          <OidcIdentitiesTab userId={userId} />
         </Tabs.Panel>
       </Tabs>
 

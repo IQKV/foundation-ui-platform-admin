@@ -2,6 +2,17 @@ import { http, HttpResponse } from "msw";
 import { MOCK_ADMIN_ACCOUNT, MOCK_USER, MOCK_TENANT } from "../data/admin";
 
 const EMPTY_PAGE = { content: [], page: 0, size: 20, totalElements: 0, totalPages: 0 };
+const MOCK_LINKED_OIDC_IDENTITY = {
+  id: "00000000-0000-0000-0000-000000000123",
+  userId: MOCK_USER.id,
+  provider: "google",
+  providerSub: "mock-provider-subject",
+  email: MOCK_USER.email,
+  displayName: "Mock User",
+  avatarUrl: null,
+  linkedAt: new Date().toISOString(),
+  lastUsedAt: new Date().toISOString(),
+};
 
 export const iamHandlers = [
   // ── Platform admin self-service ──────────────────────────────────────────
@@ -95,6 +106,17 @@ export const iamHandlers = [
       { userId: params["id"], authorities: body.authorities },
       { status: 200 },
     );
+  }),
+
+  // ── OIDC Admin ─────────────────────────────────────────────────────────────
+  http.get("*/v1/iam/admin/oidc/users/:userId/identities", ({ params }) => {
+    return HttpResponse.json([{ ...MOCK_LINKED_OIDC_IDENTITY, userId: params["userId"] }], {
+      status: 200,
+    });
+  }),
+
+  http.delete("*/v1/iam/admin/oidc/users/:userId/identities/:identityId", () => {
+    return new HttpResponse(null, { status: 204 });
   }),
 
   // ── Tenants ───────────────────────────────────────────────────────────────

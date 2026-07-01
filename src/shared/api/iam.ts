@@ -5,6 +5,7 @@ import type {
   AdminAccount,
   Tenant,
   TenantStatus,
+  AdminLinkedOidcIdentity,
   Subscription,
   SubscriptionStatus,
   Plan,
@@ -242,6 +243,20 @@ export const iamApi = {
     httpClient
       .put<UserAuthoritiesResponse>(`/v1/iam/admin/users/${id}/authorities`, { authorities })
       .then((r) => r.data),
+
+  listUserOidcIdentities: (userId: string) =>
+    httpClient
+      .get<AdminLinkedOidcIdentity[]>(
+        `/v1/iam/admin/oidc/users/${encodeURIComponent(userId)}/identities`,
+      )
+      .then((r) => r.data),
+
+  unmergeUserOidcIdentity: (userId: string, identityId: string): Promise<void> =>
+    httpClient
+      .delete(
+        `/v1/iam/admin/oidc/users/${encodeURIComponent(userId)}/identities/${encodeURIComponent(identityId)}`,
+      )
+      .then(() => undefined),
 
   countTenants: () =>
     httpClient.get<CountResponse>("/v1/iam/admin/tenants/count").then((r) => r.data),

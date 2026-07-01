@@ -3,6 +3,7 @@ export * from "./audit-record";
 export * from "./cms-page";
 export * from "./invitation";
 export * from "./notification";
+export * from "./oidc-identity";
 export * from "./refund";
 export * from "./subscription";
 export * from "./tenant";
