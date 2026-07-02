@@ -32,7 +32,7 @@ export interface Plan {
   billingPeriod: string;
   priceMinor: number;
   currency: string;
-  featureSet: string | null;
+  entitlement: string | null;
   scope: string;
   active: boolean;
   createdAt: string;

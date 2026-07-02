@@ -200,7 +200,7 @@ function PlanDetailPage() {
 
           <Textarea
             label={t`Feature set (JSON)`}
-            value={isLoading ? "" : (plan?.featureSet ?? "")}
+            value={isLoading ? "" : (plan?.entitlement ?? "")}
             readOnly
             disabled={isLoading}
             minRows={4}
