@@ -114,7 +114,7 @@
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.12.1",
-    "@commitlint/cli": "^21.1.0",
+    "@commitlint/cli": "^21.2.0",
     "@commitlint/config-conventional": "^21.1.0",
     "@lingui/cli": "^6.4.0",
     "@lingui/swc-plugin": "^6.5.0",
