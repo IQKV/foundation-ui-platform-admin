@@ -80,6 +80,7 @@ msgstr "Необходимо е действие"
 #: src/pages/admin/refunds.tsx
 #: src/pages/admin/subscriptions.tsx
 #: src/pages/admin/users.index.tsx
+#: src/pages/admin/webhook-logs.tsx
 msgid "Actions"
 msgstr "Действия"
 
@@ -294,6 +295,7 @@ msgstr "Автоматична интеграция с рутер чрез <0>ro
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/refunds.$refundId.tsx
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
 msgid "Back to list"
 msgstr "Обратно към списъка"
 
@@ -359,6 +361,7 @@ msgstr "Настройки за фактуриране"
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 #: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/users.$userId.tsx
 msgid "Cancel"
 msgstr "Отказ"
 
@@ -484,8 +487,8 @@ msgid "Correlation ID"
 msgstr "Корелационен ID"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
-msgid "Could not create Stripe Customer Portal session."
-msgstr "Не може да се създаде сесия на Stripe Customer Portal."
+#~ msgid "Could not create Stripe Customer Portal session."
+#~ msgstr "Не може да се създаде сесия на Stripe Customer Portal."
 
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "Could not create the page. Please check the form and try again."
@@ -514,6 +517,10 @@ msgstr "Не може да се извлекат настройките за ф�
 #: src/pages/admin/invitations.index.tsx
 msgid "Could not fetch invitations from the API."
 msgstr "Не може да се извлекат поканите от API."
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Could not fetch linked identities for this user."
+msgstr ""
 
 #: src/pages/admin/-organization-tenant-panels.tsx
 msgid "Could not fetch members."
@@ -575,9 +582,21 @@ msgstr "Не може да се извлекат детайлите на пот�
 msgid "Could not fetch users from the API."
 msgstr "Не може да се извлекат потребителите от API."
 
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+msgid "Could not fetch webhook log details."
+msgstr ""
+
+#: src/pages/admin/webhook-logs.tsx
+msgid "Could not fetch webhook logs from the API."
+msgstr ""
+
 #: src/pages/admin/account.tsx
 msgid "Could not fetch your account details."
 msgstr "Не може да се извлекат детайлите на вашия акаунт."
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Could not open the billing portal. Please try again."
+msgstr ""
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 msgid "Could not save the page. Please check the form and try again."
@@ -840,6 +859,11 @@ msgstr "Имейлът е потвърден"
 msgid "Email verified:"
 msgstr "Имейл потвърден:"
 
+#. placeholder {0}: identity.email
+#: src/pages/admin/users.$userId.tsx
+msgid "Email: <0>{0}</0>"
+msgstr ""
+
 #: src/features/plan-catalog/ui/create-plan-modal.tsx
 #~ msgid "Enter a positive price (minor units, e.g. cents)"
 #~ msgstr "Въведете положителна цена (малки единици, напр. стотинки)"
@@ -866,6 +890,7 @@ msgid "Entity Type"
 msgstr "Тип обект"
 
 #: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/users.$userId.tsx
 msgid "Error"
 msgstr "Грешка"
 
@@ -873,9 +898,18 @@ msgstr "Грешка"
 msgid "Error Details (Development)"
 msgstr "Детайли на грешката (разработка)"
 
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+msgid "Error Message"
+msgstr ""
+
 #: src/pages/admin/audit-logs.tsx
 msgid "Event Payload"
 msgstr "Полезен товар на събитието"
+
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+#: src/pages/admin/webhook-logs.tsx
+msgid "Event Type"
+msgstr ""
 
 #: src/shared/ui/invitation-status-badge/invitation-status-badge.tsx
 msgid "Expired"
@@ -901,6 +935,11 @@ msgstr "Външен ID на клиент"
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "External customer id is required"
 msgstr "Външният ID на клиент е задължителен"
+
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+#: src/pages/admin/webhook-logs.tsx
+msgid "External Event ID"
+msgstr ""
 
 #: src/pages/admin/organizations.$tenantKey.refunds.tsx
 #: src/pages/admin/refunds.tsx
@@ -953,6 +992,10 @@ msgstr "Зареждането на одиторски регистри не у�
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Failed to load billing settings"
 msgstr "Зареждането на настройките за фактуриране не успя"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Failed to load identities"
+msgstr ""
 
 #: src/pages/admin/invitations.index.tsx
 msgid "Failed to load invitations"
@@ -1025,6 +1068,14 @@ msgstr "Зареждането на потребителя не успя"
 msgid "Failed to load users"
 msgstr "Зареждането на потребителите не успя"
 
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+msgid "Failed to load webhook log"
+msgstr ""
+
+#: src/pages/admin/webhook-logs.tsx
+msgid "Failed to load webhook logs"
+msgstr ""
+
 #: src/pages/admin/subscriptions.tsx
 msgid "Failed to pause subscription"
 msgstr "Неуспешно поставяне на абонамент на пауза"
@@ -1032,6 +1083,10 @@ msgstr "Неуспешно поставяне на абонамент на па�
 #: src/pages/admin/subscriptions.tsx
 msgid "Failed to reactivate subscription"
 msgstr "Неуспешно повторно активиране на абонамент"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Failed to unmerge identity"
+msgstr ""
 
 #: src/pages/admin/subscriptions.tsx
 msgid "Failed to update subscription"
@@ -1051,6 +1106,7 @@ msgstr "Филтрирай по действие…"
 
 #: src/pages/admin/audit-logs.tsx
 #: src/pages/admin/refunds.tsx
+#: src/pages/admin/webhook-logs.tsx
 msgid "Filter by tenant key…"
 msgstr "Филтрирай по ключ на наемател…"
 
@@ -1117,6 +1173,8 @@ msgstr ""
 #: src/pages/admin/subscriptions.tsx
 #: src/pages/admin/users.$userId.tsx
 #: src/pages/admin/users.index.tsx
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+#: src/pages/admin/webhook-logs.tsx
 msgid "Home"
 msgstr "Начало"
 
@@ -1144,7 +1202,12 @@ msgid "ID: {0}"
 msgstr "ID: {0}"
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/users.$userId.tsx
 msgid "Identity"
+msgstr ""
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Identity unmerged"
 msgstr ""
 
 #: src/pages/loading-demo.tsx
@@ -1258,6 +1321,14 @@ msgstr "Фамилното ime е задължително"
 msgid "Last updated"
 msgstr "Последна актуализация"
 
+#: src/pages/admin/users.$userId.tsx
+msgid "Last used"
+msgstr ""
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Linked"
+msgstr ""
+
 #: src/pages/loading-demo.tsx
 msgid "Loading Demo"
 msgstr "Демо на зареждане"
@@ -1278,6 +1349,7 @@ msgstr "Зареждане..."
 #: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/pages/admin/refunds.$refundId.tsx
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
 msgid "Loading…"
 msgstr "Зареждане…"
 
@@ -1299,6 +1371,10 @@ msgstr "Заключен"
 #: src/pages/admin/index.tsx
 msgid "Locked Accounts"
 msgstr "Заключени акаунти"
+
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+msgid "Log ID"
+msgstr ""
 
 #: src/features/announcement-admin/model/types.ts
 msgid "Maintenance"
@@ -1455,6 +1531,10 @@ msgstr "Не са намерени покани"
 msgid "No invitations match the current filters"
 msgstr "Няма покани, съответстващи на текущите филтри"
 
+#: src/pages/admin/users.$userId.tsx
+msgid "No linked OIDC identities found."
+msgstr ""
+
 #: src/pages/admin/-organization-tenant-panels.tsx
 msgid "No members found"
 msgstr "Не са намерени членове"
@@ -1572,6 +1652,10 @@ msgstr ""
 
 #: src/features/page-admin/ui/page-translation-fields.tsx
 msgid "OG title"
+msgstr ""
+
+#: src/pages/admin/users.$userId.tsx
+msgid "OIDC Identities"
 msgstr ""
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
@@ -1814,6 +1898,7 @@ msgstr "Планове"
 #: src/pages/admin/refunds.tsx
 #: src/pages/admin/subscriptions.tsx
 #: src/pages/admin/users.index.tsx
+#: src/pages/admin/webhook-logs.tsx
 #: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Platform"
 msgstr "Платформа"
@@ -1863,6 +1948,11 @@ msgstr "Цена (малки единици)"
 #~ msgid "Price must be at least 1 minor unit"
 #~ msgstr "Цената трябва да е поне 1 малка единица"
 
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+#: src/pages/admin/webhook-logs.tsx
+msgid "Processed At"
+msgstr ""
+
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Profile owner id must be a valid UUID or empty"
 msgstr "ID на собственика на профила трябва да е валиден UUID или да е празно"
@@ -1882,6 +1972,11 @@ msgstr "Предложи покана"
 #: src/features/ban-user/ui/ban-user-modal.tsx
 msgid "Provide a reason for the ban…"
 msgstr "Посочете причина за забраната…"
+
+#. placeholder {0}: identity.provider
+#: src/pages/admin/users.$userId.tsx
+msgid "Provider: <0>{0}</0>"
+msgstr ""
 
 #: src/features/announcement-admin/ui/edit-announcement-modal.tsx
 msgid "Publish"
@@ -1928,6 +2023,11 @@ msgstr "Само за четене"
 #: src/features/ban-user/ui/ban-user-modal.tsx
 msgid "Reason (optional)"
 msgstr "Причина (по избор)"
+
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+#: src/pages/admin/webhook-logs.tsx
+msgid "Received At"
+msgstr ""
 
 #: src/widgets/dashboard-recent-critical-audit/ui/recent-critical-audit.tsx
 msgid "Recent Critical Events"
@@ -2012,6 +2112,8 @@ msgstr "Възстанови достъпа"
 #: src/pages/admin/subscriptions.tsx
 #: src/pages/admin/users.$userId.tsx
 #: src/pages/admin/users.index.tsx
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+#: src/pages/admin/webhook-logs.tsx
 msgid "Retry"
 msgstr "Опитай отново"
 
@@ -2082,6 +2184,10 @@ msgstr "Търсете по ime или ключ…"
 #: src/pages/admin/subscriptions.tsx
 msgid "Search by tenant or plan…"
 msgstr "Търсете по наемател или план…"
+
+#: src/pages/admin/webhook-logs.tsx
+msgid "Search event type or ID…"
+msgstr ""
 
 #: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
 msgid "Search plan…"
@@ -2192,6 +2298,10 @@ msgstr "Показване на {rangeStart} – {rangeEnd} от {totalElements}
 msgid "Showing {rangeStart} – {rangeEnd} of {totalElements} subscriptions"
 msgstr "Показване на {rangeStart} – {rangeEnd} от {totalElements} абонамента"
 
+#: src/pages/admin/webhook-logs.tsx
+msgid "Showing {rangeStart} – {rangeEnd} of {totalElements} webhook logs"
+msgstr ""
+
 #: src/pages/admin/announcements.index.tsx
 msgid "Showing {rangeStart}–{rangeEnd} of {totalElements} announcements"
 msgstr "Показване на {rangeStart}–{rangeEnd} от {totalElements} обявления"
@@ -2296,8 +2406,14 @@ msgstr "Начало"
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 #: src/pages/admin/subscriptions.tsx
 #: src/pages/admin/users.index.tsx
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+#: src/pages/admin/webhook-logs.tsx
 msgid "Status"
 msgstr "Статус"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Subject"
+msgstr ""
 
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Subject Key:"
@@ -2306,6 +2422,11 @@ msgstr "Ключ на субект:"
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Subject Type:"
 msgstr "Тип субект:"
+
+#. placeholder {0}: identity.providerSub
+#: src/pages/admin/users.$userId.tsx
+msgid "Subject: <0>{0}</0>"
+msgstr ""
 
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Subscription"
@@ -2345,6 +2466,7 @@ msgid "Subscriptions"
 msgstr "Абонаменти"
 
 #: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/users.$userId.tsx
 msgid "Success"
 msgstr "Успех"
 
@@ -2405,6 +2527,7 @@ msgstr ""
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/refunds.tsx
 #: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/webhook-logs.tsx
 msgid "Tenant"
 msgstr "Наемател"
 
@@ -2421,6 +2544,7 @@ msgstr "Ключ на наемател"
 #: src/pages/admin/audit-logs.tsx
 #: src/pages/admin/refunds.$refundId.tsx
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
 msgid "Tenant Key"
 msgstr "Ключ на наемател"
 
@@ -2467,6 +2591,10 @@ msgstr ""
 #: src/pages/admin/users.$userId.tsx
 msgid "This user is not a member of any organization."
 msgstr "Този потребител не е член на никоя организация."
+
+#: src/pages/admin/users.$userId.tsx
+msgid "This will force-remove the external sign-in method from the user account."
+msgstr ""
 
 #: src/features/set-user-password/ui/set-user-password-modal.tsx
 msgid "This will immediately change the user's password and invalidate all their active sessions. The user will need to sign in again with the new password."
@@ -2571,6 +2699,14 @@ msgstr "Отключи потребител"
 msgid "Unlocking this user will reset their failed login attempts, allowing them to sign in again with their existing credentials."
 msgstr "Отключването на този потребител ще нулира неуспешните им опити за вход, позволявайки им да влязат отново с текущите си данни за достъп."
 
+#: src/pages/admin/users.$userId.tsx
+msgid "Unmerge"
+msgstr ""
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Unmerge linked identity"
+msgstr ""
+
 #: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
 #: src/pages/admin/-organization-tenant-panels.tsx
@@ -2674,6 +2810,7 @@ msgstr "Прегледайте всички одиторски регистри"
 #: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
 #: src/pages/admin/refunds.tsx
 #: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/webhook-logs.tsx
 msgid "View details"
 msgstr "Вижте детайлите"
 
@@ -2704,6 +2841,16 @@ msgstr "Прегледайте потребителите"
 #: src/features/announcement-admin/model/types.ts
 msgid "Warning"
 msgstr "Предупреждение"
+
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+msgid "Webhook Log"
+msgstr ""
+
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+#: src/pages/admin/webhook-logs.tsx
+#: src/shared/ui/admin-layout/admin-nav.tsx
+msgid "Webhook Logs"
+msgstr ""
 
 #: src/pages/sign-in.tsx
 msgid "Welcome back"

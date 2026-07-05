@@ -44,6 +44,8 @@ export type {
   UpdateSubscriptionRequest,
   RefundSortField,
   ListRefundsParams,
+  WebhookLogSortField,
+  ListWebhookLogsParams,
   AdminCreateBillingSettingsRequest,
   AdminReplaceBillingSettingsRequest,
   AdminPatchBillingSettingsRequest,
@@ -103,4 +105,5 @@ export type {
   AuditRecord,
   AuditSeverity,
   AuditActionCount,
+  WebhookLog,
 } from "../../entities";

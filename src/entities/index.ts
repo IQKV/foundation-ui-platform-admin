@@ -5,6 +5,7 @@ export * from "./invitation";
 export * from "./notification";
 export * from "./oidc-identity";
 export * from "./refund";
+export * from "./webhook-log";
 export * from "./subscription";
 export * from "./tenant";
 export * from "./user";

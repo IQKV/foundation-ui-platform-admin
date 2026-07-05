@@ -6,6 +6,7 @@ import type {
   Plan,
   AdminBillingSettings,
   Refund,
+  WebhookLog,
 } from "../../entities";
 
 function adminTenantBillingSettingsPath(tenantKey: string): string {
@@ -24,6 +25,13 @@ export type RefundSortField =
   | "occurredAt"
   | "createdAt"
   | "updatedAt";
+
+export type WebhookLogSortField =
+  | "receivedAt"
+  | "processedAt"
+  | "eventType"
+  | "tenantKey"
+  | "status";
 
 export interface ListSubscriptionsParams {
   page?: number;
@@ -49,6 +57,16 @@ export interface ListRefundsParams {
   size?: number;
   tenantKey?: string;
   sortBy?: RefundSortField;
+  sortDir?: SortDirection;
+}
+
+export interface ListWebhookLogsParams {
+  page?: number;
+  size?: number;
+  search?: string;
+  status?: string;
+  tenantKey?: string;
+  sortBy?: WebhookLogSortField;
   sortDir?: SortDirection;
 }
 
@@ -191,4 +209,12 @@ export const billingApi = {
 
   getActiveGateway: () =>
     httpClient.get<GatewayConfigResponse>("/v1/billing/admin/gateway").then((r) => r.data),
+
+  listWebhookLogs: (params: ListWebhookLogsParams = {}) =>
+    httpClient
+      .get<PagedResponse<WebhookLog>>("/v1/billing/admin/webhook-logs", { params })
+      .then((r) => r.data),
+
+  getWebhookLog: (id: string) =>
+    httpClient.get<WebhookLog>(`/v1/billing/admin/webhook-logs/${id}`).then((r) => r.data),
 };

@@ -20,6 +20,7 @@ This repository is the **platform admin surface only** (not the tenant-facing ap
 - **Audit Logs** — Global audit log view
 - **Notifications** — In-app notifications with WebSocket support; notification bell UI
 - **Refunds** — Refund list and detail views
+- **Webhook Logs** — Platform-wide webhook log list (search, tenant key filter, status filter, sort) and detail view
 - **My account** — View/edit operator profile; change password
 - **i18n** — Lingui with English catalog; locale switcher UI (additional locales can be added in `lingui.config.ts`)
 - **Runtime config** — Override `VITE_*` via `public/config.js` without rebuilding
@@ -30,24 +31,25 @@ Platform actions (impersonation), system health/jobs, advanced dashboard metrics
 
 ## Feature Status
 
-| Area                       | Status  | Notes                                                           |
-| -------------------------- | ------- | --------------------------------------------------------------- |
-| Sign-in & session guards   | Done    | `PLATFORM_ADMIN` on `/admin/*`                                  |
-| Dashboard (count cards)    | Done    | Users, orgs, subscriptions                                      |
-| User list & detail         | Done    | List + edit/set password; authority + OIDC identities tabs      |
-| Organization list & detail | Done    | List + edit; overview, members, billing, subscriptions, refunds |
-| Invitations                | Done    | Propose, edit, revoke                                           |
-| Subscriptions              | Done    | List + detail; cancel/pause/reactivate; update quantity         |
-| Plan catalog               | Done    | Create, edit, delete                                            |
-| Announcements              | Done    | Create, edit, publish, delete                                   |
-| Audit Logs                 | Done    | Global audit log view                                           |
-| Notifications              | Done    | In-app + WebSocket                                              |
-| Refunds                    | Done    | Refund list + detail                                            |
-| Operator account           | Done    | Profile + password                                              |
-| OIDC admin remediation     | Done    | View user identities + force-unmerge                            |
-| Platform actions           | Partial | Ban/unban/unlock done; impersonation, etc. planned              |
-| System administration      | Partial | Audit log implemented; health/jobs planned                      |
-| Advanced metrics           | Planned | MRR/ARR, growth charts                                          |
+| Area                       | Status  | Notes                                                             |
+| -------------------------- | ------- | ----------------------------------------------------------------- |
+| Sign-in & session guards   | Done    | `PLATFORM_ADMIN` on `/admin/*`                                    |
+| Dashboard (count cards)    | Done    | Users, orgs, subscriptions                                        |
+| User list & detail         | Done    | List + edit/set password; authority + OIDC identities tabs        |
+| Organization list & detail | Done    | List + edit; overview, members, billing, subscriptions, refunds   |
+| Invitations                | Done    | Propose, edit, revoke                                             |
+| Subscriptions              | Done    | List + detail; cancel/pause/reactivate; update quantity           |
+| Plan catalog               | Done    | Create, edit, delete                                              |
+| Announcements              | Done    | Create, edit, publish, delete                                     |
+| Audit Logs                 | Done    | Global audit log view                                             |
+| Notifications              | Done    | In-app + WebSocket                                                |
+| Refunds                    | Done    | Refund list + detail                                              |
+| Webhook Logs               | Done    | Platform-wide list (search, tenant filter, status, sort) + detail |
+| Operator account           | Done    | Profile + password                                                |
+| OIDC admin remediation     | Done    | View user identities + force-unmerge                              |
+| Platform actions           | Partial | Ban/unban/unlock done; impersonation, etc. planned                |
+| System administration      | Partial | Audit log implemented; health/jobs planned                        |
+| Advanced metrics           | Planned | MRR/ARR, growth charts                                            |
 
 ## Quick Links
 
@@ -134,6 +136,8 @@ Values on `window.*` take precedence over build-time `VITE_*` variables. Do not 
 | `/admin/notifications`                          | Notifications list                                       |
 | `/admin/refunds`                                | Refunds list                                             |
 | `/admin/refunds/:refundId`                      | Refund detail                                            |
+| `/admin/webhook-logs`                           | Webhook log list                                         |
+| `/admin/webhook-logs/:webhookLogId`             | Webhook log detail                                       |
 | `/admin/account`                                | Signed-in operator profile                               |
 
 ## pnpm Scripts

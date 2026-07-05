@@ -100,6 +100,7 @@ msgstr "Action needed"
 #: src/pages/admin/refunds.tsx
 #: src/pages/admin/subscriptions.tsx
 #: src/pages/admin/users.index.tsx
+#: src/pages/admin/webhook-logs.tsx
 msgid "Actions"
 msgstr "Actions"
 
@@ -318,6 +319,7 @@ msgstr "Automatic router integration via <0>router.subscribe()</0>"
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/refunds.$refundId.tsx
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
 msgid "Back to list"
 msgstr "Back to list"
 
@@ -383,6 +385,7 @@ msgstr "Billing Settings"
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 #: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/users.$userId.tsx
 msgid "Cancel"
 msgstr "Cancel"
 
@@ -512,8 +515,8 @@ msgid "Correlation ID"
 msgstr "Correlation ID"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
-msgid "Could not create Stripe Customer Portal session."
-msgstr "Could not create Stripe Customer Portal session."
+#~ msgid "Could not create Stripe Customer Portal session."
+#~ msgstr "Could not create Stripe Customer Portal session."
 
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "Could not create the page. Please check the form and try again."
@@ -542,6 +545,10 @@ msgstr "Could not fetch billing settings."
 #: src/pages/admin/invitations.index.tsx
 msgid "Could not fetch invitations from the API."
 msgstr "Could not fetch invitations from the API."
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Could not fetch linked identities for this user."
+msgstr "Could not fetch linked identities for this user."
 
 #: src/pages/admin/-organization-tenant-panels.tsx
 msgid "Could not fetch members."
@@ -603,9 +610,21 @@ msgstr "Could not fetch user details."
 msgid "Could not fetch users from the API."
 msgstr "Could not fetch users from the API."
 
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+msgid "Could not fetch webhook log details."
+msgstr "Could not fetch webhook log details."
+
+#: src/pages/admin/webhook-logs.tsx
+msgid "Could not fetch webhook logs from the API."
+msgstr "Could not fetch webhook logs from the API."
+
 #: src/pages/admin/account.tsx
 msgid "Could not fetch your account details."
 msgstr "Could not fetch your account details."
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Could not open the billing portal. Please try again."
+msgstr "Could not open the billing portal. Please try again."
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 msgid "Could not save the page. Please check the form and try again."
@@ -872,6 +891,11 @@ msgstr "Email verified"
 msgid "Email verified:"
 msgstr "Email verified:"
 
+#. placeholder {0}: identity.email
+#: src/pages/admin/users.$userId.tsx
+msgid "Email: <0>{0}</0>"
+msgstr "Email: <0>{0}</0>"
+
 #: src/features/plan-catalog/ui/create-plan-modal.tsx
 #~ msgid "Enter a positive price (minor units, e.g. cents)"
 #~ msgstr "Enter a positive price (minor units, e.g. cents)"
@@ -898,6 +922,7 @@ msgid "Entity Type"
 msgstr "Entity Type"
 
 #: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/users.$userId.tsx
 msgid "Error"
 msgstr "Error"
 
@@ -905,9 +930,18 @@ msgstr "Error"
 msgid "Error Details (Development)"
 msgstr "Error Details (Development)"
 
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+msgid "Error Message"
+msgstr "Error Message"
+
 #: src/pages/admin/audit-logs.tsx
 msgid "Event Payload"
 msgstr "Event Payload"
+
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+#: src/pages/admin/webhook-logs.tsx
+msgid "Event Type"
+msgstr "Event Type"
 
 #: src/shared/ui/invitation-status-badge/invitation-status-badge.tsx
 msgid "Expired"
@@ -939,6 +973,11 @@ msgstr "External Customer ID"
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "External customer id is required"
 msgstr "External customer id is required"
+
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+#: src/pages/admin/webhook-logs.tsx
+msgid "External Event ID"
+msgstr "External Event ID"
 
 #: src/pages/admin/organizations.$tenantKey.refunds.tsx
 #: src/pages/admin/refunds.tsx
@@ -991,6 +1030,10 @@ msgstr "Failed to load audit logs"
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Failed to load billing settings"
 msgstr "Failed to load billing settings"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Failed to load identities"
+msgstr "Failed to load identities"
 
 #: src/pages/admin/invitations.index.tsx
 msgid "Failed to load invitations"
@@ -1063,6 +1106,14 @@ msgstr "Failed to load user"
 msgid "Failed to load users"
 msgstr "Failed to load users"
 
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+msgid "Failed to load webhook log"
+msgstr "Failed to load webhook log"
+
+#: src/pages/admin/webhook-logs.tsx
+msgid "Failed to load webhook logs"
+msgstr "Failed to load webhook logs"
+
 #: src/pages/admin/subscriptions.tsx
 msgid "Failed to pause subscription"
 msgstr "Failed to pause subscription"
@@ -1070,6 +1121,10 @@ msgstr "Failed to pause subscription"
 #: src/pages/admin/subscriptions.tsx
 msgid "Failed to reactivate subscription"
 msgstr "Failed to reactivate subscription"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Failed to unmerge identity"
+msgstr "Failed to unmerge identity"
 
 #: src/pages/admin/subscriptions.tsx
 msgid "Failed to update subscription"
@@ -1089,6 +1144,7 @@ msgstr "Filter by action…"
 
 #: src/pages/admin/audit-logs.tsx
 #: src/pages/admin/refunds.tsx
+#: src/pages/admin/webhook-logs.tsx
 msgid "Filter by tenant key…"
 msgstr "Filter by tenant key…"
 
@@ -1155,6 +1211,8 @@ msgstr "Hierarchy"
 #: src/pages/admin/subscriptions.tsx
 #: src/pages/admin/users.$userId.tsx
 #: src/pages/admin/users.index.tsx
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+#: src/pages/admin/webhook-logs.tsx
 msgid "Home"
 msgstr "Home"
 
@@ -1182,8 +1240,13 @@ msgid "ID: {0}"
 msgstr "ID: {0}"
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/users.$userId.tsx
 msgid "Identity"
 msgstr "Identity"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Identity unmerged"
+msgstr "Identity unmerged"
 
 #: src/pages/loading-demo.tsx
 msgid "Implementation Details"
@@ -1296,6 +1359,14 @@ msgstr "Last name is required"
 msgid "Last updated"
 msgstr "Last updated"
 
+#: src/pages/admin/users.$userId.tsx
+msgid "Last used"
+msgstr "Last used"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Linked"
+msgstr "Linked"
+
 #: src/pages/loading-demo.tsx
 msgid "Loading Demo"
 msgstr "Loading Demo"
@@ -1320,6 +1391,7 @@ msgstr "Loading..."
 #: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/pages/admin/refunds.$refundId.tsx
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
 msgid "Loading…"
 msgstr "Loading…"
 
@@ -1341,6 +1413,10 @@ msgstr "Locked"
 #: src/pages/admin/index.tsx
 msgid "Locked Accounts"
 msgstr "Locked Accounts"
+
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+msgid "Log ID"
+msgstr "Log ID"
 
 #: src/features/announcement-admin/model/types.ts
 msgid "Maintenance"
@@ -1501,6 +1577,10 @@ msgstr "No invitations found"
 msgid "No invitations match the current filters"
 msgstr "No invitations match the current filters"
 
+#: src/pages/admin/users.$userId.tsx
+msgid "No linked OIDC identities found."
+msgstr "No linked OIDC identities found."
+
 #: src/pages/admin/-organization-tenant-panels.tsx
 msgid "No members found"
 msgstr "No members found"
@@ -1623,6 +1703,10 @@ msgstr "OG description"
 #: src/features/page-admin/ui/page-translation-fields.tsx
 msgid "OG title"
 msgstr "OG title"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "OIDC Identities"
+msgstr "OIDC Identities"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Open Billing Portal"
@@ -1876,6 +1960,7 @@ msgstr "Plans"
 #: src/pages/admin/refunds.tsx
 #: src/pages/admin/subscriptions.tsx
 #: src/pages/admin/users.index.tsx
+#: src/pages/admin/webhook-logs.tsx
 #: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Platform"
 msgstr "Platform"
@@ -1925,6 +2010,11 @@ msgstr "Price (minor units)"
 #~ msgid "Price must be at least 1 minor unit"
 #~ msgstr "Price must be at least 1 minor unit"
 
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+#: src/pages/admin/webhook-logs.tsx
+msgid "Processed At"
+msgstr "Processed At"
+
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Profile owner id must be a valid UUID or empty"
 msgstr "Profile owner id must be a valid UUID or empty"
@@ -1944,6 +2034,11 @@ msgstr "Propose Invitation"
 #: src/features/ban-user/ui/ban-user-modal.tsx
 msgid "Provide a reason for the ban…"
 msgstr "Provide a reason for the ban…"
+
+#. placeholder {0}: identity.provider
+#: src/pages/admin/users.$userId.tsx
+msgid "Provider: <0>{0}</0>"
+msgstr "Provider: <0>{0}</0>"
 
 #: src/features/announcement-admin/ui/edit-announcement-modal.tsx
 msgid "Publish"
@@ -1990,6 +2085,11 @@ msgstr "Read-only"
 #: src/features/ban-user/ui/ban-user-modal.tsx
 msgid "Reason (optional)"
 msgstr "Reason (optional)"
+
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+#: src/pages/admin/webhook-logs.tsx
+msgid "Received At"
+msgstr "Received At"
 
 #: src/widgets/dashboard-recent-critical-audit/ui/recent-critical-audit.tsx
 msgid "Recent Critical Events"
@@ -2074,6 +2174,8 @@ msgstr "Restore access"
 #: src/pages/admin/subscriptions.tsx
 #: src/pages/admin/users.$userId.tsx
 #: src/pages/admin/users.index.tsx
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+#: src/pages/admin/webhook-logs.tsx
 msgid "Retry"
 msgstr "Retry"
 
@@ -2144,6 +2246,10 @@ msgstr "Search by name or key…"
 #: src/pages/admin/subscriptions.tsx
 msgid "Search by tenant or plan…"
 msgstr "Search by tenant or plan…"
+
+#: src/pages/admin/webhook-logs.tsx
+msgid "Search event type or ID…"
+msgstr "Search event type or ID…"
 
 #: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
 msgid "Search plan…"
@@ -2266,6 +2372,10 @@ msgstr "Showing {rangeStart} – {rangeEnd} of {totalElements} refunds"
 msgid "Showing {rangeStart} – {rangeEnd} of {totalElements} subscriptions"
 msgstr "Showing {rangeStart} – {rangeEnd} of {totalElements} subscriptions"
 
+#: src/pages/admin/webhook-logs.tsx
+msgid "Showing {rangeStart} – {rangeEnd} of {totalElements} webhook logs"
+msgstr "Showing {rangeStart} – {rangeEnd} of {totalElements} webhook logs"
+
 #: src/pages/admin/announcements.index.tsx
 msgid "Showing {rangeStart}–{rangeEnd} of {totalElements} announcements"
 msgstr "Showing {rangeStart}–{rangeEnd} of {totalElements} announcements"
@@ -2374,8 +2484,14 @@ msgstr "Start"
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 #: src/pages/admin/subscriptions.tsx
 #: src/pages/admin/users.index.tsx
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+#: src/pages/admin/webhook-logs.tsx
 msgid "Status"
 msgstr "Status"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Subject"
+msgstr "Subject"
 
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Subject Key:"
@@ -2384,6 +2500,11 @@ msgstr "Subject Key:"
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Subject Type:"
 msgstr "Subject Type:"
+
+#. placeholder {0}: identity.providerSub
+#: src/pages/admin/users.$userId.tsx
+msgid "Subject: <0>{0}</0>"
+msgstr "Subject: <0>{0}</0>"
 
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Subscription"
@@ -2427,6 +2548,7 @@ msgstr "Subscriptions"
 #~ msgstr "Subscriptions |Key Value Admin"
 
 #: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/users.$userId.tsx
 msgid "Success"
 msgstr "Success"
 
@@ -2491,6 +2613,7 @@ msgstr "Template"
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/refunds.tsx
 #: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/webhook-logs.tsx
 msgid "Tenant"
 msgstr "Tenant"
 
@@ -2507,6 +2630,7 @@ msgstr "Tenant key"
 #: src/pages/admin/audit-logs.tsx
 #: src/pages/admin/refunds.$refundId.tsx
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
 msgid "Tenant Key"
 msgstr "Tenant Key"
 
@@ -2557,6 +2681,10 @@ msgstr "This user has full administrative access to the platform."
 #: src/pages/admin/users.$userId.tsx
 msgid "This user is not a member of any organization."
 msgstr "This user is not a member of any organization."
+
+#: src/pages/admin/users.$userId.tsx
+msgid "This will force-remove the external sign-in method from the user account."
+msgstr "This will force-remove the external sign-in method from the user account."
 
 #: src/features/set-user-password/ui/set-user-password-modal.tsx
 msgid "This will immediately change the user's password and invalidate all their active sessions. The user will need to sign in again with the new password."
@@ -2660,6 +2788,14 @@ msgstr "Unlock User"
 #: src/features/unlock-user/ui/unlock-user-modal.tsx
 msgid "Unlocking this user will reset their failed login attempts, allowing them to sign in again with their existing credentials."
 msgstr "Unlocking this user will reset their failed login attempts, allowing them to sign in again with their existing credentials."
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Unmerge"
+msgstr "Unmerge"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Unmerge linked identity"
+msgstr "Unmerge linked identity"
 
 #: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
@@ -2772,6 +2908,7 @@ msgstr "View all audit logs"
 #: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
 #: src/pages/admin/refunds.tsx
 #: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/webhook-logs.tsx
 msgid "View details"
 msgstr "View details"
 
@@ -2806,6 +2943,16 @@ msgstr "View users"
 #: src/features/announcement-admin/model/types.ts
 msgid "Warning"
 msgstr "Warning"
+
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+msgid "Webhook Log"
+msgstr "Webhook Log"
+
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+#: src/pages/admin/webhook-logs.tsx
+#: src/shared/ui/admin-layout/admin-nav.tsx
+msgid "Webhook Logs"
+msgstr "Webhook Logs"
 
 #: src/pages/sign-in.tsx
 msgid "Welcome back"

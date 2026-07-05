@@ -17,6 +17,7 @@ import { Route as R500RouteImport } from "./pages/500"
 import { Route as R404RouteImport } from "./pages/404"
 import { Route as IndexRouteImport } from "./pages/index"
 import { Route as AdminIndexRouteImport } from "./pages/admin/index"
+import { Route as AdminWebhookLogsRouteImport } from "./pages/admin/webhook-logs"
 import { Route as AdminUsersRouteImport } from "./pages/admin/users"
 import { Route as AdminSubscriptionsRouteImport } from "./pages/admin/subscriptions"
 import { Route as AdminRefundsRouteImport } from "./pages/admin/refunds"
@@ -34,6 +35,7 @@ import { Route as AdminOrganizationsIndexRouteImport } from "./pages/admin/organ
 import { Route as AdminInvitationsIndexRouteImport } from "./pages/admin/invitations.index"
 import { Route as AdminCmsPagesIndexRouteImport } from "./pages/admin/cms-pages.index"
 import { Route as AdminAnnouncementsIndexRouteImport } from "./pages/admin/announcements.index"
+import { Route as AdminWebhookLogsWebhookLogIdRouteImport } from "./pages/admin/webhook-logs.$webhookLogId"
 import { Route as AdminUsersUserIdRouteImport } from "./pages/admin/users.$userId"
 import { Route as AdminSubscriptionsSubscriptionIdRouteImport } from "./pages/admin/subscriptions.$subscriptionId"
 import { Route as AdminRefundsRefundIdRouteImport } from "./pages/admin/refunds.$refundId"
@@ -85,6 +87,11 @@ const IndexRoute = IndexRouteImport.update({
 const AdminIndexRoute = AdminIndexRouteImport.update({
   id: "/",
   path: "/",
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminWebhookLogsRoute = AdminWebhookLogsRouteImport.update({
+  id: "/webhook-logs",
+  path: "/webhook-logs",
   getParentRoute: () => AdminRoute,
 } as any)
 const AdminUsersRoute = AdminUsersRouteImport.update({
@@ -172,6 +179,12 @@ const AdminAnnouncementsIndexRoute = AdminAnnouncementsIndexRouteImport.update({
   path: "/",
   getParentRoute: () => AdminAnnouncementsRoute,
 } as any)
+const AdminWebhookLogsWebhookLogIdRoute =
+  AdminWebhookLogsWebhookLogIdRouteImport.update({
+    id: "/$webhookLogId",
+    path: "/$webhookLogId",
+    getParentRoute: () => AdminWebhookLogsRoute,
+  } as any)
 const AdminUsersUserIdRoute = AdminUsersUserIdRouteImport.update({
   id: "/$userId",
   path: "/$userId",
@@ -261,12 +274,14 @@ export interface FileRoutesByFullPath {
   "/admin/refunds": typeof AdminRefundsRouteWithChildren
   "/admin/subscriptions": typeof AdminSubscriptionsRouteWithChildren
   "/admin/users": typeof AdminUsersRouteWithChildren
+  "/admin/webhook-logs": typeof AdminWebhookLogsRouteWithChildren
   "/admin/": typeof AdminIndexRoute
   "/admin/organizations/$tenantKey": typeof AdminOrganizationsTenantKeyRouteWithChildren
   "/admin/plans/$planCode": typeof AdminPlansPlanCodeRoute
   "/admin/refunds/$refundId": typeof AdminRefundsRefundIdRoute
   "/admin/subscriptions/$subscriptionId": typeof AdminSubscriptionsSubscriptionIdRoute
   "/admin/users/$userId": typeof AdminUsersUserIdRoute
+  "/admin/webhook-logs/$webhookLogId": typeof AdminWebhookLogsWebhookLogIdRoute
   "/admin/announcements/": typeof AdminAnnouncementsIndexRoute
   "/admin/cms-pages/": typeof AdminCmsPagesIndexRoute
   "/admin/invitations/": typeof AdminInvitationsIndexRoute
@@ -293,11 +308,13 @@ export interface FileRoutesByTo {
   "/admin/notifications": typeof AdminNotificationsRoute
   "/admin/refunds": typeof AdminRefundsRouteWithChildren
   "/admin/subscriptions": typeof AdminSubscriptionsRouteWithChildren
+  "/admin/webhook-logs": typeof AdminWebhookLogsRouteWithChildren
   "/admin": typeof AdminIndexRoute
   "/admin/plans/$planCode": typeof AdminPlansPlanCodeRoute
   "/admin/refunds/$refundId": typeof AdminRefundsRefundIdRoute
   "/admin/subscriptions/$subscriptionId": typeof AdminSubscriptionsSubscriptionIdRoute
   "/admin/users/$userId": typeof AdminUsersUserIdRoute
+  "/admin/webhook-logs/$webhookLogId": typeof AdminWebhookLogsWebhookLogIdRoute
   "/admin/announcements": typeof AdminAnnouncementsIndexRoute
   "/admin/cms-pages": typeof AdminCmsPagesIndexRoute
   "/admin/invitations": typeof AdminInvitationsIndexRoute
@@ -332,12 +349,14 @@ export interface FileRoutesById {
   "/admin/refunds": typeof AdminRefundsRouteWithChildren
   "/admin/subscriptions": typeof AdminSubscriptionsRouteWithChildren
   "/admin/users": typeof AdminUsersRouteWithChildren
+  "/admin/webhook-logs": typeof AdminWebhookLogsRouteWithChildren
   "/admin/": typeof AdminIndexRoute
   "/admin/organizations/$tenantKey": typeof AdminOrganizationsTenantKeyRouteWithChildren
   "/admin/plans/$planCode": typeof AdminPlansPlanCodeRoute
   "/admin/refunds/$refundId": typeof AdminRefundsRefundIdRoute
   "/admin/subscriptions/$subscriptionId": typeof AdminSubscriptionsSubscriptionIdRoute
   "/admin/users/$userId": typeof AdminUsersUserIdRoute
+  "/admin/webhook-logs/$webhookLogId": typeof AdminWebhookLogsWebhookLogIdRoute
   "/admin/announcements/": typeof AdminAnnouncementsIndexRoute
   "/admin/cms-pages/": typeof AdminCmsPagesIndexRoute
   "/admin/invitations/": typeof AdminInvitationsIndexRoute
@@ -373,12 +392,14 @@ export interface FileRouteTypes {
     | "/admin/refunds"
     | "/admin/subscriptions"
     | "/admin/users"
+    | "/admin/webhook-logs"
     | "/admin/"
     | "/admin/organizations/$tenantKey"
     | "/admin/plans/$planCode"
     | "/admin/refunds/$refundId"
     | "/admin/subscriptions/$subscriptionId"
     | "/admin/users/$userId"
+    | "/admin/webhook-logs/$webhookLogId"
     | "/admin/announcements/"
     | "/admin/cms-pages/"
     | "/admin/invitations/"
@@ -405,11 +426,13 @@ export interface FileRouteTypes {
     | "/admin/notifications"
     | "/admin/refunds"
     | "/admin/subscriptions"
+    | "/admin/webhook-logs"
     | "/admin"
     | "/admin/plans/$planCode"
     | "/admin/refunds/$refundId"
     | "/admin/subscriptions/$subscriptionId"
     | "/admin/users/$userId"
+    | "/admin/webhook-logs/$webhookLogId"
     | "/admin/announcements"
     | "/admin/cms-pages"
     | "/admin/invitations"
@@ -443,12 +466,14 @@ export interface FileRouteTypes {
     | "/admin/refunds"
     | "/admin/subscriptions"
     | "/admin/users"
+    | "/admin/webhook-logs"
     | "/admin/"
     | "/admin/organizations/$tenantKey"
     | "/admin/plans/$planCode"
     | "/admin/refunds/$refundId"
     | "/admin/subscriptions/$subscriptionId"
     | "/admin/users/$userId"
+    | "/admin/webhook-logs/$webhookLogId"
     | "/admin/announcements/"
     | "/admin/cms-pages/"
     | "/admin/invitations/"
@@ -530,6 +555,13 @@ declare module "@tanstack/react-router" {
       path: "/"
       fullPath: "/admin/"
       preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    "/admin/webhook-logs": {
+      id: "/admin/webhook-logs"
+      path: "/webhook-logs"
+      fullPath: "/admin/webhook-logs"
+      preLoaderRoute: typeof AdminWebhookLogsRouteImport
       parentRoute: typeof AdminRoute
     }
     "/admin/users": {
@@ -650,6 +682,13 @@ declare module "@tanstack/react-router" {
       fullPath: "/admin/announcements/"
       preLoaderRoute: typeof AdminAnnouncementsIndexRouteImport
       parentRoute: typeof AdminAnnouncementsRoute
+    }
+    "/admin/webhook-logs/$webhookLogId": {
+      id: "/admin/webhook-logs/$webhookLogId"
+      path: "/$webhookLogId"
+      fullPath: "/admin/webhook-logs/$webhookLogId"
+      preLoaderRoute: typeof AdminWebhookLogsWebhookLogIdRouteImport
+      parentRoute: typeof AdminWebhookLogsRoute
     }
     "/admin/users/$userId": {
       id: "/admin/users/$userId"
@@ -868,6 +907,17 @@ const AdminUsersRouteWithChildren = AdminUsersRoute._addFileChildren(
   AdminUsersRouteChildren,
 )
 
+interface AdminWebhookLogsRouteChildren {
+  AdminWebhookLogsWebhookLogIdRoute: typeof AdminWebhookLogsWebhookLogIdRoute
+}
+
+const AdminWebhookLogsRouteChildren: AdminWebhookLogsRouteChildren = {
+  AdminWebhookLogsWebhookLogIdRoute: AdminWebhookLogsWebhookLogIdRoute,
+}
+
+const AdminWebhookLogsRouteWithChildren =
+  AdminWebhookLogsRoute._addFileChildren(AdminWebhookLogsRouteChildren)
+
 interface AdminRouteChildren {
   AdminAccountRoute: typeof AdminAccountRoute
   AdminAnnouncementsRoute: typeof AdminAnnouncementsRouteWithChildren
@@ -880,6 +930,7 @@ interface AdminRouteChildren {
   AdminRefundsRoute: typeof AdminRefundsRouteWithChildren
   AdminSubscriptionsRoute: typeof AdminSubscriptionsRouteWithChildren
   AdminUsersRoute: typeof AdminUsersRouteWithChildren
+  AdminWebhookLogsRoute: typeof AdminWebhookLogsRouteWithChildren
   AdminIndexRoute: typeof AdminIndexRoute
 }
 
@@ -895,6 +946,7 @@ const AdminRouteChildren: AdminRouteChildren = {
   AdminRefundsRoute: AdminRefundsRouteWithChildren,
   AdminSubscriptionsRoute: AdminSubscriptionsRouteWithChildren,
   AdminUsersRoute: AdminUsersRouteWithChildren,
+  AdminWebhookLogsRoute: AdminWebhookLogsRouteWithChildren,
   AdminIndexRoute: AdminIndexRoute,
 }
 

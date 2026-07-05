@@ -12,6 +12,7 @@ import {
   IconSpeakerphone,
   IconHistory,
   IconFileText,
+  IconWebhook,
 } from "@tabler/icons-react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useState } from "react";
@@ -60,6 +61,7 @@ export function AdminNav() {
     { label: t`Invitations`, icon: <IconMail size={15} />, to: "/admin/invitations" },
     { label: t`Subscriptions`, icon: <IconCreditCard size={15} />, to: "/admin/subscriptions" },
     { label: t`Refunds`, icon: <IconReceiptRefund size={15} />, to: "/admin/refunds" },
+    { label: t`Webhook Logs`, icon: <IconWebhook size={15} />, to: "/admin/webhook-logs" },
     { label: t`Plans`, icon: <IconTags size={15} />, to: "/admin/plans" },
     { label: t`Announcements`, icon: <IconSpeakerphone size={15} />, to: "/admin/announcements" },
     { label: t`CMS Pages`, icon: <IconFileText size={15} />, to: "/admin/cms-pages" },
