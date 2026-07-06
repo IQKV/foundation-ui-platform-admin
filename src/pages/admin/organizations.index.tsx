@@ -39,6 +39,7 @@ import type { Tenant, TenantStatus } from "@/entities";
 import type { TenantSortField, SortDirection } from "@/shared/api";
 import { TenantStatusBadge, PageHeader } from "@/shared/ui";
 import { EditTenantModal } from "@/features/edit-tenant";
+import { TestSelectors } from "@/shared/lib/test-selectors";
 
 export const Route = createFileRoute("/admin/organizations/")({
   component: AdminOrganizationsPage,
@@ -169,7 +170,7 @@ function AdminOrganizationsPage() {
               </Text>
               {!isLoading && (
                 <Badge
-                  data-testid="badge-orgs-total-count"
+                  data-testid={TestSelectors.BADGE.ORGS_TOTAL_COUNT}
                   variant="light"
                   color="gray"
                   size="sm"
@@ -182,7 +183,7 @@ function AdminOrganizationsPage() {
 
             <Group gap="xs">
               <TextInput
-                data-testid="input-orgs-search"
+                data-testid={TestSelectors.INPUT.ORGS_SEARCH}
                 placeholder={t`Search by name or key…`}
                 leftSection={<IconSearch size={14} />}
                 value={search}
@@ -192,7 +193,7 @@ function AdminOrganizationsPage() {
                 rightSection={
                   search ? (
                     <CloseButton
-                      data-testid="button-orgs-search-clear"
+                      data-testid={TestSelectors.BUTTON.ORGS_SEARCH_CLEAR}
                       size="xs"
                       onClick={() => handleSearchChange("")}
                     />
@@ -201,7 +202,7 @@ function AdminOrganizationsPage() {
               />
 
               <Select
-                data-testid="select-orgs-status-filter"
+                data-testid={TestSelectors.SELECT.ORGS_STATUS_FILTER}
                 placeholder={t`All statuses`}
                 leftSection={<IconFilter size={14} />}
                 data={STATUS_OPTIONS.map((o) => ({ value: o.value, label: t`${o.label}` }))}
@@ -215,7 +216,7 @@ function AdminOrganizationsPage() {
               {hasActiveFilters && (
                 <Tooltip label={t`Clear filters`} withArrow>
                   <Button
-                    data-testid="button-orgs-clear-filters"
+                    data-testid={TestSelectors.BUTTON.ORGS_CLEAR_FILTERS}
                     variant="subtle"
                     color="gray"
                     size="xs"
@@ -228,7 +229,7 @@ function AdminOrganizationsPage() {
 
               <Tooltip label={t`Refresh`} withArrow>
                 <ActionIcon
-                  data-testid="button-orgs-refresh"
+                  data-testid={TestSelectors.BUTTON.ORGS_REFRESH}
                   variant="subtle"
                   color="gray"
                   size="sm"
@@ -366,7 +367,7 @@ function AdminOrganizationsPage() {
                     <Group gap={4} justify="flex-end" wrap="nowrap">
                       <Tooltip label={t`View organization`} withArrow>
                         <ActionIcon
-                          data-testid={`button-org-view--${tenant.tenantKey}`}
+                          data-testid={TestSelectors.BUTTON.ORG_VIEW(tenant.tenantKey)}
                           variant="subtle"
                           color="gray"
                           size="sm"
@@ -380,7 +381,7 @@ function AdminOrganizationsPage() {
                       </Tooltip>
                       <Tooltip label={t`Billing settings`} withArrow>
                         <ActionIcon
-                          data-testid={`button-org-billing--${tenant.tenantKey}`}
+                          data-testid={TestSelectors.BUTTON.ORG_BILLING(tenant.tenantKey)}
                           variant="subtle"
                           color="gray"
                           size="sm"
@@ -394,7 +395,7 @@ function AdminOrganizationsPage() {
                       </Tooltip>
                       <Tooltip label={t`Edit organization`} withArrow>
                         <ActionIcon
-                          data-testid={`button-org-edit--${tenant.tenantKey}`}
+                          data-testid={TestSelectors.BUTTON.ORG_EDIT(tenant.tenantKey)}
                           variant="subtle"
                           color="blue"
                           size="sm"

@@ -1,13 +1,13 @@
-import { test, expect } from "@playwright/test";
+import { test, expect } from "../app/fixtures/index.js";
 import { AppPage, testUtils } from "../shared/utils/test-helpers.js";
 import { TestSelectors, byTestId } from "../shared/selectors/test-selectors.js";
 
 test.describe("App Smoke Tests", () => {
-  test("homepage loads and redirects to /admin when authenticated", async ({ page }) => {
-    const app = new AppPage(page);
+  test("homepage loads and redirects to /admin when authenticated", async ({ adminPage }) => {
+    const app = new AppPage(adminPage.page);
     await app.goToHome();
     // "/" redirects to "/admin" for authenticated users
-    await expect(page).toHaveURL(/\/admin\/?$/);
+    await expect(adminPage.page).toHaveURL(/\/admin\/?$/);
     await app.expectHomePageVisible();
   });
 
@@ -52,9 +52,9 @@ test.describe("App Smoke Tests", () => {
     expect(await page.locator('meta[name="viewport"]').count()).toBeGreaterThan(0);
   });
 
-  test("app is responsive on different viewports", async ({ page }) => {
-    const app = new AppPage(page);
-    await testUtils.testResponsiveDesign(page, async () => {
+  test("app is responsive on different viewports", async ({ adminPage }) => {
+    const app = new AppPage(adminPage.page);
+    await testUtils.testResponsiveDesign(adminPage.page, async () => {
       await app.goToHome();
       await app.expectHomePageVisible();
     });
