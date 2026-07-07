@@ -208,14 +208,14 @@ importers:
         specifier: ^21.2.0
         version: 21.2.0
       '@lingui/cli':
-        specifier: ^6.4.0
-        version: 6.4.0
+        specifier: ^6.5.0
+        version: 6.5.0(rolldown@1.1.4)
       '@lingui/swc-plugin':
         specifier: ^6.5.1
         version: 6.5.1(@lingui/core@6.4.0)(@swc/core@1.15.43)
       '@lingui/vite-plugin':
         specifier: ^6.4.0
-        version: 6.4.0(@babel/core@7.29.7)(@lingui/babel-plugin-lingui-macro@6.4.0)(rolldown@1.1.4)(vite@8.1.3(@types/node@26.1.0)(jiti@2.7.0)(sugarss@5.0.1(postcss@8.5.16))(yaml@2.9.0))
+        version: 6.4.0(@babel/core@7.29.7)(@lingui/babel-plugin-lingui-macro@6.5.0)(rolldown@1.1.4)(vite@8.1.3(@types/node@26.1.0)(jiti@2.7.0)(sugarss@5.0.1(postcss@8.5.16))(yaml@2.9.0))
       '@playwright/test':
         specifier: 1.61.1
         version: 1.61.1
@@ -1131,14 +1131,35 @@ packages:
     resolution: {integrity: sha512-b9NatQFU1h0muPCC0QGdSVKE/OEdR4w9FQrKAOFYwH0eF7pD2ArafqyqG6xsw2E+7w4PlZQjzOhihQMxI8a6sA==}
     engines: {node: '>=22.19.0'}
 
+  '@lingui/babel-plugin-extract-messages@6.5.0':
+    resolution: {integrity: sha512-ZvHG9eekHvfr+qErKgfPG/twfpXfMIiNSQk7iHKr/eSaeUP/c+Syuysx7s5I4WbkZlnzYjovp1K1iS7VHdX93Q==}
+    engines: {node: '>=22.19.0'}
+
   '@lingui/babel-plugin-lingui-macro@6.4.0':
     resolution: {integrity: sha512-V15kARtjzWgLga/6LOTMMki5pv3F42m9BX8jdI1mBg4yCo1cS0B3szfoBqoveFs7x+nh0iuEPAKcM9lVdSYadw==}
+    engines: {node: '>=22.19.0'}
+
+  '@lingui/babel-plugin-lingui-macro@6.5.0':
+    resolution: {integrity: sha512-p80TT6WMGXpFnAe9nP9ad/BJsADBxBvTa1QFy07tZqpg/5G5eOxUn641koQjHHr/EQ3yNstLohPV9aAVoKKsiA==}
     engines: {node: '>=22.19.0'}
 
   '@lingui/cli@6.4.0':
     resolution: {integrity: sha512-OqtEPHFmgQlyroQMmpnda6QRnfAqlAYnRVZpZSX3rZpwwaHI1pD7T1EQoK8n7kin9TGhitc1J33wFom7o/+yyg==}
     engines: {node: '>=22.19.0'}
     hasBin: true
+
+  '@lingui/cli@6.5.0':
+    resolution: {integrity: sha512-aTvggRa8yUHT6tNmkWuJfNehO/gkShiQA0UTn02hNSTIqqfh3y4avsHiJGFBAEmFx/zpvJ+XcHtZDhTtNMojhA==}
+    engines: {node: '>=22.19.0'}
+    hasBin: true
+    peerDependencies:
+      esbuild: ^0.28.1
+      rolldown: ^1.0.0
+    peerDependenciesMeta:
+      esbuild:
+        optional: true
+      rolldown:
+        optional: true
 
   '@lingui/conf@6.4.0':
     resolution: {integrity: sha512-C+THkLbda72//6dL7QAVyaxIxOnag8mGWKqrMsyIUHgZpStE05KiF8HDwTCMNiaeQmQPym/D8fVm7m8jCau3EA==}
@@ -1150,6 +1171,15 @@ packages:
 
   '@lingui/core@6.4.0':
     resolution: {integrity: sha512-DVbgp9tn07t3iByH6snsn1WaM8PxjDacOqf45oLVXyIti98PmXadO2UkO+NgCybHSqm3+7GGV4zTr4777Cc9nA==}
+    engines: {node: '>=22.19.0'}
+    peerDependencies:
+      babel-plugin-macros: 2 || 3
+    peerDependenciesMeta:
+      babel-plugin-macros:
+        optional: true
+
+  '@lingui/core@6.5.0':
+    resolution: {integrity: sha512-zAoD/fIMNqtgvH15BJBtyHSMRssnMSumCEggj4c4kGYU0hh5rWn1JoOw/xLbA0Xe2iH4oBG9/SDnvVjJ4VvWrA==}
     engines: {node: '>=22.19.0'}
     peerDependencies:
       babel-plugin-macros: 2 || 3
@@ -2996,6 +3026,11 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
 
+  browserslist@4.28.5:
+    resolution: {integrity: sha512-Cu2E6QejHWzuDMTkuwgpABFgDfZrXLQq5V13YOACZx4mFAG4IwGTbTfHPMr4WtxlHoXSM8FIuRwYYCz5XiabaQ==}
+    engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
+    hasBin: true
+
   buffer-from@1.1.2:
     resolution: {integrity: sha512-E+XQCRwSbaaiChtv6k6Dwgc+bx+Bs6vuKJHHl5kox/BaKbhiXzqQOwK4cO22yElGp2OCmjwVhT3HmxgyPGnJfQ==}
 
@@ -3076,6 +3111,9 @@ packages:
 
   caniuse-lite@1.0.30001800:
     resolution: {integrity: sha512-MMHtuAz9Ys840zAY5F4k6fV5GaivZ9sPk+nz0mY+GYVzRBnYkN0mpqkSR92oWRQ19yQWo4HvBV/FnC16AJX8MA==}
+
+  caniuse-lite@1.0.30001803:
+    resolution: {integrity: sha512-g/uHREV2ZpK9qMalCsWaxmA6ol+DX8GYhuf3T40RKoP+oL7vhRJh8LNt73PCjpnR6l14FzfPrB5Yux4PKm2meg==}
 
   chai@6.2.2:
     resolution: {integrity: sha512-NUPRluOfOiTKBKvWPtSD4PhFvWCqOi0BGStNWs57X9js7XGTprSmFoz5F0tWhR4WPjNeR9jXqdC7/UpSJTnlRg==}
@@ -3632,6 +3670,9 @@ packages:
 
   electron-to-chromium@1.5.387:
     resolution: {integrity: sha512-TaxwufTFDufvPEoXdhwVrA3UdFWBeWGkYoJ1K8ldF1xe6gKfth6iRNS5lTQ5JPNOHdGQm8PT1QYKUqFLCiUefQ==}
+
+  electron-to-chromium@1.5.388:
+    resolution: {integrity: sha512-Pl/aJaqOOxYxda3vcx1IKSJimwYXHDkEnGn0F+kG2EE68dDtx2uCinaS+Vih8Z91B9t8CSAbiF/HKyWcnXjhzw==}
 
   embla-carousel-react@8.6.0:
     resolution: {integrity: sha512-0/PjqU7geVmo6F734pmPqpyHqiM99olvyecY7zdweCw+6tKEXnrE90pBiBbMMU8s5tICemzpQ3hi5EpxzGW+JA==}
@@ -6591,7 +6632,7 @@ snapshots:
     dependencies:
       '@babel/compat-data': 7.29.7
       '@babel/helper-validator-option': 7.29.7
-      browserslist: 4.28.4
+      browserslist: 4.28.5
       lru-cache: 5.1.1
       semver: 6.3.1
 
@@ -7246,12 +7287,25 @@ snapshots:
     dependencies:
       '@lingui/conf': 6.4.0
 
+  '@lingui/babel-plugin-extract-messages@6.5.0':
+    dependencies:
+      '@lingui/conf': 6.5.0
+
   '@lingui/babel-plugin-lingui-macro@6.4.0':
     dependencies:
       '@babel/core': 7.29.7
       '@babel/types': 7.29.7
       '@lingui/conf': 6.4.0
       '@lingui/message-utils': 6.4.0
+    transitivePeerDependencies:
+      - supports-color
+
+  '@lingui/babel-plugin-lingui-macro@6.5.0':
+    dependencies:
+      '@babel/core': 7.29.7
+      '@babel/types': 7.29.7
+      '@lingui/conf': 6.5.0
+      '@lingui/message-utils': 6.5.0
     transitivePeerDependencies:
       - supports-color
 
@@ -7283,6 +7337,35 @@ snapshots:
       - babel-plugin-macros
       - supports-color
 
+  '@lingui/cli@6.5.0(rolldown@1.1.4)':
+    dependencies:
+      '@babel/core': 7.29.7
+      '@babel/generator': 7.29.7
+      '@babel/parser': 7.29.7
+      '@babel/types': 7.29.7
+      '@lingui/babel-plugin-extract-messages': 6.5.0
+      '@lingui/babel-plugin-lingui-macro': 6.5.0
+      '@lingui/conf': 6.5.0
+      '@lingui/core': 6.5.0
+      '@lingui/format-po': 6.5.0
+      '@lingui/message-utils': 6.5.0
+      chokidar: 5.0.0
+      cli-table3: 0.6.5
+      commander: 14.0.3
+      jiti: 2.7.0
+      micromatch: 4.0.8
+      ms: 2.1.3
+      normalize-path: 3.0.0
+      ora: 9.4.1
+      pseudolocale: 2.2.0
+      source-map: 0.7.6
+      tinypool: 2.1.0
+    optionalDependencies:
+      rolldown: 1.1.4
+    transitivePeerDependencies:
+      - babel-plugin-macros
+      - supports-color
+
   '@lingui/conf@6.4.0':
     dependencies:
       jest-validate: 29.7.0
@@ -7301,6 +7384,13 @@ snapshots:
     dependencies:
       '@lingui/babel-plugin-lingui-macro': 6.4.0
       '@lingui/message-utils': 6.4.0
+    transitivePeerDependencies:
+      - supports-color
+
+  '@lingui/core@6.5.0':
+    dependencies:
+      '@lingui/babel-plugin-lingui-macro': 6.5.0
+      '@lingui/message-utils': 6.5.0
     transitivePeerDependencies:
       - supports-color
 
@@ -7343,14 +7433,14 @@ snapshots:
     optionalDependencies:
       '@swc/core': 1.15.43
 
-  '@lingui/vite-plugin@6.4.0(@babel/core@7.29.7)(@lingui/babel-plugin-lingui-macro@6.4.0)(rolldown@1.1.4)(vite@8.1.3(@types/node@26.1.0)(jiti@2.7.0)(sugarss@5.0.1(postcss@8.5.16))(yaml@2.9.0))':
+  '@lingui/vite-plugin@6.4.0(@babel/core@7.29.7)(@lingui/babel-plugin-lingui-macro@6.5.0)(rolldown@1.1.4)(vite@8.1.3(@types/node@26.1.0)(jiti@2.7.0)(sugarss@5.0.1(postcss@8.5.16))(yaml@2.9.0))':
     dependencies:
       '@lingui/cli': 6.4.0
       '@lingui/conf': 6.4.0
       vite: 8.1.3(@types/node@26.1.0)(jiti@2.7.0)(sugarss@5.0.1(postcss@8.5.16))(yaml@2.9.0)
     optionalDependencies:
       '@babel/core': 7.29.7
-      '@lingui/babel-plugin-lingui-macro': 6.4.0
+      '@lingui/babel-plugin-lingui-macro': 6.5.0
       rolldown: 1.1.4
     transitivePeerDependencies:
       - babel-plugin-macros
@@ -8908,6 +8998,14 @@ snapshots:
       node-releases: 2.0.50
       update-browserslist-db: 1.2.3(browserslist@4.28.4)
 
+  browserslist@4.28.5:
+    dependencies:
+      baseline-browser-mapping: 2.10.42
+      caniuse-lite: 1.0.30001803
+      electron-to-chromium: 1.5.388
+      node-releases: 2.0.50
+      update-browserslist-db: 1.2.3(browserslist@4.28.5)
+
   buffer-from@1.1.2: {}
 
   buffer-image-size@0.6.4:
@@ -9012,6 +9110,8 @@ snapshots:
   camelcase@6.3.0: {}
 
   caniuse-lite@1.0.30001800: {}
+
+  caniuse-lite@1.0.30001803: {}
 
   chai@6.2.2: {}
 
@@ -9553,6 +9653,8 @@ snapshots:
   ejs@5.0.1: {}
 
   electron-to-chromium@1.5.387: {}
+
+  electron-to-chromium@1.5.388: {}
 
   embla-carousel-react@8.6.0(react@19.2.7):
     dependencies:
@@ -12244,6 +12346,12 @@ snapshots:
   update-browserslist-db@1.2.3(browserslist@4.28.4):
     dependencies:
       browserslist: 4.28.4
+      escalade: 3.2.0
+      picocolors: 1.1.1
+
+  update-browserslist-db@1.2.3(browserslist@4.28.5):
+    dependencies:
+      browserslist: 4.28.5
       escalade: 3.2.0
       picocolors: 1.1.1
 
