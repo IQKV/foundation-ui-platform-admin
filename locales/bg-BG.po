@@ -47,7 +47,7 @@ msgstr "2. Преходи между страници"
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "A translation for the default locale ({0}) is required."
-msgstr ""
+msgstr "Необходим е превод за локала по подразбиране ({0})."
 
 #: src/features/invitation-admin/ui/edit-invitation-modal.tsx
 #: src/shared/ui/invitation-status-badge/invitation-status-badge.tsx
@@ -212,7 +212,7 @@ msgstr "Годишно"
 #: src/features/page-admin/model/types.ts
 #: src/pages/admin/cms-pages.index.tsx
 msgid "Archived"
-msgstr ""
+msgstr "Архивирано"
 
 #. placeholder {0}: subscription.tenantKey
 #: src/pages/admin/subscriptions.tsx
@@ -221,7 +221,7 @@ msgstr "Сигурни ли сте, че искате да отмените аб
 
 #: src/features/page-admin/ui/delete-page-modal.tsx
 msgid "Are you sure you want to delete <0>{displayName}</0>? This action cannot be undone."
-msgstr ""
+msgstr "Сигурни ли сте, че искате да изтриете <0>{displayName}</0>? Това действие не може да бъде отменено."
 
 #: src/features/announcement-admin/ui/delete-announcement-modal.tsx
 msgid "Are you sure you want to delete <0>{enTitle}</0>? This action cannot be undone."
@@ -258,7 +258,7 @@ msgstr "Поне един специален символ"
 #: src/features/announcement-admin/model/types.ts
 #: src/features/page-admin/model/types.ts
 msgid "At least one translation is required"
-msgstr ""
+msgstr "Необходим е поне един превод"
 
 #: src/pages/admin/index.tsx
 msgid "Attention Required"
@@ -387,7 +387,7 @@ msgstr "Не може да се изтрие публикувано или те�
 
 #: src/features/page-admin/ui/page-translation-fields.tsx
 msgid "Canonical URL"
-msgstr ""
+msgstr "Каноничен URL"
 
 #: src/features/change-admin-password/ui/change-admin-password-modal.tsx
 #: src/pages/admin/account.tsx
@@ -431,7 +431,7 @@ msgstr "Затвори"
 #: src/pages/admin/cms-pages.index.tsx
 #: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "CMS Pages"
-msgstr ""
+msgstr "CMS Страници"
 
 #: src/pages/admin/plans.index.tsx
 msgid "Code"
@@ -459,28 +459,28 @@ msgstr "Потвърди паролата"
 
 #: src/features/manage-platform-authority/ui/grant-platform-admin-modal.tsx
 msgid "Confirm privilege escalation"
-msgstr ""
+msgstr "Потвърдете повишаване на привилегии"
 
 #: src/features/manage-platform-authority/ui/revoke-platform-admin-modal.tsx
 msgid "Confirm privilege removal"
-msgstr ""
+msgstr "Потвърдете премахване на привилегии"
 
 #: src/features/page-admin/ui/page-translation-fields.tsx
 #: src/pages/admin/cms-pages.index.tsx
 msgid "Content"
-msgstr ""
+msgstr "Съдържание"
 
 #: src/features/page-admin/model/types.ts
 msgid "Content is required for the default locale"
-msgstr ""
+msgstr "Съдържанието е задължително за локала по подразбиране"
 
 #: src/features/sign-in/ui/demo-credentials-hint.tsx
 msgid "Copied!"
-msgstr ""
+msgstr "Копирано!"
 
 #: src/features/sign-in/ui/demo-credentials-hint.tsx
 msgid "Copy"
-msgstr ""
+msgstr "Копирай"
 
 #: src/pages/admin/audit-logs.tsx
 msgid "Correlation ID"
@@ -500,7 +500,7 @@ msgstr "Обявлението не може да бъде изтрито. Мо�
 
 #: src/features/page-admin/ui/delete-page-modal.tsx
 msgid "Could not delete the page. It may be published."
-msgstr ""
+msgstr "Не може да се изтрие страницата. Тя може да е публикувана."
 
 #: src/pages/admin/announcements.index.tsx
 msgid "Could not fetch announcements from the API."
@@ -520,7 +520,7 @@ msgstr "Не може да се извлекат поканите от API."
 
 #: src/pages/admin/users.$userId.tsx
 msgid "Could not fetch linked identities for this user."
-msgstr ""
+msgstr "Не може да се извлекат свързаните идентичности за този потребител."
 
 #: src/pages/admin/-organization-tenant-panels.tsx
 msgid "Could not fetch members."
@@ -536,7 +536,7 @@ msgstr "Не може да се извлекат организациите от
 
 #: src/pages/admin/cms-pages.index.tsx
 msgid "Could not fetch pages from the API."
-msgstr ""
+msgstr "Не може да се извлекат страниците от API."
 
 #: src/pages/admin/plans.$planCode.tsx
 msgid "Could not fetch plan details."
@@ -572,7 +572,7 @@ msgstr "Не може да се извлекат абонаментите от A
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 msgid "Could not fetch the page details."
-msgstr ""
+msgstr "Не може да се извлекат детайлите на страницата."
 
 #: src/pages/admin/users.$userId.tsx
 msgid "Could not fetch user details."
@@ -584,11 +584,11 @@ msgstr "Не може да се извлекат потребителите от
 
 #: src/pages/admin/webhook-logs.$webhookLogId.tsx
 msgid "Could not fetch webhook log details."
-msgstr ""
+msgstr "Не може да се извлекат детайлите на webhook журнала."
 
 #: src/pages/admin/webhook-logs.tsx
 msgid "Could not fetch webhook logs from the API."
-msgstr ""
+msgstr "Не може да се извлекат webhook журналите от API."
 
 #: src/pages/admin/account.tsx
 msgid "Could not fetch your account details."
@@ -596,11 +596,11 @@ msgstr "Не може да се извлекат детайлите на ваш�
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Could not open the billing portal. Please try again."
-msgstr ""
+msgstr "Не може да се отвори порталът за фактуриране. Моля, опитайте отново."
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 msgid "Could not save the page. Please check the form and try again."
-msgstr ""
+msgstr "Не може да се запази страницата. Моля, проверете формуляра и опитайте отново."
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Create"
@@ -620,7 +620,7 @@ msgstr "Създай настройки за фактуриране"
 
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "Create page"
-msgstr ""
+msgstr "Създай страница"
 
 #: src/features/plan-catalog/ui/create-plan-modal.tsx
 #~ msgid "Create plan"
@@ -646,7 +646,7 @@ msgstr "Създадено:"
 
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "Creation failed"
-msgstr ""
+msgstr "Създаването не успя"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/pages/admin/plans.$planCode.tsx
@@ -671,7 +671,7 @@ msgstr "Край на текущия период"
 
 #: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Daily"
-msgstr ""
+msgstr "Дневно"
 
 #: src/pages/admin/index.tsx
 #: src/shared/ui/admin-layout/admin-nav.tsx
@@ -720,7 +720,7 @@ msgstr "Изтриването не успя"
 
 #: src/features/page-admin/ui/delete-page-modal.tsx
 msgid "Delete Page"
-msgstr ""
+msgstr "Изтрий страница"
 
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Delete record"
@@ -737,7 +737,7 @@ msgstr "Изтрито"
 
 #: src/features/sign-in/ui/demo-credentials-hint.tsx
 msgid "Demo environment"
-msgstr ""
+msgstr "Демо среда"
 
 #: src/pages/loading-demo.tsx
 msgid "Demo LoadingOverlay (2s)"
@@ -766,7 +766,7 @@ msgstr "Чернова"
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "e.g. default, landing"
-msgstr ""
+msgstr "напр. default, landing"
 
 #: src/features/plan-catalog/ui/create-plan-modal.tsx
 #~ msgid "e.g. pro-monthly"
@@ -779,7 +779,7 @@ msgstr ""
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 msgid "Edit — {defaultTitle} — {tenantKey}"
-msgstr ""
+msgstr "Редактирай — {defaultTitle} — {tenantKey}"
 
 #: src/pages/admin/announcements.index.tsx
 msgid "Edit announcement"
@@ -808,7 +808,7 @@ msgstr "Редактирай организация"
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 msgid "Edit Page"
-msgstr ""
+msgstr "Редактирай страница"
 
 #: src/pages/admin/account.tsx
 msgid "Edit profile"
@@ -862,7 +862,7 @@ msgstr "Имейл потвърден:"
 #. placeholder {0}: identity.email
 #: src/pages/admin/users.$userId.tsx
 msgid "Email: <0>{0}</0>"
-msgstr ""
+msgstr "Имейл: <0>{0}</0>"
 
 #: src/features/plan-catalog/ui/create-plan-modal.tsx
 #~ msgid "Enter a positive price (minor units, e.g. cents)"
@@ -900,7 +900,7 @@ msgstr "Детайли на грешката (разработка)"
 
 #: src/pages/admin/webhook-logs.$webhookLogId.tsx
 msgid "Error Message"
-msgstr ""
+msgstr "Съобщение за грешка"
 
 #: src/pages/admin/audit-logs.tsx
 msgid "Event Payload"
@@ -909,7 +909,7 @@ msgstr "Полезен товар на събитието"
 #: src/pages/admin/webhook-logs.$webhookLogId.tsx
 #: src/pages/admin/webhook-logs.tsx
 msgid "Event Type"
-msgstr ""
+msgstr "Тип събитие"
 
 #: src/shared/ui/invitation-status-badge/invitation-status-badge.tsx
 msgid "Expired"
@@ -939,7 +939,7 @@ msgstr "Външният ID на клиент е задължителен"
 #: src/pages/admin/webhook-logs.$webhookLogId.tsx
 #: src/pages/admin/webhook-logs.tsx
 msgid "External Event ID"
-msgstr ""
+msgstr "Идентификатор на външно събитие"
 
 #: src/pages/admin/organizations.$tenantKey.refunds.tsx
 #: src/pages/admin/refunds.tsx
@@ -995,7 +995,7 @@ msgstr "Зареждането на настройките за фактурир
 
 #: src/pages/admin/users.$userId.tsx
 msgid "Failed to load identities"
-msgstr ""
+msgstr "Зареждането на идентичностите не успя"
 
 #: src/pages/admin/invitations.index.tsx
 msgid "Failed to load invitations"
@@ -1016,11 +1016,11 @@ msgstr "Зареждането на организациите не успя"
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 msgid "Failed to load page"
-msgstr ""
+msgstr "Зареждането на страницата не успя"
 
 #: src/pages/admin/cms-pages.index.tsx
 msgid "Failed to load pages"
-msgstr ""
+msgstr "Зареждането на страниците не успя"
 
 #: src/pages/admin/plans.$planCode.tsx
 msgid "Failed to load plan"
@@ -1045,7 +1045,7 @@ msgstr "Зареждането на възстановяванията не ус
 
 #: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Failed to load stats for the selected organization."
-msgstr ""
+msgstr "Зареждането на статистиките за избраната организация не успя."
 
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Failed to load subscription"
@@ -1070,11 +1070,11 @@ msgstr "Зареждането на потребителите не успя"
 
 #: src/pages/admin/webhook-logs.$webhookLogId.tsx
 msgid "Failed to load webhook log"
-msgstr ""
+msgstr "Зареждането на webhook журнала не успя"
 
 #: src/pages/admin/webhook-logs.tsx
 msgid "Failed to load webhook logs"
-msgstr ""
+msgstr "Зареждането на webhook журналите не успя"
 
 #: src/pages/admin/subscriptions.tsx
 msgid "Failed to pause subscription"
@@ -1086,7 +1086,7 @@ msgstr "Неуспешно повторно активиране на абона
 
 #: src/pages/admin/users.$userId.tsx
 msgid "Failed to unmerge identity"
-msgstr ""
+msgstr "Разделянето на идентичността не успя"
 
 #: src/pages/admin/subscriptions.tsx
 msgid "Failed to update subscription"
@@ -1139,20 +1139,20 @@ msgstr "Към началната страница"
 
 #: src/pages/admin/users.$userId.tsx
 msgid "Grant"
-msgstr ""
+msgstr "Предостави"
 
 #: src/features/manage-platform-authority/ui/grant-platform-admin-modal.tsx
 msgid "Grant Platform Admin"
-msgstr ""
+msgstr "Предостави права на платформен администратор"
 
 #: src/features/manage-platform-authority/ui/grant-platform-admin-modal.tsx
 msgid "Granting Platform Admin to <0>{displayName}</0> will give them full administrative access to this platform, including user management, tenant management, and all admin-only operations."
-msgstr ""
+msgstr "Предоставянето на права на платформен администратор на <0>{displayName}</0> ще им даде пълен административен достъп до тази платформа, включително управление на потребители, наематели и всички операции само за администратори."
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "Hierarchy"
-msgstr ""
+msgstr "Йерархия"
 
 #: src/pages/admin/account.tsx
 #: src/pages/admin/announcements.index.tsx
@@ -1180,11 +1180,11 @@ msgstr "Начало"
 
 #: src/features/page-admin/ui/rich-content-editor.tsx
 msgid "HTML content. At least one paragraph required for the default locale."
-msgstr ""
+msgstr "HTML съдържание. Необходим е поне един параграф за локала по подразбиране."
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: src/pages/admin/audit-logs.tsx
 msgid "ID / Email"
@@ -1204,11 +1204,11 @@ msgstr "ID: {0}"
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/users.$userId.tsx
 msgid "Identity"
-msgstr ""
+msgstr "Самоличност"
 
 #: src/pages/admin/users.$userId.tsx
 msgid "Identity unmerged"
-msgstr ""
+msgstr "Идентичността е разделена"
 
 #: src/pages/loading-demo.tsx
 msgid "Implementation Details"
@@ -1290,7 +1290,7 @@ msgstr "Ключ"
 
 #: src/pages/admin/index.tsx
 msgid "Key Value Admin"
-msgstr ""
+msgstr "Key Value Администратор"
 
 #: src/features/edit-tenant/ui/edit-tenant-modal.tsx
 msgid "Key:"
@@ -1323,11 +1323,11 @@ msgstr "Последна актуализация"
 
 #: src/pages/admin/users.$userId.tsx
 msgid "Last used"
-msgstr ""
+msgstr "Последно използван"
 
 #: src/pages/admin/users.$userId.tsx
 msgid "Linked"
-msgstr ""
+msgstr "Свързан"
 
 #: src/pages/loading-demo.tsx
 msgid "Loading Demo"
@@ -1374,7 +1374,7 @@ msgstr "Заключени акаунти"
 
 #: src/pages/admin/webhook-logs.$webhookLogId.tsx
 msgid "Log ID"
-msgstr ""
+msgstr "Идентификатор на журнала"
 
 #: src/features/announcement-admin/model/types.ts
 msgid "Maintenance"
@@ -1412,7 +1412,7 @@ msgstr "Член"
 
 #: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Member Signup Trend"
-msgstr ""
+msgstr "Тенденция на регистрации на членове"
 
 #: src/pages/admin/organizations.$tenantKey.tsx
 msgid "member(s)"
@@ -1433,7 +1433,7 @@ msgstr "Съобщението е задължително"
 
 #: src/features/page-admin/ui/page-translation-fields.tsx
 msgid "Meta description for search engines"
-msgstr ""
+msgstr "Мета описание за търсачки"
 
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Metadata"
@@ -1450,7 +1450,7 @@ msgstr "Трябва да е валиден имейл адрес"
 
 #: src/features/page-admin/model/types.ts
 msgid "Must be a valid UUID"
-msgstr ""
+msgstr "Трябва да е валиден UUID"
 
 #: src/pages/admin/account.tsx
 #: src/shared/ui/admin-layout/admin-nav.tsx
@@ -1463,7 +1463,7 @@ msgstr "Наименование"
 
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "New"
-msgstr ""
+msgstr "Нова"
 
 #: src/pages/admin/announcements.index.tsx
 msgid "New announcement"
@@ -1475,15 +1475,15 @@ msgstr "Нови настройки за фактуриране"
 
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "New CMS Page — {tenantKey}"
-msgstr ""
+msgstr "Нова CMS страница — {tenantKey}"
 
 #: src/pages/admin/cms-pages.index.tsx
 msgid "New page"
-msgstr ""
+msgstr "Нова страница"
 
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "New Page"
-msgstr ""
+msgstr "Нова страница"
 
 #: src/features/change-admin-password/ui/change-admin-password-modal.tsx
 #: src/features/set-user-password/ui/set-user-password-modal.tsx
@@ -1533,7 +1533,7 @@ msgstr "Няма покани, съответстващи на текущите 
 
 #: src/pages/admin/users.$userId.tsx
 msgid "No linked OIDC identities found."
-msgstr ""
+msgstr "Не са намерени свързани OIDC идентичности."
 
 #: src/pages/admin/-organization-tenant-panels.tsx
 msgid "No members found"
@@ -1559,11 +1559,11 @@ msgstr "Няма организации, съответстващи на тек�
 
 #: src/pages/admin/cms-pages.index.tsx
 msgid "No pages found for this tenant"
-msgstr ""
+msgstr "Не са намерени страници за този наемател"
 
 #: src/pages/admin/cms-pages.index.tsx
 msgid "No pages match the current filter"
-msgstr ""
+msgstr "Няма страници, съответстващи на текущия филтър"
 
 #: src/pages/admin/plans.index.tsx
 msgid "No plans in the catalog"
@@ -1611,7 +1611,7 @@ msgstr "Не са добавени преводи. Необходим е пон�
 
 #: src/features/page-admin/ui/page-translation-fields.tsx
 msgid "No translations added. At least the default locale is required."
-msgstr ""
+msgstr "Не са добавени преводи. Необходим е поне локалът по подразбиране."
 
 #: src/pages/admin/users.index.tsx
 msgid "No users found"
@@ -1624,11 +1624,11 @@ msgstr "Няма потребители, съответстващи на тек�
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "None (top-level)"
-msgstr ""
+msgstr "Няма (горно ниво)"
 
 #: src/pages/admin/users.$userId.tsx
 msgid "Not granted"
-msgstr ""
+msgstr "Не е предоставено"
 
 #: src/features/notification-bell/ui/notification-bell.tsx
 #: src/pages/admin/notifications.tsx
@@ -1648,15 +1648,15 @@ msgstr "Настъпило на"
 
 #: src/features/page-admin/ui/page-translation-fields.tsx
 msgid "OG description"
-msgstr ""
+msgstr "OG описание"
 
 #: src/features/page-admin/ui/page-translation-fields.tsx
 msgid "OG title"
-msgstr ""
+msgstr "OG заглавие"
 
 #: src/pages/admin/users.$userId.tsx
 msgid "OIDC Identities"
-msgstr ""
+msgstr "OIDC идентичности"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Open Billing Portal"
@@ -1664,11 +1664,11 @@ msgstr "Отвори портала за фактуриране"
 
 #: src/features/page-admin/ui/page-translation-fields.tsx
 msgid "Open Graph description"
-msgstr ""
+msgstr "Open Graph описание"
 
 #: src/features/page-admin/ui/page-translation-fields.tsx
 msgid "Open Graph title"
-msgstr ""
+msgstr "Open Graph заглавие"
 
 #: src/features/announcement-admin/ui/edit-announcement-modal.tsx
 msgid "Operation failed"
@@ -1681,12 +1681,12 @@ msgstr "Само достъп за оператори"
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "Optional — makes this a child page"
-msgstr ""
+msgstr "По избор — прави страницата дъщерна"
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "Optional layout key"
-msgstr ""
+msgstr "По избор ключ за оформление"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Optional structured address as JSON."
@@ -1694,7 +1694,7 @@ msgstr "Незадължителен структуриран адрес кат�
 
 #: src/features/page-admin/ui/page-translation-fields.tsx
 msgid "Optional translation"
-msgstr ""
+msgstr "По избор превод"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Optional UUID of the user who owns the billing profile."
@@ -1734,7 +1734,7 @@ msgstr "Организации"
 
 #: src/features/page-admin/ui/page-translation-fields.tsx
 msgid "Override page title for search engines"
-msgstr ""
+msgstr "Замени заглавието на страницата за търсачки"
 
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/users.$userId.tsx
@@ -1743,7 +1743,7 @@ msgstr "Преглед"
 
 #: src/pages/admin/cms-pages.index.tsx
 msgid "Page"
-msgstr ""
+msgstr "Страница"
 
 #: src/pages/404.tsx
 msgid "Page Not Found"
@@ -1756,25 +1756,25 @@ msgstr "Страницата не е намерена."
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "Page settings"
-msgstr ""
+msgstr "Настройки на страницата"
 
 #: src/features/page-admin/ui/page-translation-fields.tsx
 msgid "Page title"
-msgstr ""
+msgstr "Заглавие на страницата"
 
 #: src/pages/admin/cms-pages.index.tsx
 msgid "Pages"
-msgstr ""
+msgstr "Страници"
 
 #. placeholder {0}: page.status
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 msgid "Pages with status <0>{0}</0> cannot be edited."
-msgstr ""
+msgstr "Страниците със статус <0>{0}</0> не могат да бъдат редактирани."
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "Parent page"
-msgstr ""
+msgstr "Родителска страница"
 
 #: src/features/sign-in/ui/sign-in-form.tsx
 msgid "Password"
@@ -1905,7 +1905,7 @@ msgstr "Платформа"
 
 #: src/pages/admin/users.$userId.tsx
 msgid "Platform Admin"
-msgstr ""
+msgstr "Платформен администратор"
 
 #: src/pages/sign-in.tsx
 msgid "Platform administration"
@@ -1917,7 +1917,7 @@ msgstr "Платформени права"
 
 #: src/pages/admin/users.$userId.tsx
 msgid "Platform Authority"
-msgstr ""
+msgstr "Платформен авторитет"
 
 #: src/shared/ui/auth-layout/auth-layout.tsx
 msgid "Platform control,"
@@ -1976,7 +1976,7 @@ msgstr "Посочете причина за забраната…"
 #. placeholder {0}: identity.provider
 #: src/pages/admin/users.$userId.tsx
 msgid "Provider: <0>{0}</0>"
-msgstr ""
+msgstr "Доставчик: <0>{0}</0>"
 
 #: src/features/announcement-admin/ui/edit-announcement-modal.tsx
 msgid "Publish"
@@ -2027,7 +2027,7 @@ msgstr "Причина (по избор)"
 #: src/pages/admin/webhook-logs.$webhookLogId.tsx
 #: src/pages/admin/webhook-logs.tsx
 msgid "Received At"
-msgstr ""
+msgstr "Получено на"
 
 #: src/widgets/dashboard-recent-critical-audit/ui/recent-critical-audit.tsx
 msgid "Recent Critical Events"
@@ -2123,7 +2123,7 @@ msgstr "Риск за приходите"
 
 #: src/pages/admin/users.$userId.tsx
 msgid "Revoke"
-msgstr ""
+msgstr "Отмени"
 
 #: src/features/invitation-admin/ui/edit-invitation-modal.tsx
 msgid "Revoke invitation"
@@ -2131,7 +2131,7 @@ msgstr "Отмени покана"
 
 #: src/features/manage-platform-authority/ui/revoke-platform-admin-modal.tsx
 msgid "Revoke Platform Admin"
-msgstr ""
+msgstr "Отмени права на платформен администратор"
 
 #: src/shared/ui/invitation-status-badge/invitation-status-badge.tsx
 msgid "Revoked"
@@ -2139,7 +2139,7 @@ msgstr "Отменено"
 
 #: src/features/manage-platform-authority/ui/revoke-platform-admin-modal.tsx
 msgid "Revoking Platform Admin from <0>{displayName}</0> will remove their full administrative access. They will no longer be able to manage users, tenants, or any other admin-only resources."
-msgstr ""
+msgstr "Отмяната на правата на платформен администратор от <0>{displayName}</0> ще премахне пълния им административен достъп. Те вече няма да могат да управляват потребители, наематели или други ресурси само за администратори."
 
 #: src/features/announcement-admin/ui/edit-announcement-modal.tsx
 #: src/features/edit-account/ui/edit-account-modal.tsx
@@ -2157,7 +2157,7 @@ msgstr "Запази промените"
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 msgid "Save failed"
-msgstr ""
+msgstr "Запазването не успя"
 
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/plans.index.tsx
@@ -2187,7 +2187,7 @@ msgstr "Търсете по наемател или план…"
 
 #: src/pages/admin/webhook-logs.tsx
 msgid "Search event type or ID…"
-msgstr ""
+msgstr "Търсете тип събитие или ID…"
 
 #: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
 msgid "Search plan…"
@@ -2207,7 +2207,7 @@ msgstr "Вижте всички известия"
 
 #: src/pages/admin/cms-pages.index.tsx
 msgid "Select a tenant to view its pages"
-msgstr ""
+msgstr "Изберете наемател, за да видите страниците му"
 
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 msgid "Select an organization"
@@ -2215,15 +2215,15 @@ msgstr "Изберете организация"
 
 #: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Select an organization above to view its member signup trend."
-msgstr ""
+msgstr "Изберете организация по-горе, за да видите тенденцията на регистрации на членовете."
 
 #: src/pages/admin/cms-pages.index.tsx
 msgid "Select an organization to manage its CMS pages."
-msgstr ""
+msgstr "Изберете организация, за да управлявате CMS страниците й."
 
 #: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Select an organization…"
-msgstr ""
+msgstr "Изберете организация…"
 
 #: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/shared/ui/locale-switcher/locale-switcher.tsx
@@ -2240,15 +2240,15 @@ msgstr "Изпрати покана"
 
 #: src/features/page-admin/ui/page-translation-fields.tsx
 msgid "SEO description"
-msgstr ""
+msgstr "SEO описание"
 
 #: src/features/page-admin/ui/page-translation-fields.tsx
 msgid "SEO fields"
-msgstr ""
+msgstr "SEO полета"
 
 #: src/features/page-admin/ui/page-translation-fields.tsx
 msgid "SEO title"
-msgstr ""
+msgstr "SEO заглавие"
 
 #: src/pages/500.tsx
 msgid "Server Error"
@@ -2300,7 +2300,7 @@ msgstr "Показване на {rangeStart} – {rangeEnd} от {totalElements}
 
 #: src/pages/admin/webhook-logs.tsx
 msgid "Showing {rangeStart} – {rangeEnd} of {totalElements} webhook logs"
-msgstr ""
+msgstr "Показване на {rangeStart} – {rangeEnd} от {totalElements} webhook журнала"
 
 #: src/pages/admin/announcements.index.tsx
 msgid "Showing {rangeStart}–{rangeEnd} of {totalElements} announcements"
@@ -2361,15 +2361,15 @@ msgstr "Тясна горна лента за напредък при навиг
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "Slug"
-msgstr ""
+msgstr "Слъг"
 
 #: src/features/page-admin/model/types.ts
 msgid "Slug is required"
-msgstr ""
+msgstr "Слъгът е задължителен"
 
 #: src/features/page-admin/model/types.ts
 msgid "Slug must be lowercase alphanumeric with hyphens (e.g. about-us or blog/post-title)"
-msgstr ""
+msgstr "Слъгът трябва да е с малки букви и цифри с тирета (напр. about-us или blog/post-title)"
 
 #: src/features/plan-catalog/ui/create-plan-modal.tsx
 #~ msgid "Smallest currency unit (e.g. cents for USD)."
@@ -2413,7 +2413,7 @@ msgstr "Статус"
 
 #: src/pages/admin/users.$userId.tsx
 msgid "Subject"
-msgstr ""
+msgstr "Тема"
 
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Subject Key:"
@@ -2426,7 +2426,7 @@ msgstr "Тип субект:"
 #. placeholder {0}: identity.providerSub
 #: src/pages/admin/users.$userId.tsx
 msgid "Subject: <0>{0}</0>"
-msgstr ""
+msgstr "Тема: <0>{0}</0>"
 
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Subscription"
@@ -2518,7 +2518,7 @@ msgstr "Технически контекст"
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 #: src/pages/admin/cms-pages.index.tsx
 msgid "Template"
-msgstr ""
+msgstr "Шаблон"
 
 #: src/pages/admin/audit-logs.tsx
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
@@ -2582,11 +2582,11 @@ msgstr "Този шаблон използва официалните компо
 
 #: src/pages/admin/users.$userId.tsx
 msgid "This user does not have platform admin access."
-msgstr ""
+msgstr "Този потребител няма достъп до платформения администратор."
 
 #: src/pages/admin/users.$userId.tsx
 msgid "This user has full administrative access to the platform."
-msgstr ""
+msgstr "Този потребител има пълен административен достъп до платформата."
 
 #: src/pages/admin/users.$userId.tsx
 msgid "This user is not a member of any organization."
@@ -2594,7 +2594,7 @@ msgstr "Този потребител не е член на никоя орга�
 
 #: src/pages/admin/users.$userId.tsx
 msgid "This will force-remove the external sign-in method from the user account."
-msgstr ""
+msgstr "Това ще принудително премахне метода за外部 вход от потребителския акаунт."
 
 #: src/features/set-user-password/ui/set-user-password-modal.tsx
 msgid "This will immediately change the user's password and invalidate all their active sessions. The user will need to sign in again with the new password."
@@ -2619,7 +2619,7 @@ msgstr "Заглавието е задължително"
 
 #: src/features/page-admin/model/types.ts
 msgid "Title is required for the default locale"
-msgstr ""
+msgstr "Заглавието е задължително за локала по подразбиране"
 
 #: src/features/sign-in/model/use-sign-in.ts
 msgid "Too many sign-in attempts. Please try again later."
@@ -2635,7 +2635,7 @@ msgstr "общо събития"
 
 #: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Total members"
-msgstr ""
+msgstr "Общо членове"
 
 #: src/pages/admin/index.tsx
 msgid "Total Users"
@@ -2701,11 +2701,11 @@ msgstr "Отключването на този потребител ще нул�
 
 #: src/pages/admin/users.$userId.tsx
 msgid "Unmerge"
-msgstr ""
+msgstr "Раздели"
 
 #: src/pages/admin/users.$userId.tsx
 msgid "Unmerge linked identity"
-msgstr ""
+msgstr "Раздели свързана идентичност"
 
 #: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
@@ -2747,7 +2747,7 @@ msgstr "Главни и малки букви"
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "URL path, e.g. about-us or blog/post"
-msgstr ""
+msgstr "URL път, напр. about-us или blog/post"
 
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/users.$userId.tsx
@@ -2844,13 +2844,13 @@ msgstr "Предупреждение"
 
 #: src/pages/admin/webhook-logs.$webhookLogId.tsx
 msgid "Webhook Log"
-msgstr ""
+msgstr "Webhook журнал"
 
 #: src/pages/admin/webhook-logs.$webhookLogId.tsx
 #: src/pages/admin/webhook-logs.tsx
 #: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Webhook Logs"
-msgstr ""
+msgstr "Webhook журнали"
 
 #: src/pages/sign-in.tsx
 msgid "Welcome back"
@@ -2858,7 +2858,7 @@ msgstr "Добре дошли отново"
 
 #: src/pages/admin/users.$userId.tsx
 msgid "You cannot modify your own platform authority"
-msgstr ""
+msgstr "Не можете да промените собствения си платформен авторитет"
 
 #: src/pages/sign-in.tsx
 msgid "You do not have permission to access the admin area."
