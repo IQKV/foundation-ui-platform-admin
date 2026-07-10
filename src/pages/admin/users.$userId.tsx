@@ -562,7 +562,7 @@ function UserDetailPage() {
 
   // Determine if we're viewing the currently logged-in admin's own profile
   const accessToken = useSessionStore((s) => s.accessToken);
-  const currentUserId = accessToken ? (decodeJwt(accessToken)?.userId ?? null) : null;
+  const currentUserId = accessToken ? (decodeJwt(accessToken)?.user_id ?? null) : null;
   const isSelf = !!currentUserId && currentUserId === userId;
 
   const {

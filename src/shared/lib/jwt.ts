@@ -2,7 +2,8 @@ import { jwtDecode } from "jwt-decode";
 
 export interface AdminJwtPayload {
   sub: string;
-  userId: string;
+  /** Unique user identifier (UUID string). Claim name: {@code user_id}. */
+  user_id: string;
   authorities: string[];
   exp: number;
   iat: number;
