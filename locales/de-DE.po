@@ -5,18 +5,18 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
-"Language: en-US\n"
+"Language: de-DE\n"
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Plural-Forms: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: src/pages/admin/announcements.index.tsx
 #: src/pages/admin/cms-pages.index.tsx
 msgid "(no title)"
-msgstr "(no title)"
+msgstr "(kein Titel)"
 
 #. placeholder {0}: localeToNameMap[locale]
 #. placeholder {0}: o.label
@@ -45,15 +45,15 @@ msgstr "{0}"
 
 #: src/pages/admin/organizations.$tenantKey.tsx
 msgid "{subscriptionCount} subscription(s)"
-msgstr "{subscriptionCount} subscription(s)"
+msgstr "{subscriptionCount} Abonnement(s)"
 
 #: src/pages/loading-demo.tsx
 msgid "1. Initial Page Load"
-msgstr "1. Initial Page Load"
+msgstr "1. Erstes Seitenladen"
 
 #: src/pages/loading-demo.tsx
 msgid "2. Page Transitions"
-msgstr "2. Page Transitions"
+msgstr "2. Seitenübergänge"
 
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 #~ msgid "8-character tenant key"
@@ -63,16 +63,16 @@ msgstr "2. Page Transitions"
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "A translation for the default locale ({0}) is required."
-msgstr "A translation for the default locale ({0}) is required."
+msgstr "Eine Übersetzung für die Standardsprache ({0}) ist erforderlich."
 
 #: src/features/invitation-admin/ui/edit-invitation-modal.tsx
 #: src/shared/ui/invitation-status-badge/invitation-status-badge.tsx
 msgid "Accepted"
-msgstr "Accepted"
+msgstr "Akzeptiert"
 
 #: src/pages/unauthorized.tsx
 msgid "Access Denied"
-msgstr "Access Denied"
+msgstr "Zugriff verweigert"
 
 #: src/pages/unauthorized.tsx
 #~ msgid "Access Denied |Key Value Admin"
@@ -80,19 +80,19 @@ msgstr "Access Denied"
 
 #: src/pages/loading-demo.tsx
 msgid "Accessible with proper keyboard handling"
-msgstr "Accessible with proper keyboard handling"
+msgstr "Zugänglich mit ordnungsgemäßer Tastaturbedienung"
 
 #: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Account"
-msgstr "Account"
+msgstr "Konto"
 
 #: src/pages/admin/audit-logs.tsx
 msgid "Action"
-msgstr "Action"
+msgstr "Aktion"
 
 #: src/pages/admin/index.tsx
 msgid "Action needed"
-msgstr "Action needed"
+msgstr "Aktion erforderlich"
 
 #: src/pages/admin/-organization-tenant-panels.tsx
 #: src/pages/admin/organizations.$tenantKey.refunds.tsx
@@ -102,7 +102,7 @@ msgstr "Action needed"
 #: src/pages/admin/users.index.tsx
 #: src/pages/admin/webhook-logs.tsx
 msgid "Actions"
-msgstr "Actions"
+msgstr "Aktionen"
 
 #: src/features/edit-tenant/model/types.ts
 #: src/features/edit-user/model/types.ts
@@ -114,7 +114,7 @@ msgstr "Actions"
 #: src/shared/ui/user-status-badge/user-status-badge.tsx
 #: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Active"
-msgstr "Active"
+msgstr "Aktiv"
 
 #: src/pages/admin/plans.index.tsx
 msgid "Active only"
