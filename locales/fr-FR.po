@@ -16,7 +16,7 @@ msgstr ""
 #: src/pages/admin/announcements.index.tsx
 #: src/pages/admin/cms-pages.index.tsx
 msgid "(no title)"
-msgstr "(pas de titre)"
+msgstr "(sans titre)"
 
 #. placeholder {0}: localeToNameMap[locale]
 #. placeholder {0}: o.label
@@ -37,7 +37,7 @@ msgstr "{0}"
 
 #: src/pages/admin/organizations.$tenantKey.tsx
 #~ msgid "{activeSubscriptions} active subscription(s)"
-#~ msgstr "{activeSubscriptions} active subscription(s)"
+#~ msgstr "{activeSubscriptions} abonnement(s) actif(s)"
 
 #: src/pages/admin/users.$userId.tsx
 #~ msgid "{displayName} |Key Value Admin"
@@ -57,7 +57,7 @@ msgstr "2. Transitions de page"
 
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 #~ msgid "8-character tenant key"
-#~ msgstr "8-character tenant key"
+#~ msgstr "Clé locataire à 8 caractères"
 
 #. placeholder {0}: defaultLocale ?? "default"
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
@@ -76,7 +76,7 @@ msgstr "Accès refusé"
 
 #: src/pages/unauthorized.tsx
 #~ msgid "Access Denied |Key Value Admin"
-#~ msgstr "Access Denied |Key Value Admin"
+#~ msgstr "Accès refusé |Key Value Admin"
 
 #: src/pages/loading-demo.tsx
 msgid "Accessible with proper keyboard handling"
@@ -92,7 +92,7 @@ msgstr "Action"
 
 #: src/pages/admin/index.tsx
 msgid "Action needed"
-msgstr "Action nécessaire"
+msgstr "Action requise"
 
 #: src/pages/admin/-organization-tenant-panels.tsx
 #: src/pages/admin/organizations.$tenantKey.refunds.tsx
@@ -118,61 +118,61 @@ msgstr "Actif"
 
 #: src/pages/admin/plans.index.tsx
 msgid "Active only"
-msgstr "Active only"
+msgstr "Actifs uniquement"
 
 #: src/pages/admin/index.tsx
 msgid "Active Subscriptions"
-msgstr "Active Subscriptions"
+msgstr "Abonnements actifs"
 
 #: src/pages/admin/audit-logs.tsx
 msgid "Activity History"
-msgstr "Activity History"
+msgstr "Historique d'activité"
 
 #: src/pages/admin/audit-logs.tsx
 msgid "Actor"
-msgstr "Actor"
+msgstr "Acteur"
 
 #: src/pages/admin/audit-logs.tsx
 msgid "Actor Information"
-msgstr "Actor Information"
+msgstr "Informations sur l'acteur"
 
 #: src/pages/admin/audit-logs.tsx
 msgid "Actor Type"
-msgstr "Actor Type"
+msgstr "Type d'acteur"
 
 #: src/features/announcement-admin/ui/translation-fields.tsx
 #: src/features/page-admin/ui/page-translation-fields.tsx
 msgid "Add locale"
-msgstr "Add locale"
+msgstr "Ajouter une langue"
 
 #: src/features/set-user-password/ui/set-user-password-modal.tsx
 msgid "Admin password override"
-msgstr "Admin password override"
+msgstr "Remplacement du mot de passe administrateur"
 
 #: src/pages/admin/audit-logs.tsx
 msgid "All actions"
-msgstr "All actions"
+msgstr "Toutes les actions"
 
 #: src/pages/admin/audit-logs.tsx
 msgid "All Events"
-msgstr "All Events"
+msgstr "Tous les événements"
 
 #: src/widgets/dashboard-suspended-tenants/ui/suspended-tenants.tsx
 #: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "All organizations"
-msgstr "All organizations"
+msgstr "Toutes les organisations"
 
 #: src/widgets/dashboard-suspended-tenants/ui/suspended-tenants.tsx
 msgid "All organizations are in good standing"
-msgstr "All organizations are in good standing"
+msgstr "Toutes les organisations sont en règle"
 
 #: src/pages/admin/plans.index.tsx
 msgid "All plans"
-msgstr "All plans"
+msgstr "Tous les abonnements"
 
 #: src/widgets/dashboard-recent-refunds/ui/recent-refunds.tsx
 msgid "All refunds"
-msgstr "All refunds"
+msgstr "Tous les remboursements"
 
 #: src/pages/admin/announcements.index.tsx
 #: src/pages/admin/cms-pages.index.tsx
@@ -182,137 +182,137 @@ msgstr "All refunds"
 #: src/pages/admin/subscriptions.tsx
 #: src/pages/admin/users.index.tsx
 msgid "All statuses"
-msgstr "All statuses"
+msgstr "Tous les statuts"
 
 #: src/widgets/dashboard-subscription-breakdown/ui/subscription-breakdown.tsx
 msgid "All subscriptions"
-msgstr "All subscriptions"
+msgstr "Tous les abonnements"
 
 #: src/pages/admin/announcements.index.tsx
 msgid "All types"
-msgstr "All types"
+msgstr "Tous les types"
 
 #: src/pages/admin/organizations.$tenantKey.refunds.tsx
 #: src/pages/admin/refunds.$refundId.tsx
 #: src/pages/admin/refunds.tsx
 msgid "Amount"
-msgstr "Amount"
+msgstr "Montant"
 
 #: src/features/announcement-admin/ui/create-announcement-modal.tsx
 #: src/features/announcement-admin/ui/edit-announcement-modal.tsx
 msgid "An English (en-US) translation is required."
-msgstr "An English (en-US) translation is required."
+msgstr "Une traduction en anglais (en-US) est requise."
 
 #: src/pages/admin/announcements.index.tsx
 msgid "Announcement"
-msgstr "Announcement"
+msgstr "Annonce"
 
 #: src/features/announcement-admin/ui/translation-fields.tsx
 msgid "Announcement message body"
-msgstr "Announcement message body"
+msgstr "Corps du message d'annonce"
 
 #: src/features/announcement-admin/ui/translation-fields.tsx
 msgid "Announcement title"
-msgstr "Announcement title"
+msgstr "Titre de l'annonce"
 
 #: src/pages/admin/announcements.index.tsx
 #: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Announcements"
-msgstr "Announcements"
+msgstr "Annonces"
 
 #. placeholder {0}: announcement.status
 #: src/features/announcement-admin/ui/edit-announcement-modal.tsx
 msgid "Announcements in <0>{0}</0> status cannot be edited."
-msgstr "Announcements in <0>{0}</0> status cannot be edited."
+msgstr "Les annonces au statut <0>{0}</0> ne peuvent pas être modifiées."
 
 #: src/pages/admin/plans.$planCode.tsx
 msgid "Annual"
-msgstr "Annual"
+msgstr "Annuel"
 
 #: src/features/page-admin/model/types.ts
 #: src/pages/admin/cms-pages.index.tsx
 msgid "Archived"
-msgstr "Archived"
+msgstr "Archivé"
 
 #. placeholder {0}: subscription.tenantKey
 #: src/pages/admin/subscriptions.tsx
 msgid "Are you sure you want to cancel the subscription for <0>{0}</0>?"
-msgstr "Are you sure you want to cancel the subscription for <0>{0}</0>?"
+msgstr "Êtes-vous sûr de vouloir annuler l'abonnement pour <0>{0}</0> ?"
 
 #: src/features/page-admin/ui/delete-page-modal.tsx
 msgid "Are you sure you want to delete <0>{displayName}</0>? This action cannot be undone."
-msgstr "Are you sure you want to delete <0>{displayName}</0>? This action cannot be undone."
+msgstr "Êtes-vous sûr de vouloir supprimer <0>{displayName}</0> ? Cette action est irréversible."
 
 #: src/features/announcement-admin/ui/delete-announcement-modal.tsx
 msgid "Are you sure you want to delete <0>{enTitle}</0>? This action cannot be undone."
-msgstr "Are you sure you want to delete <0>{enTitle}</0>? This action cannot be undone."
+msgstr "Êtes-vous sûr de vouloir supprimer <0>{enTitle}</0> ? Cette action est irréversible."
 
 #. placeholder {0}: subscription.tenantKey
 #: src/pages/admin/subscriptions.tsx
 msgid "Are you sure you want to pause the subscription for <0>{0}</0>?"
-msgstr "Are you sure you want to pause the subscription for <0>{0}</0>?"
+msgstr "Êtes-vous sûr de vouloir mettre en pause l'abonnement pour <0>{0}</0> ?"
 
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Are you sure you want to permanently delete this subscription record? This action cannot be undone and will remove the record from the local database."
-msgstr "Are you sure you want to permanently delete this subscription record? This action cannot be undone and will remove the record from the local database."
+msgstr "Êtes-vous sûr de vouloir supprimer définitivement cet enregistrement d'abonnement ? Cette action est irréversible et supprimera l'enregistrement de la base de données locale."
 
 #: src/features/ban-user/ui/ban-user-modal.tsx
 msgid "Are you sure?"
-msgstr "Are you sure?"
+msgstr "Êtes-vous sûr ?"
 
 #: src/features/change-admin-password/ui/change-admin-password-modal.tsx
 #: src/features/set-user-password/ui/set-user-password-modal.tsx
 msgid "At least 8 characters, at most 128"
-msgstr "At least 8 characters, at most 128"
+msgstr "Au moins 8 caractères, au plus 128"
 
 #: src/features/change-admin-password/ui/change-admin-password-modal.tsx
 #: src/features/set-user-password/ui/set-user-password-modal.tsx
 msgid "At least one digit"
-msgstr "At least one digit"
+msgstr "Au moins un chiffre"
 
 #: src/features/change-admin-password/ui/change-admin-password-modal.tsx
 #: src/features/set-user-password/ui/set-user-password-modal.tsx
 msgid "At least one special character"
-msgstr "At least one special character"
+msgstr "Au moins un caractère spécial"
 
 #: src/features/announcement-admin/model/types.ts
 #: src/features/page-admin/model/types.ts
 msgid "At least one translation is required"
-msgstr "At least one translation is required"
+msgstr "Au moins une traduction est requise"
 
 #: src/pages/admin/index.tsx
 msgid "Attention Required"
-msgstr "Attention Required"
+msgstr "Attention requise"
 
 #: src/shared/ui/admin-layout/admin-nav.tsx
 #~ msgid "Audit Log"
-#~ msgstr "Audit Log"
+#~ msgstr "Journal d'audit"
 
 #: src/pages/admin/audit-logs.tsx
 #: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Audit Logs"
-msgstr "Audit Logs"
+msgstr "Journaux d'audit"
 
 #: src/pages/admin/audit-logs.tsx
 msgid "Audit Record Details"
-msgstr "Audit Record Details"
+msgstr "Détails de l'enregistrement d'audit"
 
 #: src/pages/admin/-organization-tenant-panels.tsx
 msgid "Authorities"
-msgstr "Authorities"
+msgstr "Autorisations"
 
 #: src/features/invitation-admin/ui/edit-invitation-modal.tsx
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 msgid "Authority"
-msgstr "Authority"
+msgstr "Autorisation"
 
 #: src/pages/admin/subscriptions.tsx
 msgid "Auto-Renew"
-msgstr "Auto-Renew"
+msgstr "Renouvellement automatique"
 
 #: src/pages/loading-demo.tsx
 msgid "Automatic router integration via <0>router.subscribe()</0>"
-msgstr "Automatic router integration via <0>router.subscribe()</0>"
+msgstr "Intégration automatique du routeur via <0>router.subscribe()</0>"
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
@@ -321,49 +321,49 @@ msgstr "Automatic router integration via <0>router.subscribe()</0>"
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 #: src/pages/admin/webhook-logs.$webhookLogId.tsx
 msgid "Back to list"
-msgstr "Back to list"
+msgstr "Retour à la liste"
 
 #: src/features/ban-user/ui/ban-user-modal.tsx
 #: src/pages/admin/users.index.tsx
 msgid "Ban user"
-msgstr "Ban user"
+msgstr "Bannir l'utilisateur"
 
 #: src/features/ban-user/ui/ban-user-modal.tsx
 msgid "Ban User"
-msgstr "Ban User"
+msgstr "Bannir l'utilisateur"
 
 #: src/features/ban-user/ui/ban-user-modal.tsx
 msgid "Banning this user will immediately invalidate all their active sessions, revoke their access, and send them a notification email. They will not be able to sign in again until unbanned."
-msgstr "Banning this user will immediately invalidate all their active sessions, revoke their access, and send them a notification email. They will not be able to sign in again until unbanned."
+msgstr "Bannir cet utilisateur invalidera immédiatement toutes ses sessions actives, révoquera son accès et lui enverra un e-mail de notification. Il ne pourra plus se connecter tant qu'il ne sera pas débanni."
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Billing address (JSON)"
-msgstr "Billing address (JSON)"
+msgstr "Adresse de facturation (JSON)"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Billing address must be valid JSON or empty"
-msgstr "Billing address must be valid JSON or empty"
+msgstr "L'adresse de facturation doit être un JSON valide ou vide"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Billing email"
-msgstr "Billing email"
+msgstr "E-mail de facturation"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Billing email is required"
-msgstr "Billing email is required"
+msgstr "L'e-mail de facturation est requis"
 
 #: src/pages/admin/plans.$planCode.tsx
 msgid "Billing period"
-msgstr "Billing period"
+msgstr "Période de facturation"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/pages/admin/organizations.index.tsx
 msgid "Billing settings"
-msgstr "Billing settings"
+msgstr "Paramètres de facturation"
 
 #: src/pages/admin/organizations.$tenantKey.tsx
 msgid "Billing Settings"
-msgstr "Billing Settings"
+msgstr "Paramètres de facturation"
 
 #: src/features/announcement-admin/ui/create-announcement-modal.tsx
 #: src/features/announcement-admin/ui/delete-announcement-modal.tsx
@@ -387,40 +387,40 @@ msgstr "Billing Settings"
 #: src/pages/admin/subscriptions.tsx
 #: src/pages/admin/users.$userId.tsx
 msgid "Cancel"
-msgstr "Cancel"
+msgstr "Annuler"
 
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Cancel at period end"
-msgstr "Cancel at period end"
+msgstr "Annuler en fin de période"
 
 #: src/pages/admin/subscriptions.tsx
 msgid "Cancel Immediately"
-msgstr "Cancel Immediately"
+msgstr "Annuler immédiatement"
 
 #: src/pages/admin/subscriptions.tsx
 msgid "Cancel Subscription"
-msgstr "Cancel Subscription"
+msgstr "Annuler l'abonnement"
 
 #: src/pages/admin/subscriptions.tsx
 msgid "Canceling"
-msgstr "Canceling"
+msgstr "Annulation en cours"
 
 #: src/pages/admin/announcements.index.tsx
 msgid "Cannot delete a published or in-progress announcement"
-msgstr "Cannot delete a published or in-progress announcement"
+msgstr "Impossible de supprimer une annonce publiée ou en cours"
 
 #: src/features/page-admin/ui/page-translation-fields.tsx
 msgid "Canonical URL"
-msgstr "Canonical URL"
+msgstr "URL canonique"
 
 #: src/features/change-admin-password/ui/change-admin-password-modal.tsx
 #: src/pages/admin/account.tsx
 msgid "Change password"
-msgstr "Change password"
+msgstr "Changer le mot de passe"
 
 #: src/features/change-admin-password/ui/change-admin-password-modal.tsx
 msgid "Change Password"
-msgstr "Change Password"
+msgstr "Changer le mot de passe"
 
 #: src/pages/admin/announcements.index.tsx
 #: src/pages/admin/invitations.index.tsx
@@ -429,12 +429,12 @@ msgstr "Change Password"
 #: src/pages/admin/subscriptions.tsx
 #: src/pages/admin/users.index.tsx
 msgid "Clear"
-msgstr "Clear"
+msgstr "Effacer"
 
 #: src/features/notification-bell/ui/notification-bell.tsx
 #: src/pages/admin/notifications.tsx
 msgid "Clear all"
-msgstr "Clear all"
+msgstr "Tout effacer"
 
 #: src/pages/admin/announcements.index.tsx
 #: src/pages/admin/invitations.index.tsx
@@ -443,19 +443,19 @@ msgstr "Clear all"
 #: src/pages/admin/subscriptions.tsx
 #: src/pages/admin/users.index.tsx
 msgid "Clear filters"
-msgstr "Clear filters"
+msgstr "Réinitialiser les filtres"
 
 #: src/features/invitation-admin/ui/edit-invitation-modal.tsx
 #: src/pages/admin/audit-logs.tsx
 msgid "Close"
-msgstr "Close"
+msgstr "Fermer"
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 #: src/pages/admin/cms-pages.index.tsx
 #: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "CMS Pages"
-msgstr "CMS Pages"
+msgstr "Pages CMS"
 
 #: src/pages/admin/plans.index.tsx
 msgid "Code"
@@ -463,196 +463,196 @@ msgstr "Code"
 
 #: src/pages/admin/index.tsx
 #~ msgid "Coming soon"
-#~ msgstr "Coming soon"
+#~ msgstr "Bientôt disponible"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Company name"
-msgstr "Company name"
+msgstr "Nom de la société"
 
 #: src/pages/loading-demo.tsx
 msgid "Complete"
-msgstr "Complete"
+msgstr "Terminé"
 
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Confirm delete"
-msgstr "Confirm delete"
+msgstr "Confirmer la suppression"
 
 #: src/features/change-admin-password/ui/change-admin-password-modal.tsx
 msgid "Confirm new password"
-msgstr "Confirm new password"
+msgstr "Confirmer le nouveau mot de passe"
 
 #: src/features/set-user-password/ui/set-user-password-modal.tsx
 msgid "Confirm password"
-msgstr "Confirm password"
+msgstr "Confirmer le mot de passe"
 
 #: src/features/manage-platform-authority/ui/grant-platform-admin-modal.tsx
 msgid "Confirm privilege escalation"
-msgstr "Confirm privilege escalation"
+msgstr "Confirmer l'élévation de privilèges"
 
 #: src/features/manage-platform-authority/ui/revoke-platform-admin-modal.tsx
 msgid "Confirm privilege removal"
-msgstr "Confirm privilege removal"
+msgstr "Confirmer la suppression des privilèges"
 
 #: src/features/page-admin/ui/page-translation-fields.tsx
 #: src/pages/admin/cms-pages.index.tsx
 msgid "Content"
-msgstr "Content"
+msgstr "Contenu"
 
 #: src/features/page-admin/model/types.ts
 msgid "Content is required for the default locale"
-msgstr "Content is required for the default locale"
+msgstr "Le contenu est requis pour la langue par défaut"
 
 #: src/features/sign-in/ui/demo-credentials-hint.tsx
 msgid "Copied!"
-msgstr "Copied!"
+msgstr "Copié !"
 
 #: src/features/sign-in/ui/demo-credentials-hint.tsx
 msgid "Copy"
-msgstr "Copy"
+msgstr "Copier"
 
 #: src/pages/admin/audit-logs.tsx
 msgid "Correlation ID"
-msgstr "Correlation ID"
+msgstr "ID de corrélation"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #~ msgid "Could not create Stripe Customer Portal session."
-#~ msgstr "Could not create Stripe Customer Portal session."
+#~ msgstr "Impossible de créer une session du portail client Stripe."
 
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "Could not create the page. Please check the form and try again."
-msgstr "Could not create the page. Please check the form and try again."
+msgstr "Impossible de créer la page. Veuillez vérifier le formulaire et réessayer."
 
 #: src/features/announcement-admin/ui/delete-announcement-modal.tsx
 msgid "Could not delete the announcement. Please try again."
-msgstr "Could not delete the announcement. Please try again."
+msgstr "Impossible de supprimer l'annonce. Veuillez réessayer."
 
 #: src/features/page-admin/ui/delete-page-modal.tsx
 msgid "Could not delete the page. It may be published."
-msgstr "Could not delete the page. It may be published."
+msgstr "Impossible de supprimer la page. Elle est peut-être publiée."
 
 #: src/pages/admin/announcements.index.tsx
 msgid "Could not fetch announcements from the API."
-msgstr "Could not fetch announcements from the API."
+msgstr "Impossible de récupérer les annonces depuis l'API."
 
 #: src/pages/admin/audit-logs.tsx
 msgid "Could not fetch audit records from the API."
-msgstr "Could not fetch audit records from the API."
+msgstr "Impossible de récupérer les enregistrements d'audit depuis l'API."
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Could not fetch billing settings."
-msgstr "Could not fetch billing settings."
+msgstr "Impossible de récupérer les paramètres de facturation."
 
 #: src/pages/admin/invitations.index.tsx
 msgid "Could not fetch invitations from the API."
-msgstr "Could not fetch invitations from the API."
+msgstr "Impossible de récupérer les invitations depuis l'API."
 
 #: src/pages/admin/users.$userId.tsx
 msgid "Could not fetch linked identities for this user."
-msgstr "Could not fetch linked identities for this user."
+msgstr "Impossible de récupérer les identités liées pour cet utilisateur."
 
 #: src/pages/admin/-organization-tenant-panels.tsx
 msgid "Could not fetch members."
-msgstr "Could not fetch members."
+msgstr "Impossible de récupérer les membres."
 
 #: src/pages/admin/organizations.$tenantKey.tsx
 msgid "Could not fetch organization details."
-msgstr "Could not fetch organization details."
+msgstr "Impossible de récupérer les détails de l'organisation."
 
 #: src/pages/admin/organizations.index.tsx
 msgid "Could not fetch organizations from the API."
-msgstr "Could not fetch organizations from the API."
+msgstr "Impossible de récupérer les organisations depuis l'API."
 
 #: src/pages/admin/cms-pages.index.tsx
 msgid "Could not fetch pages from the API."
-msgstr "Could not fetch pages from the API."
+msgstr "Impossible de récupérer les pages depuis l'API."
 
 #: src/pages/admin/plans.$planCode.tsx
 msgid "Could not fetch plan details."
-msgstr "Could not fetch plan details."
+msgstr "Impossible de récupérer les détails du forfait."
 
 #: src/pages/admin/plans.index.tsx
 msgid "Could not fetch plans from the API."
-msgstr "Could not fetch plans from the API."
+msgstr "Impossible de récupérer les forfaits depuis l'API."
 
 #: src/pages/admin/refunds.$refundId.tsx
 msgid "Could not fetch refund details."
-msgstr "Could not fetch refund details."
+msgstr "Impossible de récupérer les détails du remboursement."
 
 #: src/pages/admin/organizations.$tenantKey.refunds.tsx
 msgid "Could not fetch refunds for this organization."
-msgstr "Could not fetch refunds for this organization."
+msgstr "Impossible de récupérer les remboursements pour cette organisation."
 
 #: src/pages/admin/refunds.tsx
 msgid "Could not fetch refunds from the API."
-msgstr "Could not fetch refunds from the API."
+msgstr "Impossible de récupérer les remboursements depuis l'API."
 
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Could not fetch subscription details."
-msgstr "Could not fetch subscription details."
+msgstr "Impossible de récupérer les détails de l'abonnement."
 
 #: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
 msgid "Could not fetch subscriptions for this organization."
-msgstr "Could not fetch subscriptions for this organization."
+msgstr "Impossible de récupérer les abonnements pour cette organisation."
 
 #: src/pages/admin/subscriptions.tsx
 msgid "Could not fetch subscriptions from the API."
-msgstr "Could not fetch subscriptions from the API."
+msgstr "Impossible de récupérer les abonnements depuis l'API."
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 msgid "Could not fetch the page details."
-msgstr "Could not fetch the page details."
+msgstr "Impossible de récupérer les détails de la page."
 
 #: src/pages/admin/users.$userId.tsx
 msgid "Could not fetch user details."
-msgstr "Could not fetch user details."
+msgstr "Impossible de récupérer les détails de l'utilisateur."
 
 #: src/pages/admin/users.index.tsx
 msgid "Could not fetch users from the API."
-msgstr "Could not fetch users from the API."
+msgstr "Impossible de récupérer les utilisateurs depuis l'API."
 
 #: src/pages/admin/webhook-logs.$webhookLogId.tsx
 msgid "Could not fetch webhook log details."
-msgstr "Could not fetch webhook log details."
+msgstr "Impossible de récupérer les détails du journal webhook."
 
 #: src/pages/admin/webhook-logs.tsx
 msgid "Could not fetch webhook logs from the API."
-msgstr "Could not fetch webhook logs from the API."
+msgstr "Impossible de récupérer les journaux webhook depuis l'API."
 
 #: src/pages/admin/account.tsx
 msgid "Could not fetch your account details."
-msgstr "Could not fetch your account details."
+msgstr "Impossible de récupérer les détails de votre compte."
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Could not open the billing portal. Please try again."
-msgstr "Could not open the billing portal. Please try again."
+msgstr "Impossible d'ouvrir le portail de facturation. Veuillez réessayer."
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 msgid "Could not save the page. Please check the form and try again."
-msgstr "Could not save the page. Please check the form and try again."
+msgstr "Impossible d'enregistrer la page. Veuillez vérifier le formulaire et réessayer."
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Create"
-msgstr "Create"
+msgstr "Créer"
 
 #: src/features/announcement-admin/ui/create-announcement-modal.tsx
 msgid "Create announcement"
-msgstr "Create announcement"
+msgstr "Créer une annonce"
 
 #: src/features/announcement-admin/ui/create-announcement-modal.tsx
 msgid "Create Announcement"
-msgstr "Create Announcement"
+msgstr "Créer une annonce"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Create billing settings"
-msgstr "Create billing settings"
+msgstr "Créer les paramètres de facturation"
 
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "Create page"
-msgstr "Create page"
+msgstr "Créer une page"
 
 #: src/features/plan-catalog/ui/create-plan-modal.tsx
 #~ msgid "Create plan"
-#~ msgstr "Create plan"
+#~ msgstr "Créer un forfait"
 
 #: src/features/invitation-admin/ui/edit-invitation-modal.tsx
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
@@ -665,199 +665,199 @@ msgstr "Create page"
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/subscriptions.tsx
 msgid "Created"
-msgstr "Created"
+msgstr "Créé"
 
 #: src/pages/admin/refunds.$refundId.tsx
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Created:"
-msgstr "Created:"
+msgstr "Créé :"
 
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "Creation failed"
-msgstr "Creation failed"
+msgstr "Échec de la création"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/pages/admin/plans.$planCode.tsx
 msgid "Currency"
-msgstr "Currency"
+msgstr "Devise"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Currency must be a 3-letter ISO code"
-msgstr "Currency must be a 3-letter ISO code"
+msgstr "La devise doit être un code ISO à 3 lettres"
 
 #: src/features/change-admin-password/ui/change-admin-password-modal.tsx
 msgid "Current password"
-msgstr "Current password"
+msgstr "Mot de passe actuel"
 
 #: src/features/change-admin-password/model/types.ts
 msgid "Current password is required"
-msgstr "Current password is required"
+msgstr "Le mot de passe actuel est requis"
 
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Current Period End"
-msgstr "Current Period End"
+msgstr "Fin de la période en cours"
 
 #: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Daily"
-msgstr "Daily"
+msgstr "Quotidien"
 
 #: src/pages/admin/index.tsx
 #: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Dashboard"
-msgstr "Dashboard"
+msgstr "Tableau de bord"
 
 #: src/pages/admin/index.tsx
 #~ msgid "Dashboard |Key Value Admin"
-#~ msgstr "Dashboard |Key Value Admin"
+#~ msgstr "Tableau de bord |Key Value Admin"
 
 #: src/pages/admin/plans.$planCode.tsx
 #~ msgid "Deactivate"
-#~ msgstr "Deactivate"
+#~ msgstr "Désactiver"
 
 #: src/pages/admin/plans.$planCode.tsx
 #~ msgid "Deactivate plan?"
-#~ msgstr "Deactivate plan?"
+#~ msgstr "Désactiver le forfait ?"
 
 #: src/features/page-admin/ui/page-translation-fields.tsx
 msgid "Default locale — required"
-msgstr "Default locale — required"
+msgstr "Langue par défaut — requise"
 
 #: src/features/announcement-admin/ui/delete-announcement-modal.tsx
 #: src/features/page-admin/ui/delete-page-modal.tsx
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/pages/admin/cms-pages.index.tsx
 msgid "Delete"
-msgstr "Delete"
+msgstr "Supprimer"
 
 #: src/pages/admin/announcements.index.tsx
 msgid "Delete announcement"
-msgstr "Delete announcement"
+msgstr "Supprimer l'annonce"
 
 #: src/features/announcement-admin/ui/delete-announcement-modal.tsx
 msgid "Delete Announcement"
-msgstr "Delete Announcement"
+msgstr "Supprimer l'annonce"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Delete billing settings"
-msgstr "Delete billing settings"
+msgstr "Supprimer les paramètres de facturation"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Delete billing settings?"
-msgstr "Delete billing settings?"
+msgstr "Supprimer les paramètres de facturation ?"
 
 #: src/features/announcement-admin/ui/delete-announcement-modal.tsx
 #: src/features/page-admin/ui/delete-page-modal.tsx
 msgid "Delete failed"
-msgstr "Delete failed"
+msgstr "Échec de la suppression"
 
 #: src/features/page-admin/ui/delete-page-modal.tsx
 msgid "Delete Page"
-msgstr "Delete Page"
+msgstr "Supprimer la page"
 
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Delete record"
-msgstr "Delete record"
+msgstr "Supprimer l'enregistrement"
 
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Delete subscription record"
-msgstr "Delete subscription record"
+msgstr "Supprimer l'enregistrement d'abonnement"
 
 #: src/shared/ui/tenant-status-badge/tenant-status-badge.tsx
 #: src/shared/ui/user-status-badge/user-status-badge.tsx
 msgid "Deleted"
-msgstr "Deleted"
+msgstr "Supprimé"
 
 #: src/features/sign-in/ui/demo-credentials-hint.tsx
 msgid "Demo environment"
-msgstr "Demo environment"
+msgstr "Environnement de démonstration"
 
 #: src/pages/loading-demo.tsx
 msgid "Demo LoadingOverlay (2s)"
-msgstr "Demo LoadingOverlay (2s)"
+msgstr "Démo superposition de chargement (2 s)"
 
 #: src/pages/loading-demo.tsx
 msgid "Demo Progress Bar"
-msgstr "Demo Progress Bar"
+msgstr "Démo barre de progression"
 
 #: src/pages/admin/plans.$planCode.tsx
 msgid "Display name"
-msgstr "Display name"
+msgstr "Nom d'affichage"
 
 #: src/features/plan-catalog/ui/create-plan-modal.tsx
 #: src/pages/admin/plans.$planCode.tsx
 #~ msgid "Display name is required"
-#~ msgstr "Display name is required"
+#~ msgstr "Le nom d'affichage est requis"
 
 #: src/features/announcement-admin/model/types.ts
 #: src/features/page-admin/model/types.ts
 #: src/pages/admin/cms-pages.index.tsx
 #: src/shared/ui/announcement-status-badge/announcement-status-badge.tsx
 msgid "Draft"
-msgstr "Draft"
+msgstr "Brouillon"
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "e.g. default, landing"
-msgstr "e.g. default, landing"
+msgstr "ex. default, landing"
 
 #: src/features/plan-catalog/ui/create-plan-modal.tsx
 #~ msgid "e.g. pro-monthly"
-#~ msgstr "e.g. pro-monthly"
+#~ msgstr "ex. pro-mensuel"
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.index.tsx
 msgid "Edit"
-msgstr "Edit"
+msgstr "Modifier"
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 msgid "Edit — {defaultTitle} — {tenantKey}"
-msgstr "Edit — {defaultTitle} — {tenantKey}"
+msgstr "Modifier — {defaultTitle} — {tenantKey}"
 
 #: src/pages/admin/announcements.index.tsx
 msgid "Edit announcement"
-msgstr "Edit announcement"
+msgstr "Modifier l'annonce"
 
 #: src/features/announcement-admin/ui/edit-announcement-modal.tsx
 msgid "Edit Announcement"
-msgstr "Edit Announcement"
+msgstr "Modifier l'annonce"
 
 #: src/pages/admin/-organization-tenant-panels.tsx
 msgid "Edit member authorities"
-msgstr "Edit member authorities"
+msgstr "Modifier les autorisations du membre"
 
 #: src/pages/admin/-organization-tenant-panels.tsx
 msgid "Edit Member Authorities"
-msgstr "Edit Member Authorities"
+msgstr "Modifier les autorisations du membre"
 
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/organizations.index.tsx
 msgid "Edit organization"
-msgstr "Edit organization"
+msgstr "Modifier l'organisation"
 
 #: src/features/edit-tenant/ui/edit-tenant-modal.tsx
 msgid "Edit Organization"
-msgstr "Edit Organization"
+msgstr "Modifier l'organisation"
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 msgid "Edit Page"
-msgstr "Edit Page"
+msgstr "Modifier la page"
 
 #: src/pages/admin/account.tsx
 msgid "Edit profile"
-msgstr "Edit profile"
+msgstr "Modifier le profil"
 
 #: src/features/edit-account/ui/edit-account-modal.tsx
 msgid "Edit Profile"
-msgstr "Edit Profile"
+msgstr "Modifier le profil"
 
 #: src/pages/admin/users.$userId.tsx
 #: src/pages/admin/users.index.tsx
 msgid "Edit user"
-msgstr "Edit user"
+msgstr "Modifier l'utilisateur"
 
 #: src/features/edit-user/ui/edit-user-modal.tsx
 msgid "Edit User"
-msgstr "Edit User"
+msgstr "Modifier l'utilisateur"
 
 #: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
@@ -869,328 +869,328 @@ msgstr "Edit User"
 #: src/pages/admin/users.$userId.tsx
 #: src/pages/admin/users.index.tsx
 msgid "Email"
-msgstr "Email"
+msgstr "E-mail"
 
 #: src/features/sign-in/model/use-sign-in.ts
 msgid "Email is required"
-msgstr "Email is required"
+msgstr "L'e-mail est requis"
 
 #: src/pages/admin/account.tsx
 #: src/pages/admin/users.$userId.tsx
 msgid "Email unverified"
-msgstr "Email unverified"
+msgstr "E-mail non vérifié"
 
 #: src/pages/admin/account.tsx
 #: src/pages/admin/users.$userId.tsx
 #: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Email verified"
-msgstr "Email verified"
+msgstr "E-mail vérifié"
 
 #: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
 msgid "Email verified:"
-msgstr "Email verified:"
+msgstr "E-mail vérifié :"
 
 #. placeholder {0}: identity.email
 #: src/pages/admin/users.$userId.tsx
 msgid "Email: <0>{0}</0>"
-msgstr "Email: <0>{0}</0>"
+msgstr "E-mail : <0>{0}</0>"
 
 #: src/features/plan-catalog/ui/create-plan-modal.tsx
 #~ msgid "Enter a positive price (minor units, e.g. cents)"
-#~ msgstr "Enter a positive price (minor units, e.g. cents)"
+#~ msgstr "Saisir un prix positif (unités mineures, ex. centimes)"
 
 #: src/features/sign-in/model/use-sign-in.ts
 msgid "Enter a valid email address"
-msgstr "Enter a valid email address"
+msgstr "Saisir une adresse e-mail valide"
 
 #: src/features/change-admin-password/ui/change-admin-password-modal.tsx
 #: src/features/set-user-password/ui/set-user-password-modal.tsx
 msgid "Enter new password"
-msgstr "Enter new password"
+msgstr "Saisir un nouveau mot de passe"
 
 #: src/features/change-admin-password/ui/change-admin-password-modal.tsx
 msgid "Enter your current password"
-msgstr "Enter your current password"
+msgstr "Saisir votre mot de passe actuel"
 
 #: src/pages/admin/audit-logs.tsx
 msgid "Entity ID"
-msgstr "Entity ID"
+msgstr "ID de l'entité"
 
 #: src/pages/admin/audit-logs.tsx
 msgid "Entity Type"
-msgstr "Entity Type"
+msgstr "Type d'entité"
 
 #: src/pages/admin/subscriptions.tsx
 #: src/pages/admin/users.$userId.tsx
 msgid "Error"
-msgstr "Error"
+msgstr "Erreur"
 
 #: src/shared/ui/error-boundary.tsx
 msgid "Error Details (Development)"
-msgstr "Error Details (Development)"
+msgstr "Détails de l'erreur (développement)"
 
 #: src/pages/admin/webhook-logs.$webhookLogId.tsx
 msgid "Error Message"
-msgstr "Error Message"
+msgstr "Message d'erreur"
 
 #: src/pages/admin/audit-logs.tsx
 msgid "Event Payload"
-msgstr "Event Payload"
+msgstr "Données de l'événement"
 
 #: src/pages/admin/webhook-logs.$webhookLogId.tsx
 #: src/pages/admin/webhook-logs.tsx
 msgid "Event Type"
-msgstr "Event Type"
+msgstr "Type d'événement"
 
 #: src/shared/ui/invitation-status-badge/invitation-status-badge.tsx
 msgid "Expired"
-msgstr "Expired"
+msgstr "Expiré"
 
 #: src/features/invitation-admin/ui/edit-invitation-modal.tsx
 #: src/pages/admin/invitations.index.tsx
 msgid "Expires"
-msgstr "Expires"
+msgstr "Expire"
 
 #: src/features/ban-user/ui/ban-user-modal.tsx
 msgid "Expires at (optional)"
-msgstr "Expires at (optional)"
+msgstr "Expire le (facultatif)"
 
 #: src/pages/admin/organizations.tsx
 #: src/pages/admin/subscriptions.tsx
 #: src/pages/admin/users.tsx
 #~ msgid "Export"
-#~ msgstr "Export"
+#~ msgstr "Exporter"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "External customer id"
-msgstr "External customer id"
+msgstr "ID client externe"
 
 #: src/pages/admin/refunds.$refundId.tsx
 msgid "External Customer ID"
-msgstr "External Customer ID"
+msgstr "ID client externe"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "External customer id is required"
-msgstr "External customer id is required"
+msgstr "L'ID client externe est requis"
 
 #: src/pages/admin/webhook-logs.$webhookLogId.tsx
 #: src/pages/admin/webhook-logs.tsx
 msgid "External Event ID"
-msgstr "External Event ID"
+msgstr "ID d'événement externe"
 
 #: src/pages/admin/organizations.$tenantKey.refunds.tsx
 #: src/pages/admin/refunds.tsx
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "External ID"
-msgstr "External ID"
+msgstr "ID externe"
 
 #: src/pages/admin/refunds.$refundId.tsx
 msgid "External Payment ID"
-msgstr "External Payment ID"
+msgstr "ID de paiement externe"
 
 #: src/pages/admin/refunds.$refundId.tsx
 msgid "External Refund ID"
-msgstr "External Refund ID"
+msgstr "ID de remboursement externe"
 
 #: src/features/announcement-admin/model/types.ts
 #: src/pages/admin/audit-logs.tsx
 #: src/shared/ui/announcement-status-badge/announcement-status-badge.tsx
 msgid "Failed"
-msgstr "Failed"
+msgstr "Échoué"
 
 #: src/pages/admin/subscriptions.tsx
 msgid "Failed to cancel subscription"
-msgstr "Failed to cancel subscription"
+msgstr "Échec de l'annulation de l'abonnement"
 
 #: src/features/announcement-admin/ui/create-announcement-modal.tsx
 msgid "Failed to create announcement"
-msgstr "Failed to create announcement"
+msgstr "Échec de la création de l'annonce"
 
 #: src/widgets/dashboard-stat-value/ui/stat-value.tsx
 msgid "Failed to load"
-msgstr "Failed to load"
+msgstr "Échec du chargement"
 
 #: src/pages/admin/account.tsx
 msgid "Failed to load account"
-msgstr "Failed to load account"
+msgstr "Échec du chargement du compte"
 
 #: src/pages/admin/announcements.index.tsx
 msgid "Failed to load announcements"
-msgstr "Failed to load announcements"
+msgstr "Échec du chargement des annonces"
 
 #: src/widgets/dashboard-recent-critical-audit/ui/recent-critical-audit.tsx
 msgid "Failed to load audit events"
-msgstr "Failed to load audit events"
+msgstr "Échec du chargement des événements d'audit"
 
 #: src/pages/admin/audit-logs.tsx
 msgid "Failed to load audit logs"
-msgstr "Failed to load audit logs"
+msgstr "Échec du chargement des journaux d'audit"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Failed to load billing settings"
-msgstr "Failed to load billing settings"
+msgstr "Échec du chargement des paramètres de facturation"
 
 #: src/pages/admin/users.$userId.tsx
 msgid "Failed to load identities"
-msgstr "Failed to load identities"
+msgstr "Échec du chargement des identités"
 
 #: src/pages/admin/invitations.index.tsx
 msgid "Failed to load invitations"
-msgstr "Failed to load invitations"
+msgstr "Échec du chargement des invitations"
 
 #: src/pages/admin/organizations.$tenantKey.tsx
 msgid "Failed to load organization"
-msgstr "Failed to load organization"
+msgstr "Échec du chargement de l'organisation"
 
 #: src/widgets/dashboard-suspended-tenants/ui/suspended-tenants.tsx
 msgid "Failed to load organization data"
-msgstr "Failed to load organization data"
+msgstr "Échec du chargement des données de l'organisation"
 
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 #: src/pages/admin/organizations.index.tsx
 msgid "Failed to load organizations"
-msgstr "Failed to load organizations"
+msgstr "Échec du chargement des organisations"
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 msgid "Failed to load page"
-msgstr "Failed to load page"
+msgstr "Échec du chargement de la page"
 
 #: src/pages/admin/cms-pages.index.tsx
 msgid "Failed to load pages"
-msgstr "Failed to load pages"
+msgstr "Échec du chargement des pages"
 
 #: src/pages/admin/plans.$planCode.tsx
 msgid "Failed to load plan"
-msgstr "Failed to load plan"
+msgstr "Échec du chargement du forfait"
 
 #: src/pages/admin/plans.index.tsx
 msgid "Failed to load plans"
-msgstr "Failed to load plans"
+msgstr "Échec du chargement des forfaits"
 
 #: src/widgets/dashboard-recent-refunds/ui/recent-refunds.tsx
 msgid "Failed to load recent refunds"
-msgstr "Failed to load recent refunds"
+msgstr "Échec du chargement des remboursements récents"
 
 #: src/pages/admin/refunds.$refundId.tsx
 msgid "Failed to load refund"
-msgstr "Failed to load refund"
+msgstr "Échec du chargement du remboursement"
 
 #: src/pages/admin/organizations.$tenantKey.refunds.tsx
 #: src/pages/admin/refunds.tsx
 msgid "Failed to load refunds"
-msgstr "Failed to load refunds"
+msgstr "Échec du chargement des remboursements"
 
 #: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Failed to load stats for the selected organization."
-msgstr "Failed to load stats for the selected organization."
+msgstr "Échec du chargement des statistiques pour l'organisation sélectionnée."
 
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Failed to load subscription"
-msgstr "Failed to load subscription"
+msgstr "Échec du chargement de l'abonnement"
 
 #: src/widgets/dashboard-subscription-breakdown/ui/subscription-breakdown.tsx
 msgid "Failed to load subscription breakdown"
-msgstr "Failed to load subscription breakdown"
+msgstr "Échec du chargement de la répartition des abonnements"
 
 #: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
 #: src/pages/admin/subscriptions.tsx
 msgid "Failed to load subscriptions"
-msgstr "Failed to load subscriptions"
+msgstr "Échec du chargement des abonnements"
 
 #: src/pages/admin/users.$userId.tsx
 msgid "Failed to load user"
-msgstr "Failed to load user"
+msgstr "Échec du chargement de l'utilisateur"
 
 #: src/pages/admin/users.index.tsx
 msgid "Failed to load users"
-msgstr "Failed to load users"
+msgstr "Échec du chargement des utilisateurs"
 
 #: src/pages/admin/webhook-logs.$webhookLogId.tsx
 msgid "Failed to load webhook log"
-msgstr "Failed to load webhook log"
+msgstr "Échec du chargement du journal webhook"
 
 #: src/pages/admin/webhook-logs.tsx
 msgid "Failed to load webhook logs"
-msgstr "Failed to load webhook logs"
+msgstr "Échec du chargement des journaux webhook"
 
 #: src/pages/admin/subscriptions.tsx
 msgid "Failed to pause subscription"
-msgstr "Failed to pause subscription"
+msgstr "Échec de la mise en pause de l'abonnement"
 
 #: src/pages/admin/subscriptions.tsx
 msgid "Failed to reactivate subscription"
-msgstr "Failed to reactivate subscription"
+msgstr "Échec de la réactivation de l'abonnement"
 
 #: src/pages/admin/users.$userId.tsx
 msgid "Failed to unmerge identity"
-msgstr "Failed to unmerge identity"
+msgstr "Échec de la dissociation de l'identité"
 
 #: src/pages/admin/subscriptions.tsx
 msgid "Failed to update subscription"
-msgstr "Failed to update subscription"
+msgstr "Échec de la mise à jour de l'abonnement"
 
 #: src/features/announcement-admin/model/types.ts
 msgid "Feature"
-msgstr "Feature"
+msgstr "Fonctionnalité"
 
 #: src/pages/admin/plans.$planCode.tsx
 msgid "Feature set (JSON)"
-msgstr "Feature set (JSON)"
+msgstr "Ensemble de fonctionnalités (JSON)"
 
 #: src/pages/admin/audit-logs.tsx
 msgid "Filter by action…"
-msgstr "Filter by action…"
+msgstr "Filtrer par action…"
 
 #: src/pages/admin/audit-logs.tsx
 #: src/pages/admin/refunds.tsx
 #: src/pages/admin/webhook-logs.tsx
 msgid "Filter by tenant key…"
-msgstr "Filter by tenant key…"
+msgstr "Filtrer par clé locataire…"
 
 #: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
 msgid "First name"
-msgstr "First name"
+msgstr "Prénom"
 
 #: src/features/edit-account/model/types.ts
 #: src/features/edit-user/model/types.ts
 msgid "First name is required"
-msgstr "First name is required"
+msgstr "Le prénom est requis"
 
 #: src/pages/loading-demo.tsx
 msgid "Full-screen centered loader shown on first app load (while locale initializes)."
-msgstr "Full-screen centered loader shown on first app load (while locale initializes)."
+msgstr "Indicateur de chargement plein écran centré affiché au premier démarrage de l'application (pendant l'initialisation de la langue)."
 
 #: src/shared/ui/auth-layout/auth-layout.tsx
 msgid "fully in your hands."
-msgstr "fully in your hands."
+msgstr "entièrement entre vos mains."
 
 #: src/pages/404.tsx
 #: src/pages/500.tsx
 msgid "Go home"
-msgstr "Go home"
+msgstr "Retour à l'accueil"
 
 #: src/pages/unauthorized.tsx
 msgid "Go to Home"
-msgstr "Go to Home"
+msgstr "Aller à l'accueil"
 
 #: src/pages/admin/users.$userId.tsx
 msgid "Grant"
-msgstr "Grant"
+msgstr "Accorder"
 
 #: src/features/manage-platform-authority/ui/grant-platform-admin-modal.tsx
 msgid "Grant Platform Admin"
-msgstr "Grant Platform Admin"
+msgstr "Accorder les droits d'administrateur plateforme"
 
 #: src/features/manage-platform-authority/ui/grant-platform-admin-modal.tsx
 msgid "Granting Platform Admin to <0>{displayName}</0> will give them full administrative access to this platform, including user management, tenant management, and all admin-only operations."
-msgstr "Granting Platform Admin to <0>{displayName}</0> will give them full administrative access to this platform, including user management, tenant management, and all admin-only operations."
+msgstr "Accorder les droits d'administrateur plateforme à <0>{displayName}</0> lui donnera un accès administratif complet à cette plateforme, incluant la gestion des utilisateurs, des locataires et toutes les opérations réservées aux administrateurs."
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "Hierarchy"
-msgstr "Hierarchy"
+msgstr "Hiérarchie"
 
 #: src/pages/admin/account.tsx
 #: src/pages/admin/announcements.index.tsx
@@ -1214,11 +1214,11 @@ msgstr "Hierarchy"
 #: src/pages/admin/webhook-logs.$webhookLogId.tsx
 #: src/pages/admin/webhook-logs.tsx
 msgid "Home"
-msgstr "Home"
+msgstr "Accueil"
 
 #: src/features/page-admin/ui/rich-content-editor.tsx
 msgid "HTML content. At least one paragraph required for the default locale."
-msgstr "HTML content. At least one paragraph required for the default locale."
+msgstr "Contenu HTML. Au moins un paragraphe requis pour la langue par défaut."
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 msgid "ID"
@@ -1226,40 +1226,40 @@ msgstr "ID"
 
 #: src/pages/admin/audit-logs.tsx
 msgid "ID / Email"
-msgstr "ID / Email"
+msgstr "ID / E-mail"
 
 #: src/features/invitation-admin/ui/edit-invitation-modal.tsx
 msgid "ID:"
-msgstr "ID:"
+msgstr "ID :"
 
 #. placeholder {0}: announcement.id
 #. placeholder {0}: user.id
 #: src/features/announcement-admin/ui/edit-announcement-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
 msgid "ID: {0}"
-msgstr "ID: {0}"
+msgstr "ID : {0}"
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/users.$userId.tsx
 msgid "Identity"
-msgstr "Identity"
+msgstr "Identité"
 
 #: src/pages/admin/users.$userId.tsx
 msgid "Identity unmerged"
-msgstr "Identity unmerged"
+msgstr "Identité dissociée"
 
 #: src/pages/loading-demo.tsx
 msgid "Implementation Details"
-msgstr "Implementation Details"
+msgstr "Détails d'implémentation"
 
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/plans.index.tsx
 msgid "Inactive"
-msgstr "Inactive"
+msgstr "Inactif"
 
 #: src/pages/admin/plans.index.tsx
 msgid "Inactive only"
-msgstr "Inactive only"
+msgstr "Inactifs uniquement"
 
 #: src/features/announcement-admin/model/types.ts
 msgid "Info"
@@ -1267,24 +1267,24 @@ msgstr "Info"
 
 #: src/features/announcement-admin/ui/create-announcement-modal.tsx
 msgid "Initial status"
-msgstr "Initial status"
+msgstr "Statut initial"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/pages/admin/plans.$planCode.tsx
 msgid "Internal id"
-msgstr "Internal id"
+msgstr "ID interne"
 
 #: src/pages/500.tsx
 msgid "Internal server error."
-msgstr "Internal server error."
+msgstr "Erreur interne du serveur."
 
 #: src/features/sign-in/model/use-sign-in.ts
 msgid "Invalid email or password"
-msgstr "Invalid email or password"
+msgstr "E-mail ou mot de passe invalide"
 
 #: src/features/invitation-admin/ui/edit-invitation-modal.tsx
 msgid "Invitation Details"
-msgstr "Invitation Details"
+msgstr "Détails de l'invitation"
 
 #: src/pages/admin/invitations.index.tsx
 #: src/shared/ui/admin-layout/admin-nav.tsx
@@ -1293,38 +1293,38 @@ msgstr "Invitations"
 
 #: src/features/invitation-admin/ui/edit-invitation-modal.tsx
 msgid "Invited by (user ID)"
-msgstr "Invited by (user ID)"
+msgstr "Invité par (ID utilisateur)"
 
 #: src/pages/admin/invitations.index.tsx
 msgid "Invitee"
-msgstr "Invitee"
+msgstr "Invité"
 
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 msgid "invitee@example.com"
-msgstr "invitee@example.com"
+msgstr "invite@exemple.fr"
 
 #: src/pages/admin/audit-logs.tsx
 msgid "IP Address"
-msgstr "IP Address"
+msgstr "Adresse IP"
 
 #: src/pages/admin/-organization-tenant-panels.tsx
 #: src/pages/admin/account.tsx
 #: src/pages/admin/users.$userId.tsx
 #: src/pages/admin/users.index.tsx
 msgid "Joined"
-msgstr "Joined"
+msgstr "Rejoint"
 
 #: src/pages/admin/users.$userId.tsx
 msgid "Joined Organizations"
-msgstr "Joined Organizations"
+msgstr "Organisations rejointes"
 
 #: src/pages/admin/subscriptions.tsx
 msgid "Keep Subscription"
-msgstr "Keep Subscription"
+msgstr "Conserver l'abonnement"
 
 #: src/pages/admin/organizations.index.tsx
 msgid "Key"
-msgstr "Key"
+msgstr "Clé"
 
 #: src/pages/admin/index.tsx
 msgid "Key Value Admin"
@@ -1332,22 +1332,22 @@ msgstr "Key Value Admin"
 
 #: src/features/edit-tenant/ui/edit-tenant-modal.tsx
 msgid "Key:"
-msgstr "Key:"
+msgstr "Clé :"
 
 #: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/shared/ui/locale-switcher/locale-switcher.tsx
 msgid "Language"
-msgstr "Language"
+msgstr "Langue"
 
 #: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
 msgid "Last name"
-msgstr "Last name"
+msgstr "Nom de famille"
 
 #: src/features/edit-account/model/types.ts
 #: src/features/edit-user/model/types.ts
 msgid "Last name is required"
-msgstr "Last name is required"
+msgstr "Le nom de famille est requis"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/pages/admin/-organization-tenant-panels.tsx
@@ -1357,66 +1357,66 @@ msgstr "Last name is required"
 #: src/pages/admin/users.$userId.tsx
 #: src/pages/admin/users.index.tsx
 msgid "Last updated"
-msgstr "Last updated"
+msgstr "Dernière mise à jour"
 
 #: src/pages/admin/users.$userId.tsx
 msgid "Last used"
-msgstr "Last used"
+msgstr "Dernière utilisation"
 
 #: src/pages/admin/users.$userId.tsx
 msgid "Linked"
-msgstr "Linked"
+msgstr "Lié"
 
 #: src/pages/loading-demo.tsx
 msgid "Loading Demo"
-msgstr "Loading Demo"
+msgstr "Démo de chargement"
 
 #: src/pages/loading-demo.tsx
 #~ msgid "Loading Demo |Key Value Admin"
-#~ msgstr "Loading Demo |Key Value Admin"
+#~ msgstr "Démo de chargement |Key Value Admin"
 
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 #: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Loading organizations…"
-msgstr "Loading organizations…"
+msgstr "Chargement des organisations…"
 
 #: src/pages/loading-demo.tsx
 msgid "Loading States Demo"
-msgstr "Loading States Demo"
+msgstr "Démo des états de chargement"
 
 #: src/shared/ui/loading-overlay/loading-overlay.tsx
 msgid "Loading..."
-msgstr "Loading..."
+msgstr "Chargement..."
 
 #: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/pages/admin/refunds.$refundId.tsx
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 #: src/pages/admin/webhook-logs.$webhookLogId.tsx
 msgid "Loading…"
-msgstr "Loading…"
+msgstr "Chargement…"
 
 #: src/features/announcement-admin/model/types.ts
 #: src/features/page-admin/model/types.ts
 msgid "Locale is required"
-msgstr "Locale is required"
+msgstr "La langue est requise"
 
 #: src/pages/admin/announcements.index.tsx
 msgid "Locales"
-msgstr "Locales"
+msgstr "Langues"
 
 #: src/features/edit-user/model/types.ts
 #: src/shared/ui/user-status-badge/user-status-badge.tsx
 #: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Locked"
-msgstr "Locked"
+msgstr "Verrouillé"
 
 #: src/pages/admin/index.tsx
 msgid "Locked Accounts"
-msgstr "Locked Accounts"
+msgstr "Comptes verrouillés"
 
 #: src/pages/admin/webhook-logs.$webhookLogId.tsx
 msgid "Log ID"
-msgstr "Log ID"
+msgstr "ID du journal"
 
 #: src/features/announcement-admin/model/types.ts
 msgid "Maintenance"
@@ -1424,46 +1424,46 @@ msgstr "Maintenance"
 
 #: src/pages/admin/index.tsx
 msgid "Manage organizations"
-msgstr "Manage organizations"
+msgstr "Gérer les organisations"
 
 #: src/pages/admin/index.tsx
 msgid "Manage subscriptions"
-msgstr "Manage subscriptions"
+msgstr "Gérer les abonnements"
 
 #: src/pages/admin/index.tsx
 msgid "Manage users"
-msgstr "Manage users"
+msgstr "Gérer les utilisateurs"
 
 #: src/shared/ui/auth-layout/auth-layout.tsx
 msgid "Manage users, organizations, and subscriptions across all tenants — secured by platform-level authentication."
-msgstr "Manage users, organizations, and subscriptions across all tenants — secured by platform-level authentication."
+msgstr "Gérez les utilisateurs, les organisations et les abonnements sur tous les locataires — sécurisé par une authentification au niveau de la plateforme."
 
 #: src/pages/admin/subscriptions.tsx
 msgid "Management"
-msgstr "Management"
+msgstr "Gestion"
 
 #: src/features/notification-bell/ui/notification-bell.tsx
 #: src/pages/admin/notifications.tsx
 msgid "Mark all as read"
-msgstr "Mark all as read"
+msgstr "Tout marquer comme lu"
 
 #: src/pages/admin/-organization-tenant-panels.tsx
 #: src/pages/admin/users.index.tsx
 msgid "Member"
-msgstr "Member"
+msgstr "Membre"
 
 #: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Member Signup Trend"
-msgstr "Member Signup Trend"
+msgstr "Tendance d'inscription des membres"
 
 #: src/pages/admin/organizations.$tenantKey.tsx
 msgid "member(s)"
-msgstr "member(s)"
+msgstr "membre(s)"
 
 #: src/pages/admin/-organization-tenant-panels.tsx
 #: src/pages/admin/organizations.$tenantKey.tsx
 msgid "Members"
-msgstr "Members"
+msgstr "Membres"
 
 #: src/features/announcement-admin/ui/translation-fields.tsx
 msgid "Message"
@@ -1471,210 +1471,210 @@ msgstr "Message"
 
 #: src/features/announcement-admin/model/types.ts
 msgid "Message is required"
-msgstr "Message is required"
+msgstr "Le message est requis"
 
 #: src/features/page-admin/ui/page-translation-fields.tsx
 msgid "Meta description for search engines"
-msgstr "Meta description for search engines"
+msgstr "Méta-description pour les moteurs de recherche"
 
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Metadata"
-msgstr "Metadata"
+msgstr "Métadonnées"
 
 #: src/pages/admin/plans.$planCode.tsx
 #: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Monthly"
-msgstr "Monthly"
+msgstr "Mensuel"
 
 #: src/features/invitation-admin/model/types.ts
 msgid "Must be a valid email address"
-msgstr "Must be a valid email address"
+msgstr "Doit être une adresse e-mail valide"
 
 #: src/features/page-admin/model/types.ts
 msgid "Must be a valid UUID"
-msgstr "Must be a valid UUID"
+msgstr "Doit être un UUID valide"
 
 #: src/pages/admin/account.tsx
 #: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "My Account"
-msgstr "My Account"
+msgstr "Mon compte"
 
 #: src/pages/admin/plans.index.tsx
 msgid "Name"
-msgstr "Name"
+msgstr "Nom"
 
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "New"
-msgstr "New"
+msgstr "Nouveau"
 
 #: src/pages/admin/announcements.index.tsx
 msgid "New announcement"
-msgstr "New announcement"
+msgstr "Nouvelle annonce"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "New billing settings"
-msgstr "New billing settings"
+msgstr "Nouveaux paramètres de facturation"
 
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "New CMS Page — {tenantKey}"
-msgstr "New CMS Page — {tenantKey}"
+msgstr "Nouvelle page CMS — {tenantKey}"
 
 #: src/pages/admin/cms-pages.index.tsx
 msgid "New page"
-msgstr "New page"
+msgstr "Nouvelle page"
 
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "New Page"
-msgstr "New Page"
+msgstr "Nouvelle page"
 
 #: src/features/change-admin-password/ui/change-admin-password-modal.tsx
 #: src/features/set-user-password/ui/set-user-password-modal.tsx
 msgid "New password"
-msgstr "New password"
+msgstr "Nouveau mot de passe"
 
 #: src/features/plan-catalog/ui/create-plan-modal.tsx
 #: src/pages/admin/plans.index.tsx
 #~ msgid "New plan"
-#~ msgstr "New plan"
+#~ msgstr "Nouveau forfait"
 
 #: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "New signups"
-msgstr "New signups"
+msgstr "Nouvelles inscriptions"
 
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 msgid "No active organizations found"
-msgstr "No active organizations found"
+msgstr "Aucune organisation active trouvée"
 
 #: src/pages/admin/organizations.$tenantKey.tsx
 #~ msgid "No active subscription"
-#~ msgstr "No active subscription"
+#~ msgstr "Aucun abonnement actif"
 
 #: src/pages/admin/announcements.index.tsx
 msgid "No announcements found"
-msgstr "No announcements found"
+msgstr "Aucune annonce trouvée"
 
 #: src/pages/admin/announcements.index.tsx
 msgid "No announcements match the current filters"
-msgstr "No announcements match the current filters"
+msgstr "Aucune annonce ne correspond aux filtres actuels"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "No billing settings"
-msgstr "No billing settings"
+msgstr "Aucun paramètre de facturation"
 
 #: src/widgets/dashboard-recent-critical-audit/ui/recent-critical-audit.tsx
 msgid "No critical events — all clear"
-msgstr "No critical events — all clear"
+msgstr "Aucun événement critique — tout est en ordre"
 
 #: src/pages/admin/audit-logs.tsx
 msgid "No event statistics available"
-msgstr "No event statistics available"
+msgstr "Aucune statistique d'événement disponible"
 
 #: src/pages/admin/invitations.index.tsx
 msgid "No invitations found"
-msgstr "No invitations found"
+msgstr "Aucune invitation trouvée"
 
 #: src/pages/admin/invitations.index.tsx
 msgid "No invitations match the current filters"
-msgstr "No invitations match the current filters"
+msgstr "Aucune invitation ne correspond aux filtres actuels"
 
 #: src/pages/admin/users.$userId.tsx
 msgid "No linked OIDC identities found."
-msgstr "No linked OIDC identities found."
+msgstr "Aucune identité OIDC liée trouvée."
 
 #: src/pages/admin/-organization-tenant-panels.tsx
 msgid "No members found"
-msgstr "No members found"
+msgstr "Aucun membre trouvé"
 
 #: src/pages/admin/-organization-tenant-panels.tsx
 msgid "No members match the search"
-msgstr "No members match the search"
+msgstr "Aucun membre ne correspond à la recherche"
 
 #: src/features/notification-bell/ui/notification-bell.tsx
 #: src/pages/admin/notifications.tsx
 msgid "No notifications yet"
-msgstr "No notifications yet"
+msgstr "Aucune notification pour l'instant"
 
 #: src/pages/admin/organizations.index.tsx
 #: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "No organizations found"
-msgstr "No organizations found"
+msgstr "Aucune organisation trouvée"
 
 #: src/pages/admin/organizations.index.tsx
 msgid "No organizations match the current filters"
-msgstr "No organizations match the current filters"
+msgstr "Aucune organisation ne correspond aux filtres actuels"
 
 #: src/pages/admin/cms-pages.index.tsx
 msgid "No pages found for this tenant"
-msgstr "No pages found for this tenant"
+msgstr "Aucune page trouvée pour ce locataire"
 
 #: src/pages/admin/cms-pages.index.tsx
 msgid "No pages match the current filter"
-msgstr "No pages match the current filter"
+msgstr "Aucune page ne correspond au filtre actuel"
 
 #: src/pages/admin/plans.index.tsx
 msgid "No plans in the catalog"
-msgstr "No plans in the catalog"
+msgstr "Aucun forfait dans le catalogue"
 
 #: src/pages/admin/plans.index.tsx
 msgid "No plans match the current filters"
-msgstr "No plans match the current filters"
+msgstr "Aucun forfait ne correspond aux filtres actuels"
 
 #: src/pages/admin/account.tsx
 msgid "No platform authorities assigned."
-msgstr "No platform authorities assigned."
+msgstr "Aucune autorisation plateforme assignée."
 
 #: src/widgets/dashboard-recent-refunds/ui/recent-refunds.tsx
 msgid "No refunds recorded yet"
-msgstr "No refunds recorded yet"
+msgstr "Aucun remboursement enregistré pour l'instant"
 
 #: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "No results"
-msgstr "No results"
+msgstr "Aucun résultat"
 
 #: src/widgets/dashboard-subscription-breakdown/ui/subscription-breakdown.tsx
 msgid "No subscription data available"
-msgstr "No subscription data available"
+msgstr "Aucune donnée d'abonnement disponible"
 
 #: src/pages/admin/organizations.$tenantKey.tsx
 msgid "No subscriptions"
-msgstr "No subscriptions"
+msgstr "Aucun abonnement"
 
 #: src/pages/admin/subscriptions.tsx
 msgid "No subscriptions found"
-msgstr "No subscriptions found"
+msgstr "Aucun abonnement trouvé"
 
 #: src/pages/admin/-organization-tenant-panels.tsx
 msgid "No subscriptions found for this organization."
-msgstr "No subscriptions found for this organization."
+msgstr "Aucun abonnement trouvé pour cette organisation."
 
 #: src/pages/admin/subscriptions.tsx
 msgid "No subscriptions match the current filters"
-msgstr "No subscriptions match the current filters"
+msgstr "Aucun abonnement ne correspond aux filtres actuels"
 
 #: src/features/announcement-admin/ui/translation-fields.tsx
 msgid "No translations added. At least en-US is required."
-msgstr "No translations added. At least en-US is required."
+msgstr "Aucune traduction ajoutée. Au moins en-US est requis."
 
 #: src/features/page-admin/ui/page-translation-fields.tsx
 msgid "No translations added. At least the default locale is required."
-msgstr "No translations added. At least the default locale is required."
+msgstr "Aucune traduction ajoutée. Au moins la langue par défaut est requise."
 
 #: src/pages/admin/users.index.tsx
 msgid "No users found"
-msgstr "No users found"
+msgstr "Aucun utilisateur trouvé"
 
 #: src/pages/admin/users.index.tsx
 msgid "No users match the current filters"
-msgstr "No users match the current filters"
+msgstr "Aucun utilisateur ne correspond aux filtres actuels"
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "None (top-level)"
-msgstr "None (top-level)"
+msgstr "Aucun (niveau supérieur)"
 
 #: src/pages/admin/users.$userId.tsx
 msgid "Not granted"
-msgstr "Not granted"
+msgstr "Non accordé"
 
 #: src/features/notification-bell/ui/notification-bell.tsx
 #: src/pages/admin/notifications.tsx
@@ -1683,7 +1683,7 @@ msgstr "Notifications"
 
 #: src/shared/ui/admin-layout/admin-header.tsx
 #~ msgid "Notifications (coming soon)"
-#~ msgstr "Notifications (coming soon)"
+#~ msgstr "Notifications (bientôt disponible)"
 
 #. placeholder {0}: hasUnread ? `, ${unreadCount} unread` : ""
 #: src/features/notification-bell/ui/notification-bell.tsx
@@ -1694,61 +1694,61 @@ msgstr "Notifications{0}"
 #: src/pages/admin/refunds.$refundId.tsx
 #: src/pages/admin/refunds.tsx
 msgid "Occurred At"
-msgstr "Occurred At"
+msgstr "Survenu le"
 
 #: src/features/page-admin/ui/page-translation-fields.tsx
 msgid "OG description"
-msgstr "OG description"
+msgstr "Description OG"
 
 #: src/features/page-admin/ui/page-translation-fields.tsx
 msgid "OG title"
-msgstr "OG title"
+msgstr "Titre OG"
 
 #: src/pages/admin/users.$userId.tsx
 msgid "OIDC Identities"
-msgstr "OIDC Identities"
+msgstr "Identités OIDC"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Open Billing Portal"
-msgstr "Open Billing Portal"
+msgstr "Ouvrir le portail de facturation"
 
 #: src/features/page-admin/ui/page-translation-fields.tsx
 msgid "Open Graph description"
-msgstr "Open Graph description"
+msgstr "Description Open Graph"
 
 #: src/features/page-admin/ui/page-translation-fields.tsx
 msgid "Open Graph title"
-msgstr "Open Graph title"
+msgstr "Titre Open Graph"
 
 #: src/features/announcement-admin/ui/edit-announcement-modal.tsx
 msgid "Operation failed"
-msgstr "Operation failed"
+msgstr "Opération échouée"
 
 #: src/shared/ui/auth-layout/auth-layout.tsx
 msgid "Operator access only"
-msgstr "Operator access only"
+msgstr "Accès opérateur uniquement"
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "Optional — makes this a child page"
-msgstr "Optional — makes this a child page"
+msgstr "Facultatif — fait de cette page une sous-page"
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "Optional layout key"
-msgstr "Optional layout key"
+msgstr "Clé de mise en page facultative"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Optional structured address as JSON."
-msgstr "Optional structured address as JSON."
+msgstr "Adresse structurée facultative en JSON."
 
 #: src/features/page-admin/ui/page-translation-fields.tsx
 msgid "Optional translation"
-msgstr "Optional translation"
+msgstr "Traduction facultative"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Optional UUID of the user who owns the billing profile."
-msgstr "Optional UUID of the user who owns the billing profile."
+msgstr "UUID facultatif de l'utilisateur propriétaire du profil de facturation."
 
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 #: src/pages/admin/cms-pages.index.tsx
@@ -1756,27 +1756,27 @@ msgstr "Optional UUID of the user who owns the billing profile."
 #: src/pages/admin/organizations.index.tsx
 #: src/pages/admin/users.index.tsx
 msgid "Organization"
-msgstr "Organization"
+msgstr "Organisation"
 
 #: src/pages/admin/organizations.$tenantKey.tsx
 #~ msgid "Organization |Key Value Admin"
-#~ msgstr "Organization |Key Value Admin"
+#~ msgstr "Organisation |Key Value Admin"
 
 #: src/features/invitation-admin/model/types.ts
 msgid "Organization is required"
-msgstr "Organization is required"
+msgstr "L'organisation est requise"
 
 #: src/features/edit-tenant/ui/edit-tenant-modal.tsx
 msgid "Organization name"
-msgstr "Organization name"
+msgstr "Nom de l'organisation"
 
 #: src/features/edit-tenant/model/types.ts
 msgid "Organization name is required"
-msgstr "Organization name is required"
+msgstr "Le nom de l'organisation est requis"
 
 #: src/pages/admin/users.$userId.tsx
 msgid "organization(s)"
-msgstr "organization(s)"
+msgstr "organisation(s)"
 
 #: src/pages/admin/index.tsx
 #: src/pages/admin/organizations.$tenantKey.tsx
@@ -1784,20 +1784,20 @@ msgstr "organization(s)"
 #: src/pages/admin/users.$userId.tsx
 #: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Organizations"
-msgstr "Organizations"
+msgstr "Organisations"
 
 #: src/pages/admin/organizations.index.tsx
 #~ msgid "Organizations |Key Value Admin"
-#~ msgstr "Organizations |Key Value Admin"
+#~ msgstr "Organisations |Key Value Admin"
 
 #: src/features/page-admin/ui/page-translation-fields.tsx
 msgid "Override page title for search engines"
-msgstr "Override page title for search engines"
+msgstr "Remplacer le titre de la page pour les moteurs de recherche"
 
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/users.$userId.tsx
 msgid "Overview"
-msgstr "Overview"
+msgstr "Vue d'ensemble"
 
 #: src/pages/admin/cms-pages.index.tsx
 msgid "Page"
@@ -1805,24 +1805,24 @@ msgstr "Page"
 
 #: src/pages/404.tsx
 msgid "Page Not Found"
-msgstr "Page Not Found"
+msgstr "Page introuvable"
 
 #: src/pages/404.tsx
 #~ msgid "Page Not Found |Key Value Admin"
-#~ msgstr "Page Not Found |Key Value Admin"
+#~ msgstr "Page introuvable |Key Value Admin"
 
 #: src/pages/404.tsx
 msgid "Page not found."
-msgstr "Page not found."
+msgstr "Page introuvable."
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "Page settings"
-msgstr "Page settings"
+msgstr "Paramètres de la page"
 
 #: src/features/page-admin/ui/page-translation-fields.tsx
 msgid "Page title"
-msgstr "Page title"
+msgstr "Titre de la page"
 
 #: src/pages/admin/cms-pages.index.tsx
 msgid "Pages"
@@ -1831,126 +1831,126 @@ msgstr "Pages"
 #. placeholder {0}: page.status
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 msgid "Pages with status <0>{0}</0> cannot be edited."
-msgstr "Pages with status <0>{0}</0> cannot be edited."
+msgstr "Les pages avec le statut <0>{0}</0> ne peuvent pas être modifiées."
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "Parent page"
-msgstr "Parent page"
+msgstr "Page parente"
 
 #: src/features/sign-in/ui/sign-in-form.tsx
 msgid "Password"
-msgstr "Password"
+msgstr "Mot de passe"
 
 #: src/features/sign-in/model/use-sign-in.ts
 msgid "Password is required"
-msgstr "Password is required"
+msgstr "Le mot de passe est requis"
 
 #: src/features/change-admin-password/model/types.ts
 #: src/features/set-user-password/model/types.ts
 msgid "Password must be at least 8 characters"
-msgstr "Password must be at least 8 characters"
+msgstr "Le mot de passe doit contenir au moins 8 caractères"
 
 #: src/features/change-admin-password/model/types.ts
 #: src/features/set-user-password/model/types.ts
 msgid "Password must be at most 128 characters"
-msgstr "Password must be at most 128 characters"
+msgstr "Le mot de passe doit contenir au plus 128 caractères"
 
 #: src/features/change-admin-password/model/types.ts
 #: src/features/set-user-password/model/types.ts
 msgid "Password must contain uppercase, lowercase, digit, and special character"
-msgstr "Password must contain uppercase, lowercase, digit, and special character"
+msgstr "Le mot de passe doit contenir des majuscules, des minuscules, un chiffre et un caractère spécial"
 
 #: src/features/change-admin-password/ui/change-admin-password-modal.tsx
 #: src/features/set-user-password/ui/set-user-password-modal.tsx
 msgid "Password requirements:"
-msgstr "Password requirements:"
+msgstr "Exigences du mot de passe :"
 
 #: src/features/change-admin-password/model/types.ts
 #: src/features/set-user-password/model/types.ts
 msgid "Passwords do not match"
-msgstr "Passwords do not match"
+msgstr "Les mots de passe ne correspondent pas"
 
 #: src/pages/admin/index.tsx
 msgid "Past-Due Subscriptions"
-msgstr "Past-Due Subscriptions"
+msgstr "Abonnements en retard"
 
 #: src/pages/admin/subscriptions.tsx
 msgid "Pause"
-msgstr "Pause"
+msgstr "Mettre en pause"
 
 #: src/pages/admin/subscriptions.tsx
 msgid "Pause Subscription"
-msgstr "Pause Subscription"
+msgstr "Mettre en pause l'abonnement"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Payment gateway customer identifier (e.g. Stripe cus_…)."
-msgstr "Payment gateway customer identifier (e.g. Stripe cus_…)."
+msgstr "Identifiant client de la passerelle de paiement (ex. Stripe cus_…)."
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Payment gateway customer identifier."
-msgstr "Payment gateway customer identifier."
+msgstr "Identifiant client de la passerelle de paiement."
 
 #: src/features/page-admin/model/types.ts
 #: src/pages/admin/cms-pages.index.tsx
 #: src/shared/ui/announcement-status-badge/announcement-status-badge.tsx
 #: src/shared/ui/invitation-status-badge/invitation-status-badge.tsx
 msgid "Pending"
-msgstr "Pending"
+msgstr "En attente"
 
 #: src/pages/admin/index.tsx
 msgid "Pending Invitations"
-msgstr "Pending Invitations"
+msgstr "Invitations en attente"
 
 #: src/features/invitation-admin/ui/edit-invitation-modal.tsx
 msgid "Pending invitations can be revoked. The invitee will no longer be able to accept this link."
-msgstr "Pending invitations can be revoked. The invitee will no longer be able to accept this link."
+msgstr "Les invitations en attente peuvent être révoquées. L'invité ne pourra plus accepter ce lien."
 
 #: src/pages/admin/plans.index.tsx
 #: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Period"
-msgstr "Period"
+msgstr "Période"
 
 #: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
 #: src/pages/admin/subscriptions.tsx
 msgid "Period End"
-msgstr "Period End"
+msgstr "Fin de période"
 
 #: src/features/ban-user/ui/ban-user-modal.tsx
 msgid "Pick a date and time"
-msgstr "Pick a date and time"
+msgstr "Choisir une date et une heure"
 
 #: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/subscriptions.tsx
 msgid "Plan"
-msgstr "Plan"
+msgstr "Forfait"
 
 #: src/pages/admin/plans.index.tsx
 msgid "Plan catalog"
-msgstr "Plan catalog"
+msgstr "Catalogue des forfaits"
 
 #: src/pages/admin/plans.$planCode.tsx
 msgid "Plan code"
-msgstr "Plan code"
+msgstr "Code du forfait"
 
 #: src/features/plan-catalog/ui/create-plan-modal.tsx
 #~ msgid "Plan code is required"
-#~ msgstr "Plan code is required"
+#~ msgstr "Le code du forfait est requis"
 
 #: src/pages/admin/plans.$planCode.tsx
 #~ msgid "Plan code:"
-#~ msgstr "Plan code:"
+#~ msgstr "Code du forfait :"
 
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Plan ID"
-msgstr "Plan ID"
+msgstr "ID du forfait"
 
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/plans.index.tsx
 #: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Plans"
-msgstr "Plans"
+msgstr "Forfaits"
 
 #: src/pages/admin/announcements.index.tsx
 #: src/pages/admin/audit-logs.tsx
@@ -1963,141 +1963,141 @@ msgstr "Plans"
 #: src/pages/admin/webhook-logs.tsx
 #: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Platform"
-msgstr "Platform"
+msgstr "Plateforme"
 
 #: src/pages/admin/users.$userId.tsx
 msgid "Platform Admin"
-msgstr "Platform Admin"
+msgstr "Administrateur plateforme"
 
 #: src/pages/sign-in.tsx
 msgid "Platform administration"
-msgstr "Platform administration"
+msgstr "Administration de la plateforme"
 
 #: src/pages/admin/account.tsx
 msgid "Platform Authorities"
-msgstr "Platform Authorities"
+msgstr "Autorisations plateforme"
 
 #: src/pages/admin/users.$userId.tsx
 msgid "Platform Authority"
-msgstr "Platform Authority"
+msgstr "Autorisation plateforme"
 
 #: src/shared/ui/auth-layout/auth-layout.tsx
 msgid "Platform control,"
-msgstr "Platform control,"
+msgstr "Contrôle de la plateforme,"
 
 #: src/pages/admin/index.tsx
 msgid "Platform Overview"
-msgstr "Platform Overview"
+msgstr "Vue d'ensemble de la plateforme"
 
 #: src/features/announcement-admin/ui/create-announcement-modal.tsx
 msgid "Please check the form and try again."
-msgstr "Please check the form and try again."
+msgstr "Veuillez vérifier le formulaire et réessayer."
 
 #: src/features/announcement-admin/ui/edit-announcement-modal.tsx
 msgid "Please try again."
-msgstr "Please try again."
+msgstr "Veuillez réessayer."
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Portal error"
-msgstr "Portal error"
+msgstr "Erreur du portail"
 
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/plans.index.tsx
 msgid "Price (minor units)"
-msgstr "Price (minor units)"
+msgstr "Prix (unités mineures)"
 
 #: src/pages/admin/plans.$planCode.tsx
 #~ msgid "Price must be at least 1 minor unit"
-#~ msgstr "Price must be at least 1 minor unit"
+#~ msgstr "Le prix doit être d'au moins 1 unité mineure"
 
 #: src/pages/admin/webhook-logs.$webhookLogId.tsx
 #: src/pages/admin/webhook-logs.tsx
 msgid "Processed At"
-msgstr "Processed At"
+msgstr "Traité le"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Profile owner id must be a valid UUID or empty"
-msgstr "Profile owner id must be a valid UUID or empty"
+msgstr "L'ID du propriétaire du profil doit être un UUID valide ou vide"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Profile owner user id"
-msgstr "Profile owner user id"
+msgstr "ID utilisateur du propriétaire du profil"
 
 #: src/pages/admin/invitations.index.tsx
 msgid "Propose invitation"
-msgstr "Propose invitation"
+msgstr "Proposer une invitation"
 
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 msgid "Propose Invitation"
-msgstr "Propose Invitation"
+msgstr "Proposer une invitation"
 
 #: src/features/ban-user/ui/ban-user-modal.tsx
 msgid "Provide a reason for the ban…"
-msgstr "Provide a reason for the ban…"
+msgstr "Indiquer une raison pour le bannissement…"
 
 #. placeholder {0}: identity.provider
 #: src/pages/admin/users.$userId.tsx
 msgid "Provider: <0>{0}</0>"
-msgstr "Provider: <0>{0}</0>"
+msgstr "Fournisseur : <0>{0}</0>"
 
 #: src/features/announcement-admin/ui/edit-announcement-modal.tsx
 msgid "Publish"
-msgstr "Publish"
+msgstr "Publier"
 
 #: src/features/page-admin/model/types.ts
 #: src/pages/admin/cms-pages.index.tsx
 #: src/shared/ui/announcement-status-badge/announcement-status-badge.tsx
 msgid "Published"
-msgstr "Published"
+msgstr "Publié"
 
 #: src/shared/ui/announcement-status-badge/announcement-status-badge.tsx
 msgid "Publishing"
-msgstr "Publishing"
+msgstr "Publication en cours"
 
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Quantity"
-msgstr "Quantity"
+msgstr "Quantité"
 
 #: src/pages/admin/subscriptions.tsx
 msgid "Reactivate"
-msgstr "Reactivate"
+msgstr "Réactiver"
 
 #: src/pages/admin/subscriptions.tsx
 msgid "Reactivate Subscription"
-msgstr "Reactivate Subscription"
+msgstr "Réactiver l'abonnement"
 
 #. placeholder {0}: subscription.tenantKey
 #: src/pages/admin/subscriptions.tsx
 msgid "Reactivate the subscription for <0>{0}</0>?"
-msgstr "Reactivate the subscription for <0>{0}</0>?"
+msgstr "Réactiver l'abonnement pour <0>{0}</0> ?"
 
 #: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/features/edit-tenant/ui/edit-tenant-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
 msgid "read-only"
-msgstr "read-only"
+msgstr "lecture seule"
 
 #: src/features/announcement-admin/ui/edit-announcement-modal.tsx
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 msgid "Read-only"
-msgstr "Read-only"
+msgstr "Lecture seule"
 
 #: src/features/ban-user/ui/ban-user-modal.tsx
 msgid "Reason (optional)"
-msgstr "Reason (optional)"
+msgstr "Raison (facultatif)"
 
 #: src/pages/admin/webhook-logs.$webhookLogId.tsx
 #: src/pages/admin/webhook-logs.tsx
 msgid "Received At"
-msgstr "Received At"
+msgstr "Reçu le"
 
 #: src/widgets/dashboard-recent-critical-audit/ui/recent-critical-audit.tsx
 msgid "Recent Critical Events"
-msgstr "Recent Critical Events"
+msgstr "Événements critiques récents"
 
 #: src/widgets/dashboard-recent-refunds/ui/recent-refunds.tsx
 msgid "Recent Refunds"
-msgstr "Recent Refunds"
+msgstr "Remboursements récents"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/pages/admin/-organization-tenant-panels.tsx
@@ -2114,15 +2114,15 @@ msgstr "Recent Refunds"
 #: src/pages/admin/users.$userId.tsx
 #: src/pages/admin/users.index.tsx
 msgid "Refresh"
-msgstr "Refresh"
+msgstr "Actualiser"
 
 #: src/pages/admin/refunds.$refundId.tsx
 msgid "Refund"
-msgstr "Refund"
+msgstr "Remboursement"
 
 #: src/pages/admin/refunds.$refundId.tsx
 msgid "Refund ID"
-msgstr "Refund ID"
+msgstr "ID de remboursement"
 
 #: src/pages/admin/organizations.$tenantKey.refunds.tsx
 #: src/pages/admin/organizations.$tenantKey.tsx
@@ -2130,29 +2130,29 @@ msgstr "Refund ID"
 #: src/pages/admin/refunds.tsx
 #: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Refunds"
-msgstr "Refunds"
+msgstr "Remboursements"
 
 #: src/pages/admin/-organization-tenant-panels.tsx
 msgid "Renews"
-msgstr "Renews"
+msgstr "Se renouvelle"
 
 #: src/features/change-admin-password/ui/change-admin-password-modal.tsx
 #: src/features/set-user-password/ui/set-user-password-modal.tsx
 msgid "Repeat new password"
-msgstr "Repeat new password"
+msgstr "Répéter le nouveau mot de passe"
 
 #: src/features/announcement-admin/ui/translation-fields.tsx
 msgid "Required"
-msgstr "Required"
+msgstr "Requis"
 
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Reset"
-msgstr "Reset"
+msgstr "Réinitialiser"
 
 #: src/features/ban-user/ui/unban-user-modal.tsx
 #: src/features/unlock-user/ui/unlock-user-modal.tsx
 msgid "Restore access"
-msgstr "Restore access"
+msgstr "Restaurer l'accès"
 
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
@@ -2177,31 +2177,31 @@ msgstr "Restore access"
 #: src/pages/admin/webhook-logs.$webhookLogId.tsx
 #: src/pages/admin/webhook-logs.tsx
 msgid "Retry"
-msgstr "Retry"
+msgstr "Réessayer"
 
 #: src/pages/admin/index.tsx
 msgid "Revenue risk"
-msgstr "Revenue risk"
+msgstr "Risque de revenus"
 
 #: src/pages/admin/users.$userId.tsx
 msgid "Revoke"
-msgstr "Revoke"
+msgstr "Révoquer"
 
 #: src/features/invitation-admin/ui/edit-invitation-modal.tsx
 msgid "Revoke invitation"
-msgstr "Revoke invitation"
+msgstr "Révoquer l'invitation"
 
 #: src/features/manage-platform-authority/ui/revoke-platform-admin-modal.tsx
 msgid "Revoke Platform Admin"
-msgstr "Revoke Platform Admin"
+msgstr "Révoquer les droits d'administrateur plateforme"
 
 #: src/shared/ui/invitation-status-badge/invitation-status-badge.tsx
 msgid "Revoked"
-msgstr "Revoked"
+msgstr "Révoqué"
 
 #: src/features/manage-platform-authority/ui/revoke-platform-admin-modal.tsx
 msgid "Revoking Platform Admin from <0>{displayName}</0> will remove their full administrative access. They will no longer be able to manage users, tenants, or any other admin-only resources."
-msgstr "Revoking Platform Admin from <0>{displayName}</0> will remove their full administrative access. They will no longer be able to manage users, tenants, or any other admin-only resources."
+msgstr "Révoquer les droits d'administrateur plateforme de <0>{displayName}</0> supprimera son accès administratif complet. Il ne pourra plus gérer les utilisateurs, les locataires ou toute autre ressource réservée aux administrateurs."
 
 #: src/features/announcement-admin/ui/edit-announcement-modal.tsx
 #: src/features/edit-account/ui/edit-account-modal.tsx
@@ -2211,230 +2211,230 @@ msgstr "Revoking Platform Admin from <0>{displayName}</0> will remove their full
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Save changes"
-msgstr "Save changes"
+msgstr "Enregistrer les modifications"
 
 #: src/pages/admin/-organization-tenant-panels.tsx
 msgid "Save Changes"
-msgstr "Save Changes"
+msgstr "Enregistrer les modifications"
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 msgid "Save failed"
-msgstr "Save failed"
+msgstr "Échec de l'enregistrement"
 
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/plans.index.tsx
 msgid "Scope"
-msgstr "Scope"
+msgstr "Portée"
 
 #: src/pages/admin/plans.index.tsx
 msgid "Search by code or name…"
-msgstr "Search by code or name…"
+msgstr "Rechercher par code ou nom…"
 
 #: src/pages/admin/invitations.index.tsx
 msgid "Search by email…"
-msgstr "Search by email…"
+msgstr "Rechercher par e-mail…"
 
 #: src/pages/admin/-organization-tenant-panels.tsx
 #: src/pages/admin/users.index.tsx
 msgid "Search by name or email…"
-msgstr "Search by name or email…"
+msgstr "Rechercher par nom ou e-mail…"
 
 #: src/pages/admin/organizations.index.tsx
 msgid "Search by name or key…"
-msgstr "Search by name or key…"
+msgstr "Rechercher par nom ou clé…"
 
 #: src/pages/admin/subscriptions.tsx
 msgid "Search by tenant or plan…"
-msgstr "Search by tenant or plan…"
+msgstr "Rechercher par locataire ou forfait…"
 
 #: src/pages/admin/webhook-logs.tsx
 msgid "Search event type or ID…"
-msgstr "Search event type or ID…"
+msgstr "Rechercher le type d'événement ou l'ID…"
 
 #: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
 msgid "Search plan…"
-msgstr "Search plan…"
+msgstr "Rechercher un forfait…"
 
 #: src/pages/admin/users.tsx
 #~ msgid "Search users…"
-#~ msgstr "Search users…"
+#~ msgstr "Rechercher des utilisateurs…"
 
 #: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Search…"
-msgstr "Search…"
+msgstr "Rechercher…"
 
 #: src/features/announcement-admin/model/types.ts
 msgid "Security"
-msgstr "Security"
+msgstr "Sécurité"
 
 #: src/features/notification-bell/ui/notification-bell.tsx
 msgid "See all notifications"
-msgstr "See all notifications"
+msgstr "Voir toutes les notifications"
 
 #: src/pages/admin/cms-pages.index.tsx
 msgid "Select a tenant to view its pages"
-msgstr "Select a tenant to view its pages"
+msgstr "Sélectionner un locataire pour voir ses pages"
 
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 msgid "Select an organization"
-msgstr "Select an organization"
+msgstr "Sélectionner une organisation"
 
 #: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Select an organization above to view its member signup trend."
-msgstr "Select an organization above to view its member signup trend."
+msgstr "Sélectionnez une organisation ci-dessus pour voir la tendance d'inscription de ses membres."
 
 #: src/pages/admin/cms-pages.index.tsx
 msgid "Select an organization to manage its CMS pages."
-msgstr "Select an organization to manage its CMS pages."
+msgstr "Sélectionnez une organisation pour gérer ses pages CMS."
 
 #: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Select an organization…"
-msgstr "Select an organization…"
+msgstr "Sélectionner une organisation…"
 
 #: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/shared/ui/locale-switcher/locale-switcher.tsx
 msgid "Select language"
-msgstr "Select language"
+msgstr "Sélectionner la langue"
 
 #: src/pages/admin/-organization-tenant-panels.tsx
 msgid "Select the authorities you want to assign to this member."
-msgstr "Select the authorities you want to assign to this member."
+msgstr "Sélectionnez les autorisations que vous souhaitez attribuer à ce membre."
 
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 msgid "Send invitation"
-msgstr "Send invitation"
+msgstr "Envoyer l'invitation"
 
 #: src/features/page-admin/ui/page-translation-fields.tsx
 msgid "SEO description"
-msgstr "SEO description"
+msgstr "Description SEO"
 
 #: src/features/page-admin/ui/page-translation-fields.tsx
 msgid "SEO fields"
-msgstr "SEO fields"
+msgstr "Champs SEO"
 
 #: src/features/page-admin/ui/page-translation-fields.tsx
 msgid "SEO title"
-msgstr "SEO title"
+msgstr "Titre SEO"
 
 #: src/pages/500.tsx
 msgid "Server Error"
-msgstr "Server Error"
+msgstr "Erreur serveur"
 
 #: src/pages/500.tsx
 #~ msgid "Server Error |Key Value Admin"
-#~ msgstr "Server Error |Key Value Admin"
+#~ msgstr "Erreur serveur |Key Value Admin"
 
 #. placeholder {0}: subscription.tenantKey
 #: src/pages/admin/subscriptions.tsx
 msgid "Set new quantity for <0>{0}</0>:"
-msgstr "Set new quantity for <0>{0}</0>:"
+msgstr "Définir une nouvelle quantité pour <0>{0}</0> :"
 
 #: src/features/set-user-password/ui/set-user-password-modal.tsx
 #: src/pages/admin/users.$userId.tsx
 #: src/pages/admin/users.index.tsx
 msgid "Set password"
-msgstr "Set password"
+msgstr "Définir le mot de passe"
 
 #: src/features/set-user-password/ui/set-user-password-modal.tsx
 msgid "Set Password"
-msgstr "Set Password"
+msgstr "Définir le mot de passe"
 
 #: src/features/edit-account/ui/edit-account-modal.tsx
 msgid "Sets your preferred language for notifications and emails."
-msgstr "Sets your preferred language for notifications and emails."
+msgstr "Définit votre langue préférée pour les notifications et les e-mails."
 
 #: src/shared/ui/admin-layout/admin-nav.tsx
 #~ msgid "Settings"
-#~ msgstr "Settings"
+#~ msgstr "Paramètres"
 
 #: src/pages/admin/audit-logs.tsx
 msgid "Severity"
-msgstr "Severity"
+msgstr "Gravité"
 
 #. placeholder {0}: notifications.length
 #. placeholder {1}: listData?.totalElements ?? 0
 #: src/features/notification-bell/ui/notification-bell.tsx
 msgid "Showing {0} of {1}"
-msgstr "Showing {0} of {1}"
+msgstr "{0} sur {1} affiché(s)"
 
 #. placeholder {0}: Math.min((page - 1) * ORG_MEMBERS_PAGE_SIZE + 1, totalElements)
 #. placeholder {1}: Math.min(page * ORG_MEMBERS_PAGE_SIZE, totalElements)
 #: src/pages/admin/-organization-tenant-panels.tsx
 msgid "Showing {0}–{1} of {totalElements} members"
-msgstr "Showing {0}–{1} of {totalElements} members"
+msgstr "{0}–{1} sur {totalElements} membre(s) affiché(s)"
 
 #: src/pages/admin/organizations.$tenantKey.refunds.tsx
 #: src/pages/admin/refunds.tsx
 msgid "Showing {rangeStart} – {rangeEnd} of {totalElements} refunds"
-msgstr "Showing {rangeStart} – {rangeEnd} of {totalElements} refunds"
+msgstr "{rangeStart} – {rangeEnd} sur {totalElements} remboursement(s) affiché(s)"
 
 #: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
 msgid "Showing {rangeStart} – {rangeEnd} of {totalElements} subscriptions"
-msgstr "Showing {rangeStart} – {rangeEnd} of {totalElements} subscriptions"
+msgstr "{rangeStart} – {rangeEnd} sur {totalElements} abonnement(s) affiché(s)"
 
 #: src/pages/admin/webhook-logs.tsx
 msgid "Showing {rangeStart} – {rangeEnd} of {totalElements} webhook logs"
-msgstr "Showing {rangeStart} – {rangeEnd} of {totalElements} webhook logs"
+msgstr "{rangeStart} – {rangeEnd} sur {totalElements} journal(aux) webhook affiché(s)"
 
 #: src/pages/admin/announcements.index.tsx
 msgid "Showing {rangeStart}–{rangeEnd} of {totalElements} announcements"
-msgstr "Showing {rangeStart}–{rangeEnd} of {totalElements} announcements"
+msgstr "{rangeStart}–{rangeEnd} sur {totalElements} annonce(s) affichée(s)"
 
 #: src/pages/admin/invitations.index.tsx
 msgid "Showing {rangeStart}–{rangeEnd} of {totalElements} invitations"
-msgstr "Showing {rangeStart}–{rangeEnd} of {totalElements} invitations"
+msgstr "{rangeStart}–{rangeEnd} sur {totalElements} invitation(s) affichée(s)"
 
 #: src/pages/admin/organizations.index.tsx
 msgid "Showing {rangeStart}–{rangeEnd} of {totalElements} organizations"
-msgstr "Showing {rangeStart}–{rangeEnd} of {totalElements} organizations"
+msgstr "{rangeStart}–{rangeEnd} sur {totalElements} organisation(s) affichée(s)"
 
 #: src/pages/admin/plans.index.tsx
 msgid "Showing {rangeStart}–{rangeEnd} of {totalElements} plans"
-msgstr "Showing {rangeStart}–{rangeEnd} of {totalElements} plans"
+msgstr "{rangeStart}–{rangeEnd} sur {totalElements} forfait(s) affiché(s)"
 
 #: src/pages/admin/subscriptions.tsx
 msgid "Showing {rangeStart}–{rangeEnd} of {totalElements} subscriptions"
-msgstr "Showing {rangeStart}–{rangeEnd} of {totalElements} subscriptions"
+msgstr "{rangeStart}–{rangeEnd} sur {totalElements} abonnement(s) affiché(s)"
 
 #: src/pages/admin/users.index.tsx
 msgid "Showing {rangeStart}–{rangeEnd} of {totalElements} users"
-msgstr "Showing {rangeStart}–{rangeEnd} of {totalElements} users"
+msgstr "{rangeStart}–{rangeEnd} sur {totalElements} utilisateur(s) affiché(s)"
 
 #: src/features/sign-in/ui/sign-in-form.tsx
 msgid "Sign in"
-msgstr "Sign in"
+msgstr "Se connecter"
 
 #: src/pages/sign-in.tsx
 msgid "Sign In"
-msgstr "Sign In"
+msgstr "Connexion"
 
 #: src/pages/sign-in.tsx
 #~ msgid "Sign In |Key Value Admin"
-#~ msgstr "Sign In |Key Value Admin"
+#~ msgstr "Connexion |Key Value Admin"
 
 #: src/features/sign-out/ui/sign-out-button.tsx
 msgid "Sign out"
-msgstr "Sign out"
+msgstr "Se déconnecter"
 
 #: src/features/sign-in/model/use-sign-in.ts
 msgid "Sign-in failed. Please try again."
-msgstr "Sign-in failed. Please try again."
+msgstr "Échec de la connexion. Veuillez réessayer."
 
 #: src/pages/admin/audit-logs.tsx
 msgid "Signin attempts"
-msgstr "Signin attempts"
+msgstr "Tentatives de connexion"
 
 #: src/pages/admin/audit-logs.tsx
 msgid "Signin Attempts"
-msgstr "Signin Attempts"
+msgstr "Tentatives de connexion"
 
 #: src/pages/admin/announcements.index.tsx
 msgid "Site Announcements"
-msgstr "Site Announcements"
+msgstr "Annonces du site"
 
 #: src/pages/loading-demo.tsx
 msgid "Slim top progress bar for navigation between pages (automatic with router)."
-msgstr "Slim top progress bar for navigation between pages (automatic with router)."
+msgstr "Barre de progression fine en haut pour la navigation entre les pages (automatique avec le routeur)."
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
@@ -2443,27 +2443,27 @@ msgstr "Slug"
 
 #: src/features/page-admin/model/types.ts
 msgid "Slug is required"
-msgstr "Slug is required"
+msgstr "Le slug est requis"
 
 #: src/features/page-admin/model/types.ts
 msgid "Slug must be lowercase alphanumeric with hyphens (e.g. about-us or blog/post-title)"
-msgstr "Slug must be lowercase alphanumeric with hyphens (e.g. about-us or blog/post-title)"
+msgstr "Le slug doit être en minuscules alphanumériques avec des tirets (ex. a-propos ou blog/titre-article)"
 
 #: src/features/plan-catalog/ui/create-plan-modal.tsx
 #~ msgid "Smallest currency unit (e.g. cents for USD)."
-#~ msgstr "Smallest currency unit (e.g. cents for USD)."
+#~ msgstr "Plus petite unité monétaire (ex. centimes pour USD)."
 
 #: src/pages/admin/plans.$planCode.tsx
 msgid "Smallest currency unit (e.g. cents)."
-msgstr "Smallest currency unit (e.g. cents)."
+msgstr "Plus petite unité monétaire (ex. centimes)."
 
 #: src/shared/ui/error-boundary.tsx
 msgid "Something went wrong"
-msgstr "Something went wrong"
+msgstr "Une erreur s'est produite"
 
 #: src/pages/loading-demo.tsx
 msgid "Start"
-msgstr "Start"
+msgstr "Démarrer"
 
 #: src/features/announcement-admin/ui/edit-announcement-modal.tsx
 #: src/features/edit-tenant/ui/edit-tenant-modal.tsx
@@ -2487,52 +2487,52 @@ msgstr "Start"
 #: src/pages/admin/webhook-logs.$webhookLogId.tsx
 #: src/pages/admin/webhook-logs.tsx
 msgid "Status"
-msgstr "Status"
+msgstr "Statut"
 
 #: src/pages/admin/users.$userId.tsx
 msgid "Subject"
-msgstr "Subject"
+msgstr "Sujet"
 
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Subject Key:"
-msgstr "Subject Key:"
+msgstr "Clé du sujet :"
 
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Subject Type:"
-msgstr "Subject Type:"
+msgstr "Type de sujet :"
 
 #. placeholder {0}: identity.providerSub
 #: src/pages/admin/users.$userId.tsx
 msgid "Subject: <0>{0}</0>"
-msgstr "Subject: <0>{0}</0>"
+msgstr "Sujet : <0>{0}</0>"
 
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Subscription"
-msgstr "Subscription"
+msgstr "Abonnement"
 
 #: src/widgets/dashboard-subscription-breakdown/ui/subscription-breakdown.tsx
 msgid "Subscription Breakdown"
-msgstr "Subscription Breakdown"
+msgstr "Répartition des abonnements"
 
 #: src/pages/admin/subscriptions.tsx
 msgid "Subscription cancellation processed"
-msgstr "Subscription cancellation processed"
+msgstr "Annulation d'abonnement traitée"
 
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Subscription ID"
-msgstr "Subscription ID"
+msgstr "ID d'abonnement"
 
 #: src/pages/admin/subscriptions.tsx
 msgid "Subscription paused"
-msgstr "Subscription paused"
+msgstr "Abonnement mis en pause"
 
 #: src/pages/admin/subscriptions.tsx
 msgid "Subscription reactivated"
-msgstr "Subscription reactivated"
+msgstr "Abonnement réactivé"
 
 #: src/pages/admin/subscriptions.tsx
 msgid "Subscription updated"
-msgstr "Subscription updated"
+msgstr "Abonnement mis à jour"
 
 #: src/pages/admin/-organization-tenant-panels.tsx
 #: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
@@ -2541,24 +2541,24 @@ msgstr "Subscription updated"
 #: src/pages/admin/subscriptions.tsx
 #: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Subscriptions"
-msgstr "Subscriptions"
+msgstr "Abonnements"
 
 #: src/pages/admin/subscriptions.tsx
 #~ msgid "Subscriptions |Key Value Admin"
-#~ msgstr "Subscriptions |Key Value Admin"
+#~ msgstr "Abonnements |Key Value Admin"
 
 #: src/pages/admin/subscriptions.tsx
 #: src/pages/admin/users.$userId.tsx
 msgid "Success"
-msgstr "Success"
+msgstr "Succès"
 
 #: src/pages/admin/audit-logs.tsx
 msgid "Success Rate"
-msgstr "Success Rate"
+msgstr "Taux de succès"
 
 #: src/pages/admin/audit-logs.tsx
 msgid "Successful"
-msgstr "Successful"
+msgstr "Réussi"
 
 #: src/features/edit-tenant/model/types.ts
 #: src/features/edit-user/model/types.ts
@@ -2566,45 +2566,45 @@ msgstr "Successful"
 #: src/shared/ui/user-status-badge/user-status-badge.tsx
 #: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Suspended"
-msgstr "Suspended"
+msgstr "Suspendu"
 
 #: src/widgets/dashboard-suspended-tenants/ui/suspended-tenants.tsx
 msgid "Suspended Organizations"
-msgstr "Suspended Organizations"
+msgstr "Organisations suspendues"
 
 #: src/pages/admin/index.tsx
 msgid "Suspended Users"
-msgstr "Suspended Users"
+msgstr "Utilisateurs suspendus"
 
 #: src/shared/ui/color-scheme-toggle/color-scheme-toggle.tsx
 msgid "Switch to dark mode"
-msgstr "Switch to dark mode"
+msgstr "Passer en mode sombre"
 
 #: src/shared/ui/color-scheme-toggle/color-scheme-toggle.tsx
 msgid "Switch to light mode"
-msgstr "Switch to light mode"
+msgstr "Passer en mode clair"
 
 #: src/pages/admin/audit-logs.tsx
 #~ msgid "System"
-#~ msgstr "System"
+#~ msgstr "Système"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Tax id"
-msgstr "Tax id"
+msgstr "Numéro de TVA"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Tax id type"
-msgstr "Tax id type"
+msgstr "Type d'identifiant fiscal"
 
 #: src/pages/admin/audit-logs.tsx
 msgid "Technical Context"
-msgstr "Technical Context"
+msgstr "Contexte technique"
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 #: src/pages/admin/cms-pages.index.tsx
 msgid "Template"
-msgstr "Template"
+msgstr "Modèle"
 
 #: src/pages/admin/audit-logs.tsx
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
@@ -2615,138 +2615,138 @@ msgstr "Template"
 #: src/pages/admin/subscriptions.tsx
 #: src/pages/admin/webhook-logs.tsx
 msgid "Tenant"
-msgstr "Tenant"
+msgstr "Locataire"
 
 #: src/pages/admin/audit-logs.tsx
 msgid "Tenant created"
-msgstr "Tenant created"
+msgstr "Locataire créé"
 
 #: src/features/edit-tenant/ui/edit-tenant-modal.tsx
 #: src/features/invitation-admin/ui/edit-invitation-modal.tsx
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Tenant key"
-msgstr "Tenant key"
+msgstr "Clé locataire"
 
 #: src/pages/admin/audit-logs.tsx
 #: src/pages/admin/refunds.$refundId.tsx
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 #: src/pages/admin/webhook-logs.$webhookLogId.tsx
 msgid "Tenant Key"
-msgstr "Tenant Key"
+msgstr "Clé locataire"
 
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 #~ msgid "Tenant key must be at least 8 characters"
-#~ msgstr "Tenant key must be at least 8 characters"
+#~ msgstr "La clé locataire doit contenir au moins 8 caractères"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Tenant key:"
-msgstr "Tenant key:"
+msgstr "Clé locataire :"
 
 #: src/pages/admin/invitations.index.tsx
 msgid "Tenant key…"
-msgstr "Tenant key…"
+msgstr "Clé locataire…"
 
 #: src/pages/admin/audit-logs.tsx
 msgid "Tenant updated"
-msgstr "Tenant updated"
+msgstr "Locataire mis à jour"
 
 #: src/pages/loading-demo.tsx
 msgid "Theme-aware (respects dark mode and color scheme)"
-msgstr "Theme-aware (respects dark mode and color scheme)"
+msgstr "Adapté au thème (respecte le mode sombre et le schéma de couleurs)"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "This organization does not have a billing settings row yet. Create one to attach gateway customer data and invoicing details."
-msgstr "This organization does not have a billing settings row yet. Create one to attach gateway customer data and invoicing details."
+msgstr "Cette organisation n'a pas encore de paramètres de facturation. Créez-en un pour associer les données client de la passerelle de paiement et les détails de facturation."
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "This permanently removes the billing settings row for this tenant. Subscriptions and gateway objects are not automatically deleted."
-msgstr "This permanently removes the billing settings row for this tenant. Subscriptions and gateway objects are not automatically deleted."
+msgstr "Cela supprime définitivement la ligne des paramètres de facturation pour ce locataire. Les abonnements et les objets de la passerelle ne sont pas automatiquement supprimés."
 
 #: src/pages/admin/plans.$planCode.tsx
 #~ msgid "This sets the plan to inactive. Existing subscriptions are not changed. You can set the plan back to active later from this page."
-#~ msgstr "This sets the plan to inactive. Existing subscriptions are not changed. You can set the plan back to active later from this page."
+#~ msgstr "Cela met le forfait en inactif. Les abonnements existants ne sont pas modifiés. Vous pouvez réactiver le forfait plus tard depuis cette page."
 
 #: src/pages/loading-demo.tsx
 msgid "This template uses Mantine's official loading components for optimal UX."
-msgstr "This template uses Mantine's official loading components for optimal UX."
+msgstr "Ce modèle utilise les composants de chargement officiels de Mantine pour une expérience utilisateur optimale."
 
 #: src/pages/admin/users.$userId.tsx
 msgid "This user does not have platform admin access."
-msgstr "This user does not have platform admin access."
+msgstr "Cet utilisateur n'a pas accès à l'administration de la plateforme."
 
 #: src/pages/admin/users.$userId.tsx
 msgid "This user has full administrative access to the platform."
-msgstr "This user has full administrative access to the platform."
+msgstr "Cet utilisateur a un accès administratif complet à la plateforme."
 
 #: src/pages/admin/users.$userId.tsx
 msgid "This user is not a member of any organization."
-msgstr "This user is not a member of any organization."
+msgstr "Cet utilisateur n'est membre d'aucune organisation."
 
 #: src/pages/admin/users.$userId.tsx
 msgid "This will force-remove the external sign-in method from the user account."
-msgstr "This will force-remove the external sign-in method from the user account."
+msgstr "Cela supprimera de force la méthode de connexion externe du compte utilisateur."
 
 #: src/features/set-user-password/ui/set-user-password-modal.tsx
 msgid "This will immediately change the user's password and invalidate all their active sessions. The user will need to sign in again with the new password."
-msgstr "This will immediately change the user's password and invalidate all their active sessions. The user will need to sign in again with the new password."
+msgstr "Cela modifiera immédiatement le mot de passe de l'utilisateur et invalidera toutes ses sessions actives. L'utilisateur devra se reconnecter avec le nouveau mot de passe."
 
 #: src/pages/admin/audit-logs.tsx
 msgid "Timestamp"
-msgstr "Timestamp"
+msgstr "Horodatage"
 
 #: src/pages/admin/refunds.$refundId.tsx
 msgid "Timestamps"
-msgstr "Timestamps"
+msgstr "Horodatages"
 
 #: src/features/announcement-admin/ui/translation-fields.tsx
 #: src/features/page-admin/ui/page-translation-fields.tsx
 msgid "Title"
-msgstr "Title"
+msgstr "Titre"
 
 #: src/features/announcement-admin/model/types.ts
 msgid "Title is required"
-msgstr "Title is required"
+msgstr "Le titre est requis"
 
 #: src/features/page-admin/model/types.ts
 msgid "Title is required for the default locale"
-msgstr "Title is required for the default locale"
+msgstr "Le titre est requis pour la langue par défaut"
 
 #: src/features/sign-in/model/use-sign-in.ts
 msgid "Too many sign-in attempts. Please try again later."
-msgstr "Too many sign-in attempts. Please try again later."
+msgstr "Trop de tentatives de connexion. Veuillez réessayer plus tard."
 
 #: src/pages/admin/audit-logs.tsx
 msgid "Total Attempts"
-msgstr "Total Attempts"
+msgstr ""
 
 #: src/pages/admin/audit-logs.tsx
 msgid "total events"
-msgstr "total events"
+msgstr ""
 
 #: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Total members"
-msgstr "Total members"
+msgstr ""
 
 #: src/pages/admin/index.tsx
 msgid "Total Users"
-msgstr "Total Users"
+msgstr ""
 
 #: src/features/announcement-admin/ui/translation-fields.tsx
 #: src/features/page-admin/ui/page-translation-fields.tsx
 msgid "Translations"
-msgstr "Translations"
+msgstr "Traductions"
 
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Trial End"
-msgstr "Trial End"
+msgstr ""
 
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Trial Start"
-msgstr "Trial Start"
+msgstr ""
 
 #: src/shared/ui/error-boundary.tsx
 msgid "Try Again"
-msgstr "Try Again"
+msgstr ""
 
 #: src/features/announcement-admin/ui/create-announcement-modal.tsx
 #: src/features/announcement-admin/ui/edit-announcement-modal.tsx
@@ -2756,46 +2756,46 @@ msgstr "Type"
 
 #: src/features/announcement-admin/model/types.ts
 msgid "Type is required"
-msgstr "Type is required"
+msgstr ""
 
 #: src/features/ban-user/ui/unban-user-modal.tsx
 #: src/pages/admin/users.index.tsx
 msgid "Unban user"
-msgstr "Unban user"
+msgstr "Débannir l'utilisateur"
 
 #: src/features/ban-user/ui/unban-user-modal.tsx
 msgid "Unban User"
-msgstr "Unban User"
+msgstr "Débannir l'utilisateur"
+
+#: src/features/ban-user/ui/unban-user-modal.tsx
+#~ msgid "Unbanning this user will restore their ability to sign in and access the platform."
+#~ msgstr "Débannir cet utilisateur lui permettra à nouveau de se connecter et d'accéder à la plateforme."
 
 #: src/features/ban-user/ui/unban-user-modal.tsx
 msgid "Unbanning this user will restore their access to the platform. They will be able to sign in again with their existing credentials."
-msgstr "Unbanning this user will restore their access to the platform. They will be able to sign in again with their existing credentials."
-
-#: src/features/plan-catalog/ui/create-plan-modal.tsx
-#~ msgid "Unique identifier; use lowercase letters, numbers, and hyphens."
-#~ msgstr "Unique identifier; use lowercase letters, numbers, and hyphens."
+msgstr ""
 
 #: src/features/unlock-user/ui/unlock-user-modal.tsx
 #: src/pages/admin/users.$userId.tsx
 #: src/pages/admin/users.index.tsx
 msgid "Unlock user"
-msgstr "Unlock user"
+msgstr "Déverrouiller l'utilisateur"
 
 #: src/features/unlock-user/ui/unlock-user-modal.tsx
 msgid "Unlock User"
-msgstr "Unlock User"
+msgstr "Déverrouiller l'utilisateur"
 
 #: src/features/unlock-user/ui/unlock-user-modal.tsx
 msgid "Unlocking this user will reset their failed login attempts, allowing them to sign in again with their existing credentials."
-msgstr "Unlocking this user will reset their failed login attempts, allowing them to sign in again with their existing credentials."
+msgstr "Déverrouiller cet utilisateur réinitialisera ses tentatives de connexion échouées, lui permettant de se connecter à nouveau avec ses identifiants existants."
 
 #: src/pages/admin/users.$userId.tsx
 msgid "Unmerge"
-msgstr "Unmerge"
+msgstr "Dissocier"
 
 #: src/pages/admin/users.$userId.tsx
 msgid "Unmerge linked identity"
-msgstr "Unmerge linked identity"
+msgstr "Dissocier l'identité liée"
 
 #: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
@@ -2804,83 +2804,83 @@ msgstr "Unmerge linked identity"
 #: src/pages/admin/users.$userId.tsx
 #: src/pages/admin/users.index.tsx
 msgid "Unverified"
-msgstr "Unverified"
+msgstr "Non vérifié"
 
 #: src/pages/admin/subscriptions.tsx
 msgid "Update"
-msgstr "Update"
+msgstr "Mettre à jour"
 
 #: src/pages/admin/subscriptions.tsx
 msgid "Update Quantity"
-msgstr "Update Quantity"
+msgstr "Mettre à jour la quantité"
 
 #: src/pages/admin/subscriptions.tsx
 msgid "Update Subscription Quantity"
-msgstr "Update Subscription Quantity"
+msgstr "Mettre à jour la quantité de l'abonnement"
 
 #: src/pages/admin/cms-pages.index.tsx
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/plans.index.tsx
 msgid "Updated"
-msgstr "Updated"
+msgstr "Mis à jour"
 
 #: src/pages/admin/refunds.$refundId.tsx
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Updated:"
-msgstr "Updated:"
+msgstr "Mis à jour :"
 
 #: src/features/change-admin-password/ui/change-admin-password-modal.tsx
 #: src/features/set-user-password/ui/set-user-password-modal.tsx
 msgid "Uppercase and lowercase letters"
-msgstr "Uppercase and lowercase letters"
+msgstr "Lettres majuscules et minuscules"
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "URL path, e.g. about-us or blog/post"
-msgstr "URL path, e.g. about-us or blog/post"
+msgstr "Chemin URL, ex. a-propos ou blog/article"
 
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/users.$userId.tsx
 msgid "User"
-msgstr "User"
+msgstr "Utilisateur"
 
 #: src/pages/admin/users.$userId.tsx
 #~ msgid "User |Key Value Admin"
-#~ msgstr "User |Key Value Admin"
+#~ msgstr "Utilisateur |Key Value Admin"
 
 #: src/pages/admin/audit-logs.tsx
 msgid "User Agent"
-msgstr "User Agent"
+msgstr "Agent utilisateur"
 
 #: src/pages/admin/audit-logs.tsx
 msgid "User created"
-msgstr "User created"
+msgstr "Utilisateur créé"
 
 #: src/pages/admin/audit-logs.tsx
 msgid "User updated"
-msgstr "User updated"
+msgstr "Utilisateur mis à jour"
 
 #: src/pages/admin/users.$userId.tsx
 #: src/pages/admin/users.index.tsx
 #: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Users"
-msgstr "Users"
+msgstr "Utilisateurs"
 
 #: src/pages/admin/users.index.tsx
 #~ msgid "Users |Key Value Admin"
-#~ msgstr "Users |Key Value Admin"
+#~ msgstr "Utilisateurs |Key Value Admin"
 
 #: src/pages/loading-demo.tsx
 msgid "Uses <0>@mantine/nprogress</0> for top loading bar"
-msgstr "Uses <0>@mantine/nprogress</0> for top loading bar"
+msgstr "Utilise <0>@mantine/nprogress</0> pour la barre de chargement supérieure"
 
 #: src/pages/loading-demo.tsx
 msgid "Uses <0>LoadingOverlay</0> component for full-screen loading"
-msgstr "Uses <0>LoadingOverlay</0> component for full-screen loading"
+msgstr "Utilise le composant <0>LoadingOverlay</0> pour le chargement plein écran"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "UUID or leave empty to clear."
-msgstr "UUID or leave empty to clear."
+msgstr "UUID ou laisser vide pour effacer."
 
 #: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
@@ -2889,19 +2889,19 @@ msgstr "UUID or leave empty to clear."
 #: src/pages/admin/users.$userId.tsx
 #: src/pages/admin/users.index.tsx
 msgid "Verified"
-msgstr "Verified"
+msgstr "Vérifié"
 
 #: src/widgets/dashboard-suspended-tenants/ui/suspended-tenants.tsx
 msgid "View"
-msgstr "View"
+msgstr "Voir"
 
 #: src/pages/admin/invitations.index.tsx
 msgid "View / manage invitation"
-msgstr "View / manage invitation"
+msgstr "Voir / gérer l'invitation"
 
 #: src/widgets/dashboard-recent-critical-audit/ui/recent-critical-audit.tsx
 msgid "View all audit logs"
-msgstr "View all audit logs"
+msgstr "Voir tous les journaux d'audit"
 
 #: src/pages/admin/audit-logs.tsx
 #: src/pages/admin/organizations.$tenantKey.refunds.tsx
@@ -2910,78 +2910,78 @@ msgstr "View all audit logs"
 #: src/pages/admin/subscriptions.tsx
 #: src/pages/admin/webhook-logs.tsx
 msgid "View details"
-msgstr "View details"
+msgstr "Voir les détails"
 
 #: src/pages/admin/index.tsx
 msgid "View invitations"
-msgstr "View invitations"
+msgstr "Voir les invitations"
 
 #: src/pages/admin/index.tsx
 msgid "View locked users"
-msgstr "View locked users"
+msgstr "Voir les utilisateurs verrouillés"
 
 #: src/pages/admin/organizations.index.tsx
 msgid "View organization"
-msgstr "View organization"
+msgstr "Voir l'organisation"
 
 #: src/pages/admin/plans.index.tsx
 msgid "View plan"
-msgstr "View plan"
+msgstr "Voir le forfait"
 
 #: src/pages/admin/index.tsx
 msgid "View subscriptions"
-msgstr "View subscriptions"
+msgstr "Voir les abonnements"
 
 #: src/pages/admin/users.index.tsx
 #~ msgid "View user"
-#~ msgstr "View user"
+#~ msgstr "Voir l'utilisateur"
 
 #: src/pages/admin/index.tsx
 msgid "View users"
-msgstr "View users"
+msgstr "Voir les utilisateurs"
 
 #: src/features/announcement-admin/model/types.ts
 msgid "Warning"
-msgstr "Warning"
+msgstr "Avertissement"
 
 #: src/pages/admin/webhook-logs.$webhookLogId.tsx
 msgid "Webhook Log"
-msgstr "Webhook Log"
+msgstr "Journal webhook"
 
 #: src/pages/admin/webhook-logs.$webhookLogId.tsx
 #: src/pages/admin/webhook-logs.tsx
 #: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Webhook Logs"
-msgstr "Webhook Logs"
+msgstr "Journaux webhook"
 
 #: src/pages/sign-in.tsx
 msgid "Welcome back"
-msgstr "Welcome back"
+msgstr "Bon retour"
 
 #: src/pages/admin/users.$userId.tsx
 msgid "You cannot modify your own platform authority"
-msgstr "You cannot modify your own platform authority"
+msgstr "Vous ne pouvez pas modifier vos propres droits sur la plateforme"
 
 #: src/pages/sign-in.tsx
 msgid "You do not have permission to access the admin area."
-msgstr "You do not have permission to access the admin area."
+msgstr "Vous n'avez pas la permission d'accéder à l'espace d'administration."
 
 #: src/pages/unauthorized.tsx
 msgid "You do not have the required <0>PLATFORM_ADMIN</0> authority to access this area. Please sign in with an account that has the appropriate permissions."
-msgstr "You do not have the required <0>PLATFORM_ADMIN</0> authority to access this area. Please sign in with an account that has the appropriate permissions."
+msgstr "Vous ne disposez pas de l'autorisation <0>PLATFORM_ADMIN</0> requise pour accéder à cette zone. Veuillez vous connecter avec un compte disposant des permissions appropriées."
 
 #: src/features/sign-in/ui/sign-in-form.tsx
 msgid "you@example.com"
-msgstr "you@example.com"
+msgstr "vous@exemple.fr"
 
 #: src/features/sign-in/model/use-sign-in.ts
 msgid "Your account does not have admin access"
-msgstr "Your account does not have admin access"
+msgstr "Votre compte n'a pas accès à l'administration"
 
 #: src/features/sign-in/ui/sign-in-form.tsx
 msgid "Your password"
-msgstr "Your password"
+msgstr "Votre mot de passe"
 
 #: src/pages/sign-in.tsx
 msgid "Your session expired due to inactivity."
-msgstr "Your session expired due to inactivity."
+msgstr "Votre session a expiré en raison d'inactivité."
