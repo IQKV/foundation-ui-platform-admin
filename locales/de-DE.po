@@ -2717,19 +2717,19 @@ msgstr "Zu viele Anmeldeversuche. Bitte versuchen Sie es später erneut."
 
 #: src/pages/admin/audit-logs.tsx
 msgid "Total Attempts"
-msgstr ""
+msgstr "Gesamte Versuche"
 
 #: src/pages/admin/audit-logs.tsx
 msgid "total events"
-msgstr ""
+msgstr "Gesamtereignisse"
 
 #: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Total members"
-msgstr ""
+msgstr "Gesamtmitglieder"
 
 #: src/pages/admin/index.tsx
 msgid "Total Users"
-msgstr ""
+msgstr "Gesamtbenutzer"
 
 #: src/features/announcement-admin/ui/translation-fields.tsx
 #: src/features/page-admin/ui/page-translation-fields.tsx
@@ -2738,15 +2738,15 @@ msgstr "Übersetzungen"
 
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Trial End"
-msgstr ""
+msgstr "Testphase-Ende"
 
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Trial Start"
-msgstr ""
+msgstr "Testphase-Start"
 
 #: src/shared/ui/error-boundary.tsx
 msgid "Try Again"
-msgstr ""
+msgstr "Erneut versuchen"
 
 #: src/features/announcement-admin/ui/create-announcement-modal.tsx
 #: src/features/announcement-admin/ui/edit-announcement-modal.tsx
@@ -2756,7 +2756,7 @@ msgstr "Typ"
 
 #: src/features/announcement-admin/model/types.ts
 msgid "Type is required"
-msgstr ""
+msgstr "Typ ist erforderlich"
 
 #: src/features/ban-user/ui/unban-user-modal.tsx
 #: src/pages/admin/users.index.tsx
@@ -2773,7 +2773,7 @@ msgstr "Benutzer entsperren"
 
 #: src/features/ban-user/ui/unban-user-modal.tsx
 msgid "Unbanning this user will restore their access to the platform. They will be able to sign in again with their existing credentials."
-msgstr ""
+msgstr "Das Entsperren dieses Benutzers stellt den Zugriff auf die Plattform wieder her. Er kann sich wieder mit den vorhandenen Anmeldedaten anmelden."
 
 #: src/features/unlock-user/ui/unlock-user-modal.tsx
 #: src/pages/admin/users.$userId.tsx
