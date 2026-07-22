@@ -17,6 +17,10 @@ async function bootstrap() {
     });
   }
 
+  // Load and initialize addons
+  const { loadAddons } = await import("@/app/addons");
+  await loadAddons();
+
   const rootElement = document.getElementById("root")!;
   if (!rootElement.innerHTML) {
     const root = ReactDOM.createRoot(rootElement);
