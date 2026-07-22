@@ -125,6 +125,18 @@ msgstr "Akteurstyp"
 msgid "Add locale"
 msgstr "Sprache hinzufügen"
 
+#: src/pages/admin/addons/$addonPath.tsx
+msgid "Addon Page"
+msgstr ""
+
+#: src/pages/admin/index.tsx
+msgid "Addon Widgets"
+msgstr ""
+
+#: src/pages/admin/addons/$addonPath.tsx
+msgid "Addons"
+msgstr ""
+
 #: src/features/set-user-password/ui/set-user-password-modal.tsx
 msgid "Admin password override"
 msgstr "Admin-Passwort überschreiben"
@@ -665,6 +677,7 @@ msgstr "Ende des aktuellen Zeitraums"
 msgid "Daily"
 msgstr "Täglich"
 
+#: src/pages/admin/addons/$addonPath.tsx
 #: src/pages/admin/index.tsx
 #: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Dashboard"
@@ -1126,6 +1139,7 @@ msgid "Hierarchy"
 msgstr "Hierarchie"
 
 #: src/pages/admin/account.tsx
+#: src/pages/admin/addons/$addonPath.tsx
 #: src/pages/admin/announcements.index.tsx
 #: src/pages/admin/audit-logs.tsx
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
@@ -1259,6 +1273,7 @@ msgstr "Abonnement behalten"
 msgid "Key"
 msgstr "Schlüssel"
 
+#: src/pages/admin/addons/$addonPath.tsx
 #: src/pages/admin/index.tsx
 msgid "Key Value Admin"
 msgstr "Key Value Admin"
@@ -2094,6 +2109,10 @@ msgstr "Widerrufen"
 #: src/features/manage-platform-authority/ui/revoke-platform-admin-modal.tsx
 msgid "Revoking Platform Admin from <0>{displayName}</0> will remove their full administrative access. They will no longer be able to manage users, tenants, or any other admin-only resources."
 msgstr "Das Entziehen des Plattform-Admin-Rechts von <0>{displayName}</0> entfernt den vollständigen administrativen Zugriff. Die Person kann dann keine Benutzer, Mandanten oder andere nur für Admins zugängliche Ressourcen mehr verwalten."
+
+#: src/pages/admin/addons/$addonPath.tsx
+msgid "Sample"
+msgstr ""
 
 #: src/features/announcement-admin/ui/edit-announcement-modal.tsx
 #: src/features/edit-account/ui/edit-account-modal.tsx

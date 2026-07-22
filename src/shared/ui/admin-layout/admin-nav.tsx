@@ -15,9 +15,10 @@ import {
   IconWebhook,
 } from "@tabler/icons-react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Trans, useLingui } from "@lingui/react/macro";
 import { TestSelectors } from "@/shared/lib/test-selectors";
+import { navigationExtension } from "@/app/addons";
 
 interface NavItem {
   label: string;
@@ -53,7 +54,7 @@ export function AdminNav() {
   const currentPath = routerState.location.pathname;
   const [search, setSearch] = useState("");
 
-  const navItems: NavItem[] = [
+  const baseNavItems: NavItem[] = [
     { label: t`Dashboard`, icon: <IconDashboard size={15} />, to: "/admin/" },
     { label: t`Users`, icon: <IconUsers size={15} />, to: "/admin/users" },
     { label: t`Organizations`, icon: <IconBuilding size={15} />, to: "/admin/organizations" },
@@ -66,6 +67,20 @@ export function AdminNav() {
     { label: t`Announcements`, icon: <IconSpeakerphone size={15} />, to: "/admin/announcements" },
     { label: t`CMS Pages`, icon: <IconFileText size={15} />, to: "/admin/cms-pages" },
   ];
+
+  const addonNavItems = useMemo(() => {
+    const workspaceItems = navigationExtension.getNavItems("workspace").map((item) => {
+      const IconComponent = item.icon;
+      return {
+        label: item.label,
+        icon: <IconComponent size={15} />,
+        to: item.to,
+      };
+    });
+    return workspaceItems;
+  }, []);
+
+  const navItems = [...baseNavItems, ...addonNavItems];
 
   const accountItem: NavItem = {
     label: t`My Account`,

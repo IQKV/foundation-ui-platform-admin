@@ -18,6 +18,7 @@ import { Route as SignInRouteImport } from "./pages/sign-in"
 import { Route as UnauthorizedRouteImport } from "./pages/unauthorized"
 import { Route as AdminIndexRouteImport } from "./pages/admin/index"
 import { Route as AdminAccountRouteImport } from "./pages/admin/account"
+import { Route as AdminAddonsRouteImport } from "./pages/admin/addons"
 import { Route as AdminAnnouncementsRouteImport } from "./pages/admin/announcements"
 import { Route as AdminAuditLogsRouteImport } from "./pages/admin/audit-logs"
 import { Route as AdminCmsPagesRouteImport } from "./pages/admin/cms-pages"
@@ -29,6 +30,7 @@ import { Route as AdminRefundsRouteImport } from "./pages/admin/refunds"
 import { Route as AdminSubscriptionsRouteImport } from "./pages/admin/subscriptions"
 import { Route as AdminUsersRouteImport } from "./pages/admin/users"
 import { Route as AdminWebhookLogsRouteImport } from "./pages/admin/webhook-logs"
+import { Route as AdminAddonsAddonPathRouteImport } from "./pages/admin/addons/$addonPath"
 import { Route as AdminAnnouncementsIndexRouteImport } from "./pages/admin/announcements.index"
 import { Route as AdminCmsPagesIndexRouteImport } from "./pages/admin/cms-pages.index"
 import { Route as AdminInvitationsIndexRouteImport } from "./pages/admin/invitations.index"
@@ -94,6 +96,11 @@ const AdminAccountRoute = AdminAccountRouteImport.update({
   path: "/account",
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminAddonsRoute = AdminAddonsRouteImport.update({
+  id: "/addons",
+  path: "/addons",
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminAnnouncementsRoute = AdminAnnouncementsRouteImport.update({
   id: "/announcements",
   path: "/announcements",
@@ -148,6 +155,11 @@ const AdminWebhookLogsRoute = AdminWebhookLogsRouteImport.update({
   id: "/webhook-logs",
   path: "/webhook-logs",
   getParentRoute: () => AdminRoute,
+} as any)
+const AdminAddonsAddonPathRoute = AdminAddonsAddonPathRouteImport.update({
+  id: "/$addonPath",
+  path: "/$addonPath",
+  getParentRoute: () => AdminAddonsRoute,
 } as any)
 const AdminAnnouncementsIndexRoute = AdminAnnouncementsIndexRouteImport.update({
   id: "/",
@@ -264,6 +276,7 @@ export interface FileRoutesByFullPath {
   "/sign-in": typeof SignInRoute
   "/unauthorized": typeof UnauthorizedRoute
   "/admin/account": typeof AdminAccountRoute
+  "/admin/addons": typeof AdminAddonsRouteWithChildren
   "/admin/announcements": typeof AdminAnnouncementsRouteWithChildren
   "/admin/audit-logs": typeof AdminAuditLogsRoute
   "/admin/cms-pages": typeof AdminCmsPagesRouteWithChildren
@@ -276,6 +289,7 @@ export interface FileRoutesByFullPath {
   "/admin/users": typeof AdminUsersRouteWithChildren
   "/admin/webhook-logs": typeof AdminWebhookLogsRouteWithChildren
   "/admin/": typeof AdminIndexRoute
+  "/admin/addons/$addonPath": typeof AdminAddonsAddonPathRoute
   "/admin/organizations/$tenantKey": typeof AdminOrganizationsTenantKeyRouteWithChildren
   "/admin/plans/$planCode": typeof AdminPlansPlanCodeRoute
   "/admin/refunds/$refundId": typeof AdminRefundsRefundIdRoute
@@ -304,12 +318,14 @@ export interface FileRoutesByTo {
   "/sign-in": typeof SignInRoute
   "/unauthorized": typeof UnauthorizedRoute
   "/admin/account": typeof AdminAccountRoute
+  "/admin/addons": typeof AdminAddonsRouteWithChildren
   "/admin/audit-logs": typeof AdminAuditLogsRoute
   "/admin/notifications": typeof AdminNotificationsRoute
   "/admin/refunds": typeof AdminRefundsRouteWithChildren
   "/admin/subscriptions": typeof AdminSubscriptionsRouteWithChildren
   "/admin/webhook-logs": typeof AdminWebhookLogsRouteWithChildren
   "/admin": typeof AdminIndexRoute
+  "/admin/addons/$addonPath": typeof AdminAddonsAddonPathRoute
   "/admin/plans/$planCode": typeof AdminPlansPlanCodeRoute
   "/admin/refunds/$refundId": typeof AdminRefundsRefundIdRoute
   "/admin/subscriptions/$subscriptionId": typeof AdminSubscriptionsSubscriptionIdRoute
@@ -339,6 +355,7 @@ export interface FileRoutesById {
   "/sign-in": typeof SignInRoute
   "/unauthorized": typeof UnauthorizedRoute
   "/admin/account": typeof AdminAccountRoute
+  "/admin/addons": typeof AdminAddonsRouteWithChildren
   "/admin/announcements": typeof AdminAnnouncementsRouteWithChildren
   "/admin/audit-logs": typeof AdminAuditLogsRoute
   "/admin/cms-pages": typeof AdminCmsPagesRouteWithChildren
@@ -351,6 +368,7 @@ export interface FileRoutesById {
   "/admin/users": typeof AdminUsersRouteWithChildren
   "/admin/webhook-logs": typeof AdminWebhookLogsRouteWithChildren
   "/admin/": typeof AdminIndexRoute
+  "/admin/addons/$addonPath": typeof AdminAddonsAddonPathRoute
   "/admin/organizations/$tenantKey": typeof AdminOrganizationsTenantKeyRouteWithChildren
   "/admin/plans/$planCode": typeof AdminPlansPlanCodeRoute
   "/admin/refunds/$refundId": typeof AdminRefundsRefundIdRoute
@@ -382,6 +400,7 @@ export interface FileRouteTypes {
     | "/sign-in"
     | "/unauthorized"
     | "/admin/account"
+    | "/admin/addons"
     | "/admin/announcements"
     | "/admin/audit-logs"
     | "/admin/cms-pages"
@@ -394,6 +413,7 @@ export interface FileRouteTypes {
     | "/admin/users"
     | "/admin/webhook-logs"
     | "/admin/"
+    | "/admin/addons/$addonPath"
     | "/admin/organizations/$tenantKey"
     | "/admin/plans/$planCode"
     | "/admin/refunds/$refundId"
@@ -422,12 +442,14 @@ export interface FileRouteTypes {
     | "/sign-in"
     | "/unauthorized"
     | "/admin/account"
+    | "/admin/addons"
     | "/admin/audit-logs"
     | "/admin/notifications"
     | "/admin/refunds"
     | "/admin/subscriptions"
     | "/admin/webhook-logs"
     | "/admin"
+    | "/admin/addons/$addonPath"
     | "/admin/plans/$planCode"
     | "/admin/refunds/$refundId"
     | "/admin/subscriptions/$subscriptionId"
@@ -456,6 +478,7 @@ export interface FileRouteTypes {
     | "/sign-in"
     | "/unauthorized"
     | "/admin/account"
+    | "/admin/addons"
     | "/admin/announcements"
     | "/admin/audit-logs"
     | "/admin/cms-pages"
@@ -468,6 +491,7 @@ export interface FileRouteTypes {
     | "/admin/users"
     | "/admin/webhook-logs"
     | "/admin/"
+    | "/admin/addons/$addonPath"
     | "/admin/organizations/$tenantKey"
     | "/admin/plans/$planCode"
     | "/admin/refunds/$refundId"
@@ -564,6 +588,13 @@ declare module "@tanstack/react-router" {
       preLoaderRoute: typeof AdminAccountRouteImport
       parentRoute: typeof AdminRoute
     }
+    "/admin/addons": {
+      id: "/admin/addons"
+      path: "/addons"
+      fullPath: "/admin/addons"
+      preLoaderRoute: typeof AdminAddonsRouteImport
+      parentRoute: typeof AdminRoute
+    }
     "/admin/announcements": {
       id: "/admin/announcements"
       path: "/announcements"
@@ -640,6 +671,13 @@ declare module "@tanstack/react-router" {
       fullPath: "/admin/webhook-logs"
       preLoaderRoute: typeof AdminWebhookLogsRouteImport
       parentRoute: typeof AdminRoute
+    }
+    "/admin/addons/$addonPath": {
+      id: "/admin/addons/$addonPath"
+      path: "/$addonPath"
+      fullPath: "/admin/addons/$addonPath"
+      preLoaderRoute: typeof AdminAddonsAddonPathRouteImport
+      parentRoute: typeof AdminAddonsRoute
     }
     "/admin/announcements/": {
       id: "/admin/announcements/"
@@ -776,6 +814,18 @@ declare module "@tanstack/react-router" {
     }
   }
 }
+
+interface AdminAddonsRouteChildren {
+  AdminAddonsAddonPathRoute: typeof AdminAddonsAddonPathRoute
+}
+
+const AdminAddonsRouteChildren: AdminAddonsRouteChildren = {
+  AdminAddonsAddonPathRoute: AdminAddonsAddonPathRoute,
+}
+
+const AdminAddonsRouteWithChildren = AdminAddonsRoute._addFileChildren(
+  AdminAddonsRouteChildren,
+)
 
 interface AdminAnnouncementsRouteChildren {
   AdminAnnouncementsIndexRoute: typeof AdminAnnouncementsIndexRoute
@@ -920,6 +970,7 @@ const AdminWebhookLogsRouteWithChildren =
 
 interface AdminRouteChildren {
   AdminAccountRoute: typeof AdminAccountRoute
+  AdminAddonsRoute: typeof AdminAddonsRouteWithChildren
   AdminAnnouncementsRoute: typeof AdminAnnouncementsRouteWithChildren
   AdminAuditLogsRoute: typeof AdminAuditLogsRoute
   AdminCmsPagesRoute: typeof AdminCmsPagesRouteWithChildren
@@ -936,6 +987,7 @@ interface AdminRouteChildren {
 
 const AdminRouteChildren: AdminRouteChildren = {
   AdminAccountRoute: AdminAccountRoute,
+  AdminAddonsRoute: AdminAddonsRouteWithChildren,
   AdminAnnouncementsRoute: AdminAnnouncementsRouteWithChildren,
   AdminAuditLogsRoute: AdminAuditLogsRoute,
   AdminCmsPagesRoute: AdminCmsPagesRouteWithChildren,

@@ -14,6 +14,7 @@ import { useLingui, Trans } from "@lingui/react/macro";
 import { PageTitle } from "@/shared/lib/page-title";
 import { PageHeader } from "@/shared/ui";
 import { useDashboardCounts, useDashboardWidgets } from "@/shared/api";
+import { widgetExtension } from "@/app/addons";
 import {
   CardGroup,
   SubCard,
@@ -34,6 +35,7 @@ function AdminDashboardPage() {
   const { t } = useLingui();
   const counts = useDashboardCounts();
   const widgets = useDashboardWidgets();
+  const addonWidgets = widgetExtension.getWidgets("dashboard");
 
   return (
     <Container size="xl" py={0}>
@@ -265,6 +267,17 @@ function AdminDashboardPage() {
         </SimpleGrid>
 
         <TenantSignupChartCard />
+
+        {addonWidgets.length > 0 && (
+          <CardGroup title={<Trans>Addon Widgets</Trans>}>
+            <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing="md">
+              {addonWidgets.map((widget) => {
+                const WidgetComponent = widget.component;
+                return <WidgetComponent key={widget.id} />;
+              })}
+            </SimpleGrid>
+          </CardGroup>
+        )}
       </Stack>
     </Container>
   );
