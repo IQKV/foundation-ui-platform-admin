@@ -94,7 +94,7 @@ function CreateCmsPagePage() {
 
   return (
     <Container size="xl" py={0}>
-      <PageTitle segments={[t`New CMS Page — ${tenantKey}`]} appTitle="Key Value Admin" />
+      <PageTitle segments={[t`New CMS Page — ${tenantKey}`]} />
 
       <PageHeader
         title={

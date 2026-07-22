@@ -628,7 +628,7 @@ function UserDetailPage() {
 
   return (
     <Container size="xl" py={0}>
-      <PageTitle segments={[isLoading ? t`User` : displayName]} appTitle="Key Value Admin" />
+      <PageTitle segments={[isLoading ? t`User` : displayName]} />
 
       <PageHeader
         title={isLoading ? <Skeleton height={24} width={160} radius="sm" /> : <>{displayName}</>}

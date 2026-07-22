@@ -192,7 +192,7 @@ function AdminUsersPage() {
 
   return (
     <Container size="xl" py={0}>
-      <PageTitle segments={[t`Users`]} appTitle="Key Value Admin" />
+      <PageTitle segments={[t`Users`]} />
       <PageHeader
         title={<Trans>Users</Trans>}
         breadcrumbs={[

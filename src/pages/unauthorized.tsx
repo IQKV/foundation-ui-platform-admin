@@ -20,7 +20,7 @@ function UnauthorizedPage() {
   const { t } = useLingui();
   return (
     <Center mih="100vh" bg="gray.0" data-testid="page-unauthorized">
-      <PageTitle segments={[t`Access Denied`]} appTitle="Key Value Admin" />
+      <PageTitle segments={[t`Access Denied`]} />
       <Container size="sm">
         <Stack align="center" gap="md">
           {/* Requirement 4.2 — heading and explanatory message */}

@@ -127,7 +127,7 @@ function AccountPage() {
 
   return (
     <Container size="xl" py={0} data-testid={TestSelectors.PAGE_ACCOUNT}>
-      <PageTitle segments={[isLoading ? t`My Account` : displayName]} appTitle="Key Value Admin" />
+      <PageTitle segments={[isLoading ? t`My Account` : displayName]} />
 
       <PageHeader
         title={<Trans>My Account</Trans>}

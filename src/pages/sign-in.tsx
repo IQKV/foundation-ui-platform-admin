@@ -46,7 +46,7 @@ function SignInPage() {
 
   return (
     <AuthLayout data-testid="page-sign-in">
-      <PageTitle segments={[t`Sign In`]} appTitle="Key Value Admin" />
+      <PageTitle segments={[t`Sign In`]} />
 
       {/* Heading */}
       <Box>

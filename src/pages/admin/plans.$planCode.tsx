@@ -79,7 +79,7 @@ function PlanDetailPage() {
 
   return (
     <Container size="md" py={0}>
-      <PageTitle segments={[isLoading ? t`Plan` : displayTitle]} appTitle="Key Value Admin" />
+      <PageTitle segments={[isLoading ? t`Plan` : displayTitle]} />
 
       <PageHeader
         title={isLoading ? <Skeleton height={24} width={200} radius="sm" /> : displayTitle}

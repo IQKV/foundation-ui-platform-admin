@@ -11,7 +11,7 @@ function InternalServerErrorPage() {
   const { t } = useLingui();
   return (
     <Container size="sm" py="xl" data-testid="page-500">
-      <PageTitle segments={[t`Server Error`]} appTitle="Key Value Admin" />
+      <PageTitle segments={[t`Server Error`]} />
       <Stack align="center" gap="md">
         <Title>500</Title>
         <Text c="dimmed">

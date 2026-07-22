@@ -9,69 +9,49 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from "./pages/__root"
-import { Route as UnauthorizedRouteImport } from "./pages/unauthorized"
-import { Route as SignInRouteImport } from "./pages/sign-in"
-import { Route as LoadingDemoRouteImport } from "./pages/loading-demo"
-import { Route as AdminRouteImport } from "./pages/admin"
-import { Route as R500RouteImport } from "./pages/500"
-import { Route as R404RouteImport } from "./pages/404"
 import { Route as IndexRouteImport } from "./pages/index"
+import { Route as R404RouteImport } from "./pages/404"
+import { Route as R500RouteImport } from "./pages/500"
+import { Route as AdminRouteImport } from "./pages/admin"
+import { Route as LoadingDemoRouteImport } from "./pages/loading-demo"
+import { Route as SignInRouteImport } from "./pages/sign-in"
+import { Route as UnauthorizedRouteImport } from "./pages/unauthorized"
 import { Route as AdminIndexRouteImport } from "./pages/admin/index"
-import { Route as AdminWebhookLogsRouteImport } from "./pages/admin/webhook-logs"
-import { Route as AdminUsersRouteImport } from "./pages/admin/users"
-import { Route as AdminSubscriptionsRouteImport } from "./pages/admin/subscriptions"
-import { Route as AdminRefundsRouteImport } from "./pages/admin/refunds"
-import { Route as AdminPlansRouteImport } from "./pages/admin/plans"
-import { Route as AdminOrganizationsRouteImport } from "./pages/admin/organizations"
-import { Route as AdminNotificationsRouteImport } from "./pages/admin/notifications"
-import { Route as AdminInvitationsRouteImport } from "./pages/admin/invitations"
-import { Route as AdminCmsPagesRouteImport } from "./pages/admin/cms-pages"
-import { Route as AdminAuditLogsRouteImport } from "./pages/admin/audit-logs"
-import { Route as AdminAnnouncementsRouteImport } from "./pages/admin/announcements"
 import { Route as AdminAccountRouteImport } from "./pages/admin/account"
-import { Route as AdminUsersIndexRouteImport } from "./pages/admin/users.index"
-import { Route as AdminPlansIndexRouteImport } from "./pages/admin/plans.index"
-import { Route as AdminOrganizationsIndexRouteImport } from "./pages/admin/organizations.index"
-import { Route as AdminInvitationsIndexRouteImport } from "./pages/admin/invitations.index"
-import { Route as AdminCmsPagesIndexRouteImport } from "./pages/admin/cms-pages.index"
+import { Route as AdminAnnouncementsRouteImport } from "./pages/admin/announcements"
+import { Route as AdminAuditLogsRouteImport } from "./pages/admin/audit-logs"
+import { Route as AdminCmsPagesRouteImport } from "./pages/admin/cms-pages"
+import { Route as AdminInvitationsRouteImport } from "./pages/admin/invitations"
+import { Route as AdminNotificationsRouteImport } from "./pages/admin/notifications"
+import { Route as AdminOrganizationsRouteImport } from "./pages/admin/organizations"
+import { Route as AdminPlansRouteImport } from "./pages/admin/plans"
+import { Route as AdminRefundsRouteImport } from "./pages/admin/refunds"
+import { Route as AdminSubscriptionsRouteImport } from "./pages/admin/subscriptions"
+import { Route as AdminUsersRouteImport } from "./pages/admin/users"
+import { Route as AdminWebhookLogsRouteImport } from "./pages/admin/webhook-logs"
 import { Route as AdminAnnouncementsIndexRouteImport } from "./pages/admin/announcements.index"
-import { Route as AdminWebhookLogsWebhookLogIdRouteImport } from "./pages/admin/webhook-logs.$webhookLogId"
-import { Route as AdminUsersUserIdRouteImport } from "./pages/admin/users.$userId"
-import { Route as AdminSubscriptionsSubscriptionIdRouteImport } from "./pages/admin/subscriptions.$subscriptionId"
-import { Route as AdminRefundsRefundIdRouteImport } from "./pages/admin/refunds.$refundId"
-import { Route as AdminPlansPlanCodeRouteImport } from "./pages/admin/plans.$planCode"
+import { Route as AdminCmsPagesIndexRouteImport } from "./pages/admin/cms-pages.index"
+import { Route as AdminInvitationsIndexRouteImport } from "./pages/admin/invitations.index"
+import { Route as AdminOrganizationsIndexRouteImport } from "./pages/admin/organizations.index"
 import { Route as AdminOrganizationsTenantKeyRouteImport } from "./pages/admin/organizations.$tenantKey"
-import { Route as AdminOrganizationsTenantKeyIndexRouteImport } from "./pages/admin/organizations.$tenantKey.index"
-import { Route as AdminOrganizationsTenantKeySubscriptionsRouteImport } from "./pages/admin/organizations.$tenantKey.subscriptions"
-import { Route as AdminOrganizationsTenantKeyRefundsRouteImport } from "./pages/admin/organizations.$tenantKey.refunds"
-import { Route as AdminOrganizationsTenantKeyMembersRouteImport } from "./pages/admin/organizations.$tenantKey.members"
-import { Route as AdminOrganizationsTenantKeyBillingRouteImport } from "./pages/admin/organizations.$tenantKey.billing"
-import { Route as AdminCmsPagesTenantKeyCreateRouteImport } from "./pages/admin/cms-pages.$tenantKey.create"
+import { Route as AdminPlansIndexRouteImport } from "./pages/admin/plans.index"
+import { Route as AdminPlansPlanCodeRouteImport } from "./pages/admin/plans.$planCode"
+import { Route as AdminRefundsRefundIdRouteImport } from "./pages/admin/refunds.$refundId"
+import { Route as AdminSubscriptionsSubscriptionIdRouteImport } from "./pages/admin/subscriptions.$subscriptionId"
+import { Route as AdminUsersIndexRouteImport } from "./pages/admin/users.index"
+import { Route as AdminUsersUserIdRouteImport } from "./pages/admin/users.$userId"
+import { Route as AdminWebhookLogsWebhookLogIdRouteImport } from "./pages/admin/webhook-logs.$webhookLogId"
 import { Route as AdminCmsPagesTenantKeyPageIdRouteImport } from "./pages/admin/cms-pages.$tenantKey.$pageId"
+import { Route as AdminCmsPagesTenantKeyCreateRouteImport } from "./pages/admin/cms-pages.$tenantKey.create"
+import { Route as AdminOrganizationsTenantKeyIndexRouteImport } from "./pages/admin/organizations.$tenantKey.index"
+import { Route as AdminOrganizationsTenantKeyBillingRouteImport } from "./pages/admin/organizations.$tenantKey.billing"
+import { Route as AdminOrganizationsTenantKeyMembersRouteImport } from "./pages/admin/organizations.$tenantKey.members"
+import { Route as AdminOrganizationsTenantKeyRefundsRouteImport } from "./pages/admin/organizations.$tenantKey.refunds"
+import { Route as AdminOrganizationsTenantKeySubscriptionsRouteImport } from "./pages/admin/organizations.$tenantKey.subscriptions"
 
-const UnauthorizedRoute = UnauthorizedRouteImport.update({
-  id: "/unauthorized",
-  path: "/unauthorized",
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SignInRoute = SignInRouteImport.update({
-  id: "/sign-in",
-  path: "/sign-in",
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LoadingDemoRoute = LoadingDemoRouteImport.update({
-  id: "/loading-demo",
-  path: "/loading-demo",
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AdminRoute = AdminRouteImport.update({
-  id: "/admin",
-  path: "/admin",
-  getParentRoute: () => rootRouteImport,
-} as any)
-const R500Route = R500RouteImport.update({
-  id: "/500",
-  path: "/500",
+const IndexRoute = IndexRouteImport.update({
+  id: "/",
+  path: "/",
   getParentRoute: () => rootRouteImport,
 } as any)
 const R404Route = R404RouteImport.update({
@@ -79,9 +59,29 @@ const R404Route = R404RouteImport.update({
   path: "/404",
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: "/",
-  path: "/",
+const R500Route = R500RouteImport.update({
+  id: "/500",
+  path: "/500",
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: "/admin",
+  path: "/admin",
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoadingDemoRoute = LoadingDemoRouteImport.update({
+  id: "/loading-demo",
+  path: "/loading-demo",
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SignInRoute = SignInRouteImport.update({
+  id: "/sign-in",
+  path: "/sign-in",
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UnauthorizedRoute = UnauthorizedRouteImport.update({
+  id: "/unauthorized",
+  path: "/unauthorized",
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminIndexRoute = AdminIndexRouteImport.update({
@@ -89,54 +89,9 @@ const AdminIndexRoute = AdminIndexRouteImport.update({
   path: "/",
   getParentRoute: () => AdminRoute,
 } as any)
-const AdminWebhookLogsRoute = AdminWebhookLogsRouteImport.update({
-  id: "/webhook-logs",
-  path: "/webhook-logs",
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminUsersRoute = AdminUsersRouteImport.update({
-  id: "/users",
-  path: "/users",
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminSubscriptionsRoute = AdminSubscriptionsRouteImport.update({
-  id: "/subscriptions",
-  path: "/subscriptions",
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminRefundsRoute = AdminRefundsRouteImport.update({
-  id: "/refunds",
-  path: "/refunds",
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminPlansRoute = AdminPlansRouteImport.update({
-  id: "/plans",
-  path: "/plans",
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminOrganizationsRoute = AdminOrganizationsRouteImport.update({
-  id: "/organizations",
-  path: "/organizations",
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminNotificationsRoute = AdminNotificationsRouteImport.update({
-  id: "/notifications",
-  path: "/notifications",
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminInvitationsRoute = AdminInvitationsRouteImport.update({
-  id: "/invitations",
-  path: "/invitations",
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminCmsPagesRoute = AdminCmsPagesRouteImport.update({
-  id: "/cms-pages",
-  path: "/cms-pages",
-  getParentRoute: () => AdminRoute,
-} as any)
-const AdminAuditLogsRoute = AdminAuditLogsRouteImport.update({
-  id: "/audit-logs",
-  path: "/audit-logs",
+const AdminAccountRoute = AdminAccountRouteImport.update({
+  id: "/account",
+  path: "/account",
   getParentRoute: () => AdminRoute,
 } as any)
 const AdminAnnouncementsRoute = AdminAnnouncementsRouteImport.update({
@@ -144,67 +99,75 @@ const AdminAnnouncementsRoute = AdminAnnouncementsRouteImport.update({
   path: "/announcements",
   getParentRoute: () => AdminRoute,
 } as any)
-const AdminAccountRoute = AdminAccountRouteImport.update({
-  id: "/account",
-  path: "/account",
+const AdminAuditLogsRoute = AdminAuditLogsRouteImport.update({
+  id: "/audit-logs",
+  path: "/audit-logs",
   getParentRoute: () => AdminRoute,
 } as any)
-const AdminUsersIndexRoute = AdminUsersIndexRouteImport.update({
-  id: "/",
-  path: "/",
-  getParentRoute: () => AdminUsersRoute,
+const AdminCmsPagesRoute = AdminCmsPagesRouteImport.update({
+  id: "/cms-pages",
+  path: "/cms-pages",
+  getParentRoute: () => AdminRoute,
 } as any)
-const AdminPlansIndexRoute = AdminPlansIndexRouteImport.update({
-  id: "/",
-  path: "/",
-  getParentRoute: () => AdminPlansRoute,
+const AdminInvitationsRoute = AdminInvitationsRouteImport.update({
+  id: "/invitations",
+  path: "/invitations",
+  getParentRoute: () => AdminRoute,
 } as any)
-const AdminOrganizationsIndexRoute = AdminOrganizationsIndexRouteImport.update({
-  id: "/",
-  path: "/",
-  getParentRoute: () => AdminOrganizationsRoute,
+const AdminNotificationsRoute = AdminNotificationsRouteImport.update({
+  id: "/notifications",
+  path: "/notifications",
+  getParentRoute: () => AdminRoute,
 } as any)
-const AdminInvitationsIndexRoute = AdminInvitationsIndexRouteImport.update({
-  id: "/",
-  path: "/",
-  getParentRoute: () => AdminInvitationsRoute,
+const AdminOrganizationsRoute = AdminOrganizationsRouteImport.update({
+  id: "/organizations",
+  path: "/organizations",
+  getParentRoute: () => AdminRoute,
 } as any)
-const AdminCmsPagesIndexRoute = AdminCmsPagesIndexRouteImport.update({
-  id: "/",
-  path: "/",
-  getParentRoute: () => AdminCmsPagesRoute,
+const AdminPlansRoute = AdminPlansRouteImport.update({
+  id: "/plans",
+  path: "/plans",
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminRefundsRoute = AdminRefundsRouteImport.update({
+  id: "/refunds",
+  path: "/refunds",
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSubscriptionsRoute = AdminSubscriptionsRouteImport.update({
+  id: "/subscriptions",
+  path: "/subscriptions",
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminUsersRoute = AdminUsersRouteImport.update({
+  id: "/users",
+  path: "/users",
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminWebhookLogsRoute = AdminWebhookLogsRouteImport.update({
+  id: "/webhook-logs",
+  path: "/webhook-logs",
+  getParentRoute: () => AdminRoute,
 } as any)
 const AdminAnnouncementsIndexRoute = AdminAnnouncementsIndexRouteImport.update({
   id: "/",
   path: "/",
   getParentRoute: () => AdminAnnouncementsRoute,
 } as any)
-const AdminWebhookLogsWebhookLogIdRoute =
-  AdminWebhookLogsWebhookLogIdRouteImport.update({
-    id: "/$webhookLogId",
-    path: "/$webhookLogId",
-    getParentRoute: () => AdminWebhookLogsRoute,
-  } as any)
-const AdminUsersUserIdRoute = AdminUsersUserIdRouteImport.update({
-  id: "/$userId",
-  path: "/$userId",
-  getParentRoute: () => AdminUsersRoute,
+const AdminCmsPagesIndexRoute = AdminCmsPagesIndexRouteImport.update({
+  id: "/",
+  path: "/",
+  getParentRoute: () => AdminCmsPagesRoute,
 } as any)
-const AdminSubscriptionsSubscriptionIdRoute =
-  AdminSubscriptionsSubscriptionIdRouteImport.update({
-    id: "/$subscriptionId",
-    path: "/$subscriptionId",
-    getParentRoute: () => AdminSubscriptionsRoute,
-  } as any)
-const AdminRefundsRefundIdRoute = AdminRefundsRefundIdRouteImport.update({
-  id: "/$refundId",
-  path: "/$refundId",
-  getParentRoute: () => AdminRefundsRoute,
+const AdminInvitationsIndexRoute = AdminInvitationsIndexRouteImport.update({
+  id: "/",
+  path: "/",
+  getParentRoute: () => AdminInvitationsRoute,
 } as any)
-const AdminPlansPlanCodeRoute = AdminPlansPlanCodeRouteImport.update({
-  id: "/$planCode",
-  path: "/$planCode",
-  getParentRoute: () => AdminPlansRoute,
+const AdminOrganizationsIndexRoute = AdminOrganizationsIndexRouteImport.update({
+  id: "/",
+  path: "/",
+  getParentRoute: () => AdminOrganizationsRoute,
 } as any)
 const AdminOrganizationsTenantKeyRoute =
   AdminOrganizationsTenantKeyRouteImport.update({
@@ -212,28 +175,59 @@ const AdminOrganizationsTenantKeyRoute =
     path: "/$tenantKey",
     getParentRoute: () => AdminOrganizationsRoute,
   } as any)
+const AdminPlansIndexRoute = AdminPlansIndexRouteImport.update({
+  id: "/",
+  path: "/",
+  getParentRoute: () => AdminPlansRoute,
+} as any)
+const AdminPlansPlanCodeRoute = AdminPlansPlanCodeRouteImport.update({
+  id: "/$planCode",
+  path: "/$planCode",
+  getParentRoute: () => AdminPlansRoute,
+} as any)
+const AdminRefundsRefundIdRoute = AdminRefundsRefundIdRouteImport.update({
+  id: "/$refundId",
+  path: "/$refundId",
+  getParentRoute: () => AdminRefundsRoute,
+} as any)
+const AdminSubscriptionsSubscriptionIdRoute =
+  AdminSubscriptionsSubscriptionIdRouteImport.update({
+    id: "/$subscriptionId",
+    path: "/$subscriptionId",
+    getParentRoute: () => AdminSubscriptionsRoute,
+  } as any)
+const AdminUsersIndexRoute = AdminUsersIndexRouteImport.update({
+  id: "/",
+  path: "/",
+  getParentRoute: () => AdminUsersRoute,
+} as any)
+const AdminUsersUserIdRoute = AdminUsersUserIdRouteImport.update({
+  id: "/$userId",
+  path: "/$userId",
+  getParentRoute: () => AdminUsersRoute,
+} as any)
+const AdminWebhookLogsWebhookLogIdRoute =
+  AdminWebhookLogsWebhookLogIdRouteImport.update({
+    id: "/$webhookLogId",
+    path: "/$webhookLogId",
+    getParentRoute: () => AdminWebhookLogsRoute,
+  } as any)
+const AdminCmsPagesTenantKeyPageIdRoute =
+  AdminCmsPagesTenantKeyPageIdRouteImport.update({
+    id: "/$tenantKey/$pageId",
+    path: "/$tenantKey/$pageId",
+    getParentRoute: () => AdminCmsPagesRoute,
+  } as any)
+const AdminCmsPagesTenantKeyCreateRoute =
+  AdminCmsPagesTenantKeyCreateRouteImport.update({
+    id: "/$tenantKey/create",
+    path: "/$tenantKey/create",
+    getParentRoute: () => AdminCmsPagesRoute,
+  } as any)
 const AdminOrganizationsTenantKeyIndexRoute =
   AdminOrganizationsTenantKeyIndexRouteImport.update({
     id: "/",
     path: "/",
-    getParentRoute: () => AdminOrganizationsTenantKeyRoute,
-  } as any)
-const AdminOrganizationsTenantKeySubscriptionsRoute =
-  AdminOrganizationsTenantKeySubscriptionsRouteImport.update({
-    id: "/subscriptions",
-    path: "/subscriptions",
-    getParentRoute: () => AdminOrganizationsTenantKeyRoute,
-  } as any)
-const AdminOrganizationsTenantKeyRefundsRoute =
-  AdminOrganizationsTenantKeyRefundsRouteImport.update({
-    id: "/refunds",
-    path: "/refunds",
-    getParentRoute: () => AdminOrganizationsTenantKeyRoute,
-  } as any)
-const AdminOrganizationsTenantKeyMembersRoute =
-  AdminOrganizationsTenantKeyMembersRouteImport.update({
-    id: "/members",
-    path: "/members",
     getParentRoute: () => AdminOrganizationsTenantKeyRoute,
   } as any)
 const AdminOrganizationsTenantKeyBillingRoute =
@@ -242,17 +236,23 @@ const AdminOrganizationsTenantKeyBillingRoute =
     path: "/billing",
     getParentRoute: () => AdminOrganizationsTenantKeyRoute,
   } as any)
-const AdminCmsPagesTenantKeyCreateRoute =
-  AdminCmsPagesTenantKeyCreateRouteImport.update({
-    id: "/$tenantKey/create",
-    path: "/$tenantKey/create",
-    getParentRoute: () => AdminCmsPagesRoute,
+const AdminOrganizationsTenantKeyMembersRoute =
+  AdminOrganizationsTenantKeyMembersRouteImport.update({
+    id: "/members",
+    path: "/members",
+    getParentRoute: () => AdminOrganizationsTenantKeyRoute,
   } as any)
-const AdminCmsPagesTenantKeyPageIdRoute =
-  AdminCmsPagesTenantKeyPageIdRouteImport.update({
-    id: "/$tenantKey/$pageId",
-    path: "/$tenantKey/$pageId",
-    getParentRoute: () => AdminCmsPagesRoute,
+const AdminOrganizationsTenantKeyRefundsRoute =
+  AdminOrganizationsTenantKeyRefundsRouteImport.update({
+    id: "/refunds",
+    path: "/refunds",
+    getParentRoute: () => AdminOrganizationsTenantKeyRoute,
+  } as any)
+const AdminOrganizationsTenantKeySubscriptionsRoute =
+  AdminOrganizationsTenantKeySubscriptionsRouteImport.update({
+    id: "/subscriptions",
+    path: "/subscriptions",
+    getParentRoute: () => AdminOrganizationsTenantKeyRoute,
   } as any)
 
 export interface FileRoutesByFullPath {
@@ -501,39 +501,11 @@ export interface RootRouteChildren {
 
 declare module "@tanstack/react-router" {
   interface FileRoutesByPath {
-    "/unauthorized": {
-      id: "/unauthorized"
-      path: "/unauthorized"
-      fullPath: "/unauthorized"
-      preLoaderRoute: typeof UnauthorizedRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    "/sign-in": {
-      id: "/sign-in"
-      path: "/sign-in"
-      fullPath: "/sign-in"
-      preLoaderRoute: typeof SignInRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    "/loading-demo": {
-      id: "/loading-demo"
-      path: "/loading-demo"
-      fullPath: "/loading-demo"
-      preLoaderRoute: typeof LoadingDemoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    "/admin": {
-      id: "/admin"
-      path: "/admin"
-      fullPath: "/admin"
-      preLoaderRoute: typeof AdminRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    "/500": {
-      id: "/500"
-      path: "/500"
-      fullPath: "/500"
-      preLoaderRoute: typeof R500RouteImport
+    "/": {
+      id: "/"
+      path: "/"
+      fullPath: "/"
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     "/404": {
@@ -543,11 +515,39 @@ declare module "@tanstack/react-router" {
       preLoaderRoute: typeof R404RouteImport
       parentRoute: typeof rootRouteImport
     }
-    "/": {
-      id: "/"
-      path: "/"
-      fullPath: "/"
-      preLoaderRoute: typeof IndexRouteImport
+    "/500": {
+      id: "/500"
+      path: "/500"
+      fullPath: "/500"
+      preLoaderRoute: typeof R500RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    "/admin": {
+      id: "/admin"
+      path: "/admin"
+      fullPath: "/admin"
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    "/loading-demo": {
+      id: "/loading-demo"
+      path: "/loading-demo"
+      fullPath: "/loading-demo"
+      preLoaderRoute: typeof LoadingDemoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    "/sign-in": {
+      id: "/sign-in"
+      path: "/sign-in"
+      fullPath: "/sign-in"
+      preLoaderRoute: typeof SignInRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    "/unauthorized": {
+      id: "/unauthorized"
+      path: "/unauthorized"
+      fullPath: "/unauthorized"
+      preLoaderRoute: typeof UnauthorizedRouteImport
       parentRoute: typeof rootRouteImport
     }
     "/admin/": {
@@ -557,74 +557,11 @@ declare module "@tanstack/react-router" {
       preLoaderRoute: typeof AdminIndexRouteImport
       parentRoute: typeof AdminRoute
     }
-    "/admin/webhook-logs": {
-      id: "/admin/webhook-logs"
-      path: "/webhook-logs"
-      fullPath: "/admin/webhook-logs"
-      preLoaderRoute: typeof AdminWebhookLogsRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    "/admin/users": {
-      id: "/admin/users"
-      path: "/users"
-      fullPath: "/admin/users"
-      preLoaderRoute: typeof AdminUsersRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    "/admin/subscriptions": {
-      id: "/admin/subscriptions"
-      path: "/subscriptions"
-      fullPath: "/admin/subscriptions"
-      preLoaderRoute: typeof AdminSubscriptionsRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    "/admin/refunds": {
-      id: "/admin/refunds"
-      path: "/refunds"
-      fullPath: "/admin/refunds"
-      preLoaderRoute: typeof AdminRefundsRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    "/admin/plans": {
-      id: "/admin/plans"
-      path: "/plans"
-      fullPath: "/admin/plans"
-      preLoaderRoute: typeof AdminPlansRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    "/admin/organizations": {
-      id: "/admin/organizations"
-      path: "/organizations"
-      fullPath: "/admin/organizations"
-      preLoaderRoute: typeof AdminOrganizationsRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    "/admin/notifications": {
-      id: "/admin/notifications"
-      path: "/notifications"
-      fullPath: "/admin/notifications"
-      preLoaderRoute: typeof AdminNotificationsRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    "/admin/invitations": {
-      id: "/admin/invitations"
-      path: "/invitations"
-      fullPath: "/admin/invitations"
-      preLoaderRoute: typeof AdminInvitationsRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    "/admin/cms-pages": {
-      id: "/admin/cms-pages"
-      path: "/cms-pages"
-      fullPath: "/admin/cms-pages"
-      preLoaderRoute: typeof AdminCmsPagesRouteImport
-      parentRoute: typeof AdminRoute
-    }
-    "/admin/audit-logs": {
-      id: "/admin/audit-logs"
-      path: "/audit-logs"
-      fullPath: "/admin/audit-logs"
-      preLoaderRoute: typeof AdminAuditLogsRouteImport
+    "/admin/account": {
+      id: "/admin/account"
+      path: "/account"
+      fullPath: "/admin/account"
+      preLoaderRoute: typeof AdminAccountRouteImport
       parentRoute: typeof AdminRoute
     }
     "/admin/announcements": {
@@ -634,47 +571,75 @@ declare module "@tanstack/react-router" {
       preLoaderRoute: typeof AdminAnnouncementsRouteImport
       parentRoute: typeof AdminRoute
     }
-    "/admin/account": {
-      id: "/admin/account"
-      path: "/account"
-      fullPath: "/admin/account"
-      preLoaderRoute: typeof AdminAccountRouteImport
+    "/admin/audit-logs": {
+      id: "/admin/audit-logs"
+      path: "/audit-logs"
+      fullPath: "/admin/audit-logs"
+      preLoaderRoute: typeof AdminAuditLogsRouteImport
       parentRoute: typeof AdminRoute
     }
-    "/admin/users/": {
-      id: "/admin/users/"
-      path: "/"
-      fullPath: "/admin/users/"
-      preLoaderRoute: typeof AdminUsersIndexRouteImport
-      parentRoute: typeof AdminUsersRoute
+    "/admin/cms-pages": {
+      id: "/admin/cms-pages"
+      path: "/cms-pages"
+      fullPath: "/admin/cms-pages"
+      preLoaderRoute: typeof AdminCmsPagesRouteImport
+      parentRoute: typeof AdminRoute
     }
-    "/admin/plans/": {
-      id: "/admin/plans/"
-      path: "/"
-      fullPath: "/admin/plans/"
-      preLoaderRoute: typeof AdminPlansIndexRouteImport
-      parentRoute: typeof AdminPlansRoute
+    "/admin/invitations": {
+      id: "/admin/invitations"
+      path: "/invitations"
+      fullPath: "/admin/invitations"
+      preLoaderRoute: typeof AdminInvitationsRouteImport
+      parentRoute: typeof AdminRoute
     }
-    "/admin/organizations/": {
-      id: "/admin/organizations/"
-      path: "/"
-      fullPath: "/admin/organizations/"
-      preLoaderRoute: typeof AdminOrganizationsIndexRouteImport
-      parentRoute: typeof AdminOrganizationsRoute
+    "/admin/notifications": {
+      id: "/admin/notifications"
+      path: "/notifications"
+      fullPath: "/admin/notifications"
+      preLoaderRoute: typeof AdminNotificationsRouteImport
+      parentRoute: typeof AdminRoute
     }
-    "/admin/invitations/": {
-      id: "/admin/invitations/"
-      path: "/"
-      fullPath: "/admin/invitations/"
-      preLoaderRoute: typeof AdminInvitationsIndexRouteImport
-      parentRoute: typeof AdminInvitationsRoute
+    "/admin/organizations": {
+      id: "/admin/organizations"
+      path: "/organizations"
+      fullPath: "/admin/organizations"
+      preLoaderRoute: typeof AdminOrganizationsRouteImport
+      parentRoute: typeof AdminRoute
     }
-    "/admin/cms-pages/": {
-      id: "/admin/cms-pages/"
-      path: "/"
-      fullPath: "/admin/cms-pages/"
-      preLoaderRoute: typeof AdminCmsPagesIndexRouteImport
-      parentRoute: typeof AdminCmsPagesRoute
+    "/admin/plans": {
+      id: "/admin/plans"
+      path: "/plans"
+      fullPath: "/admin/plans"
+      preLoaderRoute: typeof AdminPlansRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    "/admin/refunds": {
+      id: "/admin/refunds"
+      path: "/refunds"
+      fullPath: "/admin/refunds"
+      preLoaderRoute: typeof AdminRefundsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    "/admin/subscriptions": {
+      id: "/admin/subscriptions"
+      path: "/subscriptions"
+      fullPath: "/admin/subscriptions"
+      preLoaderRoute: typeof AdminSubscriptionsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    "/admin/users": {
+      id: "/admin/users"
+      path: "/users"
+      fullPath: "/admin/users"
+      preLoaderRoute: typeof AdminUsersRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    "/admin/webhook-logs": {
+      id: "/admin/webhook-logs"
+      path: "/webhook-logs"
+      fullPath: "/admin/webhook-logs"
+      preLoaderRoute: typeof AdminWebhookLogsRouteImport
+      parentRoute: typeof AdminRoute
     }
     "/admin/announcements/": {
       id: "/admin/announcements/"
@@ -683,40 +648,26 @@ declare module "@tanstack/react-router" {
       preLoaderRoute: typeof AdminAnnouncementsIndexRouteImport
       parentRoute: typeof AdminAnnouncementsRoute
     }
-    "/admin/webhook-logs/$webhookLogId": {
-      id: "/admin/webhook-logs/$webhookLogId"
-      path: "/$webhookLogId"
-      fullPath: "/admin/webhook-logs/$webhookLogId"
-      preLoaderRoute: typeof AdminWebhookLogsWebhookLogIdRouteImport
-      parentRoute: typeof AdminWebhookLogsRoute
+    "/admin/cms-pages/": {
+      id: "/admin/cms-pages/"
+      path: "/"
+      fullPath: "/admin/cms-pages/"
+      preLoaderRoute: typeof AdminCmsPagesIndexRouteImport
+      parentRoute: typeof AdminCmsPagesRoute
     }
-    "/admin/users/$userId": {
-      id: "/admin/users/$userId"
-      path: "/$userId"
-      fullPath: "/admin/users/$userId"
-      preLoaderRoute: typeof AdminUsersUserIdRouteImport
-      parentRoute: typeof AdminUsersRoute
+    "/admin/invitations/": {
+      id: "/admin/invitations/"
+      path: "/"
+      fullPath: "/admin/invitations/"
+      preLoaderRoute: typeof AdminInvitationsIndexRouteImport
+      parentRoute: typeof AdminInvitationsRoute
     }
-    "/admin/subscriptions/$subscriptionId": {
-      id: "/admin/subscriptions/$subscriptionId"
-      path: "/$subscriptionId"
-      fullPath: "/admin/subscriptions/$subscriptionId"
-      preLoaderRoute: typeof AdminSubscriptionsSubscriptionIdRouteImport
-      parentRoute: typeof AdminSubscriptionsRoute
-    }
-    "/admin/refunds/$refundId": {
-      id: "/admin/refunds/$refundId"
-      path: "/$refundId"
-      fullPath: "/admin/refunds/$refundId"
-      preLoaderRoute: typeof AdminRefundsRefundIdRouteImport
-      parentRoute: typeof AdminRefundsRoute
-    }
-    "/admin/plans/$planCode": {
-      id: "/admin/plans/$planCode"
-      path: "/$planCode"
-      fullPath: "/admin/plans/$planCode"
-      preLoaderRoute: typeof AdminPlansPlanCodeRouteImport
-      parentRoute: typeof AdminPlansRoute
+    "/admin/organizations/": {
+      id: "/admin/organizations/"
+      path: "/"
+      fullPath: "/admin/organizations/"
+      preLoaderRoute: typeof AdminOrganizationsIndexRouteImport
+      parentRoute: typeof AdminOrganizationsRoute
     }
     "/admin/organizations/$tenantKey": {
       id: "/admin/organizations/$tenantKey"
@@ -725,32 +676,74 @@ declare module "@tanstack/react-router" {
       preLoaderRoute: typeof AdminOrganizationsTenantKeyRouteImport
       parentRoute: typeof AdminOrganizationsRoute
     }
+    "/admin/plans/": {
+      id: "/admin/plans/"
+      path: "/"
+      fullPath: "/admin/plans/"
+      preLoaderRoute: typeof AdminPlansIndexRouteImport
+      parentRoute: typeof AdminPlansRoute
+    }
+    "/admin/plans/$planCode": {
+      id: "/admin/plans/$planCode"
+      path: "/$planCode"
+      fullPath: "/admin/plans/$planCode"
+      preLoaderRoute: typeof AdminPlansPlanCodeRouteImport
+      parentRoute: typeof AdminPlansRoute
+    }
+    "/admin/refunds/$refundId": {
+      id: "/admin/refunds/$refundId"
+      path: "/$refundId"
+      fullPath: "/admin/refunds/$refundId"
+      preLoaderRoute: typeof AdminRefundsRefundIdRouteImport
+      parentRoute: typeof AdminRefundsRoute
+    }
+    "/admin/subscriptions/$subscriptionId": {
+      id: "/admin/subscriptions/$subscriptionId"
+      path: "/$subscriptionId"
+      fullPath: "/admin/subscriptions/$subscriptionId"
+      preLoaderRoute: typeof AdminSubscriptionsSubscriptionIdRouteImport
+      parentRoute: typeof AdminSubscriptionsRoute
+    }
+    "/admin/users/": {
+      id: "/admin/users/"
+      path: "/"
+      fullPath: "/admin/users/"
+      preLoaderRoute: typeof AdminUsersIndexRouteImport
+      parentRoute: typeof AdminUsersRoute
+    }
+    "/admin/users/$userId": {
+      id: "/admin/users/$userId"
+      path: "/$userId"
+      fullPath: "/admin/users/$userId"
+      preLoaderRoute: typeof AdminUsersUserIdRouteImport
+      parentRoute: typeof AdminUsersRoute
+    }
+    "/admin/webhook-logs/$webhookLogId": {
+      id: "/admin/webhook-logs/$webhookLogId"
+      path: "/$webhookLogId"
+      fullPath: "/admin/webhook-logs/$webhookLogId"
+      preLoaderRoute: typeof AdminWebhookLogsWebhookLogIdRouteImport
+      parentRoute: typeof AdminWebhookLogsRoute
+    }
+    "/admin/cms-pages/$tenantKey/$pageId": {
+      id: "/admin/cms-pages/$tenantKey/$pageId"
+      path: "/$tenantKey/$pageId"
+      fullPath: "/admin/cms-pages/$tenantKey/$pageId"
+      preLoaderRoute: typeof AdminCmsPagesTenantKeyPageIdRouteImport
+      parentRoute: typeof AdminCmsPagesRoute
+    }
+    "/admin/cms-pages/$tenantKey/create": {
+      id: "/admin/cms-pages/$tenantKey/create"
+      path: "/$tenantKey/create"
+      fullPath: "/admin/cms-pages/$tenantKey/create"
+      preLoaderRoute: typeof AdminCmsPagesTenantKeyCreateRouteImport
+      parentRoute: typeof AdminCmsPagesRoute
+    }
     "/admin/organizations/$tenantKey/": {
       id: "/admin/organizations/$tenantKey/"
       path: "/"
       fullPath: "/admin/organizations/$tenantKey/"
       preLoaderRoute: typeof AdminOrganizationsTenantKeyIndexRouteImport
-      parentRoute: typeof AdminOrganizationsTenantKeyRoute
-    }
-    "/admin/organizations/$tenantKey/subscriptions": {
-      id: "/admin/organizations/$tenantKey/subscriptions"
-      path: "/subscriptions"
-      fullPath: "/admin/organizations/$tenantKey/subscriptions"
-      preLoaderRoute: typeof AdminOrganizationsTenantKeySubscriptionsRouteImport
-      parentRoute: typeof AdminOrganizationsTenantKeyRoute
-    }
-    "/admin/organizations/$tenantKey/refunds": {
-      id: "/admin/organizations/$tenantKey/refunds"
-      path: "/refunds"
-      fullPath: "/admin/organizations/$tenantKey/refunds"
-      preLoaderRoute: typeof AdminOrganizationsTenantKeyRefundsRouteImport
-      parentRoute: typeof AdminOrganizationsTenantKeyRoute
-    }
-    "/admin/organizations/$tenantKey/members": {
-      id: "/admin/organizations/$tenantKey/members"
-      path: "/members"
-      fullPath: "/admin/organizations/$tenantKey/members"
-      preLoaderRoute: typeof AdminOrganizationsTenantKeyMembersRouteImport
       parentRoute: typeof AdminOrganizationsTenantKeyRoute
     }
     "/admin/organizations/$tenantKey/billing": {
@@ -760,19 +753,26 @@ declare module "@tanstack/react-router" {
       preLoaderRoute: typeof AdminOrganizationsTenantKeyBillingRouteImport
       parentRoute: typeof AdminOrganizationsTenantKeyRoute
     }
-    "/admin/cms-pages/$tenantKey/create": {
-      id: "/admin/cms-pages/$tenantKey/create"
-      path: "/$tenantKey/create"
-      fullPath: "/admin/cms-pages/$tenantKey/create"
-      preLoaderRoute: typeof AdminCmsPagesTenantKeyCreateRouteImport
-      parentRoute: typeof AdminCmsPagesRoute
+    "/admin/organizations/$tenantKey/members": {
+      id: "/admin/organizations/$tenantKey/members"
+      path: "/members"
+      fullPath: "/admin/organizations/$tenantKey/members"
+      preLoaderRoute: typeof AdminOrganizationsTenantKeyMembersRouteImport
+      parentRoute: typeof AdminOrganizationsTenantKeyRoute
     }
-    "/admin/cms-pages/$tenantKey/$pageId": {
-      id: "/admin/cms-pages/$tenantKey/$pageId"
-      path: "/$tenantKey/$pageId"
-      fullPath: "/admin/cms-pages/$tenantKey/$pageId"
-      preLoaderRoute: typeof AdminCmsPagesTenantKeyPageIdRouteImport
-      parentRoute: typeof AdminCmsPagesRoute
+    "/admin/organizations/$tenantKey/refunds": {
+      id: "/admin/organizations/$tenantKey/refunds"
+      path: "/refunds"
+      fullPath: "/admin/organizations/$tenantKey/refunds"
+      preLoaderRoute: typeof AdminOrganizationsTenantKeyRefundsRouteImport
+      parentRoute: typeof AdminOrganizationsTenantKeyRoute
+    }
+    "/admin/organizations/$tenantKey/subscriptions": {
+      id: "/admin/organizations/$tenantKey/subscriptions"
+      path: "/subscriptions"
+      fullPath: "/admin/organizations/$tenantKey/subscriptions"
+      preLoaderRoute: typeof AdminOrganizationsTenantKeySubscriptionsRouteImport
+      parentRoute: typeof AdminOrganizationsTenantKeyRoute
     }
   }
 }

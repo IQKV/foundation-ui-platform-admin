@@ -99,7 +99,7 @@ function AdminRefundsPage() {
 
   return (
     <Container size="xl" py={0}>
-      <PageTitle segments={[t`Refunds`]} appTitle="Key Value Admin" />
+      <PageTitle segments={[t`Refunds`]} />
       <PageHeader
         title={<Trans>Refunds</Trans>}
         breadcrumbs={[

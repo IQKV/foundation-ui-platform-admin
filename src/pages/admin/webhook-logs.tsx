@@ -131,7 +131,7 @@ function AdminWebhookLogsPage() {
 
   return (
     <Container size="xl" py={0}>
-      <PageTitle segments={[t`Webhook Logs`]} appTitle="Key Value Admin" />
+      <PageTitle segments={[t`Webhook Logs`]} />
       <PageHeader
         title={
           <Group gap="xs">

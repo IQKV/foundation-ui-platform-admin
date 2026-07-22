@@ -64,7 +64,7 @@ function NotificationsPage() {
 
   return (
     <Container size="md" py={0}>
-      <PageTitle segments={[t`Notifications`]} appTitle="Key Value Admin" />
+      <PageTitle segments={[t`Notifications`]} />
 
       <PageHeader
         title={<Trans>Notifications</Trans>}

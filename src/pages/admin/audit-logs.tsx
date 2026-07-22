@@ -266,7 +266,7 @@ function AdminAuditLogsPage() {
 
   return (
     <Container size="xl" py={0}>
-      <PageTitle segments={[t`Audit Logs`]} appTitle="Key Value Admin" />
+      <PageTitle segments={[t`Audit Logs`]} />
       <PageHeader
         title={<Trans>Audit Logs</Trans>}
         breadcrumbs={[

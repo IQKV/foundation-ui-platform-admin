@@ -486,10 +486,6 @@ msgstr "Копирай"
 msgid "Correlation ID"
 msgstr "Корелационен ID"
 
-#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
-#~ msgid "Could not create Stripe Customer Portal session."
-#~ msgstr "Не може да се създаде сесия на Stripe Customer Portal."
-
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "Could not create the page. Please check the form and try again."
 msgstr ""
@@ -622,9 +618,6 @@ msgstr "Създай настройки за фактуриране"
 msgid "Create page"
 msgstr "Създай страница"
 
-#: src/features/plan-catalog/ui/create-plan-modal.tsx
-#~ msgid "Create plan"
-#~ msgstr "Създай план"
 
 #: src/features/invitation-admin/ui/edit-invitation-modal.tsx
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
@@ -677,14 +670,6 @@ msgstr "Дневно"
 #: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Dashboard"
 msgstr "Табло"
-
-#: src/pages/admin/plans.$planCode.tsx
-#~ msgid "Deactivate"
-#~ msgstr "Деактивирай"
-
-#: src/pages/admin/plans.$planCode.tsx
-#~ msgid "Deactivate plan?"
-#~ msgstr "Деактивиране на плана?"
 
 #: src/features/page-admin/ui/page-translation-fields.tsx
 msgid "Default locale — required"
@@ -751,10 +736,6 @@ msgstr "Демо лента за напредък"
 msgid "Display name"
 msgstr "Показвано име"
 
-#: src/features/plan-catalog/ui/create-plan-modal.tsx
-#: src/pages/admin/plans.$planCode.tsx
-#~ msgid "Display name is required"
-#~ msgstr "Показваното име е задължително"
 
 #: src/features/announcement-admin/model/types.ts
 #: src/features/page-admin/model/types.ts
@@ -768,9 +749,6 @@ msgstr "Чернова"
 msgid "e.g. default, landing"
 msgstr "напр. default, landing"
 
-#: src/features/plan-catalog/ui/create-plan-modal.tsx
-#~ msgid "e.g. pro-monthly"
-#~ msgstr "напр. pro-monthly"
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.index.tsx
@@ -864,9 +842,6 @@ msgstr "Имейл потвърден:"
 msgid "Email: <0>{0}</0>"
 msgstr "Имейл: <0>{0}</0>"
 
-#: src/features/plan-catalog/ui/create-plan-modal.tsx
-#~ msgid "Enter a positive price (minor units, e.g. cents)"
-#~ msgstr "Въведете положителна цена (малки единици, напр. стотинки)"
 
 #: src/features/sign-in/model/use-sign-in.ts
 msgid "Enter a valid email address"
@@ -1490,11 +1465,6 @@ msgstr "Нова страница"
 msgid "New password"
 msgstr "Нова парола"
 
-#: src/features/plan-catalog/ui/create-plan-modal.tsx
-#: src/pages/admin/plans.index.tsx
-#~ msgid "New plan"
-#~ msgstr "Нов план"
-
 #: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "New signups"
 msgstr ""
@@ -1872,14 +1842,6 @@ msgstr "Каталог на планове"
 msgid "Plan code"
 msgstr "Код на план"
 
-#: src/features/plan-catalog/ui/create-plan-modal.tsx
-#~ msgid "Plan code is required"
-#~ msgstr "Кодът на плана е задължителен"
-
-#: src/pages/admin/plans.$planCode.tsx
-#~ msgid "Plan code:"
-#~ msgstr "Код на план:"
-
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Plan ID"
 msgstr "ID на план"
@@ -1943,10 +1905,6 @@ msgstr "Грешка на портала"
 #: src/pages/admin/plans.index.tsx
 msgid "Price (minor units)"
 msgstr "Цена (малки единици)"
-
-#: src/pages/admin/plans.$planCode.tsx
-#~ msgid "Price must be at least 1 minor unit"
-#~ msgstr "Цената трябва да е поне 1 малка единица"
 
 #: src/pages/admin/webhook-logs.$webhookLogId.tsx
 #: src/pages/admin/webhook-logs.tsx
@@ -2371,10 +2329,6 @@ msgstr "Слъгът е задължителен"
 msgid "Slug must be lowercase alphanumeric with hyphens (e.g. about-us or blog/post-title)"
 msgstr "Слъгът трябва да е с малки букви и цифри с тирета (напр. about-us или blog/post-title)"
 
-#: src/features/plan-catalog/ui/create-plan-modal.tsx
-#~ msgid "Smallest currency unit (e.g. cents for USD)."
-#~ msgstr "Най-малката валутна единица (напр. стотинки за USD)."
-
 #: src/pages/admin/plans.$planCode.tsx
 msgid "Smallest currency unit (e.g. cents)."
 msgstr "Най-малката валутна единица (напр. стотинки)."
@@ -2572,10 +2526,6 @@ msgstr "Тази организация все още няма настройк�
 msgid "This permanently removes the billing settings row for this tenant. Subscriptions and gateway objects are not automatically deleted."
 msgstr "Това окончателно премахва настройките за фактуриране на наемателя. Абонаментите и обектите в шлюза не се изтриват автоматично."
 
-#: src/pages/admin/plans.$planCode.tsx
-#~ msgid "This sets the plan to inactive. Existing subscriptions are not changed. You can set the plan back to active later from this page."
-#~ msgstr "Това деактивира плана. Съществуващите абонаменти не се променят. Можете да върнете плана към активен по-късно от тази страница."
-
 #: src/pages/loading-demo.tsx
 msgid "This template uses Mantine's official loading components for optimal UX."
 msgstr "Този шаблон използва официалните компоненти за зареждане на Mantine за оптимален UX."
@@ -2680,10 +2630,6 @@ msgstr "Разблокирай потребител"
 #: src/features/ban-user/ui/unban-user-modal.tsx
 msgid "Unbanning this user will restore their access to the platform. They will be able to sign in again with their existing credentials."
 msgstr "Разблокирането на този потребител ще възстанови достъпа му до платформата. Те ще могат да влязат отново с текущите си данни за достъп."
-
-#: src/features/plan-catalog/ui/create-plan-modal.tsx
-#~ msgid "Unique identifier; use lowercase letters, numbers, and hyphens."
-#~ msgstr "Уникален идентификатор; използвайте малки букви, цифри и тирета."
 
 #: src/features/unlock-user/ui/unlock-user-modal.tsx
 #: src/pages/admin/users.$userId.tsx

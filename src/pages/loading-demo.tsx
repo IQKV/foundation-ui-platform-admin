@@ -36,7 +36,7 @@ function LoadingDemoPage() {
 
   return (
     <Container size="md" py="xl">
-      <PageTitle segments={[t`Loading Demo`]} appTitle="Key Value Admin" />
+      <PageTitle segments={[t`Loading Demo`]} />
       <Stack gap="xl">
         <div>
           <Title order={1} mb="md">

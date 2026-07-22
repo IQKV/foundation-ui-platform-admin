@@ -11,7 +11,7 @@ export function NotFoundPage() {
   const { t } = useLingui();
   return (
     <Container size="sm" py="xl" data-testid="page-404">
-      <PageTitle segments={[t`Page Not Found`]} appTitle="Key Value Admin" />
+      <PageTitle segments={[t`Page Not Found`]} />
       <Stack align="center" gap="md">
         <Title>404</Title>
         <Text c="dimmed">

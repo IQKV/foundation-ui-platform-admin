@@ -132,7 +132,7 @@ function AdminCmsPagesPage() {
 
   return (
     <Container size="xl" py={0}>
-      <PageTitle segments={[t`CMS Pages`]} appTitle="Key Value Admin" />
+      <PageTitle segments={[t`CMS Pages`]} />
       <PageHeader
         title={<Trans>CMS Pages</Trans>}
         breadcrumbs={[

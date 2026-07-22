@@ -153,7 +153,7 @@ function AdminInvitationsPage() {
 
   return (
     <Container size="xl" py={0}>
-      <PageTitle segments={[t`Invitations`]} appTitle="Key Value Admin" />
+      <PageTitle segments={[t`Invitations`]} />
       <PageHeader
         title={<Trans>Invitations</Trans>}
         breadcrumbs={[
