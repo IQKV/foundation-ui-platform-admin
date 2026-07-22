@@ -32,18 +32,6 @@ msgid "{0}"
 msgstr "{0}"
 
 #: src/pages/admin/organizations.$tenantKey.tsx
-#~ msgid "{0} |Key Value Admin"
-#~ msgstr "{0} |Key Value Admin"
-
-#: src/pages/admin/organizations.$tenantKey.tsx
-#~ msgid "{activeSubscriptions} active subscription(s)"
-#~ msgstr "{activeSubscriptions} active subscription(s)"
-
-#: src/pages/admin/users.$userId.tsx
-#~ msgid "{displayName} |Key Value Admin"
-#~ msgstr "{displayName} |Key Value Admin"
-
-#: src/pages/admin/organizations.$tenantKey.tsx
 msgid "{subscriptionCount} subscription(s)"
 msgstr "{subscriptionCount} subscription(s)"
 
@@ -54,10 +42,6 @@ msgstr "1. Initial Page Load"
 #: src/pages/loading-demo.tsx
 msgid "2. Page Transitions"
 msgstr "2. Page Transitions"
-
-#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
-#~ msgid "8-character tenant key"
-#~ msgstr "8-character tenant key"
 
 #. placeholder {0}: defaultLocale ?? "default"
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
@@ -73,10 +57,6 @@ msgstr "Accepted"
 #: src/pages/unauthorized.tsx
 msgid "Access Denied"
 msgstr "Access Denied"
-
-#: src/pages/unauthorized.tsx
-#~ msgid "Access Denied |Key Value Admin"
-#~ msgstr "Access Denied |Key Value Admin"
 
 #: src/pages/loading-demo.tsx
 msgid "Accessible with proper keyboard handling"
@@ -284,10 +264,6 @@ msgstr "At least one translation is required"
 msgid "Attention Required"
 msgstr "Attention Required"
 
-#: src/shared/ui/admin-layout/admin-nav.tsx
-#~ msgid "Audit Log"
-#~ msgstr "Audit Log"
-
 #: src/pages/admin/audit-logs.tsx
 #: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Audit Logs"
@@ -461,10 +437,6 @@ msgstr "CMS Pages"
 msgid "Code"
 msgstr "Code"
 
-#: src/pages/admin/index.tsx
-#~ msgid "Coming soon"
-#~ msgstr "Coming soon"
-
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Company name"
 msgstr "Company name"
@@ -513,10 +485,6 @@ msgstr "Copy"
 #: src/pages/admin/audit-logs.tsx
 msgid "Correlation ID"
 msgstr "Correlation ID"
-
-#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
-#~ msgid "Could not create Stripe Customer Portal session."
-#~ msgstr "Could not create Stripe Customer Portal session."
 
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "Could not create the page. Please check the form and try again."
@@ -650,10 +618,6 @@ msgstr "Create billing settings"
 msgid "Create page"
 msgstr "Create page"
 
-#: src/features/plan-catalog/ui/create-plan-modal.tsx
-#~ msgid "Create plan"
-#~ msgstr "Create plan"
-
 #: src/features/invitation-admin/ui/edit-invitation-modal.tsx
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/pages/admin/-organization-tenant-panels.tsx
@@ -705,18 +669,6 @@ msgstr "Daily"
 #: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Dashboard"
 msgstr "Dashboard"
-
-#: src/pages/admin/index.tsx
-#~ msgid "Dashboard |Key Value Admin"
-#~ msgstr "Dashboard |Key Value Admin"
-
-#: src/pages/admin/plans.$planCode.tsx
-#~ msgid "Deactivate"
-#~ msgstr "Deactivate"
-
-#: src/pages/admin/plans.$planCode.tsx
-#~ msgid "Deactivate plan?"
-#~ msgstr "Deactivate plan?"
 
 #: src/features/page-admin/ui/page-translation-fields.tsx
 msgid "Default locale — required"
@@ -783,11 +735,6 @@ msgstr "Demo Progress Bar"
 msgid "Display name"
 msgstr "Display name"
 
-#: src/features/plan-catalog/ui/create-plan-modal.tsx
-#: src/pages/admin/plans.$planCode.tsx
-#~ msgid "Display name is required"
-#~ msgstr "Display name is required"
-
 #: src/features/announcement-admin/model/types.ts
 #: src/features/page-admin/model/types.ts
 #: src/pages/admin/cms-pages.index.tsx
@@ -799,10 +746,6 @@ msgstr "Draft"
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "e.g. default, landing"
 msgstr "e.g. default, landing"
-
-#: src/features/plan-catalog/ui/create-plan-modal.tsx
-#~ msgid "e.g. pro-monthly"
-#~ msgstr "e.g. pro-monthly"
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.index.tsx
@@ -896,10 +839,6 @@ msgstr "Email verified:"
 msgid "Email: <0>{0}</0>"
 msgstr "Email: <0>{0}</0>"
 
-#: src/features/plan-catalog/ui/create-plan-modal.tsx
-#~ msgid "Enter a positive price (minor units, e.g. cents)"
-#~ msgstr "Enter a positive price (minor units, e.g. cents)"
-
 #: src/features/sign-in/model/use-sign-in.ts
 msgid "Enter a valid email address"
 msgstr "Enter a valid email address"
@@ -955,12 +894,6 @@ msgstr "Expires"
 #: src/features/ban-user/ui/ban-user-modal.tsx
 msgid "Expires at (optional)"
 msgstr "Expires at (optional)"
-
-#: src/pages/admin/organizations.tsx
-#: src/pages/admin/subscriptions.tsx
-#: src/pages/admin/users.tsx
-#~ msgid "Export"
-#~ msgstr "Export"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "External customer id"
@@ -1371,10 +1304,6 @@ msgstr "Linked"
 msgid "Loading Demo"
 msgstr "Loading Demo"
 
-#: src/pages/loading-demo.tsx
-#~ msgid "Loading Demo |Key Value Admin"
-#~ msgstr "Loading Demo |Key Value Admin"
-
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 #: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Loading organizations…"
@@ -1532,11 +1461,6 @@ msgstr "New Page"
 msgid "New password"
 msgstr "New password"
 
-#: src/features/plan-catalog/ui/create-plan-modal.tsx
-#: src/pages/admin/plans.index.tsx
-#~ msgid "New plan"
-#~ msgstr "New plan"
-
 #: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "New signups"
 msgstr "New signups"
@@ -1544,10 +1468,6 @@ msgstr "New signups"
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 msgid "No active organizations found"
 msgstr "No active organizations found"
-
-#: src/pages/admin/organizations.$tenantKey.tsx
-#~ msgid "No active subscription"
-#~ msgstr "No active subscription"
 
 #: src/pages/admin/announcements.index.tsx
 msgid "No announcements found"
@@ -1681,10 +1601,6 @@ msgstr "Not granted"
 msgid "Notifications"
 msgstr "Notifications"
 
-#: src/shared/ui/admin-layout/admin-header.tsx
-#~ msgid "Notifications (coming soon)"
-#~ msgstr "Notifications (coming soon)"
-
 #. placeholder {0}: hasUnread ? `, ${unreadCount} unread` : ""
 #: src/features/notification-bell/ui/notification-bell.tsx
 msgid "Notifications{0}"
@@ -1758,10 +1674,6 @@ msgstr "Optional UUID of the user who owns the billing profile."
 msgid "Organization"
 msgstr "Organization"
 
-#: src/pages/admin/organizations.$tenantKey.tsx
-#~ msgid "Organization |Key Value Admin"
-#~ msgstr "Organization |Key Value Admin"
-
 #: src/features/invitation-admin/model/types.ts
 msgid "Organization is required"
 msgstr "Organization is required"
@@ -1786,10 +1698,6 @@ msgstr "organization(s)"
 msgid "Organizations"
 msgstr "Organizations"
 
-#: src/pages/admin/organizations.index.tsx
-#~ msgid "Organizations |Key Value Admin"
-#~ msgstr "Organizations |Key Value Admin"
-
 #: src/features/page-admin/ui/page-translation-fields.tsx
 msgid "Override page title for search engines"
 msgstr "Override page title for search engines"
@@ -1806,10 +1714,6 @@ msgstr "Page"
 #: src/pages/404.tsx
 msgid "Page Not Found"
 msgstr "Page Not Found"
-
-#: src/pages/404.tsx
-#~ msgid "Page Not Found |Key Value Admin"
-#~ msgstr "Page Not Found |Key Value Admin"
 
 #: src/pages/404.tsx
 msgid "Page not found."
@@ -1934,14 +1838,6 @@ msgstr "Plan catalog"
 msgid "Plan code"
 msgstr "Plan code"
 
-#: src/features/plan-catalog/ui/create-plan-modal.tsx
-#~ msgid "Plan code is required"
-#~ msgstr "Plan code is required"
-
-#: src/pages/admin/plans.$planCode.tsx
-#~ msgid "Plan code:"
-#~ msgstr "Plan code:"
-
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Plan ID"
 msgstr "Plan ID"
@@ -2005,10 +1901,6 @@ msgstr "Portal error"
 #: src/pages/admin/plans.index.tsx
 msgid "Price (minor units)"
 msgstr "Price (minor units)"
-
-#: src/pages/admin/plans.$planCode.tsx
-#~ msgid "Price must be at least 1 minor unit"
-#~ msgstr "Price must be at least 1 minor unit"
 
 #: src/pages/admin/webhook-logs.$webhookLogId.tsx
 #: src/pages/admin/webhook-logs.tsx
@@ -2255,10 +2147,6 @@ msgstr "Search event type or ID…"
 msgid "Search plan…"
 msgstr "Search plan…"
 
-#: src/pages/admin/users.tsx
-#~ msgid "Search users…"
-#~ msgstr "Search users…"
-
 #: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Search…"
 msgstr "Search…"
@@ -2320,10 +2208,6 @@ msgstr "SEO title"
 msgid "Server Error"
 msgstr "Server Error"
 
-#: src/pages/500.tsx
-#~ msgid "Server Error |Key Value Admin"
-#~ msgstr "Server Error |Key Value Admin"
-
 #. placeholder {0}: subscription.tenantKey
 #: src/pages/admin/subscriptions.tsx
 msgid "Set new quantity for <0>{0}</0>:"
@@ -2342,10 +2226,6 @@ msgstr "Set Password"
 #: src/features/edit-account/ui/edit-account-modal.tsx
 msgid "Sets your preferred language for notifications and emails."
 msgstr "Sets your preferred language for notifications and emails."
-
-#: src/shared/ui/admin-layout/admin-nav.tsx
-#~ msgid "Settings"
-#~ msgstr "Settings"
 
 #: src/pages/admin/audit-logs.tsx
 msgid "Severity"
@@ -2408,10 +2288,6 @@ msgstr "Sign in"
 msgid "Sign In"
 msgstr "Sign In"
 
-#: src/pages/sign-in.tsx
-#~ msgid "Sign In |Key Value Admin"
-#~ msgstr "Sign In |Key Value Admin"
-
 #: src/features/sign-out/ui/sign-out-button.tsx
 msgid "Sign out"
 msgstr "Sign out"
@@ -2448,10 +2324,6 @@ msgstr "Slug is required"
 #: src/features/page-admin/model/types.ts
 msgid "Slug must be lowercase alphanumeric with hyphens (e.g. about-us or blog/post-title)"
 msgstr "Slug must be lowercase alphanumeric with hyphens (e.g. about-us or blog/post-title)"
-
-#: src/features/plan-catalog/ui/create-plan-modal.tsx
-#~ msgid "Smallest currency unit (e.g. cents for USD)."
-#~ msgstr "Smallest currency unit (e.g. cents for USD)."
 
 #: src/pages/admin/plans.$planCode.tsx
 msgid "Smallest currency unit (e.g. cents)."
@@ -2544,10 +2416,6 @@ msgid "Subscriptions"
 msgstr "Subscriptions"
 
 #: src/pages/admin/subscriptions.tsx
-#~ msgid "Subscriptions |Key Value Admin"
-#~ msgstr "Subscriptions |Key Value Admin"
-
-#: src/pages/admin/subscriptions.tsx
 #: src/pages/admin/users.$userId.tsx
 msgid "Success"
 msgstr "Success"
@@ -2583,10 +2451,6 @@ msgstr "Switch to dark mode"
 #: src/shared/ui/color-scheme-toggle/color-scheme-toggle.tsx
 msgid "Switch to light mode"
 msgstr "Switch to light mode"
-
-#: src/pages/admin/audit-logs.tsx
-#~ msgid "System"
-#~ msgstr "System"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Tax id"
@@ -2634,10 +2498,6 @@ msgstr "Tenant key"
 msgid "Tenant Key"
 msgstr "Tenant Key"
 
-#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
-#~ msgid "Tenant key must be at least 8 characters"
-#~ msgstr "Tenant key must be at least 8 characters"
-
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Tenant key:"
 msgstr "Tenant key:"
@@ -2661,10 +2521,6 @@ msgstr "This organization does not have a billing settings row yet. Create one t
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "This permanently removes the billing settings row for this tenant. Subscriptions and gateway objects are not automatically deleted."
 msgstr "This permanently removes the billing settings row for this tenant. Subscriptions and gateway objects are not automatically deleted."
-
-#: src/pages/admin/plans.$planCode.tsx
-#~ msgid "This sets the plan to inactive. Existing subscriptions are not changed. You can set the plan back to active later from this page."
-#~ msgstr "This sets the plan to inactive. Existing subscriptions are not changed. You can set the plan back to active later from this page."
 
 #: src/pages/loading-demo.tsx
 msgid "This template uses Mantine's official loading components for optimal UX."
@@ -2771,10 +2627,6 @@ msgstr "Unban User"
 msgid "Unbanning this user will restore their access to the platform. They will be able to sign in again with their existing credentials."
 msgstr "Unbanning this user will restore their access to the platform. They will be able to sign in again with their existing credentials."
 
-#: src/features/plan-catalog/ui/create-plan-modal.tsx
-#~ msgid "Unique identifier; use lowercase letters, numbers, and hyphens."
-#~ msgstr "Unique identifier; use lowercase letters, numbers, and hyphens."
-
 #: src/features/unlock-user/ui/unlock-user-modal.tsx
 #: src/pages/admin/users.$userId.tsx
 #: src/pages/admin/users.index.tsx
@@ -2844,10 +2696,6 @@ msgstr "URL path, e.g. about-us or blog/post"
 msgid "User"
 msgstr "User"
 
-#: src/pages/admin/users.$userId.tsx
-#~ msgid "User |Key Value Admin"
-#~ msgstr "User |Key Value Admin"
-
 #: src/pages/admin/audit-logs.tsx
 msgid "User Agent"
 msgstr "User Agent"
@@ -2865,10 +2713,6 @@ msgstr "User updated"
 #: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Users"
 msgstr "Users"
-
-#: src/pages/admin/users.index.tsx
-#~ msgid "Users |Key Value Admin"
-#~ msgstr "Users |Key Value Admin"
 
 #: src/pages/loading-demo.tsx
 msgid "Uses <0>@mantine/nprogress</0> for top loading bar"
@@ -2931,10 +2775,6 @@ msgstr "View plan"
 #: src/pages/admin/index.tsx
 msgid "View subscriptions"
 msgstr "View subscriptions"
-
-#: src/pages/admin/users.index.tsx
-#~ msgid "View user"
-#~ msgstr "View user"
 
 #: src/pages/admin/index.tsx
 msgid "View users"

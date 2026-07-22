@@ -32,18 +32,6 @@ msgid "{0}"
 msgstr "{0}"
 
 #: src/pages/admin/organizations.$tenantKey.tsx
-#~ msgid "{0} |Key Value Admin"
-#~ msgstr "{0} |Key Value Admin"
-
-#: src/pages/admin/organizations.$tenantKey.tsx
-#~ msgid "{activeSubscriptions} active subscription(s)"
-#~ msgstr "{activeSubscriptions} abonnement(s) actif(s)"
-
-#: src/pages/admin/users.$userId.tsx
-#~ msgid "{displayName} |Key Value Admin"
-#~ msgstr "{displayName} |Key Value Admin"
-
-#: src/pages/admin/organizations.$tenantKey.tsx
 msgid "{subscriptionCount} subscription(s)"
 msgstr "{subscriptionCount} abonnement(s)"
 
@@ -54,10 +42,6 @@ msgstr "1. Chargement initial de la page"
 #: src/pages/loading-demo.tsx
 msgid "2. Page Transitions"
 msgstr "2. Transitions de page"
-
-#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
-#~ msgid "8-character tenant key"
-#~ msgstr "Clé locataire à 8 caractères"
 
 #. placeholder {0}: defaultLocale ?? "default"
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
@@ -73,10 +57,6 @@ msgstr "Accepté"
 #: src/pages/unauthorized.tsx
 msgid "Access Denied"
 msgstr "Accès refusé"
-
-#: src/pages/unauthorized.tsx
-#~ msgid "Access Denied |Key Value Admin"
-#~ msgstr "Accès refusé |Key Value Admin"
 
 #: src/pages/loading-demo.tsx
 msgid "Accessible with proper keyboard handling"
@@ -284,10 +264,6 @@ msgstr "Au moins une traduction est requise"
 msgid "Attention Required"
 msgstr "Attention requise"
 
-#: src/shared/ui/admin-layout/admin-nav.tsx
-#~ msgid "Audit Log"
-#~ msgstr "Journal d'audit"
-
 #: src/pages/admin/audit-logs.tsx
 #: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Audit Logs"
@@ -461,10 +437,6 @@ msgstr "Pages CMS"
 msgid "Code"
 msgstr "Code"
 
-#: src/pages/admin/index.tsx
-#~ msgid "Coming soon"
-#~ msgstr "Bientôt disponible"
-
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Company name"
 msgstr "Nom de la société"
@@ -513,10 +485,6 @@ msgstr "Copier"
 #: src/pages/admin/audit-logs.tsx
 msgid "Correlation ID"
 msgstr "ID de corrélation"
-
-#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
-#~ msgid "Could not create Stripe Customer Portal session."
-#~ msgstr "Impossible de créer une session du portail client Stripe."
 
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "Could not create the page. Please check the form and try again."
@@ -650,10 +618,6 @@ msgstr "Créer les paramètres de facturation"
 msgid "Create page"
 msgstr "Créer une page"
 
-#: src/features/plan-catalog/ui/create-plan-modal.tsx
-#~ msgid "Create plan"
-#~ msgstr "Créer un forfait"
-
 #: src/features/invitation-admin/ui/edit-invitation-modal.tsx
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/pages/admin/-organization-tenant-panels.tsx
@@ -705,18 +669,6 @@ msgstr "Quotidien"
 #: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Dashboard"
 msgstr "Tableau de bord"
-
-#: src/pages/admin/index.tsx
-#~ msgid "Dashboard |Key Value Admin"
-#~ msgstr "Tableau de bord |Key Value Admin"
-
-#: src/pages/admin/plans.$planCode.tsx
-#~ msgid "Deactivate"
-#~ msgstr "Désactiver"
-
-#: src/pages/admin/plans.$planCode.tsx
-#~ msgid "Deactivate plan?"
-#~ msgstr "Désactiver le forfait ?"
 
 #: src/features/page-admin/ui/page-translation-fields.tsx
 msgid "Default locale — required"
@@ -783,11 +735,6 @@ msgstr "Démo barre de progression"
 msgid "Display name"
 msgstr "Nom d'affichage"
 
-#: src/features/plan-catalog/ui/create-plan-modal.tsx
-#: src/pages/admin/plans.$planCode.tsx
-#~ msgid "Display name is required"
-#~ msgstr "Le nom d'affichage est requis"
-
 #: src/features/announcement-admin/model/types.ts
 #: src/features/page-admin/model/types.ts
 #: src/pages/admin/cms-pages.index.tsx
@@ -799,10 +746,6 @@ msgstr "Brouillon"
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "e.g. default, landing"
 msgstr "ex. default, landing"
-
-#: src/features/plan-catalog/ui/create-plan-modal.tsx
-#~ msgid "e.g. pro-monthly"
-#~ msgstr "ex. pro-mensuel"
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.index.tsx
@@ -896,10 +839,6 @@ msgstr "E-mail vérifié :"
 msgid "Email: <0>{0}</0>"
 msgstr "E-mail : <0>{0}</0>"
 
-#: src/features/plan-catalog/ui/create-plan-modal.tsx
-#~ msgid "Enter a positive price (minor units, e.g. cents)"
-#~ msgstr "Saisir un prix positif (unités mineures, ex. centimes)"
-
 #: src/features/sign-in/model/use-sign-in.ts
 msgid "Enter a valid email address"
 msgstr "Saisir une adresse e-mail valide"
@@ -955,12 +894,6 @@ msgstr "Expire"
 #: src/features/ban-user/ui/ban-user-modal.tsx
 msgid "Expires at (optional)"
 msgstr "Expire le (facultatif)"
-
-#: src/pages/admin/organizations.tsx
-#: src/pages/admin/subscriptions.tsx
-#: src/pages/admin/users.tsx
-#~ msgid "Export"
-#~ msgstr "Exporter"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "External customer id"
@@ -1371,10 +1304,6 @@ msgstr "Lié"
 msgid "Loading Demo"
 msgstr "Démo de chargement"
 
-#: src/pages/loading-demo.tsx
-#~ msgid "Loading Demo |Key Value Admin"
-#~ msgstr "Démo de chargement |Key Value Admin"
-
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 #: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Loading organizations…"
@@ -1532,11 +1461,6 @@ msgstr "Nouvelle page"
 msgid "New password"
 msgstr "Nouveau mot de passe"
 
-#: src/features/plan-catalog/ui/create-plan-modal.tsx
-#: src/pages/admin/plans.index.tsx
-#~ msgid "New plan"
-#~ msgstr "Nouveau forfait"
-
 #: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "New signups"
 msgstr "Nouvelles inscriptions"
@@ -1544,10 +1468,6 @@ msgstr "Nouvelles inscriptions"
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 msgid "No active organizations found"
 msgstr "Aucune organisation active trouvée"
-
-#: src/pages/admin/organizations.$tenantKey.tsx
-#~ msgid "No active subscription"
-#~ msgstr "Aucun abonnement actif"
 
 #: src/pages/admin/announcements.index.tsx
 msgid "No announcements found"
@@ -1681,10 +1601,6 @@ msgstr "Non accordé"
 msgid "Notifications"
 msgstr "Notifications"
 
-#: src/shared/ui/admin-layout/admin-header.tsx
-#~ msgid "Notifications (coming soon)"
-#~ msgstr "Notifications (bientôt disponible)"
-
 #. placeholder {0}: hasUnread ? `, ${unreadCount} unread` : ""
 #: src/features/notification-bell/ui/notification-bell.tsx
 msgid "Notifications{0}"
@@ -1758,10 +1674,6 @@ msgstr "UUID facultatif de l'utilisateur propriétaire du profil de facturation.
 msgid "Organization"
 msgstr "Organisation"
 
-#: src/pages/admin/organizations.$tenantKey.tsx
-#~ msgid "Organization |Key Value Admin"
-#~ msgstr "Organisation |Key Value Admin"
-
 #: src/features/invitation-admin/model/types.ts
 msgid "Organization is required"
 msgstr "L'organisation est requise"
@@ -1786,10 +1698,6 @@ msgstr "organisation(s)"
 msgid "Organizations"
 msgstr "Organisations"
 
-#: src/pages/admin/organizations.index.tsx
-#~ msgid "Organizations |Key Value Admin"
-#~ msgstr "Organisations |Key Value Admin"
-
 #: src/features/page-admin/ui/page-translation-fields.tsx
 msgid "Override page title for search engines"
 msgstr "Remplacer le titre de la page pour les moteurs de recherche"
@@ -1806,10 +1714,6 @@ msgstr "Page"
 #: src/pages/404.tsx
 msgid "Page Not Found"
 msgstr "Page introuvable"
-
-#: src/pages/404.tsx
-#~ msgid "Page Not Found |Key Value Admin"
-#~ msgstr "Page introuvable |Key Value Admin"
 
 #: src/pages/404.tsx
 msgid "Page not found."
@@ -1934,14 +1838,6 @@ msgstr "Catalogue des forfaits"
 msgid "Plan code"
 msgstr "Code du forfait"
 
-#: src/features/plan-catalog/ui/create-plan-modal.tsx
-#~ msgid "Plan code is required"
-#~ msgstr "Le code du forfait est requis"
-
-#: src/pages/admin/plans.$planCode.tsx
-#~ msgid "Plan code:"
-#~ msgstr "Code du forfait :"
-
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Plan ID"
 msgstr "ID du forfait"
@@ -2005,10 +1901,6 @@ msgstr "Erreur du portail"
 #: src/pages/admin/plans.index.tsx
 msgid "Price (minor units)"
 msgstr "Prix (unités mineures)"
-
-#: src/pages/admin/plans.$planCode.tsx
-#~ msgid "Price must be at least 1 minor unit"
-#~ msgstr "Le prix doit être d'au moins 1 unité mineure"
 
 #: src/pages/admin/webhook-logs.$webhookLogId.tsx
 #: src/pages/admin/webhook-logs.tsx
@@ -2255,10 +2147,6 @@ msgstr "Rechercher le type d'événement ou l'ID…"
 msgid "Search plan…"
 msgstr "Rechercher un forfait…"
 
-#: src/pages/admin/users.tsx
-#~ msgid "Search users…"
-#~ msgstr "Rechercher des utilisateurs…"
-
 #: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Search…"
 msgstr "Rechercher…"
@@ -2320,10 +2208,6 @@ msgstr "Titre SEO"
 msgid "Server Error"
 msgstr "Erreur serveur"
 
-#: src/pages/500.tsx
-#~ msgid "Server Error |Key Value Admin"
-#~ msgstr "Erreur serveur |Key Value Admin"
-
 #. placeholder {0}: subscription.tenantKey
 #: src/pages/admin/subscriptions.tsx
 msgid "Set new quantity for <0>{0}</0>:"
@@ -2342,10 +2226,6 @@ msgstr "Définir le mot de passe"
 #: src/features/edit-account/ui/edit-account-modal.tsx
 msgid "Sets your preferred language for notifications and emails."
 msgstr "Définit votre langue préférée pour les notifications et les e-mails."
-
-#: src/shared/ui/admin-layout/admin-nav.tsx
-#~ msgid "Settings"
-#~ msgstr "Paramètres"
 
 #: src/pages/admin/audit-logs.tsx
 msgid "Severity"
@@ -2408,10 +2288,6 @@ msgstr "Se connecter"
 msgid "Sign In"
 msgstr "Connexion"
 
-#: src/pages/sign-in.tsx
-#~ msgid "Sign In |Key Value Admin"
-#~ msgstr "Connexion |Key Value Admin"
-
 #: src/features/sign-out/ui/sign-out-button.tsx
 msgid "Sign out"
 msgstr "Se déconnecter"
@@ -2448,10 +2324,6 @@ msgstr "Le slug est requis"
 #: src/features/page-admin/model/types.ts
 msgid "Slug must be lowercase alphanumeric with hyphens (e.g. about-us or blog/post-title)"
 msgstr "Le slug doit être en minuscules alphanumériques avec des tirets (ex. a-propos ou blog/titre-article)"
-
-#: src/features/plan-catalog/ui/create-plan-modal.tsx
-#~ msgid "Smallest currency unit (e.g. cents for USD)."
-#~ msgstr "Plus petite unité monétaire (ex. centimes pour USD)."
 
 #: src/pages/admin/plans.$planCode.tsx
 msgid "Smallest currency unit (e.g. cents)."
@@ -2544,10 +2416,6 @@ msgid "Subscriptions"
 msgstr "Abonnements"
 
 #: src/pages/admin/subscriptions.tsx
-#~ msgid "Subscriptions |Key Value Admin"
-#~ msgstr "Abonnements |Key Value Admin"
-
-#: src/pages/admin/subscriptions.tsx
 #: src/pages/admin/users.$userId.tsx
 msgid "Success"
 msgstr "Succès"
@@ -2583,10 +2451,6 @@ msgstr "Passer en mode sombre"
 #: src/shared/ui/color-scheme-toggle/color-scheme-toggle.tsx
 msgid "Switch to light mode"
 msgstr "Passer en mode clair"
-
-#: src/pages/admin/audit-logs.tsx
-#~ msgid "System"
-#~ msgstr "Système"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Tax id"
@@ -2634,10 +2498,6 @@ msgstr "Clé locataire"
 msgid "Tenant Key"
 msgstr "Clé locataire"
 
-#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
-#~ msgid "Tenant key must be at least 8 characters"
-#~ msgstr "La clé locataire doit contenir au moins 8 caractères"
-
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Tenant key:"
 msgstr "Clé locataire :"
@@ -2661,10 +2521,6 @@ msgstr "Cette organisation n'a pas encore de paramètres de facturation. Créez-
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "This permanently removes the billing settings row for this tenant. Subscriptions and gateway objects are not automatically deleted."
 msgstr "Cela supprime définitivement la ligne des paramètres de facturation pour ce locataire. Les abonnements et les objets de la passerelle ne sont pas automatiquement supprimés."
-
-#: src/pages/admin/plans.$planCode.tsx
-#~ msgid "This sets the plan to inactive. Existing subscriptions are not changed. You can set the plan back to active later from this page."
-#~ msgstr "Cela met le forfait en inactif. Les abonnements existants ne sont pas modifiés. Vous pouvez réactiver le forfait plus tard depuis cette page."
 
 #: src/pages/loading-demo.tsx
 msgid "This template uses Mantine's official loading components for optimal UX."
@@ -2768,10 +2624,6 @@ msgid "Unban User"
 msgstr "Débannir l'utilisateur"
 
 #: src/features/ban-user/ui/unban-user-modal.tsx
-#~ msgid "Unbanning this user will restore their ability to sign in and access the platform."
-#~ msgstr "Débannir cet utilisateur lui permettra à nouveau de se connecter et d'accéder à la plateforme."
-
-#: src/features/ban-user/ui/unban-user-modal.tsx
 msgid "Unbanning this user will restore their access to the platform. They will be able to sign in again with their existing credentials."
 msgstr ""
 
@@ -2844,10 +2696,6 @@ msgstr "Chemin URL, ex. a-propos ou blog/article"
 msgid "User"
 msgstr "Utilisateur"
 
-#: src/pages/admin/users.$userId.tsx
-#~ msgid "User |Key Value Admin"
-#~ msgstr "Utilisateur |Key Value Admin"
-
 #: src/pages/admin/audit-logs.tsx
 msgid "User Agent"
 msgstr "Agent utilisateur"
@@ -2865,10 +2713,6 @@ msgstr "Utilisateur mis à jour"
 #: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Users"
 msgstr "Utilisateurs"
-
-#: src/pages/admin/users.index.tsx
-#~ msgid "Users |Key Value Admin"
-#~ msgstr "Utilisateurs |Key Value Admin"
 
 #: src/pages/loading-demo.tsx
 msgid "Uses <0>@mantine/nprogress</0> for top loading bar"
@@ -2931,10 +2775,6 @@ msgstr "Voir le forfait"
 #: src/pages/admin/index.tsx
 msgid "View subscriptions"
 msgstr "Voir les abonnements"
-
-#: src/pages/admin/users.index.tsx
-#~ msgid "View user"
-#~ msgstr "Voir l'utilisateur"
 
 #: src/pages/admin/index.tsx
 msgid "View users"

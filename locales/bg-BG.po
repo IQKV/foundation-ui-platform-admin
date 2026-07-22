@@ -618,7 +618,6 @@ msgstr "Създай настройки за фактуриране"
 msgid "Create page"
 msgstr "Създай страница"
 
-
 #: src/features/invitation-admin/ui/edit-invitation-modal.tsx
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/pages/admin/-organization-tenant-panels.tsx
@@ -736,7 +735,6 @@ msgstr "Демо лента за напредък"
 msgid "Display name"
 msgstr "Показвано име"
 
-
 #: src/features/announcement-admin/model/types.ts
 #: src/features/page-admin/model/types.ts
 #: src/pages/admin/cms-pages.index.tsx
@@ -748,7 +746,6 @@ msgstr "Чернова"
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "e.g. default, landing"
 msgstr "напр. default, landing"
-
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.index.tsx
@@ -841,7 +838,6 @@ msgstr "Имейл потвърден:"
 #: src/pages/admin/users.$userId.tsx
 msgid "Email: <0>{0}</0>"
 msgstr "Имейл: <0>{0}</0>"
-
 
 #: src/features/sign-in/model/use-sign-in.ts
 msgid "Enter a valid email address"
