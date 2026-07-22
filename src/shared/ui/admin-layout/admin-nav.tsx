@@ -15,7 +15,7 @@ import {
   IconWebhook,
 } from "@tabler/icons-react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import { Trans, useLingui } from "@lingui/react/macro";
 import { TestSelectors } from "@/shared/lib/test-selectors";
 import { navigationExtension } from "@/app/addons";
@@ -68,17 +68,14 @@ export function AdminNav() {
     { label: t`CMS Pages`, icon: <IconFileText size={15} />, to: "/admin/cms-pages" },
   ];
 
-  const addonNavItems = useMemo(() => {
-    const workspaceItems = navigationExtension.getNavItems("workspace").map((item) => {
-      const IconComponent = item.icon;
-      return {
-        label: item.label,
-        icon: <IconComponent size={15} />,
-        to: item.to,
-      };
-    });
-    return workspaceItems;
-  }, []);
+  const addonNavItems: NavItem[] = navigationExtension.getNavItems("workspace").map((item) => {
+    const IconComponent = item.icon;
+    return {
+      label: item.label,
+      icon: <IconComponent size={15} />,
+      to: item.to,
+    };
+  });
 
   const navItems = [...baseNavItems, ...addonNavItems];
 

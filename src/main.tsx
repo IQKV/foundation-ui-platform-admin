@@ -17,9 +17,29 @@ async function bootstrap() {
     });
   }
 
-  // Load and initialize addons
+  // Load addons (registers them in addonRegistry) …
   const { loadAddons } = await import("@/app/addons");
   await loadAddons();
+
+  // … then immediately initialize them so extension points (nav items, widgets)
+  // are populated before the first React render. This avoids the race where
+  // AdminNav's useMemo runs before addon.initialize() has been called.
+  const { addonRegistry, navigationExtension, widgetExtension } = await import("@/app/addons");
+  const { httpClient } = await import("@/shared/api");
+  const { queryClient } = await import("@/shared/lib");
+  const { i18n } = await import("@lingui/core");
+  const { useSessionStore, getAccessToken } = await import("@/processes/session");
+
+  await addonRegistry.initializeAll({
+    httpClient,
+    queryClient,
+    session: { useSessionStore, getAccessToken },
+    i18n,
+    extensions: {
+      navigation: navigationExtension,
+      widgets: widgetExtension,
+    },
+  });
 
   const rootElement = document.getElementById("root")!;
   if (!rootElement.innerHTML) {
