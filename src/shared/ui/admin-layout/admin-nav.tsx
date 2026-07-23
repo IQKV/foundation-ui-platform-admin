@@ -7,7 +7,6 @@ import {
   IconSearch,
   IconTags,
   IconMail,
-  IconUserCircle,
   IconReceiptRefund,
   IconSpeakerphone,
   IconHistory,
@@ -54,20 +53,27 @@ export function AdminNav() {
   const currentPath = routerState.location.pathname;
   const [search, setSearch] = useState("");
 
-  const baseNavItems: NavItem[] = [
+  // ── Section: Overview ────────────────────────────────────────────────────
+  const overviewItems: NavItem[] = [
     { label: t`Dashboard`, icon: <IconDashboard size={15} />, to: "/admin/" },
-    { label: t`Users`, icon: <IconUsers size={15} />, to: "/admin/users" },
-    { label: t`Organizations`, icon: <IconBuilding size={15} />, to: "/admin/organizations" },
-    { label: t`Audit Logs`, icon: <IconHistory size={15} />, to: "/admin/audit-logs" },
-    { label: t`Invitations`, icon: <IconMail size={15} />, to: "/admin/invitations" },
-    { label: t`Subscriptions`, icon: <IconCreditCard size={15} />, to: "/admin/subscriptions" },
-    { label: t`Refunds`, icon: <IconReceiptRefund size={15} />, to: "/admin/refunds" },
-    { label: t`Webhook Logs`, icon: <IconWebhook size={15} />, to: "/admin/webhook-logs" },
-    { label: t`Plans`, icon: <IconTags size={15} />, to: "/admin/plans" },
-    { label: t`Announcements`, icon: <IconSpeakerphone size={15} />, to: "/admin/announcements" },
-    { label: t`CMS Pages`, icon: <IconFileText size={15} />, to: "/admin/cms-pages" },
   ];
 
+  // ── Section: User Management ─────────────────────────────────────────────
+  const userMgmtItems: NavItem[] = [
+    { label: t`Users`, icon: <IconUsers size={15} />, to: "/admin/users" },
+    { label: t`Organizations`, icon: <IconBuilding size={15} />, to: "/admin/organizations" },
+    { label: t`Invitations`, icon: <IconMail size={15} />, to: "/admin/invitations" },
+    { label: t`Audit Logs`, icon: <IconHistory size={15} />, to: "/admin/audit-logs" },
+  ];
+
+  // ── Section: Billing & Commerce ──────────────────────────────────────────
+  const billingItems: NavItem[] = [
+    { label: t`Plans`, icon: <IconTags size={15} />, to: "/admin/plans" },
+    { label: t`Subscriptions`, icon: <IconCreditCard size={15} />, to: "/admin/subscriptions" },
+    { label: t`Refunds`, icon: <IconReceiptRefund size={15} />, to: "/admin/refunds" },
+  ];
+
+  // ── Section: Content & Platform ──────────────────────────────────────────
   const addonNavItems: NavItem[] = navigationExtension.getNavItems("workspace").map((item) => {
     const IconComponent = item.icon;
     return {
@@ -77,16 +83,18 @@ export function AdminNav() {
     };
   });
 
-  const navItems = [...baseNavItems, ...addonNavItems];
+  const contentItems: NavItem[] = [
+    { label: t`Announcements`, icon: <IconSpeakerphone size={15} />, to: "/admin/announcements" },
+    { label: t`CMS Pages`, icon: <IconFileText size={15} />, to: "/admin/cms-pages" },
+    { label: t`Webhook Logs`, icon: <IconWebhook size={15} />, to: "/admin/webhook-logs" },
+    ...addonNavItems,
+  ];
 
-  const accountItem: NavItem = {
-    label: t`My Account`,
-    icon: <IconUserCircle size={15} />,
-    to: "/admin/account",
-  };
+  // All nav items flattened for search
+  const allNavItems = [...overviewItems, ...userMgmtItems, ...billingItems, ...contentItems];
 
   const filtered = search.trim()
-    ? navItems.filter((item) => item.label.toLowerCase().includes(search.toLowerCase()))
+    ? allNavItems.filter((item) => item.label.toLowerCase().includes(search.toLowerCase()))
     : null;
 
   const renderItem = (item: NavItem) => {
@@ -115,7 +123,6 @@ export function AdminNav() {
             marginInline: "8px",
             paddingBlock: "7px",
             paddingInline: "10px",
-            // Active: indigo pill; Hover: subtle white tint
             background: isActive ? "var(--app-nav-active-bg)" : "transparent",
             "&:hover": {
               background: isActive ? "var(--app-nav-active-bg)" : "var(--app-nav-hover-bg)",
@@ -173,19 +180,35 @@ export function AdminNav() {
         )
       ) : (
         <>
+          {/* ── Overview ─────────────────────────────────────────────────── */}
           <SectionLabel>
-            <Trans>Platform</Trans>
+            <Trans>Overview</Trans>
           </SectionLabel>
-
-          {navItems.map(renderItem)}
+          {overviewItems.map(renderItem)}
 
           <Divider mx={10} my={6} style={{ borderColor: "var(--app-nav-divider)" }} />
 
+          {/* ── User Management ──────────────────────────────────────────── */}
           <SectionLabel>
-            <Trans>Account</Trans>
+            <Trans>User Management</Trans>
           </SectionLabel>
+          {userMgmtItems.map(renderItem)}
 
-          {renderItem(accountItem)}
+          <Divider mx={10} my={6} style={{ borderColor: "var(--app-nav-divider)" }} />
+
+          {/* ── Billing & Commerce ────────────────────────────────────────── */}
+          <SectionLabel>
+            <Trans>Billing & Commerce</Trans>
+          </SectionLabel>
+          {billingItems.map(renderItem)}
+
+          <Divider mx={10} my={6} style={{ borderColor: "var(--app-nav-divider)" }} />
+
+          {/* ── Content & Platform ────────────────────────────────────────── */}
+          <SectionLabel>
+            <Trans>Content & Platform</Trans>
+          </SectionLabel>
+          {contentItems.map(renderItem)}
         </>
       )}
     </Stack>

@@ -62,9 +62,6 @@ msgstr "Zugriff verweigert"
 msgid "Accessible with proper keyboard handling"
 msgstr "Zugänglich mit ordnungsgemäßer Tastaturbedienung"
 
-#: src/shared/ui/admin-layout/admin-nav.tsx
-msgid "Account"
-msgstr "Konto"
 
 #: src/pages/admin/audit-logs.tsx
 msgid "Action"
@@ -324,6 +321,10 @@ msgstr "Benutzer sperren"
 msgid "Banning this user will immediately invalidate all their active sessions, revoke their access, and send them a notification email. They will not be able to sign in again until unbanned."
 msgstr "Das Sperren dieses Benutzers macht alle aktiven Sitzungen sofort ungültig, entzieht den Zugang und sendet eine Benachrichtigungs-E-Mail. Der Benutzer kann sich erst nach der Entsperrung wieder anmelden."
 
+#: src/shared/ui/admin-layout/admin-nav.tsx
+msgid "Billing & Commerce"
+msgstr ""
+
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Billing address (JSON)"
 msgstr "Rechnungsadresse (JSON)"
@@ -481,6 +482,10 @@ msgstr "Rechtenentzug bestätigen"
 #: src/pages/admin/cms-pages.index.tsx
 msgid "Content"
 msgstr "Inhalt"
+
+#: src/shared/ui/admin-layout/admin-nav.tsx
+msgid "Content & Platform"
+msgstr ""
 
 #: src/features/page-admin/model/types.ts
 msgid "Content is required for the default locale"
@@ -1275,8 +1280,8 @@ msgstr "Schlüssel"
 
 #: src/pages/admin/addons/$addonPath.tsx
 #: src/pages/admin/index.tsx
-msgid "Key Value Admin"
-msgstr "Key Value Admin"
+#~ msgid "Key Value Admin"
+#~ msgstr "Key Value Admin"
 
 #: src/features/edit-tenant/ui/edit-tenant-modal.tsx
 msgid "Key:"
@@ -1439,7 +1444,7 @@ msgid "Must be a valid UUID"
 msgstr "Muss eine gültige UUID sein"
 
 #: src/pages/admin/account.tsx
-#: src/shared/ui/admin-layout/admin-nav.tsx
+#: src/shared/ui/admin-layout/admin-header.tsx
 msgid "My Account"
 msgstr "Mein Konto"
 
@@ -1613,6 +1618,7 @@ msgstr "Nicht erteilt"
 
 #: src/features/notification-bell/ui/notification-bell.tsx
 #: src/pages/admin/notifications.tsx
+#: src/shared/ui/admin-layout/admin-header.tsx
 msgid "Notifications"
 msgstr "Benachrichtigungen"
 
@@ -1719,6 +1725,7 @@ msgstr "Seitentitel für Suchmaschinen überschreiben"
 
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/users.$userId.tsx
+#: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Overview"
 msgstr "Übersicht"
 
@@ -1872,7 +1879,6 @@ msgstr "Tarife"
 #: src/pages/admin/subscriptions.tsx
 #: src/pages/admin/users.index.tsx
 #: src/pages/admin/webhook-logs.tsx
-#: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Platform"
 msgstr "Plattform"
 
@@ -2111,8 +2117,8 @@ msgid "Revoking Platform Admin from <0>{displayName}</0> will remove their full 
 msgstr "Das Entziehen des Plattform-Admin-Rechts von <0>{displayName}</0> entfernt den vollständigen administrativen Zugriff. Die Person kann dann keine Benutzer, Mandanten oder andere nur für Admins zugängliche Ressourcen mehr verwalten."
 
 #: src/pages/admin/addons/$addonPath.tsx
-msgid "Sample"
-msgstr ""
+#~ msgid "Sample"
+#~ msgstr ""
 
 #: src/features/announcement-admin/ui/edit-announcement-modal.tsx
 #: src/features/edit-account/ui/edit-account-modal.tsx
@@ -2171,6 +2177,7 @@ msgid "Search…"
 msgstr "Suchen…"
 
 #: src/features/announcement-admin/model/types.ts
+#: src/shared/ui/admin-layout/admin-header.tsx
 msgid "Security"
 msgstr "Sicherheit"
 
@@ -2308,6 +2315,7 @@ msgid "Sign In"
 msgstr "Anmelden"
 
 #: src/features/sign-out/ui/sign-out-button.tsx
+#: src/shared/ui/admin-layout/admin-header.tsx
 msgid "Sign out"
 msgstr "Abmelden"
 
@@ -2722,6 +2730,14 @@ msgstr "User-Agent"
 #: src/pages/admin/audit-logs.tsx
 msgid "User created"
 msgstr "Benutzer erstellt"
+
+#: src/shared/ui/admin-layout/admin-nav.tsx
+msgid "User Management"
+msgstr ""
+
+#: src/shared/ui/admin-layout/admin-header.tsx
+msgid "User menu"
+msgstr ""
 
 #: src/pages/admin/audit-logs.tsx
 msgid "User updated"

@@ -47,7 +47,7 @@ function AddonPage() {
 
   return (
     <Container size="xl" py={0}>
-      <PageTitle segments={[t`Addons`, t`Sample`]} appTitle={t`Key Value Admin`} />
+      <PageTitle segments={[t`Addons`]} />
       <PageHeader
         title={<Trans>Addon Page</Trans>}
         breadcrumbs={[

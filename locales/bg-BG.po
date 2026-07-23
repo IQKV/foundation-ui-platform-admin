@@ -62,9 +62,6 @@ msgstr "Достъпът е отказан"
 msgid "Accessible with proper keyboard handling"
 msgstr "Достъпно с правилна клавиатурна обработка"
 
-#: src/shared/ui/admin-layout/admin-nav.tsx
-msgid "Account"
-msgstr "Акаунт"
 
 #: src/pages/admin/audit-logs.tsx
 msgid "Action"
@@ -324,6 +321,10 @@ msgstr "Забрани потребител"
 msgid "Banning this user will immediately invalidate all their active sessions, revoke their access, and send them a notification email. They will not be able to sign in again until unbanned."
 msgstr "Забраняването на този потребител незабавно ще анулира всички активни сесии, ще отмени достъпа им и ще изпрати имейл с известие. Те няма да могат да влизат отново, докато не бъдат разблокирани."
 
+#: src/shared/ui/admin-layout/admin-nav.tsx
+msgid "Billing & Commerce"
+msgstr ""
+
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Billing address (JSON)"
 msgstr "Адрес за фактуриране (JSON)"
@@ -481,6 +482,10 @@ msgstr "Потвърдете премахване на привилегии"
 #: src/pages/admin/cms-pages.index.tsx
 msgid "Content"
 msgstr "Съдържание"
+
+#: src/shared/ui/admin-layout/admin-nav.tsx
+msgid "Content & Platform"
+msgstr ""
 
 #: src/features/page-admin/model/types.ts
 msgid "Content is required for the default locale"
@@ -1275,8 +1280,8 @@ msgstr "Ключ"
 
 #: src/pages/admin/addons/$addonPath.tsx
 #: src/pages/admin/index.tsx
-msgid "Key Value Admin"
-msgstr "Key Value Администратор"
+#~ msgid "Key Value Admin"
+#~ msgstr "Key Value Администратор"
 
 #: src/features/edit-tenant/ui/edit-tenant-modal.tsx
 msgid "Key:"
@@ -1439,7 +1444,7 @@ msgid "Must be a valid UUID"
 msgstr "Трябва да е валиден UUID"
 
 #: src/pages/admin/account.tsx
-#: src/shared/ui/admin-layout/admin-nav.tsx
+#: src/shared/ui/admin-layout/admin-header.tsx
 msgid "My Account"
 msgstr "Моят акаунт"
 
@@ -1613,6 +1618,7 @@ msgstr "Не е предоставено"
 
 #: src/features/notification-bell/ui/notification-bell.tsx
 #: src/pages/admin/notifications.tsx
+#: src/shared/ui/admin-layout/admin-header.tsx
 msgid "Notifications"
 msgstr "Известия"
 
@@ -1719,6 +1725,7 @@ msgstr "Замени заглавието на страницата за тър�
 
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/users.$userId.tsx
+#: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Overview"
 msgstr "Преглед"
 
@@ -1872,7 +1879,6 @@ msgstr "Планове"
 #: src/pages/admin/subscriptions.tsx
 #: src/pages/admin/users.index.tsx
 #: src/pages/admin/webhook-logs.tsx
-#: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Platform"
 msgstr "Платформа"
 
@@ -2111,8 +2117,8 @@ msgid "Revoking Platform Admin from <0>{displayName}</0> will remove their full 
 msgstr "Отмяната на правата на платформен администратор от <0>{displayName}</0> ще премахне пълния им административен достъп. Те вече няма да могат да управляват потребители, наематели или други ресурси само за администратори."
 
 #: src/pages/admin/addons/$addonPath.tsx
-msgid "Sample"
-msgstr ""
+#~ msgid "Sample"
+#~ msgstr ""
 
 #: src/features/announcement-admin/ui/edit-announcement-modal.tsx
 #: src/features/edit-account/ui/edit-account-modal.tsx
@@ -2171,6 +2177,7 @@ msgid "Search…"
 msgstr "Търсете…"
 
 #: src/features/announcement-admin/model/types.ts
+#: src/shared/ui/admin-layout/admin-header.tsx
 msgid "Security"
 msgstr "Сигурност"
 
@@ -2308,6 +2315,7 @@ msgid "Sign In"
 msgstr "Вход"
 
 #: src/features/sign-out/ui/sign-out-button.tsx
+#: src/shared/ui/admin-layout/admin-header.tsx
 msgid "Sign out"
 msgstr "Изход"
 
@@ -2722,6 +2730,14 @@ msgstr "Потребителски агент"
 #: src/pages/admin/audit-logs.tsx
 msgid "User created"
 msgstr "Потребителят е създаден"
+
+#: src/shared/ui/admin-layout/admin-nav.tsx
+msgid "User Management"
+msgstr ""
+
+#: src/shared/ui/admin-layout/admin-header.tsx
+msgid "User menu"
+msgstr ""
 
 #: src/pages/admin/audit-logs.tsx
 msgid "User updated"

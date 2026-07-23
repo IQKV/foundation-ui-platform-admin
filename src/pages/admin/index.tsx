@@ -39,7 +39,7 @@ function AdminDashboardPage() {
 
   return (
     <Container size="xl" py={0}>
-      <PageTitle segments={[t`Dashboard`]} appTitle={t`Key Value Admin`} />
+      <PageTitle segments={[t`Dashboard`]} />
       <PageHeader
         title={<Trans>Dashboard</Trans>}
         breadcrumbs={[{ label: <Trans>Home</Trans> }, { label: <Trans>Dashboard</Trans> }]}
