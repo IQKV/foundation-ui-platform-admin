@@ -4,7 +4,7 @@ import { SubCard } from "@/widgets/dashboard-sub-card/ui/sub-card";
 import { useNoteCount, useNoteList, SEVERITY_COLORS } from "../model";
 
 /**
- * SampleMetricsWidget — dashboard widget registered by the sample addon.
+ * HealthNotesMetricsWidget — dashboard widget registered by the sample addon.
  *
  * Shows:
  *   1. Live count of OPEN platform health notes (from /platform-notes/count?status=OPEN)
@@ -13,7 +13,7 @@ import { useNoteCount, useNoteList, SEVERITY_COLORS } from "../model";
  * Demonstrates: useQuery inside a widget, independent loading/error states,
  * linking to the addon full-page route.
  */
-export function SampleMetricsWidget() {
+export function HealthNotesMetricsWidget() {
   const { data: openCount, isLoading: countLoading } = useNoteCount({ status: "OPEN" });
   const { data: criticalNotes, isLoading: listLoading } = useNoteList({
     status: "OPEN",
@@ -39,7 +39,7 @@ export function SampleMetricsWidget() {
               Platform Health Notes
             </Text>
           </Group>
-          <Anchor href="/admin/addons/sample" size="xs" c="dimmed">
+          <Anchor href="/admin/addons/health-notes" size="xs" c="dimmed">
             View all →
           </Anchor>
         </Group>

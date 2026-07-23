@@ -7,7 +7,7 @@ import { useNoteCount } from "../model";
 import { useState } from "react";
 
 /**
- * SamplePage — the addon's full-page route at /admin/addons/sample.
+ * HealthNotesPage — the addon's full-page route at /admin/addons/health-notes.
  *
  * Demonstrates all key React + addon patterns in one place:
  *   - routing  : registered as a lazy route in the addon manifest
@@ -23,7 +23,7 @@ import { useState } from "react";
  *                requires PLATFORM_ADMIN — the httpClient auth-interceptor
  *                attaches the JWT automatically
  */
-export function SamplePage() {
+export function HealthNotesPage() {
   const [activeTab, setActiveTab] = useState<string | null>("list");
 
   // Live count of OPEN notes — drives the badge in the list tab label

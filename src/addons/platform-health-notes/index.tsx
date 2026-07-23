@@ -2,8 +2,8 @@ import type { Addon } from "@/app/addons/types";
 import { IconNotes } from "@tabler/icons-react";
 // ── Addon-local imports only ──────────────────────────────────────────────────
 import { platformNotesApi } from "./api/platform-notes-api";
-import { SampleMetricsWidget } from "./ui/sample-metrics-widget";
-import { SamplePage } from "./ui/sample-page";
+import { HealthNotesMetricsWidget } from "./ui/health-notes-metrics-widget";
+import { HealthNotesPage } from "./ui/health-notes";
 
 /**
  * platform-health-notes addon
@@ -15,7 +15,7 @@ import { SamplePage } from "./ui/sample-page";
  *                AddonContext, so the addon inherits auth interceptors and baseURL
  *                without importing anything from @/shared/*.
  *
- *   Routing    — lazy page route at /admin/addons/sample
+ *   Routing    — lazy page route at /admin/addons/health-notes
  *   Navigation — sidebar nav item injected via NavigationExtensionPoint
  *   Widget     — dashboard widget registered via WidgetExtensionPoint
  *   Backend    — GET|POST|PUT|PATCH|DELETE /api/v1/iam/admin/platform-notes
@@ -51,7 +51,7 @@ export default {
     extensions.navigation.registerNavItem({
       id: "platform-health-notes-nav",
       label: "Health Notes",
-      to: "/admin/addons/sample",
+      to: "/admin/addons/health-notes",
       icon: ({ size }) => <IconNotes size={size} />,
       section: "workspace",
       order: 50,
@@ -60,7 +60,7 @@ export default {
     // ── Dashboard widget ─────────────────────────────────────────────────
     extensions.widgets.registerWidget({
       id: "platform-health-notes-widget",
-      component: SampleMetricsWidget,
+      component: HealthNotesMetricsWidget,
       location: "dashboard",
       order: 30,
     });
@@ -68,8 +68,8 @@ export default {
 
   routes: [
     {
-      path: "/admin/addons/sample",
-      component: async () => ({ default: SamplePage }),
+      path: "/admin/addons/health-notes",
+      component: async () => ({ default: HealthNotesPage }),
       auth: true,
     },
   ],
