@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-**IQ Key Value Foundation UI Platform Admin** - A production-ready admin interface for the IQ Key Value platform, built with modern React tooling and Feature-Sliced Design (FSD) architecture.
+**iQ Key Value Foundation UI Platform Admin** - A production-ready admin interface for the iQ Key Value platform, built with modern React tooling and Feature-Sliced Design (FSD) architecture.
 
 **Key Characteristics:**
 
