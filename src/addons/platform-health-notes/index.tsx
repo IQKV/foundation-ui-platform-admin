@@ -35,7 +35,7 @@ export default {
     description:
       "Reference addon demonstrating routing, tabs, forms, validation, data fetching, " +
       "mutations, and a real PLATFORM_ADMIN backend API — with a fully isolated API layer.",
-    author: "IQKV Foundation Team",
+    author: "iQKV Foundation Team",
     permissions: {
       roles: ["PLATFORM_ADMIN"],
     },
