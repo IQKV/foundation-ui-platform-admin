@@ -94,10 +94,7 @@ function WebhookLogDetailPage() {
 
   return (
     <Container size="md" py={0}>
-      <PageTitle
-        segments={[log ? `Webhook Log ${log.eventType}` : t`Loading…`]}
-        appTitle="Key Value Admin"
-      />
+      <PageTitle segments={[log ? `Webhook Log ${log.eventType}` : t`Loading…`]} />
       <PageHeader
         title={
           log ? (

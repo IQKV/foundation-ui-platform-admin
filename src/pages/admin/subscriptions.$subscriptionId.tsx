@@ -218,10 +218,7 @@ function SubscriptionDetailPage() {
 
   return (
     <Container size="md" py={0}>
-      <PageTitle
-        segments={[subscription ? `Subscription ${subscription.id}` : t`Loading…`]}
-        appTitle="Key Value Admin"
-      />
+      <PageTitle segments={[subscription ? `Subscription ${subscription.id}` : t`Loading…`]} />
       <PageHeader
         title={
           subscription ? (

@@ -1,10 +1,16 @@
 import type { ReactNode } from "react";
 import { Box, Flex, Group, Stack, Text, Title, useMantineColorScheme } from "@mantine/core";
 import { IconShieldHalf } from "@tabler/icons-react";
-import { Trans } from "@lingui/react/macro";
 import { APP_TITLE } from "@/shared/lib/page-title";
 import { ColorSchemeToggle } from "@/shared/ui/color-scheme-toggle/color-scheme-toggle";
 import { LocaleSwitcher } from "@/shared/ui/locale-switcher/locale-switcher";
+import {
+  authSectionLabel,
+  authBadges,
+  authHeadline1,
+  authHeadline2,
+  authTagline,
+} from "@/app/config/runtime-env";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -142,10 +148,10 @@ function BrandPanel({ headline, tagline }: BrandPanelProps) {
           size="xs"
           style={{ letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}
         >
-          <Trans>Operator access only</Trans>
+          {authSectionLabel}
         </Text>
         <Flex gap="xl" wrap="wrap">
-          {["SOC 2 Type II", "GDPR Ready"].map((badge) => (
+          {authBadges.map((badge) => (
             <Text key={badge} c="rgba(255,255,255,0.5)" size="sm" fw={500}>
               ✦ {badge}
             </Text>
@@ -213,7 +219,7 @@ function FormPanel({ children }: { children: ReactNode }) {
 function DefaultHeadline() {
   return (
     <>
-      <Trans>Platform control,</Trans>
+      {authHeadline1}
       <br />
       <Text
         component="span"
@@ -224,19 +230,14 @@ function DefaultHeadline() {
           WebkitTextFillColor: "transparent",
         }}
       >
-        <Trans>fully in your hands.</Trans>
+        {authHeadline2}
       </Text>
     </>
   );
 }
 
 function DefaultTagline() {
-  return (
-    <Trans>
-      Manage users, organizations, and subscriptions across all tenants — secured by platform-level
-      authentication.
-    </Trans>
-  );
+  return <>{authTagline}</>;
 }
 
 // ─── Layout ───────────────────────────────────────────────────────────────────

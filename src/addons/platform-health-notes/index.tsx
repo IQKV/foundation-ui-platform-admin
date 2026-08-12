@@ -1,5 +1,6 @@
 import type { Addon } from "@/app/addons/types";
 import { IconNotes } from "@tabler/icons-react";
+import { vendorName } from "@/app/config/runtime-env";
 // ── Addon-local imports only ──────────────────────────────────────────────────
 import { platformNotesApi } from "./api/platform-notes-api";
 import { HealthNotesMetricsWidget } from "./ui/health-notes-metrics-widget";
@@ -35,7 +36,7 @@ export default {
     description:
       "Reference addon demonstrating routing, tabs, forms, validation, data fetching, " +
       "mutations, and a real PLATFORM_ADMIN backend API — with a fully isolated API layer.",
-    author: "iQKV Foundation Team",
+    author: vendorName,
     permissions: {
       roles: ["PLATFORM_ADMIN"],
     },
