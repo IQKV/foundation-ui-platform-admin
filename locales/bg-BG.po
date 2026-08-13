@@ -62,7 +62,6 @@ msgstr "Достъпът е отказан"
 msgid "Accessible with proper keyboard handling"
 msgstr "Достъпно с правилна клавиатурна обработка"
 
-
 #: src/pages/admin/audit-logs.tsx
 msgid "Action"
 msgstr "Действие"
@@ -205,7 +204,6 @@ msgid "Announcement title"
 msgstr "Заглавие на обявлението"
 
 #: src/pages/admin/announcements.index.tsx
-#: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Announcements"
 msgstr "Обявления"
 
@@ -274,7 +272,6 @@ msgid "Attention Required"
 msgstr "Необходимо е внимание"
 
 #: src/pages/admin/audit-logs.tsx
-#: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Audit Logs"
 msgstr "Одиторски регистри"
 
@@ -322,8 +319,8 @@ msgid "Banning this user will immediately invalidate all their active sessions, 
 msgstr "Забраняването на този потребител незабавно ще анулира всички активни сесии, ще отмени достъпа им и ще изпрати имейл с известие. Те няма да могат да влизат отново, докато не бъдат разблокирани."
 
 #: src/shared/ui/admin-layout/admin-nav.tsx
-msgid "Billing & Commerce"
-msgstr ""
+#~ msgid "Billing & Commerce"
+#~ msgstr ""
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Billing address (JSON)"
@@ -442,7 +439,6 @@ msgstr "Затвори"
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 #: src/pages/admin/cms-pages.index.tsx
-#: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "CMS Pages"
 msgstr "CMS Страници"
 
@@ -484,8 +480,8 @@ msgid "Content"
 msgstr "Съдържание"
 
 #: src/shared/ui/admin-layout/admin-nav.tsx
-msgid "Content & Platform"
-msgstr ""
+#~ msgid "Content & Platform"
+#~ msgstr ""
 
 #: src/features/page-admin/model/types.ts
 msgid "Content is required for the default locale"
@@ -684,7 +680,6 @@ msgstr "Дневно"
 
 #: src/pages/admin/addons/$addonPath.tsx
 #: src/pages/admin/index.tsx
-#: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Dashboard"
 msgstr "Табло"
 
@@ -1114,8 +1109,8 @@ msgid "Full-screen centered loader shown on first app load (while locale initial
 msgstr "Цялоекранен центриран индикатор при първото зареждане на приложението (докато локалът се инициализира)."
 
 #: src/shared/ui/auth-layout/auth-layout.tsx
-msgid "fully in your hands."
-msgstr "изцяло в ръцете ви."
+#~ msgid "fully in your hands."
+#~ msgstr "изцяло в ръцете ви."
 
 #: src/pages/404.tsx
 #: src/pages/500.tsx
@@ -1239,7 +1234,6 @@ msgid "Invitation Details"
 msgstr "Детайли на поканата"
 
 #: src/pages/admin/invitations.index.tsx
-#: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Invitations"
 msgstr "Покани"
 
@@ -1384,8 +1378,8 @@ msgid "Manage users"
 msgstr "Управление на потребители"
 
 #: src/shared/ui/auth-layout/auth-layout.tsx
-msgid "Manage users, organizations, and subscriptions across all tenants — secured by platform-level authentication."
-msgstr "Управлявайте потребители, организации и абонаменти за всички наематели — защитено с платформено удостоверяване."
+#~ msgid "Manage users, organizations, and subscriptions across all tenants — secured by platform-level authentication."
+#~ msgstr "Управлявайте потребители, организации и абонаменти за всички наематели — защитено с платформено удостоверяване."
 
 #: src/pages/admin/subscriptions.tsx
 msgid "Management"
@@ -1662,8 +1656,8 @@ msgid "Operation failed"
 msgstr "Операцията не успя"
 
 #: src/shared/ui/auth-layout/auth-layout.tsx
-msgid "Operator access only"
-msgstr "Само достъп за оператори"
+#~ msgid "Operator access only"
+#~ msgstr "Само достъп за оператори"
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
@@ -1715,7 +1709,6 @@ msgstr "организация(и)"
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/organizations.index.tsx
 #: src/pages/admin/users.$userId.tsx
-#: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Organizations"
 msgstr "Организации"
 
@@ -1725,7 +1718,6 @@ msgstr "Замени заглавието на страницата за тър�
 
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/users.$userId.tsx
-#: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Overview"
 msgstr "Преглед"
 
@@ -1866,7 +1858,6 @@ msgstr "ID на план"
 
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/plans.index.tsx
-#: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Plans"
 msgstr "Планове"
 
@@ -1899,8 +1890,8 @@ msgid "Platform Authority"
 msgstr "Платформен авторитет"
 
 #: src/shared/ui/auth-layout/auth-layout.tsx
-msgid "Platform control,"
-msgstr "Контрол на платформата,"
+#~ msgid "Platform control,"
+#~ msgstr "Контрол на платформата,"
 
 #: src/pages/admin/index.tsx
 msgid "Platform Overview"
@@ -2041,7 +2032,6 @@ msgstr "ID на възстановяване"
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/refunds.$refundId.tsx
 #: src/pages/admin/refunds.tsx
-#: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Refunds"
 msgstr "Възстановявания"
 
@@ -2438,7 +2428,6 @@ msgstr "Абонаментът е актуализиран"
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 #: src/pages/admin/subscriptions.tsx
-#: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Subscriptions"
 msgstr "Абонаменти"
 
@@ -2732,8 +2721,8 @@ msgid "User created"
 msgstr "Потребителят е създаден"
 
 #: src/shared/ui/admin-layout/admin-nav.tsx
-msgid "User Management"
-msgstr ""
+#~ msgid "User Management"
+#~ msgstr ""
 
 #: src/shared/ui/admin-layout/admin-header.tsx
 msgid "User menu"
@@ -2745,7 +2734,6 @@ msgstr "Потребителят е актуализиран"
 
 #: src/pages/admin/users.$userId.tsx
 #: src/pages/admin/users.index.tsx
-#: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Users"
 msgstr "Потребители"
 
@@ -2825,7 +2813,6 @@ msgstr "Webhook журнал"
 
 #: src/pages/admin/webhook-logs.$webhookLogId.tsx
 #: src/pages/admin/webhook-logs.tsx
-#: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Webhook Logs"
 msgstr "Webhook журнали"
 

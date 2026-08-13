@@ -17,7 +17,7 @@ interface AdminHeaderProps {
   onToggle: () => void;
 }
 
-function UserMenu() {
+export function AdminHeaderUserMenu() {
   const { t } = useLingui();
   const { isLoading, signOut } = useSignOut();
   const navigate = useNavigate();
@@ -129,7 +129,7 @@ export function AdminHeader({ opened, onToggle }: AdminHeaderProps) {
         <LocaleSwitcher />
         <ColorSchemeToggle />
         <NotificationBell />
-        <UserMenu />
+        <AdminHeaderUserMenu />
       </Group>
     </Group>
   );

@@ -16,6 +16,7 @@ const ENV_KEYS = [
   "VITE_APP_AUTH_HEADLINE_2",
   "VITE_APP_AUTH_TAGLINE",
   "VITE_APP_VENDOR_NAME",
+  "VITE_APP_NAV_VARIANT",
 ] as const;
 
 export const clientBuildEnv: Record<string, string | undefined> = Object.fromEntries(
@@ -51,3 +52,16 @@ export const authTagline = getConfig(
 )!;
 
 export const vendorName = getConfig("VITE_APP_VENDOR_NAME", "iQKV Foundation Team")!;
+
+/**
+ * Navigation layout variant.
+ *
+ * "sidebar"  — original left sidebar with section groups (default).
+ * "topbar"   — two-level horizontal top navigation (L1 section tabs + L2 item strip).
+ *
+ * Set via VITE_APP_NAV_VARIANT env var or window.VITE_APP_NAV_VARIANT at runtime.
+ */
+export type NavVariant = "sidebar" | "topbar";
+
+export const navVariant: NavVariant =
+  getConfig("VITE_APP_NAV_VARIANT", "sidebar") === "topbar" ? "topbar" : "sidebar";

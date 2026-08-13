@@ -1,6 +1,6 @@
 import { createFileRoute, isRedirect, Outlet, redirect, useNavigate } from "@tanstack/react-router";
 import { Center, Loader } from "@mantine/core";
-import { AdminLayout } from "@/shared/ui";
+import { AdminLayout, AdminLayoutTopNav } from "@/shared/ui";
 import { httpClient } from "@/shared/api/http-client";
 import { decodeJwt, hasPlatformAdmin } from "@/shared/lib/jwt";
 import { authApi } from "@/shared/api/auth";
@@ -12,6 +12,7 @@ import {
   useSessionStore,
 } from "@/processes/session";
 import { useInactivityTimer } from "@/processes/inactivity-timer";
+import { navVariant } from "@/app/config/runtime-env";
 
 // ─── Route ────────────────────────────────────────────────────────────────────
 
@@ -121,9 +122,11 @@ function AdminLayoutRoute() {
     );
   }
 
+  const Layout = navVariant === "topbar" ? AdminLayoutTopNav : AdminLayout;
+
   return (
-    <AdminLayout>
+    <Layout>
       <Outlet />
-    </AdminLayout>
+    </Layout>
   );
 }

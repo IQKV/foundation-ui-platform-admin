@@ -62,7 +62,6 @@ msgstr "Access Denied"
 msgid "Accessible with proper keyboard handling"
 msgstr "Accessible with proper keyboard handling"
 
-
 #: src/pages/admin/audit-logs.tsx
 msgid "Action"
 msgstr "Action"
@@ -205,7 +204,6 @@ msgid "Announcement title"
 msgstr "Announcement title"
 
 #: src/pages/admin/announcements.index.tsx
-#: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Announcements"
 msgstr "Announcements"
 
@@ -274,7 +272,6 @@ msgid "Attention Required"
 msgstr "Attention Required"
 
 #: src/pages/admin/audit-logs.tsx
-#: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Audit Logs"
 msgstr "Audit Logs"
 
@@ -322,8 +319,8 @@ msgid "Banning this user will immediately invalidate all their active sessions, 
 msgstr "Banning this user will immediately invalidate all their active sessions, revoke their access, and send them a notification email. They will not be able to sign in again until unbanned."
 
 #: src/shared/ui/admin-layout/admin-nav.tsx
-msgid "Billing & Commerce"
-msgstr "Billing & Commerce"
+#~ msgid "Billing & Commerce"
+#~ msgstr "Billing & Commerce"
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Billing address (JSON)"
@@ -442,7 +439,6 @@ msgstr "Close"
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 #: src/pages/admin/cms-pages.index.tsx
-#: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "CMS Pages"
 msgstr "CMS Pages"
 
@@ -484,8 +480,8 @@ msgid "Content"
 msgstr "Content"
 
 #: src/shared/ui/admin-layout/admin-nav.tsx
-msgid "Content & Platform"
-msgstr "Content & Platform"
+#~ msgid "Content & Platform"
+#~ msgstr "Content & Platform"
 
 #: src/features/page-admin/model/types.ts
 msgid "Content is required for the default locale"
@@ -684,7 +680,6 @@ msgstr "Daily"
 
 #: src/pages/admin/addons/$addonPath.tsx
 #: src/pages/admin/index.tsx
-#: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Dashboard"
 msgstr "Dashboard"
 
@@ -1114,8 +1109,8 @@ msgid "Full-screen centered loader shown on first app load (while locale initial
 msgstr "Full-screen centered loader shown on first app load (while locale initializes)."
 
 #: src/shared/ui/auth-layout/auth-layout.tsx
-msgid "fully in your hands."
-msgstr "fully in your hands."
+#~ msgid "fully in your hands."
+#~ msgstr "fully in your hands."
 
 #: src/pages/404.tsx
 #: src/pages/500.tsx
@@ -1239,7 +1234,6 @@ msgid "Invitation Details"
 msgstr "Invitation Details"
 
 #: src/pages/admin/invitations.index.tsx
-#: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Invitations"
 msgstr "Invitations"
 
@@ -1384,8 +1378,8 @@ msgid "Manage users"
 msgstr "Manage users"
 
 #: src/shared/ui/auth-layout/auth-layout.tsx
-msgid "Manage users, organizations, and subscriptions across all tenants — secured by platform-level authentication."
-msgstr "Manage users, organizations, and subscriptions across all tenants — secured by platform-level authentication."
+#~ msgid "Manage users, organizations, and subscriptions across all tenants — secured by platform-level authentication."
+#~ msgstr "Manage users, organizations, and subscriptions across all tenants — secured by platform-level authentication."
 
 #: src/pages/admin/subscriptions.tsx
 msgid "Management"
@@ -1662,8 +1656,8 @@ msgid "Operation failed"
 msgstr "Operation failed"
 
 #: src/shared/ui/auth-layout/auth-layout.tsx
-msgid "Operator access only"
-msgstr "Operator access only"
+#~ msgid "Operator access only"
+#~ msgstr "Operator access only"
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
@@ -1715,7 +1709,6 @@ msgstr "organization(s)"
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/organizations.index.tsx
 #: src/pages/admin/users.$userId.tsx
-#: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Organizations"
 msgstr "Organizations"
 
@@ -1725,7 +1718,6 @@ msgstr "Override page title for search engines"
 
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/users.$userId.tsx
-#: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Overview"
 msgstr "Overview"
 
@@ -1866,7 +1858,6 @@ msgstr "Plan ID"
 
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/plans.index.tsx
-#: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Plans"
 msgstr "Plans"
 
@@ -1899,8 +1890,8 @@ msgid "Platform Authority"
 msgstr "Platform Authority"
 
 #: src/shared/ui/auth-layout/auth-layout.tsx
-msgid "Platform control,"
-msgstr "Platform control,"
+#~ msgid "Platform control,"
+#~ msgstr "Platform control,"
 
 #: src/pages/admin/index.tsx
 msgid "Platform Overview"
@@ -2041,7 +2032,6 @@ msgstr "Refund ID"
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/refunds.$refundId.tsx
 #: src/pages/admin/refunds.tsx
-#: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Refunds"
 msgstr "Refunds"
 
@@ -2438,7 +2428,6 @@ msgstr "Subscription updated"
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 #: src/pages/admin/subscriptions.tsx
-#: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Subscriptions"
 msgstr "Subscriptions"
 
@@ -2732,8 +2721,8 @@ msgid "User created"
 msgstr "User created"
 
 #: src/shared/ui/admin-layout/admin-nav.tsx
-msgid "User Management"
-msgstr "User Management"
+#~ msgid "User Management"
+#~ msgstr "User Management"
 
 #: src/shared/ui/admin-layout/admin-header.tsx
 msgid "User menu"
@@ -2745,7 +2734,6 @@ msgstr "User updated"
 
 #: src/pages/admin/users.$userId.tsx
 #: src/pages/admin/users.index.tsx
-#: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Users"
 msgstr "Users"
 
@@ -2825,7 +2813,6 @@ msgstr "Webhook Log"
 
 #: src/pages/admin/webhook-logs.$webhookLogId.tsx
 #: src/pages/admin/webhook-logs.tsx
-#: src/shared/ui/admin-layout/admin-nav.tsx
 msgid "Webhook Logs"
 msgstr "Webhook Logs"
 
