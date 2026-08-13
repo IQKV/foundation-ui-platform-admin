@@ -51,7 +51,7 @@ export function AdminNav() {
   const filtered = search.trim()
     ? allNavItems.filter((item) => {
         // Convert ReactNode label to string for searching
-        const labelText = typeof item.label === 'string' ? item.label : String(item.label);
+        const labelText = typeof item.label === "string" ? item.label : String(item.label);
         return labelText.toLowerCase().includes(search.toLowerCase());
       })
     : null;
