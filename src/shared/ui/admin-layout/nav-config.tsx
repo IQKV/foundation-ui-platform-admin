@@ -11,12 +11,12 @@
  */
 
 import type { ComponentType } from "react";
-import type { MacroMessageDescriptor } from "@lingui/core/macro";
+import { Trans } from "@lingui/react/macro";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 export interface NavItem {
-  label: string;
+  label: React.ReactNode;
   /** Tabler icon component (not yet instantiated — callers size it themselves). */
   icon: ComponentType<{ size?: number }>;
   to: string;
@@ -25,7 +25,7 @@ export interface NavItem {
 export interface NavSection {
   /** Stable machine key — used for matching and test selectors. */
   id: string;
-  label: string;
+  label: React.ReactNode;
   /** Route prefixes that mark this section as "active". */
   prefixes: string[];
   items: NavItem[];
@@ -50,56 +50,45 @@ import {
 // ─── Sections ─────────────────────────────────────────────────────────────────
 
 /**
- * The `t` tagged-template function from Lingui's `useLingui()` hook.
- * Typed to match the exact overloaded signature returned by the macro.
- */
-export type LinguiT = {
-  (descriptor: MacroMessageDescriptor): string;
-  (literals: TemplateStringsArray, ...placeholders: any[]): string;
-};
-
-/**
  * Returns the full navigation section tree.
  *
- * Accepts translated labels so callers (which have i18n context) can pass them
- * in. Addon items for the Content section are also injected by the caller so
+ * Addon items for the Content section are injected by the caller so
  * this module stays free of side-effects and React hooks.
  *
- * @param t       Lingui `t` tagged-template function from `useLingui()`
  * @param addonItems  Extra NavItems appended to the Content & Platform section
  */
-export function buildNavSections(t: LinguiT, addonItems: NavItem[] = []): NavSection[] {
+export function buildNavSections(addonItems: NavItem[] = []): NavSection[] {
   return [
     {
       id: "overview",
-      label: String(t`Overview`),
+      label: <Trans>Overview</Trans>,
       prefixes: ["/admin/"],
-      items: [{ label: String(t`Dashboard`), icon: IconDashboard, to: "/admin/" }],
+      items: [{ label: <Trans>Dashboard</Trans>, icon: IconDashboard, to: "/admin/" }],
     },
     {
       id: "users",
-      label: String(t`User Management`),
+      label: <Trans>User Management</Trans>,
       prefixes: ["/admin/users", "/admin/organizations", "/admin/invitations", "/admin/audit-logs"],
       items: [
-        { label: String(t`Users`), icon: IconUsers, to: "/admin/users" },
-        { label: String(t`Organizations`), icon: IconBuilding, to: "/admin/organizations" },
-        { label: String(t`Invitations`), icon: IconMail, to: "/admin/invitations" },
-        { label: String(t`Audit Logs`), icon: IconHistory, to: "/admin/audit-logs" },
+        { label: <Trans>Users</Trans>, icon: IconUsers, to: "/admin/users" },
+        { label: <Trans>Organizations</Trans>, icon: IconBuilding, to: "/admin/organizations" },
+        { label: <Trans>Invitations</Trans>, icon: IconMail, to: "/admin/invitations" },
+        { label: <Trans>Audit Logs</Trans>, icon: IconHistory, to: "/admin/audit-logs" },
       ],
     },
     {
       id: "billing",
-      label: String(t`Billing & Commerce`),
+      label: <Trans>Billing & Commerce</Trans>,
       prefixes: ["/admin/plans", "/admin/subscriptions", "/admin/refunds"],
       items: [
-        { label: String(t`Plans`), icon: IconTags, to: "/admin/plans" },
-        { label: String(t`Subscriptions`), icon: IconCreditCard, to: "/admin/subscriptions" },
-        { label: String(t`Refunds`), icon: IconReceiptRefund, to: "/admin/refunds" },
+        { label: <Trans>Plans</Trans>, icon: IconTags, to: "/admin/plans" },
+        { label: <Trans>Subscriptions</Trans>, icon: IconCreditCard, to: "/admin/subscriptions" },
+        { label: <Trans>Refunds</Trans>, icon: IconReceiptRefund, to: "/admin/refunds" },
       ],
     },
     {
       id: "content",
-      label: String(t`Content & Platform`),
+      label: <Trans>Content & Platform</Trans>,
       prefixes: [
         "/admin/announcements",
         "/admin/cms-pages",
@@ -107,9 +96,9 @@ export function buildNavSections(t: LinguiT, addonItems: NavItem[] = []): NavSec
         "/admin/addons",
       ],
       items: [
-        { label: String(t`Announcements`), icon: IconSpeakerphone, to: "/admin/announcements" },
-        { label: String(t`CMS Pages`), icon: IconFileText, to: "/admin/cms-pages" },
-        { label: String(t`Webhook Logs`), icon: IconWebhook, to: "/admin/webhook-logs" },
+        { label: <Trans>Announcements</Trans>, icon: IconSpeakerphone, to: "/admin/announcements" },
+        { label: <Trans>CMS Pages</Trans>, icon: IconFileText, to: "/admin/cms-pages" },
+        { label: <Trans>Webhook Logs</Trans>, icon: IconWebhook, to: "/admin/webhook-logs" },
         ...addonItems,
       ],
     },

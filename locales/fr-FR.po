@@ -204,6 +204,7 @@ msgid "Announcement title"
 msgstr "Titre de l'annonce"
 
 #: src/pages/admin/announcements.index.tsx
+#: src/shared/ui/admin-layout/nav-config.tsx
 msgid "Announcements"
 msgstr "Annonces"
 
@@ -272,6 +273,7 @@ msgid "Attention Required"
 msgstr "Attention requise"
 
 #: src/pages/admin/audit-logs.tsx
+#: src/shared/ui/admin-layout/nav-config.tsx
 msgid "Audit Logs"
 msgstr "Journaux d'audit"
 
@@ -318,9 +320,9 @@ msgstr "Bannir l'utilisateur"
 msgid "Banning this user will immediately invalidate all their active sessions, revoke their access, and send them a notification email. They will not be able to sign in again until unbanned."
 msgstr "Bannir cet utilisateur invalidera immédiatement toutes ses sessions actives, révoquera son accès et lui enverra un e-mail de notification. Il ne pourra plus se connecter tant qu'il ne sera pas débanni."
 
-#: src/shared/ui/admin-layout/admin-nav.tsx
-#~ msgid "Billing & Commerce"
-#~ msgstr ""
+#: src/shared/ui/admin-layout/nav-config.tsx
+msgid "Billing & Commerce"
+msgstr ""
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Billing address (JSON)"
@@ -439,6 +441,7 @@ msgstr "Fermer"
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 #: src/pages/admin/cms-pages.index.tsx
+#: src/shared/ui/admin-layout/nav-config.tsx
 msgid "CMS Pages"
 msgstr "Pages CMS"
 
@@ -479,9 +482,9 @@ msgstr "Confirmer la suppression des privilèges"
 msgid "Content"
 msgstr "Contenu"
 
-#: src/shared/ui/admin-layout/admin-nav.tsx
-#~ msgid "Content & Platform"
-#~ msgstr ""
+#: src/shared/ui/admin-layout/nav-config.tsx
+msgid "Content & Platform"
+msgstr ""
 
 #: src/features/page-admin/model/types.ts
 msgid "Content is required for the default locale"
@@ -680,6 +683,7 @@ msgstr "Quotidien"
 
 #: src/pages/admin/addons/$addonPath.tsx
 #: src/pages/admin/index.tsx
+#: src/shared/ui/admin-layout/nav-config.tsx
 msgid "Dashboard"
 msgstr "Tableau de bord"
 
@@ -1234,6 +1238,7 @@ msgid "Invitation Details"
 msgstr "Détails de l'invitation"
 
 #: src/pages/admin/invitations.index.tsx
+#: src/shared/ui/admin-layout/nav-config.tsx
 msgid "Invitations"
 msgstr "Invitations"
 
@@ -1709,6 +1714,7 @@ msgstr "organisation(s)"
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/organizations.index.tsx
 #: src/pages/admin/users.$userId.tsx
+#: src/shared/ui/admin-layout/nav-config.tsx
 msgid "Organizations"
 msgstr "Organisations"
 
@@ -1718,6 +1724,7 @@ msgstr "Remplacer le titre de la page pour les moteurs de recherche"
 
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/users.$userId.tsx
+#: src/shared/ui/admin-layout/nav-config.tsx
 msgid "Overview"
 msgstr "Vue d'ensemble"
 
@@ -1858,6 +1865,7 @@ msgstr "ID du forfait"
 
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/plans.index.tsx
+#: src/shared/ui/admin-layout/nav-config.tsx
 msgid "Plans"
 msgstr "Forfaits"
 
@@ -2032,6 +2040,7 @@ msgstr "ID de remboursement"
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/refunds.$refundId.tsx
 #: src/pages/admin/refunds.tsx
+#: src/shared/ui/admin-layout/nav-config.tsx
 msgid "Refunds"
 msgstr "Remboursements"
 
@@ -2428,6 +2437,7 @@ msgstr "Abonnement mis à jour"
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 #: src/pages/admin/subscriptions.tsx
+#: src/shared/ui/admin-layout/nav-config.tsx
 msgid "Subscriptions"
 msgstr "Abonnements"
 
@@ -2720,9 +2730,9 @@ msgstr "Agent utilisateur"
 msgid "User created"
 msgstr "Utilisateur créé"
 
-#: src/shared/ui/admin-layout/admin-nav.tsx
-#~ msgid "User Management"
-#~ msgstr ""
+#: src/shared/ui/admin-layout/nav-config.tsx
+msgid "User Management"
+msgstr ""
 
 #: src/shared/ui/admin-layout/admin-header.tsx
 msgid "User menu"
@@ -2734,6 +2744,7 @@ msgstr "Utilisateur mis à jour"
 
 #: src/pages/admin/users.$userId.tsx
 #: src/pages/admin/users.index.tsx
+#: src/shared/ui/admin-layout/nav-config.tsx
 msgid "Users"
 msgstr "Utilisateurs"
 
@@ -2813,6 +2824,7 @@ msgstr "Journal webhook"
 
 #: src/pages/admin/webhook-logs.$webhookLogId.tsx
 #: src/pages/admin/webhook-logs.tsx
+#: src/shared/ui/admin-layout/nav-config.tsx
 msgid "Webhook Logs"
 msgstr "Journaux webhook"
 

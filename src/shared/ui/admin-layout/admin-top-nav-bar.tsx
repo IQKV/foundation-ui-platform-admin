@@ -22,7 +22,6 @@
 import { Group, Box, UnstyledButton, Text, Burger, Drawer, Stack, Divider } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { useNavigate, useRouterState } from "@tanstack/react-router";
-import { useLingui } from "@lingui/react/macro";
 import { NavBrandMark } from "./nav-brand-mark";
 import { NavItemRenderer } from "./nav-item-renderer";
 import { buildNavSections, getActiveSection, type NavSection, type NavItem } from "./nav-config";
@@ -72,7 +71,6 @@ function SectionTab({ section, isActive, onClick }: SectionTabProps) {
 // ─── AdminTopNavBar ───────────────────────────────────────────────────────────
 
 export function AdminTopNavBar() {
-  const { t } = useLingui();
   const navigate = useNavigate();
   const routerState = useRouterState();
   const currentPath = routerState.location.pathname;
@@ -84,7 +82,7 @@ export function AdminTopNavBar() {
     to: item.to,
   }));
 
-  const sections = buildNavSections(t, addonNavItems);
+  const sections = buildNavSections(addonNavItems);
   const activeSection = getActiveSection(sections, currentPath);
 
   const handleSectionClick = (section: NavSection) => {

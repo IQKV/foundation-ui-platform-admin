@@ -22,13 +22,11 @@
 
 import { Group, Box } from "@mantine/core";
 import { useRouterState } from "@tanstack/react-router";
-import { useLingui } from "@lingui/react/macro";
 import { buildNavSections, getActiveSection, type NavItem } from "./nav-config";
 import { NavItemRenderer } from "./nav-item-renderer";
 import { navigationExtension } from "@/app/addons";
 
 export function AdminSubNavBar() {
-  const { t } = useLingui();
   const routerState = useRouterState();
   const currentPath = routerState.location.pathname;
 
@@ -38,7 +36,7 @@ export function AdminSubNavBar() {
     to: item.to,
   }));
 
-  const sections = buildNavSections(t, addonNavItems);
+  const sections = buildNavSections(addonNavItems);
   const activeSection = getActiveSection(sections, currentPath);
 
   // Nothing to show — don't reserve space

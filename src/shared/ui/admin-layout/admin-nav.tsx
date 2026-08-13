@@ -31,10 +31,10 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 }
 
 export function AdminNav() {
-  const { t } = useLingui();
   const routerState = useRouterState();
   const currentPath = routerState.location.pathname;
   const [search, setSearch] = useState("");
+  const { t } = useLingui();
 
   // Resolve addon items (registered before first render in main.tsx bootstrap)
   const addonNavItems: NavItem[] = navigationExtension.getNavItems("workspace").map((item) => ({
@@ -43,13 +43,17 @@ export function AdminNav() {
     to: item.to,
   }));
 
-  const sections = buildNavSections(t, addonNavItems);
+  const sections = buildNavSections(addonNavItems);
 
   // All items flattened for the search filter
   const allNavItems = sections.flatMap((s) => s.items);
 
   const filtered = search.trim()
-    ? allNavItems.filter((item) => item.label.toLowerCase().includes(search.toLowerCase()))
+    ? allNavItems.filter((item) => {
+        // Convert ReactNode label to string for searching
+        const labelText = typeof item.label === 'string' ? item.label : String(item.label);
+        return labelText.toLowerCase().includes(search.toLowerCase());
+      })
     : null;
 
   return (
