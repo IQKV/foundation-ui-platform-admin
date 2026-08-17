@@ -1,5 +1,6 @@
 export * from "./page-title";
 export * from "./jwt";
+export * from "./motion";
 export * from "./query-client";
 export * from "./test-selectors";
 export * from "./user-utils";
