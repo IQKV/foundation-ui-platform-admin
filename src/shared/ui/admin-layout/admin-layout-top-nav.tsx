@@ -21,7 +21,6 @@
 import { Box } from "@mantine/core";
 import { AdminTopNavBar } from "./admin-top-nav-bar";
 import { AdminSubNavBar } from "./admin-sub-nav-bar";
-import { PageTransition } from "../page-transition";
 
 interface AdminLayoutTopNavProps {
   children: React.ReactNode;
@@ -46,7 +45,7 @@ export function AdminLayoutTopNav({ children }: AdminLayoutTopNavProps) {
         style={{ flex: 1, background: "var(--app-shell-bg)" }}
         data-testid="admin-top-nav-main"
       >
-        <PageTransition>{children}</PageTransition>
+        {children}
       </Box>
     </Box>
   );

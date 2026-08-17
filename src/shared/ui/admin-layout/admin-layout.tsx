@@ -3,7 +3,6 @@ import { useDisclosure } from "@mantine/hooks";
 import { AdminHeader } from "./admin-header";
 import { AdminNav } from "./admin-nav";
 import { AdminNavLogo } from "./admin-nav-logo";
-import { PageTransition } from "../page-transition";
 import classes from "./admin-layout.module.css";
 
 interface AdminLayoutProps {
@@ -90,7 +89,7 @@ export function AdminLayout({ children }: AdminLayoutProps) {
 
         {/* Page content */}
         <Box component="main" p="md" style={{ flex: 1 }}>
-          <PageTransition>{children}</PageTransition>
+          {children}
         </Box>
       </Box>
 
