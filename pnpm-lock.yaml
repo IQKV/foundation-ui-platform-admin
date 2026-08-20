@@ -37,7 +37,7 @@ importers:
         version: 9.5.1(@mantine/hooks@9.5.1(react@19.2.8))(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@mantine/dates':
         specifier: ^9.5.1
-        version: 9.5.1(@mantine/core@9.5.1(@mantine/hooks@9.5.1(react@19.2.8))(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(@mantine/hooks@9.5.1(react@19.2.8))(dayjs@1.11.21)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+        version: 9.5.1(@mantine/core@9.5.1(@mantine/hooks@9.5.1(react@19.2.8))(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(@mantine/hooks@9.5.1(react@19.2.8))(dayjs@1.11.22)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@mantine/dropzone':
         specifier: ^9.5.1
         version: 9.5.1(@mantine/core@9.5.1(@mantine/hooks@9.5.1(react@19.2.8))(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(@mantine/hooks@9.5.1(react@19.2.8))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
@@ -153,8 +153,8 @@ importers:
         specifier: ^10.1.0
         version: 10.1.0
       dayjs:
-        specifier: ^1.11.21
-        version: 1.11.21
+        specifier: ^1.11.22
+        version: 1.11.22
       dotenv:
         specifier: ^17.4.2
         version: 17.4.2
@@ -3563,8 +3563,8 @@ packages:
     resolution: {integrity: sha512-23XHcCF+coGYevirZceTVD7NdJOqVn+49IHyxgszm+JIiHLoB2TkmPtsYkNWT1pvRSGkc35L6NHs0yHkN2SumA==}
     engines: {node: ^20.19.0 || ^22.12.0 || >=24.0.0}
 
-  dayjs@1.11.21:
-    resolution: {integrity: sha512-98IT+HOahAisibz/yjKbzuOBwYcjJ7BCLPzARyHiyEBmRz4fatF+KPJszEHXsGYjUG234aH/cOjW1wwTbKUZlA==}
+  dayjs@1.11.22:
+    resolution: {integrity: sha512-1YRnxzt/AabP3GHxnaB9/b+ZScCKu5TeF+co+BWG+lnWVIwEcTFc1FVE0WLNmNO3sA6GGXL40i5qkHfbLzpwrg==}
 
   debug@2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}
@@ -3835,6 +3835,9 @@ packages:
 
   es-toolkit@1.50.0:
     resolution: {integrity: sha512-OyZKhUVvEep9ITEiwHn8GKnMRQIVqoSIX7WnRbkWgJkllCujilqP2rD0u979tkl8wqyc8ICwlc1UBVv/Sl1G6w==}
+
+  es-toolkit@1.51.0:
+    resolution: {integrity: sha512-zC2lQGkM7QX+Gm6iM3+WIdZJzthsEd14LvRNJneSO2hzyz/zNBENR8+YXWo1cKxgPBtV6ksPYHELbcwBRzmdCw==}
 
   escalade@3.2.0:
     resolution: {integrity: sha512-WUj2qlxaQtO4g6Pq5c29GTcWGDyd8itL8zTlipgECz3JesAiiOKotd8JU6otB3PACgG6xkJUyVhboMS+bje/jA==}
@@ -7426,12 +7429,12 @@ snapshots:
     transitivePeerDependencies:
       - '@types/react'
 
-  '@mantine/dates@9.5.1(@mantine/core@9.5.1(@mantine/hooks@9.5.1(react@19.2.8))(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(@mantine/hooks@9.5.1(react@19.2.8))(dayjs@1.11.21)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+  '@mantine/dates@9.5.1(@mantine/core@9.5.1(@mantine/hooks@9.5.1(react@19.2.8))(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8))(@mantine/hooks@9.5.1(react@19.2.8))(dayjs@1.11.22)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
     dependencies:
       '@mantine/core': 9.5.1(@mantine/hooks@9.5.1(react@19.2.8))(@types/react@19.2.18)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@mantine/hooks': 9.5.1(react@19.2.8)
       clsx: 2.1.1
-      dayjs: 1.11.21
+      dayjs: 1.11.22
       react: 19.2.8
       react-dom: 19.2.8(react@19.2.8)
 
@@ -9546,7 +9549,7 @@ snapshots:
     transitivePeerDependencies:
       - '@noble/hashes'
 
-  dayjs@1.11.21: {}
+  dayjs@1.11.22: {}
 
   debug@2.6.9:
     dependencies:
@@ -9755,6 +9758,8 @@ snapshots:
       hasown: 2.0.4
 
   es-toolkit@1.50.0: {}
+
+  es-toolkit@1.51.0: {}
 
   escalade@3.2.0: {}
 
@@ -10598,7 +10603,7 @@ snapshots:
 
   launder@1.7.1:
     dependencies:
-      dayjs: 1.11.21
+      dayjs: 1.11.22
 
   leven@3.1.0: {}
 
@@ -11690,7 +11695,7 @@ snapshots:
       '@reduxjs/toolkit': 2.12.0(react-redux@9.3.0(@types/react@19.2.18)(react@19.2.8)(redux@5.0.1))(react@19.2.8)
       clsx: 2.1.1
       decimal.js-light: 2.5.1
-      es-toolkit: 1.50.0
+      es-toolkit: 1.51.0
       eventemitter3: 5.0.4
       immer: 10.2.0
       react: 19.2.8

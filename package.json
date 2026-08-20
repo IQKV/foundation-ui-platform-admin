@@ -95,7 +95,7 @@
     "compression": "^1.8.1",
     "cookie-parser": "^1.4.7",
     "cross-env": "^10.1.0",
-    "dayjs": "^1.11.21",
+    "dayjs": "^1.11.22",
     "dotenv": "^17.4.2",
     "framer-motion": "^13.1.0",
     "immer": "^11.1.17",
