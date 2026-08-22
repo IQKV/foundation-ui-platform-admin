@@ -1,0 +1,316 @@
+import { createTheme, type MantineThemeOverride, type CSSVariablesResolver } from "@mantine/core";
+import {
+  slateGray,
+  darkColors,
+  indigoAccent,
+  fontFamily,
+  fontSizes,
+  lineHeights,
+  spacing,
+  radius,
+  shadows,
+} from "@/shared/lib/design-tokens";
+
+/**
+ * Enterprise design tokens.
+ *
+ * Goals:
+ *  - Replace the default "bootstrap-blue" accent with a deep indigo that reads
+ *    as intentional and mature.
+ *  - Swap the neutral gray ramp for a cool slate with a subtle blue undertone —
+ *    the single biggest driver of "polished vs. generic".
+ *  - Tighten radii so surfaces feel structured, not bubbly.
+ *  - Lock component defaults (size, radius) globally so individual pages stay
+ *    consistent without repeating prop boilerplate.
+ */
+
+export const theme = createTheme({
+  // ── Colors ─────────────────────────────────────────────────────────────────
+  colors: {
+    ...slateGray,
+    ...darkColors,
+    ...indigoAccent,
+  },
+  primaryColor: "blue",
+  primaryShade: { light: 6, dark: 7 },
+
+  // ── Typography ──────────────────────────────────────────────────────────────
+  // Inter is already loaded by most modern OS / browsers; fall back cleanly.
+  fontFamily: "Inter, 'Inter Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+  fontFamilyMonospace: "'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Roboto Mono', monospace",
+
+  fontSizes: {
+    xs: "0.6875rem", // 11px
+    sm: "0.8125rem", // 13px  ← default body
+    md: "0.9375rem", // 15px
+    lg: "1.0625rem", // 17px
+    xl: "1.25rem", // 20px
+  },
+
+  lineHeights: {
+    xs: "1.4",
+    sm: "1.5",
+    md: "1.6",
+    lg: "1.7",
+    xl: "1.8",
+  },
+
+  // ── Radii — tighter for a structured, professional feel ───────────────────
+  radius: {
+    xs: "2px",
+    sm: "4px",
+    md: "6px",
+    lg: "8px",
+    xl: "12px",
+  },
+  defaultRadius: "sm", // 4px everywhere unless overridden
+
+  // ── Spacing — slightly tighter than Mantine defaults ──────────────────────
+  spacing: {
+    xs: "0.5rem", // 8px
+    sm: "0.75rem", // 12px
+    md: "1rem", // 16px
+    lg: "1.5rem", // 24px
+    xl: "2rem", // 32px
+  },
+
+  // ── Shadows — subtle, enterprise-style (no heavy drop-shadows) ───────────
+  shadows: {
+    xs: "0 1px 2px rgba(17, 28, 43, 0.06)",
+    sm: "0 1px 4px rgba(17, 28, 43, 0.08), 0 1px 2px rgba(17, 28, 43, 0.04)",
+    md: "0 4px 8px rgba(17, 28, 43, 0.08), 0 2px 4px rgba(17, 28, 43, 0.04)",
+    lg: "0 8px 24px rgba(17, 28, 43, 0.10), 0 2px 8px rgba(17, 28, 43, 0.06)",
+    xl: "0 16px 40px rgba(17, 28, 43, 0.12), 0 4px 12px rgba(17, 28, 43, 0.06)",
+  },
+
+  // ── Global component defaults ─────────────────────────────────────────────
+  // Setting defaults here means pages don't need to repeat size="sm" on
+  // every TextInput, Select, Button, etc. — and the whole app stays in sync.
+  components: {
+    // ── Inputs ───────────────────────────────────────────────────────────────
+    TextInput: {
+      defaultProps: { size: "sm", radius: "sm" },
+    },
+    PasswordInput: {
+      defaultProps: { size: "sm", radius: "sm" },
+    },
+    Select: {
+      defaultProps: { size: "sm", radius: "sm" },
+    },
+    MultiSelect: {
+      defaultProps: { size: "sm", radius: "sm" },
+    },
+    Textarea: {
+      defaultProps: { size: "sm", radius: "sm" },
+    },
+    NumberInput: {
+      defaultProps: { size: "sm", radius: "sm" },
+    },
+    DatePickerInput: {
+      defaultProps: { size: "sm", radius: "sm" },
+    },
+
+    // ── Actions & buttons ────────────────────────────────────────────────────
+    Button: {
+      defaultProps: { size: "sm", radius: "sm" },
+      styles: {
+        root: { fontWeight: 500, letterSpacing: "0.01em" },
+      },
+    },
+    ActionIcon: {
+      defaultProps: { radius: "sm" },
+    },
+
+    // ── Overlays ─────────────────────────────────────────────────────────────
+    Modal: {
+      defaultProps: { radius: "md", shadow: "lg" },
+      styles: {
+        header: { fontWeight: 600 },
+      },
+    },
+    Drawer: {
+      defaultProps: { radius: 0, shadow: "lg" },
+    },
+    Menu: {
+      defaultProps: { radius: "sm", shadow: "md" },
+      styles: {
+        dropdown: { padding: "4px" },
+        item: { borderRadius: "var(--mantine-radius-xs)", fontSize: "var(--mantine-font-size-sm)" },
+        label: {
+          fontSize: "var(--mantine-font-size-xs)",
+          fontWeight: 600,
+          textTransform: "uppercase",
+          letterSpacing: "0.05em",
+          color: "var(--mantine-color-gray-5)",
+          paddingBlock: "6px",
+        },
+        divider: { marginBlock: "4px" },
+      },
+    },
+    Tooltip: {
+      defaultProps: { radius: "xs" },
+      styles: {
+        tooltip: { fontSize: "var(--mantine-font-size-xs)", fontWeight: 500 },
+      },
+    },
+    Popover: {
+      defaultProps: { radius: "sm", shadow: "md" },
+    },
+
+    // ── Data display ─────────────────────────────────────────────────────────
+    Badge: {
+      defaultProps: { radius: "xs", size: "sm" },
+      styles: {
+        root: { fontWeight: 600, letterSpacing: "0.03em", textTransform: "uppercase" },
+      },
+    },
+    Avatar: {
+      defaultProps: { radius: "sm" },
+    },
+    Paper: {
+      defaultProps: { radius: "md" },
+      styles: {
+        root: {
+          boxShadow: "var(--mantine-shadow-xs)",
+          // Explicit surface color — prevents Paper from inheriting page background
+          // and becoming invisible when withBorder is not used.
+          backgroundColor: "var(--app-surface-bg)",
+        },
+      },
+    },
+    Card: {
+      defaultProps: { radius: "md" },
+      styles: {
+        root: {
+          boxShadow: "var(--mantine-shadow-xs)",
+          backgroundColor: "var(--app-surface-bg)",
+        },
+      },
+    },
+    Table: {
+      styles: {
+        th: {
+          fontSize: "var(--mantine-font-size-xs)",
+          fontWeight: 600,
+          textTransform: "uppercase",
+          letterSpacing: "0.05em",
+          color: "var(--mantine-color-gray-5)",
+          padding: "8px 12px",
+        },
+        td: { padding: "8px 12px", fontSize: "var(--mantine-font-size-sm)" },
+      },
+    },
+
+    // ── Navigation ───────────────────────────────────────────────────────────
+    NavLink: {
+      styles: {
+        root: {
+          borderRadius: "var(--mantine-radius-xs)",
+          padding: "6px 10px",
+          fontSize: "var(--mantine-font-size-sm)",
+        },
+        label: { fontWeight: 500 },
+      },
+    },
+    Tabs: {
+      defaultProps: { radius: "xs" },
+      styles: {
+        tab: { fontSize: "var(--mantine-font-size-sm)", fontWeight: 500 },
+      },
+    },
+
+    // ── Alerts & notifications ────────────────────────────────────────────────
+    Alert: {
+      defaultProps: { radius: "sm" },
+      styles: {
+        title: { fontWeight: 600 },
+      },
+    },
+    Notification: {
+      defaultProps: { radius: "sm" },
+    },
+
+    // ── Misc ─────────────────────────────────────────────────────────────────
+    Divider: {
+      styles: {
+        root: { borderColor: "var(--mantine-color-gray-2)" },
+      },
+    },
+    Anchor: {
+      styles: {
+        root: { fontWeight: 500 },
+      },
+    },
+    Title: {
+      styles: {
+        root: { letterSpacing: "-0.02em" },
+      },
+    },
+    Code: {
+      defaultProps: { radius: "xs" },
+    },
+  },
+});
+
+/**
+ * Custom CSS variables injected into :root / [data-mantine-color-scheme].
+ *
+ * --app-shell-bg        — page canvas (slightly off-white / off-black)
+ * --app-header-bg       — header surface
+ * --app-sidebar-bg      — sidebar surface
+ * --app-header-shadow   — directional shadow under the header
+ * --app-sidebar-shadow  — directional shadow to the right of the sidebar
+ *
+ * Using CSS variables (not inline styles) means the shell components stay
+ * free of color-scheme logic — they just consume the variable and both themes
+ * are handled here in one place.
+ */
+export const cssVariablesResolver: CSSVariablesResolver = () => ({
+  variables: {
+    // ── Sidebar is always dark, independent of color scheme ──────────────────
+    // Deep navy-charcoal — echoes Zoho-style unified left rail.
+    // The brand logo section and the nav live inside the same dark column.
+    "--app-sidebar-bg": "#1b2332",
+    "--app-sidebar-logo-bg": "#141b27", // slightly deeper band for the logo zone
+    "--app-sidebar-border": "rgba(255,255,255,0.06)",
+    "--app-sidebar-shadow": "1px 0 0 rgba(0,0,0,0.35)",
+
+    // Nav item colours on the dark sidebar
+    "--app-nav-text": "rgba(255,255,255,0.65)",
+    "--app-nav-text-active": "#ffffff",
+    "--app-nav-icon": "rgba(255,255,255,0.45)",
+    "--app-nav-icon-active": "#ffffff",
+    "--app-nav-hover-bg": "rgba(255,255,255,0.07)",
+    "--app-nav-active-bg": "rgba(59,78,240,0.75)", // indigo-6 at 75% — brand accent
+
+    // Section label on dark
+    "--app-nav-section-label": "rgba(255,255,255,0.30)",
+
+    // Search input on dark
+    "--app-nav-search-bg": "rgba(255,255,255,0.08)",
+    "--app-nav-search-border": "rgba(255,255,255,0.12)",
+    "--app-nav-search-placeholder": "rgba(255,255,255,0.35)",
+    "--app-nav-search-text": "rgba(255,255,255,0.80)",
+    "--app-nav-divider": "rgba(255,255,255,0.10)",
+  },
+  light: {
+    // Canvas: a touch warmer than pure white — reads as intentional, not default
+    "--app-shell-bg": "#f4f6f9",
+    // Header: clean white so it "floats" above the canvas
+    "--app-header-bg": "#ffffff",
+    // Surface: white cards on a gray canvas — depth without borders
+    "--app-surface-bg": "#ffffff",
+    // Shadows use the darkest slate tone with low opacity
+    "--app-header-shadow": "0 1px 0 #e4e8ef, 0 2px 8px rgba(17,28,43,0.06)",
+  },
+  dark: {
+    // Canvas: deep navy-slate — not pure #000 or Mantine's default dark.7
+    "--app-shell-bg": "#0f1621",
+    // Header: one step lighter than canvas, clearly elevated
+    "--app-header-bg": "#151d2b",
+    // Surface: slightly lighter than canvas so cards read as elevated
+    "--app-surface-bg": "#1a2436",
+    // Shadows are nearly invisible in dark mode; border does the work instead
+    "--app-header-shadow": "0 1px 0 rgba(255,255,255,0.06), 0 2px 8px rgba(0,0,0,0.3)",
+  },
+});

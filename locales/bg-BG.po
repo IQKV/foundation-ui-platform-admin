@@ -1,0 +1,2861 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2026-06-12 00:00+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: bg-BG\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/pages/admin/announcements.index.tsx
+#: src/pages/admin/cms-pages.index.tsx
+msgid "(no title)"
+msgstr "(без заглавие)"
+
+#. placeholder {0}: localeToNameMap[locale]
+#. placeholder {0}: o.label
+#: src/pages/admin/announcements.index.tsx
+#: src/pages/admin/invitations.index.tsx
+#: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
+#: src/pages/admin/organizations.index.tsx
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+#: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/users.index.tsx
+#: src/shared/locales/index.ts
+msgid "{0}"
+msgstr "{0}"
+
+#: src/pages/admin/organizations.$tenantKey.tsx
+msgid "{subscriptionCount} subscription(s)"
+msgstr "{subscriptionCount} абонамент(а)"
+
+#: src/pages/loading-demo.tsx
+msgid "1. Initial Page Load"
+msgstr "1. Начално зареждане на страницата"
+
+#: src/pages/loading-demo.tsx
+msgid "2. Page Transitions"
+msgstr "2. Преходи между страници"
+
+#. placeholder {0}: defaultLocale ?? "default"
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "A translation for the default locale ({0}) is required."
+msgstr "Необходим е превод за локала по подразбиране ({0})."
+
+#: src/features/invitation-admin/ui/edit-invitation-modal.tsx
+#: src/shared/ui/invitation-status-badge/invitation-status-badge.tsx
+msgid "Accepted"
+msgstr "Прието"
+
+#: src/pages/unauthorized.tsx
+msgid "Access Denied"
+msgstr "Достъпът е отказан"
+
+#: src/pages/loading-demo.tsx
+msgid "Accessible with proper keyboard handling"
+msgstr "Достъпно с правилна клавиатурна обработка"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Action"
+msgstr "Действие"
+
+#: src/pages/admin/index.tsx
+msgid "Action needed"
+msgstr "Необходимо е действие"
+
+#: src/pages/admin/-organization-tenant-panels.tsx
+#: src/pages/admin/organizations.$tenantKey.refunds.tsx
+#: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
+#: src/pages/admin/refunds.tsx
+#: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/users.index.tsx
+#: src/pages/admin/webhook-logs.tsx
+msgid "Actions"
+msgstr "Действия"
+
+#: src/features/edit-tenant/model/types.ts
+#: src/features/edit-user/model/types.ts
+#: src/pages/admin/plans.$planCode.tsx
+#: src/pages/admin/plans.index.tsx
+#: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/users.$userId.tsx
+#: src/shared/ui/tenant-status-badge/tenant-status-badge.tsx
+#: src/shared/ui/user-status-badge/user-status-badge.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
+msgid "Active"
+msgstr "Активен"
+
+#: src/pages/admin/plans.index.tsx
+msgid "Active only"
+msgstr "Само активни"
+
+#: src/pages/admin/index.tsx
+msgid "Active Subscriptions"
+msgstr "Активни абонаменти"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Activity History"
+msgstr "История на дейността"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Actor"
+msgstr "Актьор"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Actor Information"
+msgstr "Информация за актьора"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Actor Type"
+msgstr "Тип актьор"
+
+#: src/features/announcement-admin/ui/translation-fields.tsx
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "Add locale"
+msgstr "Добави локал"
+
+#: src/pages/admin/addons/$addonPath.tsx
+msgid "Addon Page"
+msgstr ""
+
+#: src/pages/admin/index.tsx
+msgid "Addon Widgets"
+msgstr ""
+
+#: src/pages/admin/addons/$addonPath.tsx
+msgid "Addons"
+msgstr ""
+
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
+msgid "Admin password override"
+msgstr "Администраторско презаписване на парола"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "All actions"
+msgstr "Всички действия"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "All Events"
+msgstr "Всички събития"
+
+#: src/widgets/dashboard-suspended-tenants/ui/suspended-tenants.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
+msgid "All organizations"
+msgstr "Всички организации"
+
+#: src/widgets/dashboard-suspended-tenants/ui/suspended-tenants.tsx
+msgid "All organizations are in good standing"
+msgstr "Всички организации са в добро състояние"
+
+#: src/pages/admin/plans.index.tsx
+msgid "All plans"
+msgstr "Всички планове"
+
+#: src/widgets/dashboard-recent-refunds/ui/recent-refunds.tsx
+msgid "All refunds"
+msgstr "Всички възстановявания"
+
+#: src/pages/admin/announcements.index.tsx
+#: src/pages/admin/cms-pages.index.tsx
+#: src/pages/admin/invitations.index.tsx
+#: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
+#: src/pages/admin/organizations.index.tsx
+#: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/users.index.tsx
+msgid "All statuses"
+msgstr "Всички статуси"
+
+#: src/widgets/dashboard-subscription-breakdown/ui/subscription-breakdown.tsx
+msgid "All subscriptions"
+msgstr "Всички абонаменти"
+
+#: src/pages/admin/announcements.index.tsx
+msgid "All types"
+msgstr "Всички типове"
+
+#: src/pages/admin/organizations.$tenantKey.refunds.tsx
+#: src/pages/admin/refunds.$refundId.tsx
+#: src/pages/admin/refunds.tsx
+msgid "Amount"
+msgstr "Сума"
+
+#: src/features/announcement-admin/ui/create-announcement-modal.tsx
+#: src/features/announcement-admin/ui/edit-announcement-modal.tsx
+msgid "An English (en-US) translation is required."
+msgstr "Необходим е превод на английски (en-US)."
+
+#: src/pages/admin/announcements.index.tsx
+msgid "Announcement"
+msgstr "Обявление"
+
+#: src/features/announcement-admin/ui/translation-fields.tsx
+msgid "Announcement message body"
+msgstr "Текст на обявлението"
+
+#: src/features/announcement-admin/ui/translation-fields.tsx
+msgid "Announcement title"
+msgstr "Заглавие на обявлението"
+
+#: src/pages/admin/announcements.index.tsx
+#: src/shared/ui/admin-layout/nav-config.tsx
+msgid "Announcements"
+msgstr "Обявления"
+
+#. placeholder {0}: announcement.status
+#: src/features/announcement-admin/ui/edit-announcement-modal.tsx
+msgid "Announcements in <0>{0}</0> status cannot be edited."
+msgstr "Обявленията в статус <0>{0}</0> не могат да се редактират."
+
+#: src/pages/admin/plans.$planCode.tsx
+msgid "Annual"
+msgstr "Годишно"
+
+#: src/features/page-admin/model/types.ts
+#: src/pages/admin/cms-pages.index.tsx
+msgid "Archived"
+msgstr "Архивирано"
+
+#. placeholder {0}: subscription.tenantKey
+#: src/pages/admin/subscriptions.tsx
+msgid "Are you sure you want to cancel the subscription for <0>{0}</0>?"
+msgstr "Сигурни ли сте, че искате да отмените абонамента за <0>{0}</0>?"
+
+#: src/features/page-admin/ui/delete-page-modal.tsx
+msgid "Are you sure you want to delete <0>{displayName}</0>? This action cannot be undone."
+msgstr "Сигурни ли сте, че искате да изтриете <0>{displayName}</0>? Това действие не може да бъде отменено."
+
+#: src/features/announcement-admin/ui/delete-announcement-modal.tsx
+msgid "Are you sure you want to delete <0>{enTitle}</0>? This action cannot be undone."
+msgstr "Сигурни ли сте, че искате да изтриете <0>{enTitle}</0>? Това действие не може да се отмени."
+
+#. placeholder {0}: subscription.tenantKey
+#: src/pages/admin/subscriptions.tsx
+msgid "Are you sure you want to pause the subscription for <0>{0}</0>?"
+msgstr "Сигурни ли сте, че искате да поставите на пауза абонамента за <0>{0}</0>?"
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Are you sure you want to permanently delete this subscription record? This action cannot be undone and will remove the record from the local database."
+msgstr "Сигурни ли сте, че искате окончателно да изтриете записа за абонамент? Това действие не може да се отмени и ще премахне записа от локалната база данни."
+
+#: src/features/ban-user/ui/ban-user-modal.tsx
+msgid "Are you sure?"
+msgstr "Сигурни ли сте?"
+
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
+msgid "At least 8 characters, at most 128"
+msgstr "Поне 8 символа, най-много 128"
+
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
+msgid "At least one digit"
+msgstr "Поне една цифра"
+
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
+msgid "At least one special character"
+msgstr "Поне един специален символ"
+
+#: src/features/announcement-admin/model/types.ts
+#: src/features/page-admin/model/types.ts
+msgid "At least one translation is required"
+msgstr "Необходим е поне един превод"
+
+#: src/pages/admin/index.tsx
+msgid "Attention Required"
+msgstr "Необходимо е внимание"
+
+#: src/pages/admin/audit-logs.tsx
+#: src/shared/ui/admin-layout/nav-config.tsx
+msgid "Audit Logs"
+msgstr "Одиторски регистри"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Audit Record Details"
+msgstr "Детайли на одиторския запис"
+
+#: src/pages/admin/-organization-tenant-panels.tsx
+msgid "Authorities"
+msgstr "Права"
+
+#: src/features/invitation-admin/ui/edit-invitation-modal.tsx
+#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
+msgid "Authority"
+msgstr "Право"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Auto-Renew"
+msgstr "Автоподновяване"
+
+#: src/pages/loading-demo.tsx
+msgid "Automatic router integration via <0>router.subscribe()</0>"
+msgstr "Автоматична интеграция с рутер чрез <0>router.subscribe()</0>"
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+#: src/pages/admin/plans.$planCode.tsx
+#: src/pages/admin/refunds.$refundId.tsx
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+msgid "Back to list"
+msgstr "Обратно към списъка"
+
+#: src/features/ban-user/ui/ban-user-modal.tsx
+#: src/pages/admin/users.index.tsx
+msgid "Ban user"
+msgstr "Забрани потребител"
+
+#: src/features/ban-user/ui/ban-user-modal.tsx
+msgid "Ban User"
+msgstr "Забрани потребител"
+
+#: src/features/ban-user/ui/ban-user-modal.tsx
+msgid "Banning this user will immediately invalidate all their active sessions, revoke their access, and send them a notification email. They will not be able to sign in again until unbanned."
+msgstr "Забраняването на този потребител незабавно ще анулира всички активни сесии, ще отмени достъпа им и ще изпрати имейл с известие. Те няма да могат да влизат отново, докато не бъдат разблокирани."
+
+#: src/shared/ui/admin-layout/nav-config.tsx
+msgid "Billing & Commerce"
+msgstr ""
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Billing address (JSON)"
+msgstr "Адрес за фактуриране (JSON)"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Billing address must be valid JSON or empty"
+msgstr "Адресът за фактуриране трябва да е валиден JSON или да е празен"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Billing email"
+msgstr "Имейл за фактуриране"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Billing email is required"
+msgstr "Имейлът за фактуриране е задължителен"
+
+#: src/pages/admin/plans.$planCode.tsx
+msgid "Billing period"
+msgstr "Период на фактуриране"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+#: src/pages/admin/organizations.index.tsx
+msgid "Billing settings"
+msgstr "Настройки за фактуриране"
+
+#: src/pages/admin/organizations.$tenantKey.tsx
+msgid "Billing Settings"
+msgstr "Настройки за фактуриране"
+
+#: src/features/announcement-admin/ui/create-announcement-modal.tsx
+#: src/features/announcement-admin/ui/delete-announcement-modal.tsx
+#: src/features/announcement-admin/ui/edit-announcement-modal.tsx
+#: src/features/ban-user/ui/ban-user-modal.tsx
+#: src/features/ban-user/ui/unban-user-modal.tsx
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+#: src/features/edit-account/ui/edit-account-modal.tsx
+#: src/features/edit-tenant/ui/edit-tenant-modal.tsx
+#: src/features/edit-user/ui/edit-user-modal.tsx
+#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
+#: src/features/manage-platform-authority/ui/grant-platform-admin-modal.tsx
+#: src/features/manage-platform-authority/ui/revoke-platform-admin-modal.tsx
+#: src/features/page-admin/ui/delete-page-modal.tsx
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+#: src/features/unlock-user/ui/unlock-user-modal.tsx
+#: src/pages/admin/-organization-tenant-panels.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+#: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/users.$userId.tsx
+msgid "Cancel"
+msgstr "Отказ"
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Cancel at period end"
+msgstr "Отмяна в края на периода"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Cancel Immediately"
+msgstr "Незабавна отмяна"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Cancel Subscription"
+msgstr "Отмяна на абонамент"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Canceling"
+msgstr "Отменя се"
+
+#: src/pages/admin/announcements.index.tsx
+msgid "Cannot delete a published or in-progress announcement"
+msgstr "Не може да се изтрие публикувано или текущо обявление"
+
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "Canonical URL"
+msgstr "Каноничен URL"
+
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+#: src/pages/admin/account.tsx
+msgid "Change password"
+msgstr "Промяна на парола"
+
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+msgid "Change Password"
+msgstr "Промяна на парола"
+
+#: src/pages/admin/announcements.index.tsx
+#: src/pages/admin/invitations.index.tsx
+#: src/pages/admin/organizations.index.tsx
+#: src/pages/admin/plans.index.tsx
+#: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/users.index.tsx
+msgid "Clear"
+msgstr "Изчисти"
+
+#: src/features/notification-bell/ui/notification-bell.tsx
+#: src/pages/admin/notifications.tsx
+msgid "Clear all"
+msgstr "Изчисти всички"
+
+#: src/pages/admin/announcements.index.tsx
+#: src/pages/admin/invitations.index.tsx
+#: src/pages/admin/organizations.index.tsx
+#: src/pages/admin/plans.index.tsx
+#: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/users.index.tsx
+msgid "Clear filters"
+msgstr "Изчисти филтрите"
+
+#: src/features/invitation-admin/ui/edit-invitation-modal.tsx
+#: src/pages/admin/audit-logs.tsx
+msgid "Close"
+msgstr "Затвори"
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+#: src/pages/admin/cms-pages.index.tsx
+#: src/shared/ui/admin-layout/nav-config.tsx
+msgid "CMS Pages"
+msgstr "CMS Страници"
+
+#: src/pages/admin/plans.index.tsx
+msgid "Code"
+msgstr "Код"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Company name"
+msgstr "Наименование на фирмата"
+
+#: src/pages/loading-demo.tsx
+msgid "Complete"
+msgstr "Завършено"
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Confirm delete"
+msgstr "Потвърди изтриването"
+
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+msgid "Confirm new password"
+msgstr "Потвърди новата парола"
+
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
+msgid "Confirm password"
+msgstr "Потвърди паролата"
+
+#: src/features/manage-platform-authority/ui/grant-platform-admin-modal.tsx
+msgid "Confirm privilege escalation"
+msgstr "Потвърдете повишаване на привилегии"
+
+#: src/features/manage-platform-authority/ui/revoke-platform-admin-modal.tsx
+msgid "Confirm privilege removal"
+msgstr "Потвърдете премахване на привилегии"
+
+#: src/features/page-admin/ui/page-translation-fields.tsx
+#: src/pages/admin/cms-pages.index.tsx
+msgid "Content"
+msgstr "Съдържание"
+
+#: src/shared/ui/admin-layout/nav-config.tsx
+msgid "Content & Platform"
+msgstr ""
+
+#: src/features/page-admin/model/types.ts
+msgid "Content is required for the default locale"
+msgstr "Съдържанието е задължително за локала по подразбиране"
+
+#: src/features/sign-in/ui/demo-credentials-hint.tsx
+msgid "Copied!"
+msgstr "Копирано!"
+
+#: src/features/sign-in/ui/demo-credentials-hint.tsx
+msgid "Copy"
+msgstr "Копирай"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Correlation ID"
+msgstr "Корелационен ID"
+
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "Could not create the page. Please check the form and try again."
+msgstr ""
+
+#: src/features/announcement-admin/ui/delete-announcement-modal.tsx
+msgid "Could not delete the announcement. Please try again."
+msgstr "Обявлението не може да бъде изтрито. Моля, опитайте отново."
+
+#: src/features/page-admin/ui/delete-page-modal.tsx
+msgid "Could not delete the page. It may be published."
+msgstr "Не може да се изтрие страницата. Тя може да е публикувана."
+
+#: src/pages/admin/announcements.index.tsx
+msgid "Could not fetch announcements from the API."
+msgstr "Не може да се извлекат обявленията от API."
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Could not fetch audit records from the API."
+msgstr "Не може да се извлекат одиторски записи от API."
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Could not fetch billing settings."
+msgstr "Не може да се извлекат настройките за фактуриране."
+
+#: src/pages/admin/invitations.index.tsx
+msgid "Could not fetch invitations from the API."
+msgstr "Не може да се извлекат поканите от API."
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Could not fetch linked identities for this user."
+msgstr "Не може да се извлекат свързаните идентичности за този потребител."
+
+#: src/pages/admin/-organization-tenant-panels.tsx
+msgid "Could not fetch members."
+msgstr "Не може да се извлекат членовете."
+
+#: src/pages/admin/organizations.$tenantKey.tsx
+msgid "Could not fetch organization details."
+msgstr "Не може да се извлекат детайлите на организацията."
+
+#: src/pages/admin/organizations.index.tsx
+msgid "Could not fetch organizations from the API."
+msgstr "Не може да се извлекат организациите от API."
+
+#: src/pages/admin/cms-pages.index.tsx
+msgid "Could not fetch pages from the API."
+msgstr "Не може да се извлекат страниците от API."
+
+#: src/pages/admin/plans.$planCode.tsx
+msgid "Could not fetch plan details."
+msgstr "Не може да се извлекат детайлите на плана."
+
+#: src/pages/admin/plans.index.tsx
+msgid "Could not fetch plans from the API."
+msgstr "Не може да се извлекат плановете от API."
+
+#: src/pages/admin/refunds.$refundId.tsx
+msgid "Could not fetch refund details."
+msgstr "Не може да се извлекат детайлите на възстановяването."
+
+#: src/pages/admin/organizations.$tenantKey.refunds.tsx
+msgid "Could not fetch refunds for this organization."
+msgstr "Не може да се извлекат възстановяванията за тази организация."
+
+#: src/pages/admin/refunds.tsx
+msgid "Could not fetch refunds from the API."
+msgstr "Не може да се извлекат възстановяванията от API."
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Could not fetch subscription details."
+msgstr "Не може да се извлекат детайлите на абонамента."
+
+#: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
+msgid "Could not fetch subscriptions for this organization."
+msgstr "Не може да се извлекат абонаментите за тази организация."
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Could not fetch subscriptions from the API."
+msgstr "Не може да се извлекат абонаментите от API."
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+msgid "Could not fetch the page details."
+msgstr "Не може да се извлекат детайлите на страницата."
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Could not fetch user details."
+msgstr "Не може да се извлекат детайлите на потребителя."
+
+#: src/pages/admin/users.index.tsx
+msgid "Could not fetch users from the API."
+msgstr "Не може да се извлекат потребителите от API."
+
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+msgid "Could not fetch webhook log details."
+msgstr "Не може да се извлекат детайлите на webhook журнала."
+
+#: src/pages/admin/webhook-logs.tsx
+msgid "Could not fetch webhook logs from the API."
+msgstr "Не може да се извлекат webhook журналите от API."
+
+#: src/pages/admin/account.tsx
+msgid "Could not fetch your account details."
+msgstr "Не може да се извлекат детайлите на вашия акаунт."
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Could not open the billing portal. Please try again."
+msgstr "Не може да се отвори порталът за фактуриране. Моля, опитайте отново."
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+msgid "Could not save the page. Please check the form and try again."
+msgstr "Не може да се запази страницата. Моля, проверете формуляра и опитайте отново."
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Create"
+msgstr "Създай"
+
+#: src/features/announcement-admin/ui/create-announcement-modal.tsx
+msgid "Create announcement"
+msgstr "Създай обявление"
+
+#: src/features/announcement-admin/ui/create-announcement-modal.tsx
+msgid "Create Announcement"
+msgstr "Създай обявление"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Create billing settings"
+msgstr "Създай настройки за фактуриране"
+
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "Create page"
+msgstr "Създай страница"
+
+#: src/features/invitation-admin/ui/edit-invitation-modal.tsx
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+#: src/pages/admin/-organization-tenant-panels.tsx
+#: src/pages/admin/announcements.index.tsx
+#: src/pages/admin/invitations.index.tsx
+#: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
+#: src/pages/admin/organizations.$tenantKey.tsx
+#: src/pages/admin/organizations.index.tsx
+#: src/pages/admin/plans.$planCode.tsx
+#: src/pages/admin/subscriptions.tsx
+msgid "Created"
+msgstr "Създадено"
+
+#: src/pages/admin/refunds.$refundId.tsx
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Created:"
+msgstr "Създадено:"
+
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "Creation failed"
+msgstr "Създаването не успя"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+#: src/pages/admin/plans.$planCode.tsx
+msgid "Currency"
+msgstr "Валута"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Currency must be a 3-letter ISO code"
+msgstr "Валутата трябва да е 3-буквен ISO код"
+
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+msgid "Current password"
+msgstr "Текуща парола"
+
+#: src/features/change-admin-password/model/types.ts
+msgid "Current password is required"
+msgstr "Текущата парола е задължителна"
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Current Period End"
+msgstr "Край на текущия период"
+
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
+msgid "Daily"
+msgstr "Дневно"
+
+#: src/pages/admin/addons/$addonPath.tsx
+#: src/pages/admin/index.tsx
+#: src/shared/ui/admin-layout/nav-config.tsx
+msgid "Dashboard"
+msgstr "Табло"
+
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "Default locale — required"
+msgstr ""
+
+#: src/features/announcement-admin/ui/delete-announcement-modal.tsx
+#: src/features/page-admin/ui/delete-page-modal.tsx
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+#: src/pages/admin/cms-pages.index.tsx
+msgid "Delete"
+msgstr "Изтрий"
+
+#: src/pages/admin/announcements.index.tsx
+msgid "Delete announcement"
+msgstr "Изтрий обявление"
+
+#: src/features/announcement-admin/ui/delete-announcement-modal.tsx
+msgid "Delete Announcement"
+msgstr "Изтрий обявление"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Delete billing settings"
+msgstr "Изтрий настройките за фактуриране"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Delete billing settings?"
+msgstr "Изтриване на настройките за фактуриране?"
+
+#: src/features/announcement-admin/ui/delete-announcement-modal.tsx
+#: src/features/page-admin/ui/delete-page-modal.tsx
+msgid "Delete failed"
+msgstr "Изтриването не успя"
+
+#: src/features/page-admin/ui/delete-page-modal.tsx
+msgid "Delete Page"
+msgstr "Изтрий страница"
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Delete record"
+msgstr "Изтрий запис"
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Delete subscription record"
+msgstr "Изтрий запис за абонамент"
+
+#: src/shared/ui/tenant-status-badge/tenant-status-badge.tsx
+#: src/shared/ui/user-status-badge/user-status-badge.tsx
+msgid "Deleted"
+msgstr "Изтрито"
+
+#: src/features/sign-in/ui/demo-credentials-hint.tsx
+msgid "Demo environment"
+msgstr "Демо среда"
+
+#: src/pages/loading-demo.tsx
+msgid "Demo LoadingOverlay (2s)"
+msgstr "Демо LoadingOverlay (2 сек)"
+
+#: src/pages/loading-demo.tsx
+msgid "Demo Progress Bar"
+msgstr "Демо лента за напредък"
+
+#: src/pages/admin/plans.$planCode.tsx
+msgid "Display name"
+msgstr "Показвано име"
+
+#: src/features/announcement-admin/model/types.ts
+#: src/features/page-admin/model/types.ts
+#: src/pages/admin/cms-pages.index.tsx
+#: src/shared/ui/announcement-status-badge/announcement-status-badge.tsx
+msgid "Draft"
+msgstr "Чернова"
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "e.g. default, landing"
+msgstr "напр. default, landing"
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.index.tsx
+msgid "Edit"
+msgstr ""
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+msgid "Edit — {defaultTitle} — {tenantKey}"
+msgstr "Редактирай — {defaultTitle} — {tenantKey}"
+
+#: src/pages/admin/announcements.index.tsx
+msgid "Edit announcement"
+msgstr "Редактирай обявление"
+
+#: src/features/announcement-admin/ui/edit-announcement-modal.tsx
+msgid "Edit Announcement"
+msgstr "Редактирай обявление"
+
+#: src/pages/admin/-organization-tenant-panels.tsx
+msgid "Edit member authorities"
+msgstr "Редактирай правата на члена"
+
+#: src/pages/admin/-organization-tenant-panels.tsx
+msgid "Edit Member Authorities"
+msgstr "Редактирай правата на члена"
+
+#: src/pages/admin/organizations.$tenantKey.tsx
+#: src/pages/admin/organizations.index.tsx
+msgid "Edit organization"
+msgstr "Редактирай организация"
+
+#: src/features/edit-tenant/ui/edit-tenant-modal.tsx
+msgid "Edit Organization"
+msgstr "Редактирай организация"
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+msgid "Edit Page"
+msgstr "Редактирай страница"
+
+#: src/pages/admin/account.tsx
+msgid "Edit profile"
+msgstr "Редактирай профил"
+
+#: src/features/edit-account/ui/edit-account-modal.tsx
+msgid "Edit Profile"
+msgstr "Редактирай профил"
+
+#: src/pages/admin/users.$userId.tsx
+#: src/pages/admin/users.index.tsx
+msgid "Edit user"
+msgstr "Редактирай потребител"
+
+#: src/features/edit-user/ui/edit-user-modal.tsx
+msgid "Edit User"
+msgstr "Редактирай потребител"
+
+#: src/features/edit-account/ui/edit-account-modal.tsx
+#: src/features/edit-user/ui/edit-user-modal.tsx
+#: src/features/invitation-admin/ui/edit-invitation-modal.tsx
+#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
+#: src/features/sign-in/ui/sign-in-form.tsx
+#: src/pages/admin/-organization-tenant-panels.tsx
+#: src/pages/admin/account.tsx
+#: src/pages/admin/users.$userId.tsx
+#: src/pages/admin/users.index.tsx
+msgid "Email"
+msgstr "Имейл"
+
+#: src/features/sign-in/model/use-sign-in.ts
+msgid "Email is required"
+msgstr "Имейлът е задължителен"
+
+#: src/pages/admin/account.tsx
+#: src/pages/admin/users.$userId.tsx
+msgid "Email unverified"
+msgstr "Имейлът не е потвърден"
+
+#: src/pages/admin/account.tsx
+#: src/pages/admin/users.$userId.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
+msgid "Email verified"
+msgstr "Имейлът е потвърден"
+
+#: src/features/edit-account/ui/edit-account-modal.tsx
+#: src/features/edit-user/ui/edit-user-modal.tsx
+msgid "Email verified:"
+msgstr "Имейл потвърден:"
+
+#. placeholder {0}: identity.email
+#: src/pages/admin/users.$userId.tsx
+msgid "Email: <0>{0}</0>"
+msgstr "Имейл: <0>{0}</0>"
+
+#: src/features/sign-in/model/use-sign-in.ts
+msgid "Enter a valid email address"
+msgstr "Въведете валиден имейл адрес"
+
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
+msgid "Enter new password"
+msgstr "Въведете нова парола"
+
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+msgid "Enter your current password"
+msgstr "Въведете текущата си парола"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Entity ID"
+msgstr "ID на обект"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Entity Type"
+msgstr "Тип обект"
+
+#: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/users.$userId.tsx
+msgid "Error"
+msgstr "Грешка"
+
+#: src/shared/ui/error-boundary.tsx
+msgid "Error Details (Development)"
+msgstr "Детайли на грешката (разработка)"
+
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+msgid "Error Message"
+msgstr "Съобщение за грешка"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Event Payload"
+msgstr "Полезен товар на събитието"
+
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+#: src/pages/admin/webhook-logs.tsx
+msgid "Event Type"
+msgstr "Тип събитие"
+
+#: src/shared/ui/invitation-status-badge/invitation-status-badge.tsx
+msgid "Expired"
+msgstr "Изтекло"
+
+#: src/features/invitation-admin/ui/edit-invitation-modal.tsx
+#: src/pages/admin/invitations.index.tsx
+msgid "Expires"
+msgstr "Изтича"
+
+#: src/features/ban-user/ui/ban-user-modal.tsx
+msgid "Expires at (optional)"
+msgstr "Изтича на (по избор)"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "External customer id"
+msgstr "Външен ID на клиент"
+
+#: src/pages/admin/refunds.$refundId.tsx
+msgid "External Customer ID"
+msgstr "Външен ID на клиент"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "External customer id is required"
+msgstr "Външният ID на клиент е задължителен"
+
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+#: src/pages/admin/webhook-logs.tsx
+msgid "External Event ID"
+msgstr "Идентификатор на външно събитие"
+
+#: src/pages/admin/organizations.$tenantKey.refunds.tsx
+#: src/pages/admin/refunds.tsx
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "External ID"
+msgstr "Външен ID"
+
+#: src/pages/admin/refunds.$refundId.tsx
+msgid "External Payment ID"
+msgstr "Външен ID на плащане"
+
+#: src/pages/admin/refunds.$refundId.tsx
+msgid "External Refund ID"
+msgstr "Външен ID на възстановяване"
+
+#: src/features/announcement-admin/model/types.ts
+#: src/pages/admin/audit-logs.tsx
+#: src/shared/ui/announcement-status-badge/announcement-status-badge.tsx
+msgid "Failed"
+msgstr "Неуспешно"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Failed to cancel subscription"
+msgstr "Неуспешна отмяна на абонамент"
+
+#: src/features/announcement-admin/ui/create-announcement-modal.tsx
+msgid "Failed to create announcement"
+msgstr "Неуспешно създаване на обявление"
+
+#: src/widgets/dashboard-stat-value/ui/stat-value.tsx
+msgid "Failed to load"
+msgstr "Зареждането не успя"
+
+#: src/pages/admin/account.tsx
+msgid "Failed to load account"
+msgstr "Зареждането на акаунта не успя"
+
+#: src/pages/admin/announcements.index.tsx
+msgid "Failed to load announcements"
+msgstr "Зареждането на обявленията не успя"
+
+#: src/widgets/dashboard-recent-critical-audit/ui/recent-critical-audit.tsx
+msgid "Failed to load audit events"
+msgstr "Зареждането на одиторски събития не успя"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Failed to load audit logs"
+msgstr "Зареждането на одиторски регистри не успя"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Failed to load billing settings"
+msgstr "Зареждането на настройките за фактуриране не успя"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Failed to load identities"
+msgstr "Зареждането на идентичностите не успя"
+
+#: src/pages/admin/invitations.index.tsx
+msgid "Failed to load invitations"
+msgstr "Зареждането на поканите не успя"
+
+#: src/pages/admin/organizations.$tenantKey.tsx
+msgid "Failed to load organization"
+msgstr "Зареждането на организацията не успя"
+
+#: src/widgets/dashboard-suspended-tenants/ui/suspended-tenants.tsx
+msgid "Failed to load organization data"
+msgstr "Зареждането на данните за организацията не успя"
+
+#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
+#: src/pages/admin/organizations.index.tsx
+msgid "Failed to load organizations"
+msgstr "Зареждането на организациите не успя"
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+msgid "Failed to load page"
+msgstr "Зареждането на страницата не успя"
+
+#: src/pages/admin/cms-pages.index.tsx
+msgid "Failed to load pages"
+msgstr "Зареждането на страниците не успя"
+
+#: src/pages/admin/plans.$planCode.tsx
+msgid "Failed to load plan"
+msgstr "Зареждането на плана не успя"
+
+#: src/pages/admin/plans.index.tsx
+msgid "Failed to load plans"
+msgstr "Зареждането на плановете не успя"
+
+#: src/widgets/dashboard-recent-refunds/ui/recent-refunds.tsx
+msgid "Failed to load recent refunds"
+msgstr "Зареждането на последните възстановявания не успя"
+
+#: src/pages/admin/refunds.$refundId.tsx
+msgid "Failed to load refund"
+msgstr "Зареждането на възстановяването не успя"
+
+#: src/pages/admin/organizations.$tenantKey.refunds.tsx
+#: src/pages/admin/refunds.tsx
+msgid "Failed to load refunds"
+msgstr "Зареждането на възстановяванията не успя"
+
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
+msgid "Failed to load stats for the selected organization."
+msgstr "Зареждането на статистиките за избраната организация не успя."
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Failed to load subscription"
+msgstr "Зареждането на абонамента не успя"
+
+#: src/widgets/dashboard-subscription-breakdown/ui/subscription-breakdown.tsx
+msgid "Failed to load subscription breakdown"
+msgstr "Зареждането на разбивката на абонамент не успя"
+
+#: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
+#: src/pages/admin/subscriptions.tsx
+msgid "Failed to load subscriptions"
+msgstr "Зареждането на абонаментите не успя"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Failed to load user"
+msgstr "Зареждането на потребителя не успя"
+
+#: src/pages/admin/users.index.tsx
+msgid "Failed to load users"
+msgstr "Зареждането на потребителите не успя"
+
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+msgid "Failed to load webhook log"
+msgstr "Зареждането на webhook журнала не успя"
+
+#: src/pages/admin/webhook-logs.tsx
+msgid "Failed to load webhook logs"
+msgstr "Зареждането на webhook журналите не успя"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Failed to pause subscription"
+msgstr "Неуспешно поставяне на абонамент на пауза"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Failed to reactivate subscription"
+msgstr "Неуспешно повторно активиране на абонамент"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Failed to unmerge identity"
+msgstr "Разделянето на идентичността не успя"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Failed to update subscription"
+msgstr "Неуспешна актуализация на абонамент"
+
+#: src/features/announcement-admin/model/types.ts
+msgid "Feature"
+msgstr "Функция"
+
+#: src/pages/admin/plans.$planCode.tsx
+msgid "Feature set (JSON)"
+msgstr "Набор от функции (JSON)"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Filter by action…"
+msgstr "Филтрирай по действие…"
+
+#: src/pages/admin/audit-logs.tsx
+#: src/pages/admin/refunds.tsx
+#: src/pages/admin/webhook-logs.tsx
+msgid "Filter by tenant key…"
+msgstr "Филтрирай по ключ на наемател…"
+
+#: src/features/edit-account/ui/edit-account-modal.tsx
+#: src/features/edit-user/ui/edit-user-modal.tsx
+msgid "First name"
+msgstr "Собствено име"
+
+#: src/features/edit-account/model/types.ts
+#: src/features/edit-user/model/types.ts
+msgid "First name is required"
+msgstr "Собственото ime е задължително"
+
+#: src/pages/loading-demo.tsx
+msgid "Full-screen centered loader shown on first app load (while locale initializes)."
+msgstr "Цялоекранен центриран индикатор при първото зареждане на приложението (докато локалът се инициализира)."
+
+#: src/shared/ui/auth-layout/auth-layout.tsx
+#~ msgid "fully in your hands."
+#~ msgstr "изцяло в ръцете ви."
+
+#: src/pages/404.tsx
+#: src/pages/500.tsx
+msgid "Go home"
+msgstr "Към началото"
+
+#: src/pages/unauthorized.tsx
+msgid "Go to Home"
+msgstr "Към началната страница"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Grant"
+msgstr "Предостави"
+
+#: src/features/manage-platform-authority/ui/grant-platform-admin-modal.tsx
+msgid "Grant Platform Admin"
+msgstr "Предостави права на платформен администратор"
+
+#: src/features/manage-platform-authority/ui/grant-platform-admin-modal.tsx
+msgid "Granting Platform Admin to <0>{displayName}</0> will give them full administrative access to this platform, including user management, tenant management, and all admin-only operations."
+msgstr "Предоставянето на права на платформен администратор на <0>{displayName}</0> ще им даде пълен административен достъп до тази платформа, включително управление на потребители, наематели и всички операции само за администратори."
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "Hierarchy"
+msgstr "Йерархия"
+
+#: src/pages/admin/account.tsx
+#: src/pages/admin/addons/$addonPath.tsx
+#: src/pages/admin/announcements.index.tsx
+#: src/pages/admin/audit-logs.tsx
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+#: src/pages/admin/cms-pages.index.tsx
+#: src/pages/admin/index.tsx
+#: src/pages/admin/invitations.index.tsx
+#: src/pages/admin/notifications.tsx
+#: src/pages/admin/organizations.$tenantKey.tsx
+#: src/pages/admin/organizations.index.tsx
+#: src/pages/admin/plans.$planCode.tsx
+#: src/pages/admin/plans.index.tsx
+#: src/pages/admin/refunds.$refundId.tsx
+#: src/pages/admin/refunds.tsx
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+#: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/users.$userId.tsx
+#: src/pages/admin/users.index.tsx
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+#: src/pages/admin/webhook-logs.tsx
+msgid "Home"
+msgstr "Начало"
+
+#: src/features/page-admin/ui/rich-content-editor.tsx
+msgid "HTML content. At least one paragraph required for the default locale."
+msgstr "HTML съдържание. Необходим е поне един параграф за локала по подразбиране."
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+msgid "ID"
+msgstr "ID"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "ID / Email"
+msgstr "ID / Имейл"
+
+#: src/features/invitation-admin/ui/edit-invitation-modal.tsx
+msgid "ID:"
+msgstr "ID:"
+
+#. placeholder {0}: announcement.id
+#. placeholder {0}: user.id
+#: src/features/announcement-admin/ui/edit-announcement-modal.tsx
+#: src/features/edit-user/ui/edit-user-modal.tsx
+msgid "ID: {0}"
+msgstr "ID: {0}"
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/users.$userId.tsx
+msgid "Identity"
+msgstr "Самоличност"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Identity unmerged"
+msgstr "Идентичността е разделена"
+
+#: src/pages/loading-demo.tsx
+msgid "Implementation Details"
+msgstr "Детайли на имплементацията"
+
+#: src/pages/admin/plans.$planCode.tsx
+#: src/pages/admin/plans.index.tsx
+msgid "Inactive"
+msgstr "Неактивен"
+
+#: src/pages/admin/plans.index.tsx
+msgid "Inactive only"
+msgstr "Само неактивни"
+
+#: src/features/announcement-admin/model/types.ts
+msgid "Info"
+msgstr "Информация"
+
+#: src/features/announcement-admin/ui/create-announcement-modal.tsx
+msgid "Initial status"
+msgstr "Начален статус"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+#: src/pages/admin/plans.$planCode.tsx
+msgid "Internal id"
+msgstr "Вътрешен ID"
+
+#: src/pages/500.tsx
+msgid "Internal server error."
+msgstr "Вътрешна грешка на сървъра."
+
+#: src/features/sign-in/model/use-sign-in.ts
+msgid "Invalid email or password"
+msgstr "Невалиден имейл или парола"
+
+#: src/features/invitation-admin/ui/edit-invitation-modal.tsx
+msgid "Invitation Details"
+msgstr "Детайли на поканата"
+
+#: src/pages/admin/invitations.index.tsx
+#: src/shared/ui/admin-layout/nav-config.tsx
+msgid "Invitations"
+msgstr "Покани"
+
+#: src/features/invitation-admin/ui/edit-invitation-modal.tsx
+msgid "Invited by (user ID)"
+msgstr "Поканен от (ID на потребител)"
+
+#: src/pages/admin/invitations.index.tsx
+msgid "Invitee"
+msgstr "Поканен"
+
+#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
+msgid "invitee@example.com"
+msgstr "поканен@example.com"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "IP Address"
+msgstr "IP адрес"
+
+#: src/pages/admin/-organization-tenant-panels.tsx
+#: src/pages/admin/account.tsx
+#: src/pages/admin/users.$userId.tsx
+#: src/pages/admin/users.index.tsx
+msgid "Joined"
+msgstr "Присъединен"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Joined Organizations"
+msgstr "Присъединени организации"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Keep Subscription"
+msgstr "Запази абонамента"
+
+#: src/pages/admin/organizations.index.tsx
+msgid "Key"
+msgstr "Ключ"
+
+#: src/pages/admin/addons/$addonPath.tsx
+#: src/pages/admin/index.tsx
+#~ msgid "Key Value Admin"
+#~ msgstr "Key Value Администратор"
+
+#: src/features/edit-tenant/ui/edit-tenant-modal.tsx
+msgid "Key:"
+msgstr "Ключ:"
+
+#: src/features/edit-account/ui/edit-account-modal.tsx
+#: src/shared/ui/locale-switcher/locale-switcher.tsx
+msgid "Language"
+msgstr "Език"
+
+#: src/features/edit-account/ui/edit-account-modal.tsx
+#: src/features/edit-user/ui/edit-user-modal.tsx
+msgid "Last name"
+msgstr "Фамилно ime"
+
+#: src/features/edit-account/model/types.ts
+#: src/features/edit-user/model/types.ts
+msgid "Last name is required"
+msgstr "Фамилното ime е задължително"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+#: src/pages/admin/-organization-tenant-panels.tsx
+#: src/pages/admin/account.tsx
+#: src/pages/admin/organizations.index.tsx
+#: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/users.$userId.tsx
+#: src/pages/admin/users.index.tsx
+msgid "Last updated"
+msgstr "Последна актуализация"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Last used"
+msgstr "Последно използван"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Linked"
+msgstr "Свързан"
+
+#: src/pages/loading-demo.tsx
+msgid "Loading Demo"
+msgstr "Демо на зареждане"
+
+#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
+msgid "Loading organizations…"
+msgstr "Зареждане на организации…"
+
+#: src/pages/loading-demo.tsx
+msgid "Loading States Demo"
+msgstr "Демо на режимите на зареждане"
+
+#: src/shared/ui/loading-overlay/loading-overlay.tsx
+msgid "Loading..."
+msgstr "Зареждане..."
+
+#: src/features/edit-account/ui/edit-account-modal.tsx
+#: src/pages/admin/refunds.$refundId.tsx
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+msgid "Loading…"
+msgstr "Зареждане…"
+
+#: src/features/announcement-admin/model/types.ts
+#: src/features/page-admin/model/types.ts
+msgid "Locale is required"
+msgstr "Локалът е задължителен"
+
+#: src/pages/admin/announcements.index.tsx
+msgid "Locales"
+msgstr "Локали"
+
+#: src/features/edit-user/model/types.ts
+#: src/shared/ui/user-status-badge/user-status-badge.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
+msgid "Locked"
+msgstr "Заключен"
+
+#: src/pages/admin/index.tsx
+msgid "Locked Accounts"
+msgstr "Заключени акаунти"
+
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+msgid "Log ID"
+msgstr "Идентификатор на журнала"
+
+#: src/features/announcement-admin/model/types.ts
+msgid "Maintenance"
+msgstr "Поддръжка"
+
+#: src/pages/admin/index.tsx
+msgid "Manage organizations"
+msgstr "Управление на организации"
+
+#: src/pages/admin/index.tsx
+msgid "Manage subscriptions"
+msgstr "Управление на абонаменти"
+
+#: src/pages/admin/index.tsx
+msgid "Manage users"
+msgstr "Управление на потребители"
+
+#: src/shared/ui/auth-layout/auth-layout.tsx
+#~ msgid "Manage users, organizations, and subscriptions across all tenants — secured by platform-level authentication."
+#~ msgstr "Управлявайте потребители, организации и абонаменти за всички наематели — защитено с платформено удостоверяване."
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Management"
+msgstr "Управление"
+
+#: src/features/notification-bell/ui/notification-bell.tsx
+#: src/pages/admin/notifications.tsx
+msgid "Mark all as read"
+msgstr "Маркирай всички като прочетени"
+
+#: src/pages/admin/-organization-tenant-panels.tsx
+#: src/pages/admin/users.index.tsx
+msgid "Member"
+msgstr "Член"
+
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
+msgid "Member Signup Trend"
+msgstr "Тенденция на регистрации на членове"
+
+#: src/pages/admin/organizations.$tenantKey.tsx
+msgid "member(s)"
+msgstr "член(ове)"
+
+#: src/pages/admin/-organization-tenant-panels.tsx
+#: src/pages/admin/organizations.$tenantKey.tsx
+msgid "Members"
+msgstr "Членове"
+
+#: src/features/announcement-admin/ui/translation-fields.tsx
+msgid "Message"
+msgstr "Съобщение"
+
+#: src/features/announcement-admin/model/types.ts
+msgid "Message is required"
+msgstr "Съобщението е задължително"
+
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "Meta description for search engines"
+msgstr "Мета описание за търсачки"
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Metadata"
+msgstr "Метаданни"
+
+#: src/pages/admin/plans.$planCode.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
+msgid "Monthly"
+msgstr "Месечно"
+
+#: src/features/invitation-admin/model/types.ts
+msgid "Must be a valid email address"
+msgstr "Трябва да е валиден имейл адрес"
+
+#: src/features/page-admin/model/types.ts
+msgid "Must be a valid UUID"
+msgstr "Трябва да е валиден UUID"
+
+#: src/pages/admin/account.tsx
+#: src/shared/ui/admin-layout/admin-header.tsx
+msgid "My Account"
+msgstr "Моят акаунт"
+
+#: src/pages/admin/plans.index.tsx
+msgid "Name"
+msgstr "Наименование"
+
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "New"
+msgstr "Нова"
+
+#: src/pages/admin/announcements.index.tsx
+msgid "New announcement"
+msgstr "Ново обявление"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "New billing settings"
+msgstr "Нови настройки за фактуриране"
+
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "New CMS Page — {tenantKey}"
+msgstr "Нова CMS страница — {tenantKey}"
+
+#: src/pages/admin/cms-pages.index.tsx
+msgid "New page"
+msgstr "Нова страница"
+
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "New Page"
+msgstr "Нова страница"
+
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
+msgid "New password"
+msgstr "Нова парола"
+
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
+msgid "New signups"
+msgstr ""
+
+#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
+msgid "No active organizations found"
+msgstr "Не са намерени активни организации"
+
+#: src/pages/admin/announcements.index.tsx
+msgid "No announcements found"
+msgstr "Не са намерени обявления"
+
+#: src/pages/admin/announcements.index.tsx
+msgid "No announcements match the current filters"
+msgstr "Няма обявления, съответстващи на текущите филтри"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "No billing settings"
+msgstr "Няма настройки за фактуриране"
+
+#: src/widgets/dashboard-recent-critical-audit/ui/recent-critical-audit.tsx
+msgid "No critical events — all clear"
+msgstr "Няма критични събития — всичко е наред"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "No event statistics available"
+msgstr "Няма налична статистика за събития"
+
+#: src/pages/admin/invitations.index.tsx
+msgid "No invitations found"
+msgstr "Не са намерени покани"
+
+#: src/pages/admin/invitations.index.tsx
+msgid "No invitations match the current filters"
+msgstr "Няма покани, съответстващи на текущите филтри"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "No linked OIDC identities found."
+msgstr "Не са намерени свързани OIDC идентичности."
+
+#: src/pages/admin/-organization-tenant-panels.tsx
+msgid "No members found"
+msgstr "Не са намерени членове"
+
+#: src/pages/admin/-organization-tenant-panels.tsx
+msgid "No members match the search"
+msgstr "Няма членове, съответстващи на търсенето"
+
+#: src/features/notification-bell/ui/notification-bell.tsx
+#: src/pages/admin/notifications.tsx
+msgid "No notifications yet"
+msgstr "Все още няма известия"
+
+#: src/pages/admin/organizations.index.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
+msgid "No organizations found"
+msgstr "Не са намерени организации"
+
+#: src/pages/admin/organizations.index.tsx
+msgid "No organizations match the current filters"
+msgstr "Няма организации, съответстващи на текущите филтри"
+
+#: src/pages/admin/cms-pages.index.tsx
+msgid "No pages found for this tenant"
+msgstr "Не са намерени страници за този наемател"
+
+#: src/pages/admin/cms-pages.index.tsx
+msgid "No pages match the current filter"
+msgstr "Няма страници, съответстващи на текущия филтър"
+
+#: src/pages/admin/plans.index.tsx
+msgid "No plans in the catalog"
+msgstr "Няма планове в каталога"
+
+#: src/pages/admin/plans.index.tsx
+msgid "No plans match the current filters"
+msgstr "Няма планове, съответстващи на текущите филтри"
+
+#: src/pages/admin/account.tsx
+msgid "No platform authorities assigned."
+msgstr "Не са присвоени платформени права."
+
+#: src/widgets/dashboard-recent-refunds/ui/recent-refunds.tsx
+msgid "No refunds recorded yet"
+msgstr "Все още няма записани възстановявания"
+
+#: src/shared/ui/admin-layout/admin-nav.tsx
+msgid "No results"
+msgstr "Няма резултати"
+
+#: src/widgets/dashboard-subscription-breakdown/ui/subscription-breakdown.tsx
+msgid "No subscription data available"
+msgstr "Няма налични данни за абонамент"
+
+#: src/pages/admin/organizations.$tenantKey.tsx
+msgid "No subscriptions"
+msgstr "Няма абонаменти"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "No subscriptions found"
+msgstr "Не са намерени абонаменти"
+
+#: src/pages/admin/-organization-tenant-panels.tsx
+msgid "No subscriptions found for this organization."
+msgstr "Не са намерени абонаменти за тази организация."
+
+#: src/pages/admin/subscriptions.tsx
+msgid "No subscriptions match the current filters"
+msgstr "Няма абонаменти, съответстващи на текущите филтри"
+
+#: src/features/announcement-admin/ui/translation-fields.tsx
+msgid "No translations added. At least en-US is required."
+msgstr "Не са добавени преводи. Необходим е поне en-US."
+
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "No translations added. At least the default locale is required."
+msgstr "Не са добавени преводи. Необходим е поне локалът по подразбиране."
+
+#: src/pages/admin/users.index.tsx
+msgid "No users found"
+msgstr "Не са намерени потребители"
+
+#: src/pages/admin/users.index.tsx
+msgid "No users match the current filters"
+msgstr "Няма потребители, съответстващи на текущите филтри"
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "None (top-level)"
+msgstr "Няма (горно ниво)"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Not granted"
+msgstr "Не е предоставено"
+
+#: src/features/notification-bell/ui/notification-bell.tsx
+#: src/pages/admin/notifications.tsx
+#: src/shared/ui/admin-layout/admin-header.tsx
+msgid "Notifications"
+msgstr "Известия"
+
+#. placeholder {0}: hasUnread ? `, ${unreadCount} unread` : ""
+#: src/features/notification-bell/ui/notification-bell.tsx
+msgid "Notifications{0}"
+msgstr "Известия{0}"
+
+#: src/pages/admin/organizations.$tenantKey.refunds.tsx
+#: src/pages/admin/refunds.$refundId.tsx
+#: src/pages/admin/refunds.tsx
+msgid "Occurred At"
+msgstr "Настъпило на"
+
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "OG description"
+msgstr "OG описание"
+
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "OG title"
+msgstr "OG заглавие"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "OIDC Identities"
+msgstr "OIDC идентичности"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Open Billing Portal"
+msgstr "Отвори портала за фактуриране"
+
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "Open Graph description"
+msgstr "Open Graph описание"
+
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "Open Graph title"
+msgstr "Open Graph заглавие"
+
+#: src/features/announcement-admin/ui/edit-announcement-modal.tsx
+msgid "Operation failed"
+msgstr "Операцията не успя"
+
+#: src/shared/ui/auth-layout/auth-layout.tsx
+#~ msgid "Operator access only"
+#~ msgstr "Само достъп за оператори"
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "Optional — makes this a child page"
+msgstr "По избор — прави страницата дъщерна"
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "Optional layout key"
+msgstr "По избор ключ за оформление"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Optional structured address as JSON."
+msgstr "Незадължителен структуриран адрес като JSON."
+
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "Optional translation"
+msgstr "По избор превод"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Optional UUID of the user who owns the billing profile."
+msgstr "Незадължителен UUID на потребителя, собственик на профила за фактуриране."
+
+#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
+#: src/pages/admin/cms-pages.index.tsx
+#: src/pages/admin/organizations.$tenantKey.tsx
+#: src/pages/admin/organizations.index.tsx
+#: src/pages/admin/users.index.tsx
+msgid "Organization"
+msgstr "Организация"
+
+#: src/features/invitation-admin/model/types.ts
+msgid "Organization is required"
+msgstr "Организацията е задължителна"
+
+#: src/features/edit-tenant/ui/edit-tenant-modal.tsx
+msgid "Organization name"
+msgstr "Наименование на организацията"
+
+#: src/features/edit-tenant/model/types.ts
+msgid "Organization name is required"
+msgstr "Наименованието на организацията е задължително"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "organization(s)"
+msgstr "организация(и)"
+
+#: src/pages/admin/index.tsx
+#: src/pages/admin/organizations.$tenantKey.tsx
+#: src/pages/admin/organizations.index.tsx
+#: src/pages/admin/users.$userId.tsx
+#: src/shared/ui/admin-layout/nav-config.tsx
+msgid "Organizations"
+msgstr "Организации"
+
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "Override page title for search engines"
+msgstr "Замени заглавието на страницата за търсачки"
+
+#: src/pages/admin/organizations.$tenantKey.tsx
+#: src/pages/admin/users.$userId.tsx
+#: src/shared/ui/admin-layout/nav-config.tsx
+msgid "Overview"
+msgstr "Преглед"
+
+#: src/pages/admin/cms-pages.index.tsx
+msgid "Page"
+msgstr "Страница"
+
+#: src/pages/404.tsx
+msgid "Page Not Found"
+msgstr "Страницата не е намерена"
+
+#: src/pages/404.tsx
+msgid "Page not found."
+msgstr "Страницата не е намерена."
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "Page settings"
+msgstr "Настройки на страницата"
+
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "Page title"
+msgstr "Заглавие на страницата"
+
+#: src/pages/admin/cms-pages.index.tsx
+msgid "Pages"
+msgstr "Страници"
+
+#. placeholder {0}: page.status
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+msgid "Pages with status <0>{0}</0> cannot be edited."
+msgstr "Страниците със статус <0>{0}</0> не могат да бъдат редактирани."
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "Parent page"
+msgstr "Родителска страница"
+
+#: src/features/sign-in/ui/sign-in-form.tsx
+msgid "Password"
+msgstr "Парола"
+
+#: src/features/sign-in/model/use-sign-in.ts
+msgid "Password is required"
+msgstr "Паролата е задължителна"
+
+#: src/features/change-admin-password/model/types.ts
+#: src/features/set-user-password/model/types.ts
+msgid "Password must be at least 8 characters"
+msgstr "Паролата трябва да е поне 8 символа"
+
+#: src/features/change-admin-password/model/types.ts
+#: src/features/set-user-password/model/types.ts
+msgid "Password must be at most 128 characters"
+msgstr "Паролата трябва да е най-много 128 символа"
+
+#: src/features/change-admin-password/model/types.ts
+#: src/features/set-user-password/model/types.ts
+msgid "Password must contain uppercase, lowercase, digit, and special character"
+msgstr "Паролата трябва да съдържа главна буква, малка буква, цифра и специален символ"
+
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
+msgid "Password requirements:"
+msgstr "Изисквания за парола:"
+
+#: src/features/change-admin-password/model/types.ts
+#: src/features/set-user-password/model/types.ts
+msgid "Passwords do not match"
+msgstr "Паролите не съвпадат"
+
+#: src/pages/admin/index.tsx
+msgid "Past-Due Subscriptions"
+msgstr "Просрочени абонаменти"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Pause"
+msgstr "Пауза"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Pause Subscription"
+msgstr "Пауза на абонамент"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Payment gateway customer identifier (e.g. Stripe cus_…)."
+msgstr "Идентификатор на клиент в платежния шлюз (напр. Stripe cus_…)."
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Payment gateway customer identifier."
+msgstr "Идентификатор на клиент в платежния шлюз."
+
+#: src/features/page-admin/model/types.ts
+#: src/pages/admin/cms-pages.index.tsx
+#: src/shared/ui/announcement-status-badge/announcement-status-badge.tsx
+#: src/shared/ui/invitation-status-badge/invitation-status-badge.tsx
+msgid "Pending"
+msgstr "Изчакващо"
+
+#: src/pages/admin/index.tsx
+msgid "Pending Invitations"
+msgstr "Изчакващи покани"
+
+#: src/features/invitation-admin/ui/edit-invitation-modal.tsx
+msgid "Pending invitations can be revoked. The invitee will no longer be able to accept this link."
+msgstr "Изчакващите покани могат да бъдат отменени. Поканеният вече няма да може да приеме тази връзка."
+
+#: src/pages/admin/plans.index.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
+msgid "Period"
+msgstr "Период"
+
+#: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
+#: src/pages/admin/subscriptions.tsx
+msgid "Period End"
+msgstr "Край на периода"
+
+#: src/features/ban-user/ui/ban-user-modal.tsx
+msgid "Pick a date and time"
+msgstr "Изберете дата и час"
+
+#: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
+#: src/pages/admin/plans.$planCode.tsx
+#: src/pages/admin/subscriptions.tsx
+msgid "Plan"
+msgstr "План"
+
+#: src/pages/admin/plans.index.tsx
+msgid "Plan catalog"
+msgstr "Каталог на планове"
+
+#: src/pages/admin/plans.$planCode.tsx
+msgid "Plan code"
+msgstr "Код на план"
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Plan ID"
+msgstr "ID на план"
+
+#: src/pages/admin/plans.$planCode.tsx
+#: src/pages/admin/plans.index.tsx
+#: src/shared/ui/admin-layout/nav-config.tsx
+msgid "Plans"
+msgstr "Планове"
+
+#: src/pages/admin/announcements.index.tsx
+#: src/pages/admin/audit-logs.tsx
+#: src/pages/admin/invitations.index.tsx
+#: src/pages/admin/organizations.index.tsx
+#: src/pages/admin/plans.index.tsx
+#: src/pages/admin/refunds.tsx
+#: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/users.index.tsx
+#: src/pages/admin/webhook-logs.tsx
+msgid "Platform"
+msgstr "Платформа"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Platform Admin"
+msgstr "Платформен администратор"
+
+#: src/pages/sign-in.tsx
+msgid "Platform administration"
+msgstr "Администрация на платформата"
+
+#: src/pages/admin/account.tsx
+msgid "Platform Authorities"
+msgstr "Платформени права"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Platform Authority"
+msgstr "Платформен авторитет"
+
+#: src/shared/ui/auth-layout/auth-layout.tsx
+#~ msgid "Platform control,"
+#~ msgstr "Контрол на платформата,"
+
+#: src/pages/admin/index.tsx
+msgid "Platform Overview"
+msgstr "Преглед на платформата"
+
+#: src/features/announcement-admin/ui/create-announcement-modal.tsx
+msgid "Please check the form and try again."
+msgstr "Моля, проверете формуляра и опитайте отново."
+
+#: src/features/announcement-admin/ui/edit-announcement-modal.tsx
+msgid "Please try again."
+msgstr "Моля, опитайте отново."
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Portal error"
+msgstr "Грешка на портала"
+
+#: src/pages/admin/plans.$planCode.tsx
+#: src/pages/admin/plans.index.tsx
+msgid "Price (minor units)"
+msgstr "Цена (малки единици)"
+
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+#: src/pages/admin/webhook-logs.tsx
+msgid "Processed At"
+msgstr ""
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Profile owner id must be a valid UUID or empty"
+msgstr "ID на собственика на профила трябва да е валиден UUID или да е празно"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Profile owner user id"
+msgstr "ID на потребителя — собственик на профила"
+
+#: src/pages/admin/invitations.index.tsx
+msgid "Propose invitation"
+msgstr "Предложи покана"
+
+#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
+msgid "Propose Invitation"
+msgstr "Предложи покана"
+
+#: src/features/ban-user/ui/ban-user-modal.tsx
+msgid "Provide a reason for the ban…"
+msgstr "Посочете причина за забраната…"
+
+#. placeholder {0}: identity.provider
+#: src/pages/admin/users.$userId.tsx
+msgid "Provider: <0>{0}</0>"
+msgstr "Доставчик: <0>{0}</0>"
+
+#: src/features/announcement-admin/ui/edit-announcement-modal.tsx
+msgid "Publish"
+msgstr "Публикувай"
+
+#: src/features/page-admin/model/types.ts
+#: src/pages/admin/cms-pages.index.tsx
+#: src/shared/ui/announcement-status-badge/announcement-status-badge.tsx
+msgid "Published"
+msgstr "Публикувано"
+
+#: src/shared/ui/announcement-status-badge/announcement-status-badge.tsx
+msgid "Publishing"
+msgstr "Публикува се"
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Quantity"
+msgstr "Количество"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Reactivate"
+msgstr "Реактивирай"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Reactivate Subscription"
+msgstr "Реактивирай абонамент"
+
+#. placeholder {0}: subscription.tenantKey
+#: src/pages/admin/subscriptions.tsx
+msgid "Reactivate the subscription for <0>{0}</0>?"
+msgstr "Реактивиране на абонамента за <0>{0}</0>?"
+
+#: src/features/edit-account/ui/edit-account-modal.tsx
+#: src/features/edit-tenant/ui/edit-tenant-modal.tsx
+#: src/features/edit-user/ui/edit-user-modal.tsx
+msgid "read-only"
+msgstr "само за четене"
+
+#: src/features/announcement-admin/ui/edit-announcement-modal.tsx
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+msgid "Read-only"
+msgstr "Само за четене"
+
+#: src/features/ban-user/ui/ban-user-modal.tsx
+msgid "Reason (optional)"
+msgstr "Причина (по избор)"
+
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+#: src/pages/admin/webhook-logs.tsx
+msgid "Received At"
+msgstr "Получено на"
+
+#: src/widgets/dashboard-recent-critical-audit/ui/recent-critical-audit.tsx
+msgid "Recent Critical Events"
+msgstr "Последни критични събития"
+
+#: src/widgets/dashboard-recent-refunds/ui/recent-refunds.tsx
+msgid "Recent Refunds"
+msgstr "Последни възстановявания"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+#: src/pages/admin/-organization-tenant-panels.tsx
+#: src/pages/admin/account.tsx
+#: src/pages/admin/announcements.index.tsx
+#: src/pages/admin/audit-logs.tsx
+#: src/pages/admin/cms-pages.index.tsx
+#: src/pages/admin/invitations.index.tsx
+#: src/pages/admin/organizations.$tenantKey.tsx
+#: src/pages/admin/organizations.index.tsx
+#: src/pages/admin/plans.$planCode.tsx
+#: src/pages/admin/plans.index.tsx
+#: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/users.$userId.tsx
+#: src/pages/admin/users.index.tsx
+msgid "Refresh"
+msgstr "Обнови"
+
+#: src/pages/admin/refunds.$refundId.tsx
+msgid "Refund"
+msgstr "Възстановяване"
+
+#: src/pages/admin/refunds.$refundId.tsx
+msgid "Refund ID"
+msgstr "ID на възстановяване"
+
+#: src/pages/admin/organizations.$tenantKey.refunds.tsx
+#: src/pages/admin/organizations.$tenantKey.tsx
+#: src/pages/admin/refunds.$refundId.tsx
+#: src/pages/admin/refunds.tsx
+#: src/shared/ui/admin-layout/nav-config.tsx
+msgid "Refunds"
+msgstr "Възстановявания"
+
+#: src/pages/admin/-organization-tenant-panels.tsx
+msgid "Renews"
+msgstr "Подновява се"
+
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
+msgid "Repeat new password"
+msgstr "Повторете новата парола"
+
+#: src/features/announcement-admin/ui/translation-fields.tsx
+msgid "Required"
+msgstr "Задължително"
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Reset"
+msgstr "Нулирай"
+
+#: src/features/ban-user/ui/unban-user-modal.tsx
+#: src/features/unlock-user/ui/unlock-user-modal.tsx
+msgid "Restore access"
+msgstr "Възстанови достъпа"
+
+#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+#: src/pages/admin/-organization-tenant-panels.tsx
+#: src/pages/admin/account.tsx
+#: src/pages/admin/announcements.index.tsx
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.index.tsx
+#: src/pages/admin/invitations.index.tsx
+#: src/pages/admin/organizations.$tenantKey.refunds.tsx
+#: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
+#: src/pages/admin/organizations.$tenantKey.tsx
+#: src/pages/admin/organizations.index.tsx
+#: src/pages/admin/plans.$planCode.tsx
+#: src/pages/admin/plans.index.tsx
+#: src/pages/admin/refunds.$refundId.tsx
+#: src/pages/admin/refunds.tsx
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+#: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/users.$userId.tsx
+#: src/pages/admin/users.index.tsx
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+#: src/pages/admin/webhook-logs.tsx
+msgid "Retry"
+msgstr "Опитай отново"
+
+#: src/pages/admin/index.tsx
+msgid "Revenue risk"
+msgstr "Риск за приходите"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Revoke"
+msgstr "Отмени"
+
+#: src/features/invitation-admin/ui/edit-invitation-modal.tsx
+msgid "Revoke invitation"
+msgstr "Отмени покана"
+
+#: src/features/manage-platform-authority/ui/revoke-platform-admin-modal.tsx
+msgid "Revoke Platform Admin"
+msgstr "Отмени права на платформен администратор"
+
+#: src/shared/ui/invitation-status-badge/invitation-status-badge.tsx
+msgid "Revoked"
+msgstr "Отменено"
+
+#: src/features/manage-platform-authority/ui/revoke-platform-admin-modal.tsx
+msgid "Revoking Platform Admin from <0>{displayName}</0> will remove their full administrative access. They will no longer be able to manage users, tenants, or any other admin-only resources."
+msgstr "Отмяната на правата на платформен администратор от <0>{displayName}</0> ще премахне пълния им административен достъп. Те вече няма да могат да управляват потребители, наематели или други ресурси само за администратори."
+
+#: src/pages/admin/addons/$addonPath.tsx
+#~ msgid "Sample"
+#~ msgstr ""
+
+#: src/features/announcement-admin/ui/edit-announcement-modal.tsx
+#: src/features/edit-account/ui/edit-account-modal.tsx
+#: src/features/edit-tenant/ui/edit-tenant-modal.tsx
+#: src/features/edit-user/ui/edit-user-modal.tsx
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Save changes"
+msgstr "Запази промените"
+
+#: src/pages/admin/-organization-tenant-panels.tsx
+msgid "Save Changes"
+msgstr "Запази промените"
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+msgid "Save failed"
+msgstr "Запазването не успя"
+
+#: src/pages/admin/plans.$planCode.tsx
+#: src/pages/admin/plans.index.tsx
+msgid "Scope"
+msgstr "Обхват"
+
+#: src/pages/admin/plans.index.tsx
+msgid "Search by code or name…"
+msgstr "Търсете по код или наименование…"
+
+#: src/pages/admin/invitations.index.tsx
+msgid "Search by email…"
+msgstr "Търсете по имейл…"
+
+#: src/pages/admin/-organization-tenant-panels.tsx
+#: src/pages/admin/users.index.tsx
+msgid "Search by name or email…"
+msgstr "Търсете по ime или имейл…"
+
+#: src/pages/admin/organizations.index.tsx
+msgid "Search by name or key…"
+msgstr "Търсете по ime или ключ…"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Search by tenant or plan…"
+msgstr "Търсете по наемател или план…"
+
+#: src/pages/admin/webhook-logs.tsx
+msgid "Search event type or ID…"
+msgstr "Търсете тип събитие или ID…"
+
+#: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
+msgid "Search plan…"
+msgstr "Търсете план…"
+
+#: src/shared/ui/admin-layout/admin-nav.tsx
+msgid "Search…"
+msgstr "Търсете…"
+
+#: src/features/announcement-admin/model/types.ts
+#: src/shared/ui/admin-layout/admin-header.tsx
+msgid "Security"
+msgstr "Сигурност"
+
+#: src/features/notification-bell/ui/notification-bell.tsx
+msgid "See all notifications"
+msgstr "Вижте всички известия"
+
+#: src/pages/admin/cms-pages.index.tsx
+msgid "Select a tenant to view its pages"
+msgstr "Изберете наемател, за да видите страниците му"
+
+#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
+msgid "Select an organization"
+msgstr "Изберете организация"
+
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
+msgid "Select an organization above to view its member signup trend."
+msgstr "Изберете организация по-горе, за да видите тенденцията на регистрации на членовете."
+
+#: src/pages/admin/cms-pages.index.tsx
+msgid "Select an organization to manage its CMS pages."
+msgstr "Изберете организация, за да управлявате CMS страниците й."
+
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
+msgid "Select an organization…"
+msgstr "Изберете организация…"
+
+#: src/features/edit-account/ui/edit-account-modal.tsx
+#: src/shared/ui/locale-switcher/locale-switcher.tsx
+msgid "Select language"
+msgstr "Изберете език"
+
+#: src/pages/admin/-organization-tenant-panels.tsx
+msgid "Select the authorities you want to assign to this member."
+msgstr "Изберете правата, които искате да присвоите на този член."
+
+#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
+msgid "Send invitation"
+msgstr "Изпрати покана"
+
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "SEO description"
+msgstr "SEO описание"
+
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "SEO fields"
+msgstr "SEO полета"
+
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "SEO title"
+msgstr "SEO заглавие"
+
+#: src/pages/500.tsx
+msgid "Server Error"
+msgstr "Сървърна грешка"
+
+#. placeholder {0}: subscription.tenantKey
+#: src/pages/admin/subscriptions.tsx
+msgid "Set new quantity for <0>{0}</0>:"
+msgstr "Задайте ново количество за <0>{0}</0>:"
+
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
+#: src/pages/admin/users.$userId.tsx
+#: src/pages/admin/users.index.tsx
+msgid "Set password"
+msgstr "Задай парола"
+
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
+msgid "Set Password"
+msgstr "Задай парола"
+
+#: src/features/edit-account/ui/edit-account-modal.tsx
+msgid "Sets your preferred language for notifications and emails."
+msgstr "Задава предпочитания от вас език за известия и имейли."
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Severity"
+msgstr "Тежест"
+
+#. placeholder {0}: notifications.length
+#. placeholder {1}: listData?.totalElements ?? 0
+#: src/features/notification-bell/ui/notification-bell.tsx
+msgid "Showing {0} of {1}"
+msgstr "Показване на {0} от {1}"
+
+#. placeholder {0}: Math.min((page - 1) * ORG_MEMBERS_PAGE_SIZE + 1, totalElements)
+#. placeholder {1}: Math.min(page * ORG_MEMBERS_PAGE_SIZE, totalElements)
+#: src/pages/admin/-organization-tenant-panels.tsx
+msgid "Showing {0}–{1} of {totalElements} members"
+msgstr "Показване на {0}–{1} от {totalElements} члена"
+
+#: src/pages/admin/organizations.$tenantKey.refunds.tsx
+#: src/pages/admin/refunds.tsx
+msgid "Showing {rangeStart} – {rangeEnd} of {totalElements} refunds"
+msgstr "Показване на {rangeStart} – {rangeEnd} от {totalElements} възстановявания"
+
+#: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
+msgid "Showing {rangeStart} – {rangeEnd} of {totalElements} subscriptions"
+msgstr "Показване на {rangeStart} – {rangeEnd} от {totalElements} абонамента"
+
+#: src/pages/admin/webhook-logs.tsx
+msgid "Showing {rangeStart} – {rangeEnd} of {totalElements} webhook logs"
+msgstr "Показване на {rangeStart} – {rangeEnd} от {totalElements} webhook журнала"
+
+#: src/pages/admin/announcements.index.tsx
+msgid "Showing {rangeStart}–{rangeEnd} of {totalElements} announcements"
+msgstr "Показване на {rangeStart}–{rangeEnd} от {totalElements} обявления"
+
+#: src/pages/admin/invitations.index.tsx
+msgid "Showing {rangeStart}–{rangeEnd} of {totalElements} invitations"
+msgstr "Показване на {rangeStart}–{rangeEnd} от {totalElements} покани"
+
+#: src/pages/admin/organizations.index.tsx
+msgid "Showing {rangeStart}–{rangeEnd} of {totalElements} organizations"
+msgstr "Показване на {rangeStart}–{rangeEnd} от {totalElements} организации"
+
+#: src/pages/admin/plans.index.tsx
+msgid "Showing {rangeStart}–{rangeEnd} of {totalElements} plans"
+msgstr "Показване на {rangeStart}–{rangeEnd} от {totalElements} плана"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Showing {rangeStart}–{rangeEnd} of {totalElements} subscriptions"
+msgstr "Показване на {rangeStart}–{rangeEnd} от {totalElements} абонамента"
+
+#: src/pages/admin/users.index.tsx
+msgid "Showing {rangeStart}–{rangeEnd} of {totalElements} users"
+msgstr "Показване на {rangeStart}–{rangeEnd} от {totalElements} потребители"
+
+#: src/features/sign-in/ui/sign-in-form.tsx
+msgid "Sign in"
+msgstr "Вход"
+
+#: src/pages/sign-in.tsx
+msgid "Sign In"
+msgstr "Вход"
+
+#: src/features/sign-out/ui/sign-out-button.tsx
+#: src/shared/ui/admin-layout/admin-header.tsx
+msgid "Sign out"
+msgstr "Изход"
+
+#: src/features/sign-in/model/use-sign-in.ts
+msgid "Sign-in failed. Please try again."
+msgstr "Входът не успя. Моля, опитайте отново."
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Signin attempts"
+msgstr "Опити за вход"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Signin Attempts"
+msgstr "Опити за вход"
+
+#: src/pages/admin/announcements.index.tsx
+msgid "Site Announcements"
+msgstr "Обявления на сайта"
+
+#: src/pages/loading-demo.tsx
+msgid "Slim top progress bar for navigation between pages (automatic with router)."
+msgstr "Тясна горна лента за напредък при навигация между страници (автоматична с рутер)."
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "Slug"
+msgstr "Слъг"
+
+#: src/features/page-admin/model/types.ts
+msgid "Slug is required"
+msgstr "Слъгът е задължителен"
+
+#: src/features/page-admin/model/types.ts
+msgid "Slug must be lowercase alphanumeric with hyphens (e.g. about-us or blog/post-title)"
+msgstr "Слъгът трябва да е с малки букви и цифри с тирета (напр. about-us или blog/post-title)"
+
+#: src/pages/admin/plans.$planCode.tsx
+msgid "Smallest currency unit (e.g. cents)."
+msgstr "Най-малката валутна единица (напр. стотинки)."
+
+#: src/shared/ui/error-boundary.tsx
+msgid "Something went wrong"
+msgstr "Нещо се обърка"
+
+#: src/pages/loading-demo.tsx
+msgid "Start"
+msgstr "Начало"
+
+#: src/features/announcement-admin/ui/edit-announcement-modal.tsx
+#: src/features/edit-tenant/ui/edit-tenant-modal.tsx
+#: src/features/edit-user/ui/edit-user-modal.tsx
+#: src/features/invitation-admin/ui/edit-invitation-modal.tsx
+#: src/pages/admin/-organization-tenant-panels.tsx
+#: src/pages/admin/announcements.index.tsx
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+#: src/pages/admin/cms-pages.index.tsx
+#: src/pages/admin/invitations.index.tsx
+#: src/pages/admin/organizations.$tenantKey.refunds.tsx
+#: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
+#: src/pages/admin/organizations.index.tsx
+#: src/pages/admin/plans.index.tsx
+#: src/pages/admin/refunds.$refundId.tsx
+#: src/pages/admin/refunds.tsx
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+#: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/users.index.tsx
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+#: src/pages/admin/webhook-logs.tsx
+msgid "Status"
+msgstr "Статус"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Subject"
+msgstr "Тема"
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Subject Key:"
+msgstr "Ключ на субект:"
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Subject Type:"
+msgstr "Тип субект:"
+
+#. placeholder {0}: identity.providerSub
+#: src/pages/admin/users.$userId.tsx
+msgid "Subject: <0>{0}</0>"
+msgstr "Тема: <0>{0}</0>"
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Subscription"
+msgstr "Абонамент"
+
+#: src/widgets/dashboard-subscription-breakdown/ui/subscription-breakdown.tsx
+msgid "Subscription Breakdown"
+msgstr "Разбивка на абонаменти"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Subscription cancellation processed"
+msgstr "Отмяната на абонамент е обработена"
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Subscription ID"
+msgstr "ID на абонамент"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Subscription paused"
+msgstr "Абонаментът е поставен на пауза"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Subscription reactivated"
+msgstr "Абонаментът е реактивиран"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Subscription updated"
+msgstr "Абонаментът е актуализиран"
+
+#: src/pages/admin/-organization-tenant-panels.tsx
+#: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
+#: src/pages/admin/organizations.$tenantKey.tsx
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+#: src/pages/admin/subscriptions.tsx
+#: src/shared/ui/admin-layout/nav-config.tsx
+msgid "Subscriptions"
+msgstr "Абонаменти"
+
+#: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/users.$userId.tsx
+msgid "Success"
+msgstr "Успех"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Success Rate"
+msgstr "Процент на успех"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Successful"
+msgstr "Успешно"
+
+#: src/features/edit-tenant/model/types.ts
+#: src/features/edit-user/model/types.ts
+#: src/shared/ui/tenant-status-badge/tenant-status-badge.tsx
+#: src/shared/ui/user-status-badge/user-status-badge.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
+msgid "Suspended"
+msgstr "Спрян"
+
+#: src/widgets/dashboard-suspended-tenants/ui/suspended-tenants.tsx
+msgid "Suspended Organizations"
+msgstr "Спряни организации"
+
+#: src/pages/admin/index.tsx
+msgid "Suspended Users"
+msgstr "Спряни потребители"
+
+#: src/shared/ui/color-scheme-toggle/color-scheme-toggle.tsx
+msgid "Switch to dark mode"
+msgstr "Превключи към тъмен режим"
+
+#: src/shared/ui/color-scheme-toggle/color-scheme-toggle.tsx
+msgid "Switch to light mode"
+msgstr "Превключи към светъл режим"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Tax id"
+msgstr "Данъчен номер"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Tax id type"
+msgstr "Тип данъчен номер"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Technical Context"
+msgstr "Технически контекст"
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+#: src/pages/admin/cms-pages.index.tsx
+msgid "Template"
+msgstr "Шаблон"
+
+#: src/pages/admin/audit-logs.tsx
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+#: src/pages/admin/invitations.index.tsx
+#: src/pages/admin/plans.$planCode.tsx
+#: src/pages/admin/refunds.tsx
+#: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/webhook-logs.tsx
+msgid "Tenant"
+msgstr "Наемател"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Tenant created"
+msgstr "Наемателят е създаден"
+
+#: src/features/edit-tenant/ui/edit-tenant-modal.tsx
+#: src/features/invitation-admin/ui/edit-invitation-modal.tsx
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Tenant key"
+msgstr "Ключ на наемател"
+
+#: src/pages/admin/audit-logs.tsx
+#: src/pages/admin/refunds.$refundId.tsx
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+msgid "Tenant Key"
+msgstr "Ключ на наемател"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Tenant key:"
+msgstr "Ключ на наемател:"
+
+#: src/pages/admin/invitations.index.tsx
+msgid "Tenant key…"
+msgstr "Ключ на наемател…"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Tenant updated"
+msgstr "Наемателят е актуализиран"
+
+#: src/pages/loading-demo.tsx
+msgid "Theme-aware (respects dark mode and color scheme)"
+msgstr "Отчита темата (поддържа тъмен режим и цветова схема)"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "This organization does not have a billing settings row yet. Create one to attach gateway customer data and invoicing details."
+msgstr "Тази организация все още няма настройки за фактуриране. Създайте ги, за да прикачите данни за клиент в шлюза и детайли за фактуриране."
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "This permanently removes the billing settings row for this tenant. Subscriptions and gateway objects are not automatically deleted."
+msgstr "Това окончателно премахва настройките за фактуриране на наемателя. Абонаментите и обектите в шлюза не се изтриват автоматично."
+
+#: src/pages/loading-demo.tsx
+msgid "This template uses Mantine's official loading components for optimal UX."
+msgstr "Този шаблон използва официалните компоненти за зареждане на Mantine за оптимален UX."
+
+#: src/pages/admin/users.$userId.tsx
+msgid "This user does not have platform admin access."
+msgstr "Този потребител няма достъп до платформения администратор."
+
+#: src/pages/admin/users.$userId.tsx
+msgid "This user has full administrative access to the platform."
+msgstr "Този потребител има пълен административен достъп до платформата."
+
+#: src/pages/admin/users.$userId.tsx
+msgid "This user is not a member of any organization."
+msgstr "Този потребител не е член на никоя организация."
+
+#: src/pages/admin/users.$userId.tsx
+msgid "This will force-remove the external sign-in method from the user account."
+msgstr "Това ще принудително премахне метода за外部 вход от потребителския акаунт."
+
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
+msgid "This will immediately change the user's password and invalidate all their active sessions. The user will need to sign in again with the new password."
+msgstr "Това незабавно ще промени паролата на потребителя и ще анулира всички активни сесии. Потребителят ще трябва да влезе отново с новата парола."
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Timestamp"
+msgstr "Времеотпечатък"
+
+#: src/pages/admin/refunds.$refundId.tsx
+msgid "Timestamps"
+msgstr "Времеотпечатъци"
+
+#: src/features/announcement-admin/ui/translation-fields.tsx
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "Title"
+msgstr "Заглавие"
+
+#: src/features/announcement-admin/model/types.ts
+msgid "Title is required"
+msgstr "Заглавието е задължително"
+
+#: src/features/page-admin/model/types.ts
+msgid "Title is required for the default locale"
+msgstr "Заглавието е задължително за локала по подразбиране"
+
+#: src/features/sign-in/model/use-sign-in.ts
+msgid "Too many sign-in attempts. Please try again later."
+msgstr "Твърде много опити за вход. Моля, опитайте отново по-късно."
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Total Attempts"
+msgstr "Общ брой опити"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "total events"
+msgstr "общо събития"
+
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
+msgid "Total members"
+msgstr "Общо членове"
+
+#: src/pages/admin/index.tsx
+msgid "Total Users"
+msgstr "Общо потребители"
+
+#: src/features/announcement-admin/ui/translation-fields.tsx
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "Translations"
+msgstr "Преводи"
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Trial End"
+msgstr "Край на пробния период"
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Trial Start"
+msgstr "Начало на пробния период"
+
+#: src/shared/ui/error-boundary.tsx
+msgid "Try Again"
+msgstr "Опитай отново"
+
+#: src/features/announcement-admin/ui/create-announcement-modal.tsx
+#: src/features/announcement-admin/ui/edit-announcement-modal.tsx
+#: src/pages/admin/announcements.index.tsx
+msgid "Type"
+msgstr "Тип"
+
+#: src/features/announcement-admin/model/types.ts
+msgid "Type is required"
+msgstr "Типът е задължителен"
+
+#: src/features/ban-user/ui/unban-user-modal.tsx
+#: src/pages/admin/users.index.tsx
+msgid "Unban user"
+msgstr "Разблокирай потребител"
+
+#: src/features/ban-user/ui/unban-user-modal.tsx
+msgid "Unban User"
+msgstr "Разблокирай потребител"
+
+#: src/features/ban-user/ui/unban-user-modal.tsx
+msgid "Unbanning this user will restore their access to the platform. They will be able to sign in again with their existing credentials."
+msgstr "Разблокирането на този потребител ще възстанови достъпа му до платформата. Те ще могат да влязат отново с текущите си данни за достъп."
+
+#: src/features/unlock-user/ui/unlock-user-modal.tsx
+#: src/pages/admin/users.$userId.tsx
+#: src/pages/admin/users.index.tsx
+msgid "Unlock user"
+msgstr "Отключи потребител"
+
+#: src/features/unlock-user/ui/unlock-user-modal.tsx
+msgid "Unlock User"
+msgstr "Отключи потребител"
+
+#: src/features/unlock-user/ui/unlock-user-modal.tsx
+msgid "Unlocking this user will reset their failed login attempts, allowing them to sign in again with their existing credentials."
+msgstr "Отключването на този потребител ще нулира неуспешните им опити за вход, позволявайки им да влязат отново с текущите си данни за достъп."
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Unmerge"
+msgstr "Раздели"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Unmerge linked identity"
+msgstr "Раздели свързана идентичност"
+
+#: src/features/edit-account/ui/edit-account-modal.tsx
+#: src/features/edit-user/ui/edit-user-modal.tsx
+#: src/pages/admin/-organization-tenant-panels.tsx
+#: src/pages/admin/account.tsx
+#: src/pages/admin/users.$userId.tsx
+#: src/pages/admin/users.index.tsx
+msgid "Unverified"
+msgstr "Непотвърден"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Update"
+msgstr "Актуализирай"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Update Quantity"
+msgstr "Актуализирай количество"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Update Subscription Quantity"
+msgstr "Актуализирай количество на абонамент"
+
+#: src/pages/admin/cms-pages.index.tsx
+#: src/pages/admin/plans.$planCode.tsx
+#: src/pages/admin/plans.index.tsx
+msgid "Updated"
+msgstr "Актуализирано"
+
+#: src/pages/admin/refunds.$refundId.tsx
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Updated:"
+msgstr "Актуализирано:"
+
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
+msgid "Uppercase and lowercase letters"
+msgstr "Главни и малки букви"
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "URL path, e.g. about-us or blog/post"
+msgstr "URL път, напр. about-us или blog/post"
+
+#: src/pages/admin/plans.$planCode.tsx
+#: src/pages/admin/users.$userId.tsx
+msgid "User"
+msgstr "Потребител"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "User Agent"
+msgstr "Потребителски агент"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "User created"
+msgstr "Потребителят е създаден"
+
+#: src/shared/ui/admin-layout/nav-config.tsx
+msgid "User Management"
+msgstr ""
+
+#: src/shared/ui/admin-layout/admin-header.tsx
+msgid "User menu"
+msgstr ""
+
+#: src/pages/admin/audit-logs.tsx
+msgid "User updated"
+msgstr "Потребителят е актуализиран"
+
+#: src/pages/admin/users.$userId.tsx
+#: src/pages/admin/users.index.tsx
+#: src/shared/ui/admin-layout/nav-config.tsx
+msgid "Users"
+msgstr "Потребители"
+
+#: src/pages/loading-demo.tsx
+msgid "Uses <0>@mantine/nprogress</0> for top loading bar"
+msgstr "Използва <0>@mantine/nprogress</0> за горна лента за зареждане"
+
+#: src/pages/loading-demo.tsx
+msgid "Uses <0>LoadingOverlay</0> component for full-screen loading"
+msgstr "Използва компонента <0>LoadingOverlay</0> за цялоекранно зареждане"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "UUID or leave empty to clear."
+msgstr "UUID или оставете празно за изчистване."
+
+#: src/features/edit-account/ui/edit-account-modal.tsx
+#: src/features/edit-user/ui/edit-user-modal.tsx
+#: src/pages/admin/-organization-tenant-panels.tsx
+#: src/pages/admin/account.tsx
+#: src/pages/admin/users.$userId.tsx
+#: src/pages/admin/users.index.tsx
+msgid "Verified"
+msgstr "Потвърден"
+
+#: src/widgets/dashboard-suspended-tenants/ui/suspended-tenants.tsx
+msgid "View"
+msgstr "Преглед"
+
+#: src/pages/admin/invitations.index.tsx
+msgid "View / manage invitation"
+msgstr "Преглед / управление на покана"
+
+#: src/widgets/dashboard-recent-critical-audit/ui/recent-critical-audit.tsx
+msgid "View all audit logs"
+msgstr "Прегледайте всички одиторски регистри"
+
+#: src/pages/admin/audit-logs.tsx
+#: src/pages/admin/organizations.$tenantKey.refunds.tsx
+#: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
+#: src/pages/admin/refunds.tsx
+#: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/webhook-logs.tsx
+msgid "View details"
+msgstr "Вижте детайлите"
+
+#: src/pages/admin/index.tsx
+msgid "View invitations"
+msgstr "Прегледайте поканите"
+
+#: src/pages/admin/index.tsx
+msgid "View locked users"
+msgstr "Прегледайте заключените потребители"
+
+#: src/pages/admin/organizations.index.tsx
+msgid "View organization"
+msgstr "Прегледайте организацията"
+
+#: src/pages/admin/plans.index.tsx
+msgid "View plan"
+msgstr "Прегледайте плана"
+
+#: src/pages/admin/index.tsx
+msgid "View subscriptions"
+msgstr "Прегледайте абонаментите"
+
+#: src/pages/admin/index.tsx
+msgid "View users"
+msgstr "Прегледайте потребителите"
+
+#: src/features/announcement-admin/model/types.ts
+msgid "Warning"
+msgstr "Предупреждение"
+
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+msgid "Webhook Log"
+msgstr "Webhook журнал"
+
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+#: src/pages/admin/webhook-logs.tsx
+#: src/shared/ui/admin-layout/nav-config.tsx
+msgid "Webhook Logs"
+msgstr "Webhook журнали"
+
+#: src/pages/sign-in.tsx
+msgid "Welcome back"
+msgstr "Добре дошли отново"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "You cannot modify your own platform authority"
+msgstr "Не можете да промените собствения си платформен авторитет"
+
+#: src/pages/sign-in.tsx
+msgid "You do not have permission to access the admin area."
+msgstr "Нямате разрешение за достъп до администраторската зона."
+
+#: src/pages/unauthorized.tsx
+msgid "You do not have the required <0>PLATFORM_ADMIN</0> authority to access this area. Please sign in with an account that has the appropriate permissions."
+msgstr "Нямате необходимото право <0>PLATFORM_ADMIN</0> за достъп до тази зона. Моля, влезте с акаунт с подходящите разрешения."
+
+#: src/features/sign-in/ui/sign-in-form.tsx
+msgid "you@example.com"
+msgstr "you@example.com"
+
+#: src/features/sign-in/model/use-sign-in.ts
+msgid "Your account does not have admin access"
+msgstr "Вашият акаунт няма администраторски достъп"
+
+#: src/features/sign-in/ui/sign-in-form.tsx
+msgid "Your password"
+msgstr "Вашата парола"
+
+#: src/pages/sign-in.tsx
+msgid "Your session expired due to inactivity."
+msgstr "Сесията ви изтече поради неактивност."

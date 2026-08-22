@@ -1,0 +1,2861 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2026-03-25 15:08+0200\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en-US\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#: src/pages/admin/announcements.index.tsx
+#: src/pages/admin/cms-pages.index.tsx
+msgid "(no title)"
+msgstr "(no title)"
+
+#. placeholder {0}: localeToNameMap[locale]
+#. placeholder {0}: o.label
+#: src/pages/admin/announcements.index.tsx
+#: src/pages/admin/invitations.index.tsx
+#: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
+#: src/pages/admin/organizations.index.tsx
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+#: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/users.index.tsx
+#: src/shared/locales/index.ts
+msgid "{0}"
+msgstr "{0}"
+
+#: src/pages/admin/organizations.$tenantKey.tsx
+msgid "{subscriptionCount} subscription(s)"
+msgstr "{subscriptionCount} subscription(s)"
+
+#: src/pages/loading-demo.tsx
+msgid "1. Initial Page Load"
+msgstr "1. Initial Page Load"
+
+#: src/pages/loading-demo.tsx
+msgid "2. Page Transitions"
+msgstr "2. Page Transitions"
+
+#. placeholder {0}: defaultLocale ?? "default"
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "A translation for the default locale ({0}) is required."
+msgstr "A translation for the default locale ({0}) is required."
+
+#: src/features/invitation-admin/ui/edit-invitation-modal.tsx
+#: src/shared/ui/invitation-status-badge/invitation-status-badge.tsx
+msgid "Accepted"
+msgstr "Accepted"
+
+#: src/pages/unauthorized.tsx
+msgid "Access Denied"
+msgstr "Access Denied"
+
+#: src/pages/loading-demo.tsx
+msgid "Accessible with proper keyboard handling"
+msgstr "Accessible with proper keyboard handling"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Action"
+msgstr "Action"
+
+#: src/pages/admin/index.tsx
+msgid "Action needed"
+msgstr "Action needed"
+
+#: src/pages/admin/-organization-tenant-panels.tsx
+#: src/pages/admin/organizations.$tenantKey.refunds.tsx
+#: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
+#: src/pages/admin/refunds.tsx
+#: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/users.index.tsx
+#: src/pages/admin/webhook-logs.tsx
+msgid "Actions"
+msgstr "Actions"
+
+#: src/features/edit-tenant/model/types.ts
+#: src/features/edit-user/model/types.ts
+#: src/pages/admin/plans.$planCode.tsx
+#: src/pages/admin/plans.index.tsx
+#: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/users.$userId.tsx
+#: src/shared/ui/tenant-status-badge/tenant-status-badge.tsx
+#: src/shared/ui/user-status-badge/user-status-badge.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
+msgid "Active"
+msgstr "Active"
+
+#: src/pages/admin/plans.index.tsx
+msgid "Active only"
+msgstr "Active only"
+
+#: src/pages/admin/index.tsx
+msgid "Active Subscriptions"
+msgstr "Active Subscriptions"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Activity History"
+msgstr "Activity History"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Actor"
+msgstr "Actor"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Actor Information"
+msgstr "Actor Information"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Actor Type"
+msgstr "Actor Type"
+
+#: src/features/announcement-admin/ui/translation-fields.tsx
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "Add locale"
+msgstr "Add locale"
+
+#: src/pages/admin/addons/$addonPath.tsx
+msgid "Addon Page"
+msgstr "Addon Page"
+
+#: src/pages/admin/index.tsx
+msgid "Addon Widgets"
+msgstr "Addon Widgets"
+
+#: src/pages/admin/addons/$addonPath.tsx
+msgid "Addons"
+msgstr "Addons"
+
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
+msgid "Admin password override"
+msgstr "Admin password override"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "All actions"
+msgstr "All actions"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "All Events"
+msgstr "All Events"
+
+#: src/widgets/dashboard-suspended-tenants/ui/suspended-tenants.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
+msgid "All organizations"
+msgstr "All organizations"
+
+#: src/widgets/dashboard-suspended-tenants/ui/suspended-tenants.tsx
+msgid "All organizations are in good standing"
+msgstr "All organizations are in good standing"
+
+#: src/pages/admin/plans.index.tsx
+msgid "All plans"
+msgstr "All plans"
+
+#: src/widgets/dashboard-recent-refunds/ui/recent-refunds.tsx
+msgid "All refunds"
+msgstr "All refunds"
+
+#: src/pages/admin/announcements.index.tsx
+#: src/pages/admin/cms-pages.index.tsx
+#: src/pages/admin/invitations.index.tsx
+#: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
+#: src/pages/admin/organizations.index.tsx
+#: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/users.index.tsx
+msgid "All statuses"
+msgstr "All statuses"
+
+#: src/widgets/dashboard-subscription-breakdown/ui/subscription-breakdown.tsx
+msgid "All subscriptions"
+msgstr "All subscriptions"
+
+#: src/pages/admin/announcements.index.tsx
+msgid "All types"
+msgstr "All types"
+
+#: src/pages/admin/organizations.$tenantKey.refunds.tsx
+#: src/pages/admin/refunds.$refundId.tsx
+#: src/pages/admin/refunds.tsx
+msgid "Amount"
+msgstr "Amount"
+
+#: src/features/announcement-admin/ui/create-announcement-modal.tsx
+#: src/features/announcement-admin/ui/edit-announcement-modal.tsx
+msgid "An English (en-US) translation is required."
+msgstr "An English (en-US) translation is required."
+
+#: src/pages/admin/announcements.index.tsx
+msgid "Announcement"
+msgstr "Announcement"
+
+#: src/features/announcement-admin/ui/translation-fields.tsx
+msgid "Announcement message body"
+msgstr "Announcement message body"
+
+#: src/features/announcement-admin/ui/translation-fields.tsx
+msgid "Announcement title"
+msgstr "Announcement title"
+
+#: src/pages/admin/announcements.index.tsx
+#: src/shared/ui/admin-layout/nav-config.tsx
+msgid "Announcements"
+msgstr "Announcements"
+
+#. placeholder {0}: announcement.status
+#: src/features/announcement-admin/ui/edit-announcement-modal.tsx
+msgid "Announcements in <0>{0}</0> status cannot be edited."
+msgstr "Announcements in <0>{0}</0> status cannot be edited."
+
+#: src/pages/admin/plans.$planCode.tsx
+msgid "Annual"
+msgstr "Annual"
+
+#: src/features/page-admin/model/types.ts
+#: src/pages/admin/cms-pages.index.tsx
+msgid "Archived"
+msgstr "Archived"
+
+#. placeholder {0}: subscription.tenantKey
+#: src/pages/admin/subscriptions.tsx
+msgid "Are you sure you want to cancel the subscription for <0>{0}</0>?"
+msgstr "Are you sure you want to cancel the subscription for <0>{0}</0>?"
+
+#: src/features/page-admin/ui/delete-page-modal.tsx
+msgid "Are you sure you want to delete <0>{displayName}</0>? This action cannot be undone."
+msgstr "Are you sure you want to delete <0>{displayName}</0>? This action cannot be undone."
+
+#: src/features/announcement-admin/ui/delete-announcement-modal.tsx
+msgid "Are you sure you want to delete <0>{enTitle}</0>? This action cannot be undone."
+msgstr "Are you sure you want to delete <0>{enTitle}</0>? This action cannot be undone."
+
+#. placeholder {0}: subscription.tenantKey
+#: src/pages/admin/subscriptions.tsx
+msgid "Are you sure you want to pause the subscription for <0>{0}</0>?"
+msgstr "Are you sure you want to pause the subscription for <0>{0}</0>?"
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Are you sure you want to permanently delete this subscription record? This action cannot be undone and will remove the record from the local database."
+msgstr "Are you sure you want to permanently delete this subscription record? This action cannot be undone and will remove the record from the local database."
+
+#: src/features/ban-user/ui/ban-user-modal.tsx
+msgid "Are you sure?"
+msgstr "Are you sure?"
+
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
+msgid "At least 8 characters, at most 128"
+msgstr "At least 8 characters, at most 128"
+
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
+msgid "At least one digit"
+msgstr "At least one digit"
+
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
+msgid "At least one special character"
+msgstr "At least one special character"
+
+#: src/features/announcement-admin/model/types.ts
+#: src/features/page-admin/model/types.ts
+msgid "At least one translation is required"
+msgstr "At least one translation is required"
+
+#: src/pages/admin/index.tsx
+msgid "Attention Required"
+msgstr "Attention Required"
+
+#: src/pages/admin/audit-logs.tsx
+#: src/shared/ui/admin-layout/nav-config.tsx
+msgid "Audit Logs"
+msgstr "Audit Logs"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Audit Record Details"
+msgstr "Audit Record Details"
+
+#: src/pages/admin/-organization-tenant-panels.tsx
+msgid "Authorities"
+msgstr "Authorities"
+
+#: src/features/invitation-admin/ui/edit-invitation-modal.tsx
+#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
+msgid "Authority"
+msgstr "Authority"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Auto-Renew"
+msgstr "Auto-Renew"
+
+#: src/pages/loading-demo.tsx
+msgid "Automatic router integration via <0>router.subscribe()</0>"
+msgstr "Automatic router integration via <0>router.subscribe()</0>"
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+#: src/pages/admin/plans.$planCode.tsx
+#: src/pages/admin/refunds.$refundId.tsx
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+msgid "Back to list"
+msgstr "Back to list"
+
+#: src/features/ban-user/ui/ban-user-modal.tsx
+#: src/pages/admin/users.index.tsx
+msgid "Ban user"
+msgstr "Ban user"
+
+#: src/features/ban-user/ui/ban-user-modal.tsx
+msgid "Ban User"
+msgstr "Ban User"
+
+#: src/features/ban-user/ui/ban-user-modal.tsx
+msgid "Banning this user will immediately invalidate all their active sessions, revoke their access, and send them a notification email. They will not be able to sign in again until unbanned."
+msgstr "Banning this user will immediately invalidate all their active sessions, revoke their access, and send them a notification email. They will not be able to sign in again until unbanned."
+
+#: src/shared/ui/admin-layout/nav-config.tsx
+msgid "Billing & Commerce"
+msgstr "Billing & Commerce"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Billing address (JSON)"
+msgstr "Billing address (JSON)"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Billing address must be valid JSON or empty"
+msgstr "Billing address must be valid JSON or empty"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Billing email"
+msgstr "Billing email"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Billing email is required"
+msgstr "Billing email is required"
+
+#: src/pages/admin/plans.$planCode.tsx
+msgid "Billing period"
+msgstr "Billing period"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+#: src/pages/admin/organizations.index.tsx
+msgid "Billing settings"
+msgstr "Billing settings"
+
+#: src/pages/admin/organizations.$tenantKey.tsx
+msgid "Billing Settings"
+msgstr "Billing Settings"
+
+#: src/features/announcement-admin/ui/create-announcement-modal.tsx
+#: src/features/announcement-admin/ui/delete-announcement-modal.tsx
+#: src/features/announcement-admin/ui/edit-announcement-modal.tsx
+#: src/features/ban-user/ui/ban-user-modal.tsx
+#: src/features/ban-user/ui/unban-user-modal.tsx
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+#: src/features/edit-account/ui/edit-account-modal.tsx
+#: src/features/edit-tenant/ui/edit-tenant-modal.tsx
+#: src/features/edit-user/ui/edit-user-modal.tsx
+#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
+#: src/features/manage-platform-authority/ui/grant-platform-admin-modal.tsx
+#: src/features/manage-platform-authority/ui/revoke-platform-admin-modal.tsx
+#: src/features/page-admin/ui/delete-page-modal.tsx
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+#: src/features/unlock-user/ui/unlock-user-modal.tsx
+#: src/pages/admin/-organization-tenant-panels.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+#: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/users.$userId.tsx
+msgid "Cancel"
+msgstr "Cancel"
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Cancel at period end"
+msgstr "Cancel at period end"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Cancel Immediately"
+msgstr "Cancel Immediately"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Cancel Subscription"
+msgstr "Cancel Subscription"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Canceling"
+msgstr "Canceling"
+
+#: src/pages/admin/announcements.index.tsx
+msgid "Cannot delete a published or in-progress announcement"
+msgstr "Cannot delete a published or in-progress announcement"
+
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "Canonical URL"
+msgstr "Canonical URL"
+
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+#: src/pages/admin/account.tsx
+msgid "Change password"
+msgstr "Change password"
+
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+msgid "Change Password"
+msgstr "Change Password"
+
+#: src/pages/admin/announcements.index.tsx
+#: src/pages/admin/invitations.index.tsx
+#: src/pages/admin/organizations.index.tsx
+#: src/pages/admin/plans.index.tsx
+#: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/users.index.tsx
+msgid "Clear"
+msgstr "Clear"
+
+#: src/features/notification-bell/ui/notification-bell.tsx
+#: src/pages/admin/notifications.tsx
+msgid "Clear all"
+msgstr "Clear all"
+
+#: src/pages/admin/announcements.index.tsx
+#: src/pages/admin/invitations.index.tsx
+#: src/pages/admin/organizations.index.tsx
+#: src/pages/admin/plans.index.tsx
+#: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/users.index.tsx
+msgid "Clear filters"
+msgstr "Clear filters"
+
+#: src/features/invitation-admin/ui/edit-invitation-modal.tsx
+#: src/pages/admin/audit-logs.tsx
+msgid "Close"
+msgstr "Close"
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+#: src/pages/admin/cms-pages.index.tsx
+#: src/shared/ui/admin-layout/nav-config.tsx
+msgid "CMS Pages"
+msgstr "CMS Pages"
+
+#: src/pages/admin/plans.index.tsx
+msgid "Code"
+msgstr "Code"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Company name"
+msgstr "Company name"
+
+#: src/pages/loading-demo.tsx
+msgid "Complete"
+msgstr "Complete"
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Confirm delete"
+msgstr "Confirm delete"
+
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+msgid "Confirm new password"
+msgstr "Confirm new password"
+
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
+msgid "Confirm password"
+msgstr "Confirm password"
+
+#: src/features/manage-platform-authority/ui/grant-platform-admin-modal.tsx
+msgid "Confirm privilege escalation"
+msgstr "Confirm privilege escalation"
+
+#: src/features/manage-platform-authority/ui/revoke-platform-admin-modal.tsx
+msgid "Confirm privilege removal"
+msgstr "Confirm privilege removal"
+
+#: src/features/page-admin/ui/page-translation-fields.tsx
+#: src/pages/admin/cms-pages.index.tsx
+msgid "Content"
+msgstr "Content"
+
+#: src/shared/ui/admin-layout/nav-config.tsx
+msgid "Content & Platform"
+msgstr "Content & Platform"
+
+#: src/features/page-admin/model/types.ts
+msgid "Content is required for the default locale"
+msgstr "Content is required for the default locale"
+
+#: src/features/sign-in/ui/demo-credentials-hint.tsx
+msgid "Copied!"
+msgstr "Copied!"
+
+#: src/features/sign-in/ui/demo-credentials-hint.tsx
+msgid "Copy"
+msgstr "Copy"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Correlation ID"
+msgstr "Correlation ID"
+
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "Could not create the page. Please check the form and try again."
+msgstr "Could not create the page. Please check the form and try again."
+
+#: src/features/announcement-admin/ui/delete-announcement-modal.tsx
+msgid "Could not delete the announcement. Please try again."
+msgstr "Could not delete the announcement. Please try again."
+
+#: src/features/page-admin/ui/delete-page-modal.tsx
+msgid "Could not delete the page. It may be published."
+msgstr "Could not delete the page. It may be published."
+
+#: src/pages/admin/announcements.index.tsx
+msgid "Could not fetch announcements from the API."
+msgstr "Could not fetch announcements from the API."
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Could not fetch audit records from the API."
+msgstr "Could not fetch audit records from the API."
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Could not fetch billing settings."
+msgstr "Could not fetch billing settings."
+
+#: src/pages/admin/invitations.index.tsx
+msgid "Could not fetch invitations from the API."
+msgstr "Could not fetch invitations from the API."
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Could not fetch linked identities for this user."
+msgstr "Could not fetch linked identities for this user."
+
+#: src/pages/admin/-organization-tenant-panels.tsx
+msgid "Could not fetch members."
+msgstr "Could not fetch members."
+
+#: src/pages/admin/organizations.$tenantKey.tsx
+msgid "Could not fetch organization details."
+msgstr "Could not fetch organization details."
+
+#: src/pages/admin/organizations.index.tsx
+msgid "Could not fetch organizations from the API."
+msgstr "Could not fetch organizations from the API."
+
+#: src/pages/admin/cms-pages.index.tsx
+msgid "Could not fetch pages from the API."
+msgstr "Could not fetch pages from the API."
+
+#: src/pages/admin/plans.$planCode.tsx
+msgid "Could not fetch plan details."
+msgstr "Could not fetch plan details."
+
+#: src/pages/admin/plans.index.tsx
+msgid "Could not fetch plans from the API."
+msgstr "Could not fetch plans from the API."
+
+#: src/pages/admin/refunds.$refundId.tsx
+msgid "Could not fetch refund details."
+msgstr "Could not fetch refund details."
+
+#: src/pages/admin/organizations.$tenantKey.refunds.tsx
+msgid "Could not fetch refunds for this organization."
+msgstr "Could not fetch refunds for this organization."
+
+#: src/pages/admin/refunds.tsx
+msgid "Could not fetch refunds from the API."
+msgstr "Could not fetch refunds from the API."
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Could not fetch subscription details."
+msgstr "Could not fetch subscription details."
+
+#: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
+msgid "Could not fetch subscriptions for this organization."
+msgstr "Could not fetch subscriptions for this organization."
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Could not fetch subscriptions from the API."
+msgstr "Could not fetch subscriptions from the API."
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+msgid "Could not fetch the page details."
+msgstr "Could not fetch the page details."
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Could not fetch user details."
+msgstr "Could not fetch user details."
+
+#: src/pages/admin/users.index.tsx
+msgid "Could not fetch users from the API."
+msgstr "Could not fetch users from the API."
+
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+msgid "Could not fetch webhook log details."
+msgstr "Could not fetch webhook log details."
+
+#: src/pages/admin/webhook-logs.tsx
+msgid "Could not fetch webhook logs from the API."
+msgstr "Could not fetch webhook logs from the API."
+
+#: src/pages/admin/account.tsx
+msgid "Could not fetch your account details."
+msgstr "Could not fetch your account details."
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Could not open the billing portal. Please try again."
+msgstr "Could not open the billing portal. Please try again."
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+msgid "Could not save the page. Please check the form and try again."
+msgstr "Could not save the page. Please check the form and try again."
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Create"
+msgstr "Create"
+
+#: src/features/announcement-admin/ui/create-announcement-modal.tsx
+msgid "Create announcement"
+msgstr "Create announcement"
+
+#: src/features/announcement-admin/ui/create-announcement-modal.tsx
+msgid "Create Announcement"
+msgstr "Create Announcement"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Create billing settings"
+msgstr "Create billing settings"
+
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "Create page"
+msgstr "Create page"
+
+#: src/features/invitation-admin/ui/edit-invitation-modal.tsx
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+#: src/pages/admin/-organization-tenant-panels.tsx
+#: src/pages/admin/announcements.index.tsx
+#: src/pages/admin/invitations.index.tsx
+#: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
+#: src/pages/admin/organizations.$tenantKey.tsx
+#: src/pages/admin/organizations.index.tsx
+#: src/pages/admin/plans.$planCode.tsx
+#: src/pages/admin/subscriptions.tsx
+msgid "Created"
+msgstr "Created"
+
+#: src/pages/admin/refunds.$refundId.tsx
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Created:"
+msgstr "Created:"
+
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "Creation failed"
+msgstr "Creation failed"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+#: src/pages/admin/plans.$planCode.tsx
+msgid "Currency"
+msgstr "Currency"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Currency must be a 3-letter ISO code"
+msgstr "Currency must be a 3-letter ISO code"
+
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+msgid "Current password"
+msgstr "Current password"
+
+#: src/features/change-admin-password/model/types.ts
+msgid "Current password is required"
+msgstr "Current password is required"
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Current Period End"
+msgstr "Current Period End"
+
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
+msgid "Daily"
+msgstr "Daily"
+
+#: src/pages/admin/addons/$addonPath.tsx
+#: src/pages/admin/index.tsx
+#: src/shared/ui/admin-layout/nav-config.tsx
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "Default locale — required"
+msgstr "Default locale — required"
+
+#: src/features/announcement-admin/ui/delete-announcement-modal.tsx
+#: src/features/page-admin/ui/delete-page-modal.tsx
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+#: src/pages/admin/cms-pages.index.tsx
+msgid "Delete"
+msgstr "Delete"
+
+#: src/pages/admin/announcements.index.tsx
+msgid "Delete announcement"
+msgstr "Delete announcement"
+
+#: src/features/announcement-admin/ui/delete-announcement-modal.tsx
+msgid "Delete Announcement"
+msgstr "Delete Announcement"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Delete billing settings"
+msgstr "Delete billing settings"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Delete billing settings?"
+msgstr "Delete billing settings?"
+
+#: src/features/announcement-admin/ui/delete-announcement-modal.tsx
+#: src/features/page-admin/ui/delete-page-modal.tsx
+msgid "Delete failed"
+msgstr "Delete failed"
+
+#: src/features/page-admin/ui/delete-page-modal.tsx
+msgid "Delete Page"
+msgstr "Delete Page"
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Delete record"
+msgstr "Delete record"
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Delete subscription record"
+msgstr "Delete subscription record"
+
+#: src/shared/ui/tenant-status-badge/tenant-status-badge.tsx
+#: src/shared/ui/user-status-badge/user-status-badge.tsx
+msgid "Deleted"
+msgstr "Deleted"
+
+#: src/features/sign-in/ui/demo-credentials-hint.tsx
+msgid "Demo environment"
+msgstr "Demo environment"
+
+#: src/pages/loading-demo.tsx
+msgid "Demo LoadingOverlay (2s)"
+msgstr "Demo LoadingOverlay (2s)"
+
+#: src/pages/loading-demo.tsx
+msgid "Demo Progress Bar"
+msgstr "Demo Progress Bar"
+
+#: src/pages/admin/plans.$planCode.tsx
+msgid "Display name"
+msgstr "Display name"
+
+#: src/features/announcement-admin/model/types.ts
+#: src/features/page-admin/model/types.ts
+#: src/pages/admin/cms-pages.index.tsx
+#: src/shared/ui/announcement-status-badge/announcement-status-badge.tsx
+msgid "Draft"
+msgstr "Draft"
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "e.g. default, landing"
+msgstr "e.g. default, landing"
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.index.tsx
+msgid "Edit"
+msgstr "Edit"
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+msgid "Edit — {defaultTitle} — {tenantKey}"
+msgstr "Edit — {defaultTitle} — {tenantKey}"
+
+#: src/pages/admin/announcements.index.tsx
+msgid "Edit announcement"
+msgstr "Edit announcement"
+
+#: src/features/announcement-admin/ui/edit-announcement-modal.tsx
+msgid "Edit Announcement"
+msgstr "Edit Announcement"
+
+#: src/pages/admin/-organization-tenant-panels.tsx
+msgid "Edit member authorities"
+msgstr "Edit member authorities"
+
+#: src/pages/admin/-organization-tenant-panels.tsx
+msgid "Edit Member Authorities"
+msgstr "Edit Member Authorities"
+
+#: src/pages/admin/organizations.$tenantKey.tsx
+#: src/pages/admin/organizations.index.tsx
+msgid "Edit organization"
+msgstr "Edit organization"
+
+#: src/features/edit-tenant/ui/edit-tenant-modal.tsx
+msgid "Edit Organization"
+msgstr "Edit Organization"
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+msgid "Edit Page"
+msgstr "Edit Page"
+
+#: src/pages/admin/account.tsx
+msgid "Edit profile"
+msgstr "Edit profile"
+
+#: src/features/edit-account/ui/edit-account-modal.tsx
+msgid "Edit Profile"
+msgstr "Edit Profile"
+
+#: src/pages/admin/users.$userId.tsx
+#: src/pages/admin/users.index.tsx
+msgid "Edit user"
+msgstr "Edit user"
+
+#: src/features/edit-user/ui/edit-user-modal.tsx
+msgid "Edit User"
+msgstr "Edit User"
+
+#: src/features/edit-account/ui/edit-account-modal.tsx
+#: src/features/edit-user/ui/edit-user-modal.tsx
+#: src/features/invitation-admin/ui/edit-invitation-modal.tsx
+#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
+#: src/features/sign-in/ui/sign-in-form.tsx
+#: src/pages/admin/-organization-tenant-panels.tsx
+#: src/pages/admin/account.tsx
+#: src/pages/admin/users.$userId.tsx
+#: src/pages/admin/users.index.tsx
+msgid "Email"
+msgstr "Email"
+
+#: src/features/sign-in/model/use-sign-in.ts
+msgid "Email is required"
+msgstr "Email is required"
+
+#: src/pages/admin/account.tsx
+#: src/pages/admin/users.$userId.tsx
+msgid "Email unverified"
+msgstr "Email unverified"
+
+#: src/pages/admin/account.tsx
+#: src/pages/admin/users.$userId.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
+msgid "Email verified"
+msgstr "Email verified"
+
+#: src/features/edit-account/ui/edit-account-modal.tsx
+#: src/features/edit-user/ui/edit-user-modal.tsx
+msgid "Email verified:"
+msgstr "Email verified:"
+
+#. placeholder {0}: identity.email
+#: src/pages/admin/users.$userId.tsx
+msgid "Email: <0>{0}</0>"
+msgstr "Email: <0>{0}</0>"
+
+#: src/features/sign-in/model/use-sign-in.ts
+msgid "Enter a valid email address"
+msgstr "Enter a valid email address"
+
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
+msgid "Enter new password"
+msgstr "Enter new password"
+
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+msgid "Enter your current password"
+msgstr "Enter your current password"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Entity ID"
+msgstr "Entity ID"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Entity Type"
+msgstr "Entity Type"
+
+#: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/users.$userId.tsx
+msgid "Error"
+msgstr "Error"
+
+#: src/shared/ui/error-boundary.tsx
+msgid "Error Details (Development)"
+msgstr "Error Details (Development)"
+
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+msgid "Error Message"
+msgstr "Error Message"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Event Payload"
+msgstr "Event Payload"
+
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+#: src/pages/admin/webhook-logs.tsx
+msgid "Event Type"
+msgstr "Event Type"
+
+#: src/shared/ui/invitation-status-badge/invitation-status-badge.tsx
+msgid "Expired"
+msgstr "Expired"
+
+#: src/features/invitation-admin/ui/edit-invitation-modal.tsx
+#: src/pages/admin/invitations.index.tsx
+msgid "Expires"
+msgstr "Expires"
+
+#: src/features/ban-user/ui/ban-user-modal.tsx
+msgid "Expires at (optional)"
+msgstr "Expires at (optional)"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "External customer id"
+msgstr "External customer id"
+
+#: src/pages/admin/refunds.$refundId.tsx
+msgid "External Customer ID"
+msgstr "External Customer ID"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "External customer id is required"
+msgstr "External customer id is required"
+
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+#: src/pages/admin/webhook-logs.tsx
+msgid "External Event ID"
+msgstr "External Event ID"
+
+#: src/pages/admin/organizations.$tenantKey.refunds.tsx
+#: src/pages/admin/refunds.tsx
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "External ID"
+msgstr "External ID"
+
+#: src/pages/admin/refunds.$refundId.tsx
+msgid "External Payment ID"
+msgstr "External Payment ID"
+
+#: src/pages/admin/refunds.$refundId.tsx
+msgid "External Refund ID"
+msgstr "External Refund ID"
+
+#: src/features/announcement-admin/model/types.ts
+#: src/pages/admin/audit-logs.tsx
+#: src/shared/ui/announcement-status-badge/announcement-status-badge.tsx
+msgid "Failed"
+msgstr "Failed"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Failed to cancel subscription"
+msgstr "Failed to cancel subscription"
+
+#: src/features/announcement-admin/ui/create-announcement-modal.tsx
+msgid "Failed to create announcement"
+msgstr "Failed to create announcement"
+
+#: src/widgets/dashboard-stat-value/ui/stat-value.tsx
+msgid "Failed to load"
+msgstr "Failed to load"
+
+#: src/pages/admin/account.tsx
+msgid "Failed to load account"
+msgstr "Failed to load account"
+
+#: src/pages/admin/announcements.index.tsx
+msgid "Failed to load announcements"
+msgstr "Failed to load announcements"
+
+#: src/widgets/dashboard-recent-critical-audit/ui/recent-critical-audit.tsx
+msgid "Failed to load audit events"
+msgstr "Failed to load audit events"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Failed to load audit logs"
+msgstr "Failed to load audit logs"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Failed to load billing settings"
+msgstr "Failed to load billing settings"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Failed to load identities"
+msgstr "Failed to load identities"
+
+#: src/pages/admin/invitations.index.tsx
+msgid "Failed to load invitations"
+msgstr "Failed to load invitations"
+
+#: src/pages/admin/organizations.$tenantKey.tsx
+msgid "Failed to load organization"
+msgstr "Failed to load organization"
+
+#: src/widgets/dashboard-suspended-tenants/ui/suspended-tenants.tsx
+msgid "Failed to load organization data"
+msgstr "Failed to load organization data"
+
+#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
+#: src/pages/admin/organizations.index.tsx
+msgid "Failed to load organizations"
+msgstr "Failed to load organizations"
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+msgid "Failed to load page"
+msgstr "Failed to load page"
+
+#: src/pages/admin/cms-pages.index.tsx
+msgid "Failed to load pages"
+msgstr "Failed to load pages"
+
+#: src/pages/admin/plans.$planCode.tsx
+msgid "Failed to load plan"
+msgstr "Failed to load plan"
+
+#: src/pages/admin/plans.index.tsx
+msgid "Failed to load plans"
+msgstr "Failed to load plans"
+
+#: src/widgets/dashboard-recent-refunds/ui/recent-refunds.tsx
+msgid "Failed to load recent refunds"
+msgstr "Failed to load recent refunds"
+
+#: src/pages/admin/refunds.$refundId.tsx
+msgid "Failed to load refund"
+msgstr "Failed to load refund"
+
+#: src/pages/admin/organizations.$tenantKey.refunds.tsx
+#: src/pages/admin/refunds.tsx
+msgid "Failed to load refunds"
+msgstr "Failed to load refunds"
+
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
+msgid "Failed to load stats for the selected organization."
+msgstr "Failed to load stats for the selected organization."
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Failed to load subscription"
+msgstr "Failed to load subscription"
+
+#: src/widgets/dashboard-subscription-breakdown/ui/subscription-breakdown.tsx
+msgid "Failed to load subscription breakdown"
+msgstr "Failed to load subscription breakdown"
+
+#: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
+#: src/pages/admin/subscriptions.tsx
+msgid "Failed to load subscriptions"
+msgstr "Failed to load subscriptions"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Failed to load user"
+msgstr "Failed to load user"
+
+#: src/pages/admin/users.index.tsx
+msgid "Failed to load users"
+msgstr "Failed to load users"
+
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+msgid "Failed to load webhook log"
+msgstr "Failed to load webhook log"
+
+#: src/pages/admin/webhook-logs.tsx
+msgid "Failed to load webhook logs"
+msgstr "Failed to load webhook logs"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Failed to pause subscription"
+msgstr "Failed to pause subscription"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Failed to reactivate subscription"
+msgstr "Failed to reactivate subscription"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Failed to unmerge identity"
+msgstr "Failed to unmerge identity"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Failed to update subscription"
+msgstr "Failed to update subscription"
+
+#: src/features/announcement-admin/model/types.ts
+msgid "Feature"
+msgstr "Feature"
+
+#: src/pages/admin/plans.$planCode.tsx
+msgid "Feature set (JSON)"
+msgstr "Feature set (JSON)"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Filter by action…"
+msgstr "Filter by action…"
+
+#: src/pages/admin/audit-logs.tsx
+#: src/pages/admin/refunds.tsx
+#: src/pages/admin/webhook-logs.tsx
+msgid "Filter by tenant key…"
+msgstr "Filter by tenant key…"
+
+#: src/features/edit-account/ui/edit-account-modal.tsx
+#: src/features/edit-user/ui/edit-user-modal.tsx
+msgid "First name"
+msgstr "First name"
+
+#: src/features/edit-account/model/types.ts
+#: src/features/edit-user/model/types.ts
+msgid "First name is required"
+msgstr "First name is required"
+
+#: src/pages/loading-demo.tsx
+msgid "Full-screen centered loader shown on first app load (while locale initializes)."
+msgstr "Full-screen centered loader shown on first app load (while locale initializes)."
+
+#: src/shared/ui/auth-layout/auth-layout.tsx
+#~ msgid "fully in your hands."
+#~ msgstr "fully in your hands."
+
+#: src/pages/404.tsx
+#: src/pages/500.tsx
+msgid "Go home"
+msgstr "Go home"
+
+#: src/pages/unauthorized.tsx
+msgid "Go to Home"
+msgstr "Go to Home"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Grant"
+msgstr "Grant"
+
+#: src/features/manage-platform-authority/ui/grant-platform-admin-modal.tsx
+msgid "Grant Platform Admin"
+msgstr "Grant Platform Admin"
+
+#: src/features/manage-platform-authority/ui/grant-platform-admin-modal.tsx
+msgid "Granting Platform Admin to <0>{displayName}</0> will give them full administrative access to this platform, including user management, tenant management, and all admin-only operations."
+msgstr "Granting Platform Admin to <0>{displayName}</0> will give them full administrative access to this platform, including user management, tenant management, and all admin-only operations."
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "Hierarchy"
+msgstr "Hierarchy"
+
+#: src/pages/admin/account.tsx
+#: src/pages/admin/addons/$addonPath.tsx
+#: src/pages/admin/announcements.index.tsx
+#: src/pages/admin/audit-logs.tsx
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+#: src/pages/admin/cms-pages.index.tsx
+#: src/pages/admin/index.tsx
+#: src/pages/admin/invitations.index.tsx
+#: src/pages/admin/notifications.tsx
+#: src/pages/admin/organizations.$tenantKey.tsx
+#: src/pages/admin/organizations.index.tsx
+#: src/pages/admin/plans.$planCode.tsx
+#: src/pages/admin/plans.index.tsx
+#: src/pages/admin/refunds.$refundId.tsx
+#: src/pages/admin/refunds.tsx
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+#: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/users.$userId.tsx
+#: src/pages/admin/users.index.tsx
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+#: src/pages/admin/webhook-logs.tsx
+msgid "Home"
+msgstr "Home"
+
+#: src/features/page-admin/ui/rich-content-editor.tsx
+msgid "HTML content. At least one paragraph required for the default locale."
+msgstr "HTML content. At least one paragraph required for the default locale."
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+msgid "ID"
+msgstr "ID"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "ID / Email"
+msgstr "ID / Email"
+
+#: src/features/invitation-admin/ui/edit-invitation-modal.tsx
+msgid "ID:"
+msgstr "ID:"
+
+#. placeholder {0}: announcement.id
+#. placeholder {0}: user.id
+#: src/features/announcement-admin/ui/edit-announcement-modal.tsx
+#: src/features/edit-user/ui/edit-user-modal.tsx
+msgid "ID: {0}"
+msgstr "ID: {0}"
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/users.$userId.tsx
+msgid "Identity"
+msgstr "Identity"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Identity unmerged"
+msgstr "Identity unmerged"
+
+#: src/pages/loading-demo.tsx
+msgid "Implementation Details"
+msgstr "Implementation Details"
+
+#: src/pages/admin/plans.$planCode.tsx
+#: src/pages/admin/plans.index.tsx
+msgid "Inactive"
+msgstr "Inactive"
+
+#: src/pages/admin/plans.index.tsx
+msgid "Inactive only"
+msgstr "Inactive only"
+
+#: src/features/announcement-admin/model/types.ts
+msgid "Info"
+msgstr "Info"
+
+#: src/features/announcement-admin/ui/create-announcement-modal.tsx
+msgid "Initial status"
+msgstr "Initial status"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+#: src/pages/admin/plans.$planCode.tsx
+msgid "Internal id"
+msgstr "Internal id"
+
+#: src/pages/500.tsx
+msgid "Internal server error."
+msgstr "Internal server error."
+
+#: src/features/sign-in/model/use-sign-in.ts
+msgid "Invalid email or password"
+msgstr "Invalid email or password"
+
+#: src/features/invitation-admin/ui/edit-invitation-modal.tsx
+msgid "Invitation Details"
+msgstr "Invitation Details"
+
+#: src/pages/admin/invitations.index.tsx
+#: src/shared/ui/admin-layout/nav-config.tsx
+msgid "Invitations"
+msgstr "Invitations"
+
+#: src/features/invitation-admin/ui/edit-invitation-modal.tsx
+msgid "Invited by (user ID)"
+msgstr "Invited by (user ID)"
+
+#: src/pages/admin/invitations.index.tsx
+msgid "Invitee"
+msgstr "Invitee"
+
+#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
+msgid "invitee@example.com"
+msgstr "invitee@example.com"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "IP Address"
+msgstr "IP Address"
+
+#: src/pages/admin/-organization-tenant-panels.tsx
+#: src/pages/admin/account.tsx
+#: src/pages/admin/users.$userId.tsx
+#: src/pages/admin/users.index.tsx
+msgid "Joined"
+msgstr "Joined"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Joined Organizations"
+msgstr "Joined Organizations"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Keep Subscription"
+msgstr "Keep Subscription"
+
+#: src/pages/admin/organizations.index.tsx
+msgid "Key"
+msgstr "Key"
+
+#: src/pages/admin/addons/$addonPath.tsx
+#: src/pages/admin/index.tsx
+#~ msgid "Key Value Admin"
+#~ msgstr "Key Value Admin"
+
+#: src/features/edit-tenant/ui/edit-tenant-modal.tsx
+msgid "Key:"
+msgstr "Key:"
+
+#: src/features/edit-account/ui/edit-account-modal.tsx
+#: src/shared/ui/locale-switcher/locale-switcher.tsx
+msgid "Language"
+msgstr "Language"
+
+#: src/features/edit-account/ui/edit-account-modal.tsx
+#: src/features/edit-user/ui/edit-user-modal.tsx
+msgid "Last name"
+msgstr "Last name"
+
+#: src/features/edit-account/model/types.ts
+#: src/features/edit-user/model/types.ts
+msgid "Last name is required"
+msgstr "Last name is required"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+#: src/pages/admin/-organization-tenant-panels.tsx
+#: src/pages/admin/account.tsx
+#: src/pages/admin/organizations.index.tsx
+#: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/users.$userId.tsx
+#: src/pages/admin/users.index.tsx
+msgid "Last updated"
+msgstr "Last updated"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Last used"
+msgstr "Last used"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Linked"
+msgstr "Linked"
+
+#: src/pages/loading-demo.tsx
+msgid "Loading Demo"
+msgstr "Loading Demo"
+
+#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
+msgid "Loading organizations…"
+msgstr "Loading organizations…"
+
+#: src/pages/loading-demo.tsx
+msgid "Loading States Demo"
+msgstr "Loading States Demo"
+
+#: src/shared/ui/loading-overlay/loading-overlay.tsx
+msgid "Loading..."
+msgstr "Loading..."
+
+#: src/features/edit-account/ui/edit-account-modal.tsx
+#: src/pages/admin/refunds.$refundId.tsx
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+msgid "Loading…"
+msgstr "Loading…"
+
+#: src/features/announcement-admin/model/types.ts
+#: src/features/page-admin/model/types.ts
+msgid "Locale is required"
+msgstr "Locale is required"
+
+#: src/pages/admin/announcements.index.tsx
+msgid "Locales"
+msgstr "Locales"
+
+#: src/features/edit-user/model/types.ts
+#: src/shared/ui/user-status-badge/user-status-badge.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
+msgid "Locked"
+msgstr "Locked"
+
+#: src/pages/admin/index.tsx
+msgid "Locked Accounts"
+msgstr "Locked Accounts"
+
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+msgid "Log ID"
+msgstr "Log ID"
+
+#: src/features/announcement-admin/model/types.ts
+msgid "Maintenance"
+msgstr "Maintenance"
+
+#: src/pages/admin/index.tsx
+msgid "Manage organizations"
+msgstr "Manage organizations"
+
+#: src/pages/admin/index.tsx
+msgid "Manage subscriptions"
+msgstr "Manage subscriptions"
+
+#: src/pages/admin/index.tsx
+msgid "Manage users"
+msgstr "Manage users"
+
+#: src/shared/ui/auth-layout/auth-layout.tsx
+#~ msgid "Manage users, organizations, and subscriptions across all tenants — secured by platform-level authentication."
+#~ msgstr "Manage users, organizations, and subscriptions across all tenants — secured by platform-level authentication."
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Management"
+msgstr "Management"
+
+#: src/features/notification-bell/ui/notification-bell.tsx
+#: src/pages/admin/notifications.tsx
+msgid "Mark all as read"
+msgstr "Mark all as read"
+
+#: src/pages/admin/-organization-tenant-panels.tsx
+#: src/pages/admin/users.index.tsx
+msgid "Member"
+msgstr "Member"
+
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
+msgid "Member Signup Trend"
+msgstr "Member Signup Trend"
+
+#: src/pages/admin/organizations.$tenantKey.tsx
+msgid "member(s)"
+msgstr "member(s)"
+
+#: src/pages/admin/-organization-tenant-panels.tsx
+#: src/pages/admin/organizations.$tenantKey.tsx
+msgid "Members"
+msgstr "Members"
+
+#: src/features/announcement-admin/ui/translation-fields.tsx
+msgid "Message"
+msgstr "Message"
+
+#: src/features/announcement-admin/model/types.ts
+msgid "Message is required"
+msgstr "Message is required"
+
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "Meta description for search engines"
+msgstr "Meta description for search engines"
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Metadata"
+msgstr "Metadata"
+
+#: src/pages/admin/plans.$planCode.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
+msgid "Monthly"
+msgstr "Monthly"
+
+#: src/features/invitation-admin/model/types.ts
+msgid "Must be a valid email address"
+msgstr "Must be a valid email address"
+
+#: src/features/page-admin/model/types.ts
+msgid "Must be a valid UUID"
+msgstr "Must be a valid UUID"
+
+#: src/pages/admin/account.tsx
+#: src/shared/ui/admin-layout/admin-header.tsx
+msgid "My Account"
+msgstr "My Account"
+
+#: src/pages/admin/plans.index.tsx
+msgid "Name"
+msgstr "Name"
+
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "New"
+msgstr "New"
+
+#: src/pages/admin/announcements.index.tsx
+msgid "New announcement"
+msgstr "New announcement"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "New billing settings"
+msgstr "New billing settings"
+
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "New CMS Page — {tenantKey}"
+msgstr "New CMS Page — {tenantKey}"
+
+#: src/pages/admin/cms-pages.index.tsx
+msgid "New page"
+msgstr "New page"
+
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "New Page"
+msgstr "New Page"
+
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
+msgid "New password"
+msgstr "New password"
+
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
+msgid "New signups"
+msgstr "New signups"
+
+#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
+msgid "No active organizations found"
+msgstr "No active organizations found"
+
+#: src/pages/admin/announcements.index.tsx
+msgid "No announcements found"
+msgstr "No announcements found"
+
+#: src/pages/admin/announcements.index.tsx
+msgid "No announcements match the current filters"
+msgstr "No announcements match the current filters"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "No billing settings"
+msgstr "No billing settings"
+
+#: src/widgets/dashboard-recent-critical-audit/ui/recent-critical-audit.tsx
+msgid "No critical events — all clear"
+msgstr "No critical events — all clear"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "No event statistics available"
+msgstr "No event statistics available"
+
+#: src/pages/admin/invitations.index.tsx
+msgid "No invitations found"
+msgstr "No invitations found"
+
+#: src/pages/admin/invitations.index.tsx
+msgid "No invitations match the current filters"
+msgstr "No invitations match the current filters"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "No linked OIDC identities found."
+msgstr "No linked OIDC identities found."
+
+#: src/pages/admin/-organization-tenant-panels.tsx
+msgid "No members found"
+msgstr "No members found"
+
+#: src/pages/admin/-organization-tenant-panels.tsx
+msgid "No members match the search"
+msgstr "No members match the search"
+
+#: src/features/notification-bell/ui/notification-bell.tsx
+#: src/pages/admin/notifications.tsx
+msgid "No notifications yet"
+msgstr "No notifications yet"
+
+#: src/pages/admin/organizations.index.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
+msgid "No organizations found"
+msgstr "No organizations found"
+
+#: src/pages/admin/organizations.index.tsx
+msgid "No organizations match the current filters"
+msgstr "No organizations match the current filters"
+
+#: src/pages/admin/cms-pages.index.tsx
+msgid "No pages found for this tenant"
+msgstr "No pages found for this tenant"
+
+#: src/pages/admin/cms-pages.index.tsx
+msgid "No pages match the current filter"
+msgstr "No pages match the current filter"
+
+#: src/pages/admin/plans.index.tsx
+msgid "No plans in the catalog"
+msgstr "No plans in the catalog"
+
+#: src/pages/admin/plans.index.tsx
+msgid "No plans match the current filters"
+msgstr "No plans match the current filters"
+
+#: src/pages/admin/account.tsx
+msgid "No platform authorities assigned."
+msgstr "No platform authorities assigned."
+
+#: src/widgets/dashboard-recent-refunds/ui/recent-refunds.tsx
+msgid "No refunds recorded yet"
+msgstr "No refunds recorded yet"
+
+#: src/shared/ui/admin-layout/admin-nav.tsx
+msgid "No results"
+msgstr "No results"
+
+#: src/widgets/dashboard-subscription-breakdown/ui/subscription-breakdown.tsx
+msgid "No subscription data available"
+msgstr "No subscription data available"
+
+#: src/pages/admin/organizations.$tenantKey.tsx
+msgid "No subscriptions"
+msgstr "No subscriptions"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "No subscriptions found"
+msgstr "No subscriptions found"
+
+#: src/pages/admin/-organization-tenant-panels.tsx
+msgid "No subscriptions found for this organization."
+msgstr "No subscriptions found for this organization."
+
+#: src/pages/admin/subscriptions.tsx
+msgid "No subscriptions match the current filters"
+msgstr "No subscriptions match the current filters"
+
+#: src/features/announcement-admin/ui/translation-fields.tsx
+msgid "No translations added. At least en-US is required."
+msgstr "No translations added. At least en-US is required."
+
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "No translations added. At least the default locale is required."
+msgstr "No translations added. At least the default locale is required."
+
+#: src/pages/admin/users.index.tsx
+msgid "No users found"
+msgstr "No users found"
+
+#: src/pages/admin/users.index.tsx
+msgid "No users match the current filters"
+msgstr "No users match the current filters"
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "None (top-level)"
+msgstr "None (top-level)"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Not granted"
+msgstr "Not granted"
+
+#: src/features/notification-bell/ui/notification-bell.tsx
+#: src/pages/admin/notifications.tsx
+#: src/shared/ui/admin-layout/admin-header.tsx
+msgid "Notifications"
+msgstr "Notifications"
+
+#. placeholder {0}: hasUnread ? `, ${unreadCount} unread` : ""
+#: src/features/notification-bell/ui/notification-bell.tsx
+msgid "Notifications{0}"
+msgstr "Notifications{0}"
+
+#: src/pages/admin/organizations.$tenantKey.refunds.tsx
+#: src/pages/admin/refunds.$refundId.tsx
+#: src/pages/admin/refunds.tsx
+msgid "Occurred At"
+msgstr "Occurred At"
+
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "OG description"
+msgstr "OG description"
+
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "OG title"
+msgstr "OG title"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "OIDC Identities"
+msgstr "OIDC Identities"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Open Billing Portal"
+msgstr "Open Billing Portal"
+
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "Open Graph description"
+msgstr "Open Graph description"
+
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "Open Graph title"
+msgstr "Open Graph title"
+
+#: src/features/announcement-admin/ui/edit-announcement-modal.tsx
+msgid "Operation failed"
+msgstr "Operation failed"
+
+#: src/shared/ui/auth-layout/auth-layout.tsx
+#~ msgid "Operator access only"
+#~ msgstr "Operator access only"
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "Optional — makes this a child page"
+msgstr "Optional — makes this a child page"
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "Optional layout key"
+msgstr "Optional layout key"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Optional structured address as JSON."
+msgstr "Optional structured address as JSON."
+
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "Optional translation"
+msgstr "Optional translation"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Optional UUID of the user who owns the billing profile."
+msgstr "Optional UUID of the user who owns the billing profile."
+
+#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
+#: src/pages/admin/cms-pages.index.tsx
+#: src/pages/admin/organizations.$tenantKey.tsx
+#: src/pages/admin/organizations.index.tsx
+#: src/pages/admin/users.index.tsx
+msgid "Organization"
+msgstr "Organization"
+
+#: src/features/invitation-admin/model/types.ts
+msgid "Organization is required"
+msgstr "Organization is required"
+
+#: src/features/edit-tenant/ui/edit-tenant-modal.tsx
+msgid "Organization name"
+msgstr "Organization name"
+
+#: src/features/edit-tenant/model/types.ts
+msgid "Organization name is required"
+msgstr "Organization name is required"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "organization(s)"
+msgstr "organization(s)"
+
+#: src/pages/admin/index.tsx
+#: src/pages/admin/organizations.$tenantKey.tsx
+#: src/pages/admin/organizations.index.tsx
+#: src/pages/admin/users.$userId.tsx
+#: src/shared/ui/admin-layout/nav-config.tsx
+msgid "Organizations"
+msgstr "Organizations"
+
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "Override page title for search engines"
+msgstr "Override page title for search engines"
+
+#: src/pages/admin/organizations.$tenantKey.tsx
+#: src/pages/admin/users.$userId.tsx
+#: src/shared/ui/admin-layout/nav-config.tsx
+msgid "Overview"
+msgstr "Overview"
+
+#: src/pages/admin/cms-pages.index.tsx
+msgid "Page"
+msgstr "Page"
+
+#: src/pages/404.tsx
+msgid "Page Not Found"
+msgstr "Page Not Found"
+
+#: src/pages/404.tsx
+msgid "Page not found."
+msgstr "Page not found."
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "Page settings"
+msgstr "Page settings"
+
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "Page title"
+msgstr "Page title"
+
+#: src/pages/admin/cms-pages.index.tsx
+msgid "Pages"
+msgstr "Pages"
+
+#. placeholder {0}: page.status
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+msgid "Pages with status <0>{0}</0> cannot be edited."
+msgstr "Pages with status <0>{0}</0> cannot be edited."
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "Parent page"
+msgstr "Parent page"
+
+#: src/features/sign-in/ui/sign-in-form.tsx
+msgid "Password"
+msgstr "Password"
+
+#: src/features/sign-in/model/use-sign-in.ts
+msgid "Password is required"
+msgstr "Password is required"
+
+#: src/features/change-admin-password/model/types.ts
+#: src/features/set-user-password/model/types.ts
+msgid "Password must be at least 8 characters"
+msgstr "Password must be at least 8 characters"
+
+#: src/features/change-admin-password/model/types.ts
+#: src/features/set-user-password/model/types.ts
+msgid "Password must be at most 128 characters"
+msgstr "Password must be at most 128 characters"
+
+#: src/features/change-admin-password/model/types.ts
+#: src/features/set-user-password/model/types.ts
+msgid "Password must contain uppercase, lowercase, digit, and special character"
+msgstr "Password must contain uppercase, lowercase, digit, and special character"
+
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
+msgid "Password requirements:"
+msgstr "Password requirements:"
+
+#: src/features/change-admin-password/model/types.ts
+#: src/features/set-user-password/model/types.ts
+msgid "Passwords do not match"
+msgstr "Passwords do not match"
+
+#: src/pages/admin/index.tsx
+msgid "Past-Due Subscriptions"
+msgstr "Past-Due Subscriptions"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Pause"
+msgstr "Pause"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Pause Subscription"
+msgstr "Pause Subscription"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Payment gateway customer identifier (e.g. Stripe cus_…)."
+msgstr "Payment gateway customer identifier (e.g. Stripe cus_…)."
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Payment gateway customer identifier."
+msgstr "Payment gateway customer identifier."
+
+#: src/features/page-admin/model/types.ts
+#: src/pages/admin/cms-pages.index.tsx
+#: src/shared/ui/announcement-status-badge/announcement-status-badge.tsx
+#: src/shared/ui/invitation-status-badge/invitation-status-badge.tsx
+msgid "Pending"
+msgstr "Pending"
+
+#: src/pages/admin/index.tsx
+msgid "Pending Invitations"
+msgstr "Pending Invitations"
+
+#: src/features/invitation-admin/ui/edit-invitation-modal.tsx
+msgid "Pending invitations can be revoked. The invitee will no longer be able to accept this link."
+msgstr "Pending invitations can be revoked. The invitee will no longer be able to accept this link."
+
+#: src/pages/admin/plans.index.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
+msgid "Period"
+msgstr "Period"
+
+#: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
+#: src/pages/admin/subscriptions.tsx
+msgid "Period End"
+msgstr "Period End"
+
+#: src/features/ban-user/ui/ban-user-modal.tsx
+msgid "Pick a date and time"
+msgstr "Pick a date and time"
+
+#: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
+#: src/pages/admin/plans.$planCode.tsx
+#: src/pages/admin/subscriptions.tsx
+msgid "Plan"
+msgstr "Plan"
+
+#: src/pages/admin/plans.index.tsx
+msgid "Plan catalog"
+msgstr "Plan catalog"
+
+#: src/pages/admin/plans.$planCode.tsx
+msgid "Plan code"
+msgstr "Plan code"
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Plan ID"
+msgstr "Plan ID"
+
+#: src/pages/admin/plans.$planCode.tsx
+#: src/pages/admin/plans.index.tsx
+#: src/shared/ui/admin-layout/nav-config.tsx
+msgid "Plans"
+msgstr "Plans"
+
+#: src/pages/admin/announcements.index.tsx
+#: src/pages/admin/audit-logs.tsx
+#: src/pages/admin/invitations.index.tsx
+#: src/pages/admin/organizations.index.tsx
+#: src/pages/admin/plans.index.tsx
+#: src/pages/admin/refunds.tsx
+#: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/users.index.tsx
+#: src/pages/admin/webhook-logs.tsx
+msgid "Platform"
+msgstr "Platform"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Platform Admin"
+msgstr "Platform Admin"
+
+#: src/pages/sign-in.tsx
+msgid "Platform administration"
+msgstr "Platform administration"
+
+#: src/pages/admin/account.tsx
+msgid "Platform Authorities"
+msgstr "Platform Authorities"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Platform Authority"
+msgstr "Platform Authority"
+
+#: src/shared/ui/auth-layout/auth-layout.tsx
+#~ msgid "Platform control,"
+#~ msgstr "Platform control,"
+
+#: src/pages/admin/index.tsx
+msgid "Platform Overview"
+msgstr "Platform Overview"
+
+#: src/features/announcement-admin/ui/create-announcement-modal.tsx
+msgid "Please check the form and try again."
+msgstr "Please check the form and try again."
+
+#: src/features/announcement-admin/ui/edit-announcement-modal.tsx
+msgid "Please try again."
+msgstr "Please try again."
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Portal error"
+msgstr "Portal error"
+
+#: src/pages/admin/plans.$planCode.tsx
+#: src/pages/admin/plans.index.tsx
+msgid "Price (minor units)"
+msgstr "Price (minor units)"
+
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+#: src/pages/admin/webhook-logs.tsx
+msgid "Processed At"
+msgstr "Processed At"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Profile owner id must be a valid UUID or empty"
+msgstr "Profile owner id must be a valid UUID or empty"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Profile owner user id"
+msgstr "Profile owner user id"
+
+#: src/pages/admin/invitations.index.tsx
+msgid "Propose invitation"
+msgstr "Propose invitation"
+
+#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
+msgid "Propose Invitation"
+msgstr "Propose Invitation"
+
+#: src/features/ban-user/ui/ban-user-modal.tsx
+msgid "Provide a reason for the ban…"
+msgstr "Provide a reason for the ban…"
+
+#. placeholder {0}: identity.provider
+#: src/pages/admin/users.$userId.tsx
+msgid "Provider: <0>{0}</0>"
+msgstr "Provider: <0>{0}</0>"
+
+#: src/features/announcement-admin/ui/edit-announcement-modal.tsx
+msgid "Publish"
+msgstr "Publish"
+
+#: src/features/page-admin/model/types.ts
+#: src/pages/admin/cms-pages.index.tsx
+#: src/shared/ui/announcement-status-badge/announcement-status-badge.tsx
+msgid "Published"
+msgstr "Published"
+
+#: src/shared/ui/announcement-status-badge/announcement-status-badge.tsx
+msgid "Publishing"
+msgstr "Publishing"
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Quantity"
+msgstr "Quantity"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Reactivate"
+msgstr "Reactivate"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Reactivate Subscription"
+msgstr "Reactivate Subscription"
+
+#. placeholder {0}: subscription.tenantKey
+#: src/pages/admin/subscriptions.tsx
+msgid "Reactivate the subscription for <0>{0}</0>?"
+msgstr "Reactivate the subscription for <0>{0}</0>?"
+
+#: src/features/edit-account/ui/edit-account-modal.tsx
+#: src/features/edit-tenant/ui/edit-tenant-modal.tsx
+#: src/features/edit-user/ui/edit-user-modal.tsx
+msgid "read-only"
+msgstr "read-only"
+
+#: src/features/announcement-admin/ui/edit-announcement-modal.tsx
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+msgid "Read-only"
+msgstr "Read-only"
+
+#: src/features/ban-user/ui/ban-user-modal.tsx
+msgid "Reason (optional)"
+msgstr "Reason (optional)"
+
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+#: src/pages/admin/webhook-logs.tsx
+msgid "Received At"
+msgstr "Received At"
+
+#: src/widgets/dashboard-recent-critical-audit/ui/recent-critical-audit.tsx
+msgid "Recent Critical Events"
+msgstr "Recent Critical Events"
+
+#: src/widgets/dashboard-recent-refunds/ui/recent-refunds.tsx
+msgid "Recent Refunds"
+msgstr "Recent Refunds"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+#: src/pages/admin/-organization-tenant-panels.tsx
+#: src/pages/admin/account.tsx
+#: src/pages/admin/announcements.index.tsx
+#: src/pages/admin/audit-logs.tsx
+#: src/pages/admin/cms-pages.index.tsx
+#: src/pages/admin/invitations.index.tsx
+#: src/pages/admin/organizations.$tenantKey.tsx
+#: src/pages/admin/organizations.index.tsx
+#: src/pages/admin/plans.$planCode.tsx
+#: src/pages/admin/plans.index.tsx
+#: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/users.$userId.tsx
+#: src/pages/admin/users.index.tsx
+msgid "Refresh"
+msgstr "Refresh"
+
+#: src/pages/admin/refunds.$refundId.tsx
+msgid "Refund"
+msgstr "Refund"
+
+#: src/pages/admin/refunds.$refundId.tsx
+msgid "Refund ID"
+msgstr "Refund ID"
+
+#: src/pages/admin/organizations.$tenantKey.refunds.tsx
+#: src/pages/admin/organizations.$tenantKey.tsx
+#: src/pages/admin/refunds.$refundId.tsx
+#: src/pages/admin/refunds.tsx
+#: src/shared/ui/admin-layout/nav-config.tsx
+msgid "Refunds"
+msgstr "Refunds"
+
+#: src/pages/admin/-organization-tenant-panels.tsx
+msgid "Renews"
+msgstr "Renews"
+
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
+msgid "Repeat new password"
+msgstr "Repeat new password"
+
+#: src/features/announcement-admin/ui/translation-fields.tsx
+msgid "Required"
+msgstr "Required"
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Reset"
+msgstr "Reset"
+
+#: src/features/ban-user/ui/unban-user-modal.tsx
+#: src/features/unlock-user/ui/unlock-user-modal.tsx
+msgid "Restore access"
+msgstr "Restore access"
+
+#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+#: src/pages/admin/-organization-tenant-panels.tsx
+#: src/pages/admin/account.tsx
+#: src/pages/admin/announcements.index.tsx
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.index.tsx
+#: src/pages/admin/invitations.index.tsx
+#: src/pages/admin/organizations.$tenantKey.refunds.tsx
+#: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
+#: src/pages/admin/organizations.$tenantKey.tsx
+#: src/pages/admin/organizations.index.tsx
+#: src/pages/admin/plans.$planCode.tsx
+#: src/pages/admin/plans.index.tsx
+#: src/pages/admin/refunds.$refundId.tsx
+#: src/pages/admin/refunds.tsx
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+#: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/users.$userId.tsx
+#: src/pages/admin/users.index.tsx
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+#: src/pages/admin/webhook-logs.tsx
+msgid "Retry"
+msgstr "Retry"
+
+#: src/pages/admin/index.tsx
+msgid "Revenue risk"
+msgstr "Revenue risk"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Revoke"
+msgstr "Revoke"
+
+#: src/features/invitation-admin/ui/edit-invitation-modal.tsx
+msgid "Revoke invitation"
+msgstr "Revoke invitation"
+
+#: src/features/manage-platform-authority/ui/revoke-platform-admin-modal.tsx
+msgid "Revoke Platform Admin"
+msgstr "Revoke Platform Admin"
+
+#: src/shared/ui/invitation-status-badge/invitation-status-badge.tsx
+msgid "Revoked"
+msgstr "Revoked"
+
+#: src/features/manage-platform-authority/ui/revoke-platform-admin-modal.tsx
+msgid "Revoking Platform Admin from <0>{displayName}</0> will remove their full administrative access. They will no longer be able to manage users, tenants, or any other admin-only resources."
+msgstr "Revoking Platform Admin from <0>{displayName}</0> will remove their full administrative access. They will no longer be able to manage users, tenants, or any other admin-only resources."
+
+#: src/pages/admin/addons/$addonPath.tsx
+#~ msgid "Sample"
+#~ msgstr "Sample"
+
+#: src/features/announcement-admin/ui/edit-announcement-modal.tsx
+#: src/features/edit-account/ui/edit-account-modal.tsx
+#: src/features/edit-tenant/ui/edit-tenant-modal.tsx
+#: src/features/edit-user/ui/edit-user-modal.tsx
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Save changes"
+msgstr "Save changes"
+
+#: src/pages/admin/-organization-tenant-panels.tsx
+msgid "Save Changes"
+msgstr "Save Changes"
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+msgid "Save failed"
+msgstr "Save failed"
+
+#: src/pages/admin/plans.$planCode.tsx
+#: src/pages/admin/plans.index.tsx
+msgid "Scope"
+msgstr "Scope"
+
+#: src/pages/admin/plans.index.tsx
+msgid "Search by code or name…"
+msgstr "Search by code or name…"
+
+#: src/pages/admin/invitations.index.tsx
+msgid "Search by email…"
+msgstr "Search by email…"
+
+#: src/pages/admin/-organization-tenant-panels.tsx
+#: src/pages/admin/users.index.tsx
+msgid "Search by name or email…"
+msgstr "Search by name or email…"
+
+#: src/pages/admin/organizations.index.tsx
+msgid "Search by name or key…"
+msgstr "Search by name or key…"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Search by tenant or plan…"
+msgstr "Search by tenant or plan…"
+
+#: src/pages/admin/webhook-logs.tsx
+msgid "Search event type or ID…"
+msgstr "Search event type or ID…"
+
+#: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
+msgid "Search plan…"
+msgstr "Search plan…"
+
+#: src/shared/ui/admin-layout/admin-nav.tsx
+msgid "Search…"
+msgstr "Search…"
+
+#: src/features/announcement-admin/model/types.ts
+#: src/shared/ui/admin-layout/admin-header.tsx
+msgid "Security"
+msgstr "Security"
+
+#: src/features/notification-bell/ui/notification-bell.tsx
+msgid "See all notifications"
+msgstr "See all notifications"
+
+#: src/pages/admin/cms-pages.index.tsx
+msgid "Select a tenant to view its pages"
+msgstr "Select a tenant to view its pages"
+
+#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
+msgid "Select an organization"
+msgstr "Select an organization"
+
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
+msgid "Select an organization above to view its member signup trend."
+msgstr "Select an organization above to view its member signup trend."
+
+#: src/pages/admin/cms-pages.index.tsx
+msgid "Select an organization to manage its CMS pages."
+msgstr "Select an organization to manage its CMS pages."
+
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
+msgid "Select an organization…"
+msgstr "Select an organization…"
+
+#: src/features/edit-account/ui/edit-account-modal.tsx
+#: src/shared/ui/locale-switcher/locale-switcher.tsx
+msgid "Select language"
+msgstr "Select language"
+
+#: src/pages/admin/-organization-tenant-panels.tsx
+msgid "Select the authorities you want to assign to this member."
+msgstr "Select the authorities you want to assign to this member."
+
+#: src/features/invitation-admin/ui/propose-invitation-modal.tsx
+msgid "Send invitation"
+msgstr "Send invitation"
+
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "SEO description"
+msgstr "SEO description"
+
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "SEO fields"
+msgstr "SEO fields"
+
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "SEO title"
+msgstr "SEO title"
+
+#: src/pages/500.tsx
+msgid "Server Error"
+msgstr "Server Error"
+
+#. placeholder {0}: subscription.tenantKey
+#: src/pages/admin/subscriptions.tsx
+msgid "Set new quantity for <0>{0}</0>:"
+msgstr "Set new quantity for <0>{0}</0>:"
+
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
+#: src/pages/admin/users.$userId.tsx
+#: src/pages/admin/users.index.tsx
+msgid "Set password"
+msgstr "Set password"
+
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
+msgid "Set Password"
+msgstr "Set Password"
+
+#: src/features/edit-account/ui/edit-account-modal.tsx
+msgid "Sets your preferred language for notifications and emails."
+msgstr "Sets your preferred language for notifications and emails."
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Severity"
+msgstr "Severity"
+
+#. placeholder {0}: notifications.length
+#. placeholder {1}: listData?.totalElements ?? 0
+#: src/features/notification-bell/ui/notification-bell.tsx
+msgid "Showing {0} of {1}"
+msgstr "Showing {0} of {1}"
+
+#. placeholder {0}: Math.min((page - 1) * ORG_MEMBERS_PAGE_SIZE + 1, totalElements)
+#. placeholder {1}: Math.min(page * ORG_MEMBERS_PAGE_SIZE, totalElements)
+#: src/pages/admin/-organization-tenant-panels.tsx
+msgid "Showing {0}–{1} of {totalElements} members"
+msgstr "Showing {0}–{1} of {totalElements} members"
+
+#: src/pages/admin/organizations.$tenantKey.refunds.tsx
+#: src/pages/admin/refunds.tsx
+msgid "Showing {rangeStart} – {rangeEnd} of {totalElements} refunds"
+msgstr "Showing {rangeStart} – {rangeEnd} of {totalElements} refunds"
+
+#: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
+msgid "Showing {rangeStart} – {rangeEnd} of {totalElements} subscriptions"
+msgstr "Showing {rangeStart} – {rangeEnd} of {totalElements} subscriptions"
+
+#: src/pages/admin/webhook-logs.tsx
+msgid "Showing {rangeStart} – {rangeEnd} of {totalElements} webhook logs"
+msgstr "Showing {rangeStart} – {rangeEnd} of {totalElements} webhook logs"
+
+#: src/pages/admin/announcements.index.tsx
+msgid "Showing {rangeStart}–{rangeEnd} of {totalElements} announcements"
+msgstr "Showing {rangeStart}–{rangeEnd} of {totalElements} announcements"
+
+#: src/pages/admin/invitations.index.tsx
+msgid "Showing {rangeStart}–{rangeEnd} of {totalElements} invitations"
+msgstr "Showing {rangeStart}–{rangeEnd} of {totalElements} invitations"
+
+#: src/pages/admin/organizations.index.tsx
+msgid "Showing {rangeStart}–{rangeEnd} of {totalElements} organizations"
+msgstr "Showing {rangeStart}–{rangeEnd} of {totalElements} organizations"
+
+#: src/pages/admin/plans.index.tsx
+msgid "Showing {rangeStart}–{rangeEnd} of {totalElements} plans"
+msgstr "Showing {rangeStart}–{rangeEnd} of {totalElements} plans"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Showing {rangeStart}–{rangeEnd} of {totalElements} subscriptions"
+msgstr "Showing {rangeStart}–{rangeEnd} of {totalElements} subscriptions"
+
+#: src/pages/admin/users.index.tsx
+msgid "Showing {rangeStart}–{rangeEnd} of {totalElements} users"
+msgstr "Showing {rangeStart}–{rangeEnd} of {totalElements} users"
+
+#: src/features/sign-in/ui/sign-in-form.tsx
+msgid "Sign in"
+msgstr "Sign in"
+
+#: src/pages/sign-in.tsx
+msgid "Sign In"
+msgstr "Sign In"
+
+#: src/features/sign-out/ui/sign-out-button.tsx
+#: src/shared/ui/admin-layout/admin-header.tsx
+msgid "Sign out"
+msgstr "Sign out"
+
+#: src/features/sign-in/model/use-sign-in.ts
+msgid "Sign-in failed. Please try again."
+msgstr "Sign-in failed. Please try again."
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Signin attempts"
+msgstr "Signin attempts"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Signin Attempts"
+msgstr "Signin Attempts"
+
+#: src/pages/admin/announcements.index.tsx
+msgid "Site Announcements"
+msgstr "Site Announcements"
+
+#: src/pages/loading-demo.tsx
+msgid "Slim top progress bar for navigation between pages (automatic with router)."
+msgstr "Slim top progress bar for navigation between pages (automatic with router)."
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "Slug"
+msgstr "Slug"
+
+#: src/features/page-admin/model/types.ts
+msgid "Slug is required"
+msgstr "Slug is required"
+
+#: src/features/page-admin/model/types.ts
+msgid "Slug must be lowercase alphanumeric with hyphens (e.g. about-us or blog/post-title)"
+msgstr "Slug must be lowercase alphanumeric with hyphens (e.g. about-us or blog/post-title)"
+
+#: src/pages/admin/plans.$planCode.tsx
+msgid "Smallest currency unit (e.g. cents)."
+msgstr "Smallest currency unit (e.g. cents)."
+
+#: src/shared/ui/error-boundary.tsx
+msgid "Something went wrong"
+msgstr "Something went wrong"
+
+#: src/pages/loading-demo.tsx
+msgid "Start"
+msgstr "Start"
+
+#: src/features/announcement-admin/ui/edit-announcement-modal.tsx
+#: src/features/edit-tenant/ui/edit-tenant-modal.tsx
+#: src/features/edit-user/ui/edit-user-modal.tsx
+#: src/features/invitation-admin/ui/edit-invitation-modal.tsx
+#: src/pages/admin/-organization-tenant-panels.tsx
+#: src/pages/admin/announcements.index.tsx
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+#: src/pages/admin/cms-pages.index.tsx
+#: src/pages/admin/invitations.index.tsx
+#: src/pages/admin/organizations.$tenantKey.refunds.tsx
+#: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
+#: src/pages/admin/organizations.index.tsx
+#: src/pages/admin/plans.index.tsx
+#: src/pages/admin/refunds.$refundId.tsx
+#: src/pages/admin/refunds.tsx
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+#: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/users.index.tsx
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+#: src/pages/admin/webhook-logs.tsx
+msgid "Status"
+msgstr "Status"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Subject"
+msgstr "Subject"
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Subject Key:"
+msgstr "Subject Key:"
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Subject Type:"
+msgstr "Subject Type:"
+
+#. placeholder {0}: identity.providerSub
+#: src/pages/admin/users.$userId.tsx
+msgid "Subject: <0>{0}</0>"
+msgstr "Subject: <0>{0}</0>"
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Subscription"
+msgstr "Subscription"
+
+#: src/widgets/dashboard-subscription-breakdown/ui/subscription-breakdown.tsx
+msgid "Subscription Breakdown"
+msgstr "Subscription Breakdown"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Subscription cancellation processed"
+msgstr "Subscription cancellation processed"
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Subscription ID"
+msgstr "Subscription ID"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Subscription paused"
+msgstr "Subscription paused"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Subscription reactivated"
+msgstr "Subscription reactivated"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Subscription updated"
+msgstr "Subscription updated"
+
+#: src/pages/admin/-organization-tenant-panels.tsx
+#: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
+#: src/pages/admin/organizations.$tenantKey.tsx
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+#: src/pages/admin/subscriptions.tsx
+#: src/shared/ui/admin-layout/nav-config.tsx
+msgid "Subscriptions"
+msgstr "Subscriptions"
+
+#: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/users.$userId.tsx
+msgid "Success"
+msgstr "Success"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Success Rate"
+msgstr "Success Rate"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Successful"
+msgstr "Successful"
+
+#: src/features/edit-tenant/model/types.ts
+#: src/features/edit-user/model/types.ts
+#: src/shared/ui/tenant-status-badge/tenant-status-badge.tsx
+#: src/shared/ui/user-status-badge/user-status-badge.tsx
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
+msgid "Suspended"
+msgstr "Suspended"
+
+#: src/widgets/dashboard-suspended-tenants/ui/suspended-tenants.tsx
+msgid "Suspended Organizations"
+msgstr "Suspended Organizations"
+
+#: src/pages/admin/index.tsx
+msgid "Suspended Users"
+msgstr "Suspended Users"
+
+#: src/shared/ui/color-scheme-toggle/color-scheme-toggle.tsx
+msgid "Switch to dark mode"
+msgstr "Switch to dark mode"
+
+#: src/shared/ui/color-scheme-toggle/color-scheme-toggle.tsx
+msgid "Switch to light mode"
+msgstr "Switch to light mode"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Tax id"
+msgstr "Tax id"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Tax id type"
+msgstr "Tax id type"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Technical Context"
+msgstr "Technical Context"
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+#: src/pages/admin/cms-pages.index.tsx
+msgid "Template"
+msgstr "Template"
+
+#: src/pages/admin/audit-logs.tsx
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+#: src/pages/admin/invitations.index.tsx
+#: src/pages/admin/plans.$planCode.tsx
+#: src/pages/admin/refunds.tsx
+#: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/webhook-logs.tsx
+msgid "Tenant"
+msgstr "Tenant"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Tenant created"
+msgstr "Tenant created"
+
+#: src/features/edit-tenant/ui/edit-tenant-modal.tsx
+#: src/features/invitation-admin/ui/edit-invitation-modal.tsx
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Tenant key"
+msgstr "Tenant key"
+
+#: src/pages/admin/audit-logs.tsx
+#: src/pages/admin/refunds.$refundId.tsx
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+msgid "Tenant Key"
+msgstr "Tenant Key"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "Tenant key:"
+msgstr "Tenant key:"
+
+#: src/pages/admin/invitations.index.tsx
+msgid "Tenant key…"
+msgstr "Tenant key…"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Tenant updated"
+msgstr "Tenant updated"
+
+#: src/pages/loading-demo.tsx
+msgid "Theme-aware (respects dark mode and color scheme)"
+msgstr "Theme-aware (respects dark mode and color scheme)"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "This organization does not have a billing settings row yet. Create one to attach gateway customer data and invoicing details."
+msgstr "This organization does not have a billing settings row yet. Create one to attach gateway customer data and invoicing details."
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "This permanently removes the billing settings row for this tenant. Subscriptions and gateway objects are not automatically deleted."
+msgstr "This permanently removes the billing settings row for this tenant. Subscriptions and gateway objects are not automatically deleted."
+
+#: src/pages/loading-demo.tsx
+msgid "This template uses Mantine's official loading components for optimal UX."
+msgstr "This template uses Mantine's official loading components for optimal UX."
+
+#: src/pages/admin/users.$userId.tsx
+msgid "This user does not have platform admin access."
+msgstr "This user does not have platform admin access."
+
+#: src/pages/admin/users.$userId.tsx
+msgid "This user has full administrative access to the platform."
+msgstr "This user has full administrative access to the platform."
+
+#: src/pages/admin/users.$userId.tsx
+msgid "This user is not a member of any organization."
+msgstr "This user is not a member of any organization."
+
+#: src/pages/admin/users.$userId.tsx
+msgid "This will force-remove the external sign-in method from the user account."
+msgstr "This will force-remove the external sign-in method from the user account."
+
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
+msgid "This will immediately change the user's password and invalidate all their active sessions. The user will need to sign in again with the new password."
+msgstr "This will immediately change the user's password and invalidate all their active sessions. The user will need to sign in again with the new password."
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Timestamp"
+msgstr "Timestamp"
+
+#: src/pages/admin/refunds.$refundId.tsx
+msgid "Timestamps"
+msgstr "Timestamps"
+
+#: src/features/announcement-admin/ui/translation-fields.tsx
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "Title"
+msgstr "Title"
+
+#: src/features/announcement-admin/model/types.ts
+msgid "Title is required"
+msgstr "Title is required"
+
+#: src/features/page-admin/model/types.ts
+msgid "Title is required for the default locale"
+msgstr "Title is required for the default locale"
+
+#: src/features/sign-in/model/use-sign-in.ts
+msgid "Too many sign-in attempts. Please try again later."
+msgstr "Too many sign-in attempts. Please try again later."
+
+#: src/pages/admin/audit-logs.tsx
+msgid "Total Attempts"
+msgstr "Total Attempts"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "total events"
+msgstr "total events"
+
+#: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
+msgid "Total members"
+msgstr "Total members"
+
+#: src/pages/admin/index.tsx
+msgid "Total Users"
+msgstr "Total Users"
+
+#: src/features/announcement-admin/ui/translation-fields.tsx
+#: src/features/page-admin/ui/page-translation-fields.tsx
+msgid "Translations"
+msgstr "Translations"
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Trial End"
+msgstr "Trial End"
+
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Trial Start"
+msgstr "Trial Start"
+
+#: src/shared/ui/error-boundary.tsx
+msgid "Try Again"
+msgstr "Try Again"
+
+#: src/features/announcement-admin/ui/create-announcement-modal.tsx
+#: src/features/announcement-admin/ui/edit-announcement-modal.tsx
+#: src/pages/admin/announcements.index.tsx
+msgid "Type"
+msgstr "Type"
+
+#: src/features/announcement-admin/model/types.ts
+msgid "Type is required"
+msgstr "Type is required"
+
+#: src/features/ban-user/ui/unban-user-modal.tsx
+#: src/pages/admin/users.index.tsx
+msgid "Unban user"
+msgstr "Unban user"
+
+#: src/features/ban-user/ui/unban-user-modal.tsx
+msgid "Unban User"
+msgstr "Unban User"
+
+#: src/features/ban-user/ui/unban-user-modal.tsx
+msgid "Unbanning this user will restore their access to the platform. They will be able to sign in again with their existing credentials."
+msgstr "Unbanning this user will restore their access to the platform. They will be able to sign in again with their existing credentials."
+
+#: src/features/unlock-user/ui/unlock-user-modal.tsx
+#: src/pages/admin/users.$userId.tsx
+#: src/pages/admin/users.index.tsx
+msgid "Unlock user"
+msgstr "Unlock user"
+
+#: src/features/unlock-user/ui/unlock-user-modal.tsx
+msgid "Unlock User"
+msgstr "Unlock User"
+
+#: src/features/unlock-user/ui/unlock-user-modal.tsx
+msgid "Unlocking this user will reset their failed login attempts, allowing them to sign in again with their existing credentials."
+msgstr "Unlocking this user will reset their failed login attempts, allowing them to sign in again with their existing credentials."
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Unmerge"
+msgstr "Unmerge"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "Unmerge linked identity"
+msgstr "Unmerge linked identity"
+
+#: src/features/edit-account/ui/edit-account-modal.tsx
+#: src/features/edit-user/ui/edit-user-modal.tsx
+#: src/pages/admin/-organization-tenant-panels.tsx
+#: src/pages/admin/account.tsx
+#: src/pages/admin/users.$userId.tsx
+#: src/pages/admin/users.index.tsx
+msgid "Unverified"
+msgstr "Unverified"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Update"
+msgstr "Update"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Update Quantity"
+msgstr "Update Quantity"
+
+#: src/pages/admin/subscriptions.tsx
+msgid "Update Subscription Quantity"
+msgstr "Update Subscription Quantity"
+
+#: src/pages/admin/cms-pages.index.tsx
+#: src/pages/admin/plans.$planCode.tsx
+#: src/pages/admin/plans.index.tsx
+msgid "Updated"
+msgstr "Updated"
+
+#: src/pages/admin/refunds.$refundId.tsx
+#: src/pages/admin/subscriptions.$subscriptionId.tsx
+msgid "Updated:"
+msgstr "Updated:"
+
+#: src/features/change-admin-password/ui/change-admin-password-modal.tsx
+#: src/features/set-user-password/ui/set-user-password-modal.tsx
+msgid "Uppercase and lowercase letters"
+msgstr "Uppercase and lowercase letters"
+
+#: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
+#: src/pages/admin/cms-pages.$tenantKey.create.tsx
+msgid "URL path, e.g. about-us or blog/post"
+msgstr "URL path, e.g. about-us or blog/post"
+
+#: src/pages/admin/plans.$planCode.tsx
+#: src/pages/admin/users.$userId.tsx
+msgid "User"
+msgstr "User"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "User Agent"
+msgstr "User Agent"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "User created"
+msgstr "User created"
+
+#: src/shared/ui/admin-layout/nav-config.tsx
+msgid "User Management"
+msgstr "User Management"
+
+#: src/shared/ui/admin-layout/admin-header.tsx
+msgid "User menu"
+msgstr "User menu"
+
+#: src/pages/admin/audit-logs.tsx
+msgid "User updated"
+msgstr "User updated"
+
+#: src/pages/admin/users.$userId.tsx
+#: src/pages/admin/users.index.tsx
+#: src/shared/ui/admin-layout/nav-config.tsx
+msgid "Users"
+msgstr "Users"
+
+#: src/pages/loading-demo.tsx
+msgid "Uses <0>@mantine/nprogress</0> for top loading bar"
+msgstr "Uses <0>@mantine/nprogress</0> for top loading bar"
+
+#: src/pages/loading-demo.tsx
+msgid "Uses <0>LoadingOverlay</0> component for full-screen loading"
+msgstr "Uses <0>LoadingOverlay</0> component for full-screen loading"
+
+#: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+msgid "UUID or leave empty to clear."
+msgstr "UUID or leave empty to clear."
+
+#: src/features/edit-account/ui/edit-account-modal.tsx
+#: src/features/edit-user/ui/edit-user-modal.tsx
+#: src/pages/admin/-organization-tenant-panels.tsx
+#: src/pages/admin/account.tsx
+#: src/pages/admin/users.$userId.tsx
+#: src/pages/admin/users.index.tsx
+msgid "Verified"
+msgstr "Verified"
+
+#: src/widgets/dashboard-suspended-tenants/ui/suspended-tenants.tsx
+msgid "View"
+msgstr "View"
+
+#: src/pages/admin/invitations.index.tsx
+msgid "View / manage invitation"
+msgstr "View / manage invitation"
+
+#: src/widgets/dashboard-recent-critical-audit/ui/recent-critical-audit.tsx
+msgid "View all audit logs"
+msgstr "View all audit logs"
+
+#: src/pages/admin/audit-logs.tsx
+#: src/pages/admin/organizations.$tenantKey.refunds.tsx
+#: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
+#: src/pages/admin/refunds.tsx
+#: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/webhook-logs.tsx
+msgid "View details"
+msgstr "View details"
+
+#: src/pages/admin/index.tsx
+msgid "View invitations"
+msgstr "View invitations"
+
+#: src/pages/admin/index.tsx
+msgid "View locked users"
+msgstr "View locked users"
+
+#: src/pages/admin/organizations.index.tsx
+msgid "View organization"
+msgstr "View organization"
+
+#: src/pages/admin/plans.index.tsx
+msgid "View plan"
+msgstr "View plan"
+
+#: src/pages/admin/index.tsx
+msgid "View subscriptions"
+msgstr "View subscriptions"
+
+#: src/pages/admin/index.tsx
+msgid "View users"
+msgstr "View users"
+
+#: src/features/announcement-admin/model/types.ts
+msgid "Warning"
+msgstr "Warning"
+
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+msgid "Webhook Log"
+msgstr "Webhook Log"
+
+#: src/pages/admin/webhook-logs.$webhookLogId.tsx
+#: src/pages/admin/webhook-logs.tsx
+#: src/shared/ui/admin-layout/nav-config.tsx
+msgid "Webhook Logs"
+msgstr "Webhook Logs"
+
+#: src/pages/sign-in.tsx
+msgid "Welcome back"
+msgstr "Welcome back"
+
+#: src/pages/admin/users.$userId.tsx
+msgid "You cannot modify your own platform authority"
+msgstr "You cannot modify your own platform authority"
+
+#: src/pages/sign-in.tsx
+msgid "You do not have permission to access the admin area."
+msgstr "You do not have permission to access the admin area."
+
+#: src/pages/unauthorized.tsx
+msgid "You do not have the required <0>PLATFORM_ADMIN</0> authority to access this area. Please sign in with an account that has the appropriate permissions."
+msgstr "You do not have the required <0>PLATFORM_ADMIN</0> authority to access this area. Please sign in with an account that has the appropriate permissions."
+
+#: src/features/sign-in/ui/sign-in-form.tsx
+msgid "you@example.com"
+msgstr "you@example.com"
+
+#: src/features/sign-in/model/use-sign-in.ts
+msgid "Your account does not have admin access"
+msgstr "Your account does not have admin access"
+
+#: src/features/sign-in/ui/sign-in-form.tsx
+msgid "Your password"
+msgstr "Your password"
+
+#: src/pages/sign-in.tsx
+msgid "Your session expired due to inactivity."
+msgstr "Your session expired due to inactivity."
