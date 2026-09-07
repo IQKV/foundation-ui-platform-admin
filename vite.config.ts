@@ -1,6 +1,7 @@
 import tanstackRouter from "@tanstack/router-plugin/vite";
 import { defineConfig, loadEnv } from "vite";
-import { lingui } from "@lingui/vite-plugin";
+import babel from "@rolldown/plugin-babel";
+import { lingui, linguiTransformerBabelPreset } from "@lingui/vite-plugin";
 import react from "@vitejs/plugin-react-swc";
 
 const isTest = typeof process !== "undefined" && process.env.NODE_ENV === "test";
@@ -25,10 +26,9 @@ export default defineConfig(({ mode }) => {
       tsconfigPaths: true,
     },
     plugins: [
-      react({
-        plugins: [["@lingui/swc-plugin", {}]],
-      }),
+      react(),
       lingui(),
+      babel({ presets: [linguiTransformerBabelPreset()] }),
       !isTest && tanstackRouter(),
     ],
     server: {

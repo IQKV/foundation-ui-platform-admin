@@ -1,15 +1,13 @@
 import { defineConfig, coverageConfigDefaults } from "vitest/config";
+import babel from "@rolldown/plugin-babel";
+import { lingui, linguiTransformerBabelPreset } from "@lingui/vite-plugin";
 import react from "@vitejs/plugin-react-swc";
 
 export default defineConfig({
   resolve: {
     tsconfigPaths: true,
   },
-  plugins: [
-    react({
-      plugins: [["@lingui/swc-plugin", {}]],
-    }),
-  ],
+  plugins: [lingui(), babel({ presets: [linguiTransformerBabelPreset()] }), react()],
   test: {
     globals: true,
     environment: "jsdom",
