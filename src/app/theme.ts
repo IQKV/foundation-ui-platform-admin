@@ -271,6 +271,9 @@ export const cssVariablesResolver: CSSVariablesResolver = () => ({
     // Deep navy-charcoal — echoes Zoho-style unified left rail.
     // The brand logo section and the nav live inside the same dark column.
     "--app-sidebar-bg": "#1b2332",
+    // ── Topbar — always dark (section tab text is hardcoded white) ───────────
+    "--app-topbar-bg": "#1b2332",
+    "--app-topbar-border": "rgba(255,255,255,0.06)",
     "--app-sidebar-logo-bg": "#141b27", // slightly deeper band for the logo zone
     "--app-sidebar-border": "rgba(255,255,255,0.06)",
     "--app-sidebar-shadow": "1px 0 0 rgba(0,0,0,0.35)",
@@ -302,6 +305,9 @@ export const cssVariablesResolver: CSSVariablesResolver = () => ({
     "--app-surface-bg": "#ffffff",
     // Shadows use the darkest slate tone with low opacity
     "--app-header-shadow": "0 1px 0 #e4e8ef, 0 2px 8px rgba(17,28,43,0.06)",
+    // Subnav — light gray bar (inverse of dark topbar)
+    "--app-subnav-bg": "#e9ecf0",
+    "--app-subnav-border": "#d0d6e2",
   },
   dark: {
     // Canvas: deep navy-slate — not pure #000 or Mantine's default dark.7
@@ -312,5 +318,8 @@ export const cssVariablesResolver: CSSVariablesResolver = () => ({
     "--app-surface-bg": "#1a2436",
     // Shadows are nearly invisible in dark mode; border does the work instead
     "--app-header-shadow": "0 1px 0 rgba(255,255,255,0.06), 0 2px 8px rgba(0,0,0,0.3)",
+    // Subnav — dark tone slightly lighter than topbar
+    "--app-subnav-bg": "#151e30",
+    "--app-subnav-border": "rgba(255,255,255,0.08)",
   },
 });

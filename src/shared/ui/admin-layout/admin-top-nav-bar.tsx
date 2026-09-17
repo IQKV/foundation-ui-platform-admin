@@ -97,8 +97,8 @@ export function AdminTopNavBar() {
       data-testid="admin-top-nav-bar"
       style={{
         height: 52,
-        background: "var(--app-sidebar-bg)",
-        boxShadow: "var(--app-header-shadow)",
+        background: "var(--app-topbar-bg)",
+        borderBottom: "1px solid var(--app-topbar-border)",
         position: "sticky",
         top: 0,
         zIndex: 200,
@@ -124,7 +124,19 @@ export function AdminTopNavBar() {
         </Group>
 
         {/* ── Right utility strip ───────────────────────────────────── */}
-        <Group gap={4} style={{ flexShrink: 0, marginLeft: "auto" }}>
+        {/* Force light-on-dark icon colours — topbar is always dark regardless
+            of colour scheme. Mantine's ActionIcon subtle/gray resolves to dark
+            colours in light mode, becoming invisible against the dark bar. */}
+        <Group
+          gap={4}
+          style={{
+            flexShrink: 0,
+            marginLeft: "auto",
+            "--ai-color": "rgba(255,255,255,0.75)",
+            "--ai-hover": "rgba(255,255,255,0.08)",
+            "--ai-color-hover": "#ffffff",
+          } as React.CSSProperties}
+        >
           <LocaleSwitcher />
           <ColorSchemeToggle />
           <NotificationBell />

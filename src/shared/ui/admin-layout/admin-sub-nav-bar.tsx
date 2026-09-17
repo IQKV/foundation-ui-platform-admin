@@ -53,14 +53,23 @@ export function AdminSubNavBar() {
       data-testid="admin-sub-nav-bar"
       style={{
         height: 44,
-        background: "var(--app-header-bg)",
-        borderBottom: "1px solid var(--app-sub-nav-border, var(--mantine-color-default-border))",
+        background: "var(--app-subnav-bg)",
+        borderBottom: "1px solid var(--app-subnav-border)",
         position: "sticky",
         // Sticks immediately below the top nav bar (52px)
         top: 52,
         zIndex: 100,
         flexShrink: 0,
-      }}
+        // Override nav-item CSS vars so they flip to dark text in light mode
+        // while keeping white text in dark mode. light-dark() resolves based
+        // on the Mantine-set color-scheme on the root element.
+        "--app-nav-text": "light-dark(rgba(27,35,50,0.70), rgba(255,255,255,0.65))",
+        "--app-nav-text-active": "light-dark(#1b2332, #ffffff)",
+        "--app-nav-icon": "light-dark(rgba(27,35,50,0.50), rgba(255,255,255,0.45))",
+        "--app-nav-icon-active": "light-dark(#1b2332, #ffffff)",
+        "--app-nav-hover-bg": "light-dark(rgba(27,35,50,0.07), rgba(255,255,255,0.07))",
+        "--app-nav-active-bg": "light-dark(rgba(59,78,240,0.12), rgba(59,78,240,0.75))",
+      } as React.CSSProperties}
     >
       <Group
         h="100%"
