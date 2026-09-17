@@ -25,3 +25,17 @@
 window.VITE_API_SERVER_URL = "https://api.iqkv.site/api";
 window.VITE_LOG_LEVEL = "info";
 window.VITE_DEMO_MODE = "false";
+window.VITE_APP_NAV_VARIANT = "sidebar";
+
+// ── Branding (optional — defaults are embedded in the build) ──────────────────
+// window.VITE_APP_TITLE = "Key Value Admin";
+// window.VITE_APP_BRAND_NAME = "Key Value";
+// window.VITE_APP_BRAND_TAGLINE = "Admin";
+// window.VITE_APP_VENDOR_NAME = "iQKV Foundation Team";
+
+// ── Auth page copy (optional) ─────────────────────────────────────────────────
+// window.VITE_APP_AUTH_SECTION_LABEL = "Operator access only";
+// window.VITE_APP_AUTH_BADGES = "SOC 2 Type II,GDPR Ready";
+// window.VITE_APP_AUTH_HEADLINE_1 = "Platform control,";
+// window.VITE_APP_AUTH_HEADLINE_2 = "fully in your hands.";
+// window.VITE_APP_AUTH_TAGLINE = "Manage users, organizations, and subscriptions across all tenants.";
