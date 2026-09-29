@@ -129,13 +129,15 @@ export function AdminTopNavBar() {
             colours in light mode, becoming invisible against the dark bar. */}
         <Group
           gap={4}
-          style={{
-            flexShrink: 0,
-            marginLeft: "auto",
-            "--ai-color": "rgba(255,255,255,0.75)",
-            "--ai-hover": "rgba(255,255,255,0.08)",
-            "--ai-color-hover": "#ffffff",
-          } as React.CSSProperties}
+          style={
+            {
+              flexShrink: 0,
+              marginLeft: "auto",
+              "--ai-color": "rgba(255,255,255,0.75)",
+              "--ai-hover": "rgba(255,255,255,0.08)",
+              "--ai-color-hover": "#ffffff",
+            } as React.CSSProperties
+          }
         >
           <LocaleSwitcher />
           <ColorSchemeToggle />
