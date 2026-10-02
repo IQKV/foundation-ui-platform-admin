@@ -169,6 +169,39 @@ src/
 
 5. **Architecture Testing**: Run `pnpm test:arch` to verify FSD compliance
 
+## Execution Discipline
+
+- Root cause first. Fix the real entry point, not a bypass around it.
+- Read complete affected modules, callers, and tests before editing.
+- After two identical failures without new evidence, change approach — do not retry blindly.
+- Check relevant prerequisites early (type-check, arch tests). Parallelize independent work.
+- Behavior proven and required gates green: finish. No speculative scope growth.
+
+## Security
+
+- Keep credentials, tokens, and private config out of commits, logs, and shared text.
+- Flag files likely to contain secrets (`.env`, credential stores) before staging them.
+- Use exact or pinned dependency versions. Flag unusual package names before installing.
+- Never bypass `--no-verify` unless explicitly requested.
+
+## Commit Standards
+
+Format: `type(scope): subject`
+
+- Subject: imperative, lowercase, no trailing period, ≤ 72 chars
+- Types: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`, `perf`, `ci`, `revert`
+- Scope: affected feature/module (e.g., `sign-in`, `session`, `billing`, `shared`)
+- For `fix`: describe the symptom and trigger, not the code change
+  - ✅ `fix(session): workspace flag lost on page reload`
+  - ❌ `fix(session): add missing flag restore call`
+- Breaking changes: add `BREAKING CHANGE:` in the footer
+
+Examples:
+- `feat(announcement-admin): add scheduled publish date field`
+- `fix(sign-in): redirect loop when admin session cookie expires`
+- `refactor(edit-tenant): extract billing form into separate component`
+- `chore(deps): update mantine to v9.4.1`
+
 ## AI Agent Development Guidelines
 
 ### Code Generation Principles
