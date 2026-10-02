@@ -197,6 +197,7 @@ Format: `type(scope): subject`
 - Breaking changes: add `BREAKING CHANGE:` in the footer
 
 Examples:
+
 - `feat(announcement-admin): add scheduled publish date field`
 - `fix(sign-in): redirect loop when admin session cookie expires`
 - `refactor(edit-tenant): extract billing form into separate component`
