@@ -8,7 +8,6 @@ import {
   Pagination,
   Skeleton,
   Alert,
-  Code,
 } from "@mantine/core";
 import { IconSearch, IconAlertCircle } from "@tabler/icons-react";
 import { useState } from "react";
@@ -124,7 +123,16 @@ export function SessionsList() {
                     </Text>
                   </Table.Td>
                   <Table.Td>
-                    <Code fz="xs">{session.userId.substring(0, 8)}…</Code>
+                    <Text
+                      component="a"
+                      href={`/admin/users/${session.userId}`}
+                      size="xs"
+                      c="blue"
+                      style={{ fontFamily: "var(--mantine-font-family-monospace)", textDecoration: "none" }}
+                      title={session.userId}
+                    >
+                      {session.userId.substring(0, 8)}…
+                    </Text>
                   </Table.Td>
                   <Table.Td>
                     <ModelBadge model={session.model} />
