@@ -27,6 +27,10 @@ window.VITE_LOG_LEVEL = "info";
 window.VITE_DEMO_MODE = "false";
 window.VITE_APP_NAV_VARIANT = "sidebar";
 
+// Addon configuration
+// Comma-separated list of addon IDs to enable (e.g. "project-management,other-addon")
+window.VITE_ENABLED_UI_ADDONS = "platform-health-notes,platform-ai-chat-sessions";
+
 // ── Branding (optional — defaults are embedded in the build) ──────────────────
 // window.VITE_APP_TITLE = "Key Value Admin";
 // window.VITE_APP_BRAND_NAME = "Key Value";
