@@ -11,6 +11,7 @@ import {
 } from "@mantine/core";
 import { IconAlertCircle, IconRobot } from "@tabler/icons-react";
 import ReactMarkdown from "react-markdown";
+import type { Components } from "react-markdown";
 import { useAdminMessages } from "../model";
 import { ModelBadge } from "./model-badge";
 import type { ChatSession, ChatMessage } from "../api/ai-chat-sessions-api";
@@ -18,60 +19,58 @@ import type { ChatSession, ChatMessage } from "../api/ai-chat-sessions-api";
 // ─── Markdown renderer (mirrors tenant app message-bubble) ────────────────────
 
 function MarkdownContent({ content }: { content: string }) {
+  const components: Components = {
+    p: ({ children }) => <p style={{ margin: "0 0 0.5em 0" }}>{children}</p>,
+    code: ({ children, className }) => {
+      const isBlock = (className ?? "").includes("language-");
+      if (isBlock) {
+        return (
+          <pre
+            style={{
+              background: "rgba(0,0,0,0.08)",
+              borderRadius: 6,
+              padding: "0.6em 0.8em",
+              overflowX: "auto",
+              fontSize: "0.85em",
+              margin: "0.5em 0",
+            }}
+          >
+            <code>{children}</code>
+          </pre>
+        );
+      }
+      return (
+        <code
+          style={{
+            background: "rgba(0,0,0,0.08)",
+            borderRadius: 3,
+            padding: "0.1em 0.35em",
+            fontSize: "0.88em",
+            fontFamily: "var(--mantine-font-family-monospace)",
+          }}
+        >
+          {children}
+        </code>
+      );
+    },
+    strong: ({ children }) => <strong style={{ fontWeight: 600 }}>{children}</strong>,
+    ul: ({ children }) => <ul style={{ margin: "0.25em 0", paddingLeft: "1.4em" }}>{children}</ul>,
+    ol: ({ children }) => <ol style={{ margin: "0.25em 0", paddingLeft: "1.4em" }}>{children}</ol>,
+    li: ({ children }) => <li style={{ marginBottom: "0.2em" }}>{children}</li>,
+    h1: ({ children }) => <p style={{ fontWeight: 700, fontSize: "1.05em", margin: "0.4em 0 0.2em" }}>{children}</p>,
+    h2: ({ children }) => <p style={{ fontWeight: 600, fontSize: "1em", margin: "0.4em 0 0.2em" }}>{children}</p>,
+    h3: ({ children }) => <p style={{ fontWeight: 600, margin: "0.3em 0 0.1em" }}>{children}</p>,
+    blockquote: ({ children }) => (
+      <blockquote style={{ borderLeft: "3px solid rgba(0,0,0,0.2)", paddingLeft: "0.8em", margin: "0.4em 0", opacity: 0.8 }}>
+        {children}
+      </blockquote>
+    ),
+    hr: () => <hr style={{ border: "none", borderTop: "1px solid rgba(0,0,0,0.15)", margin: "0.6em 0" }} />,
+  };
+
   return (
     <div style={{ fontSize: "var(--mantine-font-size-sm)", lineHeight: 1.6 }}>
-      <ReactMarkdown
-        components={{
-          p: ({ children }) => <p style={{ margin: "0 0 0.5em 0" }}>{children}</p>,
-          code: ({ children, className }) => {
-            const isBlock = className?.includes("language-");
-            if (isBlock) {
-              return (
-                <pre
-                  style={{
-                    background: "rgba(0,0,0,0.08)",
-                    borderRadius: 6,
-                    padding: "0.6em 0.8em",
-                    overflowX: "auto",
-                    fontSize: "0.85em",
-                    margin: "0.5em 0",
-                  }}
-                >
-                  <code>{children}</code>
-                </pre>
-              );
-            }
-            return (
-              <code
-                style={{
-                  background: "rgba(0,0,0,0.08)",
-                  borderRadius: 3,
-                  padding: "0.1em 0.35em",
-                  fontSize: "0.88em",
-                  fontFamily: "var(--mantine-font-family-monospace)",
-                }}
-              >
-                {children}
-              </code>
-            );
-          },
-          strong: ({ children }) => <strong style={{ fontWeight: 600 }}>{children}</strong>,
-          ul: ({ children }) => <ul style={{ margin: "0.25em 0", paddingLeft: "1.4em" }}>{children}</ul>,
-          ol: ({ children }) => <ol style={{ margin: "0.25em 0", paddingLeft: "1.4em" }}>{children}</ol>,
-          li: ({ children }) => <li style={{ marginBottom: "0.2em" }}>{children}</li>,
-          h1: ({ children }) => <p style={{ fontWeight: 700, fontSize: "1.05em", margin: "0.4em 0 0.2em" }}>{children}</p>,
-          h2: ({ children }) => <p style={{ fontWeight: 600, fontSize: "1em", margin: "0.4em 0 0.2em" }}>{children}</p>,
-          h3: ({ children }) => <p style={{ fontWeight: 600, margin: "0.3em 0 0.1em" }}>{children}</p>,
-          blockquote: ({ children }) => (
-            <blockquote style={{ borderLeft: "3px solid rgba(0,0,0,0.2)", paddingLeft: "0.8em", margin: "0.4em 0", opacity: 0.8 }}>
-              {children}
-            </blockquote>
-          ),
-          hr: () => <hr style={{ border: "none", borderTop: "1px solid rgba(0,0,0,0.15)", margin: "0.6em 0" }} />,
-        }}
-      >
-        {content}
-      </ReactMarkdown>
+      <ReactMarkdown components={components}>{content}</ReactMarkdown>
     </div>
   );
 }
