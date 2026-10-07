@@ -9,8 +9,7 @@ type AvailableAddons = Record<string, AddonLoader | string>;
 // Static addon imports map - add your addons here
 const availableAddons: AvailableAddons = {
   "platform-health-notes": () => import("@/addons/platform-health-notes"),
-  // Example external package:
-  // "@company/my-external-addon": "@company/my-external-addon",
+  "platform-ai-chat-sessions": () => import("@/addons/platform-ai-chat-sessions"),
 };
 
 // Helper to load an addon from either local import or external package
