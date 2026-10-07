@@ -7,6 +7,7 @@ import type { SessionListParams } from "../api/ai-chat-sessions-api";
 export const sessionKeys = {
   all: ["addon", "ai-chat-sessions"] as const,
   list: (params: SessionListParams) => [...sessionKeys.all, "list", params] as const,
+  messages: (sessionId: string) => [...sessionKeys.all, "messages", sessionId] as const,
 };
 
 // ─── Queries ──────────────────────────────────────────────────────────────────
@@ -15,6 +16,14 @@ export function useSessionList(params: SessionListParams = {}) {
   return useQuery({
     queryKey: sessionKeys.list(params),
     queryFn: () => aiChatSessionsApi.list(params),
+  });
+}
+
+export function useAdminMessages(sessionId: string | null) {
+  return useQuery({
+    queryKey: sessionKeys.messages(sessionId ?? ""),
+    queryFn: () => aiChatSessionsApi.getMessages(sessionId!),
+    enabled: !!sessionId,
   });
 }
 

@@ -24,6 +24,19 @@ export interface SessionListResponse {
   totalElements: number;
 }
 
+export interface ChatMessage {
+  id: string;
+  sessionId: string;
+  role: "USER" | "ASSISTANT" | "SYSTEM";
+  content: string;
+  createdAt: string;
+}
+
+export interface MessageListResponse {
+  items: ChatMessage[];
+  totalElements: number;
+}
+
 export interface SessionListParams {
   limit?: number;
   offset?: number;
@@ -55,6 +68,14 @@ export const aiChatSessionsApi = {
   list(params: SessionListParams = {}): Promise<SessionListResponse> {
     return client()
       .get<SessionListResponse>(`${BASE}/sessions`, { params })
+      .then((r) => r.data);
+  },
+
+  getMessages(sessionId: string, limit = 200, offset = 0): Promise<MessageListResponse> {
+    return client()
+      .get<MessageListResponse>(`${BASE}/sessions/${sessionId}/messages`, {
+        params: { limit, offset },
+      })
       .then((r) => r.data);
   },
 };

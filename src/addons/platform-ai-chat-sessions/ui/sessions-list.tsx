@@ -8,13 +8,18 @@ import {
   Pagination,
   Skeleton,
   Alert,
+  ActionIcon,
+  Tooltip,
 } from "@mantine/core";
-import { IconSearch, IconAlertCircle } from "@tabler/icons-react";
+import { useDisclosure } from "@mantine/hooks";
+import { IconSearch, IconAlertCircle, IconEye } from "@tabler/icons-react";
 import { useState } from "react";
 import { SubCard } from "@/widgets/dashboard-sub-card/ui/sub-card";
 import { useSessionList, MODEL_OPTIONS } from "../model";
 import { ModelBadge } from "./model-badge";
+import { SessionMessagesModal } from "./session-messages-modal";
 import type { SessionListFilters } from "../types";
+import type { ChatSession } from "../api/ai-chat-sessions-api";
 
 const PAGE_SIZE = 20;
 
@@ -22,6 +27,8 @@ export function SessionsList() {
   const [page, setPage] = useState(1);
   const [filters, setFilters] = useState<SessionListFilters>({ search: "", model: "" });
   const [searchInput, setSearchInput] = useState("");
+  const [selectedSession, setSelectedSession] = useState<ChatSession | null>(null);
+  const [modalOpened, { open: openModal, close: closeModal }] = useDisclosure(false);
 
   const { data, isLoading, isError } = useSessionList({
     limit: PAGE_SIZE,
@@ -31,6 +38,16 @@ export function SessionsList() {
   function applySearch() {
     setFilters((f) => ({ ...f, search: searchInput }));
     setPage(1);
+  }
+
+  function handleReadClick(session: ChatSession) {
+    setSelectedSession(session);
+    openModal();
+  }
+
+  function handleModalClose() {
+    closeModal();
+    setSelectedSession(null);
   }
 
   // Client-side title filter (backend has no search param)
@@ -44,121 +61,142 @@ export function SessionsList() {
   const totalPages = data ? Math.ceil(data.totalElements / PAGE_SIZE) : 0;
 
   return (
-    <Stack gap="md">
-      {/* Filters */}
-      <SubCard>
-        <Group gap="sm" wrap="nowrap">
-          <TextInput
-            placeholder="Search by title…"
-            leftSection={<IconSearch size={14} />}
-            value={searchInput}
-            onChange={(e) => setSearchInput(e.currentTarget.value)}
-            onKeyDown={(e) => e.key === "Enter" && applySearch()}
-            onBlur={applySearch}
-            style={{ flex: 1 }}
-            data-testid="input--search"
-          />
-          <Select
-            placeholder="Model"
-            data={MODEL_OPTIONS}
-            value={filters.model}
-            onChange={(v) => {
-              setFilters((f) => ({ ...f, model: v ?? "" }));
-              setPage(1);
-            }}
-            clearable
-            style={{ width: 180 }}
-            data-testid="select--model"
-          />
-        </Group>
-      </SubCard>
-
-      {/* Table */}
-      <SubCard>
-        {isError && (
-          <Alert icon={<IconAlertCircle size={16} />} color="red" variant="light" mb="md">
-            Failed to load sessions. Please refresh.
-          </Alert>
-        )}
-
-        <Table highlightOnHover verticalSpacing="sm">
-          <Table.Thead>
-            <Table.Tr>
-              <Table.Th>Title</Table.Th>
-              <Table.Th>User ID</Table.Th>
-              <Table.Th>Model</Table.Th>
-              <Table.Th>Created</Table.Th>
-              <Table.Th>Updated</Table.Th>
-            </Table.Tr>
-          </Table.Thead>
-          <Table.Tbody>
-            {isLoading ? (
-              Array.from({ length: 5 }).map((_, i) => (
-                <Table.Tr key={i}>
-                  {Array.from({ length: 5 }).map((_, j) => (
-                    <Table.Td key={j}>
-                      <Skeleton height={16} radius="sm" />
-                    </Table.Td>
-                  ))}
-                </Table.Tr>
-              ))
-            ) : filtered?.length === 0 ? (
-              <Table.Tr>
-                <Table.Td colSpan={5}>
-                  <Text c="dimmed" size="sm" ta="center" py="lg">
-                    No sessions found.
-                  </Text>
-                </Table.Td>
-              </Table.Tr>
-            ) : (
-              filtered?.map((session) => (
-                <Table.Tr key={session.id}>
-                  <Table.Td>
-                    <Text size="sm" fw={500} lineClamp={1}>
-                      {session.title ?? (
-                        <Text component="span" c="dimmed" fs="italic">
-                          Untitled
-                        </Text>
-                      )}
-                    </Text>
-                  </Table.Td>
-                  <Table.Td>
-                    <Text
-                      component="a"
-                      href={`/admin/users/${session.userId}`}
-                      size="xs"
-                      c="blue"
-                      style={{ fontFamily: "var(--mantine-font-family-monospace)", textDecoration: "none" }}
-                      title={session.userId}
-                    >
-                      {session.userId.substring(0, 8)}…
-                    </Text>
-                  </Table.Td>
-                  <Table.Td>
-                    <ModelBadge model={session.model} />
-                  </Table.Td>
-                  <Table.Td>
-                    <Text size="xs" c="dimmed">
-                      {new Date(session.createdAt).toLocaleString()}
-                    </Text>
-                  </Table.Td>
-                  <Table.Td>
-                    <Text size="xs" c="dimmed">
-                      {new Date(session.updatedAt).toLocaleString()}
-                    </Text>
-                  </Table.Td>
-                </Table.Tr>
-              ))
-            )}
-          </Table.Tbody>
-        </Table>
-
-        {totalPages > 1 && (
-          <Group justify="flex-end" mt="md">
-            <Pagination value={page} onChange={setPage} total={totalPages} size="sm" />
+    <>
+      <Stack gap="md">
+        {/* Filters */}
+        <SubCard>
+          <Group gap="sm" wrap="nowrap">
+            <TextInput
+              placeholder="Search by title…"
+              leftSection={<IconSearch size={14} />}
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.currentTarget.value)}
+              onKeyDown={(e) => e.key === "Enter" && applySearch()}
+              onBlur={applySearch}
+              style={{ flex: 1 }}
+              data-testid="input--search"
+            />
+            <Select
+              placeholder="Model"
+              data={MODEL_OPTIONS}
+              value={filters.model}
+              onChange={(v) => {
+                setFilters((f) => ({ ...f, model: v ?? "" }));
+                setPage(1);
+              }}
+              clearable
+              style={{ width: 180 }}
+              data-testid="select--model"
+            />
           </Group>
-        )}
-      </SubCard>
-    </Stack>
+        </SubCard>
+
+        {/* Table */}
+        <SubCard>
+          {isError && (
+            <Alert icon={<IconAlertCircle size={16} />} color="red" variant="light" mb="md">
+              Failed to load sessions. Please refresh.
+            </Alert>
+          )}
+
+          <Table highlightOnHover verticalSpacing="sm">
+            <Table.Thead>
+              <Table.Tr>
+                <Table.Th>Title</Table.Th>
+                <Table.Th>User ID</Table.Th>
+                <Table.Th>Model</Table.Th>
+                <Table.Th>Created</Table.Th>
+                <Table.Th>Updated</Table.Th>
+                <Table.Th style={{ width: 48 }} />
+              </Table.Tr>
+            </Table.Thead>
+            <Table.Tbody>
+              {isLoading ? (
+                Array.from({ length: 5 }).map((_, i) => (
+                  <Table.Tr key={i}>
+                    {Array.from({ length: 6 }).map((_, j) => (
+                      <Table.Td key={j}>
+                        <Skeleton height={16} radius="sm" />
+                      </Table.Td>
+                    ))}
+                  </Table.Tr>
+                ))
+              ) : filtered?.length === 0 ? (
+                <Table.Tr>
+                  <Table.Td colSpan={6}>
+                    <Text c="dimmed" size="sm" ta="center" py="lg">
+                      No sessions found.
+                    </Text>
+                  </Table.Td>
+                </Table.Tr>
+              ) : (
+                filtered?.map((session) => (
+                  <Table.Tr key={session.id}>
+                    <Table.Td>
+                      <Text size="sm" fw={500} lineClamp={1}>
+                        {session.title ?? (
+                          <Text component="span" c="dimmed" fs="italic">
+                            Untitled
+                          </Text>
+                        )}
+                      </Text>
+                    </Table.Td>
+                    <Table.Td>
+                      <Text
+                        component="a"
+                        href={`/admin/users/${session.userId}`}
+                        size="xs"
+                        c="blue"
+                        style={{ fontFamily: "var(--mantine-font-family-monospace)", textDecoration: "none" }}
+                        title={session.userId}
+                      >
+                        {session.userId.substring(0, 8)}…
+                      </Text>
+                    </Table.Td>
+                    <Table.Td>
+                      <ModelBadge model={session.model} />
+                    </Table.Td>
+                    <Table.Td>
+                      <Text size="xs" c="dimmed">
+                        {new Date(session.createdAt).toLocaleString()}
+                      </Text>
+                    </Table.Td>
+                    <Table.Td>
+                      <Text size="xs" c="dimmed">
+                        {new Date(session.updatedAt).toLocaleString()}
+                      </Text>
+                    </Table.Td>
+                    <Table.Td>
+                      <Tooltip label="Read messages" withArrow position="left">
+                        <ActionIcon
+                          variant="subtle"
+                          color="blue"
+                          size="sm"
+                          onClick={() => handleReadClick(session)}
+                          data-testid="read-session-btn"
+                        >
+                          <IconEye size={14} />
+                        </ActionIcon>
+                      </Tooltip>
+                    </Table.Td>
+                  </Table.Tr>
+                ))
+              )}
+            </Table.Tbody>
+          </Table>
+
+          {totalPages > 1 && (
+            <Group justify="flex-end" mt="md">
+              <Pagination value={page} onChange={setPage} total={totalPages} size="sm" />
+            </Group>
+          )}
+        </SubCard>
+      </Stack>
+
+      <SessionMessagesModal
+        session={modalOpened ? selectedSession : null}
+        onClose={handleModalClose}
+      />
+    </>
   );
 }
