@@ -1,14 +1,4 @@
-import {
-  Modal,
-  Stack,
-  Group,
-  Text,
-  ScrollArea,
-  Paper,
-  Loader,
-  Alert,
-  Badge,
-} from "@mantine/core";
+import { Modal, Stack, Group, Text, ScrollArea, Paper, Loader, Alert, Badge } from "@mantine/core";
 import { IconAlertCircle, IconRobot } from "@tabler/icons-react";
 import ReactMarkdown from "react-markdown";
 import type { Components } from "react-markdown";
@@ -57,15 +47,28 @@ function MarkdownContent({ content }: { content: string }) {
     ul: ({ children }) => <ul style={{ margin: "0.25em 0", paddingLeft: "1.4em" }}>{children}</ul>,
     ol: ({ children }) => <ol style={{ margin: "0.25em 0", paddingLeft: "1.4em" }}>{children}</ol>,
     li: ({ children }) => <li style={{ marginBottom: "0.2em" }}>{children}</li>,
-    h1: ({ children }) => <p style={{ fontWeight: 700, fontSize: "1.05em", margin: "0.4em 0 0.2em" }}>{children}</p>,
-    h2: ({ children }) => <p style={{ fontWeight: 600, fontSize: "1em", margin: "0.4em 0 0.2em" }}>{children}</p>,
+    h1: ({ children }) => (
+      <p style={{ fontWeight: 700, fontSize: "1.05em", margin: "0.4em 0 0.2em" }}>{children}</p>
+    ),
+    h2: ({ children }) => (
+      <p style={{ fontWeight: 600, fontSize: "1em", margin: "0.4em 0 0.2em" }}>{children}</p>
+    ),
     h3: ({ children }) => <p style={{ fontWeight: 600, margin: "0.3em 0 0.1em" }}>{children}</p>,
     blockquote: ({ children }) => (
-      <blockquote style={{ borderLeft: "3px solid rgba(0,0,0,0.2)", paddingLeft: "0.8em", margin: "0.4em 0", opacity: 0.8 }}>
+      <blockquote
+        style={{
+          borderLeft: "3px solid rgba(0,0,0,0.2)",
+          paddingLeft: "0.8em",
+          margin: "0.4em 0",
+          opacity: 0.8,
+        }}
+      >
         {children}
       </blockquote>
     ),
-    hr: () => <hr style={{ border: "none", borderTop: "1px solid rgba(0,0,0,0.15)", margin: "0.6em 0" }} />,
+    hr: () => (
+      <hr style={{ border: "none", borderTop: "1px solid rgba(0,0,0,0.15)", margin: "0.6em 0" }} />
+    ),
   };
 
   return (
@@ -91,7 +94,14 @@ function MessageBubble({ message }: { message: ChatMessage }) {
   if (message.role === "USER") {
     return (
       <Group justify="flex-end">
-        <Paper bg="blue.6" c="white" p="md" radius="md" maw="75%" style={{ borderBottomRightRadius: 4 }}>
+        <Paper
+          bg="blue.6"
+          c="white"
+          p="md"
+          radius="md"
+          maw="75%"
+          style={{ borderBottomRightRadius: 4 }}
+        >
           <Text size="sm" style={{ whiteSpace: "pre-wrap", wordBreak: "break-word" }}>
             {message.content}
           </Text>
@@ -173,7 +183,10 @@ export function SessionMessagesModal({ session, onClose }: SessionMessagesModalP
                 href={`/admin/users/${session.userId}`}
                 size="xs"
                 c="blue"
-                style={{ fontFamily: "var(--mantine-font-family-monospace)", textDecoration: "none" }}
+                style={{
+                  fontFamily: "var(--mantine-font-family-monospace)",
+                  textDecoration: "none",
+                }}
                 title={session.userId}
               >
                 {session.userId.substring(0, 8)}…

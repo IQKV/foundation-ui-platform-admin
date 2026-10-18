@@ -147,7 +147,10 @@ export function SessionsList() {
                         href={`/admin/users/${session.userId}`}
                         size="xs"
                         c="blue"
-                        style={{ fontFamily: "var(--mantine-font-family-monospace)", textDecoration: "none" }}
+                        style={{
+                          fontFamily: "var(--mantine-font-family-monospace)",
+                          textDecoration: "none",
+                        }}
                         title={session.userId}
                       >
                         {session.userId.substring(0, 8)}…
