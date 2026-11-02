@@ -290,6 +290,14 @@ function AssetsTab({ assets, isLoading }: { assets: MasterVenueAsset[]; isLoadin
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
+const bigTabStyles = {
+  tab: {
+    fontSize: "var(--mantine-font-size-lg)",
+    fontWeight: 600,
+    padding: "var(--mantine-spacing-md) var(--mantine-spacing-xl)",
+  },
+};
+
 function MasterVenueDetailPage() {
   const { t } = useLingui();
   const navigate = useNavigate();
@@ -539,17 +547,31 @@ function MasterVenueDetailPage() {
 
         {/* ── Tabs — mirrors VenueProfileWidget tab structure ─────────── */}
         <Tabs defaultValue="details" keepMounted={false}>
-          <Tabs.List>
-            <Tabs.Tab value="details" leftSection={<IconAdjustments size={14} />}>
+          <Tabs.List
+            styles={{
+              list: {
+                gap: 8,
+                borderBottomWidth: 2,
+              },
+            }}
+          >
+            <Tabs.Tab
+              value="details"
+              leftSection={<IconAdjustments size={20} />}
+              styles={bigTabStyles}
+            >
               <Trans>Details</Trans>
             </Tabs.Tab>
             <Tabs.Tab
               value="photos"
               data-testid={TestSelectors.TAB.MASTER_VENUE_PHOTOS}
-              leftSection={<IconPhoto size={14} />}
+              leftSection={<IconPhoto size={20} />}
+              styles={bigTabStyles}
               rightSection={
                 !photosLoading && photos.length > 0 ? (
-                  <Badge size="xs" variant="light" color="gray" circle>{photos.length}</Badge>
+                  <Badge size="xl" variant="filled" color="blue" circle>
+                    {photos.length}
+                  </Badge>
                 ) : undefined
               }
             >
@@ -558,10 +580,13 @@ function MasterVenueDetailPage() {
             <Tabs.Tab
               value="assets"
               data-testid={TestSelectors.TAB.MASTER_VENUE_ASSETS}
-              leftSection={<IconPaperclip size={14} />}
+              leftSection={<IconPaperclip size={20} />}
+              styles={bigTabStyles}
               rightSection={
                 !assetsLoading && assets.length > 0 ? (
-                  <Badge size="xs" variant="light" color="gray" circle>{assets.length}</Badge>
+                  <Badge size="xl" variant="filled" color="blue" circle>
+                    {assets.length}
+                  </Badge>
                 ) : undefined
               }
             >
