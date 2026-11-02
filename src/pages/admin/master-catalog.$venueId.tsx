@@ -172,13 +172,21 @@ function PhotosTab({ photos, isLoading }: { photos: MasterVenueAsset[]; isLoadin
       {photos.map((photo) => (
         <Stack key={photo.id} gap={4}>
           {photo.sourceUrl ? (
-            <Image
-              src={photo.sourceUrl}
-              alt={photo.label ?? photo.fileName ?? ""}
-              height={140}
-              radius="sm"
-              fit="cover"
-            />
+            <Box
+              style={{
+                height: 140,
+                borderRadius: "var(--mantine-radius-sm)",
+                overflow: "hidden",
+              }}
+            >
+              <Image
+                src={photo.sourceUrl}
+                alt={photo.label ?? photo.fileName ?? ""}
+                w="100%"
+                h={140}
+                style={{ objectFit: "cover", display: "block" }}
+              />
+            </Box>
           ) : (
             <Box
               style={{
@@ -434,17 +442,25 @@ function MasterVenueDetailPage() {
           <Group gap="lg" wrap="nowrap" align="flex-start">
             {/* thumbnail */}
             {photosLoading ? (
-              <Skeleton width={80} height={80} radius="md" style={{ flexShrink: 0 }} />
+              <Skeleton w={80} h={80} radius="md" style={{ flexShrink: 0 }} />
             ) : heroPhoto?.sourceUrl ? (
-              <Image
-                src={heroPhoto.sourceUrl}
-                alt={heroPhoto.label ?? heroPhoto.fileName ?? ""}
-                width={80}
-                height={80}
-                radius="md"
-                fit="cover"
-                style={{ flexShrink: 0 }}
-              />
+              <Box
+                style={{
+                  width: 80,
+                  height: 80,
+                  borderRadius: "var(--mantine-radius-md)",
+                  overflow: "hidden",
+                  flexShrink: 0,
+                }}
+              >
+                <Image
+                  src={heroPhoto.sourceUrl}
+                  alt={heroPhoto.label ?? heroPhoto.fileName ?? ""}
+                  w={80}
+                  h={80}
+                  style={{ objectFit: "cover", display: "block" }}
+                />
+              </Box>
             ) : (
               <Box
                 style={{
