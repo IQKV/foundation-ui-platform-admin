@@ -64,7 +64,12 @@ function ConfidenceRing({
   "data-testid"?: string;
 }) {
   if (isLoading) return <Skeleton circle height={52} />;
-  if (value === null) return <Text size="sm" c="dimmed">—</Text>;
+  if (value === null)
+    return (
+      <Text size="sm" c="dimmed">
+        —
+      </Text>
+    );
   const pct = Math.round(value * 100);
   const color = pct >= 80 ? "green" : pct >= 50 ? "orange" : "red";
   return (
@@ -76,7 +81,9 @@ function ConfidenceRing({
       data-testid={testId}
       label={
         <Center>
-          <Text size="xs" fw={700} c={color} lh={1}>{pct}%</Text>
+          <Text size="xs" fw={700} c={color} lh={1}>
+            {pct}%
+          </Text>
         </Center>
       }
     />
@@ -96,7 +103,14 @@ interface InfoSectionCardProps {
   children: React.ReactNode;
 }
 
-function InfoSectionCard({ title, icon, filled, total, isLoading, children }: InfoSectionCardProps) {
+function InfoSectionCard({
+  title,
+  icon,
+  filled,
+  total,
+  isLoading,
+  children,
+}: InfoSectionCardProps) {
   const allFilled = filled != null && total != null && filled === total && total > 0;
   return (
     <Paper withBorder radius="md" p="md">
@@ -105,7 +119,9 @@ function InfoSectionCard({ title, icon, filled, total, isLoading, children }: In
           <ThemeIcon size={24} radius="sm" variant="light" color="blue">
             {icon}
           </ThemeIcon>
-          <Text size="sm" fw={700}>{title}</Text>
+          <Text size="sm" fw={700}>
+            {title}
+          </Text>
         </Group>
         {filled != null && total != null && total > 0 && (
           <Badge
@@ -113,9 +129,11 @@ function InfoSectionCard({ title, icon, filled, total, isLoading, children }: In
             color={allFilled ? "teal" : "gray"}
             size="xs"
             leftSection={
-              allFilled
-                ? <IconCheck size={10} style={{ marginTop: 1 }} />
-                : <IconAlertTriangle size={10} style={{ marginTop: 1 }} />
+              allFilled ? (
+                <IconCheck size={10} style={{ marginTop: 1 }} />
+              ) : (
+                <IconAlertTriangle size={10} style={{ marginTop: 1 }} />
+              )
             }
           >
             {filled}/{total}
@@ -142,11 +160,17 @@ function FieldChip({ label, value }: { label: React.ReactNode; value: React.Reac
   const empty = value == null || value === "";
   return (
     <Group gap={4} wrap="nowrap" style={{ minWidth: 0 }}>
-      <Text size="xs" c="dimmed" style={{ flexShrink: 0 }}>{label}:</Text>
+      <Text size="xs" c="dimmed" style={{ flexShrink: 0 }}>
+        {label}:
+      </Text>
       {empty ? (
-        <Text size="xs" c="dimmed" fs="italic">—</Text>
+        <Text size="xs" c="dimmed" fs="italic">
+          —
+        </Text>
       ) : (
-        <Text size="xs" style={{ wordBreak: "break-word" }}>{value}</Text>
+        <Text size="xs" style={{ wordBreak: "break-word" }}>
+          {value}
+        </Text>
       )}
     </Group>
   );
@@ -156,10 +180,18 @@ function FieldChip({ label, value }: { label: React.ReactNode; value: React.Reac
 
 function MetadataViewer({ raw }: { raw: string | null }) {
   if (!raw) {
-    return <Text size="sm" c="dimmed" fs="italic"><Trans>No metadata.</Trans></Text>;
+    return (
+      <Text size="sm" c="dimmed" fs="italic">
+        <Trans>No metadata.</Trans>
+      </Text>
+    );
   }
   let formatted = raw;
-  try { formatted = JSON.stringify(JSON.parse(raw), null, 2); } catch { /* show as-is */ }
+  try {
+    formatted = JSON.stringify(JSON.parse(raw), null, 2);
+  } catch {
+    /* show as-is */
+  }
   return (
     <ScrollArea.Autosize mah={340}>
       <Box
@@ -189,16 +221,25 @@ function PhotosTab({ photos, isLoading }: { photos: MasterVenueAsset[]; isLoadin
   if (isLoading) {
     return (
       <SimpleGrid cols={{ base: 2, sm: 3, md: 4, lg: 5 }} spacing="sm">
-        {Array.from({ length: 5 }).map((_, i) => <Skeleton key={i} height={130} radius="sm" />)}
+        {Array.from({ length: 5 }).map((_, i) => (
+          <Skeleton key={i} height={130} radius="sm" />
+        ))}
       </SimpleGrid>
     );
   }
   if (photos.length === 0) {
     return (
-      <Paper withBorder p="xl" radius="md" style={{ textAlign: "center", background: "var(--mantine-color-gray-0)" }}>
+      <Paper
+        withBorder
+        p="xl"
+        radius="md"
+        style={{ textAlign: "center", background: "var(--mantine-color-gray-0)" }}
+      >
         <Stack align="center" gap="sm">
           <IconPhoto size={40} color="var(--mantine-color-gray-4)" />
-          <Text size="sm" c="dimmed"><Trans>No photos for this venue.</Trans></Text>
+          <Text size="sm" c="dimmed">
+            <Trans>No photos for this venue.</Trans>
+          </Text>
         </Stack>
       </Paper>
     );
@@ -213,7 +254,11 @@ function PhotosTab({ photos, isLoading }: { photos: MasterVenueAsset[]; isLoadin
               alt={photo.label ?? photo.fileName ?? ""}
               w="100%"
               h={130}
-              style={{ objectFit: "cover", display: "block", borderRadius: "var(--mantine-radius-sm)" }}
+              style={{
+                objectFit: "cover",
+                display: "block",
+                borderRadius: "var(--mantine-radius-sm)",
+              }}
             />
           ) : (
             <Group
@@ -235,7 +280,9 @@ function PhotosTab({ photos, isLoading }: { photos: MasterVenueAsset[]; isLoadin
             </Badge>
           </Box>
           {photo.label && (
-            <Text size="xs" c="dimmed" lineClamp={1} mt={4}>{photo.label}</Text>
+            <Text size="xs" c="dimmed" lineClamp={1} mt={4}>
+              {photo.label}
+            </Text>
           )}
         </Box>
       ))}
@@ -250,7 +297,12 @@ function AssetsTab({ assets, isLoading }: { assets: MasterVenueAsset[]; isLoadin
   if (isLoading) return <Skeleton height={200} radius="md" />;
   if (assets.length === 0) {
     return (
-      <Paper withBorder p="xl" radius="md" style={{ textAlign: "center", background: "var(--mantine-color-gray-0)" }}>
+      <Paper
+        withBorder
+        p="xl"
+        radius="md"
+        style={{ textAlign: "center", background: "var(--mantine-color-gray-0)" }}
+      >
         <Stack align="center" gap="sm">
           <IconPaperclip size={40} color="var(--mantine-color-gray-4)" />
           <Text size="sm" c="dimmed">{t`No assets for this venue.`}</Text>
@@ -264,11 +316,19 @@ function AssetsTab({ assets, isLoading }: { assets: MasterVenueAsset[]; isLoadin
         <Paper key={asset.id} withBorder p="sm" radius="md">
           <Group justify="space-between" wrap="nowrap">
             <Group gap="sm" wrap="nowrap" style={{ minWidth: 0 }}>
-              <ThemeIcon size={32} radius="sm" variant="light" color="gray" style={{ flexShrink: 0 }}>
+              <ThemeIcon
+                size={32}
+                radius="sm"
+                variant="light"
+                color="gray"
+                style={{ flexShrink: 0 }}
+              >
                 <IconPaperclip size={16} />
               </ThemeIcon>
               <Stack gap={0} style={{ minWidth: 0 }}>
-                <Text size="sm" fw={500} lineClamp={1}>{asset.label ?? asset.fileName ?? asset.id}</Text>
+                <Text size="sm" fw={500} lineClamp={1}>
+                  {asset.label ?? asset.fileName ?? asset.id}
+                </Text>
                 <Text size="xs" c="dimmed">
                   {asset.assetType}
                   {asset.contentType ? ` · ${asset.contentType}` : ""}
@@ -307,19 +367,25 @@ function MasterVenueDetailPage() {
   const [deleteOpened, { open: openDelete, close: closeDelete }] = useDisclosure(false);
   const [deletedVenue, setDeletedVenue] = useState<MasterVenue | null>(null);
 
-  const { data: venue, isLoading, isError, refetch, isFetching } = useQuery({
+  const {
+    data: venue,
+    isLoading,
+    isError,
+    refetch,
+    isFetching,
+  } = useQuery({
     queryKey: ["admin", "master-venue", venueId],
-    queryFn:  () => catalogApi.getMasterVenue(venueId),
+    queryFn: () => catalogApi.getMasterVenue(venueId),
   });
 
   const { data: assetsData, isLoading: assetsLoading } = useQuery({
     queryKey: ["admin", "master-venue", venueId, "assets"],
-    queryFn:  () => catalogApi.listMasterVenueAssets(venueId),
+    queryFn: () => catalogApi.listMasterVenueAssets(venueId),
   });
 
   const { data: photosData, isLoading: photosLoading } = useQuery({
     queryKey: ["admin", "master-venue", venueId, "photos"],
-    queryFn:  () => catalogApi.listMasterVenuePhotos(venueId),
+    queryFn: () => catalogApi.listMasterVenuePhotos(venueId),
   });
 
   const assets = assetsData?.items ?? [];
@@ -335,8 +401,8 @@ function MasterVenueDetailPage() {
   const handleDeleteSuccess = () => void navigate({ to: "/admin/master-catalog" });
 
   // Completeness counts for section cards
-  const locationFilled  = [venue?.address, venue?.city, venue?.locationLat].filter(Boolean).length;
-  const curationFilled  = [venue?.source, venue?.confidence].filter((v) => v != null).length;
+  const locationFilled = [venue?.address, venue?.city, venue?.locationLat].filter(Boolean).length;
+  const curationFilled = [venue?.source, venue?.confidence].filter((v) => v != null).length;
 
   if (isError) {
     return (
@@ -345,17 +411,29 @@ function MasterVenueDetailPage() {
         <Alert
           icon={<IconAlertCircle size={16} />}
           title={<Trans>Failed to load the master venue</Trans>}
-          color="red" variant="light" mt="md"
+          color="red"
+          variant="light"
+          mt="md"
         >
           <Trans>The venue could not be found or the API is unavailable.</Trans>
           <Group mt="sm">
-            <Button variant="light" color="red" size="xs"
+            <Button
+              variant="light"
+              color="red"
+              size="xs"
               data-testid={TestSelectors.BUTTON.MASTER_VENUE_DETAIL_ERROR_RETRY}
               onClick={() => void refetch()}
-            ><Trans>Retry</Trans></Button>
-            <Button variant="subtle" color="gray" size="xs"
+            >
+              <Trans>Retry</Trans>
+            </Button>
+            <Button
+              variant="subtle"
+              color="gray"
+              size="xs"
               onClick={() => void navigate({ to: "/admin/master-catalog" })}
-            ><Trans>Back to list</Trans></Button>
+            >
+              <Trans>Back to list</Trans>
+            </Button>
           </Group>
         </Alert>
       </Container>
@@ -378,22 +456,39 @@ function MasterVenueDetailPage() {
             <Tooltip label={t`Refresh`} withArrow>
               <ActionIcon
                 data-testid={TestSelectors.BUTTON.MASTER_VENUE_DETAIL_REFRESH}
-                variant="subtle" color="gray" size="sm"
-                onClick={() => void refetch()} loading={isFetching}
+                variant="subtle"
+                color="gray"
+                size="sm"
+                onClick={() => void refetch()}
+                loading={isFetching}
               >
                 <IconRefresh size={15} />
               </ActionIcon>
             </Tooltip>
-            <Button variant="light" size="sm" leftSection={<IconEdit size={15} />}
+            <Button
+              variant="light"
+              size="sm"
+              leftSection={<IconEdit size={15} />}
               disabled={!venue}
               data-testid={TestSelectors.BUTTON.MASTER_VENUE_DETAIL_EDIT}
               onClick={openEdit}
-            ><Trans>Edit</Trans></Button>
-            <Button variant="light" color="red" size="sm" leftSection={<IconTrash size={15} />}
+            >
+              <Trans>Edit</Trans>
+            </Button>
+            <Button
+              variant="light"
+              color="red"
+              size="sm"
+              leftSection={<IconTrash size={15} />}
               disabled={!venue}
               data-testid={TestSelectors.BUTTON.MASTER_VENUE_DETAIL_DELETE}
-              onClick={() => { setDeletedVenue(venue ?? null); openDelete(); }}
-            ><Trans>Delete</Trans></Button>
+              onClick={() => {
+                setDeletedVenue(venue ?? null);
+                openDelete();
+              }}
+            >
+              <Trans>Delete</Trans>
+            </Button>
           </Group>
         }
       />
@@ -448,7 +543,8 @@ function MasterVenueDetailPage() {
                   bottom: 0,
                   left: 0,
                   right: 0,
-                  padding: "var(--mantine-spacing-xl) var(--mantine-spacing-xl) var(--mantine-spacing-lg)",
+                  padding:
+                    "var(--mantine-spacing-xl) var(--mantine-spacing-xl) var(--mantine-spacing-lg)",
                 }}
               >
                 <Group justify="space-between" align="flex-end" wrap="wrap" gap="md">
@@ -489,11 +585,17 @@ function MasterVenueDetailPage() {
                       <Group gap={5} wrap="nowrap">
                         <IconMapPin
                           size={13}
-                          color={hasPhoto ? "rgba(255,255,255,0.75)" : "var(--mantine-color-gray-6)"}
+                          color={
+                            hasPhoto ? "rgba(255,255,255,0.75)" : "var(--mantine-color-gray-6)"
+                          }
                         />
                         <Text
                           size="sm"
-                          style={{ color: hasPhoto ? "rgba(255,255,255,0.85)" : "var(--mantine-color-gray-7)" }}
+                          style={{
+                            color: hasPhoto
+                              ? "rgba(255,255,255,0.85)"
+                              : "var(--mantine-color-gray-7)",
+                          }}
                           data-testid={TestSelectors.MASTER_VENUE_DETAIL_CITY}
                         >
                           {[venue.address, venue.city].filter(Boolean).join(", ")}
@@ -505,9 +607,13 @@ function MasterVenueDetailPage() {
                   {/* confidence chip — mirrors google_rating chip position */}
                   {venue?.confidence != null && (
                     <Paper
-                      px="sm" py={6} radius="md"
+                      px="sm"
+                      py={6}
+                      radius="md"
                       style={{
-                        background: hasPhoto ? "rgba(255,255,255,0.15)" : "var(--mantine-color-gray-0)",
+                        background: hasPhoto
+                          ? "rgba(255,255,255,0.15)"
+                          : "var(--mantine-color-gray-0)",
                         backdropFilter: "blur(6px)",
                         border: hasPhoto
                           ? "1px solid rgba(255,255,255,0.25)"
@@ -522,16 +628,16 @@ function MasterVenueDetailPage() {
                           data-testid={TestSelectors.MASTER_VENUE_DETAIL_CONFIDENCE}
                         />
                         <Stack gap={0}>
-                          <Text
-                            size="xs"
-                            fw={600}
-                            style={{ color: hasPhoto ? "#fff" : "inherit" }}
-                          >
+                          <Text size="xs" fw={600} style={{ color: hasPhoto ? "#fff" : "inherit" }}>
                             <Trans>Confidence</Trans>
                           </Text>
                           <Text
                             size="xs"
-                            style={{ color: hasPhoto ? "rgba(255,255,255,0.65)" : "var(--mantine-color-dimmed)" }}
+                            style={{
+                              color: hasPhoto
+                                ? "rgba(255,255,255,0.65)"
+                                : "var(--mantine-color-dimmed)",
+                            }}
                           >
                             {venue.confidence.toFixed(4)}
                           </Text>
@@ -597,11 +703,16 @@ function MasterVenueDetailPage() {
           {/* ── Details tab — mirrors DetailsTab section cards ─────────── */}
           <Tabs.Panel value="details" data-testid={TestSelectors.TAB.MASTER_VENUE_OVERVIEW}>
             <Stack gap="xs" pt="sm">
-
               {/* "LOCATION" section divider — mirrors the tab-group Divider label */}
               <Divider
                 label={
-                  <Text size="xs" fw={700} tt="uppercase" c="dimmed" style={{ letterSpacing: "0.07em" }}>
+                  <Text
+                    size="xs"
+                    fw={700}
+                    tt="uppercase"
+                    c="dimmed"
+                    style={{ letterSpacing: "0.07em" }}
+                  >
                     <Trans>Location</Trans>
                   </Text>
                 }
@@ -629,7 +740,12 @@ function MasterVenueDetailPage() {
                             {String(venue.locationLat)}, {String(venue.locationLng)}
                           </Text>
                           {mapUrl && (
-                            <Anchor href={mapUrl} target="_blank" rel="noopener noreferrer" size="xs">
+                            <Anchor
+                              href={mapUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              size="xs"
+                            >
                               <Group gap={3} wrap="nowrap">
                                 <IconExternalLink size={11} />
                                 <Trans>Maps</Trans>
@@ -646,7 +762,13 @@ function MasterVenueDetailPage() {
               {/* "CURATION" section divider */}
               <Divider
                 label={
-                  <Text size="xs" fw={700} tt="uppercase" c="dimmed" style={{ letterSpacing: "0.07em" }}>
+                  <Text
+                    size="xs"
+                    fw={700}
+                    tt="uppercase"
+                    c="dimmed"
+                    style={{ letterSpacing: "0.07em" }}
+                  >
                     <Trans>Curation</Trans>
                   </Text>
                 }
@@ -670,11 +792,15 @@ function MasterVenueDetailPage() {
                   />
                   <FieldChip
                     label={<Trans>Created</Trans>}
-                    value={venue?.createdAt ? dayjs(venue.createdAt).format("MMM D, YYYY HH:mm") : null}
+                    value={
+                      venue?.createdAt ? dayjs(venue.createdAt).format("MMM D, YYYY HH:mm") : null
+                    }
                   />
                   <FieldChip
                     label={<Trans>Updated</Trans>}
-                    value={venue?.updatedAt ? dayjs(venue.updatedAt).format("MMM D, YYYY HH:mm") : null}
+                    value={
+                      venue?.updatedAt ? dayjs(venue.updatedAt).format("MMM D, YYYY HH:mm") : null
+                    }
                   />
                 </Stack>
               </InfoSectionCard>
@@ -682,7 +808,13 @@ function MasterVenueDetailPage() {
               {/* "METADATA" section divider */}
               <Divider
                 label={
-                  <Text size="xs" fw={700} tt="uppercase" c="dimmed" style={{ letterSpacing: "0.07em" }}>
+                  <Text
+                    size="xs"
+                    fw={700}
+                    tt="uppercase"
+                    c="dimmed"
+                    style={{ letterSpacing: "0.07em" }}
+                  >
                     <Trans>Metadata</Trans>
                   </Text>
                 }
@@ -698,16 +830,21 @@ function MasterVenueDetailPage() {
                       <IconPaperclip size={14} />
                     </ThemeIcon>
                     <Stack gap={0}>
-                      <Text size="sm" fw={700}><Trans>Raw JSON document</Trans></Text>
-                      <Text size="xs" c="dimmed"><Trans>Managed by the ingestion worker — edit with care.</Trans></Text>
+                      <Text size="sm" fw={700}>
+                        <Trans>Raw JSON document</Trans>
+                      </Text>
+                      <Text size="xs" c="dimmed">
+                        <Trans>Managed by the ingestion worker — edit with care.</Trans>
+                      </Text>
                     </Stack>
                   </Group>
                 </Group>
                 <Divider mb="sm" />
-                {isLoading
-                  ? <Skeleton height={120} radius="sm" />
-                  : <MetadataViewer raw={venue?.metadata ?? null} />
-                }
+                {isLoading ? (
+                  <Skeleton height={120} radius="sm" />
+                ) : (
+                  <MetadataViewer raw={venue?.metadata ?? null} />
+                )}
               </Paper>
             </Stack>
           </Tabs.Panel>

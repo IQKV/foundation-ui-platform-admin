@@ -1,11 +1,16 @@
-import { SimpleGrid, Stack, TextInput, Textarea, NumberInput, Paper, Group, Text } from "@mantine/core";
+import {
+  SimpleGrid,
+  Stack,
+  TextInput,
+  Textarea,
+  NumberInput,
+  Paper,
+  Group,
+  Text,
+} from "@mantine/core";
 import type { UseFormReturnType } from "@mantine/form";
 import { useLingui } from "@lingui/react/macro";
-import {
-  IconBuildingStore,
-  IconMapPin,
-  IconAdjustments,
-} from "@tabler/icons-react";
+import { IconBuildingStore, IconMapPin, IconAdjustments } from "@tabler/icons-react";
 import { TestSelectors } from "@/shared/lib/test-selectors";
 import type { MasterVenueFormValues } from "../model";
 

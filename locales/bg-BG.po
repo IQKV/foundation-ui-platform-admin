@@ -35,6 +35,15 @@ msgstr "{0}"
 msgid "{subscriptionCount} subscription(s)"
 msgstr "{subscriptionCount} абонамент(а)"
 
+#. placeholder {0}: totalElements === 1 ? "" : "s"
+#: src/pages/admin/master-catalog.index.tsx
+msgid "{totalElements} venue{0}"
+msgstr ""
+
+#: src/features/master-venue-admin/ui/venue-fields.tsx
+msgid "0 – 1 quality score set by the ingestion pipeline."
+msgstr ""
+
 #: src/pages/loading-demo.tsx
 msgid "1. Initial Page Load"
 msgstr "1. Начално зареждане на страницата"
@@ -121,6 +130,10 @@ msgstr "Тип актьор"
 msgid "Add locale"
 msgstr "Добави локал"
 
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Add venue"
+msgstr ""
+
 #: src/pages/admin/addons/$addonPath.tsx
 msgid "Addon Page"
 msgstr ""
@@ -136,6 +149,10 @@ msgstr ""
 #: src/features/master-venue-admin/ui/venue-fields.tsx
 #: src/pages/admin/master-catalog.$venueId.tsx
 msgid "Address"
+msgstr ""
+
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "Address & coordinates"
 msgstr ""
 
 #: src/features/set-user-password/ui/set-user-password-modal.tsx
@@ -446,7 +463,6 @@ msgstr ""
 
 #: src/pages/admin/announcements.index.tsx
 #: src/pages/admin/invitations.index.tsx
-#: src/pages/admin/master-catalog.index.tsx
 #: src/pages/admin/organizations.index.tsx
 #: src/pages/admin/plans.index.tsx
 #: src/pages/admin/subscriptions.tsx
@@ -461,7 +477,6 @@ msgstr "Изчисти всички"
 
 #: src/pages/admin/announcements.index.tsx
 #: src/pages/admin/invitations.index.tsx
-#: src/pages/admin/master-catalog.index.tsx
 #: src/pages/admin/organizations.index.tsx
 #: src/pages/admin/plans.index.tsx
 #: src/pages/admin/subscriptions.tsx
@@ -537,7 +552,13 @@ msgid "Content is required for the default locale"
 msgstr "Съдържанието е задължително за локала по подразбиране"
 
 #: src/pages/admin/master-catalog.$venueId.tsx
-msgid "Content type"
+#~ msgid "Content type"
+#~ msgstr ""
+
+#: src/features/master-venue-admin/ui/venue-fields.tsx
+#: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Coordinates"
 msgstr ""
 
 #: src/features/sign-in/ui/demo-credentials-hint.tsx
@@ -706,6 +727,7 @@ msgstr ""
 #: src/pages/admin/announcements.index.tsx
 #: src/pages/admin/invitations.index.tsx
 #: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/master-catalog.index.tsx
 #: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/organizations.index.tsx
@@ -724,8 +746,13 @@ msgid "Creation failed"
 msgstr "Създаването не успя"
 
 #: src/features/master-venue-admin/ui/venue-fields.tsx
-msgid "Curation confidence between 0 and 1."
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "Curation"
 msgstr ""
+
+#: src/features/master-venue-admin/ui/venue-fields.tsx
+#~ msgid "Curation confidence between 0 and 1."
+#~ msgstr ""
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/pages/admin/plans.$planCode.tsx
@@ -758,6 +785,10 @@ msgstr "Дневно"
 msgid "Dashboard"
 msgstr "Табло"
 
+#: src/features/master-venue-admin/ui/venue-fields.tsx
+msgid "Decimal lat / lng used for map pins and geo search. Leave blank if unknown."
+msgstr ""
+
 #: src/features/page-admin/ui/page-translation-fields.tsx
 msgid "Default locale — required"
 msgstr ""
@@ -768,6 +799,7 @@ msgstr ""
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/pages/admin/cms-pages.index.tsx
 #: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/master-catalog.index.tsx
 msgid "Delete"
 msgstr "Изтрий"
 
@@ -810,8 +842,8 @@ msgid "Delete subscription record"
 msgstr "Изтрий запис за абонамент"
 
 #: src/pages/admin/master-catalog.index.tsx
-msgid "Delete venue"
-msgstr ""
+#~ msgid "Delete venue"
+#~ msgstr ""
 
 #: src/shared/ui/tenant-status-badge/tenant-status-badge.tsx
 #: src/shared/ui/user-status-badge/user-status-badge.tsx
@@ -829,6 +861,10 @@ msgstr "Демо LoadingOverlay (2 сек)"
 #: src/pages/loading-demo.tsx
 msgid "Demo Progress Bar"
 msgstr "Демо лента за напредък"
+
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "Details"
+msgstr ""
 
 #: src/pages/admin/plans.$planCode.tsx
 msgid "Display name"
@@ -897,6 +933,10 @@ msgstr "Редактирай профил"
 msgid "Edit Profile"
 msgstr "Редактирай профил"
 
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Edit record"
+msgstr ""
+
 #: src/pages/admin/users.$userId.tsx
 #: src/pages/admin/users.index.tsx
 msgid "Edit user"
@@ -907,8 +947,8 @@ msgid "Edit User"
 msgstr "Редактирай потребител"
 
 #: src/pages/admin/master-catalog.index.tsx
-msgid "Edit venue"
-msgstr ""
+#~ msgid "Edit venue"
+#~ msgstr ""
 
 #: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
@@ -1195,6 +1235,10 @@ msgstr "Функция"
 msgid "Feature set (JSON)"
 msgstr "Набор от функции (JSON)"
 
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Fill all fields manually"
+msgstr ""
+
 #: src/pages/admin/audit-logs.tsx
 msgid "Filter by action…"
 msgstr "Филтрирай по действие…"
@@ -1204,6 +1248,10 @@ msgstr "Филтрирай по действие…"
 #: src/pages/admin/webhook-logs.tsx
 msgid "Filter by tenant key…"
 msgstr "Филтрирай по ключ на наемател…"
+
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Filters"
+msgstr ""
 
 #: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
@@ -1243,6 +1291,10 @@ msgstr "Предостави права на платформен админис
 #: src/features/manage-platform-authority/ui/grant-platform-admin-modal.tsx
 msgid "Granting Platform Admin to <0>{displayName}</0> will give them full administrative access to this platform, including user management, tenant management, and all admin-only operations."
 msgstr "Предоставянето на права на платформен администратор на <0>{displayName}</0> ще им даде пълен административен достъп до тази платформа, включително управление на потребители, наематели и всички операции само за администратори."
+
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Grid view"
+msgstr ""
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
@@ -1301,6 +1353,7 @@ msgstr "ID:"
 msgid "ID: {0}"
 msgstr "ID: {0}"
 
+#: src/features/master-venue-admin/ui/venue-fields.tsx
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/users.$userId.tsx
 msgid "Identity"
@@ -1326,6 +1379,14 @@ msgstr "Само неактивни"
 #: src/features/announcement-admin/model/types.ts
 msgid "Info"
 msgstr "Информация"
+
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "Ingestion & quality"
+msgstr ""
+
+#: src/features/master-venue-admin/ui/venue-fields.tsx
+msgid "Ingestion provenance and quality signal. Metadata is managed by the worker — edit only to correct errors."
+msgstr ""
 
 #: src/features/announcement-admin/ui/create-announcement-modal.tsx
 msgid "Initial status"
@@ -1398,8 +1459,8 @@ msgid "Key:"
 msgstr "Ключ:"
 
 #: src/pages/admin/master-catalog.$venueId.tsx
-msgid "Label"
-msgstr ""
+#~ msgid "Label"
+#~ msgstr ""
 
 #: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/shared/ui/locale-switcher/locale-switcher.tsx
@@ -1431,7 +1492,6 @@ msgid "Last used"
 msgstr "Последно използван"
 
 #: src/features/master-venue-admin/ui/venue-fields.tsx
-#: src/pages/admin/master-catalog.$venueId.tsx
 msgid "Latitude"
 msgstr ""
 
@@ -1442,6 +1502,10 @@ msgstr ""
 #: src/pages/admin/users.$userId.tsx
 msgid "Linked"
 msgstr "Свързан"
+
+#: src/pages/admin/master-catalog.index.tsx
+msgid "List view"
+msgstr ""
 
 #: src/pages/loading-demo.tsx
 msgid "Loading Demo"
@@ -1476,6 +1540,10 @@ msgstr "Локалът е задължителен"
 msgid "Locales"
 msgstr "Локали"
 
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "Location"
+msgstr ""
+
 #: src/features/edit-user/model/types.ts
 #: src/shared/ui/user-status-badge/user-status-badge.tsx
 #: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
@@ -1491,7 +1559,6 @@ msgid "Log ID"
 msgstr "Идентификатор на журнала"
 
 #: src/features/master-venue-admin/ui/venue-fields.tsx
-#: src/pages/admin/master-catalog.$venueId.tsx
 msgid "Longitude"
 msgstr ""
 
@@ -1519,9 +1586,18 @@ msgstr "Управление на потребители"
 #~ msgid "Manage users, organizations, and subscriptions across all tenants — secured by platform-level authentication."
 #~ msgstr "Управлявайте потребители, организации и абонаменти за всички наематели — защитено с платформено удостоверяване."
 
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "Managed by the ingestion worker — edit with care."
+msgstr ""
+
 #: src/pages/admin/subscriptions.tsx
 msgid "Management"
 msgstr "Управление"
+
+#: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Maps"
+msgstr ""
 
 #: src/features/notification-bell/ui/notification-bell.tsx
 #: src/pages/admin/notifications.tsx
@@ -1543,8 +1619,8 @@ msgid "Master Venue Catalog"
 msgstr ""
 
 #: src/pages/admin/master-catalog.index.tsx
-msgid "Master venues"
-msgstr ""
+#~ msgid "Master venues"
+#~ msgstr ""
 
 #: src/pages/admin/-organization-tenant-panels.tsx
 #: src/pages/admin/users.index.tsx
@@ -1578,14 +1654,23 @@ msgstr "Мета описание за търсачки"
 
 #: src/features/master-venue-admin/ui/venue-fields.tsx
 #: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/master-catalog.index.tsx
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Metadata"
 msgstr "Метаданни"
+
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Missing"
+msgstr ""
 
 #: src/pages/admin/plans.$planCode.tsx
 #: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Monthly"
 msgstr "Месечно"
+
+#: src/pages/admin/master-catalog.index.tsx
+msgid "More options"
+msgstr ""
 
 #: src/features/invitation-admin/model/types.ts
 msgid "Must be a valid email address"
@@ -1607,6 +1692,10 @@ msgstr "Наименование"
 
 #: src/features/master-venue-admin/model/types.ts
 msgid "Name is required"
+msgstr ""
+
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Name or city…"
 msgstr ""
 
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
@@ -1650,6 +1739,10 @@ msgstr ""
 msgid "No active organizations found"
 msgstr "Не са намерени активни организации"
 
+#: src/pages/admin/master-catalog.index.tsx
+msgid "No address on record"
+msgstr ""
+
 #: src/pages/admin/announcements.index.tsx
 msgid "No announcements found"
 msgstr "Не са намерени обявления"
@@ -1659,7 +1752,11 @@ msgid "No announcements match the current filters"
 msgstr "Няма обявления, съответстващи на текущите филтри"
 
 #: src/pages/admin/master-catalog.$venueId.tsx
-msgid "No assets for this venue"
+#~ msgid "No assets for this venue"
+#~ msgstr ""
+
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "No assets for this venue."
 msgstr ""
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
@@ -1687,12 +1784,12 @@ msgid "No linked OIDC identities found."
 msgstr "Не са намерени свързани OIDC идентичности."
 
 #: src/pages/admin/master-catalog.index.tsx
-msgid "No master venues found"
-msgstr ""
+#~ msgid "No master venues found"
+#~ msgstr ""
 
 #: src/pages/admin/master-catalog.index.tsx
-msgid "No master venues match the current filters"
-msgstr ""
+#~ msgid "No master venues match the current filters"
+#~ msgstr ""
 
 #: src/pages/admin/-organization-tenant-panels.tsx
 msgid "No members found"
@@ -1701,6 +1798,10 @@ msgstr "Не са намерени членове"
 #: src/pages/admin/-organization-tenant-panels.tsx
 msgid "No members match the search"
 msgstr "Няма членове, съответстващи на търсенето"
+
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "No metadata."
+msgstr ""
 
 #: src/features/notification-bell/ui/notification-bell.tsx
 #: src/pages/admin/notifications.tsx
@@ -1784,6 +1885,18 @@ msgstr "Не са намерени потребители"
 msgid "No users match the current filters"
 msgstr "Няма потребители, съответстващи на текущите филтри"
 
+#: src/pages/admin/master-catalog.index.tsx
+msgid "No venues found"
+msgstr ""
+
+#: src/pages/admin/master-catalog.index.tsx
+msgid "No venues match your filters"
+msgstr ""
+
+#: src/pages/admin/master-catalog.index.tsx
+msgid "No venues yet — add your first one"
+msgstr ""
+
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "None (top-level)"
@@ -1865,8 +1978,8 @@ msgid "Optional UUID of the user who owns the billing profile."
 msgstr "Незадължителен UUID на потребителя, собственик на профила за фактуриране."
 
 #: src/pages/admin/master-catalog.$venueId.tsx
-msgid "Order"
-msgstr ""
+#~ msgid "Order"
+#~ msgstr ""
 
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 #: src/pages/admin/cms-pages.index.tsx
@@ -1904,7 +2017,6 @@ msgstr "Организации"
 msgid "Override page title for search engines"
 msgstr "Замени заглавието на страницата за търсачки"
 
-#: src/pages/admin/master-catalog.$venueId.tsx
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/users.$userId.tsx
 #: src/shared/ui/admin-layout/nav-config.tsx
@@ -2106,6 +2218,10 @@ msgstr "Моля, опитайте отново."
 msgid "Portal error"
 msgstr "Грешка на портала"
 
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Present"
+msgstr ""
+
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/plans.index.tsx
 msgid "Price (minor units)"
@@ -2137,8 +2253,8 @@ msgid "Provide a reason for the ban…"
 msgstr "Посочете причина за забраната…"
 
 #: src/pages/admin/master-catalog.$venueId.tsx
-msgid "Provider"
-msgstr ""
+#~ msgid "Provider"
+#~ msgstr ""
 
 #. placeholder {0}: identity.provider
 #: src/pages/admin/users.$userId.tsx
@@ -2163,9 +2279,17 @@ msgstr "Публикува се"
 msgid "Quantity"
 msgstr "Количество"
 
-#: src/features/master-venue-admin/ui/venue-fields.tsx
-msgid "Raw JSON metadata."
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "Raw JSON document"
 msgstr ""
+
+#: src/features/master-venue-admin/ui/venue-fields.tsx
+msgid "Raw JSON document written by the ingestion worker. Edit with care."
+msgstr ""
+
+#: src/features/master-venue-admin/ui/venue-fields.tsx
+#~ msgid "Raw JSON metadata."
+#~ msgstr ""
 
 #: src/pages/admin/subscriptions.tsx
 msgid "Reactivate"
@@ -2370,8 +2494,8 @@ msgid "Search event type or ID…"
 msgstr "Търсете тип събитие или ID…"
 
 #: src/pages/admin/master-catalog.index.tsx
-msgid "Search name, address or city"
-msgstr ""
+#~ msgid "Search name, address or city"
+#~ msgstr ""
 
 #: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
 msgid "Search plan…"
@@ -2487,6 +2611,10 @@ msgstr "Показване на {rangeStart} – {rangeEnd} от {totalElements}
 msgid "Showing {rangeStart} – {rangeEnd} of {totalElements} webhook logs"
 msgstr "Показване на {rangeStart} – {rangeEnd} от {totalElements} webhook журнала"
 
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Showing {rangeStart}–{rangeEnd} of {totalElements}"
+msgstr ""
+
 #: src/pages/admin/announcements.index.tsx
 msgid "Showing {rangeStart}–{rangeEnd} of {totalElements} announcements"
 msgstr "Показване на {rangeStart}–{rangeEnd} от {totalElements} обявления"
@@ -2496,8 +2624,8 @@ msgid "Showing {rangeStart}–{rangeEnd} of {totalElements} invitations"
 msgstr "Показване на {rangeStart}–{rangeEnd} от {totalElements} покани"
 
 #: src/pages/admin/master-catalog.index.tsx
-msgid "Showing {rangeStart}–{rangeEnd} of {totalElements} master venues"
-msgstr ""
+#~ msgid "Showing {rangeStart}–{rangeEnd} of {totalElements} master venues"
+#~ msgstr ""
 
 #: src/pages/admin/organizations.index.tsx
 msgid "Showing {rangeStart}–{rangeEnd} of {totalElements} organizations"
@@ -2545,8 +2673,8 @@ msgid "Site Announcements"
 msgstr "Обявления на сайта"
 
 #: src/pages/admin/master-catalog.$venueId.tsx
-msgid "Size"
-msgstr ""
+#~ msgid "Size"
+#~ msgstr ""
 
 #: src/pages/loading-demo.tsx
 msgid "Slim top progress bar for navigation between pages (automatic with router)."
@@ -2575,7 +2703,6 @@ msgstr "Нещо се обърка"
 
 #: src/features/master-venue-admin/ui/venue-fields.tsx
 #: src/pages/admin/master-catalog.$venueId.tsx
-#: src/pages/admin/master-catalog.index.tsx
 msgid "Source"
 msgstr ""
 
@@ -2764,6 +2891,10 @@ msgstr "Наемателят е актуализиран"
 msgid "The venue could not be found or the API is unavailable."
 msgstr ""
 
+#: src/features/master-venue-admin/ui/venue-fields.tsx
+msgid "The venue's canonical name and address as it appears in the catalog."
+msgstr ""
+
 #: src/pages/loading-demo.tsx
 msgid "Theme-aware (respects dark mode and color scheme)"
 msgstr "Отчита темата (поддържа тъмен режим и цветова схема)"
@@ -2861,7 +2992,6 @@ msgstr "Опитай отново"
 #: src/features/announcement-admin/ui/create-announcement-modal.tsx
 #: src/features/announcement-admin/ui/edit-announcement-modal.tsx
 #: src/pages/admin/announcements.index.tsx
-#: src/pages/admin/master-catalog.$venueId.tsx
 msgid "Type"
 msgstr "Тип"
 
@@ -2992,7 +3122,6 @@ msgid "UUID or leave empty to clear."
 msgstr "UUID или оставете празно за изчистване."
 
 #: src/pages/admin/master-catalog.$venueId.tsx
-#: src/pages/admin/master-catalog.index.tsx
 msgid "Venue"
 msgstr ""
 
@@ -3042,6 +3171,10 @@ msgstr "Прегледайте организацията"
 msgid "View plan"
 msgstr "Прегледайте плана"
 
+#: src/pages/admin/master-catalog.index.tsx
+msgid "View record"
+msgstr ""
+
 #: src/pages/admin/index.tsx
 msgid "View subscriptions"
 msgstr "Прегледайте абонаментите"
@@ -3051,8 +3184,8 @@ msgid "View users"
 msgstr "Прегледайте потребителите"
 
 #: src/pages/admin/master-catalog.index.tsx
-msgid "View venue"
-msgstr ""
+#~ msgid "View venue"
+#~ msgstr ""
 
 #: src/features/announcement-admin/model/types.ts
 msgid "Warning"

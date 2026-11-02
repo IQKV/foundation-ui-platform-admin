@@ -13,6 +13,7 @@ import {
   Paper,
   Skeleton,
   Alert,
+  Anchor,
   Badge,
   Select,
   CloseButton,
@@ -43,6 +44,7 @@ import {
   IconDots,
   IconChevronDown,
   IconX,
+  IconExternalLink,
 } from "@tabler/icons-react";
 import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
@@ -72,7 +74,12 @@ function confidenceColor(value: number | null): string {
 }
 
 function ConfidenceBadge({ value }: { value: number | null }) {
-  if (value === null) return <Text size="xs" c="dimmed">—</Text>;
+  if (value === null)
+    return (
+      <Text size="xs" c="dimmed">
+        —
+      </Text>
+    );
   const pct = Math.round(value * 100);
   return (
     <Badge variant="light" color={confidenceColor(value)} size="xs">
@@ -229,6 +236,14 @@ function VenueCard({ venue, onView, onEdit, onDelete }: VenueCardProps) {
 
 function VenueRow({ venue, onView, onEdit, onDelete }: VenueCardProps) {
   const { t } = useLingui();
+
+  const hasCoordinates = venue.locationLat != null && venue.locationLng != null;
+  const coordinates = hasCoordinates ? `${venue.locationLat}, ${venue.locationLng}` : null;
+  const mapUrl = hasCoordinates
+    ? `https://maps.google.com/?q=${venue.locationLat},${venue.locationLng}`
+    : null;
+  const locationLine = [venue.address, venue.city].filter(Boolean).join(", ");
+
   return (
     <Card
       padding={0}
@@ -248,18 +263,13 @@ function VenueRow({ venue, onView, onEdit, onDelete }: VenueCardProps) {
         style={{
           flexShrink: 0,
           width: 140,
-          position: "relative",
           overflow: "hidden",
         }}
       >
         <VenueThumbnail url={venue.primaryPhotoUrl} name={venue.name} height={110} />
-        {/* confidence badge pinned bottom-left of photo strip */}
-        <Box style={{ position: "absolute", bottom: 8, left: 8 }}>
-          <ConfidenceBadge value={venue.confidence} />
-        </Box>
       </Box>
 
-      {/* body */}
+      {/* identity — name, real address, ingestion identifiers */}
       <Group
         gap="md"
         align="center"
@@ -270,41 +280,113 @@ function VenueRow({ venue, onView, onEdit, onDelete }: VenueCardProps) {
           padding: "var(--mantine-spacing-md) var(--mantine-spacing-lg)",
         }}
       >
-        {/* name + location */}
-        <Stack gap={4} style={{ flex: 1, minWidth: 0 }}>
-          <Text fw={700} size="md" lineClamp={1}>
-            {venue.name}
-          </Text>
-          {venue.city && (
-            <Group gap={4} wrap="nowrap">
-              <IconMapPin size={13} color="var(--mantine-color-gray-5)" />
-              <Text size="sm" c="dimmed" lineClamp={1}>
-                {venue.city}
-              </Text>
-            </Group>
-          )}
-          <Group gap="xs" mt={4} wrap="wrap">
-            <Badge variant="outline" color="gray" size="xs" tt="uppercase">
+        <Stack gap={5} style={{ flex: 1, minWidth: 0 }}>
+          <Group gap="xs" wrap="nowrap">
+            <Text fw={700} size="md" lineClamp={1}>
+              {venue.name}
+            </Text>
+            <Badge
+              variant="outline"
+              color="gray"
+              size="xs"
+              tt="uppercase"
+              style={{ flexShrink: 0 }}
+            >
               {venue.source.replace(/_/g, " ")}
+            </Badge>
+          </Group>
+
+          <Group gap={4} wrap="nowrap">
+            <IconMapPin size={13} color="var(--mantine-color-gray-5)" style={{ flexShrink: 0 }} />
+            {locationLine ? (
+              <Text size="sm" lineClamp={1}>
+                {locationLine}
+              </Text>
+            ) : (
+              <Text size="sm" c="dimmed" fs="italic">
+                <Trans>No address on record</Trans>
+              </Text>
+            )}
+          </Group>
+
+          <Group gap={8} wrap="wrap">
+            <Group gap={4} wrap="nowrap">
+              <Text size="xs" c="dimmed">
+                <Trans>Coordinates</Trans>:
+              </Text>
+              {coordinates ? (
+                <>
+                  <Text size="xs" ff="monospace">
+                    {coordinates}
+                  </Text>
+                  {mapUrl && (
+                    <Anchor
+                      href={mapUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      size="xs"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <Group gap={3} wrap="nowrap">
+                        <IconExternalLink size={11} />
+                        <Trans>Maps</Trans>
+                      </Group>
+                    </Anchor>
+                  )}
+                </>
+              ) : (
+                <Text size="xs" c="dimmed" fs="italic">
+                  —
+                </Text>
+              )}
+            </Group>
+            <Text size="xs" c="dimmed" ff="monospace" lineClamp={1} style={{ minWidth: 0 }}>
+              {venue.id}
+            </Text>
+          </Group>
+        </Stack>
+
+        {/* quality — exact confidence score and ingestion metadata presence */}
+        <Divider orientation="vertical" />
+        <Stack gap={6} style={{ flexShrink: 0, minWidth: 132 }}>
+          <Text size="xs" c="dimmed">
+            <Trans>Confidence</Trans>
+          </Text>
+          <Group gap={6} wrap="nowrap">
+            <ConfidenceBadge value={venue.confidence} />
+            <Text size="xs" c="dimmed" ff="monospace">
+              {venue.confidence != null ? venue.confidence.toFixed(4) : "—"}
+            </Text>
+          </Group>
+          <Group gap={6} wrap="nowrap" mt={2}>
+            <Text size="xs" c="dimmed">
+              <Trans>Metadata</Trans>
+            </Text>
+            <Badge size="xs" variant="light" color={venue.metadata ? "teal" : "gray"}>
+              {venue.metadata ? <Trans>Present</Trans> : <Trans>Missing</Trans>}
             </Badge>
           </Group>
         </Stack>
 
-        {/* stats strip — mirrors VenueRow divider + stats */}
+        {/* timing */}
         <Divider orientation="vertical" />
-        <Stack gap={6} style={{ flexShrink: 0, minWidth: 140 }}>
-          <Text size="xs" c="dimmed">
-            <Trans>Updated</Trans>
-          </Text>
-          <Text size="sm" fw={500}>
-            {dayjs(venue.updatedAt).format("MMM D, YYYY")}
-          </Text>
-          <Text size="xs" c="dimmed">
-            <Trans>Created</Trans>
-          </Text>
-          <Text size="sm" fw={500}>
-            {dayjs(venue.createdAt).format("MMM D, YYYY")}
-          </Text>
+        <Stack gap={8} style={{ flexShrink: 0 }}>
+          <Group gap={8} wrap="nowrap">
+            <Text size="xs" c="dimmed" w={56}>
+              <Trans>Updated</Trans>
+            </Text>
+            <Text size="sm" fw={500}>
+              {dayjs(venue.updatedAt).format("MMM D, YYYY HH:mm")}
+            </Text>
+          </Group>
+          <Group gap={8} wrap="nowrap">
+            <Text size="xs" c="dimmed" w={56}>
+              <Trans>Created</Trans>
+            </Text>
+            <Text size="sm" fw={500}>
+              {dayjs(venue.createdAt).format("MMM D, YYYY HH:mm")}
+            </Text>
+          </Group>
         </Stack>
       </Group>
 
@@ -362,7 +444,9 @@ function VenueRow({ venue, onView, onEdit, onDelete }: VenueCardProps) {
 function CardSkeleton() {
   return (
     <Card padding="sm" radius="md" withBorder>
-      <Card.Section><Skeleton height={148} /></Card.Section>
+      <Card.Section>
+        <Skeleton height={148} />
+      </Card.Section>
       <Stack gap={6} mt="xs">
         <Skeleton height={14} width="80%" />
         <Skeleton height={12} width="40%" />
@@ -374,17 +458,31 @@ function CardSkeleton() {
 
 function RowSkeleton() {
   return (
-    <Card padding={0} radius="md" withBorder style={{ display: "flex", flexDirection: "row", overflow: "hidden" }}>
+    <Card
+      padding={0}
+      radius="md"
+      withBorder
+      style={{ display: "flex", flexDirection: "row", overflow: "hidden" }}
+    >
       <Skeleton height={110} width={140} radius={0} style={{ flexShrink: 0 }} />
-      <Group gap="md" align="center" style={{ flex: 1, padding: "var(--mantine-spacing-md) var(--mantine-spacing-lg)" }}>
-        <Stack gap={6} style={{ flex: 1 }}>
+      <Group
+        gap="md"
+        align="center"
+        style={{ flex: 1, padding: "var(--mantine-spacing-md) var(--mantine-spacing-lg)" }}
+      >
+        <Stack gap={5} style={{ flex: 1, minWidth: 0 }}>
           <Skeleton height={18} width="55%" />
-          <Skeleton height={13} width="30%" />
-          <Skeleton height={18} width={90} mt={4} />
+          <Skeleton height={14} width="40%" />
+          <Skeleton height={13} width="70%" />
         </Stack>
-        <Stack gap={10} style={{ flexShrink: 0, width: 140 }}>
-          <Skeleton height={16} width={80} />
-          <Skeleton height={14} width={100} />
+        <Stack gap={8} style={{ flexShrink: 0, width: 132 }}>
+          <Skeleton height={13} width={72} />
+          <Skeleton height={16} width={96} />
+          <Skeleton height={16} width={88} />
+        </Stack>
+        <Stack gap={8} style={{ flexShrink: 0, width: 200 }}>
+          <Skeleton height={16} width={150} />
+          <Skeleton height={16} width={150} />
         </Stack>
       </Group>
       <Stack justify="flex-start" align="center" py="sm" px="xs" style={{ flexShrink: 0 }}>
@@ -529,16 +627,34 @@ function AdminMasterCatalogPage() {
   // shortcut: city options come from the loaded page only (no city-list endpoint); upgrade when one exists.
   const cityOptions = useMemo(() => {
     const cities = new Set<string>();
-    items.forEach((v) => { if (v.city) cities.add(v.city); });
+    items.forEach((v) => {
+      if (v.city) cities.add(v.city);
+    });
     if (cityFilter) cities.add(cityFilter);
     return [...cities].sort().map((c) => ({ value: c, label: c }));
   }, [items, cityFilter]);
 
-  const handleEdit = (venue: MasterVenue) => { setSelectedVenue(venue); openEdit(); };
-  const handleDelete = (venue: MasterVenue) => { setSelectedVenue(venue); openDelete(); };
-  const handleCloseEdit = () => { closeEdit(); setTimeout(() => setSelectedVenue(null), 300); };
-  const handleCloseDelete = () => { closeDelete(); setTimeout(() => setSelectedVenue(null), 300); };
-  const handleReset = () => { setSearch(""); setCityFilter(null); setPage(1); };
+  const handleEdit = (venue: MasterVenue) => {
+    setSelectedVenue(venue);
+    openEdit();
+  };
+  const handleDelete = (venue: MasterVenue) => {
+    setSelectedVenue(venue);
+    openDelete();
+  };
+  const handleCloseEdit = () => {
+    closeEdit();
+    setTimeout(() => setSelectedVenue(null), 300);
+  };
+  const handleCloseDelete = () => {
+    closeDelete();
+    setTimeout(() => setSelectedVenue(null), 300);
+  };
+  const handleReset = () => {
+    setSearch("");
+    setCityFilter(null);
+    setPage(1);
+  };
 
   return (
     <Container size="xl" py={0}>
@@ -579,10 +695,14 @@ function AdminMasterCatalogPage() {
               </Menu.Target>
             </Group>
             <Menu.Dropdown>
-              <Menu.Label><Trans>Add venue</Trans></Menu.Label>
+              <Menu.Label>
+                <Trans>Add venue</Trans>
+              </Menu.Label>
               <Menu.Item leftSection={<IconPlus size={14} />} onClick={openCreate}>
                 <Trans>New venue</Trans>
-                <Text size="xs" c="dimmed" mt={1}><Trans>Fill all fields manually</Trans></Text>
+                <Text size="xs" c="dimmed" mt={1}>
+                  <Trans>Fill all fields manually</Trans>
+                </Text>
               </Menu.Item>
             </Menu.Dropdown>
           </Menu>
@@ -606,21 +726,25 @@ function AdminMasterCatalogPage() {
 
       {/* ── Two-column layout — mirrors VenueListWidget ──────────────── */}
       <Group align="flex-start" gap="lg" wrap="nowrap">
-
         {/* left: filter sidebar */}
         <FilterSidebar
           search={search}
           cityFilter={cityFilter}
           cityOptions={cityOptions}
           hasActiveFilters={hasActiveFilters}
-          onSearchChange={(v) => { setSearch(v); setPage(1); }}
-          onCityChange={(v) => { setCityFilter(v); setPage(1); }}
+          onSearchChange={(v) => {
+            setSearch(v);
+            setPage(1);
+          }}
+          onCityChange={(v) => {
+            setCityFilter(v);
+            setPage(1);
+          }}
           onReset={handleReset}
         />
 
         {/* right: toolbar + results */}
         <Stack gap="md" style={{ flex: 1, minWidth: 0 }}>
-
           {/* toolbar */}
           <Group justify="space-between" wrap="wrap" gap="sm">
             {!isLoading ? (
@@ -659,7 +783,9 @@ function AdminMasterCatalogPage() {
                     value: "grid",
                     label: (
                       <Tooltip label={t`Grid view`} withArrow>
-                        <Center><IconLayoutGrid size={14} /></Center>
+                        <Center>
+                          <IconLayoutGrid size={14} />
+                        </Center>
                       </Tooltip>
                     ),
                   },
@@ -667,7 +793,9 @@ function AdminMasterCatalogPage() {
                     value: "list",
                     label: (
                       <Tooltip label={t`List view`} withArrow>
-                        <Center><IconLayoutList size={14} /></Center>
+                        <Center>
+                          <IconLayoutList size={14} />
+                        </Center>
                       </Tooltip>
                     ),
                   },
@@ -680,11 +808,15 @@ function AdminMasterCatalogPage() {
           {isLoading ? (
             viewMode === "grid" ? (
               <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing="md">
-                {Array.from({ length: PAGE_SIZE }).map((_, i) => <CardSkeleton key={i} />)}
+                {Array.from({ length: PAGE_SIZE }).map((_, i) => (
+                  <CardSkeleton key={i} />
+                ))}
               </SimpleGrid>
             ) : (
               <Stack gap="xs">
-                {Array.from({ length: PAGE_SIZE }).map((_, i) => <RowSkeleton key={i} />)}
+                {Array.from({ length: PAGE_SIZE }).map((_, i) => (
+                  <RowSkeleton key={i} />
+                ))}
               </Stack>
             )
           ) : items.length === 0 ? (
@@ -694,9 +826,11 @@ function AdminMasterCatalogPage() {
                   <IconBuildingStore size={24} />
                 </ThemeIcon>
                 <Text c="dimmed" size="sm">
-                  {hasActiveFilters
-                    ? <Trans>No venues match your filters</Trans>
-                    : <Trans>No venues yet — add your first one</Trans>}
+                  {hasActiveFilters ? (
+                    <Trans>No venues match your filters</Trans>
+                  ) : (
+                    <Trans>No venues yet — add your first one</Trans>
+                  )}
                 </Text>
                 {!hasActiveFilters && (
                   <Button
@@ -716,7 +850,12 @@ function AdminMasterCatalogPage() {
                 <VenueCard
                   key={venue.id}
                   venue={venue}
-                  onView={() => void navigate({ to: "/admin/master-catalog/$venueId", params: { venueId: venue.id } })}
+                  onView={() =>
+                    void navigate({
+                      to: "/admin/master-catalog/$venueId",
+                      params: { venueId: venue.id },
+                    })
+                  }
                   onEdit={() => handleEdit(venue)}
                   onDelete={() => handleDelete(venue)}
                 />
@@ -728,7 +867,12 @@ function AdminMasterCatalogPage() {
                 <VenueRow
                   key={venue.id}
                   venue={venue}
-                  onView={() => void navigate({ to: "/admin/master-catalog/$venueId", params: { venueId: venue.id } })}
+                  onView={() =>
+                    void navigate({
+                      to: "/admin/master-catalog/$venueId",
+                      params: { venueId: venue.id },
+                    })
+                  }
                   onEdit={() => handleEdit(venue)}
                   onDelete={() => handleDelete(venue)}
                 />
@@ -745,7 +889,9 @@ function AdminMasterCatalogPage() {
 
           {!isLoading && totalElements > 0 && (
             <Text size="xs" c="dimmed" ta="center">
-              <Trans>Showing {rangeStart}–{rangeEnd} of {totalElements}</Trans>
+              <Trans>
+                Showing {rangeStart}–{rangeEnd} of {totalElements}
+              </Trans>
             </Text>
           )}
         </Stack>
@@ -753,7 +899,11 @@ function AdminMasterCatalogPage() {
 
       <CreateMasterVenueModal opened={createOpened} onClose={closeCreate} />
       <EditMasterVenueModal venue={selectedVenue} opened={editOpened} onClose={handleCloseEdit} />
-      <DeleteMasterVenueModal venue={selectedVenue} opened={deleteOpened} onClose={handleCloseDelete} />
+      <DeleteMasterVenueModal
+        venue={selectedVenue}
+        opened={deleteOpened}
+        onClose={handleCloseDelete}
+      />
     </Container>
   );
 }

@@ -35,6 +35,15 @@ msgstr "{0}"
 msgid "{subscriptionCount} subscription(s)"
 msgstr "{subscriptionCount} subscription(s)"
 
+#. placeholder {0}: totalElements === 1 ? "" : "s"
+#: src/pages/admin/master-catalog.index.tsx
+msgid "{totalElements} venue{0}"
+msgstr "{totalElements} venue{0}"
+
+#: src/features/master-venue-admin/ui/venue-fields.tsx
+msgid "0 – 1 quality score set by the ingestion pipeline."
+msgstr "0 – 1 quality score set by the ingestion pipeline."
+
 #: src/pages/loading-demo.tsx
 msgid "1. Initial Page Load"
 msgstr "1. Initial Page Load"
@@ -121,6 +130,10 @@ msgstr "Actor Type"
 msgid "Add locale"
 msgstr "Add locale"
 
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Add venue"
+msgstr "Add venue"
+
 #: src/pages/admin/addons/$addonPath.tsx
 msgid "Addon Page"
 msgstr "Addon Page"
@@ -137,6 +150,10 @@ msgstr "Addons"
 #: src/pages/admin/master-catalog.$venueId.tsx
 msgid "Address"
 msgstr "Address"
+
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "Address & coordinates"
+msgstr "Address & coordinates"
 
 #: src/features/set-user-password/ui/set-user-password-modal.tsx
 msgid "Admin password override"
@@ -446,7 +463,6 @@ msgstr "City"
 
 #: src/pages/admin/announcements.index.tsx
 #: src/pages/admin/invitations.index.tsx
-#: src/pages/admin/master-catalog.index.tsx
 #: src/pages/admin/organizations.index.tsx
 #: src/pages/admin/plans.index.tsx
 #: src/pages/admin/subscriptions.tsx
@@ -461,7 +477,6 @@ msgstr "Clear all"
 
 #: src/pages/admin/announcements.index.tsx
 #: src/pages/admin/invitations.index.tsx
-#: src/pages/admin/master-catalog.index.tsx
 #: src/pages/admin/organizations.index.tsx
 #: src/pages/admin/plans.index.tsx
 #: src/pages/admin/subscriptions.tsx
@@ -537,8 +552,14 @@ msgid "Content is required for the default locale"
 msgstr "Content is required for the default locale"
 
 #: src/pages/admin/master-catalog.$venueId.tsx
-msgid "Content type"
-msgstr "Content type"
+#~ msgid "Content type"
+#~ msgstr "Content type"
+
+#: src/features/master-venue-admin/ui/venue-fields.tsx
+#: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Coordinates"
+msgstr "Coordinates"
 
 #: src/features/sign-in/ui/demo-credentials-hint.tsx
 msgid "Copied!"
@@ -706,6 +727,7 @@ msgstr "Create venue"
 #: src/pages/admin/announcements.index.tsx
 #: src/pages/admin/invitations.index.tsx
 #: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/master-catalog.index.tsx
 #: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/organizations.index.tsx
@@ -724,8 +746,13 @@ msgid "Creation failed"
 msgstr "Creation failed"
 
 #: src/features/master-venue-admin/ui/venue-fields.tsx
-msgid "Curation confidence between 0 and 1."
-msgstr "Curation confidence between 0 and 1."
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "Curation"
+msgstr "Curation"
+
+#: src/features/master-venue-admin/ui/venue-fields.tsx
+#~ msgid "Curation confidence between 0 and 1."
+#~ msgstr "Curation confidence between 0 and 1."
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/pages/admin/plans.$planCode.tsx
@@ -758,6 +785,10 @@ msgstr "Daily"
 msgid "Dashboard"
 msgstr "Dashboard"
 
+#: src/features/master-venue-admin/ui/venue-fields.tsx
+msgid "Decimal lat / lng used for map pins and geo search. Leave blank if unknown."
+msgstr "Decimal lat / lng used for map pins and geo search. Leave blank if unknown."
+
 #: src/features/page-admin/ui/page-translation-fields.tsx
 msgid "Default locale — required"
 msgstr "Default locale — required"
@@ -768,6 +799,7 @@ msgstr "Default locale — required"
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/pages/admin/cms-pages.index.tsx
 #: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/master-catalog.index.tsx
 msgid "Delete"
 msgstr "Delete"
 
@@ -810,8 +842,8 @@ msgid "Delete subscription record"
 msgstr "Delete subscription record"
 
 #: src/pages/admin/master-catalog.index.tsx
-msgid "Delete venue"
-msgstr "Delete venue"
+#~ msgid "Delete venue"
+#~ msgstr "Delete venue"
 
 #: src/shared/ui/tenant-status-badge/tenant-status-badge.tsx
 #: src/shared/ui/user-status-badge/user-status-badge.tsx
@@ -829,6 +861,10 @@ msgstr "Demo LoadingOverlay (2s)"
 #: src/pages/loading-demo.tsx
 msgid "Demo Progress Bar"
 msgstr "Demo Progress Bar"
+
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "Details"
+msgstr "Details"
 
 #: src/pages/admin/plans.$planCode.tsx
 msgid "Display name"
@@ -897,6 +933,10 @@ msgstr "Edit profile"
 msgid "Edit Profile"
 msgstr "Edit Profile"
 
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Edit record"
+msgstr "Edit record"
+
 #: src/pages/admin/users.$userId.tsx
 #: src/pages/admin/users.index.tsx
 msgid "Edit user"
@@ -907,8 +947,8 @@ msgid "Edit User"
 msgstr "Edit User"
 
 #: src/pages/admin/master-catalog.index.tsx
-msgid "Edit venue"
-msgstr "Edit venue"
+#~ msgid "Edit venue"
+#~ msgstr "Edit venue"
 
 #: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
@@ -1195,6 +1235,10 @@ msgstr "Feature"
 msgid "Feature set (JSON)"
 msgstr "Feature set (JSON)"
 
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Fill all fields manually"
+msgstr "Fill all fields manually"
+
 #: src/pages/admin/audit-logs.tsx
 msgid "Filter by action…"
 msgstr "Filter by action…"
@@ -1204,6 +1248,10 @@ msgstr "Filter by action…"
 #: src/pages/admin/webhook-logs.tsx
 msgid "Filter by tenant key…"
 msgstr "Filter by tenant key…"
+
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Filters"
+msgstr "Filters"
 
 #: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
@@ -1243,6 +1291,10 @@ msgstr "Grant Platform Admin"
 #: src/features/manage-platform-authority/ui/grant-platform-admin-modal.tsx
 msgid "Granting Platform Admin to <0>{displayName}</0> will give them full administrative access to this platform, including user management, tenant management, and all admin-only operations."
 msgstr "Granting Platform Admin to <0>{displayName}</0> will give them full administrative access to this platform, including user management, tenant management, and all admin-only operations."
+
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Grid view"
+msgstr "Grid view"
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
@@ -1301,6 +1353,7 @@ msgstr "ID:"
 msgid "ID: {0}"
 msgstr "ID: {0}"
 
+#: src/features/master-venue-admin/ui/venue-fields.tsx
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/users.$userId.tsx
 msgid "Identity"
@@ -1326,6 +1379,14 @@ msgstr "Inactive only"
 #: src/features/announcement-admin/model/types.ts
 msgid "Info"
 msgstr "Info"
+
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "Ingestion & quality"
+msgstr "Ingestion & quality"
+
+#: src/features/master-venue-admin/ui/venue-fields.tsx
+msgid "Ingestion provenance and quality signal. Metadata is managed by the worker — edit only to correct errors."
+msgstr "Ingestion provenance and quality signal. Metadata is managed by the worker — edit only to correct errors."
 
 #: src/features/announcement-admin/ui/create-announcement-modal.tsx
 msgid "Initial status"
@@ -1398,8 +1459,8 @@ msgid "Key:"
 msgstr "Key:"
 
 #: src/pages/admin/master-catalog.$venueId.tsx
-msgid "Label"
-msgstr "Label"
+#~ msgid "Label"
+#~ msgstr "Label"
 
 #: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/shared/ui/locale-switcher/locale-switcher.tsx
@@ -1431,7 +1492,6 @@ msgid "Last used"
 msgstr "Last used"
 
 #: src/features/master-venue-admin/ui/venue-fields.tsx
-#: src/pages/admin/master-catalog.$venueId.tsx
 msgid "Latitude"
 msgstr "Latitude"
 
@@ -1442,6 +1502,10 @@ msgstr "Latitude must be a number"
 #: src/pages/admin/users.$userId.tsx
 msgid "Linked"
 msgstr "Linked"
+
+#: src/pages/admin/master-catalog.index.tsx
+msgid "List view"
+msgstr "List view"
 
 #: src/pages/loading-demo.tsx
 msgid "Loading Demo"
@@ -1476,6 +1540,10 @@ msgstr "Locale is required"
 msgid "Locales"
 msgstr "Locales"
 
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "Location"
+msgstr "Location"
+
 #: src/features/edit-user/model/types.ts
 #: src/shared/ui/user-status-badge/user-status-badge.tsx
 #: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
@@ -1491,7 +1559,6 @@ msgid "Log ID"
 msgstr "Log ID"
 
 #: src/features/master-venue-admin/ui/venue-fields.tsx
-#: src/pages/admin/master-catalog.$venueId.tsx
 msgid "Longitude"
 msgstr "Longitude"
 
@@ -1519,9 +1586,18 @@ msgstr "Manage users"
 #~ msgid "Manage users, organizations, and subscriptions across all tenants — secured by platform-level authentication."
 #~ msgstr "Manage users, organizations, and subscriptions across all tenants — secured by platform-level authentication."
 
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "Managed by the ingestion worker — edit with care."
+msgstr "Managed by the ingestion worker — edit with care."
+
 #: src/pages/admin/subscriptions.tsx
 msgid "Management"
 msgstr "Management"
+
+#: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Maps"
+msgstr "Maps"
 
 #: src/features/notification-bell/ui/notification-bell.tsx
 #: src/pages/admin/notifications.tsx
@@ -1543,8 +1619,8 @@ msgid "Master Venue Catalog"
 msgstr "Master Venue Catalog"
 
 #: src/pages/admin/master-catalog.index.tsx
-msgid "Master venues"
-msgstr "Master venues"
+#~ msgid "Master venues"
+#~ msgstr "Master venues"
 
 #: src/pages/admin/-organization-tenant-panels.tsx
 #: src/pages/admin/users.index.tsx
@@ -1578,14 +1654,23 @@ msgstr "Meta description for search engines"
 
 #: src/features/master-venue-admin/ui/venue-fields.tsx
 #: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/master-catalog.index.tsx
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Metadata"
 msgstr "Metadata"
+
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Missing"
+msgstr "Missing"
 
 #: src/pages/admin/plans.$planCode.tsx
 #: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Monthly"
 msgstr "Monthly"
+
+#: src/pages/admin/master-catalog.index.tsx
+msgid "More options"
+msgstr "More options"
 
 #: src/features/invitation-admin/model/types.ts
 msgid "Must be a valid email address"
@@ -1608,6 +1693,10 @@ msgstr "Name"
 #: src/features/master-venue-admin/model/types.ts
 msgid "Name is required"
 msgstr "Name is required"
+
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Name or city…"
+msgstr "Name or city…"
 
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "New"
@@ -1650,6 +1739,10 @@ msgstr "New venue"
 msgid "No active organizations found"
 msgstr "No active organizations found"
 
+#: src/pages/admin/master-catalog.index.tsx
+msgid "No address on record"
+msgstr "No address on record"
+
 #: src/pages/admin/announcements.index.tsx
 msgid "No announcements found"
 msgstr "No announcements found"
@@ -1659,8 +1752,12 @@ msgid "No announcements match the current filters"
 msgstr "No announcements match the current filters"
 
 #: src/pages/admin/master-catalog.$venueId.tsx
-msgid "No assets for this venue"
-msgstr "No assets for this venue"
+#~ msgid "No assets for this venue"
+#~ msgstr "No assets for this venue"
+
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "No assets for this venue."
+msgstr "No assets for this venue."
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "No billing settings"
@@ -1687,12 +1784,12 @@ msgid "No linked OIDC identities found."
 msgstr "No linked OIDC identities found."
 
 #: src/pages/admin/master-catalog.index.tsx
-msgid "No master venues found"
-msgstr "No master venues found"
+#~ msgid "No master venues found"
+#~ msgstr "No master venues found"
 
 #: src/pages/admin/master-catalog.index.tsx
-msgid "No master venues match the current filters"
-msgstr "No master venues match the current filters"
+#~ msgid "No master venues match the current filters"
+#~ msgstr "No master venues match the current filters"
 
 #: src/pages/admin/-organization-tenant-panels.tsx
 msgid "No members found"
@@ -1701,6 +1798,10 @@ msgstr "No members found"
 #: src/pages/admin/-organization-tenant-panels.tsx
 msgid "No members match the search"
 msgstr "No members match the search"
+
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "No metadata."
+msgstr "No metadata."
 
 #: src/features/notification-bell/ui/notification-bell.tsx
 #: src/pages/admin/notifications.tsx
@@ -1784,6 +1885,18 @@ msgstr "No users found"
 msgid "No users match the current filters"
 msgstr "No users match the current filters"
 
+#: src/pages/admin/master-catalog.index.tsx
+msgid "No venues found"
+msgstr "No venues found"
+
+#: src/pages/admin/master-catalog.index.tsx
+msgid "No venues match your filters"
+msgstr "No venues match your filters"
+
+#: src/pages/admin/master-catalog.index.tsx
+msgid "No venues yet — add your first one"
+msgstr "No venues yet — add your first one"
+
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "None (top-level)"
@@ -1865,8 +1978,8 @@ msgid "Optional UUID of the user who owns the billing profile."
 msgstr "Optional UUID of the user who owns the billing profile."
 
 #: src/pages/admin/master-catalog.$venueId.tsx
-msgid "Order"
-msgstr "Order"
+#~ msgid "Order"
+#~ msgstr "Order"
 
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 #: src/pages/admin/cms-pages.index.tsx
@@ -1904,7 +2017,6 @@ msgstr "Organizations"
 msgid "Override page title for search engines"
 msgstr "Override page title for search engines"
 
-#: src/pages/admin/master-catalog.$venueId.tsx
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/users.$userId.tsx
 #: src/shared/ui/admin-layout/nav-config.tsx
@@ -2106,6 +2218,10 @@ msgstr "Please try again."
 msgid "Portal error"
 msgstr "Portal error"
 
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Present"
+msgstr "Present"
+
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/plans.index.tsx
 msgid "Price (minor units)"
@@ -2137,8 +2253,8 @@ msgid "Provide a reason for the ban…"
 msgstr "Provide a reason for the ban…"
 
 #: src/pages/admin/master-catalog.$venueId.tsx
-msgid "Provider"
-msgstr "Provider"
+#~ msgid "Provider"
+#~ msgstr "Provider"
 
 #. placeholder {0}: identity.provider
 #: src/pages/admin/users.$userId.tsx
@@ -2163,9 +2279,17 @@ msgstr "Publishing"
 msgid "Quantity"
 msgstr "Quantity"
 
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "Raw JSON document"
+msgstr "Raw JSON document"
+
 #: src/features/master-venue-admin/ui/venue-fields.tsx
-msgid "Raw JSON metadata."
-msgstr "Raw JSON metadata."
+msgid "Raw JSON document written by the ingestion worker. Edit with care."
+msgstr "Raw JSON document written by the ingestion worker. Edit with care."
+
+#: src/features/master-venue-admin/ui/venue-fields.tsx
+#~ msgid "Raw JSON metadata."
+#~ msgstr "Raw JSON metadata."
 
 #: src/pages/admin/subscriptions.tsx
 msgid "Reactivate"
@@ -2370,8 +2494,8 @@ msgid "Search event type or ID…"
 msgstr "Search event type or ID…"
 
 #: src/pages/admin/master-catalog.index.tsx
-msgid "Search name, address or city"
-msgstr "Search name, address or city"
+#~ msgid "Search name, address or city"
+#~ msgstr "Search name, address or city"
 
 #: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
 msgid "Search plan…"
@@ -2487,6 +2611,10 @@ msgstr "Showing {rangeStart} – {rangeEnd} of {totalElements} subscriptions"
 msgid "Showing {rangeStart} – {rangeEnd} of {totalElements} webhook logs"
 msgstr "Showing {rangeStart} – {rangeEnd} of {totalElements} webhook logs"
 
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Showing {rangeStart}–{rangeEnd} of {totalElements}"
+msgstr "Showing {rangeStart}–{rangeEnd} of {totalElements}"
+
 #: src/pages/admin/announcements.index.tsx
 msgid "Showing {rangeStart}–{rangeEnd} of {totalElements} announcements"
 msgstr "Showing {rangeStart}–{rangeEnd} of {totalElements} announcements"
@@ -2496,8 +2624,8 @@ msgid "Showing {rangeStart}–{rangeEnd} of {totalElements} invitations"
 msgstr "Showing {rangeStart}–{rangeEnd} of {totalElements} invitations"
 
 #: src/pages/admin/master-catalog.index.tsx
-msgid "Showing {rangeStart}–{rangeEnd} of {totalElements} master venues"
-msgstr "Showing {rangeStart}–{rangeEnd} of {totalElements} master venues"
+#~ msgid "Showing {rangeStart}–{rangeEnd} of {totalElements} master venues"
+#~ msgstr "Showing {rangeStart}–{rangeEnd} of {totalElements} master venues"
 
 #: src/pages/admin/organizations.index.tsx
 msgid "Showing {rangeStart}–{rangeEnd} of {totalElements} organizations"
@@ -2545,8 +2673,8 @@ msgid "Site Announcements"
 msgstr "Site Announcements"
 
 #: src/pages/admin/master-catalog.$venueId.tsx
-msgid "Size"
-msgstr "Size"
+#~ msgid "Size"
+#~ msgstr "Size"
 
 #: src/pages/loading-demo.tsx
 msgid "Slim top progress bar for navigation between pages (automatic with router)."
@@ -2575,7 +2703,6 @@ msgstr "Something went wrong"
 
 #: src/features/master-venue-admin/ui/venue-fields.tsx
 #: src/pages/admin/master-catalog.$venueId.tsx
-#: src/pages/admin/master-catalog.index.tsx
 msgid "Source"
 msgstr "Source"
 
@@ -2764,6 +2891,10 @@ msgstr "Tenant updated"
 msgid "The venue could not be found or the API is unavailable."
 msgstr "The venue could not be found or the API is unavailable."
 
+#: src/features/master-venue-admin/ui/venue-fields.tsx
+msgid "The venue's canonical name and address as it appears in the catalog."
+msgstr "The venue's canonical name and address as it appears in the catalog."
+
 #: src/pages/loading-demo.tsx
 msgid "Theme-aware (respects dark mode and color scheme)"
 msgstr "Theme-aware (respects dark mode and color scheme)"
@@ -2861,7 +2992,6 @@ msgstr "Try Again"
 #: src/features/announcement-admin/ui/create-announcement-modal.tsx
 #: src/features/announcement-admin/ui/edit-announcement-modal.tsx
 #: src/pages/admin/announcements.index.tsx
-#: src/pages/admin/master-catalog.$venueId.tsx
 msgid "Type"
 msgstr "Type"
 
@@ -2992,7 +3122,6 @@ msgid "UUID or leave empty to clear."
 msgstr "UUID or leave empty to clear."
 
 #: src/pages/admin/master-catalog.$venueId.tsx
-#: src/pages/admin/master-catalog.index.tsx
 msgid "Venue"
 msgstr "Venue"
 
@@ -3042,6 +3171,10 @@ msgstr "View organization"
 msgid "View plan"
 msgstr "View plan"
 
+#: src/pages/admin/master-catalog.index.tsx
+msgid "View record"
+msgstr "View record"
+
 #: src/pages/admin/index.tsx
 msgid "View subscriptions"
 msgstr "View subscriptions"
@@ -3051,8 +3184,8 @@ msgid "View users"
 msgstr "View users"
 
 #: src/pages/admin/master-catalog.index.tsx
-msgid "View venue"
-msgstr "View venue"
+#~ msgid "View venue"
+#~ msgstr "View venue"
 
 #: src/features/announcement-admin/model/types.ts
 msgid "Warning"
