@@ -22,6 +22,7 @@ import {
   SegmentedControl,
   Center,
   Image,
+  ThemeIcon,
 } from "@mantine/core";
 import { useDisclosure, useDebouncedValue } from "@mantine/hooks";
 import { useQuery } from "@tanstack/react-query";
@@ -38,6 +39,8 @@ import {
   IconBuildingStore,
   IconLayoutList,
   IconLayoutGrid,
+  IconMapPin,
+  IconDatabase,
 } from "@tabler/icons-react";
 import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
@@ -58,20 +61,62 @@ export const Route = createFileRoute("/admin/master-catalog/")({
 
 const PAGE_SIZE = 20;
 
-// ── Confidence badge ──────────────────────────────────────────────────────────
+// ── Helpers ───────────────────────────────────────────────────────────────────
+
+function confidenceColor(value: number | null): string {
+  if (value === null) return "gray";
+  const pct = Math.round(value * 100);
+  return pct >= 80 ? "green" : pct >= 50 ? "orange" : "red";
+}
 
 function ConfidenceBadge({ value }: { value: number | null }) {
   if (value === null) return <Text size="xs" c="dimmed">—</Text>;
   const pct = Math.round(value * 100);
-  const color = pct >= 80 ? "green" : pct >= 50 ? "orange" : "red";
   return (
-    <Badge variant="light" color={color} size="sm">
+    <Badge variant="light" color={confidenceColor(value)} size="sm">
       {pct}%
     </Badge>
   );
 }
 
-// ── Venue grid card ───────────────────────────────────────────────────────────
+// ── Venue thumbnail ───────────────────────────────────────────────────────────
+
+function VenueThumbnail({ url, name, size = 40 }: { url: string | null; name: string; size?: number }) {
+  if (url) {
+    return (
+      <Box
+        style={{
+          width: size,
+          height: size,
+          borderRadius: "var(--mantine-radius-sm)",
+          overflow: "hidden",
+          flexShrink: 0,
+        }}
+      >
+        <Image
+          src={url}
+          alt={name}
+          w={size}
+          h={size}
+          style={{ objectFit: "cover", display: "block" }}
+        />
+      </Box>
+    );
+  }
+  return (
+    <ThemeIcon
+      size={size}
+      radius="sm"
+      variant="light"
+      color="gray"
+      style={{ flexShrink: 0 }}
+    >
+      <IconBuildingStore size={Math.round(size * 0.5)} />
+    </ThemeIcon>
+  );
+}
+
+// ── Grid card ─────────────────────────────────────────────────────────────────
 
 interface VenueCardProps {
   venue: MasterVenue;
@@ -82,58 +127,49 @@ interface VenueCardProps {
 
 function VenueCard({ venue, onView, onEdit, onDelete }: VenueCardProps) {
   const { t } = useLingui();
+  const color = confidenceColor(venue.confidence);
+
   return (
-    <Card withBorder radius="md" padding="md" style={{ cursor: "default" }}>
-      <Stack gap="xs">
-        {/* icon + name row */}
-        <Group gap="sm" wrap="nowrap" align="flex-start">
-          {venue.primaryPhotoUrl ? (
-            <Box
-              style={{
-                width: 40,
-                height: 40,
-                borderRadius: "var(--mantine-radius-sm)",
-                overflow: "hidden",
-                flexShrink: 0,
-              }}
-            >
-              <Image
-                src={venue.primaryPhotoUrl}
-                alt={venue.name}
-                w={40}
-                h={40}
-                style={{ objectFit: "cover", display: "block" }}
-              />
-            </Box>
-          ) : (
-            <Box
-              style={{
-                width: 40,
-                height: 40,
-                borderRadius: "var(--mantine-radius-sm)",
-                background: "var(--mantine-color-gray-1)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                flexShrink: 0,
-              }}
-            >
-              <IconBuildingStore size={20} color="var(--mantine-color-gray-6)" />
-            </Box>
-          )}
+    <Card
+      shadow="xs"
+      radius="md"
+      padding={0}
+      withBorder
+      style={{ overflow: "hidden", cursor: "default" }}
+    >
+      {/* confidence accent bar */}
+      <Box
+        style={{
+          height: 3,
+          background: `var(--mantine-color-${color}-5)`,
+          opacity: venue.confidence === null ? 0.15 : 0.7,
+        }}
+      />
+
+      <Stack gap={0} p="md">
+        {/* thumbnail + name */}
+        <Group gap="sm" wrap="nowrap" align="flex-start" mb="xs">
+          <VenueThumbnail url={venue.primaryPhotoUrl} name={venue.name} size={48} />
           <Stack gap={2} style={{ flex: 1, minWidth: 0 }}>
-            <Text size="sm" fw={600} lineClamp={2} style={{ lineHeight: 1.3 }}>
+            <Text size="sm" fw={600} lineClamp={2} lh={1.3}>
               {venue.name}
             </Text>
-            <Text size="xs" c="dimmed" lineClamp={1}>
-              {venue.city ? `${venue.city}${venue.address ? " · " + venue.address : ""}` : (venue.address ?? "—")}
-            </Text>
+            {(venue.city ?? venue.address) && (
+              <Group gap={4} wrap="nowrap">
+                <IconMapPin size={11} color="var(--mantine-color-gray-5)" style={{ flexShrink: 0 }} />
+                <Text size="xs" c="dimmed" lineClamp={1}>
+                  {venue.city
+                    ? `${venue.city}${venue.address ? ` · ${venue.address}` : ""}`
+                    : venue.address}
+                </Text>
+              </Group>
+            )}
           </Stack>
         </Group>
 
-        {/* badges row */}
-        <Group gap={6} wrap="wrap">
-          <Badge variant="light" color="gray" size="xs">
+        {/* badges */}
+        <Group gap={6} wrap="wrap" mb="sm">
+          <Badge variant="light" color="blue" size="xs" tt="uppercase" style={{ letterSpacing: "0.03em" }}>
             {venue.source}
           </Badge>
           <ConfidenceBadge value={venue.confidence} />
@@ -143,8 +179,13 @@ function VenueCard({ venue, onView, onEdit, onDelete }: VenueCardProps) {
         </Group>
 
         {/* actions */}
-        <Group gap={4} justify="flex-end" pt={4} style={{ borderTop: "1px solid var(--mantine-color-gray-1)" }}>
-          <Tooltip label={t`View venue`} withArrow>
+        <Group
+          gap={4}
+          justify="flex-end"
+          pt="xs"
+          style={{ borderTop: "1px solid var(--mantine-color-gray-1)" }}
+        >
+          <Tooltip label={t`View record`} withArrow>
             <ActionIcon
               data-testid={TestSelectors.BUTTON.MASTER_VENUE_VIEW(venue.id)}
               variant="subtle"
@@ -155,7 +196,7 @@ function VenueCard({ venue, onView, onEdit, onDelete }: VenueCardProps) {
               <IconEye size={15} />
             </ActionIcon>
           </Tooltip>
-          <Tooltip label={t`Edit venue`} withArrow>
+          <Tooltip label={t`Edit record`} withArrow>
             <ActionIcon
               data-testid={TestSelectors.BUTTON.MASTER_VENUE_EDIT(venue.id)}
               variant="subtle"
@@ -166,7 +207,7 @@ function VenueCard({ venue, onView, onEdit, onDelete }: VenueCardProps) {
               <IconEdit size={15} />
             </ActionIcon>
           </Tooltip>
-          <Tooltip label={t`Delete venue`} withArrow>
+          <Tooltip label={t`Delete record`} withArrow>
             <ActionIcon
               data-testid={TestSelectors.BUTTON.MASTER_VENUE_DELETE(venue.id)}
               variant="subtle"
@@ -189,10 +230,11 @@ function GridSkeleton() {
   return (
     <SimpleGrid cols={{ base: 1, sm: 2, md: 3, lg: 4 }} spacing="md">
       {Array.from({ length: 8 }).map((_, i) => (
-        <Card key={i} withBorder radius="md" padding="md">
-          <Stack gap="xs">
+        <Card key={i} shadow="xs" radius="md" padding={0} withBorder style={{ overflow: "hidden" }}>
+          <Skeleton height={3} radius={0} />
+          <Stack gap="xs" p="md">
             <Group gap="sm" wrap="nowrap">
-              <Skeleton width={40} height={40} radius="sm" style={{ flexShrink: 0 }} />
+              <Skeleton width={48} height={48} radius="sm" style={{ flexShrink: 0 }} />
               <Stack gap={4} style={{ flex: 1 }}>
                 <Skeleton height={12} width="70%" radius="sm" />
                 <Skeleton height={10} width="50%" radius="sm" />
@@ -307,6 +349,38 @@ function AdminMasterCatalogPage() {
       />
 
       <Stack gap="md">
+        {/* ── Catalog context strip ────────────────────────────────────── */}
+        <Paper shadow="xs" radius="md" p="md" withBorder>
+          <Group gap="md" wrap="nowrap" align="flex-start">
+            <ThemeIcon size={40} radius="md" variant="light" color="blue" style={{ flexShrink: 0 }}>
+              <IconDatabase size={20} />
+            </ThemeIcon>
+            <Stack gap={2}>
+              <Text size="sm" fw={600}>
+                <Trans>Platform-owned reference dataset</Trans>
+              </Text>
+              <Text size="xs" c="dimmed" lh={1.5}>
+                <Trans>
+                  Records are ingested and enriched automatically by the catalog worker. Use this
+                  view to inspect, correct, or manually add catalog entries.
+                </Trans>
+              </Text>
+            </Stack>
+            {!isLoading && (
+              <Badge
+                data-testid={TestSelectors.BADGE.MASTER_CATALOG_TOTAL_COUNT}
+                variant="light"
+                color="blue"
+                size="lg"
+                radius="sm"
+                style={{ flexShrink: 0, marginLeft: "auto" }}
+              >
+                {totalElements.toLocaleString()}
+              </Badge>
+            )}
+          </Group>
+        </Paper>
+
         {isError && (
           <Alert
             icon={<IconAlertCircle size={16} />}
@@ -321,31 +395,19 @@ function AdminMasterCatalogPage() {
           </Alert>
         )}
 
-        <Paper style={{ overflow: "hidden" }}>
-          {/* ── Toolbar row ─────────────────────────────────────────────── */}
+        {/* ── Records panel ────────────────────────────────────────────── */}
+        <Paper shadow="xs" radius="md" withBorder style={{ overflow: "hidden" }}>
+          {/* toolbar */}
           <Group
             justify="space-between"
             align="center"
             px="md"
             py="sm"
-            style={{ borderBottom: "1px solid var(--mantine-color-gray-1)" }}
+            style={{ borderBottom: "1px solid var(--mantine-color-gray-2)" }}
           >
-            <Group gap="xs">
-              <Text fw={600} size="sm">
-                <Trans>Master venues</Trans>
-              </Text>
-              {!isLoading && (
-                <Badge
-                  data-testid={TestSelectors.BADGE.MASTER_CATALOG_TOTAL_COUNT}
-                  variant="light"
-                  color="gray"
-                  size="sm"
-                  radius="sm"
-                >
-                  {totalElements}
-                </Badge>
-              )}
-            </Group>
+            <Text fw={600} size="sm" c="dimmed" tt="uppercase" lts={0.04} style={{ fontSize: 11 }}>
+              <Trans>Records</Trans>
+            </Text>
 
             <Group gap="xs">
               <Select
@@ -459,13 +521,13 @@ function AdminMasterCatalogPage() {
                       style={{ borderBottom: "1px solid var(--mantine-color-gray-1)" }}
                     >
                       <Group gap="sm">
-                        <Skeleton circle height={36} width={36} />
+                        <Skeleton width={40} height={40} radius="sm" />
                         <Stack gap={4} style={{ flex: 1 }}>
                           <Skeleton height={12} width="40%" radius="sm" />
                           <Skeleton height={10} width="25%" radius="sm" />
                         </Stack>
                         <Skeleton height={20} width={70} radius="xl" />
-                        <Skeleton height={20} width={80} radius="xl" />
+                        <Skeleton height={20} width={60} radius="xl" />
                       </Group>
                     </Box>
                   ))}
@@ -485,8 +547,8 @@ function AdminMasterCatalogPage() {
                   idAccessor="id"
                   noRecordsText={
                     hasActiveFilters
-                      ? t`No master venues match the current filters`
-                      : t`No master venues found`
+                      ? t`No catalog records match the current filters`
+                      : t`No catalog records found`
                   }
                   styles={{
                     header: {
@@ -504,25 +566,16 @@ function AdminMasterCatalogPage() {
                       title: t`Venue`,
                       render: (venue) => (
                         <Group gap="sm" wrap="nowrap">
-                          <Box
-                            style={{
-                              width: 36,
-                              height: 36,
-                              borderRadius: "50%",
-                              background: "var(--mantine-color-gray-1)",
-                              display: "flex",
-                              alignItems: "center",
-                              justifyContent: "center",
-                              flexShrink: 0,
-                            }}
-                          >
-                            <IconBuildingStore size={18} color="var(--mantine-color-gray-6)" />
-                          </Box>
+                          <VenueThumbnail
+                            url={venue.primaryPhotoUrl}
+                            name={venue.name}
+                            size={40}
+                          />
                           <Stack gap={1}>
-                            <Text size="sm" fw={500} style={{ lineHeight: 1.3 }}>
+                            <Text size="sm" fw={600} lh={1.3}>
                               {venue.name}
                             </Text>
-                            <Text size="xs" c="dimmed" lineClamp={1} maw={320}>
+                            <Text size="xs" c="dimmed" lineClamp={1} maw={300}>
                               {venue.address ?? "—"}
                             </Text>
                           </Stack>
@@ -533,16 +586,21 @@ function AdminMasterCatalogPage() {
                       accessor: "city",
                       title: t`City`,
                       render: (venue) => (
-                        <Text size="sm" c="dimmed">
-                          {venue.city ?? "—"}
-                        </Text>
+                        <Group gap={4} wrap="nowrap">
+                          {venue.city && (
+                            <IconMapPin size={12} color="var(--mantine-color-gray-5)" />
+                          )}
+                          <Text size="sm" c="dimmed">
+                            {venue.city ?? "—"}
+                          </Text>
+                        </Group>
                       ),
                     },
                     {
                       accessor: "source",
                       title: t`Source`,
                       render: (venue) => (
-                        <Badge variant="light" color="gray" size="sm">
+                        <Badge variant="light" color="blue" size="sm" tt="uppercase" style={{ letterSpacing: "0.03em" }}>
                           {venue.source}
                         </Badge>
                       ),
@@ -556,7 +614,7 @@ function AdminMasterCatalogPage() {
                       accessor: "updatedAt",
                       title: t`Updated`,
                       render: (venue) => (
-                        <Text size="sm" c="dimmed">
+                        <Text size="xs" c="dimmed">
                           {dayjs(venue.updatedAt).format("MMM D, YYYY")}
                         </Text>
                       ),
@@ -567,7 +625,7 @@ function AdminMasterCatalogPage() {
                       textAlign: "right",
                       render: (venue) => (
                         <Group gap={4} justify="flex-end" wrap="nowrap">
-                          <Tooltip label={t`View venue`} withArrow>
+                          <Tooltip label={t`View record`} withArrow>
                             <ActionIcon
                               data-testid={TestSelectors.BUTTON.MASTER_VENUE_VIEW(venue.id)}
                               variant="subtle"
@@ -584,7 +642,7 @@ function AdminMasterCatalogPage() {
                               <IconEye size={15} />
                             </ActionIcon>
                           </Tooltip>
-                          <Tooltip label={t`Edit venue`} withArrow>
+                          <Tooltip label={t`Edit record`} withArrow>
                             <ActionIcon
                               data-testid={TestSelectors.BUTTON.MASTER_VENUE_EDIT(venue.id)}
                               variant="subtle"
@@ -598,7 +656,7 @@ function AdminMasterCatalogPage() {
                               <IconEdit size={15} />
                             </ActionIcon>
                           </Tooltip>
-                          <Tooltip label={t`Delete venue`} withArrow>
+                          <Tooltip label={t`Delete record`} withArrow>
                             <ActionIcon
                               data-testid={TestSelectors.BUTTON.MASTER_VENUE_DELETE(venue.id)}
                               variant="subtle"
@@ -627,11 +685,16 @@ function AdminMasterCatalogPage() {
               {isLoading ? (
                 <GridSkeleton />
               ) : items.length === 0 ? (
-                <Text size="sm" c="dimmed" ta="center" py="xl">
-                  {hasActiveFilters
-                    ? t`No master venues match the current filters`
-                    : t`No master venues found`}
-                </Text>
+                <Stack align="center" py="xl" gap="xs">
+                  <ThemeIcon size={48} radius="xl" variant="light" color="gray">
+                    <IconBuildingStore size={24} />
+                  </ThemeIcon>
+                  <Text size="sm" c="dimmed" ta="center">
+                    {hasActiveFilters
+                      ? t`No catalog records match the current filters`
+                      : t`No catalog records found`}
+                  </Text>
+                </Stack>
               ) : (
                 <Stack gap="md">
                   <SimpleGrid cols={{ base: 1, sm: 2, md: 3, lg: 4 }} spacing="md">
@@ -671,7 +734,7 @@ function AdminMasterCatalogPage() {
         {!isLoading && totalElements > 0 && (
           <Text size="xs" c="dimmed">
             <Trans>
-              Showing {rangeStart}–{rangeEnd} of {totalElements} master venues
+              Showing {rangeStart}–{rangeEnd} of {totalElements} records
             </Trans>
           </Text>
         )}
