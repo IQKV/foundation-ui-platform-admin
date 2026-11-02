@@ -8,6 +8,7 @@ export interface MasterVenue {
   metadata: string | null;
   confidence: number | null;
   source: string;
+  primaryPhotoUrl: string | null;
   createdAt: string;
   updatedAt: string;
 }

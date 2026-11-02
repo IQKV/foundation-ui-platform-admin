@@ -330,9 +330,6 @@ function MasterVenueDetailPage() {
   const assets = assetsData?.items ?? [];
   const photos = photosData?.items ?? [];
 
-  // first photo with a sourceUrl — used as hero thumbnail
-  const heroPhoto = photos.find((p) => p.sourceUrl) ?? null;
-
   const mapUrl =
     venue?.locationLat && venue?.locationLng
       ? `https://maps.google.com/?q=${venue.locationLat},${venue.locationLng}`
@@ -440,10 +437,10 @@ function MasterVenueDetailPage() {
           data-testid={TestSelectors.MASTER_VENUE_DETAIL_HERO_CARD}
         >
           <Group gap="lg" wrap="nowrap" align="flex-start">
-            {/* thumbnail */}
-            {photosLoading ? (
+            {/* thumbnail — available immediately from the venue query, no photos query needed */}
+            {isLoading ? (
               <Skeleton w={80} h={80} radius="md" style={{ flexShrink: 0 }} />
-            ) : heroPhoto?.sourceUrl ? (
+            ) : venue?.primaryPhotoUrl ? (
               <Box
                 style={{
                   width: 80,
@@ -454,8 +451,8 @@ function MasterVenueDetailPage() {
                 }}
               >
                 <Image
-                  src={heroPhoto.sourceUrl}
-                  alt={heroPhoto.label ?? heroPhoto.fileName ?? ""}
+                  src={venue.primaryPhotoUrl}
+                  alt={venue.name}
                   w={80}
                   h={80}
                   style={{ objectFit: "cover", display: "block" }}

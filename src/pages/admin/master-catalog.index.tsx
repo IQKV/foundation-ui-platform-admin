@@ -21,6 +21,7 @@ import {
   Pagination,
   SegmentedControl,
   Center,
+  Image,
 } from "@mantine/core";
 import { useDisclosure, useDebouncedValue } from "@mantine/hooks";
 import { useQuery } from "@tanstack/react-query";
@@ -86,20 +87,40 @@ function VenueCard({ venue, onView, onEdit, onDelete }: VenueCardProps) {
       <Stack gap="xs">
         {/* icon + name row */}
         <Group gap="sm" wrap="nowrap" align="flex-start">
-          <Box
-            style={{
-              width: 40,
-              height: 40,
-              borderRadius: "var(--mantine-radius-sm)",
-              background: "var(--mantine-color-gray-1)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              flexShrink: 0,
-            }}
-          >
-            <IconBuildingStore size={20} color="var(--mantine-color-gray-6)" />
-          </Box>
+          {venue.primaryPhotoUrl ? (
+            <Box
+              style={{
+                width: 40,
+                height: 40,
+                borderRadius: "var(--mantine-radius-sm)",
+                overflow: "hidden",
+                flexShrink: 0,
+              }}
+            >
+              <Image
+                src={venue.primaryPhotoUrl}
+                alt={venue.name}
+                w={40}
+                h={40}
+                style={{ objectFit: "cover", display: "block" }}
+              />
+            </Box>
+          ) : (
+            <Box
+              style={{
+                width: 40,
+                height: 40,
+                borderRadius: "var(--mantine-radius-sm)",
+                background: "var(--mantine-color-gray-1)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flexShrink: 0,
+              }}
+            >
+              <IconBuildingStore size={20} color="var(--mantine-color-gray-6)" />
+            </Box>
+          )}
           <Stack gap={2} style={{ flex: 1, minWidth: 0 }}>
             <Text size="sm" fw={600} lineClamp={2} style={{ lineHeight: 1.3 }}>
               {venue.name}
