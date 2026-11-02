@@ -16,12 +16,14 @@ import {
   Tabs,
   SimpleGrid,
   Image,
-  Code,
   Divider,
+  Anchor,
+  RingProgress,
+  ScrollArea,
+  Center,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { useQuery } from "@tanstack/react-query";
-import { DataTable } from "mantine-datatable";
 import {
   IconAlertCircle,
   IconRefresh,
@@ -31,6 +33,7 @@ import {
   IconMapPin,
   IconPhoto,
   IconPaperclip,
+  IconExternalLink,
 } from "@tabler/icons-react";
 import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
@@ -44,6 +47,37 @@ import { TestSelectors } from "@/shared/lib/test-selectors";
 export const Route = createFileRoute("/admin/master-catalog/$venueId")({
   component: MasterVenueDetailPage,
 });
+
+// ─── Confidence ring ──────────────────────────────────────────────────────────
+
+function ConfidenceRing({ value, isLoading }: { value: number | null; isLoading: boolean }) {
+  if (isLoading) return <Skeleton circle height={64} />;
+  if (value === null)
+    return (
+      <Text size="sm" c="dimmed">
+        —
+      </Text>
+    );
+
+  const pct = Math.round(value * 100);
+  const color = pct >= 80 ? "green" : pct >= 50 ? "orange" : "red";
+
+  return (
+    <RingProgress
+      size={64}
+      thickness={6}
+      roundCaps
+      sections={[{ value: pct, color }]}
+      label={
+        <Center>
+          <Text size="xs" fw={700} c={color}>
+            {pct}%
+          </Text>
+        </Center>
+      }
+    />
+  );
+}
 
 // ─── Stat card ────────────────────────────────────────────────────────────────
 
@@ -68,6 +102,47 @@ function StatCard({ label, value, isLoading, "data-testid": testId }: StatCardPr
         {label}
       </Text>
     </Stack>
+  );
+}
+
+// ─── Pretty metadata viewer ───────────────────────────────────────────────────
+
+function MetadataViewer({ raw }: { raw: string | null }) {
+  if (!raw) {
+    return (
+      <Text size="sm" c="dimmed">
+        <Trans>No metadata.</Trans>
+      </Text>
+    );
+  }
+
+  let formatted = raw;
+  try {
+    formatted = JSON.stringify(JSON.parse(raw), null, 2);
+  } catch {
+    // not valid JSON — show as-is
+  }
+
+  return (
+    <ScrollArea.Autosize mah={360}>
+      <Box
+        component="pre"
+        style={{
+          margin: 0,
+          padding: "var(--mantine-spacing-sm)",
+          background: "var(--mantine-color-gray-0)",
+          borderRadius: "var(--mantine-radius-sm)",
+          border: "1px solid var(--mantine-color-gray-2)",
+          fontFamily: "var(--mantine-font-family-monospace)",
+          fontSize: "var(--mantine-font-size-xs)",
+          lineHeight: 1.6,
+          whiteSpace: "pre-wrap",
+          wordBreak: "break-word",
+        }}
+      >
+        {formatted}
+      </Box>
+    </ScrollArea.Autosize>
   );
 }
 
@@ -132,48 +207,83 @@ function PhotosTab({ photos, isLoading }: { photos: MasterVenueAsset[]; isLoadin
 function AssetsTab({ assets, isLoading }: { assets: MasterVenueAsset[]; isLoading: boolean }) {
   const { t } = useLingui();
 
-  if (isLoading) {
-    return <Skeleton height={200} radius="sm" />;
+  if (isLoading) return <Skeleton height={200} radius="sm" />;
+
+  if (assets.length === 0) {
+    return (
+      <Text size="sm" c="dimmed">
+        {t`No assets for this venue.`}
+      </Text>
+    );
   }
 
   return (
-    <DataTable
-      withTableBorder
-      borderRadius="sm"
-      highlightOnHover
-      records={assets}
-      minHeight={160}
-      idAccessor="id"
-      noRecordsText={t`No assets for this venue`}
-      columns={[
-        { accessor: "assetType", title: t`Type` },
-        {
-          accessor: "label",
-          title: t`Label`,
-          render: (asset) => asset.label ?? asset.fileName ?? "—",
-        },
-        {
-          accessor: "contentType",
-          title: t`Content type`,
-          render: (asset) => asset.contentType ?? "—",
-        },
-        {
-          accessor: "sizeBytes",
-          title: t`Size`,
-          render: (asset) => (asset.sizeBytes === null ? "—" : `${asset.sizeBytes} B`),
-        },
-        {
-          accessor: "displayOrder",
-          title: t`Order`,
-          render: (asset) => asset.displayOrder ?? "—",
-        },
-        {
-          accessor: "provider",
-          title: t`Provider`,
-          render: (asset) => asset.provider ?? "—",
-        },
-      ]}
-    />
+    <Stack gap={0}>
+      {/* header row */}
+      <Group
+        px="sm"
+        py={6}
+        style={{
+          background: "var(--mantine-color-gray-0)",
+          borderRadius: "var(--mantine-radius-sm) var(--mantine-radius-sm) 0 0",
+          border: "1px solid var(--mantine-color-gray-2)",
+          borderBottom: "none",
+        }}
+      >
+        {(
+          [
+            [t`Type`, "120px"],
+            [t`Label / file`, "1fr"],
+            [t`Content type`, "160px"],
+            [t`Size`, "80px"],
+            [t`Provider`, "100px"],
+          ] as [string, string][]
+        ).map(([col, w]) => (
+          <Text
+            key={col}
+            size="xs"
+            fw={600}
+            c="dimmed"
+            tt="uppercase"
+            lts={0.4}
+            style={{ width: w, flexShrink: 0 }}
+          >
+            {col}
+          </Text>
+        ))}
+      </Group>
+      {assets.map((asset, i) => (
+        <Group
+          key={asset.id}
+          px="sm"
+          py={8}
+          style={{
+            border: "1px solid var(--mantine-color-gray-2)",
+            borderTop: i === 0 ? "1px solid var(--mantine-color-gray-2)" : "none",
+            borderRadius:
+              i === assets.length - 1 ? "0 0 var(--mantine-radius-sm) var(--mantine-radius-sm)" : 0,
+          }}
+        >
+          <Text size="xs" style={{ width: "120px", flexShrink: 0 }}>
+            <Badge variant="dot" size="sm" color="gray">
+              {asset.assetType}
+            </Badge>
+          </Text>
+          <Text size="xs" c="dimmed" lineClamp={1} style={{ width: "1fr", flex: 1 }}>
+            {asset.label ?? asset.fileName ?? asset.id}
+          </Text>
+          <Text size="xs" c="dimmed" style={{ width: "160px", flexShrink: 0 }}>
+            {asset.contentType ?? "—"}
+          </Text>
+          <Text size="xs" c="dimmed" style={{ width: "80px", flexShrink: 0 }}>
+            {asset.sizeBytes === null ? "—" : `${Math.round(asset.sizeBytes / 1024)} KB`}
+          </Text>
+          <Text size="xs" c="dimmed" style={{ width: "100px", flexShrink: 0 }}>
+            {asset.provider ?? "—"}
+          </Text>
+        </Group>
+      ))}
+    </Stack>
   );
 }
 
@@ -211,6 +321,14 @@ function MasterVenueDetailPage() {
 
   const assets = assetsData?.items ?? [];
   const photos = photosData?.items ?? [];
+
+  // first photo with a sourceUrl — used as hero thumbnail
+  const heroPhoto = photos.find((p) => p.sourceUrl) ?? null;
+
+  const mapUrl =
+    venue?.locationLat && venue?.locationLng
+      ? `https://maps.google.com/?q=${venue.locationLat},${venue.locationLng}`
+      : null;
 
   const handleDeleteSuccess = () => {
     void navigate({ to: "/admin/master-catalog" });
@@ -306,6 +424,7 @@ function MasterVenueDetailPage() {
       />
 
       <Stack gap="md">
+        {/* ── Hero card ─────────────────────────────────────────────────── */}
         <Paper
           p="lg"
           radius="md"
@@ -313,22 +432,38 @@ function MasterVenueDetailPage() {
           data-testid={TestSelectors.MASTER_VENUE_DETAIL_HERO_CARD}
         >
           <Group gap="lg" wrap="nowrap" align="flex-start">
-            <Box
-              style={{
-                width: 56,
-                height: 56,
-                borderRadius: "50%",
-                background: "var(--mantine-color-gray-1)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                flexShrink: 0,
-              }}
-            >
-              <IconBuildingStore size={28} color="var(--mantine-color-gray-6)" />
-            </Box>
+            {/* thumbnail */}
+            {photosLoading ? (
+              <Skeleton width={80} height={80} radius="md" style={{ flexShrink: 0 }} />
+            ) : heroPhoto?.sourceUrl ? (
+              <Image
+                src={heroPhoto.sourceUrl}
+                alt={heroPhoto.label ?? heroPhoto.fileName ?? ""}
+                width={80}
+                height={80}
+                radius="md"
+                fit="cover"
+                style={{ flexShrink: 0 }}
+              />
+            ) : (
+              <Box
+                style={{
+                  width: 80,
+                  height: 80,
+                  borderRadius: "var(--mantine-radius-md)",
+                  background: "var(--mantine-color-gray-1)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexShrink: 0,
+                }}
+              >
+                <IconBuildingStore size={32} color="var(--mantine-color-gray-5)" />
+              </Box>
+            )}
 
-            <Stack gap={6} style={{ flex: 1 }}>
+            {/* identity */}
+            <Stack gap={6} style={{ flex: 1, minWidth: 0 }}>
               {isLoading ? (
                 <Skeleton height={24} width={240} radius="sm" />
               ) : (
@@ -350,14 +485,21 @@ function MasterVenueDetailPage() {
                     {venue?.source ?? "—"}
                   </Badge>
                 )}
+
                 {!isLoading && venue?.city && (
                   <Text size="sm" c="dimmed" data-testid={TestSelectors.MASTER_VENUE_DETAIL_CITY}>
                     <IconMapPin size={13} style={{ verticalAlign: "middle" }} /> {venue.city}
                   </Text>
                 )}
+
+                {!isLoading && venue?.address && (
+                  <Text size="sm" c="dimmed" lineClamp={1}>
+                    {venue.address}
+                  </Text>
+                )}
               </Group>
 
-              <Group gap="lg">
+              <Group gap="lg" wrap="wrap">
                 <Text size="xs" c="dimmed">
                   <Trans>Created</Trans>:{" "}
                   {isLoading ? "…" : dayjs(venue?.createdAt).format("MMM D, YYYY HH:mm")}
@@ -366,19 +508,39 @@ function MasterVenueDetailPage() {
                   <Trans>Updated</Trans>:{" "}
                   {isLoading ? "…" : dayjs(venue?.updatedAt).format("MMM D, YYYY HH:mm")}
                 </Text>
+                {!isLoading && mapUrl && (
+                  <Anchor
+                    href={mapUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    size="xs"
+                    c="blue"
+                  >
+                    <Group gap={4} wrap="nowrap">
+                      <IconExternalLink size={12} />
+                      <Trans>Open in Maps</Trans>
+                    </Group>
+                  </Anchor>
+                )}
               </Group>
+            </Stack>
+
+            {/* confidence ring */}
+            <Stack gap={4} align="center" style={{ flexShrink: 0 }}>
+              <ConfidenceRing
+                value={venue?.confidence ?? null}
+                isLoading={isLoading}
+                data-testid={TestSelectors.MASTER_VENUE_DETAIL_CONFIDENCE}
+              />
+              <Text size="xs" c="dimmed" tt="uppercase" fw={500} lts={0.4}>
+                <Trans>Confidence</Trans>
+              </Text>
             </Stack>
           </Group>
 
           <Divider my="md" />
 
-          <SimpleGrid cols={{ base: 1, sm: 3 }} spacing="md">
-            <StatCard
-              label={<Trans>Confidence</Trans>}
-              value={venue?.confidence === null || venue === undefined ? "—" : venue.confidence}
-              isLoading={isLoading}
-              data-testid={TestSelectors.MASTER_VENUE_DETAIL_CONFIDENCE}
-            />
+          <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="md">
             <StatCard
               label={<Trans>Latitude</Trans>}
               value={venue?.locationLat ?? "—"}
@@ -392,6 +554,7 @@ function MasterVenueDetailPage() {
           </SimpleGrid>
         </Paper>
 
+        {/* ── Tabs ──────────────────────────────────────────────────────── */}
         <Tabs defaultValue="overview">
           <Tabs.List>
             <Tabs.Tab
@@ -407,6 +570,11 @@ function MasterVenueDetailPage() {
               leftSection={<IconPhoto size={15} />}
             >
               <Trans>Photos</Trans>
+              {!photosLoading && photos.length > 0 && (
+                <Badge variant="light" color="gray" size="xs" ml={6}>
+                  {photos.length}
+                </Badge>
+              )}
             </Tabs.Tab>
             <Tabs.Tab
               value="assets"
@@ -414,46 +582,52 @@ function MasterVenueDetailPage() {
               leftSection={<IconPaperclip size={15} />}
             >
               <Trans>Assets</Trans>
+              {!assetsLoading && assets.length > 0 && (
+                <Badge variant="light" color="gray" size="xs" ml={6}>
+                  {assets.length}
+                </Badge>
+              )}
             </Tabs.Tab>
           </Tabs.List>
 
           <Tabs.Panel value="overview" pt="md">
             {isLoading ? (
-              <Skeleton height={200} radius="sm" />
+              <Stack gap="sm">
+                {Array.from({ length: 4 }).map((_, i) => (
+                  <Skeleton key={i} height={16} width={`${60 - i * 8}%`} radius="sm" />
+                ))}
+              </Stack>
             ) : (
               <Stack gap="sm">
-                <Group gap="xs">
-                  <Text size="sm" fw={600} w={140}>
-                    <Trans>Address</Trans>
-                  </Text>
-                  <Text size="sm" c="dimmed">
-                    {venue?.address ?? "—"}
-                  </Text>
-                </Group>
-                <Group gap="xs">
-                  <Text size="sm" fw={600} w={140}>
-                    <Trans>City</Trans>
-                  </Text>
-                  <Text size="sm" c="dimmed">
-                    {venue?.city ?? "—"}
-                  </Text>
-                </Group>
-                <Group gap="xs">
-                  <Text size="sm" fw={600} w={140}>
-                    <Trans>Source</Trans>
-                  </Text>
-                  <Text size="sm" c="dimmed">
-                    {venue?.source ?? "—"}
-                  </Text>
-                </Group>
-                <Stack gap={4}>
-                  <Text size="sm" fw={600}>
-                    <Trans>Metadata</Trans>
-                  </Text>
-                  <Code block style={{ maxHeight: 320, overflow: "auto" }}>
-                    {venue?.metadata ?? "—"}
-                  </Code>
-                </Stack>
+                {(
+                  [
+                    [<Trans key="addr">Address</Trans>, venue?.address],
+                    [<Trans key="city">City</Trans>, venue?.city],
+                    [<Trans key="src">Source</Trans>, venue?.source],
+                    [
+                      <Trans key="lat">Coordinates</Trans>,
+                      venue?.locationLat && venue?.locationLng
+                        ? `${venue.locationLat}, ${venue.locationLng}`
+                        : null,
+                    ],
+                  ] as [React.ReactNode, string | number | null | undefined][]
+                ).map(([label, val], i) => (
+                  <Group key={i} gap="xs" wrap="nowrap">
+                    <Text size="sm" fw={600} style={{ width: 140, flexShrink: 0 }}>
+                      {label}
+                    </Text>
+                    <Text size="sm" c="dimmed">
+                      {val ?? "—"}
+                    </Text>
+                  </Group>
+                ))}
+
+                <Divider my="xs" />
+
+                <Text size="sm" fw={600}>
+                  <Trans>Metadata</Trans>
+                </Text>
+                <MetadataViewer raw={venue?.metadata ?? null} />
               </Stack>
             )}
           </Tabs.Panel>

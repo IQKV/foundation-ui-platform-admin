@@ -40,7 +40,7 @@ export function CreateMasterVenueModal({ opened, onClose }: CreateMasterVenueMod
           <Trans>Create Master Venue</Trans>
         </Text>
       }
-      size="lg"
+      size="xl"
       centered
     >
       <form onSubmit={handleSubmit} data-testid={TestSelectors.MODAL.CREATE_MASTER_VENUE}>

@@ -62,7 +62,7 @@ export function EditMasterVenueModal({ venue, opened, onClose }: EditMasterVenue
           )}
         </Stack>
       }
-      size="lg"
+      size="xl"
       centered
     >
       <form onSubmit={handleSubmit} data-testid={TestSelectors.MODAL.EDIT_MASTER_VENUE}>

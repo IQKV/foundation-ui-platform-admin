@@ -353,11 +353,21 @@ function AdminMasterCatalogPage() {
                 {
                   accessor: "confidence",
                   title: t`Confidence`,
-                  render: (venue) => (
-                    <Text size="sm" c="dimmed">
-                      {venue.confidence === null ? "—" : venue.confidence.toFixed(2)}
-                    </Text>
-                  ),
+                  render: (venue) => {
+                    if (venue.confidence === null)
+                      return (
+                        <Text size="sm" c="dimmed">
+                          —
+                        </Text>
+                      );
+                    const pct = Math.round(venue.confidence * 100);
+                    const color = pct >= 80 ? "green" : pct >= 50 ? "orange" : "red";
+                    return (
+                      <Badge variant="light" color={color} size="sm">
+                        {pct}%
+                      </Badge>
+                    );
+                  },
                 },
                 {
                   accessor: "updatedAt",

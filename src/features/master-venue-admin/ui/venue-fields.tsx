@@ -1,4 +1,4 @@
-import { SimpleGrid, Stack, TextInput, Textarea, NumberInput } from "@mantine/core";
+import { SimpleGrid, Stack, TextInput, Textarea, NumberInput, Divider } from "@mantine/core";
 import type { UseFormReturnType } from "@mantine/form";
 import { useLingui } from "@lingui/react/macro";
 import { TestSelectors } from "@/shared/lib/test-selectors";
@@ -14,6 +14,8 @@ export function VenueFields({ form }: VenueFieldsProps) {
 
   return (
     <Stack gap="md">
+      <Divider label={t`Identity`} labelPosition="left" />
+
       <TextInput
         label={t`Name`}
         withAsterisk
@@ -33,6 +35,8 @@ export function VenueFields({ form }: VenueFieldsProps) {
         {...form.getInputProps("city")}
       />
 
+      <Divider label={t`Coordinates`} labelPosition="left" />
+
       <SimpleGrid cols={{ base: 1, sm: 2 }} spacing="md">
         <NumberInput
           label={t`Latitude`}
@@ -50,6 +54,15 @@ export function VenueFields({ form }: VenueFieldsProps) {
         />
       </SimpleGrid>
 
+      <Divider label={t`Curation`} labelPosition="left" />
+
+      <TextInput
+        label={t`Source`}
+        withAsterisk
+        data-testid={TestSelectors.INPUT.MASTER_VENUE_SOURCE}
+        {...form.getInputProps("source")}
+      />
+
       <NumberInput
         label={t`Confidence`}
         description={t`Curation confidence between 0 and 1.`}
@@ -63,20 +76,14 @@ export function VenueFields({ form }: VenueFieldsProps) {
         onChange={(value) => form.setFieldValue("confidence", value === "" ? "" : String(value))}
       />
 
-      <TextInput
-        label={t`Source`}
-        withAsterisk
-        data-testid={TestSelectors.INPUT.MASTER_VENUE_SOURCE}
-        {...form.getInputProps("source")}
-      />
-
       <Textarea
         label={t`Metadata`}
-        description={t`Raw JSON metadata.`}
+        description={t`Raw JSON — written by the ingestion worker. Edit with care.`}
         autosize
-        minRows={3}
-        maxRows={8}
+        minRows={4}
+        maxRows={10}
         data-testid={TestSelectors.INPUT.MASTER_VENUE_METADATA}
+        styles={{ input: { fontFamily: "var(--mantine-font-family-monospace)" } }}
         {...form.getInputProps("metadata")}
       />
     </Stack>
