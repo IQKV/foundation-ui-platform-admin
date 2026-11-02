@@ -2,6 +2,7 @@ export * from "./announcement";
 export * from "./audit-record";
 export * from "./cms-page";
 export * from "./invitation";
+export * from "./master-venue";
 export * from "./notification";
 export * from "./oidc-identity";
 export * from "./refund";

@@ -135,6 +135,21 @@ export const TestSelectors = {
     CMS_PAGE_CREATE_CANCEL: "button--cancel",
     CMS_PAGE_EDIT_SAVE: "button--save",
     CMS_PAGE_EDIT_CANCEL: "button--cancel",
+    // Master Catalog
+    MASTER_CATALOG_CREATE: "button-master-catalog-create",
+    MASTER_CATALOG_REFRESH: "button-master-catalog-refresh",
+    MASTER_CATALOG_CLEAR_FILTERS: "button-master-catalog-clear-filters",
+    MASTER_CATALOG_SEARCH_CLEAR: "button-master-catalog-search-clear",
+    MASTER_VENUE_VIEW: (id: string) => `button-master-venue-view--${id}`,
+    MASTER_VENUE_EDIT: (id: string) => `button-master-venue-edit--${id}`,
+    MASTER_VENUE_DELETE: (id: string) => `button-master-venue-delete--${id}`,
+    MASTER_VENUE_CREATE_SUBMIT: "button--create-venue",
+    MASTER_VENUE_EDIT_SAVE: "button--save-venue",
+    MASTER_VENUE_DELETE_CONFIRM: "button--delete-venue",
+    MASTER_VENUE_DETAIL_EDIT: "button-master-venue-detail-edit",
+    MASTER_VENUE_DETAIL_DELETE: "button-master-venue-detail-delete",
+    MASTER_VENUE_DETAIL_REFRESH: "button-master-venue-detail-refresh",
+    MASTER_VENUE_DETAIL_ERROR_RETRY: "button-master-venue-detail-error-retry",
   },
   LINK: (name: string) => `link--${name}`,
   INPUT: {
@@ -198,6 +213,16 @@ export const TestSelectors = {
     CMS_PAGE_EDIT_TEMPLATE: "input--template",
     CMS_PAGE_EDIT_PARENT_ID: "input--parentId",
     CMS_PAGES_STATUS_FILTER: "select-cms-pages-status-filter",
+    // Master Catalog
+    MASTER_CATALOG_SEARCH: "input-master-catalog-search",
+    MASTER_VENUE_NAME: "input--name",
+    MASTER_VENUE_ADDRESS: "input--address",
+    MASTER_VENUE_CITY: "input--city",
+    MASTER_VENUE_LATITUDE: "input--location-lat",
+    MASTER_VENUE_LONGITUDE: "input--location-lng",
+    MASTER_VENUE_CONFIDENCE: "input--confidence",
+    MASTER_VENUE_SOURCE: "input--source",
+    MASTER_VENUE_METADATA: "input--metadata",
   },
   FORM: {
     SUB_DETAIL: "form-sub-detail",
@@ -219,6 +244,10 @@ export const TestSelectors = {
     SET_PASSWORD: "modal--set-password",
     // CMS
     CMS_DELETE_PAGE: "modal--delete-page",
+    // Master Catalog
+    CREATE_MASTER_VENUE: "modal--create-venue",
+    EDIT_MASTER_VENUE: "modal--edit-venue",
+    DELETE_MASTER_VENUE: "modal--delete-venue",
   },
   ALERT: {
     SESSION_TIMEOUT: "alert--session-timeout",
@@ -313,6 +342,7 @@ export const TestSelectors = {
     SUSPENDED_ORG_STATUS: (tenantKey: string) => `badge-suspended-org-status-${tenantKey}`,
     USERS_TOTAL_COUNT: "badge-users-total-count",
     CMS_PAGES_TOTAL_COUNT: "badge-cms-pages-total-count",
+    MASTER_CATALOG_TOTAL_COUNT: "badge-master-catalog-total-count",
   },
 
   // Menu Items
@@ -370,6 +400,9 @@ export const TestSelectors = {
     USER_ORGANIZATIONS: "tab-user-organizations",
     USER_OVERVIEW: "tab-user-overview",
     USER_PLATFORM_AUTHORITY: "tab-user-platform-authority",
+    MASTER_VENUE_OVERVIEW: "tab-master-venue-overview",
+    MASTER_VENUE_PHOTOS: "tab-master-venue-photos",
+    MASTER_VENUE_ASSETS: "tab-master-venue-assets",
   },
 
   // Selects
@@ -383,6 +416,7 @@ export const TestSelectors = {
     SUBS_STATUS_FILTER: "select-subs-status-filter",
     USERS_STATUS_FILTER: "select-users-status-filter",
     CMS_PAGES_TENANT: "select-cms-pages-tenant",
+    MASTER_CATALOG_CITY_FILTER: "select-master-catalog-city-filter",
   },
 
   // Org Detail
@@ -403,6 +437,13 @@ export const TestSelectors = {
   USER_DETAIL_JOINED_AT: "user-detail-joined-at",
   USER_DETAIL_ORG_COUNT: "user-detail-org-count",
   USER_STATUS_BADGE: (status: string) => `user-status-badge--${status}`,
+
+  // Master Venue Detail
+  MASTER_VENUE_DETAIL_HERO_CARD: "master-venue-detail-hero-card",
+  MASTER_VENUE_DETAIL_NAME: "master-venue-detail-name",
+  MASTER_VENUE_DETAIL_CITY: "master-venue-detail-city",
+  MASTER_VENUE_DETAIL_SOURCE: "master-venue-detail-source",
+  MASTER_VENUE_DETAIL_CONFIDENCE: "master-venue-detail-confidence",
 } as const;
 
 /**

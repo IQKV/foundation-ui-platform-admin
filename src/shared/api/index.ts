@@ -76,6 +76,15 @@ export type {
   ListCmsPageParams,
 } from "./cms";
 
+export { catalogApi } from "./catalog";
+export type {
+  AdminMasterVenueListResponse,
+  AdminMasterVenueAssetListResponse,
+  MasterVenueWriteRequest,
+  MasterVenuePatchRequest,
+  ListMasterVenuesParams,
+} from "./catalog";
+
 export { notificationApi } from "./iam";
 
 // Re-export all entity types for convenience
@@ -102,6 +111,8 @@ export type {
   CmsPageTranslation,
   CmsPageSummary,
   CmsPageHierarchyItem,
+  MasterVenue,
+  MasterVenueAsset,
   AuditRecord,
   AuditSeverity,
   AuditActionCount,

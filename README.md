@@ -1,6 +1,6 @@
 # Foundation UI Platform Admin
 
-Platform administration SPA for the Key Value Platform. Operators with `PLATFORM_ADMIN` authority manage users, organizations, invitations, subscriptions, and billing plans across all tenants.
+Platform administration SPA for the Key Value Platform. Operators with `PLATFORM_ADMIN` authority manage users, organizations, invitations, subscriptions, billing plans, and the master venue catalog across all tenants.
 
 ## About
 
@@ -17,6 +17,7 @@ This repository is the **platform admin surface only** (not the tenant-facing ap
 - **Subscriptions** — Global list with search, status filter, and sorting; lifecycle actions (cancel, pause, reactivate), and quantity update; detail view
 - **Plans** — Plan catalog list; create plan; plan detail with edit and delete
 - **Announcements** — Create, edit, publish, delete announcements with translation support
+- **Master catalog** — Paginated master venue catalog with keyword search and city filter; venue detail with Overview, Photos, and Assets tabs; create, edit (full replace), and delete venues — assets and photos are read-only (written by the ingestion worker)
 - **Audit Logs** — Global audit log view
 - **Notifications** — In-app notifications with WebSocket support; notification bell UI
 - **Refunds** — Refund list and detail views
@@ -41,6 +42,7 @@ Platform actions (impersonation), system health/jobs, advanced dashboard metrics
 | Subscriptions              | Done    | List + detail; cancel/pause/reactivate; update quantity           |
 | Plan catalog               | Done    | Create, edit, delete                                              |
 | Announcements              | Done    | Create, edit, publish, delete                                     |
+| Master catalog             | Done    | List + detail (photos/assets); create, edit, delete               |
 | Audit Logs                 | Done    | Global audit log view                                             |
 | Notifications              | Done    | In-app + WebSocket                                                |
 | Refunds                    | Done    | Refund list + detail                                              |
@@ -54,6 +56,7 @@ Platform actions (impersonation), system health/jobs, advanced dashboard metrics
 ## Quick Links
 
 - [Architecture Overview](./docs/architecture/README.md)
+- [API Documentation](./docs/api/README.md)
 - [Deployment Guide](./docs/deployment/README.md)
 - [Contributing Guidelines](.github/CONTRIBUTING.md)
 
@@ -132,6 +135,8 @@ Values on `window.*` take precedence over build-time `VITE_*` variables. Do not 
 | `/admin/plans`                                  | Plan catalog                                             |
 | `/admin/plans/:planCode`                        | Plan detail / edit                                       |
 | `/admin/announcements`                          | Announcements list                                       |
+| `/admin/master-catalog`                         | Master venue catalog list                                |
+| `/admin/master-catalog/:venueId`                | Master venue detail (overview, photos, assets)           |
 | `/admin/audit-logs`                             | Global audit logs                                        |
 | `/admin/notifications`                          | Notifications list                                       |
 | `/admin/refunds`                                | Refunds list                                             |
@@ -224,7 +229,7 @@ These endpoints require `PLATFORM_ADMIN` and are intended for account recovery /
 
 - **FSD-style layers**: `app → processes → pages → features → shared` with public `index.ts` barrels; `pnpm test:arch` enforces boundaries
 - **Routing**: TanStack Router file-based routes under `src/pages/`
-- **Data**: TanStack Query for server state; IAM and billing HTTP clients in `shared/api/`
+- **Data**: TanStack Query for server state; IAM, billing, and catalog HTTP clients in `shared/api/`
 - **Tables**: `mantine-datatable` with client-side pagination/filter patterns on list pages
 - **Quality**: OxLint, OxFmt, Stylelint, Vitest, Playwright, Knip
 

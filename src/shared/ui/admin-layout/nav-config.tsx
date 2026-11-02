@@ -45,6 +45,7 @@ import {
   IconHistory,
   IconFileText,
   IconWebhook,
+  IconBuildingStore,
 } from "@tabler/icons-react";
 
 // ─── Sections ─────────────────────────────────────────────────────────────────
@@ -100,6 +101,18 @@ export function buildNavSections(addonItems: NavItem[] = []): NavSection[] {
         { label: <Trans>CMS Pages</Trans>, icon: IconFileText, to: "/admin/cms-pages" },
         { label: <Trans>Webhook Logs</Trans>, icon: IconWebhook, to: "/admin/webhook-logs" },
         ...addonItems,
+      ],
+    },
+    {
+      id: "catalog",
+      label: <Trans>Catalog</Trans>,
+      prefixes: ["/admin/master-catalog"],
+      items: [
+        {
+          label: <Trans>Master Catalog</Trans>,
+          icon: IconBuildingStore,
+          to: "/admin/master-catalog",
+        },
       ],
     },
   ];

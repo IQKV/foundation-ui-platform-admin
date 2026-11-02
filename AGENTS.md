@@ -109,6 +109,7 @@ src/
 │   ├── edit-user/
 │   ├── invitation-admin/
 │   ├── manage-platform-authority/
+│   ├── master-venue-admin/
 │   ├── notification-bell/
 │   ├── page-admin/
 │   ├── plan-catalog/
@@ -122,6 +123,7 @@ src/
 │   ├── audit-record/
 │   ├── cms-page/
 │   ├── invitation/
+│   ├── master-venue/
 │   ├── notification/
 │   ├── oidc-identity/
 │   ├── refund/

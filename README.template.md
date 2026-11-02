@@ -118,6 +118,7 @@ PLATFORM_ADMIN  — required for all /admin/* routes
 ## Documentation
 
 - [Architecture Overview](./docs/architecture/README.md)
+- [API Documentation](./docs/api/README.md)
 - [Deployment Guide](./docs/deployment/README.md)
 - [Agent / FSD guide](./AGENTS.md)
 

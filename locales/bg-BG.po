@@ -133,6 +133,11 @@ msgstr ""
 msgid "Addons"
 msgstr ""
 
+#: src/features/master-venue-admin/ui/venue-fields.tsx
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "Address"
+msgstr ""
+
 #: src/features/set-user-password/ui/set-user-password-modal.tsx
 msgid "Admin password override"
 msgstr "Администраторско презаписване на парола"
@@ -140,6 +145,10 @@ msgstr "Администраторско презаписване на паро�
 #: src/pages/admin/audit-logs.tsx
 msgid "All actions"
 msgstr "Всички действия"
+
+#: src/pages/admin/master-catalog.index.tsx
+msgid "All cities"
+msgstr ""
 
 #: src/pages/admin/audit-logs.tsx
 msgid "All Events"
@@ -227,6 +236,11 @@ msgstr "Архивирано"
 msgid "Are you sure you want to cancel the subscription for <0>{0}</0>?"
 msgstr "Сигурни ли сте, че искате да отмените абонамента за <0>{0}</0>?"
 
+#. placeholder {0}: venue?.name ?? ""
+#: src/features/master-venue-admin/ui/delete-master-venue-modal.tsx
+msgid "Are you sure you want to delete <0>{0}</0>? This action cannot be undone."
+msgstr ""
+
 #: src/features/page-admin/ui/delete-page-modal.tsx
 msgid "Are you sure you want to delete <0>{displayName}</0>? This action cannot be undone."
 msgstr "Сигурни ли сте, че искате да изтриете <0>{displayName}</0>? Това действие не може да бъде отменено."
@@ -247,6 +261,10 @@ msgstr "Сигурни ли сте, че искате окончателно д�
 #: src/features/ban-user/ui/ban-user-modal.tsx
 msgid "Are you sure?"
 msgstr "Сигурни ли сте?"
+
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "Assets"
+msgstr ""
 
 #: src/features/change-admin-password/ui/change-admin-password-modal.tsx
 #: src/features/set-user-password/ui/set-user-password-modal.tsx
@@ -300,6 +318,7 @@ msgstr "Автоматична интеграция с рутер чрез <0>ro
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
+#: src/pages/admin/master-catalog.$venueId.tsx
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/refunds.$refundId.tsx
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
@@ -365,6 +384,9 @@ msgstr "Настройки за фактуриране"
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 #: src/features/manage-platform-authority/ui/grant-platform-admin-modal.tsx
 #: src/features/manage-platform-authority/ui/revoke-platform-admin-modal.tsx
+#: src/features/master-venue-admin/ui/create-master-venue-modal.tsx
+#: src/features/master-venue-admin/ui/delete-master-venue-modal.tsx
+#: src/features/master-venue-admin/ui/edit-master-venue-modal.tsx
 #: src/features/page-admin/ui/delete-page-modal.tsx
 #: src/features/set-user-password/ui/set-user-password-modal.tsx
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
@@ -401,6 +423,12 @@ msgstr "Не може да се изтрие публикувано или те�
 msgid "Canonical URL"
 msgstr "Каноничен URL"
 
+#: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/master-catalog.index.tsx
+#: src/shared/ui/admin-layout/nav-config.tsx
+msgid "Catalog"
+msgstr ""
+
 #: src/features/change-admin-password/ui/change-admin-password-modal.tsx
 #: src/pages/admin/account.tsx
 msgid "Change password"
@@ -410,8 +438,15 @@ msgstr "Промяна на парола"
 msgid "Change Password"
 msgstr "Промяна на парола"
 
+#: src/features/master-venue-admin/ui/venue-fields.tsx
+#: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/master-catalog.index.tsx
+msgid "City"
+msgstr ""
+
 #: src/pages/admin/announcements.index.tsx
 #: src/pages/admin/invitations.index.tsx
+#: src/pages/admin/master-catalog.index.tsx
 #: src/pages/admin/organizations.index.tsx
 #: src/pages/admin/plans.index.tsx
 #: src/pages/admin/subscriptions.tsx
@@ -426,6 +461,7 @@ msgstr "Изчисти всички"
 
 #: src/pages/admin/announcements.index.tsx
 #: src/pages/admin/invitations.index.tsx
+#: src/pages/admin/master-catalog.index.tsx
 #: src/pages/admin/organizations.index.tsx
 #: src/pages/admin/plans.index.tsx
 #: src/pages/admin/subscriptions.tsx
@@ -456,6 +492,16 @@ msgstr "Наименование на фирмата"
 #: src/pages/loading-demo.tsx
 msgid "Complete"
 msgstr "Завършено"
+
+#: src/features/master-venue-admin/ui/venue-fields.tsx
+#: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Confidence"
+msgstr ""
+
+#: src/features/master-venue-admin/model/types.ts
+msgid "Confidence must be a number"
+msgstr ""
 
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Confirm delete"
@@ -490,6 +536,10 @@ msgstr ""
 msgid "Content is required for the default locale"
 msgstr "Съдържанието е задължително за локала по подразбиране"
 
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "Content type"
+msgstr ""
+
 #: src/features/sign-in/ui/demo-credentials-hint.tsx
 msgid "Copied!"
 msgstr "Копирано!"
@@ -509,6 +559,10 @@ msgstr ""
 #: src/features/announcement-admin/ui/delete-announcement-modal.tsx
 msgid "Could not delete the announcement. Please try again."
 msgstr "Обявлението не може да бъде изтрито. Моля, опитайте отново."
+
+#: src/features/master-venue-admin/ui/delete-master-venue-modal.tsx
+msgid "Could not delete the master venue. Please try again."
+msgstr ""
 
 #: src/features/page-admin/ui/delete-page-modal.tsx
 msgid "Could not delete the page. It may be published."
@@ -533,6 +587,10 @@ msgstr "Не може да се извлекат поканите от API."
 #: src/pages/admin/users.$userId.tsx
 msgid "Could not fetch linked identities for this user."
 msgstr "Не може да се извлекат свързаните идентичности за този потребител."
+
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Could not fetch master venues from the API."
+msgstr ""
 
 #: src/pages/admin/-organization-tenant-panels.tsx
 msgid "Could not fetch members."
@@ -630,15 +688,24 @@ msgstr "Създай обявление"
 msgid "Create billing settings"
 msgstr "Създай настройки за фактуриране"
 
+#: src/features/master-venue-admin/ui/create-master-venue-modal.tsx
+msgid "Create Master Venue"
+msgstr ""
+
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "Create page"
 msgstr "Създай страница"
+
+#: src/features/master-venue-admin/ui/create-master-venue-modal.tsx
+msgid "Create venue"
+msgstr ""
 
 #: src/features/invitation-admin/ui/edit-invitation-modal.tsx
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/pages/admin/-organization-tenant-panels.tsx
 #: src/pages/admin/announcements.index.tsx
 #: src/pages/admin/invitations.index.tsx
+#: src/pages/admin/master-catalog.$venueId.tsx
 #: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/organizations.index.tsx
@@ -655,6 +722,10 @@ msgstr "Създадено:"
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "Creation failed"
 msgstr "Създаването не успя"
+
+#: src/features/master-venue-admin/ui/venue-fields.tsx
+msgid "Curation confidence between 0 and 1."
+msgstr ""
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/pages/admin/plans.$planCode.tsx
@@ -692,9 +763,11 @@ msgid "Default locale — required"
 msgstr ""
 
 #: src/features/announcement-admin/ui/delete-announcement-modal.tsx
+#: src/features/master-venue-admin/ui/delete-master-venue-modal.tsx
 #: src/features/page-admin/ui/delete-page-modal.tsx
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/pages/admin/cms-pages.index.tsx
+#: src/pages/admin/master-catalog.$venueId.tsx
 msgid "Delete"
 msgstr "Изтрий"
 
@@ -715,9 +788,14 @@ msgid "Delete billing settings?"
 msgstr "Изтриване на настройките за фактуриране?"
 
 #: src/features/announcement-admin/ui/delete-announcement-modal.tsx
+#: src/features/master-venue-admin/ui/delete-master-venue-modal.tsx
 #: src/features/page-admin/ui/delete-page-modal.tsx
 msgid "Delete failed"
 msgstr "Изтриването не успя"
+
+#: src/features/master-venue-admin/ui/delete-master-venue-modal.tsx
+msgid "Delete Master Venue"
+msgstr ""
 
 #: src/features/page-admin/ui/delete-page-modal.tsx
 msgid "Delete Page"
@@ -730,6 +808,10 @@ msgstr "Изтрий запис"
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Delete subscription record"
 msgstr "Изтрий запис за абонамент"
+
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Delete venue"
+msgstr ""
 
 #: src/shared/ui/tenant-status-badge/tenant-status-badge.tsx
 #: src/shared/ui/user-status-badge/user-status-badge.tsx
@@ -766,6 +848,7 @@ msgstr "напр. default, landing"
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.index.tsx
+#: src/pages/admin/master-catalog.$venueId.tsx
 msgid "Edit"
 msgstr ""
 
@@ -780,6 +863,10 @@ msgstr "Редактирай обявление"
 #: src/features/announcement-admin/ui/edit-announcement-modal.tsx
 msgid "Edit Announcement"
 msgstr "Редактирай обявление"
+
+#: src/features/master-venue-admin/ui/edit-master-venue-modal.tsx
+msgid "Edit Master Venue"
+msgstr ""
 
 #: src/pages/admin/-organization-tenant-panels.tsx
 msgid "Edit member authorities"
@@ -818,6 +905,10 @@ msgstr "Редактирай потребител"
 #: src/features/edit-user/ui/edit-user-modal.tsx
 msgid "Edit User"
 msgstr "Редактирай потребител"
+
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Edit venue"
+msgstr ""
 
 #: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
@@ -957,6 +1048,10 @@ msgstr "Неуспешна отмяна на абонамент"
 msgid "Failed to create announcement"
 msgstr "Неуспешно създаване на обявление"
 
+#: src/features/master-venue-admin/ui/create-master-venue-modal.tsx
+msgid "Failed to create venue"
+msgstr ""
+
 #: src/widgets/dashboard-stat-value/ui/stat-value.tsx
 msgid "Failed to load"
 msgstr "Зареждането не успя"
@@ -988,6 +1083,10 @@ msgstr "Зареждането на идентичностите не успя"
 #: src/pages/admin/invitations.index.tsx
 msgid "Failed to load invitations"
 msgstr "Зареждането на поканите не успя"
+
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Failed to load master venues"
+msgstr ""
 
 #: src/pages/admin/organizations.$tenantKey.tsx
 msgid "Failed to load organization"
@@ -1048,6 +1147,10 @@ msgstr "Зареждането на разбивката на абонамент
 msgid "Failed to load subscriptions"
 msgstr "Зареждането на абонаментите не успя"
 
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "Failed to load the master venue"
+msgstr ""
+
 #: src/pages/admin/users.$userId.tsx
 msgid "Failed to load user"
 msgstr "Зареждането на потребителя не успя"
@@ -1079,6 +1182,10 @@ msgstr "Разделянето на идентичността не успя"
 #: src/pages/admin/subscriptions.tsx
 msgid "Failed to update subscription"
 msgstr "Неуспешна актуализация на абонамент"
+
+#: src/features/master-venue-admin/ui/edit-master-venue-modal.tsx
+msgid "Failed to update venue"
+msgstr ""
 
 #: src/features/announcement-admin/model/types.ts
 msgid "Feature"
@@ -1151,6 +1258,8 @@ msgstr "Йерархия"
 #: src/pages/admin/cms-pages.index.tsx
 #: src/pages/admin/index.tsx
 #: src/pages/admin/invitations.index.tsx
+#: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/master-catalog.index.tsx
 #: src/pages/admin/notifications.tsx
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/organizations.index.tsx
@@ -1185,8 +1294,10 @@ msgstr "ID:"
 
 #. placeholder {0}: announcement.id
 #. placeholder {0}: user.id
+#. placeholder {0}: venue.id
 #: src/features/announcement-admin/ui/edit-announcement-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
+#: src/features/master-venue-admin/ui/edit-master-venue-modal.tsx
 msgid "ID: {0}"
 msgstr "ID: {0}"
 
@@ -1286,6 +1397,10 @@ msgstr "Ключ"
 msgid "Key:"
 msgstr "Ключ:"
 
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "Label"
+msgstr ""
+
 #: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/shared/ui/locale-switcher/locale-switcher.tsx
 msgid "Language"
@@ -1314,6 +1429,15 @@ msgstr "Последна актуализация"
 #: src/pages/admin/users.$userId.tsx
 msgid "Last used"
 msgstr "Последно използван"
+
+#: src/features/master-venue-admin/ui/venue-fields.tsx
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "Latitude"
+msgstr ""
+
+#: src/features/master-venue-admin/model/types.ts
+msgid "Latitude must be a number"
+msgstr ""
 
 #: src/pages/admin/users.$userId.tsx
 msgid "Linked"
@@ -1366,6 +1490,15 @@ msgstr "Заключени акаунти"
 msgid "Log ID"
 msgstr "Идентификатор на журнала"
 
+#: src/features/master-venue-admin/ui/venue-fields.tsx
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "Longitude"
+msgstr ""
+
+#: src/features/master-venue-admin/model/types.ts
+msgid "Longitude must be a number"
+msgstr ""
+
 #: src/features/announcement-admin/model/types.ts
 msgid "Maintenance"
 msgstr "Поддръжка"
@@ -1394,6 +1527,24 @@ msgstr "Управление"
 #: src/pages/admin/notifications.tsx
 msgid "Mark all as read"
 msgstr "Маркирай всички като прочетени"
+
+#: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/master-catalog.index.tsx
+#: src/shared/ui/admin-layout/nav-config.tsx
+msgid "Master Catalog"
+msgstr ""
+
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "Master Venue"
+msgstr ""
+
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Master Venue Catalog"
+msgstr ""
+
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Master venues"
+msgstr ""
 
 #: src/pages/admin/-organization-tenant-panels.tsx
 #: src/pages/admin/users.index.tsx
@@ -1425,6 +1576,8 @@ msgstr "Съобщението е задължително"
 msgid "Meta description for search engines"
 msgstr "Мета описание за търсачки"
 
+#: src/features/master-venue-admin/ui/venue-fields.tsx
+#: src/pages/admin/master-catalog.$venueId.tsx
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Metadata"
 msgstr "Метаданни"
@@ -1447,9 +1600,14 @@ msgstr "Трябва да е валиден UUID"
 msgid "My Account"
 msgstr "Моят акаунт"
 
+#: src/features/master-venue-admin/ui/venue-fields.tsx
 #: src/pages/admin/plans.index.tsx
 msgid "Name"
 msgstr "Наименование"
+
+#: src/features/master-venue-admin/model/types.ts
+msgid "Name is required"
+msgstr ""
 
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "New"
@@ -1484,6 +1642,10 @@ msgstr "Нова парола"
 msgid "New signups"
 msgstr ""
 
+#: src/pages/admin/master-catalog.index.tsx
+msgid "New venue"
+msgstr ""
+
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 msgid "No active organizations found"
 msgstr "Не са намерени активни организации"
@@ -1495,6 +1657,10 @@ msgstr "Не са намерени обявления"
 #: src/pages/admin/announcements.index.tsx
 msgid "No announcements match the current filters"
 msgstr "Няма обявления, съответстващи на текущите филтри"
+
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "No assets for this venue"
+msgstr ""
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "No billing settings"
@@ -1519,6 +1685,14 @@ msgstr "Няма покани, съответстващи на текущите 
 #: src/pages/admin/users.$userId.tsx
 msgid "No linked OIDC identities found."
 msgstr "Не са намерени свързани OIDC идентичности."
+
+#: src/pages/admin/master-catalog.index.tsx
+msgid "No master venues found"
+msgstr ""
+
+#: src/pages/admin/master-catalog.index.tsx
+msgid "No master venues match the current filters"
+msgstr ""
 
 #: src/pages/admin/-organization-tenant-panels.tsx
 msgid "No members found"
@@ -1549,6 +1723,10 @@ msgstr "Не са намерени страници за този наемате
 #: src/pages/admin/cms-pages.index.tsx
 msgid "No pages match the current filter"
 msgstr "Няма страници, съответстващи на текущия филтър"
+
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "No photos for this venue."
+msgstr ""
 
 #: src/pages/admin/plans.index.tsx
 msgid "No plans in the catalog"
@@ -1686,6 +1864,10 @@ msgstr "По избор превод"
 msgid "Optional UUID of the user who owns the billing profile."
 msgstr "Незадължителен UUID на потребителя, собственик на профила за фактуриране."
 
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "Order"
+msgstr ""
+
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 #: src/pages/admin/cms-pages.index.tsx
 #: src/pages/admin/organizations.$tenantKey.tsx
@@ -1722,6 +1904,7 @@ msgstr "Организации"
 msgid "Override page title for search engines"
 msgstr "Замени заглавието на страницата за търсачки"
 
+#: src/pages/admin/master-catalog.$venueId.tsx
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/users.$userId.tsx
 #: src/shared/ui/admin-layout/nav-config.tsx
@@ -1841,6 +2024,10 @@ msgstr "Период"
 msgid "Period End"
 msgstr "Край на периода"
 
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "Photos"
+msgstr ""
+
 #: src/features/ban-user/ui/ban-user-modal.tsx
 msgid "Pick a date and time"
 msgstr "Изберете дата и час"
@@ -1906,6 +2093,8 @@ msgid "Platform Overview"
 msgstr "Преглед на платформата"
 
 #: src/features/announcement-admin/ui/create-announcement-modal.tsx
+#: src/features/master-venue-admin/ui/create-master-venue-modal.tsx
+#: src/features/master-venue-admin/ui/edit-master-venue-modal.tsx
 msgid "Please check the form and try again."
 msgstr "Моля, проверете формуляра и опитайте отново."
 
@@ -1947,6 +2136,10 @@ msgstr "Предложи покана"
 msgid "Provide a reason for the ban…"
 msgstr "Посочете причина за забраната…"
 
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "Provider"
+msgstr ""
+
 #. placeholder {0}: identity.provider
 #: src/pages/admin/users.$userId.tsx
 msgid "Provider: <0>{0}</0>"
@@ -1969,6 +2162,10 @@ msgstr "Публикува се"
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Quantity"
 msgstr "Количество"
+
+#: src/features/master-venue-admin/ui/venue-fields.tsx
+msgid "Raw JSON metadata."
+msgstr ""
 
 #: src/pages/admin/subscriptions.tsx
 msgid "Reactivate"
@@ -2018,6 +2215,8 @@ msgstr "Последни възстановявания"
 #: src/pages/admin/audit-logs.tsx
 #: src/pages/admin/cms-pages.index.tsx
 #: src/pages/admin/invitations.index.tsx
+#: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/master-catalog.index.tsx
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/organizations.index.tsx
 #: src/pages/admin/plans.$planCode.tsx
@@ -2074,6 +2273,8 @@ msgstr "Възстанови достъпа"
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.index.tsx
 #: src/pages/admin/invitations.index.tsx
+#: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/master-catalog.index.tsx
 #: src/pages/admin/organizations.$tenantKey.refunds.tsx
 #: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
 #: src/pages/admin/organizations.$tenantKey.tsx
@@ -2123,6 +2324,7 @@ msgstr "Отмяната на правата на платформен адми�
 #: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/features/edit-tenant/ui/edit-tenant-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
+#: src/features/master-venue-admin/ui/edit-master-venue-modal.tsx
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
@@ -2166,6 +2368,10 @@ msgstr "Търсете по наемател или план…"
 #: src/pages/admin/webhook-logs.tsx
 msgid "Search event type or ID…"
 msgstr "Търсете тип събитие или ID…"
+
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Search name, address or city"
+msgstr ""
 
 #: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
 msgid "Search plan…"
@@ -2289,6 +2495,10 @@ msgstr "Показване на {rangeStart}–{rangeEnd} от {totalElements} �
 msgid "Showing {rangeStart}–{rangeEnd} of {totalElements} invitations"
 msgstr "Показване на {rangeStart}–{rangeEnd} от {totalElements} покани"
 
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Showing {rangeStart}–{rangeEnd} of {totalElements} master venues"
+msgstr ""
+
 #: src/pages/admin/organizations.index.tsx
 msgid "Showing {rangeStart}–{rangeEnd} of {totalElements} organizations"
 msgstr "Показване на {rangeStart}–{rangeEnd} от {totalElements} организации"
@@ -2334,6 +2544,10 @@ msgstr "Опити за вход"
 msgid "Site Announcements"
 msgstr "Обявления на сайта"
 
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "Size"
+msgstr ""
+
 #: src/pages/loading-demo.tsx
 msgid "Slim top progress bar for navigation between pages (automatic with router)."
 msgstr "Тясна горна лента за напредък при навигация между страници (автоматична с рутер)."
@@ -2358,6 +2572,16 @@ msgstr "Най-малката валутна единица (напр. стот�
 #: src/shared/ui/error-boundary.tsx
 msgid "Something went wrong"
 msgstr "Нещо се обърка"
+
+#: src/features/master-venue-admin/ui/venue-fields.tsx
+#: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Source"
+msgstr ""
+
+#: src/features/master-venue-admin/model/types.ts
+msgid "Source is required"
+msgstr ""
 
 #: src/pages/loading-demo.tsx
 msgid "Start"
@@ -2536,6 +2760,10 @@ msgstr "Ключ на наемател…"
 msgid "Tenant updated"
 msgstr "Наемателят е актуализиран"
 
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "The venue could not be found or the API is unavailable."
+msgstr ""
+
 #: src/pages/loading-demo.tsx
 msgid "Theme-aware (respects dark mode and color scheme)"
 msgstr "Отчита темата (поддържа тъмен режим и цветова схема)"
@@ -2633,6 +2861,7 @@ msgstr "Опитай отново"
 #: src/features/announcement-admin/ui/create-announcement-modal.tsx
 #: src/features/announcement-admin/ui/edit-announcement-modal.tsx
 #: src/pages/admin/announcements.index.tsx
+#: src/pages/admin/master-catalog.$venueId.tsx
 msgid "Type"
 msgstr "Тип"
 
@@ -2697,6 +2926,8 @@ msgid "Update Subscription Quantity"
 msgstr "Актуализирай количество на абонамент"
 
 #: src/pages/admin/cms-pages.index.tsx
+#: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/master-catalog.index.tsx
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/plans.index.tsx
 msgid "Updated"
@@ -2760,6 +2991,11 @@ msgstr "Използва компонента <0>LoadingOverlay</0> за цял�
 msgid "UUID or leave empty to clear."
 msgstr "UUID или оставете празно за изчистване."
 
+#: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Venue"
+msgstr ""
+
 #: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
 #: src/pages/admin/-organization-tenant-panels.tsx
@@ -2813,6 +3049,10 @@ msgstr "Прегледайте абонаментите"
 #: src/pages/admin/index.tsx
 msgid "View users"
 msgstr "Прегледайте потребителите"
+
+#: src/pages/admin/master-catalog.index.tsx
+msgid "View venue"
+msgstr ""
 
 #: src/features/announcement-admin/model/types.ts
 msgid "Warning"

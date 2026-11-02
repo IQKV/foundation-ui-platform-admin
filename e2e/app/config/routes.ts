@@ -10,6 +10,7 @@ export const ROUTES = {
   ADMIN_TENANTS: "/admin/organizations",
   ADMIN_INVITATIONS: "/admin/invitations",
   ADMIN_PLANS: "/admin/plans",
+  ADMIN_MASTER_CATALOG: "/admin/master-catalog",
   ADMIN_ACCOUNT: "/admin/account",
   NOT_FOUND: "/404",
   SERVER_ERROR: "/500",

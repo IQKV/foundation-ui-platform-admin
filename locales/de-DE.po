@@ -133,6 +133,11 @@ msgstr ""
 msgid "Addons"
 msgstr ""
 
+#: src/features/master-venue-admin/ui/venue-fields.tsx
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "Address"
+msgstr ""
+
 #: src/features/set-user-password/ui/set-user-password-modal.tsx
 msgid "Admin password override"
 msgstr "Admin-Passwort überschreiben"
@@ -140,6 +145,10 @@ msgstr "Admin-Passwort überschreiben"
 #: src/pages/admin/audit-logs.tsx
 msgid "All actions"
 msgstr "Alle Aktionen"
+
+#: src/pages/admin/master-catalog.index.tsx
+msgid "All cities"
+msgstr ""
 
 #: src/pages/admin/audit-logs.tsx
 msgid "All Events"
@@ -227,6 +236,11 @@ msgstr "Archiviert"
 msgid "Are you sure you want to cancel the subscription for <0>{0}</0>?"
 msgstr "Möchten Sie das Abonnement für <0>{0}</0> wirklich kündigen?"
 
+#. placeholder {0}: venue?.name ?? ""
+#: src/features/master-venue-admin/ui/delete-master-venue-modal.tsx
+msgid "Are you sure you want to delete <0>{0}</0>? This action cannot be undone."
+msgstr ""
+
 #: src/features/page-admin/ui/delete-page-modal.tsx
 msgid "Are you sure you want to delete <0>{displayName}</0>? This action cannot be undone."
 msgstr "Möchten Sie <0>{displayName}</0> wirklich löschen? Diese Aktion kann nicht rückgängig gemacht werden."
@@ -247,6 +261,10 @@ msgstr "Möchten Sie diesen Abonnementdatensatz wirklich dauerhaft löschen? Die
 #: src/features/ban-user/ui/ban-user-modal.tsx
 msgid "Are you sure?"
 msgstr "Sind Sie sicher?"
+
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "Assets"
+msgstr ""
 
 #: src/features/change-admin-password/ui/change-admin-password-modal.tsx
 #: src/features/set-user-password/ui/set-user-password-modal.tsx
@@ -300,6 +318,7 @@ msgstr "Automatische Router-Integration über <0>router.subscribe()</0>"
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
+#: src/pages/admin/master-catalog.$venueId.tsx
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/refunds.$refundId.tsx
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
@@ -365,6 +384,9 @@ msgstr "Abrechnungseinstellungen"
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 #: src/features/manage-platform-authority/ui/grant-platform-admin-modal.tsx
 #: src/features/manage-platform-authority/ui/revoke-platform-admin-modal.tsx
+#: src/features/master-venue-admin/ui/create-master-venue-modal.tsx
+#: src/features/master-venue-admin/ui/delete-master-venue-modal.tsx
+#: src/features/master-venue-admin/ui/edit-master-venue-modal.tsx
 #: src/features/page-admin/ui/delete-page-modal.tsx
 #: src/features/set-user-password/ui/set-user-password-modal.tsx
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
@@ -401,6 +423,12 @@ msgstr "Eine veröffentlichte oder laufende Ankündigung kann nicht gelöscht we
 msgid "Canonical URL"
 msgstr "Kanonische URL"
 
+#: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/master-catalog.index.tsx
+#: src/shared/ui/admin-layout/nav-config.tsx
+msgid "Catalog"
+msgstr ""
+
 #: src/features/change-admin-password/ui/change-admin-password-modal.tsx
 #: src/pages/admin/account.tsx
 msgid "Change password"
@@ -410,8 +438,15 @@ msgstr "Passwort ändern"
 msgid "Change Password"
 msgstr "Passwort ändern"
 
+#: src/features/master-venue-admin/ui/venue-fields.tsx
+#: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/master-catalog.index.tsx
+msgid "City"
+msgstr ""
+
 #: src/pages/admin/announcements.index.tsx
 #: src/pages/admin/invitations.index.tsx
+#: src/pages/admin/master-catalog.index.tsx
 #: src/pages/admin/organizations.index.tsx
 #: src/pages/admin/plans.index.tsx
 #: src/pages/admin/subscriptions.tsx
@@ -426,6 +461,7 @@ msgstr "Alle löschen"
 
 #: src/pages/admin/announcements.index.tsx
 #: src/pages/admin/invitations.index.tsx
+#: src/pages/admin/master-catalog.index.tsx
 #: src/pages/admin/organizations.index.tsx
 #: src/pages/admin/plans.index.tsx
 #: src/pages/admin/subscriptions.tsx
@@ -456,6 +492,16 @@ msgstr "Firmenname"
 #: src/pages/loading-demo.tsx
 msgid "Complete"
 msgstr "Abgeschlossen"
+
+#: src/features/master-venue-admin/ui/venue-fields.tsx
+#: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Confidence"
+msgstr ""
+
+#: src/features/master-venue-admin/model/types.ts
+msgid "Confidence must be a number"
+msgstr ""
 
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Confirm delete"
@@ -490,6 +536,10 @@ msgstr ""
 msgid "Content is required for the default locale"
 msgstr "Inhalt ist für die Standardsprache erforderlich"
 
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "Content type"
+msgstr ""
+
 #: src/features/sign-in/ui/demo-credentials-hint.tsx
 msgid "Copied!"
 msgstr "Kopiert!"
@@ -509,6 +559,10 @@ msgstr "Die Seite konnte nicht erstellt werden. Bitte überprüfen Sie das Formu
 #: src/features/announcement-admin/ui/delete-announcement-modal.tsx
 msgid "Could not delete the announcement. Please try again."
 msgstr "Die Ankündigung konnte nicht gelöscht werden. Bitte versuchen Sie es erneut."
+
+#: src/features/master-venue-admin/ui/delete-master-venue-modal.tsx
+msgid "Could not delete the master venue. Please try again."
+msgstr ""
 
 #: src/features/page-admin/ui/delete-page-modal.tsx
 msgid "Could not delete the page. It may be published."
@@ -533,6 +587,10 @@ msgstr "Einladungen konnten nicht von der API abgerufen werden."
 #: src/pages/admin/users.$userId.tsx
 msgid "Could not fetch linked identities for this user."
 msgstr "Verknüpfte Identitäten für diesen Benutzer konnten nicht abgerufen werden."
+
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Could not fetch master venues from the API."
+msgstr ""
 
 #: src/pages/admin/-organization-tenant-panels.tsx
 msgid "Could not fetch members."
@@ -630,15 +688,24 @@ msgstr "Ankündigung erstellen"
 msgid "Create billing settings"
 msgstr "Abrechnungseinstellungen erstellen"
 
+#: src/features/master-venue-admin/ui/create-master-venue-modal.tsx
+msgid "Create Master Venue"
+msgstr ""
+
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "Create page"
 msgstr "Seite erstellen"
+
+#: src/features/master-venue-admin/ui/create-master-venue-modal.tsx
+msgid "Create venue"
+msgstr ""
 
 #: src/features/invitation-admin/ui/edit-invitation-modal.tsx
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/pages/admin/-organization-tenant-panels.tsx
 #: src/pages/admin/announcements.index.tsx
 #: src/pages/admin/invitations.index.tsx
+#: src/pages/admin/master-catalog.$venueId.tsx
 #: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/organizations.index.tsx
@@ -655,6 +722,10 @@ msgstr "Erstellt:"
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "Creation failed"
 msgstr "Erstellung fehlgeschlagen"
+
+#: src/features/master-venue-admin/ui/venue-fields.tsx
+msgid "Curation confidence between 0 and 1."
+msgstr ""
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/pages/admin/plans.$planCode.tsx
@@ -692,9 +763,11 @@ msgid "Default locale — required"
 msgstr "Standardsprache — erforderlich"
 
 #: src/features/announcement-admin/ui/delete-announcement-modal.tsx
+#: src/features/master-venue-admin/ui/delete-master-venue-modal.tsx
 #: src/features/page-admin/ui/delete-page-modal.tsx
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/pages/admin/cms-pages.index.tsx
+#: src/pages/admin/master-catalog.$venueId.tsx
 msgid "Delete"
 msgstr "Löschen"
 
@@ -715,9 +788,14 @@ msgid "Delete billing settings?"
 msgstr "Abrechnungseinstellungen löschen?"
 
 #: src/features/announcement-admin/ui/delete-announcement-modal.tsx
+#: src/features/master-venue-admin/ui/delete-master-venue-modal.tsx
 #: src/features/page-admin/ui/delete-page-modal.tsx
 msgid "Delete failed"
 msgstr "Löschen fehlgeschlagen"
+
+#: src/features/master-venue-admin/ui/delete-master-venue-modal.tsx
+msgid "Delete Master Venue"
+msgstr ""
 
 #: src/features/page-admin/ui/delete-page-modal.tsx
 msgid "Delete Page"
@@ -730,6 +808,10 @@ msgstr "Datensatz löschen"
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Delete subscription record"
 msgstr "Abonnementdatensatz löschen"
+
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Delete venue"
+msgstr ""
 
 #: src/shared/ui/tenant-status-badge/tenant-status-badge.tsx
 #: src/shared/ui/user-status-badge/user-status-badge.tsx
@@ -766,6 +848,7 @@ msgstr "z.B. default, landing"
 
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.index.tsx
+#: src/pages/admin/master-catalog.$venueId.tsx
 msgid "Edit"
 msgstr "Bearbeiten"
 
@@ -780,6 +863,10 @@ msgstr "Ankündigung bearbeiten"
 #: src/features/announcement-admin/ui/edit-announcement-modal.tsx
 msgid "Edit Announcement"
 msgstr "Ankündigung bearbeiten"
+
+#: src/features/master-venue-admin/ui/edit-master-venue-modal.tsx
+msgid "Edit Master Venue"
+msgstr ""
 
 #: src/pages/admin/-organization-tenant-panels.tsx
 msgid "Edit member authorities"
@@ -818,6 +905,10 @@ msgstr "Benutzer bearbeiten"
 #: src/features/edit-user/ui/edit-user-modal.tsx
 msgid "Edit User"
 msgstr "Benutzer bearbeiten"
+
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Edit venue"
+msgstr ""
 
 #: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
@@ -957,6 +1048,10 @@ msgstr "Abonnement konnte nicht gekündigt werden"
 msgid "Failed to create announcement"
 msgstr "Ankündigung konnte nicht erstellt werden"
 
+#: src/features/master-venue-admin/ui/create-master-venue-modal.tsx
+msgid "Failed to create venue"
+msgstr ""
+
 #: src/widgets/dashboard-stat-value/ui/stat-value.tsx
 msgid "Failed to load"
 msgstr "Laden fehlgeschlagen"
@@ -988,6 +1083,10 @@ msgstr "Identitäten konnten nicht geladen werden"
 #: src/pages/admin/invitations.index.tsx
 msgid "Failed to load invitations"
 msgstr "Einladungen konnten nicht geladen werden"
+
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Failed to load master venues"
+msgstr ""
 
 #: src/pages/admin/organizations.$tenantKey.tsx
 msgid "Failed to load organization"
@@ -1048,6 +1147,10 @@ msgstr "Abonnementaufschlüsselung konnte nicht geladen werden"
 msgid "Failed to load subscriptions"
 msgstr "Abonnements konnten nicht geladen werden"
 
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "Failed to load the master venue"
+msgstr ""
+
 #: src/pages/admin/users.$userId.tsx
 msgid "Failed to load user"
 msgstr "Benutzer konnte nicht geladen werden"
@@ -1079,6 +1182,10 @@ msgstr "Identität konnte nicht getrennt werden"
 #: src/pages/admin/subscriptions.tsx
 msgid "Failed to update subscription"
 msgstr "Abonnement konnte nicht aktualisiert werden"
+
+#: src/features/master-venue-admin/ui/edit-master-venue-modal.tsx
+msgid "Failed to update venue"
+msgstr ""
 
 #: src/features/announcement-admin/model/types.ts
 msgid "Feature"
@@ -1151,6 +1258,8 @@ msgstr "Hierarchie"
 #: src/pages/admin/cms-pages.index.tsx
 #: src/pages/admin/index.tsx
 #: src/pages/admin/invitations.index.tsx
+#: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/master-catalog.index.tsx
 #: src/pages/admin/notifications.tsx
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/organizations.index.tsx
@@ -1185,8 +1294,10 @@ msgstr "ID:"
 
 #. placeholder {0}: announcement.id
 #. placeholder {0}: user.id
+#. placeholder {0}: venue.id
 #: src/features/announcement-admin/ui/edit-announcement-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
+#: src/features/master-venue-admin/ui/edit-master-venue-modal.tsx
 msgid "ID: {0}"
 msgstr "ID: {0}"
 
@@ -1286,6 +1397,10 @@ msgstr "Schlüssel"
 msgid "Key:"
 msgstr "Schlüssel:"
 
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "Label"
+msgstr ""
+
 #: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/shared/ui/locale-switcher/locale-switcher.tsx
 msgid "Language"
@@ -1314,6 +1429,15 @@ msgstr "Zuletzt aktualisiert"
 #: src/pages/admin/users.$userId.tsx
 msgid "Last used"
 msgstr "Zuletzt verwendet"
+
+#: src/features/master-venue-admin/ui/venue-fields.tsx
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "Latitude"
+msgstr ""
+
+#: src/features/master-venue-admin/model/types.ts
+msgid "Latitude must be a number"
+msgstr ""
 
 #: src/pages/admin/users.$userId.tsx
 msgid "Linked"
@@ -1366,6 +1490,15 @@ msgstr "Gesperrte Konten"
 msgid "Log ID"
 msgstr "Protokoll-ID"
 
+#: src/features/master-venue-admin/ui/venue-fields.tsx
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "Longitude"
+msgstr ""
+
+#: src/features/master-venue-admin/model/types.ts
+msgid "Longitude must be a number"
+msgstr ""
+
 #: src/features/announcement-admin/model/types.ts
 msgid "Maintenance"
 msgstr "Wartung"
@@ -1394,6 +1527,24 @@ msgstr "Verwaltung"
 #: src/pages/admin/notifications.tsx
 msgid "Mark all as read"
 msgstr "Alle als gelesen markieren"
+
+#: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/master-catalog.index.tsx
+#: src/shared/ui/admin-layout/nav-config.tsx
+msgid "Master Catalog"
+msgstr ""
+
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "Master Venue"
+msgstr ""
+
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Master Venue Catalog"
+msgstr ""
+
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Master venues"
+msgstr ""
 
 #: src/pages/admin/-organization-tenant-panels.tsx
 #: src/pages/admin/users.index.tsx
@@ -1425,6 +1576,8 @@ msgstr "Nachricht ist erforderlich"
 msgid "Meta description for search engines"
 msgstr "Meta-Beschreibung für Suchmaschinen"
 
+#: src/features/master-venue-admin/ui/venue-fields.tsx
+#: src/pages/admin/master-catalog.$venueId.tsx
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Metadata"
 msgstr "Metadaten"
@@ -1447,9 +1600,14 @@ msgstr "Muss eine gültige UUID sein"
 msgid "My Account"
 msgstr "Mein Konto"
 
+#: src/features/master-venue-admin/ui/venue-fields.tsx
 #: src/pages/admin/plans.index.tsx
 msgid "Name"
 msgstr "Name"
+
+#: src/features/master-venue-admin/model/types.ts
+msgid "Name is required"
+msgstr ""
 
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "New"
@@ -1484,6 +1642,10 @@ msgstr "Neues Passwort"
 msgid "New signups"
 msgstr "Neue Registrierungen"
 
+#: src/pages/admin/master-catalog.index.tsx
+msgid "New venue"
+msgstr ""
+
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 msgid "No active organizations found"
 msgstr "Keine aktiven Organisationen gefunden"
@@ -1495,6 +1657,10 @@ msgstr "Keine Ankündigungen gefunden"
 #: src/pages/admin/announcements.index.tsx
 msgid "No announcements match the current filters"
 msgstr "Keine Ankündigungen entsprechen den aktuellen Filtern"
+
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "No assets for this venue"
+msgstr ""
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "No billing settings"
@@ -1519,6 +1685,14 @@ msgstr "Keine Einladungen entsprechen den aktuellen Filtern"
 #: src/pages/admin/users.$userId.tsx
 msgid "No linked OIDC identities found."
 msgstr "Keine verknüpften OIDC-Identitäten gefunden."
+
+#: src/pages/admin/master-catalog.index.tsx
+msgid "No master venues found"
+msgstr ""
+
+#: src/pages/admin/master-catalog.index.tsx
+msgid "No master venues match the current filters"
+msgstr ""
 
 #: src/pages/admin/-organization-tenant-panels.tsx
 msgid "No members found"
@@ -1549,6 +1723,10 @@ msgstr "Keine Seiten für diesen Mandanten gefunden"
 #: src/pages/admin/cms-pages.index.tsx
 msgid "No pages match the current filter"
 msgstr "Keine Seiten entsprechen dem aktuellen Filter"
+
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "No photos for this venue."
+msgstr ""
 
 #: src/pages/admin/plans.index.tsx
 msgid "No plans in the catalog"
@@ -1686,6 +1864,10 @@ msgstr "Optionale Übersetzung"
 msgid "Optional UUID of the user who owns the billing profile."
 msgstr "Optionale UUID des Benutzers, dem das Abrechnungsprofil gehört."
 
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "Order"
+msgstr ""
+
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 #: src/pages/admin/cms-pages.index.tsx
 #: src/pages/admin/organizations.$tenantKey.tsx
@@ -1722,6 +1904,7 @@ msgstr "Organisationen"
 msgid "Override page title for search engines"
 msgstr "Seitentitel für Suchmaschinen überschreiben"
 
+#: src/pages/admin/master-catalog.$venueId.tsx
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/users.$userId.tsx
 #: src/shared/ui/admin-layout/nav-config.tsx
@@ -1841,6 +2024,10 @@ msgstr "Zeitraum"
 msgid "Period End"
 msgstr "Zeitraumende"
 
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "Photos"
+msgstr ""
+
 #: src/features/ban-user/ui/ban-user-modal.tsx
 msgid "Pick a date and time"
 msgstr "Datum und Uhrzeit auswählen"
@@ -1906,6 +2093,8 @@ msgid "Platform Overview"
 msgstr "Plattformübersicht"
 
 #: src/features/announcement-admin/ui/create-announcement-modal.tsx
+#: src/features/master-venue-admin/ui/create-master-venue-modal.tsx
+#: src/features/master-venue-admin/ui/edit-master-venue-modal.tsx
 msgid "Please check the form and try again."
 msgstr "Bitte überprüfen Sie das Formular und versuchen Sie es erneut."
 
@@ -1947,6 +2136,10 @@ msgstr "Einladung vorschlagen"
 msgid "Provide a reason for the ban…"
 msgstr "Grund für die Sperrung angeben…"
 
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "Provider"
+msgstr ""
+
 #. placeholder {0}: identity.provider
 #: src/pages/admin/users.$userId.tsx
 msgid "Provider: <0>{0}</0>"
@@ -1969,6 +2162,10 @@ msgstr "Wird veröffentlicht"
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Quantity"
 msgstr "Menge"
+
+#: src/features/master-venue-admin/ui/venue-fields.tsx
+msgid "Raw JSON metadata."
+msgstr ""
 
 #: src/pages/admin/subscriptions.tsx
 msgid "Reactivate"
@@ -2018,6 +2215,8 @@ msgstr "Jüngste Rückerstattungen"
 #: src/pages/admin/audit-logs.tsx
 #: src/pages/admin/cms-pages.index.tsx
 #: src/pages/admin/invitations.index.tsx
+#: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/master-catalog.index.tsx
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/organizations.index.tsx
 #: src/pages/admin/plans.$planCode.tsx
@@ -2074,6 +2273,8 @@ msgstr "Zugang wiederherstellen"
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.index.tsx
 #: src/pages/admin/invitations.index.tsx
+#: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/master-catalog.index.tsx
 #: src/pages/admin/organizations.$tenantKey.refunds.tsx
 #: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
 #: src/pages/admin/organizations.$tenantKey.tsx
@@ -2123,6 +2324,7 @@ msgstr "Das Entziehen des Plattform-Admin-Rechts von <0>{displayName}</0> entfer
 #: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/features/edit-tenant/ui/edit-tenant-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
+#: src/features/master-venue-admin/ui/edit-master-venue-modal.tsx
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
@@ -2166,6 +2368,10 @@ msgstr "Nach Mandant oder Tarif suchen…"
 #: src/pages/admin/webhook-logs.tsx
 msgid "Search event type or ID…"
 msgstr "Ereignistyp oder ID suchen…"
+
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Search name, address or city"
+msgstr ""
 
 #: src/pages/admin/organizations.$tenantKey.subscriptions.tsx
 msgid "Search plan…"
@@ -2289,6 +2495,10 @@ msgstr "{rangeStart}–{rangeEnd} von {totalElements} Ankündigungen angezeigt"
 msgid "Showing {rangeStart}–{rangeEnd} of {totalElements} invitations"
 msgstr "{rangeStart}–{rangeEnd} von {totalElements} Einladungen angezeigt"
 
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Showing {rangeStart}–{rangeEnd} of {totalElements} master venues"
+msgstr ""
+
 #: src/pages/admin/organizations.index.tsx
 msgid "Showing {rangeStart}–{rangeEnd} of {totalElements} organizations"
 msgstr "{rangeStart}–{rangeEnd} von {totalElements} Organisationen angezeigt"
@@ -2334,6 +2544,10 @@ msgstr "Anmeldeversuche"
 msgid "Site Announcements"
 msgstr "Website-Ankündigungen"
 
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "Size"
+msgstr ""
+
 #: src/pages/loading-demo.tsx
 msgid "Slim top progress bar for navigation between pages (automatic with router)."
 msgstr "Schmaler Fortschrittsbalken oben für die Navigation zwischen Seiten (automatisch mit Router)."
@@ -2358,6 +2572,16 @@ msgstr "Kleinste Währungseinheit (z.B. Cent)."
 #: src/shared/ui/error-boundary.tsx
 msgid "Something went wrong"
 msgstr "Etwas ist schiefgelaufen"
+
+#: src/features/master-venue-admin/ui/venue-fields.tsx
+#: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Source"
+msgstr ""
+
+#: src/features/master-venue-admin/model/types.ts
+msgid "Source is required"
+msgstr ""
 
 #: src/pages/loading-demo.tsx
 msgid "Start"
@@ -2536,6 +2760,10 @@ msgstr "Mandantenschlüssel…"
 msgid "Tenant updated"
 msgstr "Mandant aktualisiert"
 
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "The venue could not be found or the API is unavailable."
+msgstr ""
+
 #: src/pages/loading-demo.tsx
 msgid "Theme-aware (respects dark mode and color scheme)"
 msgstr "Thema-bewusst (berücksichtigt Dunkelmodus und Farbschema)"
@@ -2633,6 +2861,7 @@ msgstr "Erneut versuchen"
 #: src/features/announcement-admin/ui/create-announcement-modal.tsx
 #: src/features/announcement-admin/ui/edit-announcement-modal.tsx
 #: src/pages/admin/announcements.index.tsx
+#: src/pages/admin/master-catalog.$venueId.tsx
 msgid "Type"
 msgstr "Typ"
 
@@ -2697,6 +2926,8 @@ msgid "Update Subscription Quantity"
 msgstr "Abonnementmenge aktualisieren"
 
 #: src/pages/admin/cms-pages.index.tsx
+#: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/master-catalog.index.tsx
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/plans.index.tsx
 msgid "Updated"
@@ -2760,6 +2991,11 @@ msgstr "Verwendet die <0>LoadingOverlay</0>-Komponente für Vollbild-Laden"
 msgid "UUID or leave empty to clear."
 msgstr "UUID oder leer lassen zum Löschen."
 
+#: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Venue"
+msgstr ""
+
 #: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
 #: src/pages/admin/-organization-tenant-panels.tsx
@@ -2813,6 +3049,10 @@ msgstr "Abonnements anzeigen"
 #: src/pages/admin/index.tsx
 msgid "View users"
 msgstr "Benutzer anzeigen"
+
+#: src/pages/admin/master-catalog.index.tsx
+msgid "View venue"
+msgstr ""
 
 #: src/features/announcement-admin/model/types.ts
 msgid "Warning"
