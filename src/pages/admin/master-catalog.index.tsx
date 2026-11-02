@@ -23,24 +23,26 @@ import {
   Center,
   Image,
   ThemeIcon,
+  Divider,
+  Menu,
 } from "@mantine/core";
 import { useDisclosure, useDebouncedValue } from "@mantine/hooks";
 import { useQuery } from "@tanstack/react-query";
-import { DataTable } from "mantine-datatable";
 import {
   IconSearch,
   IconEdit,
   IconEye,
   IconRefresh,
   IconAlertCircle,
-  IconFilter,
   IconPlus,
   IconTrash,
   IconBuildingStore,
   IconLayoutList,
   IconLayoutGrid,
   IconMapPin,
-  IconDatabase,
+  IconDots,
+  IconChevronDown,
+  IconX,
 } from "@tabler/icons-react";
 import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
@@ -73,7 +75,7 @@ function ConfidenceBadge({ value }: { value: number | null }) {
   if (value === null) return <Text size="xs" c="dimmed">—</Text>;
   const pct = Math.round(value * 100);
   return (
-    <Badge variant="light" color={confidenceColor(value)} size="sm">
+    <Badge variant="light" color={confidenceColor(value)} size="xs">
       {pct}%
     </Badge>
   );
@@ -81,42 +83,38 @@ function ConfidenceBadge({ value }: { value: number | null }) {
 
 // ── Venue thumbnail ───────────────────────────────────────────────────────────
 
-function VenueThumbnail({ url, name, size = 40 }: { url: string | null; name: string; size?: number }) {
+function VenueThumbnail({
+  url,
+  name,
+  height = 148,
+}: {
+  url: string | null;
+  name: string;
+  height?: number;
+}) {
   if (url) {
     return (
-      <Box
-        style={{
-          width: size,
-          height: size,
-          borderRadius: "var(--mantine-radius-sm)",
-          overflow: "hidden",
-          flexShrink: 0,
-        }}
-      >
-        <Image
-          src={url}
-          alt={name}
-          w={size}
-          h={size}
-          style={{ objectFit: "cover", display: "block" }}
-        />
-      </Box>
+      <img
+        src={url}
+        alt={name}
+        style={{ width: "100%", height, objectFit: "cover", display: "block" }}
+      />
     );
   }
   return (
-    <ThemeIcon
-      size={size}
-      radius="sm"
-      variant="light"
-      color="gray"
-      style={{ flexShrink: 0 }}
+    <Group
+      justify="center"
+      align="center"
+      style={{ height, background: "var(--mantine-color-gray-1)" }}
     >
-      <IconBuildingStore size={Math.round(size * 0.5)} />
-    </ThemeIcon>
+      <ThemeIcon size={40} radius="xl" variant="light" color="gray">
+        <IconBuildingStore size={22} />
+      </ThemeIcon>
+    </Group>
   );
 }
 
-// ── Grid card ─────────────────────────────────────────────────────────────────
+// ── Grid card — mirrors VenueCard from mockup ─────────────────────────────────
 
 interface VenueCardProps {
   venue: MasterVenue;
@@ -127,133 +125,371 @@ interface VenueCardProps {
 
 function VenueCard({ venue, onView, onEdit, onDelete }: VenueCardProps) {
   const { t } = useLingui();
-  const color = confidenceColor(venue.confidence);
-
   return (
     <Card
-      shadow="xs"
+      padding="sm"
       radius="md"
-      padding={0}
       withBorder
-      style={{ overflow: "hidden", cursor: "default" }}
+      style={{
+        transition: "box-shadow 120ms ease, transform 120ms ease",
+        cursor: "pointer",
+        position: "relative",
+      }}
     >
-      {/* confidence accent bar */}
+      {/* photo strip */}
+      <Card.Section onClick={onView}>
+        <VenueThumbnail url={venue.primaryPhotoUrl} name={venue.name} height={148} />
+      </Card.Section>
+
+      {/* confidence accent — mirrors stage badge overlay */}
       <Box
         style={{
-          height: 3,
-          background: `var(--mantine-color-${color}-5)`,
-          opacity: venue.confidence === null ? 0.15 : 0.7,
+          position: "absolute",
+          top: 8,
+          left: 8,
+          zIndex: 1,
         }}
-      />
+      >
+        <ConfidenceBadge value={venue.confidence} />
+      </Box>
 
-      <Stack gap={0} p="md">
-        {/* thumbnail + name */}
-        <Group gap="sm" wrap="nowrap" align="flex-start" mb="xs">
-          <VenueThumbnail url={venue.primaryPhotoUrl} name={venue.name} size={48} />
-          <Stack gap={2} style={{ flex: 1, minWidth: 0 }}>
-            <Text size="sm" fw={600} lineClamp={2} lh={1.3}>
-              {venue.name}
+      {/* dots menu — mirrors VenueCard actions overlay */}
+      <Box
+        style={{ position: "absolute", top: 8, right: 8, zIndex: 1 }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <Menu shadow="md" width={160} position="bottom-end">
+          <Menu.Target>
+            <ActionIcon
+              variant="white"
+              size="sm"
+              radius="sm"
+              style={{ boxShadow: "var(--mantine-shadow-xs)" }}
+            >
+              <IconDots size={14} />
+            </ActionIcon>
+          </Menu.Target>
+          <Menu.Dropdown>
+            <Menu.Item
+              leftSection={<IconEye size={13} />}
+              data-testid={TestSelectors.BUTTON.MASTER_VENUE_VIEW(venue.id)}
+              onClick={onView}
+            >
+              {t`View record`}
+            </Menu.Item>
+            <Menu.Item
+              leftSection={<IconEdit size={13} />}
+              data-testid={TestSelectors.BUTTON.MASTER_VENUE_EDIT(venue.id)}
+              onClick={onEdit}
+            >
+              {t`Edit record`}
+            </Menu.Item>
+            <Menu.Divider />
+            <Menu.Item
+              color="red"
+              leftSection={<IconTrash size={13} />}
+              data-testid={TestSelectors.BUTTON.MASTER_VENUE_DELETE(venue.id)}
+              onClick={onDelete}
+            >
+              {t`Delete`}
+            </Menu.Item>
+          </Menu.Dropdown>
+        </Menu>
+      </Box>
+
+      {/* body */}
+      <Stack gap={6} mt="xs" onClick={onView}>
+        <Text fw={600} size="sm" lineClamp={2} lh={1.3}>
+          {venue.name}
+        </Text>
+        {(venue.city ?? venue.address) && (
+          <Group gap={4} wrap="nowrap">
+            <IconMapPin size={12} color="var(--mantine-color-gray-5)" />
+            <Text size="xs" c="dimmed" lineClamp={1}>
+              {venue.city
+                ? `${venue.city}${venue.address ? ` · ${venue.address}` : ""}`
+                : venue.address}
             </Text>
-            {(venue.city ?? venue.address) && (
-              <Group gap={4} wrap="nowrap">
-                <IconMapPin size={11} color="var(--mantine-color-gray-5)" style={{ flexShrink: 0 }} />
-                <Text size="xs" c="dimmed" lineClamp={1}>
-                  {venue.city
-                    ? `${venue.city}${venue.address ? ` · ${venue.address}` : ""}`
-                    : venue.address}
-                </Text>
-              </Group>
-            )}
-          </Stack>
-        </Group>
-
-        {/* badges */}
-        <Group gap={6} wrap="wrap" mb="sm">
-          <Badge variant="light" color="blue" size="xs" tt="uppercase" style={{ letterSpacing: "0.03em" }}>
-            {venue.source}
+          </Group>
+        )}
+        <Group gap="xs" wrap="wrap">
+          <Badge variant="outline" color="gray" size="xs" tt="uppercase">
+            {venue.source.replace(/_/g, " ")}
           </Badge>
-          <ConfidenceBadge value={venue.confidence} />
           <Text size="xs" c="dimmed" style={{ marginLeft: "auto" }}>
             {dayjs(venue.updatedAt).format("MMM D, YYYY")}
           </Text>
-        </Group>
-
-        {/* actions */}
-        <Group
-          gap={4}
-          justify="flex-end"
-          pt="xs"
-          style={{ borderTop: "1px solid var(--mantine-color-gray-1)" }}
-        >
-          <Tooltip label={t`View record`} withArrow>
-            <ActionIcon
-              data-testid={TestSelectors.BUTTON.MASTER_VENUE_VIEW(venue.id)}
-              variant="subtle"
-              color="gray"
-              size="sm"
-              onClick={onView}
-            >
-              <IconEye size={15} />
-            </ActionIcon>
-          </Tooltip>
-          <Tooltip label={t`Edit record`} withArrow>
-            <ActionIcon
-              data-testid={TestSelectors.BUTTON.MASTER_VENUE_EDIT(venue.id)}
-              variant="subtle"
-              color="blue"
-              size="sm"
-              onClick={onEdit}
-            >
-              <IconEdit size={15} />
-            </ActionIcon>
-          </Tooltip>
-          <Tooltip label={t`Delete record`} withArrow>
-            <ActionIcon
-              data-testid={TestSelectors.BUTTON.MASTER_VENUE_DELETE(venue.id)}
-              variant="subtle"
-              color="red"
-              size="sm"
-              onClick={onDelete}
-            >
-              <IconTrash size={15} />
-            </ActionIcon>
-          </Tooltip>
         </Group>
       </Stack>
     </Card>
   );
 }
 
-// ── Grid skeleton ─────────────────────────────────────────────────────────────
+// ── List row — mirrors VenueRow from mockup ────────────────────────────────────
 
-function GridSkeleton() {
+function VenueRow({ venue, onView, onEdit, onDelete }: VenueCardProps) {
+  const { t } = useLingui();
   return (
-    <SimpleGrid cols={{ base: 1, sm: 2, md: 3, lg: 4 }} spacing="md">
-      {Array.from({ length: 8 }).map((_, i) => (
-        <Card key={i} shadow="xs" radius="md" padding={0} withBorder style={{ overflow: "hidden" }}>
-          <Skeleton height={3} radius={0} />
-          <Stack gap="xs" p="md">
-            <Group gap="sm" wrap="nowrap">
-              <Skeleton width={48} height={48} radius="sm" style={{ flexShrink: 0 }} />
-              <Stack gap={4} style={{ flex: 1 }}>
-                <Skeleton height={12} width="70%" radius="sm" />
-                <Skeleton height={10} width="50%" radius="sm" />
-              </Stack>
+    <Card
+      padding={0}
+      radius="md"
+      withBorder
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        overflow: "hidden",
+        transition: "box-shadow 150ms ease, transform 150ms ease",
+        cursor: "pointer",
+      }}
+    >
+      {/* photo strip — 140px, mirrors VenueRow */}
+      <Box
+        onClick={onView}
+        style={{
+          flexShrink: 0,
+          width: 140,
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
+        <VenueThumbnail url={venue.primaryPhotoUrl} name={venue.name} height={110} />
+        {/* confidence badge pinned bottom-left of photo strip */}
+        <Box style={{ position: "absolute", bottom: 8, left: 8 }}>
+          <ConfidenceBadge value={venue.confidence} />
+        </Box>
+      </Box>
+
+      {/* body */}
+      <Group
+        gap="md"
+        align="center"
+        onClick={onView}
+        style={{
+          flex: 1,
+          minWidth: 0,
+          padding: "var(--mantine-spacing-md) var(--mantine-spacing-lg)",
+        }}
+      >
+        {/* name + location */}
+        <Stack gap={4} style={{ flex: 1, minWidth: 0 }}>
+          <Text fw={700} size="md" lineClamp={1}>
+            {venue.name}
+          </Text>
+          {venue.city && (
+            <Group gap={4} wrap="nowrap">
+              <IconMapPin size={13} color="var(--mantine-color-gray-5)" />
+              <Text size="sm" c="dimmed" lineClamp={1}>
+                {venue.city}
+              </Text>
             </Group>
-            <Group gap={6}>
-              <Skeleton height={18} width={60} radius="xl" />
-              <Skeleton height={18} width={44} radius="xl" />
-            </Group>
-          </Stack>
-        </Card>
-      ))}
-    </SimpleGrid>
+          )}
+          <Group gap="xs" mt={4} wrap="wrap">
+            <Badge variant="outline" color="gray" size="xs" tt="uppercase">
+              {venue.source.replace(/_/g, " ")}
+            </Badge>
+          </Group>
+        </Stack>
+
+        {/* stats strip — mirrors VenueRow divider + stats */}
+        <Divider orientation="vertical" />
+        <Stack gap={6} style={{ flexShrink: 0, minWidth: 140 }}>
+          <Text size="xs" c="dimmed">
+            <Trans>Updated</Trans>
+          </Text>
+          <Text size="sm" fw={500}>
+            {dayjs(venue.updatedAt).format("MMM D, YYYY")}
+          </Text>
+          <Text size="xs" c="dimmed">
+            <Trans>Created</Trans>
+          </Text>
+          <Text size="sm" fw={500}>
+            {dayjs(venue.createdAt).format("MMM D, YYYY")}
+          </Text>
+        </Stack>
+      </Group>
+
+      {/* actions column — mirrors VenueRow right border column */}
+      <Stack
+        justify="flex-start"
+        align="center"
+        py="sm"
+        px="xs"
+        style={{
+          flexShrink: 0,
+          borderLeft: "1px solid var(--mantine-color-default-border)",
+        }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <Menu shadow="md" width={160} position="bottom-end">
+          <Menu.Target>
+            <ActionIcon variant="subtle" size="md" color="gray">
+              <IconDots size={16} />
+            </ActionIcon>
+          </Menu.Target>
+          <Menu.Dropdown>
+            <Menu.Item
+              leftSection={<IconEye size={13} />}
+              data-testid={TestSelectors.BUTTON.MASTER_VENUE_VIEW(venue.id)}
+              onClick={onView}
+            >
+              {t`View record`}
+            </Menu.Item>
+            <Menu.Item
+              leftSection={<IconEdit size={13} />}
+              data-testid={TestSelectors.BUTTON.MASTER_VENUE_EDIT(venue.id)}
+              onClick={onEdit}
+            >
+              {t`Edit record`}
+            </Menu.Item>
+            <Menu.Divider />
+            <Menu.Item
+              color="red"
+              leftSection={<IconTrash size={13} />}
+              data-testid={TestSelectors.BUTTON.MASTER_VENUE_DELETE(venue.id)}
+              onClick={onDelete}
+            >
+              {t`Delete`}
+            </Menu.Item>
+          </Menu.Dropdown>
+        </Menu>
+      </Stack>
+    </Card>
+  );
+}
+
+// ── Skeletons ─────────────────────────────────────────────────────────────────
+
+function CardSkeleton() {
+  return (
+    <Card padding="sm" radius="md" withBorder>
+      <Card.Section><Skeleton height={148} /></Card.Section>
+      <Stack gap={6} mt="xs">
+        <Skeleton height={14} width="80%" />
+        <Skeleton height={12} width="40%" />
+        <Skeleton height={12} width="60%" />
+      </Stack>
+    </Card>
+  );
+}
+
+function RowSkeleton() {
+  return (
+    <Card padding={0} radius="md" withBorder style={{ display: "flex", flexDirection: "row", overflow: "hidden" }}>
+      <Skeleton height={110} width={140} radius={0} style={{ flexShrink: 0 }} />
+      <Group gap="md" align="center" style={{ flex: 1, padding: "var(--mantine-spacing-md) var(--mantine-spacing-lg)" }}>
+        <Stack gap={6} style={{ flex: 1 }}>
+          <Skeleton height={18} width="55%" />
+          <Skeleton height={13} width="30%" />
+          <Skeleton height={18} width={90} mt={4} />
+        </Stack>
+        <Stack gap={10} style={{ flexShrink: 0, width: 140 }}>
+          <Skeleton height={16} width={80} />
+          <Skeleton height={14} width={100} />
+        </Stack>
+      </Group>
+      <Stack justify="flex-start" align="center" py="sm" px="xs" style={{ flexShrink: 0 }}>
+        <Skeleton height={28} width={28} radius="sm" />
+      </Stack>
+    </Card>
+  );
+}
+
+// ── Filter sidebar — mirrors FilterSidebar from mockup ────────────────────────
+
+interface FilterSidebarProps {
+  search: string;
+  cityFilter: string | null;
+  cityOptions: { value: string; label: string }[];
+  hasActiveFilters: boolean;
+  onSearchChange: (v: string) => void;
+  onCityChange: (v: string | null) => void;
+  onReset: () => void;
+}
+
+function FilterSidebar({
+  search,
+  cityFilter,
+  cityOptions,
+  hasActiveFilters,
+  onSearchChange,
+  onCityChange,
+  onReset,
+}: FilterSidebarProps) {
+  const { t } = useLingui();
+  return (
+    <Paper
+      withBorder
+      radius="md"
+      p="md"
+      style={{
+        width: 220,
+        flexShrink: 0,
+        position: "sticky",
+        top: 16,
+        alignSelf: "flex-start",
+      }}
+    >
+      <Stack gap="xs">
+        <Group justify="space-between" mb={2}>
+          <Text size="xs" fw={700} tt="uppercase" c="dimmed" style={{ letterSpacing: "0.06em" }}>
+            <Trans>Filters</Trans>
+          </Text>
+          {hasActiveFilters && (
+            <ActionIcon
+              size="xs"
+              variant="subtle"
+              color="gray"
+              data-testid={TestSelectors.BUTTON.MASTER_CATALOG_CLEAR_FILTERS}
+              onClick={onReset}
+            >
+              <IconX size={11} />
+            </ActionIcon>
+          )}
+        </Group>
+
+        <TextInput
+          placeholder={t`Name or city…`}
+          leftSection={<IconSearch size={13} />}
+          value={search}
+          data-testid={TestSelectors.INPUT.MASTER_CATALOG_SEARCH}
+          onChange={(e) => onSearchChange(e.currentTarget.value)}
+          size="xs"
+          rightSection={
+            search ? (
+              <CloseButton
+                size="xs"
+                data-testid={TestSelectors.BUTTON.MASTER_CATALOG_SEARCH_CLEAR}
+                onClick={() => onSearchChange("")}
+              />
+            ) : null
+          }
+        />
+
+        <Divider />
+
+        <Stack gap={4}>
+          <Text size="xs" fw={600} c="dimmed">
+            <Trans>City</Trans>
+          </Text>
+          <Select
+            data-testid={TestSelectors.SELECT.MASTER_CATALOG_CITY_FILTER}
+            placeholder={t`All cities`}
+            data={cityOptions}
+            value={cityFilter}
+            onChange={onCityChange}
+            searchable
+            clearable
+            size="xs"
+          />
+        </Stack>
+      </Stack>
+    </Paper>
   );
 }
 
 // ── Page ──────────────────────────────────────────────────────────────────────
 
-type ViewMode = "table" | "grid";
+type ViewMode = "grid" | "list";
 
 function AdminMasterCatalogPage() {
   const { t } = useLingui();
@@ -263,7 +499,7 @@ function AdminMasterCatalogPage() {
   const [search, setSearch] = useState("");
   const [debouncedSearch] = useDebouncedValue(search, 300);
   const [cityFilter, setCityFilter] = useState<string | null>(null);
-  const [viewMode, setViewMode] = useState<ViewMode>("table");
+  const [viewMode, setViewMode] = useState<ViewMode>("grid");
 
   const [createOpened, { open: openCreate, close: closeCreate }] = useDisclosure(false);
   const [editOpened, { open: openEdit, close: closeEdit }] = useDisclosure(false);
@@ -293,38 +529,16 @@ function AdminMasterCatalogPage() {
   // shortcut: city options come from the loaded page only (no city-list endpoint); upgrade when one exists.
   const cityOptions = useMemo(() => {
     const cities = new Set<string>();
-    items.forEach((venue) => {
-      if (venue.city) cities.add(venue.city);
-    });
+    items.forEach((v) => { if (v.city) cities.add(v.city); });
     if (cityFilter) cities.add(cityFilter);
-    return [...cities].sort().map((city) => ({ value: city, label: city }));
+    return [...cities].sort().map((c) => ({ value: c, label: c }));
   }, [items, cityFilter]);
 
-  const handleEdit = (venue: MasterVenue) => {
-    setSelectedVenue(venue);
-    openEdit();
-  };
-
-  const handleDelete = (venue: MasterVenue) => {
-    setSelectedVenue(venue);
-    openDelete();
-  };
-
-  const handleCloseEdit = () => {
-    closeEdit();
-    setTimeout(() => setSelectedVenue(null), 300);
-  };
-
-  const handleCloseDelete = () => {
-    closeDelete();
-    setTimeout(() => setSelectedVenue(null), 300);
-  };
-
-  const handleClearFilters = () => {
-    setSearch("");
-    setCityFilter(null);
-    setPage(1);
-  };
+  const handleEdit = (venue: MasterVenue) => { setSelectedVenue(venue); openEdit(); };
+  const handleDelete = (venue: MasterVenue) => { setSelectedVenue(venue); openDelete(); };
+  const handleCloseEdit = () => { closeEdit(); setTimeout(() => setSelectedVenue(null), 300); };
+  const handleCloseDelete = () => { closeDelete(); setTimeout(() => setSelectedVenue(null), 300); };
+  const handleReset = () => { setSearch(""); setCityFilter(null); setPage(1); };
 
   return (
     <Container size="xl" py={0}>
@@ -337,134 +551,93 @@ function AdminMasterCatalogPage() {
           { label: <Trans>Master Catalog</Trans> },
         ]}
         toolbar={
-          <Button
-            data-testid={TestSelectors.BUTTON.MASTER_CATALOG_CREATE}
-            leftSection={<IconPlus size={16} />}
-            size="sm"
-            onClick={openCreate}
-          >
-            <Trans>New venue</Trans>
-          </Button>
+          /* Split button mirrors the Quick add / Full form menu in the mockup */
+          <Menu shadow="md" width={220} position="bottom-end">
+            <Group gap={0}>
+              <Button
+                leftSection={<IconPlus size={14} />}
+                size="sm"
+                data-testid={TestSelectors.BUTTON.MASTER_CATALOG_CREATE}
+                onClick={openCreate}
+                style={{ borderTopRightRadius: 0, borderBottomRightRadius: 0 }}
+              >
+                <Trans>New venue</Trans>
+              </Button>
+              <Menu.Target>
+                <Button
+                  size="sm"
+                  px="xs"
+                  aria-label={t`More options`}
+                  style={{
+                    borderTopLeftRadius: 0,
+                    borderBottomLeftRadius: 0,
+                    borderLeft: "1px solid rgba(255,255,255,0.25)",
+                  }}
+                >
+                  <IconChevronDown size={14} />
+                </Button>
+              </Menu.Target>
+            </Group>
+            <Menu.Dropdown>
+              <Menu.Label><Trans>Add venue</Trans></Menu.Label>
+              <Menu.Item leftSection={<IconPlus size={14} />} onClick={openCreate}>
+                <Trans>New venue</Trans>
+                <Text size="xs" c="dimmed" mt={1}><Trans>Fill all fields manually</Trans></Text>
+              </Menu.Item>
+            </Menu.Dropdown>
+          </Menu>
         }
       />
 
-      <Stack gap="md">
-        {/* ── Catalog context strip ────────────────────────────────────── */}
-        <Paper shadow="xs" radius="md" p="md" withBorder>
-          <Group gap="md" wrap="nowrap" align="flex-start">
-            <ThemeIcon size={40} radius="md" variant="light" color="blue" style={{ flexShrink: 0 }}>
-              <IconDatabase size={20} />
-            </ThemeIcon>
-            <Stack gap={2}>
-              <Text size="sm" fw={600}>
-                <Trans>Platform-owned reference dataset</Trans>
-              </Text>
-              <Text size="xs" c="dimmed" lh={1.5}>
-                <Trans>
-                  Records are ingested and enriched automatically by the catalog worker. Use this
-                  view to inspect, correct, or manually add catalog entries.
-                </Trans>
-              </Text>
-            </Stack>
-            {!isLoading && (
-              <Badge
-                data-testid={TestSelectors.BADGE.MASTER_CATALOG_TOTAL_COUNT}
-                variant="light"
-                color="blue"
-                size="lg"
-                radius="sm"
-                style={{ flexShrink: 0, marginLeft: "auto" }}
-              >
-                {totalElements.toLocaleString()}
-              </Badge>
-            )}
-          </Group>
-        </Paper>
+      {isError && (
+        <Alert
+          icon={<IconAlertCircle size={16} />}
+          title={<Trans>Failed to load master venues</Trans>}
+          color="red"
+          variant="light"
+          mb="md"
+        >
+          <Trans>Could not fetch master venues from the API.</Trans>{" "}
+          <Button variant="subtle" color="red" size="xs" onClick={() => void refetch()}>
+            <Trans>Retry</Trans>
+          </Button>
+        </Alert>
+      )}
 
-        {isError && (
-          <Alert
-            icon={<IconAlertCircle size={16} />}
-            title={<Trans>Failed to load master venues</Trans>}
-            color="red"
-            variant="light"
-          >
-            <Trans>Could not fetch master venues from the API.</Trans>{" "}
-            <Button variant="subtle" color="red" size="xs" onClick={() => void refetch()}>
-              <Trans>Retry</Trans>
-            </Button>
-          </Alert>
-        )}
+      {/* ── Two-column layout — mirrors VenueListWidget ──────────────── */}
+      <Group align="flex-start" gap="lg" wrap="nowrap">
 
-        {/* ── Records panel ────────────────────────────────────────────── */}
-        <Paper shadow="xs" radius="md" withBorder style={{ overflow: "hidden" }}>
+        {/* left: filter sidebar */}
+        <FilterSidebar
+          search={search}
+          cityFilter={cityFilter}
+          cityOptions={cityOptions}
+          hasActiveFilters={hasActiveFilters}
+          onSearchChange={(v) => { setSearch(v); setPage(1); }}
+          onCityChange={(v) => { setCityFilter(v); setPage(1); }}
+          onReset={handleReset}
+        />
+
+        {/* right: toolbar + results */}
+        <Stack gap="md" style={{ flex: 1, minWidth: 0 }}>
+
           {/* toolbar */}
-          <Group
-            justify="space-between"
-            align="center"
-            px="md"
-            py="sm"
-            style={{ borderBottom: "1px solid var(--mantine-color-gray-2)" }}
-          >
-            <Text fw={600} size="sm" c="dimmed" tt="uppercase" lts={0.04} style={{ fontSize: 11 }}>
-              <Trans>Records</Trans>
-            </Text>
+          <Group justify="space-between" wrap="wrap" gap="sm">
+            {!isLoading ? (
+              <Text size="xs" c="dimmed">
+                {totalElements === 0 ? (
+                  <Trans>No venues found</Trans>
+                ) : (
+                  <Trans>
+                    {totalElements} venue{totalElements === 1 ? "" : "s"}
+                  </Trans>
+                )}
+              </Text>
+            ) : (
+              <Skeleton height={14} width={80} />
+            )}
 
-            <Group gap="xs">
-              <Select
-                data-testid={TestSelectors.SELECT.MASTER_CATALOG_CITY_FILTER}
-                placeholder={t`All cities`}
-                leftSection={<IconFilter size={14} />}
-                data={cityOptions}
-                value={cityFilter}
-                onChange={(value) => {
-                  setCityFilter(value);
-                  setPage(1);
-                }}
-                searchable
-                clearable
-                size="xs"
-                style={{ width: 180 }}
-              />
-
-              <TextInput
-                data-testid={TestSelectors.INPUT.MASTER_CATALOG_SEARCH}
-                placeholder={t`Search name, address or city`}
-                leftSection={<IconSearch size={14} />}
-                value={search}
-                onChange={(event) => {
-                  setSearch(event.currentTarget.value);
-                  setPage(1);
-                }}
-                size="xs"
-                style={{ width: 240 }}
-                rightSection={
-                  search ? (
-                    <CloseButton
-                      size="xs"
-                      data-testid={TestSelectors.BUTTON.MASTER_CATALOG_SEARCH_CLEAR}
-                      onClick={() => {
-                        setSearch("");
-                        setPage(1);
-                      }}
-                    />
-                  ) : null
-                }
-              />
-
-              {hasActiveFilters && (
-                <Tooltip label={t`Clear filters`} withArrow>
-                  <Button
-                    data-testid={TestSelectors.BUTTON.MASTER_CATALOG_CLEAR_FILTERS}
-                    variant="subtle"
-                    color="gray"
-                    size="xs"
-                    onClick={handleClearFilters}
-                  >
-                    <Trans>Clear</Trans>
-                  </Button>
-                </Tooltip>
-              )}
-
+            <Group gap="xs" style={{ marginLeft: "auto" }}>
               <Tooltip label={t`Refresh`} withArrow>
                 <ActionIcon
                   data-testid={TestSelectors.BUTTON.MASTER_CATALOG_REFRESH}
@@ -477,30 +650,25 @@ function AdminMasterCatalogPage() {
                   <IconRefresh size={15} />
                 </ActionIcon>
               </Tooltip>
-
               <SegmentedControl
                 size="xs"
                 value={viewMode}
                 onChange={(v) => setViewMode(v as ViewMode)}
                 data={[
                   {
-                    value: "table",
+                    value: "grid",
                     label: (
-                      <Center>
-                        <Tooltip label={t`Table view`} withArrow>
-                          <IconLayoutList size={14} />
-                        </Tooltip>
-                      </Center>
+                      <Tooltip label={t`Grid view`} withArrow>
+                        <Center><IconLayoutGrid size={14} /></Center>
+                      </Tooltip>
                     ),
                   },
                   {
-                    value: "grid",
+                    value: "list",
                     label: (
-                      <Center>
-                        <Tooltip label={t`Grid view`} withArrow>
-                          <IconLayoutGrid size={14} />
-                        </Tooltip>
-                      </Center>
+                      <Tooltip label={t`List view`} withArrow>
+                        <Center><IconLayoutList size={14} /></Center>
+                      </Tooltip>
                     ),
                   },
                 ]}
@@ -508,245 +676,84 @@ function AdminMasterCatalogPage() {
             </Group>
           </Group>
 
-          {/* ── Table view ──────────────────────────────────────────────── */}
-          {viewMode === "table" && (
-            <>
-              {isLoading ? (
-                <Stack gap={0}>
-                  {Array.from({ length: 8 }).map((_, i) => (
-                    <Box
-                      key={i}
-                      px="md"
-                      py="sm"
-                      style={{ borderBottom: "1px solid var(--mantine-color-gray-1)" }}
-                    >
-                      <Group gap="sm">
-                        <Skeleton width={40} height={40} radius="sm" />
-                        <Stack gap={4} style={{ flex: 1 }}>
-                          <Skeleton height={12} width="40%" radius="sm" />
-                          <Skeleton height={10} width="25%" radius="sm" />
-                        </Stack>
-                        <Skeleton height={20} width={70} radius="xl" />
-                        <Skeleton height={20} width={60} radius="xl" />
-                      </Group>
-                    </Box>
-                  ))}
-                </Stack>
-              ) : (
-                <DataTable
-                  withTableBorder={false}
-                  borderRadius={0}
-                  highlightOnHover
-                  records={items}
-                  totalRecords={totalElements}
-                  recordsPerPage={PAGE_SIZE}
-                  page={page}
-                  onPageChange={setPage}
-                  fetching={isFetching && !isLoading}
-                  minHeight={300}
-                  idAccessor="id"
-                  noRecordsText={
-                    hasActiveFilters
-                      ? t`No catalog records match the current filters`
-                      : t`No catalog records found`
-                  }
-                  styles={{
-                    header: {
-                      background: "var(--mantine-color-gray-0)",
-                      fontSize: "var(--mantine-font-size-xs)",
-                      fontWeight: 600,
-                      color: "var(--mantine-color-gray-6)",
-                      textTransform: "uppercase",
-                      letterSpacing: "0.04em",
-                    },
-                  }}
-                  columns={[
-                    {
-                      accessor: "name",
-                      title: t`Venue`,
-                      render: (venue) => (
-                        <Group gap="sm" wrap="nowrap">
-                          <VenueThumbnail
-                            url={venue.primaryPhotoUrl}
-                            name={venue.name}
-                            size={40}
-                          />
-                          <Stack gap={1}>
-                            <Text size="sm" fw={600} lh={1.3}>
-                              {venue.name}
-                            </Text>
-                            <Text size="xs" c="dimmed" lineClamp={1} maw={300}>
-                              {venue.address ?? "—"}
-                            </Text>
-                          </Stack>
-                        </Group>
-                      ),
-                    },
-                    {
-                      accessor: "city",
-                      title: t`City`,
-                      render: (venue) => (
-                        <Group gap={4} wrap="nowrap">
-                          {venue.city && (
-                            <IconMapPin size={12} color="var(--mantine-color-gray-5)" />
-                          )}
-                          <Text size="sm" c="dimmed">
-                            {venue.city ?? "—"}
-                          </Text>
-                        </Group>
-                      ),
-                    },
-                    {
-                      accessor: "source",
-                      title: t`Source`,
-                      render: (venue) => (
-                        <Badge variant="light" color="blue" size="sm" tt="uppercase" style={{ letterSpacing: "0.03em" }}>
-                          {venue.source}
-                        </Badge>
-                      ),
-                    },
-                    {
-                      accessor: "confidence",
-                      title: t`Confidence`,
-                      render: (venue) => <ConfidenceBadge value={venue.confidence} />,
-                    },
-                    {
-                      accessor: "updatedAt",
-                      title: t`Updated`,
-                      render: (venue) => (
-                        <Text size="xs" c="dimmed">
-                          {dayjs(venue.updatedAt).format("MMM D, YYYY")}
-                        </Text>
-                      ),
-                    },
-                    {
-                      accessor: "actions",
-                      title: "",
-                      textAlign: "right",
-                      render: (venue) => (
-                        <Group gap={4} justify="flex-end" wrap="nowrap">
-                          <Tooltip label={t`View record`} withArrow>
-                            <ActionIcon
-                              data-testid={TestSelectors.BUTTON.MASTER_VENUE_VIEW(venue.id)}
-                              variant="subtle"
-                              color="gray"
-                              size="sm"
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                void navigate({
-                                  to: "/admin/master-catalog/$venueId",
-                                  params: { venueId: venue.id },
-                                });
-                              }}
-                            >
-                              <IconEye size={15} />
-                            </ActionIcon>
-                          </Tooltip>
-                          <Tooltip label={t`Edit record`} withArrow>
-                            <ActionIcon
-                              data-testid={TestSelectors.BUTTON.MASTER_VENUE_EDIT(venue.id)}
-                              variant="subtle"
-                              color="blue"
-                              size="sm"
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                handleEdit(venue);
-                              }}
-                            >
-                              <IconEdit size={15} />
-                            </ActionIcon>
-                          </Tooltip>
-                          <Tooltip label={t`Delete record`} withArrow>
-                            <ActionIcon
-                              data-testid={TestSelectors.BUTTON.MASTER_VENUE_DELETE(venue.id)}
-                              variant="subtle"
-                              color="red"
-                              size="sm"
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                handleDelete(venue);
-                              }}
-                            >
-                              <IconTrash size={15} />
-                            </ActionIcon>
-                          </Tooltip>
-                        </Group>
-                      ),
-                    },
-                  ]}
+          {/* results */}
+          {isLoading ? (
+            viewMode === "grid" ? (
+              <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing="md">
+                {Array.from({ length: PAGE_SIZE }).map((_, i) => <CardSkeleton key={i} />)}
+              </SimpleGrid>
+            ) : (
+              <Stack gap="xs">
+                {Array.from({ length: PAGE_SIZE }).map((_, i) => <RowSkeleton key={i} />)}
+              </Stack>
+            )
+          ) : items.length === 0 ? (
+            <Center py="xl">
+              <Stack align="center" gap="sm">
+                <ThemeIcon size={48} radius="xl" variant="light" color="gray">
+                  <IconBuildingStore size={24} />
+                </ThemeIcon>
+                <Text c="dimmed" size="sm">
+                  {hasActiveFilters
+                    ? <Trans>No venues match your filters</Trans>
+                    : <Trans>No venues yet — add your first one</Trans>}
+                </Text>
+                {!hasActiveFilters && (
+                  <Button
+                    variant="light"
+                    leftSection={<IconPlus size={14} />}
+                    size="sm"
+                    onClick={openCreate}
+                  >
+                    <Trans>New venue</Trans>
+                  </Button>
+                )}
+              </Stack>
+            </Center>
+          ) : viewMode === "grid" ? (
+            <SimpleGrid cols={{ base: 1, sm: 2, lg: 3 }} spacing="md">
+              {items.map((venue) => (
+                <VenueCard
+                  key={venue.id}
+                  venue={venue}
+                  onView={() => void navigate({ to: "/admin/master-catalog/$venueId", params: { venueId: venue.id } })}
+                  onEdit={() => handleEdit(venue)}
+                  onDelete={() => handleDelete(venue)}
                 />
-              )}
-            </>
+              ))}
+            </SimpleGrid>
+          ) : (
+            <Stack gap="xs">
+              {items.map((venue) => (
+                <VenueRow
+                  key={venue.id}
+                  venue={venue}
+                  onView={() => void navigate({ to: "/admin/master-catalog/$venueId", params: { venueId: venue.id } })}
+                  onEdit={() => handleEdit(venue)}
+                  onDelete={() => handleDelete(venue)}
+                />
+              ))}
+            </Stack>
           )}
 
-          {/* ── Grid view ───────────────────────────────────────────────── */}
-          {viewMode === "grid" && (
-            <Box p="md">
-              {isLoading ? (
-                <GridSkeleton />
-              ) : items.length === 0 ? (
-                <Stack align="center" py="xl" gap="xs">
-                  <ThemeIcon size={48} radius="xl" variant="light" color="gray">
-                    <IconBuildingStore size={24} />
-                  </ThemeIcon>
-                  <Text size="sm" c="dimmed" ta="center">
-                    {hasActiveFilters
-                      ? t`No catalog records match the current filters`
-                      : t`No catalog records found`}
-                  </Text>
-                </Stack>
-              ) : (
-                <Stack gap="md">
-                  <SimpleGrid cols={{ base: 1, sm: 2, md: 3, lg: 4 }} spacing="md">
-                    {items.map((venue) => (
-                      <VenueCard
-                        key={venue.id}
-                        venue={venue}
-                        onView={() =>
-                          void navigate({
-                            to: "/admin/master-catalog/$venueId",
-                            params: { venueId: venue.id },
-                          })
-                        }
-                        onEdit={() => handleEdit(venue)}
-                        onDelete={() => handleDelete(venue)}
-                      />
-                    ))}
-                  </SimpleGrid>
-
-                  {totalPages > 1 && (
-                    <Group justify="center">
-                      <Pagination
-                        value={page}
-                        onChange={setPage}
-                        total={totalPages}
-                        size="sm"
-                        withEdges
-                      />
-                    </Group>
-                  )}
-                </Stack>
-              )}
-            </Box>
+          {/* pagination */}
+          {totalPages > 1 && (
+            <Group justify="center" mt="sm">
+              <Pagination total={totalPages} value={page} onChange={setPage} size="sm" withEdges />
+            </Group>
           )}
-        </Paper>
 
-        {!isLoading && totalElements > 0 && (
-          <Text size="xs" c="dimmed">
-            <Trans>
-              Showing {rangeStart}–{rangeEnd} of {totalElements} records
-            </Trans>
-          </Text>
-        )}
-      </Stack>
+          {!isLoading && totalElements > 0 && (
+            <Text size="xs" c="dimmed" ta="center">
+              <Trans>Showing {rangeStart}–{rangeEnd} of {totalElements}</Trans>
+            </Text>
+          )}
+        </Stack>
+      </Group>
 
       <CreateMasterVenueModal opened={createOpened} onClose={closeCreate} />
       <EditMasterVenueModal venue={selectedVenue} opened={editOpened} onClose={handleCloseEdit} />
-      <DeleteMasterVenueModal
-        venue={selectedVenue}
-        opened={deleteOpened}
-        onClose={handleCloseDelete}
-      />
+      <DeleteMasterVenueModal venue={selectedVenue} opened={deleteOpened} onClose={handleCloseDelete} />
     </Container>
   );
 }

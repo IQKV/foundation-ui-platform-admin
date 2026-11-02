@@ -36,7 +36,8 @@ import {
   IconPaperclip,
   IconExternalLink,
   IconAdjustments,
-  IconCalendar,
+  IconCheck,
+  IconAlertTriangle,
 } from "@tabler/icons-react";
 import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
@@ -62,78 +63,91 @@ function ConfidenceRing({
   isLoading: boolean;
   "data-testid"?: string;
 }) {
-  if (isLoading) return <Skeleton circle height={56} />;
+  if (isLoading) return <Skeleton circle height={52} />;
   if (value === null) return <Text size="sm" c="dimmed">—</Text>;
-
   const pct = Math.round(value * 100);
   const color = pct >= 80 ? "green" : pct >= 50 ? "orange" : "red";
-
   return (
     <RingProgress
-      size={56}
+      size={52}
       thickness={5}
       roundCaps
       sections={[{ value: pct, color }]}
       data-testid={testId}
       label={
         <Center>
-          <Text size="xs" fw={700} c={color} lh={1}>
-            {pct}%
-          </Text>
+          <Text size="xs" fw={700} c={color} lh={1}>{pct}%</Text>
         </Center>
       }
     />
   );
 }
 
-// ─── Section sub-card ─────────────────────────────────────────────────────────
+// ─── Section card — mirrors SectionCard from mockup ──────────────────────────
+// Read-only; shows: title + completeness indicator + field chips
 
-interface SubCardProps {
-  icon: React.ReactNode;
+interface InfoSectionCardProps {
   title: React.ReactNode;
-  children: React.ReactNode;
+  icon: React.ReactNode;
+  /** Number of populated fields out of total — shown as completeness badge. */
+  filled?: number;
+  total?: number;
   isLoading?: boolean;
-  skeletonRows?: number;
+  children: React.ReactNode;
 }
 
-function SubCard({ icon, title, children, isLoading, skeletonRows = 3 }: SubCardProps) {
+function InfoSectionCard({ title, icon, filled, total, isLoading, children }: InfoSectionCardProps) {
+  const allFilled = filled != null && total != null && filled === total && total > 0;
   return (
-    <Paper shadow="xs" radius="md" p="md" withBorder h="100%">
-      <Stack gap="sm">
-        <Group gap="xs">
-          <ThemeIcon size={28} radius="sm" variant="light" color="blue">
+    <Paper withBorder radius="md" p="md">
+      <Group justify="space-between" align="flex-start" mb="sm">
+        <Group gap={8}>
+          <ThemeIcon size={24} radius="sm" variant="light" color="blue">
             {icon}
           </ThemeIcon>
-          <Text size="sm" fw={600}>
-            {title}
-          </Text>
+          <Text size="sm" fw={700}>{title}</Text>
         </Group>
-        <Divider />
-        {isLoading ? (
-          <Stack gap={8}>
-            {Array.from({ length: skeletonRows }).map((_, i) => (
-              <Skeleton key={i} height={14} width={`${75 - i * 10}%`} radius="sm" />
-            ))}
-          </Stack>
-        ) : (
-          children
+        {filled != null && total != null && total > 0 && (
+          <Badge
+            variant="light"
+            color={allFilled ? "teal" : "gray"}
+            size="xs"
+            leftSection={
+              allFilled
+                ? <IconCheck size={10} style={{ marginTop: 1 }} />
+                : <IconAlertTriangle size={10} style={{ marginTop: 1 }} />
+            }
+          >
+            {filled}/{total}
+          </Badge>
         )}
-      </Stack>
+      </Group>
+      <Divider mb="sm" />
+      {isLoading ? (
+        <Stack gap={8}>
+          {[75, 55, 65, 45].map((w, i) => (
+            <Skeleton key={i} height={13} width={`${w}%`} radius="sm" />
+          ))}
+        </Stack>
+      ) : (
+        children
+      )}
     </Paper>
   );
 }
 
-// ─── Field row ────────────────────────────────────────────────────────────────
+// ─── Field chip — mirrors FieldSummaryChip from mockup ───────────────────────
 
-function FieldRow({ label, value }: { label: React.ReactNode; value: React.ReactNode }) {
+function FieldChip({ label, value }: { label: React.ReactNode; value: React.ReactNode }) {
+  const empty = value == null || value === "";
   return (
-    <Group gap="xs" wrap="nowrap" align="flex-start">
-      <Text size="xs" c="dimmed" fw={500} style={{ width: 110, flexShrink: 0, paddingTop: 1 }}>
-        {label}
-      </Text>
-      <Text size="sm" style={{ flex: 1, wordBreak: "break-word" }}>
-        {value ?? <Text span c="dimmed">—</Text>}
-      </Text>
+    <Group gap={4} wrap="nowrap" style={{ minWidth: 0 }}>
+      <Text size="xs" c="dimmed" style={{ flexShrink: 0 }}>{label}:</Text>
+      {empty ? (
+        <Text size="xs" c="dimmed" fs="italic">—</Text>
+      ) : (
+        <Text size="xs" style={{ wordBreak: "break-word" }}>{value}</Text>
+      )}
     </Group>
   );
 }
@@ -142,22 +156,12 @@ function FieldRow({ label, value }: { label: React.ReactNode; value: React.React
 
 function MetadataViewer({ raw }: { raw: string | null }) {
   if (!raw) {
-    return (
-      <Text size="sm" c="dimmed">
-        <Trans>No metadata.</Trans>
-      </Text>
-    );
+    return <Text size="sm" c="dimmed" fs="italic"><Trans>No metadata.</Trans></Text>;
   }
-
   let formatted = raw;
-  try {
-    formatted = JSON.stringify(JSON.parse(raw), null, 2);
-  } catch {
-    // not valid JSON — show as-is
-  }
-
+  try { formatted = JSON.stringify(JSON.parse(raw), null, 2); } catch { /* show as-is */ }
   return (
-    <ScrollArea.Autosize mah={360}>
+    <ScrollArea.Autosize mah={340}>
       <Box
         component="pre"
         style={{
@@ -184,63 +188,56 @@ function MetadataViewer({ raw }: { raw: string | null }) {
 function PhotosTab({ photos, isLoading }: { photos: MasterVenueAsset[]; isLoading: boolean }) {
   if (isLoading) {
     return (
-      <SimpleGrid cols={{ base: 2, sm: 3, lg: 4 }} spacing="md">
-        {Array.from({ length: 4 }).map((_, i) => (
-          <Skeleton key={i} height={160} radius="md" />
-        ))}
+      <SimpleGrid cols={{ base: 2, sm: 3, md: 4, lg: 5 }} spacing="sm">
+        {Array.from({ length: 5 }).map((_, i) => <Skeleton key={i} height={130} radius="sm" />)}
       </SimpleGrid>
     );
   }
-
   if (photos.length === 0) {
     return (
-      <Stack align="center" py="xl" gap="xs">
-        <ThemeIcon size={48} radius="xl" variant="light" color="gray">
-          <IconPhoto size={24} />
-        </ThemeIcon>
-        <Text size="sm" c="dimmed">
-          <Trans>No photos for this venue.</Trans>
-        </Text>
-      </Stack>
+      <Paper withBorder p="xl" radius="md" style={{ textAlign: "center", background: "var(--mantine-color-gray-0)" }}>
+        <Stack align="center" gap="sm">
+          <IconPhoto size={40} color="var(--mantine-color-gray-4)" />
+          <Text size="sm" c="dimmed"><Trans>No photos for this venue.</Trans></Text>
+        </Stack>
+      </Paper>
     );
   }
-
   return (
-    <SimpleGrid cols={{ base: 2, sm: 3, lg: 4 }} spacing="md">
+    <SimpleGrid cols={{ base: 2, sm: 3, md: 4, lg: 5 }} spacing="sm">
       {photos.map((photo, i) => (
-        <Paper key={photo.id} shadow="xs" radius="md" withBorder style={{ overflow: "hidden" }}>
+        <Box key={photo.id} style={{ position: "relative" }}>
           {photo.sourceUrl ? (
-            <Box style={{ height: 160, overflow: "hidden" }}>
-              <Image
-                src={photo.sourceUrl}
-                alt={photo.label ?? photo.fileName ?? ""}
-                w="100%"
-                h={160}
-                style={{ objectFit: "cover", display: "block" }}
-              />
-            </Box>
+            <Image
+              src={photo.sourceUrl}
+              alt={photo.label ?? photo.fileName ?? ""}
+              w="100%"
+              h={130}
+              style={{ objectFit: "cover", display: "block", borderRadius: "var(--mantine-radius-sm)" }}
+            />
           ) : (
-            <Box
+            <Group
+              justify="center"
+              align="center"
               style={{
-                height: 160,
+                height: 130,
                 background: "var(--mantine-color-gray-1)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
+                borderRadius: "var(--mantine-radius-sm)",
               }}
             >
-              <IconPhoto size={28} color="var(--mantine-color-gray-4)" />
-            </Box>
+              <IconPhoto size={24} color="var(--mantine-color-gray-4)" />
+            </Group>
           )}
-          <Group gap="xs" px="xs" py={6} justify="space-between">
-            <Text size="xs" c="dimmed" lineClamp={1} style={{ flex: 1 }}>
-              {photo.label ?? photo.fileName ?? photo.id}
-            </Text>
-            <Badge variant="outline" color="gray" size="xs" radius="sm">
+          {/* display order overlay — mirrors ExtractionStatusDot position */}
+          <Box style={{ position: "absolute", top: 6, right: 6 }}>
+            <Badge variant="filled" color="dark" size="xs" radius="sm" style={{ opacity: 0.75 }}>
               #{i + 1}
             </Badge>
-          </Group>
-        </Paper>
+          </Box>
+          {photo.label && (
+            <Text size="xs" c="dimmed" lineClamp={1} mt={4}>{photo.label}</Text>
+          )}
+        </Box>
       ))}
     </SimpleGrid>
   );
@@ -250,82 +247,44 @@ function PhotosTab({ photos, isLoading }: { photos: MasterVenueAsset[]; isLoadin
 
 function AssetsTab({ assets, isLoading }: { assets: MasterVenueAsset[]; isLoading: boolean }) {
   const { t } = useLingui();
-
   if (isLoading) return <Skeleton height={200} radius="md" />;
-
   if (assets.length === 0) {
     return (
-      <Stack align="center" py="xl" gap="xs">
-        <ThemeIcon size={48} radius="xl" variant="light" color="gray">
-          <IconPaperclip size={24} />
-        </ThemeIcon>
-        <Text size="sm" c="dimmed">
-          {t`No assets for this venue.`}
-        </Text>
-      </Stack>
+      <Paper withBorder p="xl" radius="md" style={{ textAlign: "center", background: "var(--mantine-color-gray-0)" }}>
+        <Stack align="center" gap="sm">
+          <IconPaperclip size={40} color="var(--mantine-color-gray-4)" />
+          <Text size="sm" c="dimmed">{t`No assets for this venue.`}</Text>
+        </Stack>
+      </Paper>
     );
   }
-
   return (
-    <Paper shadow="xs" radius="md" withBorder style={{ overflow: "hidden" }}>
-      {/* header */}
-      <Group
-        px="md"
-        py={8}
-        style={{ background: "var(--mantine-color-gray-0)", borderBottom: "1px solid var(--mantine-color-gray-2)" }}
-      >
-        {(
-          [
-            [t`Type`, "100px"],
-            [t`Label / file`, "1fr"],
-            [t`Content type`, "150px"],
-            [t`Size`, "80px"],
-            [t`Provider`, "100px"],
-          ] as [string, string][]
-        ).map(([col, w]) => (
-          <Text
-            key={col}
-            size="xs"
-            fw={600}
-            c="dimmed"
-            tt="uppercase"
-            lts={0.4}
-            style={{ width: w, flexShrink: 0 }}
-          >
-            {col}
-          </Text>
-        ))}
-      </Group>
-      {assets.map((asset, i) => (
-        <Group
-          key={asset.id}
-          px="md"
-          py={10}
-          style={{
-            borderBottom:
-              i < assets.length - 1 ? "1px solid var(--mantine-color-gray-1)" : "none",
-          }}
-        >
-          <Box style={{ width: "100px", flexShrink: 0 }}>
-            <Badge variant="dot" size="sm" color="blue">
-              {asset.assetType}
-            </Badge>
-          </Box>
-          <Text size="xs" c="dimmed" lineClamp={1} style={{ flex: 1 }}>
-            {asset.label ?? asset.fileName ?? asset.id}
-          </Text>
-          <Text size="xs" c="dimmed" style={{ width: "150px", flexShrink: 0 }}>
-            {asset.contentType ?? "—"}
-          </Text>
-          <Text size="xs" c="dimmed" style={{ width: "80px", flexShrink: 0 }}>
-            {asset.sizeBytes === null ? "—" : `${Math.round(asset.sizeBytes / 1024)} KB`}
-          </Text>
-          <Text size="xs" c="dimmed" style={{ width: "100px", flexShrink: 0 }}>
-            {asset.provider ?? "—"}
-          </Text>
-        </Group>
+    <Stack gap={6}>
+      {assets.map((asset) => (
+        <Paper key={asset.id} withBorder p="sm" radius="md">
+          <Group justify="space-between" wrap="nowrap">
+            <Group gap="sm" wrap="nowrap" style={{ minWidth: 0 }}>
+              <ThemeIcon size={32} radius="sm" variant="light" color="gray" style={{ flexShrink: 0 }}>
+                <IconPaperclip size={16} />
+              </ThemeIcon>
+              <Stack gap={0} style={{ minWidth: 0 }}>
+                <Text size="sm" fw={500} lineClamp={1}>{asset.label ?? asset.fileName ?? asset.id}</Text>
+                <Text size="xs" c="dimmed">
+                  {asset.assetType}
+                  {asset.contentType ? ` · ${asset.contentType}` : ""}
+                  {asset.sizeBytes != null ? ` · ${Math.round(asset.sizeBytes / 1024)} KB` : ""}
+                </Text>
+              </Stack>
+            </Group>
+            {asset.provider && (
+              <Badge variant="dot" color="gray" size="xs" style={{ flexShrink: 0 }}>
+                {asset.provider}
+              </Badge>
+            )}
+          </Group>
+        </Paper>
       ))}
-    </Paper>
+    </Stack>
   );
 }
 
@@ -340,38 +299,36 @@ function MasterVenueDetailPage() {
   const [deleteOpened, { open: openDelete, close: closeDelete }] = useDisclosure(false);
   const [deletedVenue, setDeletedVenue] = useState<MasterVenue | null>(null);
 
-  const {
-    data: venue,
-    isLoading,
-    isError,
-    refetch,
-    isFetching,
-  } = useQuery({
+  const { data: venue, isLoading, isError, refetch, isFetching } = useQuery({
     queryKey: ["admin", "master-venue", venueId],
-    queryFn: () => catalogApi.getMasterVenue(venueId),
+    queryFn:  () => catalogApi.getMasterVenue(venueId),
   });
 
   const { data: assetsData, isLoading: assetsLoading } = useQuery({
     queryKey: ["admin", "master-venue", venueId, "assets"],
-    queryFn: () => catalogApi.listMasterVenueAssets(venueId),
+    queryFn:  () => catalogApi.listMasterVenueAssets(venueId),
   });
 
   const { data: photosData, isLoading: photosLoading } = useQuery({
     queryKey: ["admin", "master-venue", venueId, "photos"],
-    queryFn: () => catalogApi.listMasterVenuePhotos(venueId),
+    queryFn:  () => catalogApi.listMasterVenuePhotos(venueId),
   });
 
   const assets = assetsData?.items ?? [];
   const photos = photosData?.items ?? [];
+
+  const hasPhoto = Boolean(venue?.primaryPhotoUrl);
 
   const mapUrl =
     venue?.locationLat && venue?.locationLng
       ? `https://maps.google.com/?q=${venue.locationLat},${venue.locationLng}`
       : null;
 
-  const handleDeleteSuccess = () => {
-    void navigate({ to: "/admin/master-catalog" });
-  };
+  const handleDeleteSuccess = () => void navigate({ to: "/admin/master-catalog" });
+
+  // Completeness counts for section cards
+  const locationFilled  = [venue?.address, venue?.city, venue?.locationLat].filter(Boolean).length;
+  const curationFilled  = [venue?.source, venue?.confidence].filter((v) => v != null).length;
 
   if (isError) {
     return (
@@ -380,29 +337,17 @@ function MasterVenueDetailPage() {
         <Alert
           icon={<IconAlertCircle size={16} />}
           title={<Trans>Failed to load the master venue</Trans>}
-          color="red"
-          variant="light"
-          mt="md"
+          color="red" variant="light" mt="md"
         >
           <Trans>The venue could not be found or the API is unavailable.</Trans>
           <Group mt="sm">
-            <Button
-              variant="light"
-              color="red"
-              size="xs"
+            <Button variant="light" color="red" size="xs"
               data-testid={TestSelectors.BUTTON.MASTER_VENUE_DETAIL_ERROR_RETRY}
               onClick={() => void refetch()}
-            >
-              <Trans>Retry</Trans>
-            </Button>
-            <Button
-              variant="subtle"
-              color="gray"
-              size="xs"
+            ><Trans>Retry</Trans></Button>
+            <Button variant="subtle" color="gray" size="xs"
               onClick={() => void navigate({ to: "/admin/master-catalog" })}
-            >
-              <Trans>Back to list</Trans>
-            </Button>
+            ><Trans>Back to list</Trans></Button>
           </Group>
         </Alert>
       </Container>
@@ -425,327 +370,328 @@ function MasterVenueDetailPage() {
             <Tooltip label={t`Refresh`} withArrow>
               <ActionIcon
                 data-testid={TestSelectors.BUTTON.MASTER_VENUE_DETAIL_REFRESH}
-                variant="subtle"
-                color="gray"
-                size="sm"
-                onClick={() => void refetch()}
-                loading={isFetching}
+                variant="subtle" color="gray" size="sm"
+                onClick={() => void refetch()} loading={isFetching}
               >
                 <IconRefresh size={15} />
               </ActionIcon>
             </Tooltip>
-            <Button
-              variant="light"
-              size="sm"
-              leftSection={<IconEdit size={15} />}
+            <Button variant="light" size="sm" leftSection={<IconEdit size={15} />}
               disabled={!venue}
               data-testid={TestSelectors.BUTTON.MASTER_VENUE_DETAIL_EDIT}
               onClick={openEdit}
-            >
-              <Trans>Edit</Trans>
-            </Button>
-            <Button
-              variant="light"
-              color="red"
-              size="sm"
-              leftSection={<IconTrash size={15} />}
+            ><Trans>Edit</Trans></Button>
+            <Button variant="light" color="red" size="sm" leftSection={<IconTrash size={15} />}
               disabled={!venue}
               data-testid={TestSelectors.BUTTON.MASTER_VENUE_DETAIL_DELETE}
-              onClick={() => {
-                setDeletedVenue(venue ?? null);
-                openDelete();
-              }}
-            >
-              <Trans>Delete</Trans>
-            </Button>
+              onClick={() => { setDeletedVenue(venue ?? null); openDelete(); }}
+            ><Trans>Delete</Trans></Button>
           </Group>
         }
       />
 
       <Stack gap="md">
-        {/* ── Hero card ─────────────────────────────────────────────────── */}
-        <Paper
-          shadow="sm"
-          radius="md"
-          withBorder
-          style={{ overflow: "hidden" }}
+        {/* ── Hero — mirrors VenueProfileHeader ───────────────────────── */}
+        <Box
+          style={{
+            position: "relative",
+            borderRadius: "var(--mantine-radius-lg)",
+            overflow: "hidden",
+            border: "1px solid var(--mantine-color-default-border)",
+          }}
           data-testid={TestSelectors.MASTER_VENUE_DETAIL_HERO_CARD}
         >
-          {/* photo banner */}
-          {!isLoading && venue?.primaryPhotoUrl && (
-            <Box style={{ height: 180, overflow: "hidden", position: "relative" }}>
-              <Image
-                src={venue.primaryPhotoUrl}
-                alt={venue.name}
-                w="100%"
-                h={180}
-                style={{ objectFit: "cover", display: "block" }}
-              />
-              {/* subtle dark gradient so text below reads cleanly */}
+          {/* photo / placeholder — 300px, mirrors the mockup exactly */}
+          <Box
+            style={{
+              height: 300,
+              background: hasPhoto
+                ? `url(${venue!.primaryPhotoUrl}) center/cover no-repeat`
+                : "linear-gradient(135deg, var(--mantine-color-gray-2) 0%, var(--mantine-color-gray-4) 100%)",
+              position: "relative",
+            }}
+          >
+            {isLoading && <Skeleton height={300} radius={0} />}
+
+            {!isLoading && !hasPhoto && (
+              <Group justify="center" align="center" style={{ height: "100%", opacity: 0.2 }}>
+                <IconBuildingStore size={96} color="var(--mantine-color-gray-7)" />
+              </Group>
+            )}
+
+            {/* gradient overlay — mirrors the mockup gradient */}
+            {!isLoading && (
               <Box
                 style={{
                   position: "absolute",
                   inset: 0,
-                  background:
-                    "linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.35) 100%)",
+                  background: hasPhoto
+                    ? "linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.28) 50%, transparent 100%)"
+                    : "linear-gradient(to top, rgba(0,0,0,0.08) 0%, transparent 60%)",
                 }}
               />
-            </Box>
-          )}
+            )}
 
-          <Box p="lg">
-            <Group gap="lg" wrap="nowrap" align="flex-start">
-              {/* avatar — shown when no banner photo */}
-              {!venue?.primaryPhotoUrl && (
-                isLoading ? (
-                  <Skeleton w={64} h={64} radius="md" style={{ flexShrink: 0 }} />
-                ) : (
-                  <ThemeIcon
-                    size={64}
-                    radius="md"
-                    variant="light"
-                    color="blue"
-                    style={{ flexShrink: 0 }}
-                  >
-                    <IconBuildingStore size={32} />
-                  </ThemeIcon>
-                )
-              )}
+            {/* title block pinned bottom-left — mirrors mockup */}
+            {!isLoading && (
+              <Box
+                style={{
+                  position: "absolute",
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  padding: "var(--mantine-spacing-xl) var(--mantine-spacing-xl) var(--mantine-spacing-lg)",
+                }}
+              >
+                <Group justify="space-between" align="flex-end" wrap="wrap" gap="md">
+                  <Stack gap={6}>
+                    {/* source badge — mirrors VenueStageBadge position */}
+                    <Box>
+                      <Badge
+                        variant="filled"
+                        color="dark"
+                        size="sm"
+                        tt="uppercase"
+                        style={{
+                          letterSpacing: "0.05em",
+                          background: hasPhoto ? "rgba(255,255,255,0.2)" : undefined,
+                          backdropFilter: "blur(4px)",
+                        }}
+                        data-testid={TestSelectors.MASTER_VENUE_DETAIL_SOURCE}
+                      >
+                        {venue?.source ?? "—"}
+                      </Badge>
+                    </Box>
 
-              {/* identity */}
-              <Stack gap={6} style={{ flex: 1, minWidth: 0 }}>
-                {isLoading ? (
-                  <>
-                    <Skeleton height={26} width={280} radius="sm" />
-                    <Skeleton height={18} width={140} radius="sm" />
-                  </>
-                ) : (
-                  <>
                     <Text
-                      size="xl"
-                      fw={700}
-                      lh={1.2}
+                      fw={800}
+                      style={{
+                        color: hasPhoto ? "#ffffff" : "var(--mantine-color-dark-9)",
+                        lineHeight: 1.15,
+                        letterSpacing: "-0.02em",
+                        textShadow: hasPhoto ? "0 1px 4px rgba(0,0,0,0.4)" : "none",
+                        fontSize: "clamp(1.4rem, 2.5vw, 2rem)",
+                      }}
                       data-testid={TestSelectors.MASTER_VENUE_DETAIL_NAME}
                     >
                       {venue?.name}
                     </Text>
 
-                    <Group gap="xs" wrap="wrap">
-                      <Badge
-                        variant="light"
-                        color="blue"
-                        size="sm"
-                        tt="uppercase"
-                        style={{ letterSpacing: "0.03em" }}
-                        data-testid={TestSelectors.MASTER_VENUE_DETAIL_SOURCE}
-                      >
-                        {venue?.source ?? "—"}
-                      </Badge>
-
-                      {venue?.city && (
-                        <Group gap={4} wrap="nowrap">
-                          <IconMapPin size={13} color="var(--mantine-color-gray-5)" />
-                          <Text
-                            size="sm"
-                            c="dimmed"
-                            data-testid={TestSelectors.MASTER_VENUE_DETAIL_CITY}
-                          >
-                            {venue.city}
-                          </Text>
-                        </Group>
-                      )}
-
-                      {venue?.address && (
-                        <Text size="sm" c="dimmed" lineClamp={1}>
-                          {venue.address}
-                        </Text>
-                      )}
-                    </Group>
-
-                    <Group gap="md" wrap="wrap" mt={2}>
-                      <Group gap={4}>
-                        <IconCalendar size={12} color="var(--mantine-color-gray-4)" />
-                        <Text size="xs" c="dimmed">
-                          {dayjs(venue?.createdAt).format("MMM D, YYYY HH:mm")}
+                    {venue?.address && (
+                      <Group gap={5} wrap="nowrap">
+                        <IconMapPin
+                          size={13}
+                          color={hasPhoto ? "rgba(255,255,255,0.75)" : "var(--mantine-color-gray-6)"}
+                        />
+                        <Text
+                          size="sm"
+                          style={{ color: hasPhoto ? "rgba(255,255,255,0.85)" : "var(--mantine-color-gray-7)" }}
+                          data-testid={TestSelectors.MASTER_VENUE_DETAIL_CITY}
+                        >
+                          {[venue.address, venue.city].filter(Boolean).join(", ")}
                         </Text>
                       </Group>
-                      <Text size="xs" c="dimmed">
-                        <Trans>Updated</Trans>{" "}
-                        {dayjs(venue?.updatedAt).format("MMM D, YYYY HH:mm")}
-                      </Text>
-                    </Group>
-                  </>
-                )}
-              </Stack>
+                    )}
+                  </Stack>
 
-              {/* confidence ring */}
-              <Stack gap={4} align="center" style={{ flexShrink: 0 }}>
-                <ConfidenceRing
-                  value={venue?.confidence ?? null}
-                  isLoading={isLoading}
-                  data-testid={TestSelectors.MASTER_VENUE_DETAIL_CONFIDENCE}
-                />
-                <Text size="xs" c="dimmed" tt="uppercase" fw={500} lts={0.4}>
-                  <Trans>Confidence</Trans>
-                </Text>
-              </Stack>
-            </Group>
+                  {/* confidence chip — mirrors google_rating chip position */}
+                  {venue?.confidence != null && (
+                    <Paper
+                      px="sm" py={6} radius="md"
+                      style={{
+                        background: hasPhoto ? "rgba(255,255,255,0.15)" : "var(--mantine-color-gray-0)",
+                        backdropFilter: "blur(6px)",
+                        border: hasPhoto
+                          ? "1px solid rgba(255,255,255,0.25)"
+                          : "1px solid var(--mantine-color-default-border)",
+                        flexShrink: 0,
+                      }}
+                    >
+                      <Group gap={8} wrap="nowrap">
+                        <ConfidenceRing
+                          value={venue.confidence}
+                          isLoading={false}
+                          data-testid={TestSelectors.MASTER_VENUE_DETAIL_CONFIDENCE}
+                        />
+                        <Stack gap={0}>
+                          <Text
+                            size="xs"
+                            fw={600}
+                            style={{ color: hasPhoto ? "#fff" : "inherit" }}
+                          >
+                            <Trans>Confidence</Trans>
+                          </Text>
+                          <Text
+                            size="xs"
+                            style={{ color: hasPhoto ? "rgba(255,255,255,0.65)" : "var(--mantine-color-dimmed)" }}
+                          >
+                            {venue.confidence.toFixed(4)}
+                          </Text>
+                        </Stack>
+                      </Group>
+                    </Paper>
+                  )}
+                </Group>
+              </Box>
+            )}
           </Box>
-        </Paper>
+        </Box>
 
-        {/* ── Tabs ──────────────────────────────────────────────────────── */}
-        <Tabs defaultValue="overview">
+        {/* ── Tabs — mirrors VenueProfileWidget tab structure ─────────── */}
+        <Tabs defaultValue="details" keepMounted={false}>
           <Tabs.List>
-            <Tabs.Tab
-              value="overview"
-              data-testid={TestSelectors.TAB.MASTER_VENUE_OVERVIEW}
-              leftSection={<IconBuildingStore size={15} />}
-            >
-              <Trans>Overview</Trans>
+            <Tabs.Tab value="details" leftSection={<IconAdjustments size={14} />}>
+              <Trans>Details</Trans>
             </Tabs.Tab>
             <Tabs.Tab
               value="photos"
               data-testid={TestSelectors.TAB.MASTER_VENUE_PHOTOS}
-              leftSection={<IconPhoto size={15} />}
+              leftSection={<IconPhoto size={14} />}
+              rightSection={
+                !photosLoading && photos.length > 0 ? (
+                  <Badge size="xs" variant="light" color="gray" circle>{photos.length}</Badge>
+                ) : undefined
+              }
             >
               <Trans>Photos</Trans>
-              {!photosLoading && photos.length > 0 && (
-                <Badge variant="light" color="gray" size="xs" ml={6}>
-                  {photos.length}
-                </Badge>
-              )}
             </Tabs.Tab>
             <Tabs.Tab
               value="assets"
               data-testid={TestSelectors.TAB.MASTER_VENUE_ASSETS}
-              leftSection={<IconPaperclip size={15} />}
+              leftSection={<IconPaperclip size={14} />}
+              rightSection={
+                !assetsLoading && assets.length > 0 ? (
+                  <Badge size="xs" variant="light" color="gray" circle>{assets.length}</Badge>
+                ) : undefined
+              }
             >
               <Trans>Assets</Trans>
-              {!assetsLoading && assets.length > 0 && (
-                <Badge variant="light" color="gray" size="xs" ml={6}>
-                  {assets.length}
-                </Badge>
-              )}
             </Tabs.Tab>
           </Tabs.List>
 
-          <Tabs.Panel value="overview" pt="md">
-            <Stack gap="md">
-              {/* location + curation side by side */}
-              <SimpleGrid cols={{ base: 1, md: 2 }} spacing="md">
-                <SubCard
-                  icon={<IconMapPin size={16} />}
-                  title={<Trans>Location</Trans>}
-                  isLoading={isLoading}
-                  skeletonRows={4}
-                >
-                  <Stack gap={10}>
-                    <FieldRow label={<Trans>Address</Trans>} value={venue?.address} />
-                    <FieldRow label={<Trans>City</Trans>} value={venue?.city} />
-                    <FieldRow
-                      label={<Trans>Coordinates</Trans>}
-                      value={
-                        venue?.locationLat && venue?.locationLng ? (
-                          <Group gap={6} wrap="nowrap">
-                            <Text size="sm">
-                              {String(venue.locationLat)}, {String(venue.locationLng)}
-                            </Text>
-                            {mapUrl && (
-                              <Anchor
-                                href={mapUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                size="xs"
-                              >
-                                <Group gap={3} wrap="nowrap">
-                                  <IconExternalLink size={11} />
-                                  <Trans>Maps</Trans>
-                                </Group>
-                              </Anchor>
-                            )}
-                          </Group>
-                        ) : null
-                      }
-                    />
-                  </Stack>
-                </SubCard>
+          {/* ── Details tab — mirrors DetailsTab section cards ─────────── */}
+          <Tabs.Panel value="details" data-testid={TestSelectors.TAB.MASTER_VENUE_OVERVIEW}>
+            <Stack gap="xs" pt="sm">
 
-                <SubCard
-                  icon={<IconAdjustments size={16} />}
-                  title={<Trans>Curation</Trans>}
-                  isLoading={isLoading}
-                  skeletonRows={3}
-                >
-                  <Stack gap={10}>
-                    <FieldRow label={<Trans>Source</Trans>} value={
-                      venue?.source ? (
-                        <Badge variant="light" color="blue" size="sm" tt="uppercase" style={{ letterSpacing: "0.03em" }}>
-                          {venue.source}
-                        </Badge>
+              {/* "LOCATION" section divider — mirrors the tab-group Divider label */}
+              <Divider
+                label={
+                  <Text size="xs" fw={700} tt="uppercase" c="dimmed" style={{ letterSpacing: "0.07em" }}>
+                    <Trans>Location</Trans>
+                  </Text>
+                }
+                labelPosition="left"
+                my="sm"
+              />
+
+              {/* Location section card */}
+              <InfoSectionCard
+                title={<Trans>Address & coordinates</Trans>}
+                icon={<IconMapPin size={14} />}
+                filled={locationFilled}
+                total={3}
+                isLoading={isLoading}
+              >
+                <Stack gap={6}>
+                  <FieldChip label={<Trans>Address</Trans>} value={venue?.address} />
+                  <FieldChip label={<Trans>City</Trans>} value={venue?.city} />
+                  <FieldChip
+                    label={<Trans>Coordinates</Trans>}
+                    value={
+                      venue?.locationLat && venue?.locationLng ? (
+                        <Group gap={6} wrap="nowrap">
+                          <Text size="xs">
+                            {String(venue.locationLat)}, {String(venue.locationLng)}
+                          </Text>
+                          {mapUrl && (
+                            <Anchor href={mapUrl} target="_blank" rel="noopener noreferrer" size="xs">
+                              <Group gap={3} wrap="nowrap">
+                                <IconExternalLink size={11} />
+                                <Trans>Maps</Trans>
+                              </Group>
+                            </Anchor>
+                          )}
+                        </Group>
                       ) : null
-                    } />
-                    <FieldRow
-                      label={<Trans>Confidence</Trans>}
-                      value={
-                        venue?.confidence != null ? (
-                          <Group gap={8} wrap="nowrap">
-                            <ConfidenceRing value={venue.confidence} isLoading={false} />
-                            <Stack gap={2}>
-                              <Text size="xs" c="dimmed">
-                                <Trans>Quality score assigned by the ingestion pipeline.</Trans>
-                              </Text>
-                              <Text size="xs" c="dimmed">
-                                {venue.confidence.toFixed(4)}
-                              </Text>
-                            </Stack>
-                          </Group>
-                        ) : null
-                      }
-                    />
-                    <FieldRow
-                      label={<Trans>Created</Trans>}
-                      value={venue?.createdAt ? dayjs(venue.createdAt).format("MMM D, YYYY HH:mm") : null}
-                    />
-                    <FieldRow
-                      label={<Trans>Updated</Trans>}
-                      value={venue?.updatedAt ? dayjs(venue.updatedAt).format("MMM D, YYYY HH:mm") : null}
-                    />
-                  </Stack>
-                </SubCard>
-              </SimpleGrid>
+                    }
+                  />
+                </Stack>
+              </InfoSectionCard>
 
-              {/* metadata */}
-              <Paper shadow="xs" radius="md" p="md" withBorder>
-                <Stack gap="sm">
-                  <Group gap="xs">
-                    <ThemeIcon size={28} radius="sm" variant="light" color="gray">
+              {/* "CURATION" section divider */}
+              <Divider
+                label={
+                  <Text size="xs" fw={700} tt="uppercase" c="dimmed" style={{ letterSpacing: "0.07em" }}>
+                    <Trans>Curation</Trans>
+                  </Text>
+                }
+                labelPosition="left"
+                my="sm"
+              />
+
+              {/* Curation section card */}
+              <InfoSectionCard
+                title={<Trans>Ingestion & quality</Trans>}
+                icon={<IconAdjustments size={14} />}
+                filled={curationFilled}
+                total={2}
+                isLoading={isLoading}
+              >
+                <Stack gap={6}>
+                  <FieldChip label={<Trans>Source</Trans>} value={venue?.source} />
+                  <FieldChip
+                    label={<Trans>Confidence</Trans>}
+                    value={venue?.confidence != null ? venue.confidence.toFixed(4) : null}
+                  />
+                  <FieldChip
+                    label={<Trans>Created</Trans>}
+                    value={venue?.createdAt ? dayjs(venue.createdAt).format("MMM D, YYYY HH:mm") : null}
+                  />
+                  <FieldChip
+                    label={<Trans>Updated</Trans>}
+                    value={venue?.updatedAt ? dayjs(venue.updatedAt).format("MMM D, YYYY HH:mm") : null}
+                  />
+                </Stack>
+              </InfoSectionCard>
+
+              {/* "METADATA" section divider */}
+              <Divider
+                label={
+                  <Text size="xs" fw={700} tt="uppercase" c="dimmed" style={{ letterSpacing: "0.07em" }}>
+                    <Trans>Metadata</Trans>
+                  </Text>
+                }
+                labelPosition="left"
+                my="sm"
+              />
+
+              {/* Metadata section card — mirrors SectionCard pattern, no completeness counter */}
+              <Paper withBorder radius="md" p="md">
+                <Group justify="space-between" align="flex-start" mb="sm">
+                  <Group gap={8}>
+                    <ThemeIcon size={24} radius="sm" variant="light" color="gray">
                       <IconPaperclip size={14} />
                     </ThemeIcon>
-                    <Stack gap={1}>
-                      <Text size="sm" fw={600}>
-                        <Trans>Metadata</Trans>
-                      </Text>
-                      <Text size="xs" c="dimmed">
-                        <Trans>Raw JSONB document managed by the ingestion worker.</Trans>
-                      </Text>
+                    <Stack gap={0}>
+                      <Text size="sm" fw={700}><Trans>Raw JSON document</Trans></Text>
+                      <Text size="xs" c="dimmed"><Trans>Managed by the ingestion worker — edit with care.</Trans></Text>
                     </Stack>
                   </Group>
-                  <Divider />
-                  {isLoading ? (
-                    <Skeleton height={120} radius="sm" />
-                  ) : (
-                    <MetadataViewer raw={venue?.metadata ?? null} />
-                  )}
-                </Stack>
+                </Group>
+                <Divider mb="sm" />
+                {isLoading
+                  ? <Skeleton height={120} radius="sm" />
+                  : <MetadataViewer raw={venue?.metadata ?? null} />
+                }
               </Paper>
             </Stack>
           </Tabs.Panel>
 
-          <Tabs.Panel value="photos" pt="md">
+          <Tabs.Panel value="photos" pt="sm">
             <PhotosTab photos={photos} isLoading={photosLoading} />
           </Tabs.Panel>
 
-          <Tabs.Panel value="assets" pt="md">
+          <Tabs.Panel value="assets" pt="sm">
             <AssetsTab assets={assets} isLoading={assetsLoading} />
           </Tabs.Panel>
         </Tabs>
