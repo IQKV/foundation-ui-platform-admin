@@ -1,1 +1,6 @@
-export { CreateMasterVenueModal, EditMasterVenueModal, DeleteMasterVenueModal } from "./ui";
+export {
+  CreateMasterVenueModal,
+  EditMasterVenueModal,
+  DeleteMasterVenueModal,
+  BulkDeleteMasterVenuesModal,
+} from "./ui";

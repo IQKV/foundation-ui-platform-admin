@@ -31,6 +31,10 @@ msgstr "(no title)"
 msgid "{0}"
 msgstr "{0}"
 
+#: src/pages/admin/master-catalog.index.tsx
+msgid "{selectedCount} selected"
+msgstr "{selectedCount} selected"
+
 #: src/pages/admin/organizations.$tenantKey.tsx
 msgid "{subscriptionCount} subscription(s)"
 msgstr "{subscriptionCount} subscription(s)"
@@ -258,6 +262,10 @@ msgstr "Are you sure you want to cancel the subscription for <0>{0}</0>?"
 msgid "Are you sure you want to delete <0>{0}</0>? This action cannot be undone."
 msgstr "Are you sure you want to delete <0>{0}</0>? This action cannot be undone."
 
+#: src/features/master-venue-admin/ui/bulk-delete-master-venues-modal.tsx
+msgid "Are you sure you want to delete <0>{countLabel}</0>? This action cannot be undone."
+msgstr "Are you sure you want to delete <0>{countLabel}</0>? This action cannot be undone."
+
 #: src/features/page-admin/ui/delete-page-modal.tsx
 msgid "Are you sure you want to delete <0>{displayName}</0>? This action cannot be undone."
 msgstr "Are you sure you want to delete <0>{displayName}</0>? This action cannot be undone."
@@ -401,6 +409,7 @@ msgstr "Billing Settings"
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 #: src/features/manage-platform-authority/ui/grant-platform-admin-modal.tsx
 #: src/features/manage-platform-authority/ui/revoke-platform-admin-modal.tsx
+#: src/features/master-venue-admin/ui/bulk-delete-master-venues-modal.tsx
 #: src/features/master-venue-admin/ui/create-master-venue-modal.tsx
 #: src/features/master-venue-admin/ui/delete-master-venue-modal.tsx
 #: src/features/master-venue-admin/ui/edit-master-venue-modal.tsx
@@ -483,6 +492,10 @@ msgstr "Clear all"
 #: src/pages/admin/users.index.tsx
 msgid "Clear filters"
 msgstr "Clear filters"
+
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Clear selection"
+msgstr "Clear selection"
 
 #: src/features/invitation-admin/ui/edit-invitation-modal.tsx
 #: src/pages/admin/audit-logs.tsx
@@ -588,6 +601,10 @@ msgstr "Could not delete the master venue. Please try again."
 #: src/features/page-admin/ui/delete-page-modal.tsx
 msgid "Could not delete the page. It may be published."
 msgstr "Could not delete the page. It may be published."
+
+#: src/features/master-venue-admin/ui/bulk-delete-master-venues-modal.tsx
+msgid "Could not delete the selected master venues. Please try again."
+msgstr "Could not delete the selected master venues. Please try again."
 
 #: src/pages/admin/announcements.index.tsx
 msgid "Could not fetch announcements from the API."
@@ -794,6 +811,7 @@ msgid "Default locale — required"
 msgstr "Default locale — required"
 
 #: src/features/announcement-admin/ui/delete-announcement-modal.tsx
+#: src/features/master-venue-admin/ui/bulk-delete-master-venues-modal.tsx
 #: src/features/master-venue-admin/ui/delete-master-venue-modal.tsx
 #: src/features/page-admin/ui/delete-page-modal.tsx
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
@@ -820,6 +838,7 @@ msgid "Delete billing settings?"
 msgstr "Delete billing settings?"
 
 #: src/features/announcement-admin/ui/delete-announcement-modal.tsx
+#: src/features/master-venue-admin/ui/bulk-delete-master-venues-modal.tsx
 #: src/features/master-venue-admin/ui/delete-master-venue-modal.tsx
 #: src/features/page-admin/ui/delete-page-modal.tsx
 msgid "Delete failed"
@@ -829,6 +848,10 @@ msgstr "Delete failed"
 msgid "Delete Master Venue"
 msgstr "Delete Master Venue"
 
+#: src/features/master-venue-admin/ui/bulk-delete-master-venues-modal.tsx
+msgid "Delete Master Venues"
+msgstr "Delete Master Venues"
+
 #: src/features/page-admin/ui/delete-page-modal.tsx
 msgid "Delete Page"
 msgstr "Delete Page"
@@ -836,6 +859,10 @@ msgstr "Delete Page"
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Delete record"
 msgstr "Delete record"
+
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Delete selected"
+msgstr "Delete selected"
 
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Delete subscription record"
@@ -2518,6 +2545,10 @@ msgstr "See all notifications"
 msgid "Select a tenant to view its pages"
 msgstr "Select a tenant to view its pages"
 
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Select all venues on this page"
+msgstr "Select all venues on this page"
+
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 msgid "Select an organization"
 msgstr "Select an organization"
@@ -2542,6 +2573,10 @@ msgstr "Select language"
 #: src/pages/admin/-organization-tenant-panels.tsx
 msgid "Select the authorities you want to assign to this member."
 msgstr "Select the authorities you want to assign to this member."
+
+#: src/pages/admin/master-catalog.index.tsx
+msgid "Select venue"
+msgstr "Select venue"
 
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 msgid "Send invitation"

@@ -150,6 +150,9 @@ export const TestSelectors = {
     MASTER_VENUE_DETAIL_DELETE: "button-master-venue-detail-delete",
     MASTER_VENUE_DETAIL_REFRESH: "button-master-venue-detail-refresh",
     MASTER_VENUE_DETAIL_ERROR_RETRY: "button-master-venue-detail-error-retry",
+    MASTER_VENUE_BULK_DELETE_CONFIRM: "button--bulk-delete-venue",
+    MASTER_CATALOG_BULK_DELETE: "button-master-catalog-bulk-delete",
+    MASTER_CATALOG_CLEAR_SELECTION: "button-master-catalog-clear-selection",
   },
   LINK: (name: string) => `link--${name}`,
   INPUT: {
@@ -248,6 +251,7 @@ export const TestSelectors = {
     CREATE_MASTER_VENUE: "modal--create-venue",
     EDIT_MASTER_VENUE: "modal--edit-venue",
     DELETE_MASTER_VENUE: "modal--delete-venue",
+    BULK_DELETE_MASTER_VENUES: "modal--bulk-delete-venue",
   },
   ALERT: {
     SESSION_TIMEOUT: "alert--session-timeout",
@@ -417,6 +421,12 @@ export const TestSelectors = {
     USERS_STATUS_FILTER: "select-users-status-filter",
     CMS_PAGES_TENANT: "select-cms-pages-tenant",
     MASTER_CATALOG_CITY_FILTER: "select-master-catalog-city-filter",
+  },
+
+  // Checkboxes
+  CHECKBOX: {
+    MASTER_VENUE_SELECT: (id: string) => `checkbox-master-venue-select--${id}`,
+    MASTER_CATALOG_SELECT_ALL: "checkbox-master-catalog-select-all",
   },
 
   // Org Detail

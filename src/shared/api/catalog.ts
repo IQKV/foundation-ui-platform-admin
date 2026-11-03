@@ -74,4 +74,9 @@ export const catalogApi = {
     httpClient.patch<MasterVenue>(`${BASE_PATH}/${id}`, data).then((r) => r.data),
 
   deleteMasterVenue: (id: string) => httpClient.delete(`${BASE_PATH}/${id}`).then(() => undefined),
+
+  // Bulk delete is a collection-level DELETE with the ids in the JSON body.
+  // The backend caps the list at 100 ids and silently ignores unknown ids.
+  bulkDeleteMasterVenues: (ids: string[]) =>
+    httpClient.delete(BASE_PATH, { data: { ids } }).then(() => undefined),
 };

@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import {
   Container,
@@ -26,6 +26,7 @@ import {
   ThemeIcon,
   Divider,
   Menu,
+  Checkbox,
 } from "@mantine/core";
 import { useDisclosure, useDebouncedValue } from "@mantine/hooks";
 import { useQuery } from "@tanstack/react-query";
@@ -56,6 +57,7 @@ import {
   CreateMasterVenueModal,
   EditMasterVenueModal,
   DeleteMasterVenueModal,
+  BulkDeleteMasterVenuesModal,
 } from "@/features/master-venue-admin";
 import { TestSelectors } from "@/shared/lib/test-selectors";
 
@@ -125,12 +127,14 @@ function VenueThumbnail({
 
 interface VenueCardProps {
   venue: MasterVenue;
+  selected: boolean;
+  onToggleSelect: () => void;
   onView: () => void;
   onEdit: () => void;
   onDelete: () => void;
 }
 
-function VenueCard({ venue, onView, onEdit, onDelete }: VenueCardProps) {
+function VenueCard({ venue, selected, onToggleSelect, onView, onEdit, onDelete }: VenueCardProps) {
   const { t } = useLingui();
   return (
     <Card
@@ -148,7 +152,7 @@ function VenueCard({ venue, onView, onEdit, onDelete }: VenueCardProps) {
         <VenueThumbnail url={venue.primaryPhotoUrl} name={venue.name} height={148} />
       </Card.Section>
 
-      {/* confidence accent — mirrors stage badge overlay */}
+      {/* selection + confidence accent — mirrors stage badge overlay */}
       <Box
         style={{
           position: "absolute",
@@ -156,8 +160,18 @@ function VenueCard({ venue, onView, onEdit, onDelete }: VenueCardProps) {
           left: 8,
           zIndex: 1,
         }}
+        onClick={(e) => e.stopPropagation()}
       >
-        <ConfidenceBadge value={venue.confidence} />
+        <Group gap={6} wrap="nowrap">
+          <Checkbox
+            size="xs"
+            checked={selected}
+            onChange={onToggleSelect}
+            aria-label={t`Select venue`}
+            data-testid={TestSelectors.CHECKBOX.MASTER_VENUE_SELECT(venue.id)}
+          />
+          <ConfidenceBadge value={venue.confidence} />
+        </Group>
       </Box>
 
       {/* dots menu — mirrors VenueCard actions overlay */}
@@ -234,7 +248,7 @@ function VenueCard({ venue, onView, onEdit, onDelete }: VenueCardProps) {
 
 // ── List row — mirrors VenueRow from mockup ────────────────────────────────────
 
-function VenueRow({ venue, onView, onEdit, onDelete }: VenueCardProps) {
+function VenueRow({ venue, selected, onToggleSelect, onView, onEdit, onDelete }: VenueCardProps) {
   const { t } = useLingui();
 
   const hasCoordinates = venue.locationLat != null && venue.locationLng != null;
@@ -402,6 +416,13 @@ function VenueRow({ venue, onView, onEdit, onDelete }: VenueCardProps) {
         }}
         onClick={(e) => e.stopPropagation()}
       >
+        <Checkbox
+          size="sm"
+          checked={selected}
+          onChange={onToggleSelect}
+          aria-label={t`Select venue`}
+          data-testid={TestSelectors.CHECKBOX.MASTER_VENUE_SELECT(venue.id)}
+        />
         <Menu shadow="md" width={160} position="bottom-end">
           <Menu.Target>
             <ActionIcon variant="subtle" size="md" color="gray">
@@ -602,7 +623,9 @@ function AdminMasterCatalogPage() {
   const [createOpened, { open: openCreate, close: closeCreate }] = useDisclosure(false);
   const [editOpened, { open: openEdit, close: closeEdit }] = useDisclosure(false);
   const [deleteOpened, { open: openDelete, close: closeDelete }] = useDisclosure(false);
+  const [bulkDeleteOpened, { open: openBulkDelete, close: closeBulkDelete }] = useDisclosure(false);
   const [selectedVenue, setSelectedVenue] = useState<MasterVenue | null>(null);
+  const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
 
   const hasActiveFilters = debouncedSearch !== "" || cityFilter !== null;
   const offset = (page - 1) * PAGE_SIZE;
@@ -623,6 +646,32 @@ function AdminMasterCatalogPage() {
   const totalPages = Math.ceil(totalElements / PAGE_SIZE);
   const rangeStart = totalElements === 0 ? 0 : offset + 1;
   const rangeEnd = Math.min(offset + PAGE_SIZE, totalElements);
+
+  // Bulk selection is scoped to the current page: it covers only the rows already loaded,
+  // and is reset whenever the page or the filters change (ids would no longer be visible).
+  const selectedCount = selectedIds.size;
+  const allOnPageSelected = items.length > 0 && items.every((v) => selectedIds.has(v.id));
+  const someOnPageSelected = items.some((v) => selectedIds.has(v.id));
+
+  useEffect(() => {
+    setSelectedIds(new Set());
+  }, [page, debouncedSearch, cityFilter]);
+
+  const handleToggleSelect = (id: string) => {
+    setSelectedIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  };
+
+  const handleToggleSelectAll = () => {
+    setSelectedIds((prev) => {
+      const allSelected = items.length > 0 && items.every((v) => prev.has(v.id));
+      return allSelected ? new Set() : new Set(items.map((v) => v.id));
+    });
+  };
 
   // shortcut: city options come from the loaded page only (no city-list endpoint); upgrade when one exists.
   const cityOptions = useMemo(() => {
@@ -649,6 +698,9 @@ function AdminMasterCatalogPage() {
   const handleCloseDelete = () => {
     closeDelete();
     setTimeout(() => setSelectedVenue(null), 300);
+  };
+  const handleBulkDeleted = () => {
+    setSelectedIds(new Set());
   };
   const handleReset = () => {
     setSearch("");
@@ -747,21 +799,62 @@ function AdminMasterCatalogPage() {
         <Stack gap="md" style={{ flex: 1, minWidth: 0 }}>
           {/* toolbar */}
           <Group justify="space-between" wrap="wrap" gap="sm">
-            {!isLoading ? (
-              <Text size="xs" c="dimmed">
-                {totalElements === 0 ? (
-                  <Trans>No venues found</Trans>
-                ) : (
-                  <Trans>
-                    {totalElements} venue{totalElements === 1 ? "" : "s"}
-                  </Trans>
-                )}
-              </Text>
-            ) : (
-              <Skeleton height={14} width={80} />
-            )}
+            <Group gap="sm" wrap="nowrap">
+              {!isLoading && items.length > 0 && (
+                <Checkbox
+                  size="xs"
+                  checked={allOnPageSelected}
+                  indeterminate={someOnPageSelected && !allOnPageSelected}
+                  onChange={handleToggleSelectAll}
+                  aria-label={t`Select all venues on this page`}
+                  data-testid={TestSelectors.CHECKBOX.MASTER_CATALOG_SELECT_ALL}
+                />
+              )}
+              {!isLoading ? (
+                <Text size="xs" c="dimmed">
+                  {totalElements === 0 ? (
+                    <Trans>No venues found</Trans>
+                  ) : (
+                    <Trans>
+                      {totalElements} venue{totalElements === 1 ? "" : "s"}
+                    </Trans>
+                  )}
+                </Text>
+              ) : (
+                <Skeleton height={14} width={80} />
+              )}
+            </Group>
 
             <Group gap="xs" style={{ marginLeft: "auto" }}>
+              {selectedCount > 0 && (
+                <>
+                  <Text size="xs" c="dimmed">
+                    <Trans>{selectedCount} selected</Trans>
+                  </Text>
+                  <Button
+                    size="xs"
+                    color="red"
+                    variant="light"
+                    leftSection={<IconTrash size={14} />}
+                    data-testid={TestSelectors.BUTTON.MASTER_CATALOG_BULK_DELETE}
+                    onClick={openBulkDelete}
+                  >
+                    <Trans>Delete selected</Trans>
+                  </Button>
+                  <Tooltip label={t`Clear selection`} withArrow>
+                    <ActionIcon
+                      variant="subtle"
+                      color="gray"
+                      size="sm"
+                      aria-label={t`Clear selection`}
+                      data-testid={TestSelectors.BUTTON.MASTER_CATALOG_CLEAR_SELECTION}
+                      onClick={() => setSelectedIds(new Set())}
+                    >
+                      <IconX size={15} />
+                    </ActionIcon>
+                  </Tooltip>
+                </>
+              )}
               <Tooltip label={t`Refresh`} withArrow>
                 <ActionIcon
                   data-testid={TestSelectors.BUTTON.MASTER_CATALOG_REFRESH}
@@ -850,6 +943,8 @@ function AdminMasterCatalogPage() {
                 <VenueCard
                   key={venue.id}
                   venue={venue}
+                  selected={selectedIds.has(venue.id)}
+                  onToggleSelect={() => handleToggleSelect(venue.id)}
                   onView={() =>
                     void navigate({
                       to: "/admin/master-catalog/$venueId",
@@ -867,6 +962,8 @@ function AdminMasterCatalogPage() {
                 <VenueRow
                   key={venue.id}
                   venue={venue}
+                  selected={selectedIds.has(venue.id)}
+                  onToggleSelect={() => handleToggleSelect(venue.id)}
                   onView={() =>
                     void navigate({
                       to: "/admin/master-catalog/$venueId",
@@ -903,6 +1000,12 @@ function AdminMasterCatalogPage() {
         venue={selectedVenue}
         opened={deleteOpened}
         onClose={handleCloseDelete}
+      />
+      <BulkDeleteMasterVenuesModal
+        ids={[...selectedIds]}
+        opened={bulkDeleteOpened}
+        onClose={closeBulkDelete}
+        onDeleted={handleBulkDeleted}
       />
     </Container>
   );
