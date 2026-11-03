@@ -11,6 +11,7 @@ export interface MasterVenue {
   primaryPhotoUrl: string | null;
   createdAt: string;
   updatedAt: string;
+  similarity?: number;
 }
 
 export interface MasterVenueAsset {

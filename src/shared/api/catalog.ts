@@ -35,11 +35,26 @@ export interface MasterVenuePatchRequest {
   source?: string | null;
 }
 
+export interface SemanticSearchResult extends MasterVenue {
+  similarity: number;
+}
+
+export interface SemanticSearchResponse {
+  items: SemanticSearchResult[];
+  totalElements: number;
+}
+
 export interface ListMasterVenuesParams {
   search?: string;
   city?: string;
   limit?: number;
   offset?: number;
+}
+
+export interface SemanticSearchParams {
+  q: string;
+  city?: string;
+  limit?: number;
 }
 
 // ─── API ──────────────────────────────────────────────────────────────────────
@@ -49,6 +64,11 @@ const BASE_PATH = "/v1/catalog/admin/master-venues";
 export const catalogApi = {
   listMasterVenues: (params: ListMasterVenuesParams = {}) =>
     httpClient.get<AdminMasterVenueListResponse>(BASE_PATH, { params }).then((r) => r.data),
+
+  semanticSearch: (params: SemanticSearchParams) =>
+    httpClient
+      .get<SemanticSearchResponse>(`${BASE_PATH}/search/semantic`, { params })
+      .then((r) => r.data),
 
   getMasterVenue: (id: string) =>
     httpClient.get<MasterVenue>(`${BASE_PATH}/${id}`).then((r) => r.data),

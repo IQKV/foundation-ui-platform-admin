@@ -46,6 +46,7 @@ import {
   IconChevronDown,
   IconX,
   IconExternalLink,
+  IconSparkles,
 } from "@tabler/icons-react";
 import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
@@ -59,6 +60,7 @@ import {
   DeleteMasterVenueModal,
   BulkDeleteMasterVenuesModal,
 } from "@/features/master-venue-admin";
+import { MasterVenueSemanticSearchWidget } from "@/features/master-venue-semantic-search";
 import { TestSelectors } from "@/shared/lib/test-selectors";
 
 export const Route = createFileRoute("/admin/master-catalog/")({
@@ -85,6 +87,16 @@ function ConfidenceBadge({ value }: { value: number | null }) {
   const pct = Math.round(value * 100);
   return (
     <Badge variant="light" color={confidenceColor(value)} size="xs">
+      {pct}%
+    </Badge>
+  );
+}
+
+function SimilarityBadge({ value }: { value: number | undefined }) {
+  if (value === undefined) return null;
+  const pct = Math.round(value * 100);
+  return (
+    <Badge variant="filled" color="blue" size="xs" leftSection={<IconSparkles size={10} />}>
       {pct}%
     </Badge>
   );
@@ -171,6 +183,7 @@ function VenueCard({ venue, selected, onToggleSelect, onView, onEdit, onDelete }
             data-testid={TestSelectors.CHECKBOX.MASTER_VENUE_SELECT(venue.id)}
           />
           <ConfidenceBadge value={venue.confidence} />
+          <SimilarityBadge value={venue.similarity} />
         </Group>
       </Box>
 
@@ -371,6 +384,7 @@ function VenueRow({ venue, selected, onToggleSelect, onView, onEdit, onDelete }:
             <Text size="xs" c="dimmed" ff="monospace">
               {venue.confidence != null ? venue.confidence.toFixed(4) : "—"}
             </Text>
+            <SimilarityBadge value={venue.similarity} />
           </Group>
           <Group gap={6} wrap="nowrap" mt={2}>
             <Text size="xs" c="dimmed">
@@ -618,6 +632,10 @@ function AdminMasterCatalogPage() {
   const [search, setSearch] = useState("");
   const [debouncedSearch] = useDebouncedValue(search, 300);
   const [cityFilter, setCityFilter] = useState<string | null>(null);
+  const [semanticQuery, setSemanticQuery] = useState("");
+
+  const isSemanticSearchActive = semanticQuery.trim().length > 0;
+
   // Grid/list preference is persisted locally so it survives reloads.
   // Normalize the stored value: anything other than "list" falls back to "grid".
   const [storedViewMode, setStoredViewMode] = useLocalStorage<ViewMode>({
@@ -638,19 +656,27 @@ function AdminMasterCatalogPage() {
   const offset = (page - 1) * PAGE_SIZE;
 
   const { data, isLoading, isError, refetch, isFetching } = useQuery({
-    queryKey: ["admin", "master-venues", page, debouncedSearch, cityFilter],
-    queryFn: () =>
-      catalogApi.listMasterVenues({
+    queryKey: ["admin", "master-venues", page, debouncedSearch, cityFilter, semanticQuery],
+    queryFn: () => {
+      if (isSemanticSearchActive) {
+        return catalogApi.semanticSearch({
+          q: semanticQuery,
+          city: cityFilter || undefined,
+          limit: PAGE_SIZE,
+        });
+      }
+      return catalogApi.listMasterVenues({
         search: debouncedSearch || undefined,
         city: cityFilter || undefined,
         limit: PAGE_SIZE,
         offset,
-      }),
+      });
+    },
   });
 
   const items = data?.items ?? [];
   const totalElements = data?.totalElements ?? 0;
-  const totalPages = Math.ceil(totalElements / PAGE_SIZE);
+  const totalPages = isSemanticSearchActive ? 1 : Math.ceil(totalElements / PAGE_SIZE);
   const rangeStart = totalElements === 0 ? 0 : offset + 1;
   const rangeEnd = Math.min(offset + PAGE_SIZE, totalElements);
 
@@ -662,7 +688,7 @@ function AdminMasterCatalogPage() {
 
   useEffect(() => {
     setSelectedIds(new Set());
-  }, [page, debouncedSearch, cityFilter]);
+  }, [page, debouncedSearch, cityFilter, semanticQuery]);
 
   const handleToggleSelect = (id: string) => {
     setSelectedIds((prev) => {
@@ -712,6 +738,7 @@ function AdminMasterCatalogPage() {
   const handleReset = () => {
     setSearch("");
     setCityFilter(null);
+    setSemanticQuery("");
     setPage(1);
   };
 
@@ -783,6 +810,12 @@ function AdminMasterCatalogPage() {
         </Alert>
       )}
 
+      <MasterVenueSemanticSearchWidget
+        onSearch={setSemanticQuery}
+        onClear={() => setSemanticQuery("")}
+        isSearching={isFetching && isSemanticSearchActive}
+      />
+
       {/* ── Two-column layout — mirrors VenueListWidget ──────────────── */}
       <Group align="flex-start" gap="lg" wrap="nowrap">
         {/* left: filter sidebar */}
@@ -818,15 +851,27 @@ function AdminMasterCatalogPage() {
                 />
               )}
               {!isLoading ? (
-                <Text size="xs" c="dimmed">
-                  {totalElements === 0 ? (
-                    <Trans>No venues found</Trans>
-                  ) : (
-                    <Trans>
-                      {totalElements} venue{totalElements === 1 ? "" : "s"}
-                    </Trans>
+                <Group gap="xs">
+                  <Text size="xs" c="dimmed">
+                    {totalElements === 0 ? (
+                      <Trans>No venues found</Trans>
+                    ) : (
+                      <Trans>
+                        {totalElements} venue{totalElements === 1 ? "" : "s"}
+                      </Trans>
+                    )}
+                  </Text>
+                  {isSemanticSearchActive && (
+                    <Badge
+                      variant="light"
+                      color="blue"
+                      size="xs"
+                      leftSection={<IconSparkles size={10} />}
+                    >
+                      <Trans>AI Ranked</Trans>
+                    </Badge>
                   )}
-                </Text>
+                </Group>
               ) : (
                 <Skeleton height={14} width={80} />
               )}
