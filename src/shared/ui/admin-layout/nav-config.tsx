@@ -67,6 +67,18 @@ export function buildNavSections(addonItems: NavItem[] = []): NavSection[] {
       items: [{ label: <Trans>Dashboard</Trans>, icon: IconDashboard, to: "/admin/" }],
     },
     {
+      id: "catalog",
+      label: <Trans>Catalog</Trans>,
+      prefixes: ["/admin/master-catalog"],
+      items: [
+        {
+          label: <Trans>Master Catalog</Trans>,
+          icon: IconBuildingStore,
+          to: "/admin/master-catalog",
+        },
+      ],
+    },
+    {
       id: "users",
       label: <Trans>User Management</Trans>,
       prefixes: ["/admin/users", "/admin/organizations", "/admin/invitations", "/admin/audit-logs"],
@@ -101,18 +113,6 @@ export function buildNavSections(addonItems: NavItem[] = []): NavSection[] {
         { label: <Trans>CMS Pages</Trans>, icon: IconFileText, to: "/admin/cms-pages" },
         { label: <Trans>Webhook Logs</Trans>, icon: IconWebhook, to: "/admin/webhook-logs" },
         ...addonItems,
-      ],
-    },
-    {
-      id: "catalog",
-      label: <Trans>Catalog</Trans>,
-      prefixes: ["/admin/master-catalog"],
-      items: [
-        {
-          label: <Trans>Master Catalog</Trans>,
-          icon: IconBuildingStore,
-          to: "/admin/master-catalog",
-        },
       ],
     },
   ];
