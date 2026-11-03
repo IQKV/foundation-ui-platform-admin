@@ -28,7 +28,7 @@ import {
   Menu,
   Checkbox,
 } from "@mantine/core";
-import { useDisclosure, useDebouncedValue } from "@mantine/hooks";
+import { useDisclosure, useDebouncedValue, useLocalStorage } from "@mantine/hooks";
 import { useQuery } from "@tanstack/react-query";
 import {
   IconSearch,
@@ -618,7 +618,14 @@ function AdminMasterCatalogPage() {
   const [search, setSearch] = useState("");
   const [debouncedSearch] = useDebouncedValue(search, 300);
   const [cityFilter, setCityFilter] = useState<string | null>(null);
-  const [viewMode, setViewMode] = useState<ViewMode>("grid");
+  // Grid/list preference is persisted locally so it survives reloads.
+  // Normalize the stored value: anything other than "list" falls back to "grid".
+  const [storedViewMode, setStoredViewMode] = useLocalStorage<ViewMode>({
+    key: "iqkv_master_catalog_view_mode",
+    defaultValue: "grid",
+    getInitialValueInEffect: false,
+  });
+  const viewMode: ViewMode = storedViewMode === "list" ? "list" : "grid";
 
   const [createOpened, { open: openCreate, close: closeCreate }] = useDisclosure(false);
   const [editOpened, { open: openEdit, close: closeEdit }] = useDisclosure(false);
@@ -870,7 +877,7 @@ function AdminMasterCatalogPage() {
               <SegmentedControl
                 size="xs"
                 value={viewMode}
-                onChange={(v) => setViewMode(v as ViewMode)}
+                onChange={(v) => setStoredViewMode(v as ViewMode)}
                 data={[
                   {
                     value: "grid",
