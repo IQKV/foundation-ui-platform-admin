@@ -736,6 +736,9 @@ function AdminMasterCatalogPage() {
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
 
   const hasActiveFilters = debouncedSearch !== "" || cityFilter !== null;
+  // Covers semantic search too, so a zero-result AI query shows "no match" copy
+  // rather than the "add your first venue" onboarding state.
+  const isSearching = hasActiveFilters || isSemanticSearchActive;
   const offset = (page - 1) * PAGE_SIZE;
 
   const { data, isLoading, isError, refetch, isFetching } = useQuery({
@@ -906,7 +909,7 @@ function AdminMasterCatalogPage() {
           search={search}
           cityFilter={cityFilter}
           cityOptions={cityOptions}
-          hasActiveFilters={hasActiveFilters}
+          hasActiveFilters={isSearching}
           onSearchChange={(v) => {
             setSearch(v);
             setPage(1);
@@ -1047,20 +1050,24 @@ function AdminMasterCatalogPage() {
                 ))}
               </Stack>
             )
-          ) : items.length === 0 ? (
+          ) : items.length === 0 && !isError ? (
             <Center py="xl">
               <Stack align="center" gap="sm">
                 <ThemeIcon size={48} radius="xl" variant="light" color="gray">
                   <IconBuildingStore size={24} />
                 </ThemeIcon>
                 <Text c="dimmed" size="sm">
-                  {hasActiveFilters ? (
+                  {isSearching ? (
                     <Trans>No venues match your filters</Trans>
                   ) : (
                     <Trans>No venues yet — add your first one</Trans>
                   )}
                 </Text>
-                {!hasActiveFilters && (
+                {isSearching ? (
+                  <Button variant="light" color="gray" size="sm" onClick={handleReset}>
+                    <Trans>Clear filters</Trans>
+                  </Button>
+                ) : (
                   <Button
                     variant="light"
                     leftSection={<IconPlus size={14} />}
