@@ -52,6 +52,50 @@ export const Route = createFileRoute("/admin/master-catalog/$venueId")({
   component: MasterVenueDetailPage,
 });
 
+// ─── Shared surface accents ───────────────────────────────────────────────────
+// Deliberately quieter than the catalog list accents: lighter tones, no motion.
+
+const ACCENT_GRADIENT =
+  "linear-gradient(135deg, var(--mantine-color-blue-3) 0%, var(--mantine-color-cyan-3) 100%)";
+
+/** Hairline gradient strip along the top edge of a section card. */
+const SECTION_CARD_STYLES = {
+  root: {
+    position: "relative",
+    overflow: "hidden",
+    "&::before": {
+      content: '""',
+      position: "absolute",
+      top: 0,
+      left: 0,
+      right: 0,
+      height: 2,
+      background: ACCENT_GRADIENT,
+      opacity: 0.7,
+      pointerEvents: "none",
+    },
+  },
+} as const;
+
+/** Hairline gradient bar along the leading edge of a list row. */
+const ASSET_ROW_STYLES = {
+  root: {
+    position: "relative",
+    overflow: "hidden",
+    "&::before": {
+      content: '""',
+      position: "absolute",
+      top: 0,
+      bottom: 0,
+      left: 0,
+      width: 3,
+      background: ACCENT_GRADIENT,
+      opacity: 0.65,
+      pointerEvents: "none",
+    },
+  },
+} as const;
+
 // ─── Confidence ring ──────────────────────────────────────────────────────────
 
 function ConfidenceRing({
@@ -113,7 +157,7 @@ function InfoSectionCard({
 }: InfoSectionCardProps) {
   const allFilled = filled != null && total != null && filled === total && total > 0;
   return (
-    <Paper withBorder radius="md" p="md">
+    <Paper withBorder radius="md" p="md" styles={SECTION_CARD_STYLES}>
       <Group justify="space-between" align="flex-start" mb="sm">
         <Group gap={8}>
           <ThemeIcon size={24} radius="sm" variant="light" color="blue">
@@ -313,7 +357,7 @@ function AssetsTab({ assets, isLoading }: { assets: MasterVenueAsset[]; isLoadin
   return (
     <Stack gap={6}>
       {assets.map((asset) => (
-        <Paper key={asset.id} withBorder p="sm" radius="md">
+        <Paper key={asset.id} withBorder p="sm" radius="md" styles={ASSET_ROW_STYLES}>
           <Group justify="space-between" wrap="nowrap">
             <Group gap="sm" wrap="nowrap" style={{ minWidth: 0 }}>
               <ThemeIcon
@@ -500,7 +544,6 @@ function MasterVenueDetailPage() {
             position: "relative",
             borderRadius: "var(--mantine-radius-lg)",
             overflow: "hidden",
-            border: "1px solid var(--mantine-color-default-border)",
           }}
           data-testid={TestSelectors.MASTER_VENUE_DETAIL_HERO_CARD}
         >
@@ -649,6 +692,23 @@ function MasterVenueDetailPage() {
               </Box>
             )}
           </Box>
+
+          {/* soft gradient rim — replaces the hard border on the hero edge */}
+          <Box
+            aria-hidden
+            style={{
+              position: "absolute",
+              inset: 0,
+              borderRadius: "var(--mantine-radius-lg)",
+              padding: 1,
+              background: ACCENT_GRADIENT,
+              WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+              WebkitMaskComposite: "xor",
+              maskComposite: "exclude",
+              opacity: 0.75,
+              pointerEvents: "none",
+            }}
+          />
         </Box>
 
         {/* ── Tabs — mirrors VenueProfileWidget tab structure ─────────── */}
@@ -823,7 +883,7 @@ function MasterVenueDetailPage() {
               />
 
               {/* Metadata section card — mirrors SectionCard pattern, no completeness counter */}
-              <Paper withBorder radius="md" p="md">
+              <Paper withBorder radius="md" p="md" styles={SECTION_CARD_STYLES}>
                 <Group justify="space-between" align="flex-start" mb="sm">
                   <Group gap={8}>
                     <ThemeIcon size={24} radius="sm" variant="light" color="gray">
