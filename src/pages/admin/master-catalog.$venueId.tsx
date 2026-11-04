@@ -880,7 +880,7 @@ function MasterVenueDetailPage() {
                     {advancedOpened ? t`Hide raw JSON` : t`Show raw JSON`}
                   </Button>
                 </Group>
-                <Collapse in={advancedOpened}>
+                <Collapse expanded={advancedOpened}>
                   <Divider my="sm" />
                   {isLoading ? (
                     <Skeleton height={120} radius="sm" />

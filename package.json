@@ -45,7 +45,7 @@
     "test:coverage": "vitest run --coverage",
     "test:ui": "vitest run --ui",
     "test:wath": "vitest",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc -b"
   },
   "dependencies": {
     "@dr.pogodin/react-helmet": "^3.3.2",
