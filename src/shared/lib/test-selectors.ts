@@ -146,6 +146,7 @@ export const TestSelectors = {
     MASTER_VENUE_CREATE_SUBMIT: "button--create-venue",
     MASTER_VENUE_EDIT_SAVE: "button--save-venue",
     MASTER_VENUE_DELETE_CONFIRM: "button--delete-venue",
+    MASTER_VENUE_DETAIL_BACK: "button-master-venue-detail-back",
     MASTER_VENUE_DETAIL_EDIT: "button-master-venue-detail-edit",
     MASTER_VENUE_DETAIL_DELETE: "button-master-venue-detail-delete",
     MASTER_VENUE_DETAIL_REFRESH: "button-master-venue-detail-refresh",

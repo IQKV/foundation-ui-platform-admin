@@ -28,6 +28,7 @@ import { useDisclosure } from "@mantine/hooks";
 import { useQuery } from "@tanstack/react-query";
 import {
   IconAlertCircle,
+  IconArrowLeft,
   IconRefresh,
   IconEdit,
   IconTrash,
@@ -366,6 +367,9 @@ const bigTabStyles = {
   },
 };
 
+// Temporarily hidden while the assets pipeline is being reworked — flip back to `true` to restore.
+const SHOW_ASSETS_TAB = false;
+
 function MasterVenueDetailPage() {
   const { t } = useLingui();
   const navigate = useNavigate();
@@ -462,6 +466,18 @@ function MasterVenueDetailPage() {
         ]}
         toolbar={
           <Group gap="xs">
+            <Tooltip label={t`Back to search`} withArrow>
+              <ActionIcon
+                data-testid={TestSelectors.BUTTON.MASTER_VENUE_DETAIL_BACK}
+                variant="subtle"
+                color="gray"
+                size="sm"
+                aria-label={t`Back to search`}
+                onClick={() => void navigate({ to: "/admin/master-catalog" })}
+              >
+                <IconArrowLeft size={15} />
+              </ActionIcon>
+            </Tooltip>
             <Tooltip label={t`Refresh`} withArrow>
               <ActionIcon
                 data-testid={TestSelectors.BUTTON.MASTER_VENUE_DETAIL_REFRESH}
@@ -708,21 +724,23 @@ function MasterVenueDetailPage() {
             >
               <Trans>Photos</Trans>
             </Tabs.Tab>
-            <Tabs.Tab
-              value="assets"
-              data-testid={TestSelectors.TAB.MASTER_VENUE_ASSETS}
-              leftSection={<IconPaperclip size={20} />}
-              styles={bigTabStyles}
-              rightSection={
-                !assetsLoading && assets.length > 0 ? (
-                  <Badge size="xl" variant="filled" color="blue" circle>
-                    {assets.length}
-                  </Badge>
-                ) : undefined
-              }
-            >
-              <Trans>Assets</Trans>
-            </Tabs.Tab>
+            {SHOW_ASSETS_TAB && (
+              <Tabs.Tab
+                value="assets"
+                data-testid={TestSelectors.TAB.MASTER_VENUE_ASSETS}
+                leftSection={<IconPaperclip size={20} />}
+                styles={bigTabStyles}
+                rightSection={
+                  !assetsLoading && assets.length > 0 ? (
+                    <Badge size="xl" variant="filled" color="blue" circle>
+                      {assets.length}
+                    </Badge>
+                  ) : undefined
+                }
+              >
+                <Trans>Assets</Trans>
+              </Tabs.Tab>
+            )}
           </Tabs.List>
 
           {/* ── Details tab — mirrors DetailsTab section cards ─────────── */}
@@ -896,9 +914,11 @@ function MasterVenueDetailPage() {
             <PhotosTab photos={photos} isLoading={photosLoading} />
           </Tabs.Panel>
 
-          <Tabs.Panel value="assets" pt="sm">
-            <AssetsTab assets={assets} isLoading={assetsLoading} />
-          </Tabs.Panel>
+          {SHOW_ASSETS_TAB && (
+            <Tabs.Panel value="assets" pt="sm">
+              <AssetsTab assets={assets} isLoading={assetsLoading} />
+            </Tabs.Panel>
+          )}
         </Tabs>
       </Stack>
 

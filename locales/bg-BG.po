@@ -375,6 +375,10 @@ msgstr "Автоматична интеграция с рутер чрез <0>ro
 msgid "Back to list"
 msgstr "Обратно към списъка"
 
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "Back to search"
+msgstr ""
+
 #: src/features/ban-user/ui/ban-user-modal.tsx
 #: src/pages/admin/users.index.tsx
 msgid "Ban user"

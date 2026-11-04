@@ -375,6 +375,10 @@ msgstr "Automatic router integration via <0>router.subscribe()</0>"
 msgid "Back to list"
 msgstr "Back to list"
 
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "Back to search"
+msgstr "Back to search"
+
 #: src/features/ban-user/ui/ban-user-modal.tsx
 #: src/pages/admin/users.index.tsx
 msgid "Ban user"
