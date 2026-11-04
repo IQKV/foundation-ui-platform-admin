@@ -22,6 +22,7 @@ import {
   ScrollArea,
   Center,
   ThemeIcon,
+  Collapse,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { useQuery } from "@tanstack/react-query";
@@ -45,56 +46,19 @@ import { PageTitle } from "@/shared/lib/page-title";
 import { catalogApi } from "@/shared/api";
 import type { MasterVenue, MasterVenueAsset } from "@/entities";
 import { PageHeader } from "@/shared/ui";
-import { EditMasterVenueModal, DeleteMasterVenueModal } from "@/features/master-venue-admin";
+import {
+  ACCENT_GRADIENT,
+  ASSET_ROW_STYLES,
+  DeleteMasterVenueModal,
+  EditMasterVenueModal,
+  SECTION_CARD_STYLES,
+  VenueMetadataSections,
+} from "@/features/master-venue-admin";
 import { TestSelectors } from "@/shared/lib/test-selectors";
 
 export const Route = createFileRoute("/admin/master-catalog/$venueId")({
   component: MasterVenueDetailPage,
 });
-
-// ─── Shared surface accents ───────────────────────────────────────────────────
-// Deliberately quieter than the catalog list accents: lighter tones, no motion.
-
-const ACCENT_GRADIENT =
-  "linear-gradient(135deg, var(--mantine-color-blue-3) 0%, var(--mantine-color-cyan-3) 100%)";
-
-/** Hairline gradient strip along the top edge of a section card. */
-const SECTION_CARD_STYLES = {
-  root: {
-    position: "relative",
-    overflow: "hidden",
-    "&::before": {
-      content: '""',
-      position: "absolute",
-      top: 0,
-      left: 0,
-      right: 0,
-      height: 2,
-      background: ACCENT_GRADIENT,
-      opacity: 0.7,
-      pointerEvents: "none",
-    },
-  },
-} as const;
-
-/** Hairline gradient bar along the leading edge of a list row. */
-const ASSET_ROW_STYLES = {
-  root: {
-    position: "relative",
-    overflow: "hidden",
-    "&::before": {
-      content: '""',
-      position: "absolute",
-      top: 0,
-      bottom: 0,
-      left: 0,
-      width: 3,
-      background: ACCENT_GRADIENT,
-      opacity: 0.65,
-      pointerEvents: "none",
-    },
-  },
-} as const;
 
 // ─── Confidence ring ──────────────────────────────────────────────────────────
 
@@ -409,6 +373,7 @@ function MasterVenueDetailPage() {
 
   const [editOpened, { open: openEdit, close: closeEdit }] = useDisclosure(false);
   const [deleteOpened, { open: openDelete, close: closeDelete }] = useDisclosure(false);
+  const [advancedOpened, { toggle: toggleAdvanced }] = useDisclosure(false);
   const [deletedVenue, setDeletedVenue] = useState<MasterVenue | null>(null);
 
   const {
@@ -882,9 +847,16 @@ function MasterVenueDetailPage() {
                 my="sm"
               />
 
-              {/* Metadata section card — mirrors SectionCard pattern, no completeness counter */}
+              {/* Metadata section cards — mirrors SectionCard pattern from the mockup */}
+              <VenueMetadataSections
+                venueId={venueId}
+                metadata={venue?.metadata ?? null}
+                isLoading={isLoading}
+              />
+
+              {/* Advanced: raw JSON document */}
               <Paper withBorder radius="md" p="md" styles={SECTION_CARD_STYLES}>
-                <Group justify="space-between" align="flex-start" mb="sm">
+                <Group justify="space-between" align="flex-start" wrap="nowrap" gap="md">
                   <Group gap={8}>
                     <ThemeIcon size={24} radius="sm" variant="light" color="gray">
                       <IconPaperclip size={14} />
@@ -898,13 +870,24 @@ function MasterVenueDetailPage() {
                       </Text>
                     </Stack>
                   </Group>
+                  <Button
+                    variant="subtle"
+                    color="gray"
+                    size="compact-sm"
+                    style={{ flexShrink: 0 }}
+                    onClick={toggleAdvanced}
+                  >
+                    {advancedOpened ? t`Hide raw JSON` : t`Show raw JSON`}
+                  </Button>
                 </Group>
-                <Divider mb="sm" />
-                {isLoading ? (
-                  <Skeleton height={120} radius="sm" />
-                ) : (
-                  <MetadataViewer raw={venue?.metadata ?? null} />
-                )}
+                <Collapse in={advancedOpened}>
+                  <Divider my="sm" />
+                  {isLoading ? (
+                    <Skeleton height={120} radius="sm" />
+                  ) : (
+                    <MetadataViewer raw={venue?.metadata ?? null} />
+                  )}
+                </Collapse>
               </Paper>
             </Stack>
           </Tabs.Panel>

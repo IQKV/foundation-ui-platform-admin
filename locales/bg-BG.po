@@ -163,6 +163,10 @@ msgstr ""
 msgid "Admin password override"
 msgstr "Администраторско презаписване на парола"
 
+#: src/pages/admin/master-catalog.index.tsx
+msgid "AI Ranked"
+msgstr ""
+
 #: src/pages/admin/audit-logs.tsx
 msgid "All actions"
 msgstr "Всички действия"
@@ -246,6 +250,10 @@ msgstr "Обявленията в статус <0>{0}</0> не могат да �
 #: src/pages/admin/plans.$planCode.tsx
 msgid "Annual"
 msgstr "Годишно"
+
+#: src/features/master-venue-admin/ui/section-fields-form.tsx
+msgid "Apply"
+msgstr ""
 
 #: src/features/page-admin/model/types.ts
 #: src/pages/admin/cms-pages.index.tsx
@@ -364,6 +372,10 @@ msgstr "Забрани потребител"
 msgid "Banning this user will immediately invalidate all their active sessions, revoke their access, and send them a notification email. They will not be able to sign in again until unbanned."
 msgstr "Забраняването на този потребител незабавно ще анулира всички активни сесии, ще отмени достъпа им и ще изпрати имейл с известие. Те няма да могат да влизат отново, докато не бъдат разблокирани."
 
+#: src/features/master-venue-semantic-search/ui/MasterVenueSemanticSearchWidget.tsx
+msgid "Beta"
+msgstr ""
+
 #: src/shared/ui/admin-layout/nav-config.tsx
 msgid "Billing & Commerce"
 msgstr ""
@@ -413,6 +425,7 @@ msgstr "Настройки за фактуриране"
 #: src/features/master-venue-admin/ui/create-master-venue-modal.tsx
 #: src/features/master-venue-admin/ui/delete-master-venue-modal.tsx
 #: src/features/master-venue-admin/ui/edit-master-venue-modal.tsx
+#: src/features/master-venue-admin/ui/section-fields-form.tsx
 #: src/features/page-admin/ui/delete-page-modal.tsx
 #: src/features/set-user-password/ui/set-user-password-modal.tsx
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
@@ -478,6 +491,10 @@ msgstr ""
 #: src/pages/admin/users.index.tsx
 msgid "Clear"
 msgstr "Изчисти"
+
+#: src/features/master-venue-semantic-search/ui/MasterVenueSemanticSearchWidget.tsx
+msgid "Clear AI search"
+msgstr ""
 
 #: src/features/notification-bell/ui/notification-bell.tsx
 #: src/pages/admin/notifications.tsx
@@ -904,6 +921,10 @@ msgstr "Показвано име"
 msgid "Draft"
 msgstr "Чернова"
 
+#: src/features/master-venue-semantic-search/ui/MasterVenueSemanticSearchWidget.tsx
+msgid "e.g. \"Find luxury hotels in New York with a rooftop bar and capacity for 200 people\""
+msgstr ""
+
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "e.g. default, landing"
@@ -915,9 +936,19 @@ msgstr "напр. default, landing"
 msgid "Edit"
 msgstr ""
 
+#. placeholder {0}: section.label
+#: src/features/master-venue-admin/ui/venue-metadata-sections.tsx
+msgid "Edit — {0}"
+msgstr ""
+
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 msgid "Edit — {defaultTitle} — {tenantKey}"
 msgstr "Редактирай — {defaultTitle} — {tenantKey}"
+
+#. placeholder {0}: section.label
+#: src/features/master-venue-admin/ui/venue-metadata-sections.tsx
+msgid "Edit {0}"
+msgstr ""
 
 #: src/pages/admin/announcements.index.tsx
 msgid "Edit announcement"
@@ -1323,6 +1354,10 @@ msgstr "Предоставянето на права на платформен �
 msgid "Grid view"
 msgstr ""
 
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "Hide raw JSON"
+msgstr ""
+
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
 msgid "Hierarchy"
@@ -1686,6 +1721,10 @@ msgstr "Мета описание за търсачки"
 msgid "Metadata"
 msgstr "Метаданни"
 
+#: src/features/master-venue-admin/ui/venue-metadata-sections.tsx
+msgid "Metadata is not valid JSON — section editing is disabled. Use the raw editor below."
+msgstr ""
+
 #: src/pages/admin/master-catalog.index.tsx
 msgid "Missing"
 msgstr ""
@@ -1793,6 +1832,10 @@ msgstr "Няма настройки за фактуриране"
 #: src/widgets/dashboard-recent-critical-audit/ui/recent-critical-audit.tsx
 msgid "No critical events — all clear"
 msgstr "Няма критични събития — всичко е наред"
+
+#: src/features/master-venue-admin/ui/venue-metadata-sections.tsx
+msgid "No data yet — click Edit to add."
+msgstr ""
 
 #: src/pages/admin/audit-logs.tsx
 msgid "No event statistics available"
@@ -2249,10 +2292,18 @@ msgstr "Грешка на портала"
 msgid "Present"
 msgstr ""
 
+#: src/features/master-venue-semantic-search/ui/MasterVenueSemanticSearchWidget.tsx
+msgid "Press Enter to search"
+msgstr ""
+
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/plans.index.tsx
 msgid "Price (minor units)"
 msgstr "Цена (малки единици)"
+
+#: src/features/master-venue-semantic-search/ui/MasterVenueSemanticSearchWidget.tsx
+msgid "Pro tip: You can search by vibe, amenities, capacity, or specific location details."
+msgstr ""
 
 #: src/pages/admin/webhook-logs.$webhookLogId.tsx
 #: src/pages/admin/webhook-logs.tsx
@@ -2578,6 +2629,10 @@ msgstr "Изберете правата, които искате да присв
 msgid "Select venue"
 msgstr ""
 
+#: src/features/master-venue-semantic-search/ui/MasterVenueSemanticSearchWidget.tsx
+msgid "Semantic Search — Ask anything about venues in natural language"
+msgstr ""
+
 #: src/features/invitation-admin/ui/propose-invitation-modal.tsx
 msgid "Send invitation"
 msgstr "Изпрати покана"
@@ -2620,6 +2675,10 @@ msgstr "Задава предпочитания от вас език за изв
 #: src/pages/admin/audit-logs.tsx
 msgid "Severity"
 msgstr "Тежест"
+
+#: src/pages/admin/master-catalog.$venueId.tsx
+msgid "Show raw JSON"
+msgstr ""
 
 #. placeholder {0}: notifications.length
 #. placeholder {1}: listData?.totalElements ?? 0
@@ -2731,6 +2790,10 @@ msgstr "Слъгът трябва да е с малки букви и цифри
 #: src/pages/admin/plans.$planCode.tsx
 msgid "Smallest currency unit (e.g. cents)."
 msgstr "Най-малката валутна единица (напр. стотинки)."
+
+#: src/features/master-venue-admin/ui/section-fields-form.tsx
+msgid "Some fields could not be saved. Please try again."
+msgstr ""
 
 #: src/shared/ui/error-boundary.tsx
 msgid "Something went wrong"
