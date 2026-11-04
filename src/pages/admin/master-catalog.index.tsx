@@ -69,6 +69,10 @@ export const Route = createFileRoute("/admin/master-catalog/")({
 
 const PAGE_SIZE = 20;
 
+/** Blue→cyan accent shared by the card, row and sidebar borders. */
+const ACCENT_GRADIENT =
+  "linear-gradient(135deg, var(--mantine-color-blue-4) 0%, var(--mantine-color-cyan-4) 100%)";
+
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
 function confidenceColor(value: number | null): string {
@@ -153,10 +157,38 @@ function VenueCard({ venue, selected, onToggleSelect, onView, onEdit, onDelete }
       padding="sm"
       radius="md"
       withBorder
-      style={{
-        transition: "box-shadow 120ms ease, transform 120ms ease",
-        cursor: "pointer",
-        position: "relative",
+      data-selected={selected || undefined}
+      style={{ cursor: "pointer", position: "relative" }}
+      styles={{
+        root: {
+          overflow: "hidden",
+          transition: "box-shadow 180ms ease, transform 180ms ease, border-color 180ms ease",
+          // Gradient border ring — revealed on hover and while selected.
+          "&::after": {
+            content: '""',
+            position: "absolute",
+            inset: 0,
+            borderRadius: "inherit",
+            padding: 1,
+            background: ACCENT_GRADIENT,
+            WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+            WebkitMaskComposite: "xor",
+            maskComposite: "exclude",
+            opacity: 0,
+            transition: "opacity 180ms ease",
+            pointerEvents: "none",
+          },
+          "&:hover": {
+            transform: "translateY(-4px)",
+            boxShadow: "0 16px 32px -16px rgba(34,139,230,0.55)",
+          },
+          "&:hover::after": { opacity: 1 },
+          "&[data-selected]": {
+            borderColor: "var(--mantine-color-blue-5)",
+            boxShadow: "0 0 0 2px rgba(34,139,230,0.3)",
+          },
+          "&[data-selected]::after": { opacity: 1 },
+        },
       }}
     >
       {/* photo strip */}
@@ -276,12 +308,42 @@ function VenueRow({ venue, selected, onToggleSelect, onView, onEdit, onDelete }:
       padding={0}
       radius="md"
       withBorder
+      data-selected={selected || undefined}
       style={{
         display: "flex",
         flexDirection: "row",
-        overflow: "hidden",
-        transition: "box-shadow 150ms ease, transform 150ms ease",
         cursor: "pointer",
+      }}
+      styles={{
+        root: {
+          overflow: "hidden",
+          position: "relative",
+          transition: "box-shadow 180ms ease, transform 180ms ease, border-color 180ms ease",
+          // Gradient accent bar running down the leading edge.
+          "&::before": {
+            content: '""',
+            position: "absolute",
+            top: 0,
+            bottom: 0,
+            left: 0,
+            width: 4,
+            background: ACCENT_GRADIENT,
+            opacity: 0.55,
+            transition: "opacity 180ms ease",
+            pointerEvents: "none",
+          },
+          "&:hover": {
+            transform: "translateX(2px)",
+            borderColor: "var(--mantine-color-blue-3)",
+            boxShadow: "0 12px 28px -18px rgba(34,139,230,0.6)",
+          },
+          "&:hover::before": { opacity: 1 },
+          "&[data-selected]": {
+            borderColor: "var(--mantine-color-blue-5)",
+            boxShadow: "0 0 0 2px rgba(34,139,230,0.3)",
+          },
+          "&[data-selected]::before": { opacity: 1 },
+        },
       }}
     >
       {/* photo strip — 140px, mirrors VenueRow */}
@@ -560,6 +622,27 @@ function FilterSidebar({
         position: "sticky",
         top: 16,
         alignSelf: "flex-start",
+      }}
+      styles={{
+        root: {
+          overflow: "hidden",
+          transition: "border-color 180ms ease, box-shadow 180ms ease",
+          // Gradient strip along the top edge of the panel.
+          "&::before": {
+            content: '""',
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            height: 3,
+            background: ACCENT_GRADIENT,
+            pointerEvents: "none",
+          },
+          "&:focus-within": {
+            borderColor: "var(--mantine-color-blue-4)",
+            boxShadow: "0 10px 26px -20px rgba(34,139,230,0.65)",
+          },
+        },
       }}
     >
       <Stack gap="xs">
