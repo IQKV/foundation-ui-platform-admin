@@ -429,6 +429,9 @@ export const TestSelectors = {
     MASTER_CATALOG_SELECT_ALL: "checkbox-master-catalog-select-all",
   },
 
+  // Master Catalog — AI semantic search
+  MASTER_CATALOG_AI_FILTERS: "master-catalog-ai-filters",
+
   // Org Detail
   ORG_DETAIL_HERO_CARD: "org-detail-hero-card",
   ORG_DETAIL_ICON: "org-detail-icon",

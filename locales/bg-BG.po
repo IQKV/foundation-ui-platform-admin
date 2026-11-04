@@ -31,6 +31,14 @@ msgstr "(без заглавие)"
 msgid "{0}"
 msgstr "{0}"
 
+#: src/features/master-venue-semantic-search/ui/SemanticSearchFiltersSummary.tsx
+msgid "{min}–{max} guests"
+msgstr ""
+
+#: src/features/master-venue-semantic-search/ui/SemanticSearchFiltersSummary.tsx
+msgid "{min}+ guests"
+msgstr ""
+
 #: src/pages/admin/master-catalog.index.tsx
 msgid "{selectedCount} selected"
 msgstr ""
@@ -163,6 +171,10 @@ msgstr ""
 msgid "Admin password override"
 msgstr "Администраторско презаписване на парола"
 
+#: src/features/master-venue-semantic-search/ui/SemanticSearchFiltersSummary.tsx
+msgid "AI filters"
+msgstr ""
+
 #: src/pages/admin/master-catalog.index.tsx
 msgid "AI Ranked"
 msgstr ""
@@ -213,6 +225,10 @@ msgstr "Всички абонаменти"
 #: src/pages/admin/announcements.index.tsx
 msgid "All types"
 msgstr "Всички типове"
+
+#: src/features/master-venue-semantic-search/ui/SemanticSearchFiltersSummary.tsx
+msgid "Amenity: {amenity}"
+msgstr ""
 
 #: src/pages/admin/organizations.$tenantKey.refunds.tsx
 #: src/pages/admin/refunds.$refundId.tsx
@@ -468,6 +484,10 @@ msgstr "Каноничен URL"
 msgid "Catalog"
 msgstr ""
 
+#: src/features/master-venue-semantic-search/ui/SemanticSearchFiltersSummary.tsx
+msgid "Catering: {policy}"
+msgstr ""
+
 #: src/features/change-admin-password/ui/change-admin-password-modal.tsx
 #: src/pages/admin/account.tsx
 msgid "Change password"
@@ -483,6 +503,10 @@ msgstr "Промяна на парола"
 msgid "City"
 msgstr ""
 
+#: src/features/master-venue-semantic-search/ui/SemanticSearchFiltersSummary.tsx
+msgid "City: {city}"
+msgstr ""
+
 #: src/pages/admin/announcements.index.tsx
 #: src/pages/admin/invitations.index.tsx
 #: src/pages/admin/organizations.index.tsx
@@ -493,6 +517,7 @@ msgid "Clear"
 msgstr "Изчисти"
 
 #: src/features/master-venue-semantic-search/ui/MasterVenueSemanticSearchWidget.tsx
+#: src/features/master-venue-semantic-search/ui/SemanticSearchFiltersSummary.tsx
 msgid "Clear AI search"
 msgstr ""
 
@@ -3098,6 +3123,10 @@ msgstr "Тип"
 msgid "Type is required"
 msgstr "Типът е задължителен"
 
+#: src/features/master-venue-semantic-search/ui/SemanticSearchFiltersSummary.tsx
+msgid "Type: {label}"
+msgstr ""
+
 #: src/features/ban-user/ui/unban-user-modal.tsx
 #: src/pages/admin/users.index.tsx
 msgid "Unban user"
@@ -3141,6 +3170,10 @@ msgstr "Раздели свързана идентичност"
 #: src/pages/admin/users.index.tsx
 msgid "Unverified"
 msgstr "Непотвърден"
+
+#: src/features/master-venue-semantic-search/ui/SemanticSearchFiltersSummary.tsx
+msgid "up to {max} guests"
+msgstr ""
 
 #: src/pages/admin/subscriptions.tsx
 msgid "Update"
@@ -3303,6 +3336,10 @@ msgstr "Webhook журнали"
 #: src/pages/sign-in.tsx
 msgid "Welcome back"
 msgstr "Добре дошли отново"
+
+#: src/features/master-venue-semantic-search/ui/SemanticSearchFiltersSummary.tsx
+msgid "Wheelchair accessible"
+msgstr ""
 
 #: src/pages/admin/users.$userId.tsx
 msgid "You cannot modify your own platform authority"

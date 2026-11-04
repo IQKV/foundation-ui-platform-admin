@@ -52,6 +52,7 @@ import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
 import { PageTitle } from "@/shared/lib/page-title";
 import { catalogApi } from "@/shared/api";
+import type { SemanticSearchFilters } from "@/shared/api";
 import type { MasterVenue } from "@/entities";
 import { PageHeader } from "@/shared/ui";
 import {
@@ -60,7 +61,10 @@ import {
   DeleteMasterVenueModal,
   BulkDeleteMasterVenuesModal,
 } from "@/features/master-venue-admin";
-import { MasterVenueSemanticSearchWidget } from "@/features/master-venue-semantic-search";
+import {
+  MasterVenueSemanticSearchWidget,
+  SemanticSearchFiltersSummary,
+} from "@/features/master-venue-semantic-search";
 import { TestSelectors } from "@/shared/lib/test-selectors";
 
 export const Route = createFileRoute("/admin/master-catalog/")({
@@ -74,6 +78,14 @@ const ACCENT_GRADIENT =
   "linear-gradient(135deg, var(--mantine-color-blue-4) 0%, var(--mantine-color-cyan-4) 100%)";
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
+
+/**
+ * Narrows the list-vs-semantic union: only the semantic-search response carries the
+ * AI-derived filters, so the presence of the property is the discriminator.
+ */
+function hasAppliedFilters(value: unknown): value is { appliedFilters: SemanticSearchFilters } {
+  return typeof value === "object" && value !== null && "appliedFilters" in value;
+}
 
 function confidenceColor(value: number | null): string {
   if (value === null) return "gray";
@@ -762,6 +774,10 @@ function AdminMasterCatalogPage() {
 
   const items = data?.items ?? [];
   const totalElements = data?.totalElements ?? 0;
+  // Only the semantic-search response carries the AI-derived filters; the plain list response
+  // does not, so narrow on the property rather than asserting the type.
+  const appliedFilters =
+    isSemanticSearchActive && hasAppliedFilters(data) ? data.appliedFilters : null;
   const totalPages = isSemanticSearchActive ? 1 : Math.ceil(totalElements / PAGE_SIZE);
   const rangeStart = totalElements === 0 ? 0 : offset + 1;
   const rangeEnd = Math.min(offset + PAGE_SIZE, totalElements);
@@ -901,6 +917,13 @@ function AdminMasterCatalogPage() {
         onClear={() => setSemanticQuery("")}
         isSearching={isFetching && isSemanticSearchActive}
       />
+
+      {isSemanticSearchActive && (
+        <SemanticSearchFiltersSummary
+          filters={appliedFilters}
+          onClear={() => setSemanticQuery("")}
+        />
+      )}
 
       {/* ── Two-column layout — mirrors VenueListWidget ──────────────── */}
       <Group align="flex-start" gap="lg" wrap="nowrap">

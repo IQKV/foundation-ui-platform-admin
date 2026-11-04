@@ -39,9 +39,24 @@ export interface SemanticSearchResult extends MasterVenue {
   similarity: number;
 }
 
+/**
+ * Hard filters the AI query planner extracted from the natural-language query.
+ * Empty/null members mean the planner did not derive that constraint.
+ */
+export interface SemanticSearchFilters {
+  city: string | null;
+  venueTypes: string[];
+  minCapacity: number | null;
+  maxCapacity: number | null;
+  cateringPolicy: string | null;
+  amenities: string[];
+  accessible: boolean | null;
+}
+
 export interface SemanticSearchResponse {
   items: SemanticSearchResult[];
   totalElements: number;
+  appliedFilters: SemanticSearchFilters;
 }
 
 export interface ListMasterVenuesParams {

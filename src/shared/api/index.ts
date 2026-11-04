@@ -83,6 +83,10 @@ export type {
   MasterVenueWriteRequest,
   MasterVenuePatchRequest,
   ListMasterVenuesParams,
+  SemanticSearchFilters,
+  SemanticSearchParams,
+  SemanticSearchResponse,
+  SemanticSearchResult,
 } from "./catalog";
 
 export { notificationApi } from "./iam";
