@@ -455,14 +455,19 @@ function MasterVenueDetailPage() {
 
   return (
     <Container size="xl" py={0}>
-      <PageTitle segments={[t`Master Catalog`, venue?.name ?? t`Venue`]} />
+      <PageTitle
+        segments={[
+          t`Master Catalog`,
+          venue ? [venue.name, venue.city].filter(Boolean).join(", ") : t`Venue`,
+        ]}
+      />
       <PageHeader
         title={<Trans>Master Venue</Trans>}
         breadcrumbs={[
           { label: <Trans>Home</Trans>, to: "/admin/" },
           { label: <Trans>Catalog</Trans> },
           { label: <Trans>Master Catalog</Trans>, to: "/admin/master-catalog" },
-          { label: venue?.name ?? t`Venue` },
+          { label: venue ? [venue.name, venue.city].filter(Boolean).join(", ") : t`Venue` },
         ]}
         toolbar={
           <Group gap="xs">
