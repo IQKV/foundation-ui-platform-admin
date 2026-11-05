@@ -1009,7 +1009,6 @@ function AdminMasterCatalogPage() {
                   value={page}
                   onChange={setPage}
                   size="sm"
-                  withEdges
                 />
               </Box>
             )}
