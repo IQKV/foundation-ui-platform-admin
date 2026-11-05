@@ -59,11 +59,15 @@ export interface SemanticSearchResponse {
   appliedFilters: SemanticSearchFilters;
 }
 
+export type MasterVenueSortField = "createdAt" | "name";
+
 export interface ListMasterVenuesParams {
   search?: string;
   city?: string;
   limit?: number;
   offset?: number;
+  sortBy?: MasterVenueSortField;
+  sortDir?: "asc" | "desc";
 }
 
 export interface SemanticSearchParams {

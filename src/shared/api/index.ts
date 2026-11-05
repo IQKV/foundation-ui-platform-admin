@@ -82,6 +82,7 @@ export type {
   AdminMasterVenueAssetListResponse,
   MasterVenueWriteRequest,
   MasterVenuePatchRequest,
+  MasterVenueSortField,
   ListMasterVenuesParams,
   SemanticSearchFilters,
   SemanticSearchParams,
