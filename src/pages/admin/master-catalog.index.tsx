@@ -977,15 +977,6 @@ function AdminMasterCatalogPage() {
               )}
               {!isLoading ? (
                 <Group gap="xs">
-                  <Text size="xs" c="dimmed">
-                    {totalElements === 0 ? (
-                      <Trans>No venues found</Trans>
-                    ) : (
-                      <Trans>
-                        {totalElements} venue{totalElements === 1 ? "" : "s"}
-                      </Trans>
-                    )}
-                  </Text>
                   {isSemanticSearchActive && (
                     <Badge
                       variant="light"
@@ -1003,14 +994,22 @@ function AdminMasterCatalogPage() {
             </Group>
 
             {totalPages > 1 && items.length > 10 && (
-              <Box style={{ flex: 1, display: "flex", justifyContent: "center" }}>
+              <Group gap={4} align="center" style={{ flex: 1, justifyContent: "center" }}>
+                {!isLoading && totalElements > 0 && (
+                  <Text size="xs" c="dimmed" lh={1}>
+                    <Trans>
+                      Showing {rangeStart}–{rangeEnd} of {totalElements}
+                    </Trans>
+                  </Text>
+                )}
                 <Pagination
+                  withPages={false}
                   total={totalPages}
                   value={page}
                   onChange={setPage}
-                  size="sm"
+                  size="xs"
                 />
-              </Box>
+              </Group>
             )}
 
             <Group gap="xs" style={{ marginLeft: "auto" }}>
