@@ -52,15 +52,15 @@ function ValueChip({ definition, value }: { definition: MetadataFieldDefinition;
   const text = formatFieldValue(definition, value);
   return (
     <Group gap={4} wrap="nowrap" style={{ minWidth: 0 }}>
-      <Text size="xs" c="dimmed" style={{ flexShrink: 0 }}>
+      <Text size="sm" c="dimmed" style={{ flexShrink: 0 }}>
         {definition.label}:
       </Text>
       {text === null ? (
-        <Text size="xs" c="dimmed" fs="italic">
+        <Text size="sm" c="dimmed" fs="italic">
           —
         </Text>
       ) : (
-        <Text size="xs" style={{ wordBreak: "break-word" }}>
+        <Text size="sm" style={{ wordBreak: "break-word" }}>
           {text}
         </Text>
       )}
@@ -81,7 +81,7 @@ function BooleanChip({
       <ThemeIcon size={16} radius="xl" variant="light" color={on ? "teal" : "gray"}>
         {on ? <IconCheck size={10} /> : <IconAlertTriangle size={10} />}
       </ThemeIcon>
-      <Text size="xs" c={on ? undefined : "dimmed"}>
+      <Text size="sm" c={on ? undefined : "dimmed"}>
         {definition.label}
       </Text>
     </Group>
@@ -115,11 +115,11 @@ function MetadataSectionCard({
 
   return (
     <>
-      <Paper withBorder radius="md" p="md" styles={SECTION_CARD_STYLES}>
+      <Paper withBorder radius="md" p="lg" shadow="sm" styles={SECTION_CARD_STYLES}>
         <Group justify="space-between" align="flex-start" wrap="nowrap" gap="md">
           <Stack gap={6} style={{ flex: 1, minWidth: 0 }}>
             <Group gap={8} align="center">
-              <Text size="sm" fw={700}>
+              <Text size="md" fw={700}>
                 {section.label}
               </Text>
               {total > 0 && (
@@ -145,7 +145,7 @@ function MetadataSectionCard({
                 <Trans>No data yet — click Edit to add.</Trans>
               </Text>
             ) : (
-              <Stack gap={4}>
+              <Stack gap={6}>
                 {valueFields.length > 0 && (
                   <Group gap="lg" wrap="wrap">
                     {valueFields.map((field) => (

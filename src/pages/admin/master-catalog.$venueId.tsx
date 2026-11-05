@@ -122,13 +122,13 @@ function InfoSectionCard({
 }: InfoSectionCardProps) {
   const allFilled = filled != null && total != null && filled === total && total > 0;
   return (
-    <Paper withBorder radius="md" p="md" styles={SECTION_CARD_STYLES}>
+    <Paper withBorder radius="md" p="lg" shadow="sm" styles={SECTION_CARD_STYLES}>
       <Group justify="space-between" align="flex-start" mb="sm">
         <Group gap={8}>
-          <ThemeIcon size={24} radius="sm" variant="light" color="blue">
+          <ThemeIcon size={28} radius="sm" variant="light" color="blue">
             {icon}
           </ThemeIcon>
-          <Text size="sm" fw={700}>
+          <Text size="md" fw={700}>
             {title}
           </Text>
         </Group>
@@ -169,15 +169,15 @@ function FieldChip({ label, value }: { label: React.ReactNode; value: React.Reac
   const empty = value == null || value === "";
   return (
     <Group gap={4} wrap="nowrap" style={{ minWidth: 0 }}>
-      <Text size="xs" c="dimmed" style={{ flexShrink: 0 }}>
+      <Text size="sm" c="dimmed" style={{ flexShrink: 0 }}>
         {label}:
       </Text>
       {empty ? (
-        <Text size="xs" c="dimmed" fs="italic">
+        <Text size="sm" c="dimmed" fs="italic">
           —
         </Text>
       ) : (
-        <Text size="xs" style={{ wordBreak: "break-word" }}>
+        <Text size="sm" style={{ wordBreak: "break-word" }}>
           {value}
         </Text>
       )}
@@ -779,7 +779,7 @@ function MasterVenueDetailPage() {
                     value={
                       venue?.locationLat && venue?.locationLng ? (
                         <Group gap={6} wrap="nowrap">
-                          <Text size="xs">
+                          <Text size="sm">
                             {String(venue.locationLat)}, {String(venue.locationLng)}
                           </Text>
                           {mapUrl && (
@@ -787,7 +787,7 @@ function MasterVenueDetailPage() {
                               href={mapUrl}
                               target="_blank"
                               rel="noopener noreferrer"
-                              size="xs"
+                              size="sm"
                             >
                               <Group gap={3} wrap="nowrap">
                                 <IconExternalLink size={11} />
@@ -873,14 +873,14 @@ function MasterVenueDetailPage() {
               />
 
               {/* Advanced: raw JSON document */}
-              <Paper withBorder radius="md" p="md" styles={SECTION_CARD_STYLES}>
+              <Paper withBorder radius="md" p="lg" shadow="sm" styles={SECTION_CARD_STYLES}>
                 <Group justify="space-between" align="flex-start" wrap="nowrap" gap="md">
                   <Group gap={8}>
-                    <ThemeIcon size={24} radius="sm" variant="light" color="gray">
+                    <ThemeIcon size={28} radius="sm" variant="light" color="gray">
                       <IconPaperclip size={14} />
                     </ThemeIcon>
                     <Stack gap={0}>
-                      <Text size="sm" fw={700}>
+                      <Text size="md" fw={700}>
                         <Trans>Raw JSON document</Trans>
                       </Text>
                       <Text size="xs" c="dimmed">
