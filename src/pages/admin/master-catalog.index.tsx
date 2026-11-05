@@ -170,7 +170,7 @@ function VenueCard({ venue, selected, onToggleSelect, onView, onEdit, onDelete }
       radius="md"
       withBorder
       data-selected={selected || undefined}
-      style={{ cursor: "pointer", position: "relative" }}
+      style={{ position: "relative" }}
       styles={{
         root: {
           overflow: "hidden",
@@ -204,7 +204,7 @@ function VenueCard({ venue, selected, onToggleSelect, onView, onEdit, onDelete }
       }}
     >
       {/* photo strip */}
-      <Card.Section onClick={onView}>
+      <Card.Section onClick={onView} style={{ cursor: "pointer" }}>
         <VenueThumbnail url={venue.primaryPhotoUrl} name={venue.name} height={148} />
       </Card.Section>
 
@@ -276,8 +276,17 @@ function VenueCard({ venue, selected, onToggleSelect, onView, onEdit, onDelete }
       </Box>
 
       {/* body */}
-      <Stack gap={6} mt="xs" onClick={onView}>
-        <Text fw={600} size="sm" lineClamp={2} lh={1.3}>
+      <Stack gap={6} mt="xs">
+        <Text
+          fw={600}
+          size="sm"
+          lineClamp={2}
+          lh={1.3}
+          onClick={onView}
+          styles={{
+            root: { cursor: "pointer", "&:hover": { color: "var(--mantine-color-blue-6)" } },
+          }}
+        >
           {venue.name}
         </Text>
         {(venue.city ?? venue.address) && (
@@ -324,7 +333,6 @@ function VenueRow({ venue, selected, onToggleSelect, onView, onEdit, onDelete }:
       style={{
         display: "flex",
         flexDirection: "row",
-        cursor: "pointer",
       }}
       styles={{
         root: {
@@ -365,6 +373,7 @@ function VenueRow({ venue, selected, onToggleSelect, onView, onEdit, onDelete }:
           flexShrink: 0,
           width: 140,
           overflow: "hidden",
+          cursor: "pointer",
         }}
       >
         <VenueThumbnail url={venue.primaryPhotoUrl} name={venue.name} height={110} />
@@ -374,7 +383,6 @@ function VenueRow({ venue, selected, onToggleSelect, onView, onEdit, onDelete }:
       <Group
         gap="md"
         align="center"
-        onClick={onView}
         style={{
           flex: 1,
           minWidth: 0,
@@ -383,7 +391,15 @@ function VenueRow({ venue, selected, onToggleSelect, onView, onEdit, onDelete }:
       >
         <Stack gap={5} style={{ flex: 1, minWidth: 0 }}>
           <Group gap="xs" wrap="nowrap">
-            <Text fw={700} size="md" lineClamp={1}>
+            <Text
+              fw={700}
+              size="md"
+              lineClamp={1}
+              onClick={onView}
+              styles={{
+                root: { cursor: "pointer", "&:hover": { color: "var(--mantine-color-blue-6)" } },
+              }}
+            >
               {venue.name}
             </Text>
             <Badge
