@@ -13,6 +13,7 @@ import { useLingui } from "@lingui/react/macro";
 import { IconBuildingStore, IconMapPin, IconAdjustments } from "@tabler/icons-react";
 import { TestSelectors } from "@/shared/lib/test-selectors";
 import type { MasterVenueFormValues } from "../model";
+import { SECTION_CARD_STYLES } from "./section-accent";
 
 interface VenueFieldsProps {
   form: UseFormReturnType<MasterVenueFormValues>;
@@ -27,13 +28,13 @@ interface SectionCardProps {
 
 function SectionCard({ icon, title, hint, children }: SectionCardProps) {
   return (
-    <Paper shadow="xs" radius="md" p="md" withBorder>
-      <Stack gap="md">
-        <Group gap="xs" align="flex-start">
+    <Paper shadow="sm" radius="md" p="lg" withBorder styles={SECTION_CARD_STYLES}>
+      <Stack gap="lg">
+        <Group gap="sm" align="flex-start">
           <div
             style={{
-              width: 32,
-              height: 32,
+              width: 34,
+              height: 34,
               borderRadius: "var(--mantine-radius-sm)",
               background: "var(--mantine-color-blue-0)",
               display: "flex",
@@ -45,15 +46,15 @@ function SectionCard({ icon, title, hint, children }: SectionCardProps) {
             {icon}
           </div>
           <Stack gap={2}>
-            <Text size="sm" fw={600} lh={1.2}>
+            <Text size="md" fw={700} lh={1.2}>
               {title}
             </Text>
-            <Text size="xs" c="dimmed" lh={1.4}>
+            <Text size="xs" c="dimmed" lh={1.45}>
               {hint}
             </Text>
           </Stack>
         </Group>
-        {children}
+        <Stack gap="md">{children}</Stack>
       </Stack>
     </Paper>
   );
@@ -64,9 +65,9 @@ export function VenueFields({ form }: VenueFieldsProps) {
   const { t } = useLingui();
 
   return (
-    <Stack gap="sm">
+    <Stack gap="md">
       <SectionCard
-        icon={<IconBuildingStore size={16} color="var(--mantine-color-blue-6)" />}
+        icon={<IconBuildingStore size={18} color="var(--mantine-color-blue-6)" />}
         title={t`Identity`}
         hint={t`The venue's canonical name and address as it appears in the catalog.`}
       >
@@ -89,7 +90,7 @@ export function VenueFields({ form }: VenueFieldsProps) {
       </SectionCard>
 
       <SectionCard
-        icon={<IconMapPin size={16} color="var(--mantine-color-blue-6)" />}
+        icon={<IconMapPin size={18} color="var(--mantine-color-blue-6)" />}
         title={t`Coordinates`}
         hint={t`Decimal lat / lng used for map pins and geo search. Leave blank if unknown.`}
       >
@@ -116,7 +117,7 @@ export function VenueFields({ form }: VenueFieldsProps) {
       </SectionCard>
 
       <SectionCard
-        icon={<IconAdjustments size={16} color="var(--mantine-color-blue-6)" />}
+        icon={<IconAdjustments size={18} color="var(--mantine-color-blue-6)" />}
         title={t`Curation`}
         hint={t`Ingestion provenance and quality signal. Metadata is managed by the worker — edit only to correct errors.`}
       >
