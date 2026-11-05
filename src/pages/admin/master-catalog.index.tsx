@@ -1002,6 +1002,18 @@ function AdminMasterCatalogPage() {
               )}
             </Group>
 
+            {totalPages > 1 && items.length > 10 && (
+              <Box style={{ flex: 1, display: "flex", justifyContent: "center" }}>
+                <Pagination
+                  total={totalPages}
+                  value={page}
+                  onChange={setPage}
+                  size="sm"
+                  withEdges
+                />
+              </Box>
+            )}
+
             <Group gap="xs" style={{ marginLeft: "auto" }}>
               {selectedCount > 0 && (
                 <>
