@@ -17,7 +17,7 @@ import {
 import { IconAlertCircle } from "@tabler/icons-react";
 import { Trans, useLingui } from "@lingui/react/macro";
 import { resolveFieldValue } from "../model";
-import type { MetadataFieldDefinition } from "../model";
+import type { MetadataDocument, MetadataFieldDefinition } from "../model";
 import { useUpdateVenueMetadata } from "../model";
 
 // ── Single-field input ────────────────────────────────────────────────────────
@@ -158,7 +158,7 @@ function FieldInput({
 
 interface SectionFieldsFormProps {
   venueId: string;
-  metadata: Record<string, unknown>;
+  metadata: MetadataDocument;
   fields: MetadataFieldDefinition[];
   sectionLabel: string;
   onClose: () => void;
@@ -182,7 +182,7 @@ export function SectionFieldsForm({
   const [draft, setDraft] = useState<Record<string, unknown>>(() => {
     const initial: Record<string, unknown> = {};
     for (const field of fields) {
-      initial[field.key] = resolveFieldValue(metadata, field.key) ?? null;
+      initial[field.key] = resolveFieldValue(metadata, field) ?? null;
     }
     return initial;
   });
@@ -195,10 +195,10 @@ export function SectionFieldsForm({
     const changes = fields
       .filter(
         (field) =>
-          JSON.stringify(resolveFieldValue(metadata, field.key) ?? null) !==
+          JSON.stringify(resolveFieldValue(metadata, field) ?? null) !==
           JSON.stringify(draft[field.key] ?? null),
       )
-      .map((field) => ({ key: field.key, value: draft[field.key] ?? null }));
+      .map((field) => ({ field, value: draft[field.key] ?? null }));
 
     if (changes.length === 0) {
       onClose();

@@ -18,7 +18,11 @@ import { IconAlertCircle, IconAlertTriangle, IconCheck, IconPencil } from "@tabl
 import { Trans, useLingui } from "@lingui/react/macro";
 import { isFieldEmpty, parseMetadata, resolveFieldValue, sectionCompleteness } from "../model";
 import { METADATA_SECTIONS, METADATA_TABS } from "../model";
-import type { MetadataFieldDefinition, MetadataSectionDefinition } from "../model";
+import type {
+  MetadataDocument,
+  MetadataFieldDefinition,
+  MetadataSectionDefinition,
+} from "../model";
 import { SECTION_CARD_STYLES } from "./section-accent";
 import { SectionFieldsForm } from "./section-fields-form";
 
@@ -96,7 +100,7 @@ function MetadataSectionCard({
   section,
 }: {
   venueId: string;
-  metadata: Record<string, unknown>;
+  metadata: MetadataDocument;
   section: MetadataSectionDefinition;
 }) {
   const { t } = useLingui();
@@ -111,7 +115,7 @@ function MetadataSectionCard({
   const allFilled = total > 0 && filled === total;
 
   const hasAny =
-    filled > 0 || readOnly.some((field) => !isFieldEmpty(resolveFieldValue(metadata, field.key)));
+    filled > 0 || readOnly.some((field) => !isFieldEmpty(resolveFieldValue(metadata, field)));
 
   return (
     <>
@@ -152,7 +156,7 @@ function MetadataSectionCard({
                       <ValueChip
                         key={field.key}
                         definition={field}
-                        value={resolveFieldValue(metadata, field.key)}
+                        value={resolveFieldValue(metadata, field)}
                       />
                     ))}
                   </Group>
@@ -163,7 +167,7 @@ function MetadataSectionCard({
                       <BooleanChip
                         key={field.key}
                         definition={field}
-                        value={resolveFieldValue(metadata, field.key)}
+                        value={resolveFieldValue(metadata, field)}
                       />
                     ))}
                   </Group>
@@ -174,7 +178,7 @@ function MetadataSectionCard({
                       <ValueChip
                         key={field.key}
                         definition={field}
-                        value={resolveFieldValue(metadata, field.key)}
+                        value={resolveFieldValue(metadata, field)}
                       />
                     ))}
                   </Box>
@@ -264,7 +268,8 @@ export function VenueMetadataSections({
     return (
       <Alert icon={<IconAlertCircle size={16} />} color="orange" variant="light" radius="md">
         <Trans>
-          Metadata is not valid JSON — section editing is disabled. Use the raw editor below.
+          Metadata is not a supported document — section editing is disabled. Use the raw editor
+          below.
         </Trans>
       </Alert>
     );

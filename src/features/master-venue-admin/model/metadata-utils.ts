@@ -1,16 +1,46 @@
-import type { MetadataFieldDefinition } from "./metadata-spec";
+import type { MetadataFieldDefinition, MetadataFieldType } from "./metadata-spec";
+
+const DEFAULT_SCHEMA_VERSION = 1;
+
+/** One flat metadata row: `group` is the section, `field` a dot-path within it. */
+interface MetadataItem {
+  group: string;
+  field: string;
+  value: unknown;
+}
+
+/** Canonical metadata document: a schema version plus a flat row list. */
+export interface MetadataDocument {
+  _schema_version: number;
+  items: MetadataItem[];
+}
 
 /**
- * Parse the raw `metadata` JSON string into a plain object.
- * Returns `{}` for empty input and `null` when the string is not a JSON object
- * (so callers can block editing instead of overwriting unreadable data).
+ * Parse the raw `metadata` JSON string into the canonical document.
+ * Returns an empty document for empty input and `null` when the string is not
+ * JSON or not the supported `{_schema_version, items}` shape (so callers can
+ * block editing instead of overwriting unreadable data).
  */
-export function parseMetadata(raw: string | null | undefined): Record<string, unknown> | null {
-  if (raw == null || raw.trim() === "") return {};
+export function parseMetadata(raw: string | null | undefined): MetadataDocument | null {
+  if (raw == null || raw.trim() === "") {
+    return { _schema_version: DEFAULT_SCHEMA_VERSION, items: [] };
+  }
   try {
     const parsed: unknown = JSON.parse(raw);
-    if (parsed !== null && typeof parsed === "object" && !Array.isArray(parsed)) {
-      return parsed as Record<string, unknown>;
+    if (
+      parsed !== null &&
+      typeof parsed === "object" &&
+      !Array.isArray(parsed) &&
+      Array.isArray((parsed as { items?: unknown }).items)
+    ) {
+      const document = parsed as { _schema_version?: unknown; items: MetadataItem[] };
+      return {
+        _schema_version:
+          typeof document._schema_version === "number"
+            ? document._schema_version
+            : DEFAULT_SCHEMA_VERSION,
+        items: document.items,
+      };
     }
     return null;
   } catch {
@@ -18,15 +48,29 @@ export function parseMetadata(raw: string | null | undefined): Record<string, un
   }
 }
 
-/** Read a dot-path value out of the metadata object. */
-export function resolveFieldValue(metadata: Record<string, unknown> | null, key: string): unknown {
+/** Map a spec key to its row coordinates: `capacity.max_total` → group capacity / field max_total. */
+function splitKey(key: string): { group: string; field: string } {
+  const [group, ...rest] = key.split(".").filter(Boolean);
+  return { group: group ?? key, field: rest.length > 0 ? rest.join(".") : key };
+}
+
+/** List-typed fields expand to one row per element; scalars to a single row. */
+function isListField(type: MetadataFieldType): boolean {
+  return type === "string_array" || type === "enum_multi";
+}
+
+/** Read a field's value from the flat rows (an array for list-typed fields). */
+export function resolveFieldValue(
+  metadata: MetadataDocument | null,
+  definition: MetadataFieldDefinition,
+): unknown {
   if (!metadata) return undefined;
-  let current: unknown = metadata;
-  for (const part of key.split(".").filter(Boolean)) {
-    if (current === null || typeof current !== "object") return undefined;
-    current = (current as Record<string, unknown>)[part];
-  }
-  return current;
+  const { group, field } = splitKey(definition.key);
+  const values = metadata.items
+    .filter((item) => item.group === group && item.field === field)
+    .map((item) => item.value);
+  if (isListField(definition.type)) return values;
+  return values.length > 0 ? values[0] : undefined;
 }
 
 /** `null`, `undefined`, `""` and empty arrays count as empty; `false` and `0` do not. */
@@ -37,48 +81,36 @@ export function isFieldEmpty(value: unknown): boolean {
 }
 
 /**
- * Return a copy of the metadata object with a dot-path field written.
- * Empty values are removed rather than stored.
+ * Return a copy of the document with a field written as flat rows.
+ * Empty values remove the field's rows rather than storing them.
  */
 export function setFieldValue(
-  metadata: Record<string, unknown>,
-  key: string,
+  metadata: MetadataDocument,
+  definition: MetadataFieldDefinition,
   value: unknown,
-): Record<string, unknown> {
-  const parts = key.split(".").filter(Boolean);
-  if (parts.length === 0) return metadata;
+): MetadataDocument {
+  const { group, field } = splitKey(definition.key);
+  const values = isListField(definition.type)
+    ? Array.isArray(value)
+      ? value
+      : []
+    : isFieldEmpty(value)
+      ? []
+      : [value];
 
-  const root: Record<string, unknown> = { ...metadata };
-  let current = root;
-
-  for (let i = 0; i < parts.length - 1; i += 1) {
-    const part = parts[i] as string;
-    const existing = current[part];
-    const next: Record<string, unknown> =
-      existing !== null && typeof existing === "object" && !Array.isArray(existing)
-        ? { ...(existing as Record<string, unknown>) }
-        : {};
-    current[part] = next;
-    current = next;
-  }
-
-  const last = parts[parts.length - 1] as string;
-  if (isFieldEmpty(value)) {
-    delete current[last];
-  } else {
-    current[last] = value;
-  }
-  return root;
+  const kept = metadata.items.filter((item) => !(item.group === group && item.field === field));
+  const added: MetadataItem[] = values.map((item) => ({ group, field, value: item }));
+  return { ...metadata, items: [...kept, ...added] };
 }
 
 /** Count of populated editable fields in a section, for the completeness badge. */
 export function sectionCompleteness(
   fields: MetadataFieldDefinition[],
-  metadata: Record<string, unknown> | null,
+  metadata: MetadataDocument | null,
 ): { filled: number; total: number } {
   const editable = fields.filter((field) => !field.readOnly);
   const filled = editable.filter(
-    (field) => !isFieldEmpty(resolveFieldValue(metadata, field.key)),
+    (field) => !isFieldEmpty(resolveFieldValue(metadata, field)),
   ).length;
   return { filled, total: editable.length };
 }

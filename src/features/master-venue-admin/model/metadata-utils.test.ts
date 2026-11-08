@@ -6,68 +6,138 @@ import {
   sectionCompleteness,
   setFieldValue,
 } from "./metadata-utils";
+import type { MetadataDocument } from "./metadata-utils";
+import type { MetadataFieldDefinition } from "./metadata-spec";
+
+function field(
+  key: string,
+  type: MetadataFieldDefinition["type"] = "string",
+): MetadataFieldDefinition {
+  return { key, label: key, type };
+}
 
 describe("parseMetadata", () => {
-  it("returns an empty object for empty input", () => {
-    expect(parseMetadata(null)).toEqual({});
-    expect(parseMetadata("")).toEqual({});
-    expect(parseMetadata("   ")).toEqual({});
+  it("returns an empty document for empty input", () => {
+    expect(parseMetadata(null)).toEqual({ _schema_version: 1, items: [] });
+    expect(parseMetadata("")).toEqual({ _schema_version: 1, items: [] });
+    expect(parseMetadata("   ")).toEqual({ _schema_version: 1, items: [] });
   });
 
-  it("parses a JSON object", () => {
-    expect(parseMetadata('{"capacity":{"max_total":500}}')).toEqual({
-      capacity: { max_total: 500 },
+  it("parses a flat item document", () => {
+    expect(
+      parseMetadata(
+        '{"_schema_version":1,"items":[{"group":"capacity","field":"max_total","value":500}]}',
+      ),
+    ).toEqual({
+      _schema_version: 1,
+      items: [{ group: "capacity", field: "max_total", value: 500 }],
     });
   });
 
-  it("returns null for non-object JSON and malformed input", () => {
+  it("defaults the schema version when missing", () => {
+    expect(parseMetadata('{"items":[]}')).toEqual({ _schema_version: 1, items: [] });
+  });
+
+  it("returns null for non-object JSON, a non-item document and malformed input", () => {
     expect(parseMetadata("[1,2]")).toBeNull();
+    expect(parseMetadata('{"capacity":{"max_total":500}}')).toBeNull();
     expect(parseMetadata("{not json")).toBeNull();
   });
 });
 
 describe("resolveFieldValue", () => {
-  const metadata = { capacity: { max_total: 500, configurations: { banquet: 300 } } };
+  const metadata: MetadataDocument = {
+    _schema_version: 1,
+    items: [
+      { group: "capacity", field: "max_total", value: 500 },
+      { group: "capacity", field: "configurations.banquet", value: 300 },
+      { group: "amenities", field: "amenities", value: "Wi-Fi" },
+      { group: "amenities", field: "amenities", value: "Parking" },
+    ],
+  };
 
-  it("walks a nested dot-path", () => {
-    expect(resolveFieldValue(metadata, "capacity.configurations.banquet")).toBe(300);
+  it("reads a scalar field from its row", () => {
+    expect(resolveFieldValue(metadata, field("capacity.configurations.banquet", "integer"))).toBe(
+      300,
+    );
   });
 
-  it("returns undefined for missing paths", () => {
-    expect(resolveFieldValue(metadata, "capacity.theater")).toBeUndefined();
-    expect(resolveFieldValue(metadata, "catering.policy")).toBeUndefined();
-    expect(resolveFieldValue(null, "capacity.max_total")).toBeUndefined();
+  it("collects a list field into an array", () => {
+    expect(resolveFieldValue(metadata, field("amenities", "string_array"))).toEqual([
+      "Wi-Fi",
+      "Parking",
+    ]);
+  });
+
+  it("returns undefined for a missing scalar and an empty array for a missing list", () => {
+    expect(resolveFieldValue(metadata, field("catering.policy", "enum"))).toBeUndefined();
+    expect(resolveFieldValue(metadata, field("restrictions", "string_array"))).toEqual([]);
+    expect(resolveFieldValue(null, field("capacity.max_total", "integer"))).toBeUndefined();
   });
 });
 
 describe("setFieldValue", () => {
-  it("writes a nested value without mutating the source", () => {
-    const source = { capacity: { max_total: 500 } };
-    const next = setFieldValue(source, "capacity.configurations.banquet", 300);
-    expect(next).toEqual({ capacity: { max_total: 500, configurations: { banquet: 300 } } });
-    expect(source).toEqual({ capacity: { max_total: 500 } });
+  const empty: MetadataDocument = { _schema_version: 1, items: [] };
+
+  it("writes a scalar row without mutating the source", () => {
+    const next = setFieldValue(empty, field("capacity.configurations.banquet", "integer"), 300);
+    expect(next).toEqual({
+      _schema_version: 1,
+      items: [{ group: "capacity", field: "configurations.banquet", value: 300 }],
+    });
+    expect(empty.items).toEqual([]);
   });
 
-  it("creates missing intermediate objects", () => {
-    expect(setFieldValue({}, "catering.policy", "outside_allowed")).toEqual({
-      catering: { policy: "outside_allowed" },
-    });
+  it("expands a list field into one row per element", () => {
+    const next = setFieldValue(empty, field("amenities", "string_array"), ["Wi-Fi", "Parking"]);
+    expect(next.items).toEqual([
+      { group: "amenities", field: "amenities", value: "Wi-Fi" },
+      { group: "amenities", field: "amenities", value: "Parking" },
+    ]);
   });
 
-  it("removes the key when the value is empty", () => {
-    const source = { pricing: { currency: "USD", minimum_spend: 1000 } };
-    expect(setFieldValue(source, "pricing.currency", "")).toEqual({
-      pricing: { minimum_spend: 1000 },
-    });
-    expect(setFieldValue(source, "pricing.minimum_spend", null)).toEqual({
-      pricing: { currency: "USD" },
-    });
+  it("replaces existing rows for the same group and field", () => {
+    const source: MetadataDocument = {
+      _schema_version: 1,
+      items: [
+        { group: "pricing", field: "currency", value: "USD" },
+        { group: "pricing", field: "minimum_spend", value: 1000 },
+      ],
+    };
+    expect(setFieldValue(source, field("pricing.currency"), "EUR").items).toEqual([
+      { group: "pricing", field: "minimum_spend", value: 1000 },
+      { group: "pricing", field: "currency", value: "EUR" },
+    ]);
+  });
+
+  it("removes a scalar row when the value is empty", () => {
+    const source: MetadataDocument = {
+      _schema_version: 1,
+      items: [{ group: "pricing", field: "minimum_spend", value: 1000 }],
+    };
+    expect(setFieldValue(source, field("pricing.minimum_spend", "decimal"), null).items).toEqual(
+      [],
+    );
+  });
+
+  it("removes all rows of a list field when the value is empty", () => {
+    const source: MetadataDocument = {
+      _schema_version: 1,
+      items: [
+        { group: "amenities", field: "amenities", value: "Wi-Fi" },
+        { group: "amenities", field: "amenities", value: "Parking" },
+      ],
+    };
+    expect(setFieldValue(source, field("amenities", "string_array"), []).items).toEqual([]);
   });
 
   it("keeps explicit false and zero", () => {
-    const next = setFieldValue({}, "av_tech.built_in_av", false);
-    expect(next).toEqual({ av_tech: { built_in_av: false } });
-    expect(setFieldValue({}, "av_tech.screens", 0)).toEqual({ av_tech: { screens: 0 } });
+    expect(setFieldValue(empty, field("av_tech.built_in_av", "boolean"), false).items).toEqual([
+      { group: "av_tech", field: "built_in_av", value: false },
+    ]);
+    expect(setFieldValue(empty, field("av_tech.screens", "integer"), 0).items).toEqual([
+      { group: "av_tech", field: "screens", value: 0 },
+    ]);
   });
 });
 
@@ -95,7 +165,7 @@ describe("sectionCompleteness", () => {
         { key: "b", label: "B", type: "integer" },
         { key: "c", label: "C", type: "string", readOnly: true },
       ],
-      { a: "set" },
+      { _schema_version: 1, items: [{ group: "a", field: "a", value: "set" }] },
     );
     expect(result).toEqual({ filled: 1, total: 2 });
   });

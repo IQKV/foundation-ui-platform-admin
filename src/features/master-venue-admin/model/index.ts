@@ -23,5 +23,6 @@ export {
   sectionCompleteness,
   setFieldValue,
 } from "./metadata-utils";
+export type { MetadataDocument } from "./metadata-utils";
 export { useUpdateVenueMetadata } from "./use-update-venue-metadata";
 export type { SaveVenueMetadataPayload, VenueMetadataChange } from "./use-update-venue-metadata";

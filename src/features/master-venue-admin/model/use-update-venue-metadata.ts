@@ -4,14 +4,16 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { IconCheck, IconX } from "@tabler/icons-react";
 import { catalogApi } from "@/shared/api";
 import { setFieldValue } from "./metadata-utils";
+import type { MetadataDocument } from "./metadata-utils";
+import type { MetadataFieldDefinition } from "./metadata-spec";
 
 export interface VenueMetadataChange {
-  key: string;
+  field: MetadataFieldDefinition;
   value: unknown;
 }
 
 export interface SaveVenueMetadataPayload {
-  base: Record<string, unknown>;
+  base: MetadataDocument;
   changes: VenueMetadataChange[];
 }
 
@@ -38,7 +40,7 @@ export function useUpdateVenueMetadata({
   return useMutation({
     mutationFn: ({ base, changes }: SaveVenueMetadataPayload) => {
       const next = changes.reduce(
-        (acc, change) => setFieldValue(acc, change.key, change.value),
+        (acc, change) => setFieldValue(acc, change.field, change.value),
         base,
       );
       return catalogApi.patchMasterVenue(venueId, { metadata: JSON.stringify(next) });

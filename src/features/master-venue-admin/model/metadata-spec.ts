@@ -22,7 +22,7 @@ export interface MetadataFieldOption {
 }
 
 export interface MetadataFieldDefinition {
-  /** Dot-path into the metadata JSON, e.g. `capacity.max_total`. */
+  /** Row address: first segment is the `group`, the rest the `field` (`capacity.max_total` → capacity / max_total). */
   key: string;
   label: string;
   type: MetadataFieldType;
