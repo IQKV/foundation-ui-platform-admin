@@ -60,27 +60,41 @@ export const METADATA_TABS: MetadataTabDefinition[] = [
   { key: "online", label: "Online" },
 ];
 
+// Enum values double as the stored metadata value: the ingestion worker writes
+// plain-English wording (not slugs), so the options must match it verbatim.
 const VENUE_TYPE_OPTIONS: MetadataFieldOption[] = [
-  { value: "hotel_ballroom", label: "Hotel ballroom" },
-  { value: "conference_center", label: "Conference centre" },
-  { value: "restaurant", label: "Restaurant" },
-  { value: "rooftop", label: "Rooftop" },
-  { value: "outdoor_garden", label: "Outdoor / garden" },
-  { value: "historic_building", label: "Historic building" },
-  { value: "warehouse_loft", label: "Warehouse / loft" },
-  { value: "theatre_auditorium", label: "Theatre / auditorium" },
-  { value: "gallery", label: "Gallery" },
-  { value: "sports_facility", label: "Sports facility" },
-  { value: "boat_cruise", label: "Boat / cruise" },
-  { value: "private_estate", label: "Private estate" },
-  { value: "other", label: "Other" },
+  { value: "Restaurant", label: "Restaurant" },
+  { value: "Hotel", label: "Hotel" },
+  { value: "Bar or lounge", label: "Bar or lounge" },
+  { value: "Rooftop", label: "Rooftop" },
+  { value: "Gallery", label: "Gallery" },
+  { value: "Warehouse or industrial space", label: "Warehouse or industrial space" },
+  { value: "Studio", label: "Studio" },
+  { value: "Outdoor garden or terrace", label: "Outdoor garden or terrace" },
+  { value: "Town hall or community centre", label: "Town hall or community centre" },
+  { value: "Conference centre", label: "Conference centre" },
+  { value: "Stadium or arena", label: "Stadium or arena" },
+  { value: "Museum", label: "Museum" },
+  { value: "Theatre or cinema", label: "Theatre or cinema" },
+  { value: "Boat or yacht", label: "Boat or yacht" },
+  { value: "Marquee, tipi or barn", label: "Marquee, tipi or barn" },
+  { value: "Park, zoo or gardens", label: "Park, zoo or gardens" },
+  { value: "Place of worship", label: "Place of worship" },
+  { value: "Private members club", label: "Private members club" },
+  { value: "Nightclub", label: "Nightclub" },
+  { value: "Historic house or estate", label: "Historic house or estate" },
+  { value: "Beach or coastal venue", label: "Beach or coastal venue" },
+  { value: "Unclassified", label: "Unclassified" },
 ];
 
 const CATERING_POLICY_OPTIONS: MetadataFieldOption[] = [
-  { value: "in_house_exclusive", label: "In-house only" },
-  { value: "in_house_preferred", label: "In-house preferred" },
-  { value: "outside_allowed", label: "Outside allowed" },
-  { value: "no_catering", label: "No catering provided" },
+  { value: "In-house catering only", label: "In-house catering only" },
+  { value: "External catering only", label: "External catering only" },
+  {
+    value: "In-house and external catering both allowed",
+    label: "In-house and external catering both allowed",
+  },
+  { value: "Catering not specified", label: "Catering not specified" },
 ];
 
 export const METADATA_SECTIONS: MetadataSectionDefinition[] = [
