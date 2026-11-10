@@ -32,10 +32,12 @@ msgid "{0}"
 msgstr "{0}"
 
 #: src/features/master-venue-semantic-search/ui/SemanticSearchFiltersSummary.tsx
+#: src/features/tenant-venue-semantic-search/ui/SemanticSearchFiltersSummary.tsx
 msgid "{min}–{max} guests"
 msgstr ""
 
 #: src/features/master-venue-semantic-search/ui/SemanticSearchFiltersSummary.tsx
+#: src/features/tenant-venue-semantic-search/ui/SemanticSearchFiltersSummary.tsx
 msgid "{min}+ guests"
 msgstr ""
 
@@ -49,10 +51,11 @@ msgstr "{subscriptionCount} abonnement(s)"
 
 #. placeholder {0}: totalElements === 1 ? "" : "s"
 #: src/pages/admin/master-catalog.index.tsx
-msgid "{totalElements} venue{0}"
-msgstr ""
+#~ msgid "{totalElements} venue{0}"
+#~ msgstr ""
 
 #: src/features/master-venue-admin/ui/venue-fields.tsx
+#: src/features/tenant-venue-admin/ui/venue-fields.tsx
 msgid "0 – 1 quality score set by the ingestion pipeline."
 msgstr ""
 
@@ -143,6 +146,7 @@ msgid "Add locale"
 msgstr "Ajouter une langue"
 
 #: src/pages/admin/master-catalog.index.tsx
+#: src/pages/admin/venues.index.tsx
 msgid "Add venue"
 msgstr ""
 
@@ -159,11 +163,14 @@ msgid "Addons"
 msgstr ""
 
 #: src/features/master-venue-admin/ui/venue-fields.tsx
+#: src/features/tenant-venue-admin/ui/venue-fields.tsx
 #: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
 msgid "Address"
 msgstr ""
 
 #: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
 msgid "Address & coordinates"
 msgstr ""
 
@@ -172,10 +179,12 @@ msgid "Admin password override"
 msgstr "Remplacement du mot de passe administrateur"
 
 #: src/features/master-venue-semantic-search/ui/SemanticSearchFiltersSummary.tsx
+#: src/features/tenant-venue-semantic-search/ui/SemanticSearchFiltersSummary.tsx
 msgid "AI filters"
 msgstr ""
 
 #: src/pages/admin/master-catalog.index.tsx
+#: src/pages/admin/venues.index.tsx
 msgid "AI Ranked"
 msgstr ""
 
@@ -184,6 +193,7 @@ msgid "All actions"
 msgstr "Toutes les actions"
 
 #: src/pages/admin/master-catalog.index.tsx
+#: src/pages/admin/venues.index.tsx
 msgid "All cities"
 msgstr ""
 
@@ -227,6 +237,7 @@ msgid "All types"
 msgstr "Tous les types"
 
 #: src/features/master-venue-semantic-search/ui/SemanticSearchFiltersSummary.tsx
+#: src/features/tenant-venue-semantic-search/ui/SemanticSearchFiltersSummary.tsx
 msgid "Amenity: {amenity}"
 msgstr ""
 
@@ -268,6 +279,7 @@ msgid "Annual"
 msgstr "Annuel"
 
 #: src/features/master-venue-admin/ui/section-fields-form.tsx
+#: src/features/tenant-venue-admin/ui/section-fields-form.tsx
 msgid "Apply"
 msgstr ""
 
@@ -283,6 +295,7 @@ msgstr "Êtes-vous sûr de vouloir annuler l'abonnement pour <0>{0}</0> ?"
 
 #. placeholder {0}: venue?.name ?? ""
 #: src/features/master-venue-admin/ui/delete-master-venue-modal.tsx
+#: src/features/tenant-venue-admin/ui/delete-tenant-venue-modal.tsx
 msgid "Are you sure you want to delete <0>{0}</0>? This action cannot be undone."
 msgstr ""
 
@@ -312,6 +325,7 @@ msgid "Are you sure?"
 msgstr "Êtes-vous sûr ?"
 
 #: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
 msgid "Assets"
 msgstr ""
 
@@ -371,11 +385,13 @@ msgstr "Intégration automatique du routeur via <0>router.subscribe()</0>"
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/refunds.$refundId.tsx
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
 #: src/pages/admin/webhook-logs.$webhookLogId.tsx
 msgid "Back to list"
 msgstr "Retour à la liste"
 
 #: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
 msgid "Back to search"
 msgstr ""
 
@@ -393,6 +409,7 @@ msgid "Banning this user will immediately invalidate all their active sessions, 
 msgstr "Bannir cet utilisateur invalidera immédiatement toutes ses sessions actives, révoquera son accès et lui enverra un e-mail de notification. Il ne pourra plus se connecter tant qu'il ne sera pas débanni."
 
 #: src/features/master-venue-semantic-search/ui/MasterVenueSemanticSearchWidget.tsx
+#: src/features/tenant-venue-semantic-search/ui/TenantVenueSemanticSearchWidget.tsx
 msgid "Beta"
 msgstr ""
 
@@ -449,6 +466,10 @@ msgstr "Paramètres de facturation"
 #: src/features/page-admin/ui/delete-page-modal.tsx
 #: src/features/set-user-password/ui/set-user-password-modal.tsx
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+#: src/features/tenant-venue-admin/ui/create-tenant-venue-modal.tsx
+#: src/features/tenant-venue-admin/ui/delete-tenant-venue-modal.tsx
+#: src/features/tenant-venue-admin/ui/edit-tenant-venue-modal.tsx
+#: src/features/tenant-venue-admin/ui/section-fields-form.tsx
 #: src/features/unlock-user/ui/unlock-user-modal.tsx
 #: src/pages/admin/-organization-tenant-panels.tsx
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
@@ -484,11 +505,14 @@ msgstr "URL canonique"
 
 #: src/pages/admin/master-catalog.$venueId.tsx
 #: src/pages/admin/master-catalog.index.tsx
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
+#: src/pages/admin/venues.index.tsx
 #: src/shared/ui/admin-layout/nav-config.tsx
 msgid "Catalog"
 msgstr ""
 
 #: src/features/master-venue-semantic-search/ui/SemanticSearchFiltersSummary.tsx
+#: src/features/tenant-venue-semantic-search/ui/SemanticSearchFiltersSummary.tsx
 msgid "Catering: {policy}"
 msgstr ""
 
@@ -502,12 +526,16 @@ msgid "Change Password"
 msgstr "Changer le mot de passe"
 
 #: src/features/master-venue-admin/ui/venue-fields.tsx
+#: src/features/tenant-venue-admin/ui/venue-fields.tsx
 #: src/pages/admin/master-catalog.$venueId.tsx
 #: src/pages/admin/master-catalog.index.tsx
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
+#: src/pages/admin/venues.index.tsx
 msgid "City"
 msgstr ""
 
 #: src/features/master-venue-semantic-search/ui/SemanticSearchFiltersSummary.tsx
+#: src/features/tenant-venue-semantic-search/ui/SemanticSearchFiltersSummary.tsx
 msgid "City: {city}"
 msgstr ""
 
@@ -522,6 +550,8 @@ msgstr "Effacer"
 
 #: src/features/master-venue-semantic-search/ui/MasterVenueSemanticSearchWidget.tsx
 #: src/features/master-venue-semantic-search/ui/SemanticSearchFiltersSummary.tsx
+#: src/features/tenant-venue-semantic-search/ui/SemanticSearchFiltersSummary.tsx
+#: src/features/tenant-venue-semantic-search/ui/TenantVenueSemanticSearchWidget.tsx
 msgid "Clear AI search"
 msgstr ""
 
@@ -537,6 +567,7 @@ msgstr "Tout effacer"
 #: src/pages/admin/plans.index.tsx
 #: src/pages/admin/subscriptions.tsx
 #: src/pages/admin/users.index.tsx
+#: src/pages/admin/venues.index.tsx
 msgid "Clear filters"
 msgstr "Réinitialiser les filtres"
 
@@ -569,12 +600,15 @@ msgid "Complete"
 msgstr "Terminé"
 
 #: src/features/master-venue-admin/ui/venue-fields.tsx
+#: src/features/tenant-venue-admin/ui/venue-fields.tsx
 #: src/pages/admin/master-catalog.$venueId.tsx
 #: src/pages/admin/master-catalog.index.tsx
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
 msgid "Confidence"
 msgstr ""
 
 #: src/features/master-venue-admin/model/types.ts
+#: src/features/tenant-venue-admin/model/types.ts
 msgid "Confidence must be a number"
 msgstr ""
 
@@ -616,8 +650,11 @@ msgstr "Le contenu est requis pour la langue par défaut"
 #~ msgstr ""
 
 #: src/features/master-venue-admin/ui/venue-fields.tsx
+#: src/features/tenant-venue-admin/ui/venue-fields.tsx
 #: src/pages/admin/master-catalog.$venueId.tsx
 #: src/pages/admin/master-catalog.index.tsx
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
+#: src/pages/admin/venues.index.tsx
 msgid "Coordinates"
 msgstr ""
 
@@ -651,6 +688,10 @@ msgstr "Impossible de supprimer la page. Elle est peut-être publiée."
 
 #: src/features/master-venue-admin/ui/bulk-delete-master-venues-modal.tsx
 msgid "Could not delete the selected master venues. Please try again."
+msgstr ""
+
+#: src/features/tenant-venue-admin/ui/delete-tenant-venue-modal.tsx
+msgid "Could not delete the venue. Please try again."
 msgstr ""
 
 #: src/pages/admin/announcements.index.tsx
@@ -737,6 +778,10 @@ msgstr "Impossible de récupérer les détails de l'utilisateur."
 msgid "Could not fetch users from the API."
 msgstr "Impossible de récupérer les utilisateurs depuis l'API."
 
+#: src/pages/admin/venues.index.tsx
+msgid "Could not fetch venues from the API."
+msgstr ""
+
 #: src/pages/admin/webhook-logs.$webhookLogId.tsx
 msgid "Could not fetch webhook log details."
 msgstr "Impossible de récupérer les détails du journal webhook."
@@ -782,7 +827,12 @@ msgid "Create page"
 msgstr "Créer une page"
 
 #: src/features/master-venue-admin/ui/create-master-venue-modal.tsx
+#: src/features/tenant-venue-admin/ui/create-tenant-venue-modal.tsx
 msgid "Create venue"
+msgstr ""
+
+#: src/features/tenant-venue-admin/ui/create-tenant-venue-modal.tsx
+msgid "Create Venue"
 msgstr ""
 
 #: src/features/invitation-admin/ui/edit-invitation-modal.tsx
@@ -797,6 +847,8 @@ msgstr ""
 #: src/pages/admin/organizations.index.tsx
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/subscriptions.tsx
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
+#: src/pages/admin/venues.index.tsx
 msgid "Created"
 msgstr "Créé"
 
@@ -810,7 +862,9 @@ msgid "Creation failed"
 msgstr "Échec de la création"
 
 #: src/features/master-venue-admin/ui/venue-fields.tsx
+#: src/features/tenant-venue-admin/ui/venue-fields.tsx
 #: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
 msgid "Curation"
 msgstr ""
 
@@ -850,6 +904,7 @@ msgid "Dashboard"
 msgstr "Tableau de bord"
 
 #: src/features/master-venue-admin/ui/venue-fields.tsx
+#: src/features/tenant-venue-admin/ui/venue-fields.tsx
 msgid "Decimal lat / lng used for map pins and geo search. Leave blank if unknown."
 msgstr ""
 
@@ -862,9 +917,12 @@ msgstr "Langue par défaut — requise"
 #: src/features/master-venue-admin/ui/delete-master-venue-modal.tsx
 #: src/features/page-admin/ui/delete-page-modal.tsx
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+#: src/features/tenant-venue-admin/ui/delete-tenant-venue-modal.tsx
 #: src/pages/admin/cms-pages.index.tsx
 #: src/pages/admin/master-catalog.$venueId.tsx
 #: src/pages/admin/master-catalog.index.tsx
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
+#: src/pages/admin/venues.index.tsx
 msgid "Delete"
 msgstr "Supprimer"
 
@@ -888,6 +946,7 @@ msgstr "Supprimer les paramètres de facturation ?"
 #: src/features/master-venue-admin/ui/bulk-delete-master-venues-modal.tsx
 #: src/features/master-venue-admin/ui/delete-master-venue-modal.tsx
 #: src/features/page-admin/ui/delete-page-modal.tsx
+#: src/features/tenant-venue-admin/ui/delete-tenant-venue-modal.tsx
 msgid "Delete failed"
 msgstr "Échec de la suppression"
 
@@ -919,6 +978,10 @@ msgstr "Supprimer l'enregistrement d'abonnement"
 #~ msgid "Delete venue"
 #~ msgstr ""
 
+#: src/features/tenant-venue-admin/ui/delete-tenant-venue-modal.tsx
+msgid "Delete Venue"
+msgstr ""
+
 #: src/shared/ui/tenant-status-badge/tenant-status-badge.tsx
 #: src/shared/ui/user-status-badge/user-status-badge.tsx
 msgid "Deleted"
@@ -937,6 +1000,7 @@ msgid "Demo Progress Bar"
 msgstr "Démo barre de progression"
 
 #: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
 msgid "Details"
 msgstr ""
 
@@ -952,6 +1016,7 @@ msgid "Draft"
 msgstr "Brouillon"
 
 #: src/features/master-venue-semantic-search/ui/MasterVenueSemanticSearchWidget.tsx
+#: src/features/tenant-venue-semantic-search/ui/TenantVenueSemanticSearchWidget.tsx
 msgid "e.g. \"Find luxury hotels in New York with a rooftop bar and capacity for 200 people\""
 msgstr ""
 
@@ -963,11 +1028,13 @@ msgstr "ex. default, landing"
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/cms-pages.index.tsx
 #: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
 msgid "Edit"
 msgstr "Modifier"
 
 #. placeholder {0}: section.label
 #: src/features/master-venue-admin/ui/venue-metadata-sections.tsx
+#: src/features/tenant-venue-admin/ui/venue-metadata-sections.tsx
 msgid "Edit — {0}"
 msgstr ""
 
@@ -977,6 +1044,7 @@ msgstr "Modifier — {defaultTitle} — {tenantKey}"
 
 #. placeholder {0}: section.label
 #: src/features/master-venue-admin/ui/venue-metadata-sections.tsx
+#: src/features/tenant-venue-admin/ui/venue-metadata-sections.tsx
 msgid "Edit {0}"
 msgstr ""
 
@@ -1022,6 +1090,7 @@ msgid "Edit Profile"
 msgstr "Modifier le profil"
 
 #: src/pages/admin/master-catalog.index.tsx
+#: src/pages/admin/venues.index.tsx
 msgid "Edit record"
 msgstr ""
 
@@ -1037,6 +1106,10 @@ msgstr "Modifier l'utilisateur"
 #: src/pages/admin/master-catalog.index.tsx
 #~ msgid "Edit venue"
 #~ msgstr ""
+
+#: src/features/tenant-venue-admin/ui/edit-tenant-venue-modal.tsx
+msgid "Edit Venue"
+msgstr ""
 
 #: src/features/edit-account/ui/edit-account-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
@@ -1177,6 +1250,7 @@ msgid "Failed to create announcement"
 msgstr "Échec de la création de l'annonce"
 
 #: src/features/master-venue-admin/ui/create-master-venue-modal.tsx
+#: src/features/tenant-venue-admin/ui/create-tenant-venue-modal.tsx
 msgid "Failed to create venue"
 msgstr ""
 
@@ -1279,6 +1353,10 @@ msgstr "Échec du chargement des abonnements"
 msgid "Failed to load the master venue"
 msgstr ""
 
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
+msgid "Failed to load the venue"
+msgstr ""
+
 #: src/pages/admin/users.$userId.tsx
 msgid "Failed to load user"
 msgstr "Échec du chargement de l'utilisateur"
@@ -1286,6 +1364,10 @@ msgstr "Échec du chargement de l'utilisateur"
 #: src/pages/admin/users.index.tsx
 msgid "Failed to load users"
 msgstr "Échec du chargement des utilisateurs"
+
+#: src/pages/admin/venues.index.tsx
+msgid "Failed to load venues"
+msgstr ""
 
 #: src/pages/admin/webhook-logs.$webhookLogId.tsx
 msgid "Failed to load webhook log"
@@ -1312,6 +1394,7 @@ msgid "Failed to update subscription"
 msgstr "Échec de la mise à jour de l'abonnement"
 
 #: src/features/master-venue-admin/ui/edit-master-venue-modal.tsx
+#: src/features/tenant-venue-admin/ui/edit-tenant-venue-modal.tsx
 msgid "Failed to update venue"
 msgstr ""
 
@@ -1324,6 +1407,7 @@ msgid "Feature set (JSON)"
 msgstr "Ensemble de fonctionnalités (JSON)"
 
 #: src/pages/admin/master-catalog.index.tsx
+#: src/pages/admin/venues.index.tsx
 msgid "Fill all fields manually"
 msgstr ""
 
@@ -1338,6 +1422,7 @@ msgid "Filter by tenant key…"
 msgstr "Filtrer par clé locataire…"
 
 #: src/pages/admin/master-catalog.index.tsx
+#: src/pages/admin/venues.index.tsx
 msgid "Filters"
 msgstr ""
 
@@ -1381,10 +1466,12 @@ msgid "Granting Platform Admin to <0>{displayName}</0> will give them full admin
 msgstr "Accorder les droits d'administrateur plateforme à <0>{displayName}</0> lui donnera un accès administratif complet à cette plateforme, incluant la gestion des utilisateurs, des locataires et toutes les opérations réservées aux administrateurs."
 
 #: src/pages/admin/master-catalog.index.tsx
+#: src/pages/admin/venues.index.tsx
 msgid "Grid view"
 msgstr ""
 
 #: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
 msgid "Hide raw JSON"
 msgstr ""
 
@@ -1415,6 +1502,8 @@ msgstr "Hiérarchie"
 #: src/pages/admin/subscriptions.tsx
 #: src/pages/admin/users.$userId.tsx
 #: src/pages/admin/users.index.tsx
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
+#: src/pages/admin/venues.index.tsx
 #: src/pages/admin/webhook-logs.$webhookLogId.tsx
 #: src/pages/admin/webhook-logs.tsx
 msgid "Home"
@@ -1442,10 +1531,12 @@ msgstr "ID :"
 #: src/features/announcement-admin/ui/edit-announcement-modal.tsx
 #: src/features/edit-user/ui/edit-user-modal.tsx
 #: src/features/master-venue-admin/ui/edit-master-venue-modal.tsx
+#: src/features/tenant-venue-admin/ui/edit-tenant-venue-modal.tsx
 msgid "ID: {0}"
 msgstr "ID : {0}"
 
 #: src/features/master-venue-admin/ui/venue-fields.tsx
+#: src/features/tenant-venue-admin/ui/venue-fields.tsx
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/users.$userId.tsx
 msgid "Identity"
@@ -1473,10 +1564,12 @@ msgid "Info"
 msgstr "Info"
 
 #: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
 msgid "Ingestion & quality"
 msgstr ""
 
 #: src/features/master-venue-admin/ui/venue-fields.tsx
+#: src/features/tenant-venue-admin/ui/venue-fields.tsx
 msgid "Ingestion provenance and quality signal. Metadata is managed by the worker — edit only to correct errors."
 msgstr ""
 
@@ -1584,10 +1677,12 @@ msgid "Last used"
 msgstr "Dernière utilisation"
 
 #: src/features/master-venue-admin/ui/venue-fields.tsx
+#: src/features/tenant-venue-admin/ui/venue-fields.tsx
 msgid "Latitude"
 msgstr ""
 
 #: src/features/master-venue-admin/model/types.ts
+#: src/features/tenant-venue-admin/model/types.ts
 msgid "Latitude must be a number"
 msgstr ""
 
@@ -1596,6 +1691,7 @@ msgid "Linked"
 msgstr "Lié"
 
 #: src/pages/admin/master-catalog.index.tsx
+#: src/pages/admin/venues.index.tsx
 msgid "List view"
 msgstr ""
 
@@ -1633,6 +1729,7 @@ msgid "Locales"
 msgstr "Langues"
 
 #: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
 msgid "Location"
 msgstr ""
 
@@ -1651,10 +1748,12 @@ msgid "Log ID"
 msgstr "ID du journal"
 
 #: src/features/master-venue-admin/ui/venue-fields.tsx
+#: src/features/tenant-venue-admin/ui/venue-fields.tsx
 msgid "Longitude"
 msgstr ""
 
 #: src/features/master-venue-admin/model/types.ts
+#: src/features/tenant-venue-admin/model/types.ts
 msgid "Longitude must be a number"
 msgstr ""
 
@@ -1679,6 +1778,7 @@ msgstr "Gérer les utilisateurs"
 #~ msgstr "Gérez les utilisateurs, les organisations et les abonnements sur tous les locataires — sécurisé par une authentification au niveau de la plateforme."
 
 #: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
 msgid "Managed by the ingestion worker — edit with care."
 msgstr ""
 
@@ -1688,6 +1788,8 @@ msgstr "Gestion"
 
 #: src/pages/admin/master-catalog.$venueId.tsx
 #: src/pages/admin/master-catalog.index.tsx
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
+#: src/pages/admin/venues.index.tsx
 msgid "Maps"
 msgstr ""
 
@@ -1700,6 +1802,11 @@ msgstr "Tout marquer comme lu"
 #: src/pages/admin/master-catalog.index.tsx
 #: src/shared/ui/admin-layout/nav-config.tsx
 msgid "Master Catalog"
+msgstr ""
+
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
+#: src/pages/admin/venues.index.tsx
+msgid "Master venue"
 msgstr ""
 
 #: src/pages/admin/master-catalog.$venueId.tsx
@@ -1745,15 +1852,22 @@ msgid "Meta description for search engines"
 msgstr "Méta-description pour les moteurs de recherche"
 
 #: src/features/master-venue-admin/ui/venue-fields.tsx
+#: src/features/tenant-venue-admin/ui/venue-fields.tsx
 #: src/pages/admin/master-catalog.$venueId.tsx
 #: src/pages/admin/master-catalog.index.tsx
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
 msgid "Metadata"
 msgstr "Métadonnées"
 
 #: src/features/master-venue-admin/ui/venue-metadata-sections.tsx
-msgid "Metadata is not valid JSON — section editing is disabled. Use the raw editor below."
+#: src/features/tenant-venue-admin/ui/venue-metadata-sections.tsx
+msgid "Metadata is not a supported document — section editing is disabled. Use the raw editor below."
 msgstr ""
+
+#: src/features/master-venue-admin/ui/venue-metadata-sections.tsx
+#~ msgid "Metadata is not valid JSON — section editing is disabled. Use the raw editor below."
+#~ msgstr ""
 
 #: src/pages/admin/master-catalog.index.tsx
 msgid "Missing"
@@ -1765,6 +1879,7 @@ msgid "Monthly"
 msgstr "Mensuel"
 
 #: src/pages/admin/master-catalog.index.tsx
+#: src/pages/admin/venues.index.tsx
 msgid "More options"
 msgstr ""
 
@@ -1782,16 +1897,29 @@ msgid "My Account"
 msgstr "Mon compte"
 
 #: src/features/master-venue-admin/ui/venue-fields.tsx
+#: src/features/tenant-venue-admin/ui/venue-fields.tsx
 #: src/pages/admin/plans.index.tsx
 msgid "Name"
 msgstr "Nom"
 
+#: src/pages/admin/master-catalog.index.tsx
+#: src/pages/admin/venues.index.tsx
+msgid "Name A → Z"
+msgstr ""
+
 #: src/features/master-venue-admin/model/types.ts
+#: src/features/tenant-venue-admin/model/types.ts
 msgid "Name is required"
 msgstr ""
 
 #: src/pages/admin/master-catalog.index.tsx
+#: src/pages/admin/venues.index.tsx
 msgid "Name or city…"
+msgstr ""
+
+#: src/pages/admin/master-catalog.index.tsx
+#: src/pages/admin/venues.index.tsx
+msgid "Name Z → A"
 msgstr ""
 
 #: src/pages/admin/cms-pages.$tenantKey.create.tsx
@@ -1828,6 +1956,7 @@ msgid "New signups"
 msgstr "Nouvelles inscriptions"
 
 #: src/pages/admin/master-catalog.index.tsx
+#: src/pages/admin/venues.index.tsx
 msgid "New venue"
 msgstr ""
 
@@ -1852,6 +1981,7 @@ msgstr "Aucune annonce ne correspond aux filtres actuels"
 #~ msgstr ""
 
 #: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
 msgid "No assets for this venue."
 msgstr ""
 
@@ -1859,11 +1989,16 @@ msgstr ""
 msgid "No billing settings"
 msgstr "Aucun paramètre de facturation"
 
+#: src/pages/admin/venues.index.tsx
+msgid "No city on record"
+msgstr ""
+
 #: src/widgets/dashboard-recent-critical-audit/ui/recent-critical-audit.tsx
 msgid "No critical events — all clear"
 msgstr "Aucun événement critique — tout est en ordre"
 
 #: src/features/master-venue-admin/ui/venue-metadata-sections.tsx
+#: src/features/tenant-venue-admin/ui/venue-metadata-sections.tsx
 msgid "No data yet — click Edit to add."
 msgstr ""
 
@@ -1900,6 +2035,7 @@ msgid "No members match the search"
 msgstr "Aucun membre ne correspond à la recherche"
 
 #: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
 msgid "No metadata."
 msgstr ""
 
@@ -1926,6 +2062,7 @@ msgid "No pages match the current filter"
 msgstr "Aucune page ne correspond au filtre actuel"
 
 #: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
 msgid "No photos for this venue."
 msgstr ""
 
@@ -1986,14 +2123,16 @@ msgid "No users match the current filters"
 msgstr "Aucun utilisateur ne correspond aux filtres actuels"
 
 #: src/pages/admin/master-catalog.index.tsx
-msgid "No venues found"
-msgstr ""
+#~ msgid "No venues found"
+#~ msgstr ""
 
 #: src/pages/admin/master-catalog.index.tsx
+#: src/pages/admin/venues.index.tsx
 msgid "No venues match your filters"
 msgstr ""
 
 #: src/pages/admin/master-catalog.index.tsx
+#: src/pages/admin/venues.index.tsx
 msgid "No venues yet — add your first one"
 msgstr ""
 
@@ -2086,6 +2225,7 @@ msgstr "UUID facultatif de l'utilisateur propriétaire du profil de facturation.
 #: src/pages/admin/organizations.$tenantKey.tsx
 #: src/pages/admin/organizations.index.tsx
 #: src/pages/admin/users.index.tsx
+#: src/pages/admin/venues.index.tsx
 msgid "Organization"
 msgstr "Organisation"
 
@@ -2237,6 +2377,7 @@ msgid "Period End"
 msgstr "Fin de période"
 
 #: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
 msgid "Photos"
 msgstr ""
 
@@ -2307,6 +2448,8 @@ msgstr "Vue d'ensemble de la plateforme"
 #: src/features/announcement-admin/ui/create-announcement-modal.tsx
 #: src/features/master-venue-admin/ui/create-master-venue-modal.tsx
 #: src/features/master-venue-admin/ui/edit-master-venue-modal.tsx
+#: src/features/tenant-venue-admin/ui/create-tenant-venue-modal.tsx
+#: src/features/tenant-venue-admin/ui/edit-tenant-venue-modal.tsx
 msgid "Please check the form and try again."
 msgstr "Veuillez vérifier le formulaire et réessayer."
 
@@ -2323,6 +2466,7 @@ msgid "Present"
 msgstr ""
 
 #: src/features/master-venue-semantic-search/ui/MasterVenueSemanticSearchWidget.tsx
+#: src/features/tenant-venue-semantic-search/ui/TenantVenueSemanticSearchWidget.tsx
 msgid "Press Enter to search"
 msgstr ""
 
@@ -2332,6 +2476,7 @@ msgid "Price (minor units)"
 msgstr "Prix (unités mineures)"
 
 #: src/features/master-venue-semantic-search/ui/MasterVenueSemanticSearchWidget.tsx
+#: src/features/tenant-venue-semantic-search/ui/TenantVenueSemanticSearchWidget.tsx
 msgid "Pro tip: You can search by vibe, amenities, capacity, or specific location details."
 msgstr ""
 
@@ -2388,10 +2533,12 @@ msgid "Quantity"
 msgstr "Quantité"
 
 #: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
 msgid "Raw JSON document"
 msgstr ""
 
 #: src/features/master-venue-admin/ui/venue-fields.tsx
+#: src/features/tenant-venue-admin/ui/venue-fields.tsx
 msgid "Raw JSON document written by the ingestion worker. Edit with care."
 msgstr ""
 
@@ -2440,6 +2587,11 @@ msgstr "Événements critiques récents"
 msgid "Recent Refunds"
 msgstr "Remboursements récents"
 
+#: src/pages/admin/master-catalog.index.tsx
+#: src/pages/admin/venues.index.tsx
+msgid "Recently Added"
+msgstr ""
+
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 #: src/pages/admin/-organization-tenant-panels.tsx
 #: src/pages/admin/account.tsx
@@ -2456,6 +2608,8 @@ msgstr "Remboursements récents"
 #: src/pages/admin/subscriptions.tsx
 #: src/pages/admin/users.$userId.tsx
 #: src/pages/admin/users.index.tsx
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
+#: src/pages/admin/venues.index.tsx
 msgid "Refresh"
 msgstr "Actualiser"
 
@@ -2519,6 +2673,8 @@ msgstr "Restaurer l'accès"
 #: src/pages/admin/subscriptions.tsx
 #: src/pages/admin/users.$userId.tsx
 #: src/pages/admin/users.index.tsx
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
+#: src/pages/admin/venues.index.tsx
 #: src/pages/admin/webhook-logs.$webhookLogId.tsx
 #: src/pages/admin/webhook-logs.tsx
 msgid "Retry"
@@ -2558,6 +2714,7 @@ msgstr "Révoquer les droits d'administrateur plateforme de <0>{displayName}</0>
 #: src/features/edit-user/ui/edit-user-modal.tsx
 #: src/features/master-venue-admin/ui/edit-master-venue-modal.tsx
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
+#: src/features/tenant-venue-admin/ui/edit-tenant-venue-modal.tsx
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Save changes"
@@ -2626,6 +2783,10 @@ msgstr "Voir toutes les notifications"
 msgid "Select a tenant to view its pages"
 msgstr "Sélectionner un locataire pour voir ses pages"
 
+#: src/pages/admin/venues.index.tsx
+msgid "Select a tenant to view its venues"
+msgstr ""
+
 #: src/pages/admin/master-catalog.index.tsx
 msgid "Select all venues on this page"
 msgstr ""
@@ -2641,6 +2802,10 @@ msgstr "Sélectionnez une organisation ci-dessus pour voir la tendance d'inscrip
 #: src/pages/admin/cms-pages.index.tsx
 msgid "Select an organization to manage its CMS pages."
 msgstr "Sélectionnez une organisation pour gérer ses pages CMS."
+
+#: src/pages/admin/venues.index.tsx
+msgid "Select an organization to manage its venues."
+msgstr ""
 
 #: src/widgets/dashboard-tenant-signup-chart/ui/tenant-signup-chart.tsx
 msgid "Select an organization…"
@@ -2660,6 +2825,7 @@ msgid "Select venue"
 msgstr ""
 
 #: src/features/master-venue-semantic-search/ui/MasterVenueSemanticSearchWidget.tsx
+#: src/features/tenant-venue-semantic-search/ui/TenantVenueSemanticSearchWidget.tsx
 msgid "Semantic Search — Ask anything about venues in natural language"
 msgstr ""
 
@@ -2707,6 +2873,7 @@ msgid "Severity"
 msgstr "Gravité"
 
 #: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
 msgid "Show raw JSON"
 msgstr ""
 
@@ -2736,6 +2903,7 @@ msgid "Showing {rangeStart} – {rangeEnd} of {totalElements} webhook logs"
 msgstr "{rangeStart} – {rangeEnd} sur {totalElements} journal(aux) webhook affiché(s)"
 
 #: src/pages/admin/master-catalog.index.tsx
+#: src/pages/admin/venues.index.tsx
 msgid "Showing {rangeStart}–{rangeEnd} of {totalElements}"
 msgstr ""
 
@@ -2822,6 +2990,7 @@ msgid "Smallest currency unit (e.g. cents)."
 msgstr "Plus petite unité monétaire (ex. centimes)."
 
 #: src/features/master-venue-admin/ui/section-fields-form.tsx
+#: src/features/tenant-venue-admin/ui/section-fields-form.tsx
 msgid "Some fields could not be saved. Please try again."
 msgstr ""
 
@@ -2830,11 +2999,14 @@ msgid "Something went wrong"
 msgstr "Une erreur s'est produite"
 
 #: src/features/master-venue-admin/ui/venue-fields.tsx
+#: src/features/tenant-venue-admin/ui/venue-fields.tsx
 #: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
 msgid "Source"
 msgstr ""
 
 #: src/features/master-venue-admin/model/types.ts
+#: src/features/tenant-venue-admin/model/types.ts
 msgid "Source is required"
 msgstr ""
 
@@ -3016,10 +3188,12 @@ msgid "Tenant updated"
 msgstr "Locataire mis à jour"
 
 #: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
 msgid "The venue could not be found or the API is unavailable."
 msgstr ""
 
 #: src/features/master-venue-admin/ui/venue-fields.tsx
+#: src/features/tenant-venue-admin/ui/venue-fields.tsx
 msgid "The venue's canonical name and address as it appears in the catalog."
 msgstr ""
 
@@ -3128,6 +3302,7 @@ msgid "Type is required"
 msgstr ""
 
 #: src/features/master-venue-semantic-search/ui/SemanticSearchFiltersSummary.tsx
+#: src/features/tenant-venue-semantic-search/ui/SemanticSearchFiltersSummary.tsx
 msgid "Type: {label}"
 msgstr ""
 
@@ -3176,6 +3351,7 @@ msgid "Unverified"
 msgstr "Non vérifié"
 
 #: src/features/master-venue-semantic-search/ui/SemanticSearchFiltersSummary.tsx
+#: src/features/tenant-venue-semantic-search/ui/SemanticSearchFiltersSummary.tsx
 msgid "up to {max} guests"
 msgstr ""
 
@@ -3196,6 +3372,8 @@ msgstr "Mettre à jour la quantité de l'abonnement"
 #: src/pages/admin/master-catalog.index.tsx
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/plans.index.tsx
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
+#: src/pages/admin/venues.index.tsx
 msgid "Updated"
 msgstr "Mis à jour"
 
@@ -3258,7 +3436,14 @@ msgid "UUID or leave empty to clear."
 msgstr "UUID ou laisser vide pour effacer."
 
 #: src/pages/admin/master-catalog.$venueId.tsx
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
 msgid "Venue"
+msgstr ""
+
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
+#: src/pages/admin/venues.index.tsx
+#: src/shared/ui/admin-layout/nav-config.tsx
+msgid "Venues"
 msgstr ""
 
 #: src/features/edit-account/ui/edit-account-modal.tsx
@@ -3308,6 +3493,7 @@ msgid "View plan"
 msgstr "Voir le forfait"
 
 #: src/pages/admin/master-catalog.index.tsx
+#: src/pages/admin/venues.index.tsx
 msgid "View record"
 msgstr ""
 
@@ -3342,6 +3528,7 @@ msgid "Welcome back"
 msgstr "Bon retour"
 
 #: src/features/master-venue-semantic-search/ui/SemanticSearchFiltersSummary.tsx
+#: src/features/tenant-venue-semantic-search/ui/SemanticSearchFiltersSummary.tsx
 msgid "Wheelchair accessible"
 msgstr ""
 

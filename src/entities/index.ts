@@ -9,4 +9,5 @@ export * from "./refund";
 export * from "./webhook-log";
 export * from "./subscription";
 export * from "./tenant";
+export * from "./tenant-venue";
 export * from "./user";

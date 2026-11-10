@@ -90,6 +90,18 @@ export type {
   SemanticSearchResult,
 } from "./catalog";
 
+export { tenantVenueApi } from "./tenant-venue";
+export type {
+  AdminTenantVenueListResponse,
+  AdminTenantVenueAssetListResponse,
+  TenantVenueWriteRequest,
+  TenantVenuePatchRequest,
+  TenantVenueSortField,
+  ListTenantVenuesParams,
+  TenantVenueSemanticSearchParams,
+  TenantVenueSemanticSearchResponse,
+} from "./tenant-venue";
+
 export { notificationApi } from "./iam";
 
 // Re-export all entity types for convenience
@@ -118,6 +130,9 @@ export type {
   CmsPageHierarchyItem,
   MasterVenue,
   MasterVenueAsset,
+  TenantVenue,
+  TenantVenueSummary,
+  TenantVenueAsset,
   AuditRecord,
   AuditSeverity,
   AuditActionCount,

@@ -46,6 +46,7 @@ import {
   IconFileText,
   IconWebhook,
   IconBuildingStore,
+  IconMapPin,
 } from "@tabler/icons-react";
 
 // ─── Sections ─────────────────────────────────────────────────────────────────
@@ -69,13 +70,14 @@ export function buildNavSections(addonItems: NavItem[] = []): NavSection[] {
     {
       id: "catalog",
       label: <Trans>Catalog</Trans>,
-      prefixes: ["/admin/master-catalog"],
+      prefixes: ["/admin/master-catalog", "/admin/venues"],
       items: [
         {
           label: <Trans>Master Catalog</Trans>,
           icon: IconBuildingStore,
           to: "/admin/master-catalog",
         },
+        { label: <Trans>Venues</Trans>, icon: IconMapPin, to: "/admin/venues" },
       ],
     },
     {

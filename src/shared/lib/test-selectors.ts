@@ -154,6 +154,22 @@ export const TestSelectors = {
     MASTER_VENUE_BULK_DELETE_CONFIRM: "button--bulk-delete-venue",
     MASTER_CATALOG_BULK_DELETE: "button-master-catalog-bulk-delete",
     MASTER_CATALOG_CLEAR_SELECTION: "button-master-catalog-clear-selection",
+    // Tenant Venues
+    TENANT_VENUES_CREATE: "button-tenant-venues-create",
+    TENANT_VENUES_REFRESH: "button-tenant-venues-refresh",
+    TENANT_VENUES_CLEAR_FILTERS: "button-tenant-venues-clear-filters",
+    TENANT_VENUES_SEARCH_CLEAR: "button-tenant-venues-search-clear",
+    TENANT_VENUE_VIEW: (id: string) => `button-tenant-venue-view--${id}`,
+    TENANT_VENUE_EDIT: (id: string) => `button-tenant-venue-edit--${id}`,
+    TENANT_VENUE_DELETE: (id: string) => `button-tenant-venue-delete--${id}`,
+    TENANT_VENUE_CREATE_SUBMIT: "button--create-tenant-venue",
+    TENANT_VENUE_EDIT_SAVE: "button--save-tenant-venue",
+    TENANT_VENUE_DELETE_CONFIRM: "button--delete-tenant-venue",
+    TENANT_VENUE_DETAIL_BACK: "button-tenant-venue-detail-back",
+    TENANT_VENUE_DETAIL_EDIT: "button-tenant-venue-detail-edit",
+    TENANT_VENUE_DETAIL_DELETE: "button-tenant-venue-detail-delete",
+    TENANT_VENUE_DETAIL_REFRESH: "button-tenant-venue-detail-refresh",
+    TENANT_VENUE_DETAIL_ERROR_RETRY: "button-tenant-venue-detail-error-retry",
   },
   LINK: (name: string) => `link--${name}`,
   INPUT: {
@@ -227,6 +243,16 @@ export const TestSelectors = {
     MASTER_VENUE_CONFIDENCE: "input--confidence",
     MASTER_VENUE_SOURCE: "input--source",
     MASTER_VENUE_METADATA: "input--metadata",
+    // Tenant Venues
+    TENANT_VENUES_SEARCH: "input-tenant-venues-search",
+    TENANT_VENUE_NAME: "input--name",
+    TENANT_VENUE_ADDRESS: "input--address",
+    TENANT_VENUE_CITY: "input--city",
+    TENANT_VENUE_LATITUDE: "input--location-lat",
+    TENANT_VENUE_LONGITUDE: "input--location-lng",
+    TENANT_VENUE_CONFIDENCE: "input--confidence",
+    TENANT_VENUE_SOURCE: "input--source",
+    TENANT_VENUE_METADATA: "input--metadata",
   },
   FORM: {
     SUB_DETAIL: "form-sub-detail",
@@ -253,6 +279,10 @@ export const TestSelectors = {
     EDIT_MASTER_VENUE: "modal--edit-venue",
     DELETE_MASTER_VENUE: "modal--delete-venue",
     BULK_DELETE_MASTER_VENUES: "modal--bulk-delete-venue",
+    // Tenant Venues
+    CREATE_TENANT_VENUE: "modal--create-tenant-venue",
+    EDIT_TENANT_VENUE: "modal--edit-tenant-venue",
+    DELETE_TENANT_VENUE: "modal--delete-tenant-venue",
   },
   ALERT: {
     SESSION_TIMEOUT: "alert--session-timeout",
@@ -348,6 +378,7 @@ export const TestSelectors = {
     USERS_TOTAL_COUNT: "badge-users-total-count",
     CMS_PAGES_TOTAL_COUNT: "badge-cms-pages-total-count",
     MASTER_CATALOG_TOTAL_COUNT: "badge-master-catalog-total-count",
+    TENANT_VENUES_TOTAL_COUNT: "badge-tenant-venues-total-count",
   },
 
   // Menu Items
@@ -408,6 +439,9 @@ export const TestSelectors = {
     MASTER_VENUE_OVERVIEW: "tab-master-venue-overview",
     MASTER_VENUE_PHOTOS: "tab-master-venue-photos",
     MASTER_VENUE_ASSETS: "tab-master-venue-assets",
+    TENANT_VENUE_OVERVIEW: "tab-tenant-venue-overview",
+    TENANT_VENUE_PHOTOS: "tab-tenant-venue-photos",
+    TENANT_VENUE_ASSETS: "tab-tenant-venue-assets",
   },
 
   // Selects
@@ -422,6 +456,8 @@ export const TestSelectors = {
     USERS_STATUS_FILTER: "select-users-status-filter",
     CMS_PAGES_TENANT: "select-cms-pages-tenant",
     MASTER_CATALOG_CITY_FILTER: "select-master-catalog-city-filter",
+    TENANT_VENUES_TENANT: "select-tenant-venues-tenant",
+    TENANT_VENUES_CITY_FILTER: "select-tenant-venues-city-filter",
   },
 
   // Checkboxes
@@ -432,6 +468,8 @@ export const TestSelectors = {
 
   // Master Catalog — AI semantic search
   MASTER_CATALOG_AI_FILTERS: "master-catalog-ai-filters",
+  // Tenant Venues — AI semantic search
+  TENANT_VENUES_AI_FILTERS: "tenant-venues-ai-filters",
 
   // Org Detail
   ORG_DETAIL_HERO_CARD: "org-detail-hero-card",
@@ -458,6 +496,13 @@ export const TestSelectors = {
   MASTER_VENUE_DETAIL_CITY: "master-venue-detail-city",
   MASTER_VENUE_DETAIL_SOURCE: "master-venue-detail-source",
   MASTER_VENUE_DETAIL_CONFIDENCE: "master-venue-detail-confidence",
+
+  // Tenant Venue Detail
+  TENANT_VENUE_DETAIL_HERO_CARD: "tenant-venue-detail-hero-card",
+  TENANT_VENUE_DETAIL_NAME: "tenant-venue-detail-name",
+  TENANT_VENUE_DETAIL_CITY: "tenant-venue-detail-city",
+  TENANT_VENUE_DETAIL_SOURCE: "tenant-venue-detail-source",
+  TENANT_VENUE_DETAIL_CONFIDENCE: "tenant-venue-detail-confidence",
 } as const;
 
 /**

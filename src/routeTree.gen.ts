@@ -30,6 +30,7 @@ import { Route as AdminPlansRouteImport } from "./pages/admin/plans"
 import { Route as AdminRefundsRouteImport } from "./pages/admin/refunds"
 import { Route as AdminSubscriptionsRouteImport } from "./pages/admin/subscriptions"
 import { Route as AdminUsersRouteImport } from "./pages/admin/users"
+import { Route as AdminVenuesRouteImport } from "./pages/admin/venues"
 import { Route as AdminWebhookLogsRouteImport } from "./pages/admin/webhook-logs"
 import { Route as AdminAddonsAddonPathRouteImport } from "./pages/admin/addons/$addonPath"
 import { Route as AdminAnnouncementsIndexRouteImport } from "./pages/admin/announcements.index"
@@ -45,6 +46,7 @@ import { Route as AdminRefundsRefundIdRouteImport } from "./pages/admin/refunds.
 import { Route as AdminSubscriptionsSubscriptionIdRouteImport } from "./pages/admin/subscriptions.$subscriptionId"
 import { Route as AdminUsersIndexRouteImport } from "./pages/admin/users.index"
 import { Route as AdminUsersUserIdRouteImport } from "./pages/admin/users.$userId"
+import { Route as AdminVenuesIndexRouteImport } from "./pages/admin/venues.index"
 import { Route as AdminWebhookLogsWebhookLogIdRouteImport } from "./pages/admin/webhook-logs.$webhookLogId"
 import { Route as AdminCmsPagesTenantKeyPageIdRouteImport } from "./pages/admin/cms-pages.$tenantKey.$pageId"
 import { Route as AdminCmsPagesTenantKeyCreateRouteImport } from "./pages/admin/cms-pages.$tenantKey.create"
@@ -53,6 +55,7 @@ import { Route as AdminOrganizationsTenantKeyBillingRouteImport } from "./pages/
 import { Route as AdminOrganizationsTenantKeyMembersRouteImport } from "./pages/admin/organizations.$tenantKey.members"
 import { Route as AdminOrganizationsTenantKeyRefundsRouteImport } from "./pages/admin/organizations.$tenantKey.refunds"
 import { Route as AdminOrganizationsTenantKeySubscriptionsRouteImport } from "./pages/admin/organizations.$tenantKey.subscriptions"
+import { Route as AdminVenuesTenantKeyVenueIdRouteImport } from "./pages/admin/venues.$tenantKey.$venueId"
 
 const IndexRoute = IndexRouteImport.update({
   id: "/",
@@ -159,6 +162,11 @@ const AdminUsersRoute = AdminUsersRouteImport.update({
   path: "/users",
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminVenuesRoute = AdminVenuesRouteImport.update({
+  id: "/venues",
+  path: "/venues",
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminWebhookLogsRoute = AdminWebhookLogsRouteImport.update({
   id: "/webhook-logs",
   path: "/webhook-logs",
@@ -237,6 +245,11 @@ const AdminUsersUserIdRoute = AdminUsersUserIdRouteImport.update({
   path: "/$userId",
   getParentRoute: () => AdminUsersRoute,
 } as any)
+const AdminVenuesIndexRoute = AdminVenuesIndexRouteImport.update({
+  id: "/",
+  path: "/",
+  getParentRoute: () => AdminVenuesRoute,
+} as any)
 const AdminWebhookLogsWebhookLogIdRoute =
   AdminWebhookLogsWebhookLogIdRouteImport.update({
     id: "/$webhookLogId",
@@ -285,6 +298,12 @@ const AdminOrganizationsTenantKeySubscriptionsRoute =
     path: "/subscriptions",
     getParentRoute: () => AdminOrganizationsTenantKeyRoute,
   } as any)
+const AdminVenuesTenantKeyVenueIdRoute =
+  AdminVenuesTenantKeyVenueIdRouteImport.update({
+    id: "/$tenantKey/$venueId",
+    path: "/$tenantKey/$venueId",
+    getParentRoute: () => AdminVenuesRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   "/": typeof IndexRoute
@@ -307,6 +326,7 @@ export interface FileRoutesByFullPath {
   "/admin/refunds": typeof AdminRefundsRouteWithChildren
   "/admin/subscriptions": typeof AdminSubscriptionsRouteWithChildren
   "/admin/users": typeof AdminUsersRouteWithChildren
+  "/admin/venues": typeof AdminVenuesRouteWithChildren
   "/admin/webhook-logs": typeof AdminWebhookLogsRouteWithChildren
   "/admin/": typeof AdminIndexRoute
   "/admin/addons/$addonPath": typeof AdminAddonsAddonPathRoute
@@ -324,12 +344,14 @@ export interface FileRoutesByFullPath {
   "/admin/organizations/": typeof AdminOrganizationsIndexRoute
   "/admin/plans/": typeof AdminPlansIndexRoute
   "/admin/users/": typeof AdminUsersIndexRoute
+  "/admin/venues/": typeof AdminVenuesIndexRoute
   "/admin/cms-pages/$tenantKey/$pageId": typeof AdminCmsPagesTenantKeyPageIdRoute
   "/admin/cms-pages/$tenantKey/create": typeof AdminCmsPagesTenantKeyCreateRoute
   "/admin/organizations/$tenantKey/billing": typeof AdminOrganizationsTenantKeyBillingRoute
   "/admin/organizations/$tenantKey/members": typeof AdminOrganizationsTenantKeyMembersRoute
   "/admin/organizations/$tenantKey/refunds": typeof AdminOrganizationsTenantKeyRefundsRoute
   "/admin/organizations/$tenantKey/subscriptions": typeof AdminOrganizationsTenantKeySubscriptionsRoute
+  "/admin/venues/$tenantKey/$venueId": typeof AdminVenuesTenantKeyVenueIdRoute
   "/admin/organizations/$tenantKey/": typeof AdminOrganizationsTenantKeyIndexRoute
 }
 export interface FileRoutesByTo {
@@ -361,12 +383,14 @@ export interface FileRoutesByTo {
   "/admin/organizations": typeof AdminOrganizationsIndexRoute
   "/admin/plans": typeof AdminPlansIndexRoute
   "/admin/users": typeof AdminUsersIndexRoute
+  "/admin/venues": typeof AdminVenuesIndexRoute
   "/admin/cms-pages/$tenantKey/$pageId": typeof AdminCmsPagesTenantKeyPageIdRoute
   "/admin/cms-pages/$tenantKey/create": typeof AdminCmsPagesTenantKeyCreateRoute
   "/admin/organizations/$tenantKey/billing": typeof AdminOrganizationsTenantKeyBillingRoute
   "/admin/organizations/$tenantKey/members": typeof AdminOrganizationsTenantKeyMembersRoute
   "/admin/organizations/$tenantKey/refunds": typeof AdminOrganizationsTenantKeyRefundsRoute
   "/admin/organizations/$tenantKey/subscriptions": typeof AdminOrganizationsTenantKeySubscriptionsRoute
+  "/admin/venues/$tenantKey/$venueId": typeof AdminVenuesTenantKeyVenueIdRoute
   "/admin/organizations/$tenantKey": typeof AdminOrganizationsTenantKeyIndexRoute
 }
 export interface FileRoutesById {
@@ -391,6 +415,7 @@ export interface FileRoutesById {
   "/admin/refunds": typeof AdminRefundsRouteWithChildren
   "/admin/subscriptions": typeof AdminSubscriptionsRouteWithChildren
   "/admin/users": typeof AdminUsersRouteWithChildren
+  "/admin/venues": typeof AdminVenuesRouteWithChildren
   "/admin/webhook-logs": typeof AdminWebhookLogsRouteWithChildren
   "/admin/": typeof AdminIndexRoute
   "/admin/addons/$addonPath": typeof AdminAddonsAddonPathRoute
@@ -408,12 +433,14 @@ export interface FileRoutesById {
   "/admin/organizations/": typeof AdminOrganizationsIndexRoute
   "/admin/plans/": typeof AdminPlansIndexRoute
   "/admin/users/": typeof AdminUsersIndexRoute
+  "/admin/venues/": typeof AdminVenuesIndexRoute
   "/admin/cms-pages/$tenantKey/$pageId": typeof AdminCmsPagesTenantKeyPageIdRoute
   "/admin/cms-pages/$tenantKey/create": typeof AdminCmsPagesTenantKeyCreateRoute
   "/admin/organizations/$tenantKey/billing": typeof AdminOrganizationsTenantKeyBillingRoute
   "/admin/organizations/$tenantKey/members": typeof AdminOrganizationsTenantKeyMembersRoute
   "/admin/organizations/$tenantKey/refunds": typeof AdminOrganizationsTenantKeyRefundsRoute
   "/admin/organizations/$tenantKey/subscriptions": typeof AdminOrganizationsTenantKeySubscriptionsRoute
+  "/admin/venues/$tenantKey/$venueId": typeof AdminVenuesTenantKeyVenueIdRoute
   "/admin/organizations/$tenantKey/": typeof AdminOrganizationsTenantKeyIndexRoute
 }
 export interface FileRouteTypes {
@@ -439,6 +466,7 @@ export interface FileRouteTypes {
     | "/admin/refunds"
     | "/admin/subscriptions"
     | "/admin/users"
+    | "/admin/venues"
     | "/admin/webhook-logs"
     | "/admin/"
     | "/admin/addons/$addonPath"
@@ -456,12 +484,14 @@ export interface FileRouteTypes {
     | "/admin/organizations/"
     | "/admin/plans/"
     | "/admin/users/"
+    | "/admin/venues/"
     | "/admin/cms-pages/$tenantKey/$pageId"
     | "/admin/cms-pages/$tenantKey/create"
     | "/admin/organizations/$tenantKey/billing"
     | "/admin/organizations/$tenantKey/members"
     | "/admin/organizations/$tenantKey/refunds"
     | "/admin/organizations/$tenantKey/subscriptions"
+    | "/admin/venues/$tenantKey/$venueId"
     | "/admin/organizations/$tenantKey/"
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -493,12 +523,14 @@ export interface FileRouteTypes {
     | "/admin/organizations"
     | "/admin/plans"
     | "/admin/users"
+    | "/admin/venues"
     | "/admin/cms-pages/$tenantKey/$pageId"
     | "/admin/cms-pages/$tenantKey/create"
     | "/admin/organizations/$tenantKey/billing"
     | "/admin/organizations/$tenantKey/members"
     | "/admin/organizations/$tenantKey/refunds"
     | "/admin/organizations/$tenantKey/subscriptions"
+    | "/admin/venues/$tenantKey/$venueId"
     | "/admin/organizations/$tenantKey"
   id:
     | "__root__"
@@ -522,6 +554,7 @@ export interface FileRouteTypes {
     | "/admin/refunds"
     | "/admin/subscriptions"
     | "/admin/users"
+    | "/admin/venues"
     | "/admin/webhook-logs"
     | "/admin/"
     | "/admin/addons/$addonPath"
@@ -539,12 +572,14 @@ export interface FileRouteTypes {
     | "/admin/organizations/"
     | "/admin/plans/"
     | "/admin/users/"
+    | "/admin/venues/"
     | "/admin/cms-pages/$tenantKey/$pageId"
     | "/admin/cms-pages/$tenantKey/create"
     | "/admin/organizations/$tenantKey/billing"
     | "/admin/organizations/$tenantKey/members"
     | "/admin/organizations/$tenantKey/refunds"
     | "/admin/organizations/$tenantKey/subscriptions"
+    | "/admin/venues/$tenantKey/$venueId"
     | "/admin/organizations/$tenantKey/"
   fileRoutesById: FileRoutesById
 }
@@ -707,6 +742,13 @@ declare module "@tanstack/react-router" {
       preLoaderRoute: typeof AdminUsersRouteImport
       parentRoute: typeof AdminRoute
     }
+    "/admin/venues": {
+      id: "/admin/venues"
+      path: "/venues"
+      fullPath: "/admin/venues"
+      preLoaderRoute: typeof AdminVenuesRouteImport
+      parentRoute: typeof AdminRoute
+    }
     "/admin/webhook-logs": {
       id: "/admin/webhook-logs"
       path: "/webhook-logs"
@@ -812,6 +854,13 @@ declare module "@tanstack/react-router" {
       preLoaderRoute: typeof AdminUsersUserIdRouteImport
       parentRoute: typeof AdminUsersRoute
     }
+    "/admin/venues/": {
+      id: "/admin/venues/"
+      path: "/"
+      fullPath: "/admin/venues/"
+      preLoaderRoute: typeof AdminVenuesIndexRouteImport
+      parentRoute: typeof AdminVenuesRoute
+    }
     "/admin/webhook-logs/$webhookLogId": {
       id: "/admin/webhook-logs/$webhookLogId"
       path: "/$webhookLogId"
@@ -867,6 +916,13 @@ declare module "@tanstack/react-router" {
       fullPath: "/admin/organizations/$tenantKey/subscriptions"
       preLoaderRoute: typeof AdminOrganizationsTenantKeySubscriptionsRouteImport
       parentRoute: typeof AdminOrganizationsTenantKeyRoute
+    }
+    "/admin/venues/$tenantKey/$venueId": {
+      id: "/admin/venues/$tenantKey/$venueId"
+      path: "/$tenantKey/$venueId"
+      fullPath: "/admin/venues/$tenantKey/$venueId"
+      preLoaderRoute: typeof AdminVenuesTenantKeyVenueIdRouteImport
+      parentRoute: typeof AdminVenuesRoute
     }
   }
 }
@@ -1026,6 +1082,20 @@ const AdminUsersRouteWithChildren = AdminUsersRoute._addFileChildren(
   AdminUsersRouteChildren,
 )
 
+interface AdminVenuesRouteChildren {
+  AdminVenuesIndexRoute: typeof AdminVenuesIndexRoute
+  AdminVenuesTenantKeyVenueIdRoute: typeof AdminVenuesTenantKeyVenueIdRoute
+}
+
+const AdminVenuesRouteChildren: AdminVenuesRouteChildren = {
+  AdminVenuesIndexRoute: AdminVenuesIndexRoute,
+  AdminVenuesTenantKeyVenueIdRoute: AdminVenuesTenantKeyVenueIdRoute,
+}
+
+const AdminVenuesRouteWithChildren = AdminVenuesRoute._addFileChildren(
+  AdminVenuesRouteChildren,
+)
+
 interface AdminWebhookLogsRouteChildren {
   AdminWebhookLogsWebhookLogIdRoute: typeof AdminWebhookLogsWebhookLogIdRoute
 }
@@ -1051,6 +1121,7 @@ interface AdminRouteChildren {
   AdminRefundsRoute: typeof AdminRefundsRouteWithChildren
   AdminSubscriptionsRoute: typeof AdminSubscriptionsRouteWithChildren
   AdminUsersRoute: typeof AdminUsersRouteWithChildren
+  AdminVenuesRoute: typeof AdminVenuesRouteWithChildren
   AdminWebhookLogsRoute: typeof AdminWebhookLogsRouteWithChildren
   AdminIndexRoute: typeof AdminIndexRoute
 }
@@ -1069,6 +1140,7 @@ const AdminRouteChildren: AdminRouteChildren = {
   AdminRefundsRoute: AdminRefundsRouteWithChildren,
   AdminSubscriptionsRoute: AdminSubscriptionsRouteWithChildren,
   AdminUsersRoute: AdminUsersRouteWithChildren,
+  AdminVenuesRoute: AdminVenuesRouteWithChildren,
   AdminWebhookLogsRoute: AdminWebhookLogsRouteWithChildren,
   AdminIndexRoute: AdminIndexRoute,
 }
