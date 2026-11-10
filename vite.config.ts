@@ -24,7 +24,12 @@ export default defineConfig(({ mode }) => {
     resolve: {
       tsconfigPaths: true,
     },
-    plugins: [react(), lingui({ macroTransform: true }), !isTest && tanstackRouter()],
+    // Keep the SWC React plugin; silence its Rolldown hint about @vitejs/plugin-react.
+    plugins: [
+      react({ disableOxcRecommendation: true }),
+      lingui({ macroTransform: true }),
+      !isTest && tanstackRouter(),
+    ],
     server: {
       /**
        * Dev proxy — forwards /api/* to the remote API server.
