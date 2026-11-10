@@ -67,7 +67,7 @@ import {
 } from "@/features/master-venue-semantic-search";
 import { TestSelectors } from "@/shared/lib/test-selectors";
 
-export const Route = createFileRoute("/admin/master-catalog/")({
+export const Route = createFileRoute("/admin/master-venue/")({
   component: AdminMasterCatalogPage,
 });
 
@@ -683,7 +683,7 @@ function FilterSidebar({
               size="xs"
               variant="subtle"
               color="gray"
-              data-testid={TestSelectors.BUTTON.MASTER_CATALOG_CLEAR_FILTERS}
+              data-testid={TestSelectors.BUTTON.MASTER_VENUE_CLEAR_FILTERS}
               onClick={onReset}
             >
               <IconX size={11} />
@@ -695,14 +695,14 @@ function FilterSidebar({
           placeholder={t`Name or city…`}
           leftSection={<IconSearch size={13} />}
           value={search}
-          data-testid={TestSelectors.INPUT.MASTER_CATALOG_SEARCH}
+          data-testid={TestSelectors.INPUT.MASTER_VENUE_SEARCH}
           onChange={(e) => onSearchChange(e.currentTarget.value)}
           size="xs"
           rightSection={
             search ? (
               <CloseButton
                 size="xs"
-                data-testid={TestSelectors.BUTTON.MASTER_CATALOG_SEARCH_CLEAR}
+                data-testid={TestSelectors.BUTTON.MASTER_VENUE_SEARCH_CLEAR}
                 onClick={() => onSearchChange("")}
               />
             ) : null
@@ -716,7 +716,7 @@ function FilterSidebar({
             <Trans>City</Trans>
           </Text>
           <Select
-            data-testid={TestSelectors.SELECT.MASTER_CATALOG_CITY_FILTER}
+            data-testid={TestSelectors.SELECT.MASTER_VENUE_CITY_FILTER}
             placeholder={t`All cities`}
             data={cityOptions}
             value={cityFilter}
@@ -892,13 +892,13 @@ function AdminMasterCatalogPage() {
 
   return (
     <Container size="xl" py={0}>
-      <PageTitle segments={[t`Master Catalog`]} />
+      <PageTitle segments={[t`Master Venue`]} />
       <PageHeader
         title={<Trans>Master Venue Catalog</Trans>}
         breadcrumbs={[
           { label: <Trans>Home</Trans>, to: "/admin/" },
           { label: <Trans>Catalog</Trans> },
-          { label: <Trans>Master Catalog</Trans> },
+          { label: <Trans>Master Venue</Trans> },
         ]}
         toolbar={
           /* Split button mirrors the Quick add / Full form menu in the mockup */
@@ -907,7 +907,7 @@ function AdminMasterCatalogPage() {
               <Button
                 leftSection={<IconPlus size={14} />}
                 size="sm"
-                data-testid={TestSelectors.BUTTON.MASTER_CATALOG_CREATE}
+                data-testid={TestSelectors.BUTTON.MASTER_VENUE_CREATE}
                 onClick={openCreate}
                 style={{ borderTopRightRadius: 0, borderBottomRightRadius: 0 }}
               >
@@ -1002,7 +1002,7 @@ function AdminMasterCatalogPage() {
                   indeterminate={someOnPageSelected && !allOnPageSelected}
                   onChange={handleToggleSelectAll}
                   aria-label={t`Select all venues on this page`}
-                  data-testid={TestSelectors.CHECKBOX.MASTER_CATALOG_SELECT_ALL}
+                  data-testid={TestSelectors.CHECKBOX.MASTER_VENUE_SELECT_ALL}
                 />
               )}
               {!isLoading ? (
@@ -1053,7 +1053,7 @@ function AdminMasterCatalogPage() {
                     color="red"
                     variant="light"
                     leftSection={<IconTrash size={14} />}
-                    data-testid={TestSelectors.BUTTON.MASTER_CATALOG_BULK_DELETE}
+                    data-testid={TestSelectors.BUTTON.MASTER_VENUE_BULK_DELETE}
                     onClick={openBulkDelete}
                   >
                     <Trans>Delete selected</Trans>
@@ -1064,7 +1064,7 @@ function AdminMasterCatalogPage() {
                       color="gray"
                       size="sm"
                       aria-label={t`Clear selection`}
-                      data-testid={TestSelectors.BUTTON.MASTER_CATALOG_CLEAR_SELECTION}
+                      data-testid={TestSelectors.BUTTON.MASTER_VENUE_CLEAR_SELECTION}
                       onClick={() => setSelectedIds(new Set())}
                     >
                       <IconX size={15} />
@@ -1074,7 +1074,7 @@ function AdminMasterCatalogPage() {
               )}
               <Tooltip label={t`Refresh`} withArrow>
                 <ActionIcon
-                  data-testid={TestSelectors.BUTTON.MASTER_CATALOG_REFRESH}
+                  data-testid={TestSelectors.BUTTON.MASTER_VENUE_REFRESH}
                   variant="subtle"
                   color="gray"
                   size="sm"
@@ -1179,7 +1179,7 @@ function AdminMasterCatalogPage() {
                   onToggleSelect={() => handleToggleSelect(venue.id)}
                   onView={() =>
                     void navigate({
-                      to: "/admin/master-catalog/$venueId",
+                      to: "/admin/master-venue/$venueId",
                       params: { venueId: venue.id },
                     })
                   }
@@ -1198,7 +1198,7 @@ function AdminMasterCatalogPage() {
                   onToggleSelect={() => handleToggleSelect(venue.id)}
                   onView={() =>
                     void navigate({
-                      to: "/admin/master-catalog/$venueId",
+                      to: "/admin/master-venue/$venueId",
                       params: { venueId: venue.id },
                     })
                   }

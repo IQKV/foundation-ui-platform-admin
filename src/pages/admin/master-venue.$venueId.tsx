@@ -57,7 +57,7 @@ import {
 } from "@/features/master-venue-admin";
 import { TestSelectors } from "@/shared/lib/test-selectors";
 
-export const Route = createFileRoute("/admin/master-catalog/$venueId")({
+export const Route = createFileRoute("/admin/master-venue/$venueId")({
   component: MasterVenueDetailPage,
 });
 
@@ -411,7 +411,7 @@ function MasterVenueDetailPage() {
       ? `https://maps.google.com/?q=${venue.locationLat},${venue.locationLng}`
       : null;
 
-  const handleDeleteSuccess = () => void navigate({ to: "/admin/master-catalog" });
+  const handleDeleteSuccess = () => void navigate({ to: "/admin/master-venue" });
 
   // Completeness counts for section cards
   const locationFilled = [venue?.address, venue?.city, venue?.locationLat].filter(Boolean).length;
@@ -420,7 +420,7 @@ function MasterVenueDetailPage() {
   if (isError) {
     return (
       <Container size="xl" py={0}>
-        <PageTitle segments={[t`Master Catalog`, t`Venue`]} />
+        <PageTitle segments={[t`Master Venue`, t`Venue`]} />
         <Alert
           icon={<IconAlertCircle size={16} />}
           title={<Trans>Failed to load the master venue</Trans>}
@@ -443,7 +443,7 @@ function MasterVenueDetailPage() {
               variant="subtle"
               color="gray"
               size="xs"
-              onClick={() => void navigate({ to: "/admin/master-catalog" })}
+              onClick={() => void navigate({ to: "/admin/master-venue" })}
             >
               <Trans>Back to list</Trans>
             </Button>
@@ -457,7 +457,7 @@ function MasterVenueDetailPage() {
     <Container size="xl" py={0}>
       <PageTitle
         segments={[
-          t`Master Catalog`,
+          t`Master Venue`,
           venue ? [venue.name, venue.city].filter(Boolean).join(", ") : t`Venue`,
         ]}
       />
@@ -466,7 +466,7 @@ function MasterVenueDetailPage() {
         breadcrumbs={[
           { label: <Trans>Home</Trans>, to: "/admin/" },
           { label: <Trans>Catalog</Trans> },
-          { label: <Trans>Master Catalog</Trans>, to: "/admin/master-catalog" },
+          { label: <Trans>Master Venue</Trans>, to: "/admin/master-venue" },
           { label: venue ? [venue.name, venue.city].filter(Boolean).join(", ") : t`Venue` },
         ]}
         toolbar={
@@ -478,7 +478,7 @@ function MasterVenueDetailPage() {
                 color="gray"
                 size="sm"
                 aria-label={t`Back to search`}
-                onClick={() => void navigate({ to: "/admin/master-catalog" })}
+                onClick={() => void navigate({ to: "/admin/master-venue" })}
               >
                 <IconArrowLeft size={15} />
               </ActionIcon>

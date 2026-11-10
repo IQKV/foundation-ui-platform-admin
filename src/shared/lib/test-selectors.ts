@@ -135,11 +135,11 @@ export const TestSelectors = {
     CMS_PAGE_CREATE_CANCEL: "button--cancel",
     CMS_PAGE_EDIT_SAVE: "button--save",
     CMS_PAGE_EDIT_CANCEL: "button--cancel",
-    // Master Catalog
-    MASTER_CATALOG_CREATE: "button-master-catalog-create",
-    MASTER_CATALOG_REFRESH: "button-master-catalog-refresh",
-    MASTER_CATALOG_CLEAR_FILTERS: "button-master-catalog-clear-filters",
-    MASTER_CATALOG_SEARCH_CLEAR: "button-master-catalog-search-clear",
+    // Master Venue
+    MASTER_VENUE_CREATE: "button-master-venue-create",
+    MASTER_VENUE_REFRESH: "button-master-venue-refresh",
+    MASTER_VENUE_CLEAR_FILTERS: "button-master-venue-clear-filters",
+    MASTER_VENUE_SEARCH_CLEAR: "button-master-venue-search-clear",
     MASTER_VENUE_VIEW: (id: string) => `button-master-venue-view--${id}`,
     MASTER_VENUE_EDIT: (id: string) => `button-master-venue-edit--${id}`,
     MASTER_VENUE_DELETE: (id: string) => `button-master-venue-delete--${id}`,
@@ -152,8 +152,8 @@ export const TestSelectors = {
     MASTER_VENUE_DETAIL_REFRESH: "button-master-venue-detail-refresh",
     MASTER_VENUE_DETAIL_ERROR_RETRY: "button-master-venue-detail-error-retry",
     MASTER_VENUE_BULK_DELETE_CONFIRM: "button--bulk-delete-venue",
-    MASTER_CATALOG_BULK_DELETE: "button-master-catalog-bulk-delete",
-    MASTER_CATALOG_CLEAR_SELECTION: "button-master-catalog-clear-selection",
+    MASTER_VENUE_BULK_DELETE: "button-master-venue-bulk-delete",
+    MASTER_VENUE_CLEAR_SELECTION: "button-master-venue-clear-selection",
     // Tenant Venues
     TENANT_VENUES_CREATE: "button-tenant-venues-create",
     TENANT_VENUES_REFRESH: "button-tenant-venues-refresh",
@@ -233,8 +233,8 @@ export const TestSelectors = {
     CMS_PAGE_EDIT_TEMPLATE: "input--template",
     CMS_PAGE_EDIT_PARENT_ID: "input--parentId",
     CMS_PAGES_STATUS_FILTER: "select-cms-pages-status-filter",
-    // Master Catalog
-    MASTER_CATALOG_SEARCH: "input-master-catalog-search",
+    // Master Venue
+    MASTER_VENUE_SEARCH: "input-master-venue-search",
     MASTER_VENUE_NAME: "input--name",
     MASTER_VENUE_ADDRESS: "input--address",
     MASTER_VENUE_CITY: "input--city",
@@ -274,7 +274,7 @@ export const TestSelectors = {
     SET_PASSWORD: "modal--set-password",
     // CMS
     CMS_DELETE_PAGE: "modal--delete-page",
-    // Master Catalog
+    // Master Venue
     CREATE_MASTER_VENUE: "modal--create-venue",
     EDIT_MASTER_VENUE: "modal--edit-venue",
     DELETE_MASTER_VENUE: "modal--delete-venue",
@@ -377,7 +377,7 @@ export const TestSelectors = {
     SUSPENDED_ORG_STATUS: (tenantKey: string) => `badge-suspended-org-status-${tenantKey}`,
     USERS_TOTAL_COUNT: "badge-users-total-count",
     CMS_PAGES_TOTAL_COUNT: "badge-cms-pages-total-count",
-    MASTER_CATALOG_TOTAL_COUNT: "badge-master-catalog-total-count",
+    MASTER_VENUE_TOTAL_COUNT: "badge-master-venue-total-count",
     TENANT_VENUES_TOTAL_COUNT: "badge-tenant-venues-total-count",
   },
 
@@ -455,7 +455,7 @@ export const TestSelectors = {
     SUBS_STATUS_FILTER: "select-subs-status-filter",
     USERS_STATUS_FILTER: "select-users-status-filter",
     CMS_PAGES_TENANT: "select-cms-pages-tenant",
-    MASTER_CATALOG_CITY_FILTER: "select-master-catalog-city-filter",
+    MASTER_VENUE_CITY_FILTER: "select-master-venue-city-filter",
     TENANT_VENUES_TENANT: "select-tenant-venues-tenant",
     TENANT_VENUES_CITY_FILTER: "select-tenant-venues-city-filter",
   },
@@ -463,11 +463,11 @@ export const TestSelectors = {
   // Checkboxes
   CHECKBOX: {
     MASTER_VENUE_SELECT: (id: string) => `checkbox-master-venue-select--${id}`,
-    MASTER_CATALOG_SELECT_ALL: "checkbox-master-catalog-select-all",
+    MASTER_VENUE_SELECT_ALL: "checkbox-master-venue-select-all",
   },
 
-  // Master Catalog — AI semantic search
-  MASTER_CATALOG_AI_FILTERS: "master-catalog-ai-filters",
+  // Master Venue — AI semantic search
+  MASTER_VENUE_AI_FILTERS: "master-venue-ai-filters",
   // Tenant Venues — AI semantic search
   TENANT_VENUES_AI_FILTERS: "tenant-venues-ai-filters",
 

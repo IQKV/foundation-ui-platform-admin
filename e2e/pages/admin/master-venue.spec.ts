@@ -4,7 +4,7 @@ import { AdminMasterCatalogPage } from "../../shared/utils/index.js";
 import { ROUTES } from "../../app/config/routes.js";
 import { TIMEOUTS } from "../../app/config/timeouts.js";
 
-test.describe("Admin Master Catalog Page", () => {
+test.describe("Admin Master Venue Page", () => {
   let catalogPage: AdminMasterCatalogPage;
 
   test.beforeEach(async ({ adminPage }) => {
@@ -40,10 +40,10 @@ test.describe("Admin Master Catalog Page", () => {
     await expect(catalogPage.totalCountBadge).toBeVisible();
   });
 
-  test("navigating directly to /admin/master-catalog works when authenticated", async ({
+  test("navigating directly to /admin/master-venue works when authenticated", async ({
     adminPage,
   }) => {
-    await adminPage.page.goto(ROUTES.ADMIN_MASTER_CATALOG);
+    await adminPage.page.goto(ROUTES.ADMIN_MASTER_VENUE);
     await expect(adminPage.page.locator(`[data-testid="admin-layout"]`)).toBeVisible({
       timeout: TIMEOUTS.NAVIGATION,
     });

@@ -4,11 +4,11 @@ import { ROUTES } from "../../app/config/routes.js";
 import { TIMEOUTS } from "../../app/config/timeouts.js";
 
 /**
- * Page Object for the Admin Master Catalog page (/admin/master-catalog).
+ * Page Object for the Admin Master Venue page (/admin/master-venue).
  *
  * Covers:
  *   - Master venues table with search and city filter
- *   - Create venue modal (button-master-catalog-create)
+ *   - Create venue modal (button-master-venue-create)
  *   - Edit venue modal (button--edit-venue)
  *   - Delete venue modal (button--delete-venue)
  *   - Venue detail navigation (button-master-venue-view)
@@ -19,7 +19,7 @@ export class AdminMasterCatalogPage {
   // ─── Navigation ───────────────────────────────────────────────────────────
 
   async goto() {
-    await this.page.goto(ROUTES.ADMIN_MASTER_CATALOG);
+    await this.page.goto(ROUTES.ADMIN_MASTER_VENUE);
     await this.page.locator(byTestId(TestSelectors.ADMIN_LAYOUT)).waitFor({
       state: "visible",
       timeout: TIMEOUTS.NAVIGATION,
@@ -29,27 +29,27 @@ export class AdminMasterCatalogPage {
   // ─── Toolbar locators ─────────────────────────────────────────────────────
 
   get searchInput(): Locator {
-    return this.page.locator(byTestId(TestSelectors.INPUT.MASTER_CATALOG_SEARCH));
+    return this.page.locator(byTestId(TestSelectors.INPUT.MASTER_VENUE_SEARCH));
   }
 
   get cityFilter(): Locator {
-    return this.page.locator(byTestId(TestSelectors.SELECT.MASTER_CATALOG_CITY_FILTER));
+    return this.page.locator(byTestId(TestSelectors.SELECT.MASTER_VENUE_CITY_FILTER));
   }
 
   get createButton(): Locator {
-    return this.page.locator(byTestId(TestSelectors.BUTTON.MASTER_CATALOG_CREATE));
+    return this.page.locator(byTestId(TestSelectors.BUTTON.MASTER_VENUE_CREATE));
   }
 
   get refreshButton(): Locator {
-    return this.page.locator(byTestId(TestSelectors.BUTTON.MASTER_CATALOG_REFRESH));
+    return this.page.locator(byTestId(TestSelectors.BUTTON.MASTER_VENUE_REFRESH));
   }
 
   get clearFiltersButton(): Locator {
-    return this.page.locator(byTestId(TestSelectors.BUTTON.MASTER_CATALOG_CLEAR_FILTERS));
+    return this.page.locator(byTestId(TestSelectors.BUTTON.MASTER_VENUE_CLEAR_FILTERS));
   }
 
   get totalCountBadge(): Locator {
-    return this.page.locator(byTestId(TestSelectors.BADGE.MASTER_CATALOG_TOTAL_COUNT));
+    return this.page.locator(byTestId(TestSelectors.BADGE.MASTER_VENUE_TOTAL_COUNT));
   }
 
   // ─── Venue action locators ────────────────────────────────────────────────
@@ -87,7 +87,7 @@ export class AdminMasterCatalogPage {
   }
 
   async clearSearch() {
-    await this.page.locator(byTestId(TestSelectors.BUTTON.MASTER_CATALOG_SEARCH_CLEAR)).click();
+    await this.page.locator(byTestId(TestSelectors.BUTTON.MASTER_VENUE_SEARCH_CLEAR)).click();
   }
 
   async waitForMasterCatalogLoaded() {

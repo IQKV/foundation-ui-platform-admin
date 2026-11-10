@@ -23,7 +23,7 @@ import { Route as AdminAnnouncementsRouteImport } from "./pages/admin/announceme
 import { Route as AdminAuditLogsRouteImport } from "./pages/admin/audit-logs"
 import { Route as AdminCmsPagesRouteImport } from "./pages/admin/cms-pages"
 import { Route as AdminInvitationsRouteImport } from "./pages/admin/invitations"
-import { Route as AdminMasterCatalogRouteImport } from "./pages/admin/master-catalog"
+import { Route as AdminMasterVenueRouteImport } from "./pages/admin/master-venue"
 import { Route as AdminNotificationsRouteImport } from "./pages/admin/notifications"
 import { Route as AdminOrganizationsRouteImport } from "./pages/admin/organizations"
 import { Route as AdminPlansRouteImport } from "./pages/admin/plans"
@@ -36,8 +36,8 @@ import { Route as AdminAddonsAddonPathRouteImport } from "./pages/admin/addons/$
 import { Route as AdminAnnouncementsIndexRouteImport } from "./pages/admin/announcements.index"
 import { Route as AdminCmsPagesIndexRouteImport } from "./pages/admin/cms-pages.index"
 import { Route as AdminInvitationsIndexRouteImport } from "./pages/admin/invitations.index"
-import { Route as AdminMasterCatalogIndexRouteImport } from "./pages/admin/master-catalog.index"
-import { Route as AdminMasterCatalogVenueIdRouteImport } from "./pages/admin/master-catalog.$venueId"
+import { Route as AdminMasterVenueIndexRouteImport } from "./pages/admin/master-venue.index"
+import { Route as AdminMasterVenueVenueIdRouteImport } from "./pages/admin/master-venue.$venueId"
 import { Route as AdminOrganizationsIndexRouteImport } from "./pages/admin/organizations.index"
 import { Route as AdminOrganizationsTenantKeyRouteImport } from "./pages/admin/organizations.$tenantKey"
 import { Route as AdminPlansIndexRouteImport } from "./pages/admin/plans.index"
@@ -127,9 +127,9 @@ const AdminInvitationsRoute = AdminInvitationsRouteImport.update({
   path: "/invitations",
   getParentRoute: () => AdminRoute,
 } as any)
-const AdminMasterCatalogRoute = AdminMasterCatalogRouteImport.update({
-  id: "/master-catalog",
-  path: "/master-catalog",
+const AdminMasterVenueRoute = AdminMasterVenueRouteImport.update({
+  id: "/master-venue",
+  path: "/master-venue",
   getParentRoute: () => AdminRoute,
 } as any)
 const AdminNotificationsRoute = AdminNotificationsRouteImport.update({
@@ -192,17 +192,16 @@ const AdminInvitationsIndexRoute = AdminInvitationsIndexRouteImport.update({
   path: "/",
   getParentRoute: () => AdminInvitationsRoute,
 } as any)
-const AdminMasterCatalogIndexRoute = AdminMasterCatalogIndexRouteImport.update({
+const AdminMasterVenueIndexRoute = AdminMasterVenueIndexRouteImport.update({
   id: "/",
   path: "/",
-  getParentRoute: () => AdminMasterCatalogRoute,
+  getParentRoute: () => AdminMasterVenueRoute,
 } as any)
-const AdminMasterCatalogVenueIdRoute =
-  AdminMasterCatalogVenueIdRouteImport.update({
-    id: "/$venueId",
-    path: "/$venueId",
-    getParentRoute: () => AdminMasterCatalogRoute,
-  } as any)
+const AdminMasterVenueVenueIdRoute = AdminMasterVenueVenueIdRouteImport.update({
+  id: "/$venueId",
+  path: "/$venueId",
+  getParentRoute: () => AdminMasterVenueRoute,
+} as any)
 const AdminOrganizationsIndexRoute = AdminOrganizationsIndexRouteImport.update({
   id: "/",
   path: "/",
@@ -319,7 +318,7 @@ export interface FileRoutesByFullPath {
   "/admin/audit-logs": typeof AdminAuditLogsRoute
   "/admin/cms-pages": typeof AdminCmsPagesRouteWithChildren
   "/admin/invitations": typeof AdminInvitationsRouteWithChildren
-  "/admin/master-catalog": typeof AdminMasterCatalogRouteWithChildren
+  "/admin/master-venue": typeof AdminMasterVenueRouteWithChildren
   "/admin/notifications": typeof AdminNotificationsRoute
   "/admin/organizations": typeof AdminOrganizationsRouteWithChildren
   "/admin/plans": typeof AdminPlansRouteWithChildren
@@ -330,7 +329,7 @@ export interface FileRoutesByFullPath {
   "/admin/webhook-logs": typeof AdminWebhookLogsRouteWithChildren
   "/admin/": typeof AdminIndexRoute
   "/admin/addons/$addonPath": typeof AdminAddonsAddonPathRoute
-  "/admin/master-catalog/$venueId": typeof AdminMasterCatalogVenueIdRoute
+  "/admin/master-venue/$venueId": typeof AdminMasterVenueVenueIdRoute
   "/admin/organizations/$tenantKey": typeof AdminOrganizationsTenantKeyRouteWithChildren
   "/admin/plans/$planCode": typeof AdminPlansPlanCodeRoute
   "/admin/refunds/$refundId": typeof AdminRefundsRefundIdRoute
@@ -340,7 +339,7 @@ export interface FileRoutesByFullPath {
   "/admin/announcements/": typeof AdminAnnouncementsIndexRoute
   "/admin/cms-pages/": typeof AdminCmsPagesIndexRoute
   "/admin/invitations/": typeof AdminInvitationsIndexRoute
-  "/admin/master-catalog/": typeof AdminMasterCatalogIndexRoute
+  "/admin/master-venue/": typeof AdminMasterVenueIndexRoute
   "/admin/organizations/": typeof AdminOrganizationsIndexRoute
   "/admin/plans/": typeof AdminPlansIndexRoute
   "/admin/users/": typeof AdminUsersIndexRoute
@@ -370,7 +369,7 @@ export interface FileRoutesByTo {
   "/admin/webhook-logs": typeof AdminWebhookLogsRouteWithChildren
   "/admin": typeof AdminIndexRoute
   "/admin/addons/$addonPath": typeof AdminAddonsAddonPathRoute
-  "/admin/master-catalog/$venueId": typeof AdminMasterCatalogVenueIdRoute
+  "/admin/master-venue/$venueId": typeof AdminMasterVenueVenueIdRoute
   "/admin/plans/$planCode": typeof AdminPlansPlanCodeRoute
   "/admin/refunds/$refundId": typeof AdminRefundsRefundIdRoute
   "/admin/subscriptions/$subscriptionId": typeof AdminSubscriptionsSubscriptionIdRoute
@@ -379,7 +378,7 @@ export interface FileRoutesByTo {
   "/admin/announcements": typeof AdminAnnouncementsIndexRoute
   "/admin/cms-pages": typeof AdminCmsPagesIndexRoute
   "/admin/invitations": typeof AdminInvitationsIndexRoute
-  "/admin/master-catalog": typeof AdminMasterCatalogIndexRoute
+  "/admin/master-venue": typeof AdminMasterVenueIndexRoute
   "/admin/organizations": typeof AdminOrganizationsIndexRoute
   "/admin/plans": typeof AdminPlansIndexRoute
   "/admin/users": typeof AdminUsersIndexRoute
@@ -408,7 +407,7 @@ export interface FileRoutesById {
   "/admin/audit-logs": typeof AdminAuditLogsRoute
   "/admin/cms-pages": typeof AdminCmsPagesRouteWithChildren
   "/admin/invitations": typeof AdminInvitationsRouteWithChildren
-  "/admin/master-catalog": typeof AdminMasterCatalogRouteWithChildren
+  "/admin/master-venue": typeof AdminMasterVenueRouteWithChildren
   "/admin/notifications": typeof AdminNotificationsRoute
   "/admin/organizations": typeof AdminOrganizationsRouteWithChildren
   "/admin/plans": typeof AdminPlansRouteWithChildren
@@ -419,7 +418,7 @@ export interface FileRoutesById {
   "/admin/webhook-logs": typeof AdminWebhookLogsRouteWithChildren
   "/admin/": typeof AdminIndexRoute
   "/admin/addons/$addonPath": typeof AdminAddonsAddonPathRoute
-  "/admin/master-catalog/$venueId": typeof AdminMasterCatalogVenueIdRoute
+  "/admin/master-venue/$venueId": typeof AdminMasterVenueVenueIdRoute
   "/admin/organizations/$tenantKey": typeof AdminOrganizationsTenantKeyRouteWithChildren
   "/admin/plans/$planCode": typeof AdminPlansPlanCodeRoute
   "/admin/refunds/$refundId": typeof AdminRefundsRefundIdRoute
@@ -429,7 +428,7 @@ export interface FileRoutesById {
   "/admin/announcements/": typeof AdminAnnouncementsIndexRoute
   "/admin/cms-pages/": typeof AdminCmsPagesIndexRoute
   "/admin/invitations/": typeof AdminInvitationsIndexRoute
-  "/admin/master-catalog/": typeof AdminMasterCatalogIndexRoute
+  "/admin/master-venue/": typeof AdminMasterVenueIndexRoute
   "/admin/organizations/": typeof AdminOrganizationsIndexRoute
   "/admin/plans/": typeof AdminPlansIndexRoute
   "/admin/users/": typeof AdminUsersIndexRoute
@@ -459,7 +458,7 @@ export interface FileRouteTypes {
     | "/admin/audit-logs"
     | "/admin/cms-pages"
     | "/admin/invitations"
-    | "/admin/master-catalog"
+    | "/admin/master-venue"
     | "/admin/notifications"
     | "/admin/organizations"
     | "/admin/plans"
@@ -470,7 +469,7 @@ export interface FileRouteTypes {
     | "/admin/webhook-logs"
     | "/admin/"
     | "/admin/addons/$addonPath"
-    | "/admin/master-catalog/$venueId"
+    | "/admin/master-venue/$venueId"
     | "/admin/organizations/$tenantKey"
     | "/admin/plans/$planCode"
     | "/admin/refunds/$refundId"
@@ -480,7 +479,7 @@ export interface FileRouteTypes {
     | "/admin/announcements/"
     | "/admin/cms-pages/"
     | "/admin/invitations/"
-    | "/admin/master-catalog/"
+    | "/admin/master-venue/"
     | "/admin/organizations/"
     | "/admin/plans/"
     | "/admin/users/"
@@ -510,7 +509,7 @@ export interface FileRouteTypes {
     | "/admin/webhook-logs"
     | "/admin"
     | "/admin/addons/$addonPath"
-    | "/admin/master-catalog/$venueId"
+    | "/admin/master-venue/$venueId"
     | "/admin/plans/$planCode"
     | "/admin/refunds/$refundId"
     | "/admin/subscriptions/$subscriptionId"
@@ -519,7 +518,7 @@ export interface FileRouteTypes {
     | "/admin/announcements"
     | "/admin/cms-pages"
     | "/admin/invitations"
-    | "/admin/master-catalog"
+    | "/admin/master-venue"
     | "/admin/organizations"
     | "/admin/plans"
     | "/admin/users"
@@ -547,7 +546,7 @@ export interface FileRouteTypes {
     | "/admin/audit-logs"
     | "/admin/cms-pages"
     | "/admin/invitations"
-    | "/admin/master-catalog"
+    | "/admin/master-venue"
     | "/admin/notifications"
     | "/admin/organizations"
     | "/admin/plans"
@@ -558,7 +557,7 @@ export interface FileRouteTypes {
     | "/admin/webhook-logs"
     | "/admin/"
     | "/admin/addons/$addonPath"
-    | "/admin/master-catalog/$venueId"
+    | "/admin/master-venue/$venueId"
     | "/admin/organizations/$tenantKey"
     | "/admin/plans/$planCode"
     | "/admin/refunds/$refundId"
@@ -568,7 +567,7 @@ export interface FileRouteTypes {
     | "/admin/announcements/"
     | "/admin/cms-pages/"
     | "/admin/invitations/"
-    | "/admin/master-catalog/"
+    | "/admin/master-venue/"
     | "/admin/organizations/"
     | "/admin/plans/"
     | "/admin/users/"
@@ -693,11 +692,11 @@ declare module "@tanstack/react-router" {
       preLoaderRoute: typeof AdminInvitationsRouteImport
       parentRoute: typeof AdminRoute
     }
-    "/admin/master-catalog": {
-      id: "/admin/master-catalog"
-      path: "/master-catalog"
-      fullPath: "/admin/master-catalog"
-      preLoaderRoute: typeof AdminMasterCatalogRouteImport
+    "/admin/master-venue": {
+      id: "/admin/master-venue"
+      path: "/master-venue"
+      fullPath: "/admin/master-venue"
+      preLoaderRoute: typeof AdminMasterVenueRouteImport
       parentRoute: typeof AdminRoute
     }
     "/admin/notifications": {
@@ -784,19 +783,19 @@ declare module "@tanstack/react-router" {
       preLoaderRoute: typeof AdminInvitationsIndexRouteImport
       parentRoute: typeof AdminInvitationsRoute
     }
-    "/admin/master-catalog/": {
-      id: "/admin/master-catalog/"
+    "/admin/master-venue/": {
+      id: "/admin/master-venue/"
       path: "/"
-      fullPath: "/admin/master-catalog/"
-      preLoaderRoute: typeof AdminMasterCatalogIndexRouteImport
-      parentRoute: typeof AdminMasterCatalogRoute
+      fullPath: "/admin/master-venue/"
+      preLoaderRoute: typeof AdminMasterVenueIndexRouteImport
+      parentRoute: typeof AdminMasterVenueRoute
     }
-    "/admin/master-catalog/$venueId": {
-      id: "/admin/master-catalog/$venueId"
+    "/admin/master-venue/$venueId": {
+      id: "/admin/master-venue/$venueId"
       path: "/$venueId"
-      fullPath: "/admin/master-catalog/$venueId"
-      preLoaderRoute: typeof AdminMasterCatalogVenueIdRouteImport
-      parentRoute: typeof AdminMasterCatalogRoute
+      fullPath: "/admin/master-venue/$venueId"
+      preLoaderRoute: typeof AdminMasterVenueVenueIdRouteImport
+      parentRoute: typeof AdminMasterVenueRoute
     }
     "/admin/organizations/": {
       id: "/admin/organizations/"
@@ -977,18 +976,18 @@ const AdminInvitationsRouteChildren: AdminInvitationsRouteChildren = {
 const AdminInvitationsRouteWithChildren =
   AdminInvitationsRoute._addFileChildren(AdminInvitationsRouteChildren)
 
-interface AdminMasterCatalogRouteChildren {
-  AdminMasterCatalogVenueIdRoute: typeof AdminMasterCatalogVenueIdRoute
-  AdminMasterCatalogIndexRoute: typeof AdminMasterCatalogIndexRoute
+interface AdminMasterVenueRouteChildren {
+  AdminMasterVenueVenueIdRoute: typeof AdminMasterVenueVenueIdRoute
+  AdminMasterVenueIndexRoute: typeof AdminMasterVenueIndexRoute
 }
 
-const AdminMasterCatalogRouteChildren: AdminMasterCatalogRouteChildren = {
-  AdminMasterCatalogVenueIdRoute: AdminMasterCatalogVenueIdRoute,
-  AdminMasterCatalogIndexRoute: AdminMasterCatalogIndexRoute,
+const AdminMasterVenueRouteChildren: AdminMasterVenueRouteChildren = {
+  AdminMasterVenueVenueIdRoute: AdminMasterVenueVenueIdRoute,
+  AdminMasterVenueIndexRoute: AdminMasterVenueIndexRoute,
 }
 
-const AdminMasterCatalogRouteWithChildren =
-  AdminMasterCatalogRoute._addFileChildren(AdminMasterCatalogRouteChildren)
+const AdminMasterVenueRouteWithChildren =
+  AdminMasterVenueRoute._addFileChildren(AdminMasterVenueRouteChildren)
 
 interface AdminOrganizationsTenantKeyRouteChildren {
   AdminOrganizationsTenantKeyBillingRoute: typeof AdminOrganizationsTenantKeyBillingRoute
@@ -1114,7 +1113,7 @@ interface AdminRouteChildren {
   AdminAuditLogsRoute: typeof AdminAuditLogsRoute
   AdminCmsPagesRoute: typeof AdminCmsPagesRouteWithChildren
   AdminInvitationsRoute: typeof AdminInvitationsRouteWithChildren
-  AdminMasterCatalogRoute: typeof AdminMasterCatalogRouteWithChildren
+  AdminMasterVenueRoute: typeof AdminMasterVenueRouteWithChildren
   AdminNotificationsRoute: typeof AdminNotificationsRoute
   AdminOrganizationsRoute: typeof AdminOrganizationsRouteWithChildren
   AdminPlansRoute: typeof AdminPlansRouteWithChildren
@@ -1133,7 +1132,7 @@ const AdminRouteChildren: AdminRouteChildren = {
   AdminAuditLogsRoute: AdminAuditLogsRoute,
   AdminCmsPagesRoute: AdminCmsPagesRouteWithChildren,
   AdminInvitationsRoute: AdminInvitationsRouteWithChildren,
-  AdminMasterCatalogRoute: AdminMasterCatalogRouteWithChildren,
+  AdminMasterVenueRoute: AdminMasterVenueRouteWithChildren,
   AdminNotificationsRoute: AdminNotificationsRoute,
   AdminOrganizationsRoute: AdminOrganizationsRouteWithChildren,
   AdminPlansRoute: AdminPlansRouteWithChildren,

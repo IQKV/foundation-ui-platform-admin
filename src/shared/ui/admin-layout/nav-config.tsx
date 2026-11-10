@@ -70,12 +70,12 @@ export function buildNavSections(addonItems: NavItem[] = []): NavSection[] {
     {
       id: "catalog",
       label: <Trans>Catalog</Trans>,
-      prefixes: ["/admin/master-catalog", "/admin/venues"],
+      prefixes: ["/admin/master-venue", "/admin/venues"],
       items: [
         {
-          label: <Trans>Master Catalog</Trans>,
+          label: <Trans>Master Venue</Trans>,
           icon: IconBuildingStore,
-          to: "/admin/master-catalog",
+          to: "/admin/master-venue",
         },
         { label: <Trans>Venues</Trans>, icon: IconMapPin, to: "/admin/venues" },
       ],

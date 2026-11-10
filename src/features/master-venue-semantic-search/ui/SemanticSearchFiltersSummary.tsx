@@ -106,7 +106,7 @@ export function SemanticSearchFiltersSummary({
       radius="md"
       p="xs"
       mb="md"
-      data-testid={TestSelectors.MASTER_CATALOG_AI_FILTERS}
+      data-testid={TestSelectors.MASTER_VENUE_AI_FILTERS}
     >
       <Group gap="xs" wrap="wrap" align="center">
         <Group gap={6} wrap="nowrap">
