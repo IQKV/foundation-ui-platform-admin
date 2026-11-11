@@ -324,6 +324,10 @@ msgstr "Are you sure you want to permanently delete this subscription record? Th
 msgid "Are you sure?"
 msgstr "Are you sure?"
 
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
+msgid "Asset uploaded."
+msgstr "Asset uploaded."
+
 #: src/pages/admin/master-venue.$venueId.tsx
 #: src/pages/admin/venues.$tenantKey.$venueId.tsx
 msgid "Assets"
@@ -801,6 +805,10 @@ msgstr "Could not open the billing portal. Please try again."
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 msgid "Could not save the page. Please check the form and try again."
 msgstr "Could not save the page. Please check the form and try again."
+
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
+msgid "Could not upload the asset. Please try again."
+msgstr "Could not upload the asset. Please try again."
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Create"
@@ -1798,18 +1806,14 @@ msgstr "Maps"
 msgid "Mark all as read"
 msgstr "Mark all as read"
 
-#: src/pages/admin/master-venue.$venueId.tsx
-#: src/pages/admin/master-venue.index.tsx
-#: src/shared/ui/admin-layout/nav-config.tsx
-msgid "Master Venue"
-msgstr "Master Venue"
-
 #: src/pages/admin/venues.$tenantKey.$venueId.tsx
 #: src/pages/admin/venues.index.tsx
 msgid "Master venue"
 msgstr "Master venue"
 
 #: src/pages/admin/master-venue.$venueId.tsx
+#: src/pages/admin/master-venue.index.tsx
+#: src/shared/ui/admin-layout/nav-config.tsx
 msgid "Master Venue"
 msgstr "Master Venue"
 
@@ -2469,6 +2473,10 @@ msgstr "Present"
 #: src/features/tenant-venue-semantic-search/ui/TenantVenueSemanticSearchWidget.tsx
 msgid "Press Enter to search"
 msgstr "Press Enter to search"
+
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
+msgid "Preview"
+msgstr "Preview"
 
 #: src/pages/admin/plans.$planCode.tsx
 #: src/pages/admin/plans.index.tsx
@@ -3381,6 +3389,10 @@ msgstr "Updated"
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Updated:"
 msgstr "Updated:"
+
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
+msgid "Upload asset"
+msgstr "Upload asset"
 
 #: src/features/change-admin-password/ui/change-admin-password-modal.tsx
 #: src/features/set-user-password/ui/set-user-password-modal.tsx

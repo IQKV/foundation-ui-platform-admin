@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import {
   Container,
@@ -22,9 +22,12 @@ import {
   Center,
   ThemeIcon,
   Collapse,
+  Modal,
+  Image,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { useQuery } from "@tanstack/react-query";
+import { notifications } from "@mantine/notifications";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import {
   IconAlertCircle,
   IconArrowLeft,
@@ -39,12 +42,14 @@ import {
   IconAdjustments,
   IconCheck,
   IconAlertTriangle,
+  IconEye,
+  IconUpload,
 } from "@tabler/icons-react";
 import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
 import { PageTitle } from "@/shared/lib/page-title";
-import { tenantVenueApi } from "@/shared/api";
-import type { TenantVenue, TenantVenueAsset } from "@/entities";
+import { tenantVenueApi, uploadFileToPresignedUrl } from "@/shared/api";
+import type { TenantVenue, TenantVenueAsset, TenantVenuePhoto } from "@/entities";
 import { PageHeader } from "@/shared/ui";
 import {
   ACCENT_GRADIENT,
@@ -225,7 +230,7 @@ function MetadataViewer({ raw }: { raw: string | null }) {
 
 // ─── Photos tab ───────────────────────────────────────────────────────────────
 
-function PhotosTab({ photos, isLoading }: { photos: TenantVenueAsset[]; isLoading: boolean }) {
+function PhotosTab({ photos, isLoading }: { photos: TenantVenuePhoto[]; isLoading: boolean }) {
   if (isLoading) {
     return (
       <SimpleGrid cols={{ base: 2, sm: 3, md: 4, lg: 5 }} spacing="sm">
@@ -256,18 +261,27 @@ function PhotosTab({ photos, isLoading }: { photos: TenantVenueAsset[]; isLoadin
     <SimpleGrid cols={{ base: 2, sm: 3, md: 4, lg: 5 }} spacing="sm">
       {photos.map((photo, i) => (
         <Box key={photo.id} style={{ position: "relative" }}>
-          {/* The admin asset projection carries only the storage key, so no image URL to render. */}
-          <Group
-            justify="center"
-            align="center"
-            style={{
-              height: 130,
-              background: "var(--mantine-color-gray-1)",
-              borderRadius: "var(--mantine-radius-sm)",
-            }}
-          >
-            <IconPhoto size={24} color="var(--mantine-color-gray-4)" />
-          </Group>
+          {photo.sourceUrl ? (
+            <Image
+              src={photo.sourceUrl}
+              alt={photo.label ?? photo.fileName ?? `Photo ${i + 1}`}
+              h={130}
+              radius="sm"
+              fit="cover"
+            />
+          ) : (
+            <Group
+              justify="center"
+              align="center"
+              style={{
+                height: 130,
+                background: "var(--mantine-color-gray-1)",
+                borderRadius: "var(--mantine-radius-sm)",
+              }}
+            >
+              <IconPhoto size={24} color="var(--mantine-color-gray-4)" />
+            </Group>
+          )}
           {/* display order overlay — mirrors ExtractionStatusDot position */}
           <Box style={{ position: "absolute", top: 6, right: 6 }}>
             <Badge variant="filled" color="dark" size="xs" radius="sm" style={{ opacity: 0.75 }}>
@@ -287,54 +301,106 @@ function PhotosTab({ photos, isLoading }: { photos: TenantVenueAsset[]; isLoadin
 
 // ─── Assets tab ───────────────────────────────────────────────────────────────
 
-function AssetsTab({ assets, isLoading }: { assets: TenantVenueAsset[]; isLoading: boolean }) {
+function AssetsTab({
+  assets,
+  isLoading,
+  previewUrls,
+}: {
+  assets: TenantVenueAsset[];
+  isLoading: boolean;
+  /** Presigned image URL per asset id — only photos have one. */
+  previewUrls: Map<string, string>;
+}) {
   const { t } = useLingui();
-  if (isLoading) return <Skeleton height={200} radius="md" />;
-  if (assets.length === 0) {
-    return (
-      <Paper
-        withBorder
-        p="xl"
-        radius="md"
-        style={{ textAlign: "center", background: "var(--mantine-color-gray-0)" }}
-      >
-        <Stack align="center" gap="sm">
-          <IconPaperclip size={40} color="var(--mantine-color-gray-4)" />
-          <Text size="sm" c="dimmed">{t`No assets for this venue.`}</Text>
-        </Stack>
-      </Paper>
-    );
-  }
+  const [preview, setPreview] = useState<{ url: string; title: string } | null>(null);
+
   return (
-    <Stack gap={6}>
-      {assets.map((asset) => (
-        <Paper key={asset.id} withBorder p="sm" radius="md" styles={ASSET_ROW_STYLES}>
-          <Group justify="space-between" wrap="nowrap">
-            <Group gap="sm" wrap="nowrap" style={{ minWidth: 0 }}>
-              <ThemeIcon
-                size={32}
-                radius="sm"
-                variant="light"
-                color="gray"
-                style={{ flexShrink: 0 }}
-              >
-                <IconPaperclip size={16} />
-              </ThemeIcon>
-              <Stack gap={0} style={{ minWidth: 0 }}>
-                <Text size="sm" fw={500} lineClamp={1}>
-                  {asset.label ?? asset.fileName ?? asset.id}
-                </Text>
-                <Text size="xs" c="dimmed">
-                  {asset.assetType}
-                  {asset.contentType ? ` · ${asset.contentType}` : ""}
-                  {asset.sizeBytes != null ? ` · ${Math.round(asset.sizeBytes / 1024)} KB` : ""}
-                </Text>
-              </Stack>
-            </Group>
-          </Group>
+    <>
+      {isLoading ? (
+        <Skeleton height={200} radius="md" />
+      ) : assets.length === 0 ? (
+        <Paper
+          withBorder
+          p="xl"
+          radius="md"
+          style={{ textAlign: "center", background: "var(--mantine-color-gray-0)" }}
+        >
+          <Stack align="center" gap="sm">
+            <IconPaperclip size={40} color="var(--mantine-color-gray-4)" />
+            <Text size="sm" c="dimmed">{t`No assets for this venue.`}</Text>
+          </Stack>
         </Paper>
-      ))}
-    </Stack>
+      ) : (
+        <Stack gap={6}>
+          {assets.map((asset) => {
+            const previewUrl = previewUrls.get(asset.id);
+            const name = asset.label ?? asset.fileName ?? asset.id;
+            return (
+              <Paper key={asset.id} withBorder p="sm" radius="md" styles={ASSET_ROW_STYLES}>
+                <Group justify="space-between" wrap="nowrap">
+                  <Group gap="sm" wrap="nowrap" style={{ minWidth: 0 }}>
+                    <ThemeIcon
+                      size={32}
+                      radius="sm"
+                      variant="light"
+                      color="gray"
+                      style={{ flexShrink: 0 }}
+                    >
+                      <IconPaperclip size={16} />
+                    </ThemeIcon>
+                    <Stack gap={0} style={{ minWidth: 0 }}>
+                      <Text size="sm" fw={500} lineClamp={1}>
+                        {name}
+                      </Text>
+                      <Text size="xs" c="dimmed">
+                        {asset.assetType}
+                        {asset.contentType ? ` · ${asset.contentType}` : ""}
+                        {asset.sizeBytes != null
+                          ? ` · ${Math.round(asset.sizeBytes / 1024)} KB`
+                          : ""}
+                      </Text>
+                    </Stack>
+                  </Group>
+                  {previewUrl && (
+                    <Button
+                      size="compact-sm"
+                      variant="subtle"
+                      leftSection={<IconEye size={14} />}
+                      style={{ flexShrink: 0 }}
+                      onClick={() => setPreview({ url: previewUrl, title: name })}
+                    >
+                      <Trans>Preview</Trans>
+                    </Button>
+                  )}
+                </Group>
+              </Paper>
+            );
+          })}
+        </Stack>
+      )}
+
+      <Modal
+        opened={preview !== null}
+        onClose={() => setPreview(null)}
+        size="xl"
+        centered
+        title={preview?.title}
+      >
+        {preview && (
+          <img
+            src={preview.url}
+            alt={preview.title}
+            style={{
+              width: "100%",
+              maxHeight: "75vh",
+              objectFit: "contain",
+              display: "block",
+              borderRadius: "var(--mantine-radius-sm)",
+            }}
+          />
+        )}
+      </Modal>
+    </>
   );
 }
 
@@ -348,9 +414,6 @@ const bigTabStyles = {
   },
 };
 
-// Temporarily hidden while the assets pipeline is being reworked — flip back to `true` to restore.
-const SHOW_ASSETS_TAB = false;
-
 function TenantVenueDetailPage() {
   const { t } = useLingui();
   const navigate = useNavigate();
@@ -360,6 +423,10 @@ function TenantVenueDetailPage() {
   const [deleteOpened, { open: openDelete, close: closeDelete }] = useDisclosure(false);
   const [advancedOpened, { toggle: toggleAdvanced }] = useDisclosure(false);
   const [deletedVenue, setDeletedVenue] = useState<TenantVenue | null>(null);
+
+  const queryClient = useQueryClient();
+  const [uploadingAsset, setUploadingAsset] = useState(false);
+  const assetFileInputRef = useRef<HTMLInputElement>(null);
 
   const {
     data: venue,
@@ -385,6 +452,12 @@ function TenantVenueDetailPage() {
   const assets = assetsData?.items ?? [];
   const photos = photosData?.items ?? [];
 
+  // Presigned image URL per photo asset — drives the Assets tab preview modal.
+  const photoUrlById = new Map<string, string>();
+  for (const photo of photos) {
+    if (photo.sourceUrl) photoUrlById.set(photo.id, photo.sourceUrl);
+  }
+
   // The full venue projection carries no photo URL — photos come from the assets endpoint.
   const hasPhoto = false;
 
@@ -394,6 +467,42 @@ function TenantVenueDetailPage() {
       : null;
 
   const handleDeleteSuccess = () => void navigate({ to: "/admin/venues" });
+
+  /** Initiate → PUT to MinIO → confirm, then refresh the venue's asset queries. */
+  const handleUploadAsset = async (file: File) => {
+    setUploadingAsset(true);
+    try {
+      const init = await tenantVenueApi.initiateAssetUpload(tenantKey, venueId, {
+        fileName: file.name,
+        contentType: file.type || "application/octet-stream",
+        sizeBytes: file.size,
+      });
+      await uploadFileToPresignedUrl(init.presignedUploadUrl, file, () => {});
+      await tenantVenueApi.confirmAssetUpload(tenantKey, venueId, init.assetId, {
+        objectKey: init.objectKey,
+        fileName: file.name,
+        assetType: file.type.startsWith("image/") ? "PHOTO" : "DOCUMENT",
+      });
+      await queryClient.invalidateQueries({
+        queryKey: ["admin", "tenant-venues", tenantKey, "venue", venueId],
+      });
+      notifications.show({
+        message: t`Asset uploaded.`,
+        color: "green",
+        icon: <IconCheck size={16} />,
+      });
+    } catch (err) {
+      notifications.show({
+        message:
+          err instanceof Error ? err.message : t`Could not upload the asset. Please try again.`,
+        color: "red",
+        icon: <IconAlertTriangle size={16} />,
+      });
+    } finally {
+      setUploadingAsset(false);
+      if (assetFileInputRef.current) assetFileInputRef.current.value = "";
+    }
+  };
 
   // Completeness counts for section cards
   const locationFilled = [venue?.address, venue?.city, venue?.locationLat].filter(Boolean).length;
@@ -487,6 +596,26 @@ function TenantVenueDetailPage() {
             >
               <Trans>Edit</Trans>
             </Button>
+            <Button
+              variant="light"
+              size="sm"
+              leftSection={<IconUpload size={15} />}
+              disabled={!venue}
+              loading={uploadingAsset}
+              data-testid={TestSelectors.BUTTON.TENANT_VENUE_DETAIL_ASSET_UPLOAD}
+              onClick={() => assetFileInputRef.current?.click()}
+            >
+              <Trans>Upload asset</Trans>
+            </Button>
+            <input
+              ref={assetFileInputRef}
+              type="file"
+              hidden
+              onChange={(e) => {
+                const file = e.currentTarget.files?.[0];
+                if (file) void handleUploadAsset(file);
+              }}
+            />
             <Button
               variant="light"
               color="red"
@@ -682,23 +811,21 @@ function TenantVenueDetailPage() {
             >
               <Trans>Photos</Trans>
             </Tabs.Tab>
-            {SHOW_ASSETS_TAB && (
-              <Tabs.Tab
-                value="assets"
-                data-testid={TestSelectors.TAB.TENANT_VENUE_ASSETS}
-                leftSection={<IconPaperclip size={20} />}
-                styles={bigTabStyles}
-                rightSection={
-                  !assetsLoading && assets.length > 0 ? (
-                    <Badge size="xl" variant="filled" color="blue" circle>
-                      {assets.length}
-                    </Badge>
-                  ) : undefined
-                }
-              >
-                <Trans>Assets</Trans>
-              </Tabs.Tab>
-            )}
+            <Tabs.Tab
+              value="assets"
+              data-testid={TestSelectors.TAB.TENANT_VENUE_ASSETS}
+              leftSection={<IconPaperclip size={20} />}
+              styles={bigTabStyles}
+              rightSection={
+                !assetsLoading && assets.length > 0 ? (
+                  <Badge size="xl" variant="filled" color="blue" circle>
+                    {assets.length}
+                  </Badge>
+                ) : undefined
+              }
+            >
+              <Trans>Assets</Trans>
+            </Tabs.Tab>
           </Tabs.List>
 
           {/* ── Details tab — mirrors DetailsTab section cards ─────────── */}
@@ -874,11 +1001,9 @@ function TenantVenueDetailPage() {
             <PhotosTab photos={photos} isLoading={photosLoading} />
           </Tabs.Panel>
 
-          {SHOW_ASSETS_TAB && (
-            <Tabs.Panel value="assets" pt="sm">
-              <AssetsTab assets={assets} isLoading={assetsLoading} />
-            </Tabs.Panel>
-          )}
+          <Tabs.Panel value="assets" pt="sm">
+            <AssetsTab assets={assets} isLoading={assetsLoading} previewUrls={photoUrlById} />
+          </Tabs.Panel>
         </Tabs>
       </Stack>
 

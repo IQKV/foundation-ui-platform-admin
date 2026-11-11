@@ -324,6 +324,10 @@ msgstr "Êtes-vous sûr de vouloir supprimer définitivement cet enregistrement 
 msgid "Are you sure?"
 msgstr "Êtes-vous sûr ?"
 
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
+msgid "Asset uploaded."
+msgstr ""
+
 #: src/pages/admin/master-venue.$venueId.tsx
 #: src/pages/admin/venues.$tenantKey.$venueId.tsx
 msgid "Assets"
@@ -801,6 +805,10 @@ msgstr "Impossible d'ouvrir le portail de facturation. Veuillez réessayer."
 #: src/pages/admin/cms-pages.$tenantKey.$pageId.tsx
 msgid "Could not save the page. Please check the form and try again."
 msgstr "Impossible d'enregistrer la page. Veuillez vérifier le formulaire et réessayer."
+
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
+msgid "Could not upload the asset. Please try again."
+msgstr ""
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Create"
@@ -1798,18 +1806,14 @@ msgstr ""
 msgid "Mark all as read"
 msgstr "Tout marquer comme lu"
 
-#: src/pages/admin/master-venue.$venueId.tsx
-#: src/pages/admin/master-venue.index.tsx
-#: src/shared/ui/admin-layout/nav-config.tsx
-msgid "Master Venue"
-msgstr ""
-
 #: src/pages/admin/venues.$tenantKey.$venueId.tsx
 #: src/pages/admin/venues.index.tsx
 msgid "Master venue"
 msgstr ""
 
 #: src/pages/admin/master-venue.$venueId.tsx
+#: src/pages/admin/master-venue.index.tsx
+#: src/shared/ui/admin-layout/nav-config.tsx
 msgid "Master Venue"
 msgstr ""
 
@@ -2468,6 +2472,10 @@ msgstr ""
 #: src/features/master-venue-semantic-search/ui/MasterVenueSemanticSearchWidget.tsx
 #: src/features/tenant-venue-semantic-search/ui/TenantVenueSemanticSearchWidget.tsx
 msgid "Press Enter to search"
+msgstr ""
+
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
+msgid "Preview"
 msgstr ""
 
 #: src/pages/admin/plans.$planCode.tsx
@@ -3381,6 +3389,10 @@ msgstr "Mis à jour"
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 msgid "Updated:"
 msgstr "Mis à jour :"
+
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
+msgid "Upload asset"
+msgstr ""
 
 #: src/features/change-admin-password/ui/change-admin-password-modal.tsx
 #: src/features/set-user-password/ui/set-user-password-modal.tsx

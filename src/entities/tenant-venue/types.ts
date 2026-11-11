@@ -49,3 +49,23 @@ export interface TenantVenueAsset {
   createdAt: string;
   updatedAt: string;
 }
+
+/**
+ * Public photo projection (`VenueAssetPublicResponse`) returned by the venue photos endpoint —
+ * carries a presigned `sourceUrl` instead of the storage key.
+ */
+export interface TenantVenuePhoto {
+  id: string;
+  venueId: string;
+  assetType: string;
+  photoCategory: string | null;
+  displayOrder: number | null;
+  label: string | null;
+  fileName: string | null;
+  contentType: string | null;
+  sizeBytes: number | null;
+  sourceUrl: string | null;
+  uploadedBy: string | null;
+  createdAt: string;
+  updatedAt: string;
+}

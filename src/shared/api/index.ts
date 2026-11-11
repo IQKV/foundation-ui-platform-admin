@@ -90,10 +90,14 @@ export type {
   SemanticSearchResult,
 } from "./catalog";
 
-export { tenantVenueApi } from "./tenant-venue";
+export { tenantVenueApi, uploadFileToPresignedUrl } from "./tenant-venue";
 export type {
   AdminTenantVenueListResponse,
   AdminTenantVenueAssetListResponse,
+  AdminTenantVenuePhotoListResponse,
+  InitiateVenueAssetUploadRequest,
+  InitiateVenueAssetUploadResponse,
+  ConfirmVenueAssetUploadRequest,
   TenantVenueWriteRequest,
   TenantVenuePatchRequest,
   TenantVenueSortField,
@@ -133,6 +137,7 @@ export type {
   TenantVenue,
   TenantVenueSummary,
   TenantVenueAsset,
+  TenantVenuePhoto,
   AuditRecord,
   AuditSeverity,
   AuditActionCount,

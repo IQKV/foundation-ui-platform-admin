@@ -170,6 +170,7 @@ export const TestSelectors = {
     TENANT_VENUE_DETAIL_DELETE: "button-tenant-venue-detail-delete",
     TENANT_VENUE_DETAIL_REFRESH: "button-tenant-venue-detail-refresh",
     TENANT_VENUE_DETAIL_ERROR_RETRY: "button-tenant-venue-detail-error-retry",
+    TENANT_VENUE_DETAIL_ASSET_UPLOAD: "button-tenant-venue-detail-asset-upload",
   },
   LINK: (name: string) => `link--${name}`,
   INPUT: {
