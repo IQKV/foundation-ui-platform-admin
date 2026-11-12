@@ -98,6 +98,7 @@ export type {
   InitiateVenueAssetUploadRequest,
   InitiateVenueAssetUploadResponse,
   ConfirmVenueAssetUploadRequest,
+  AdminVenueAssetPreviewUrlResponse,
   TenantVenueWriteRequest,
   TenantVenuePatchRequest,
   TenantVenueSortField,

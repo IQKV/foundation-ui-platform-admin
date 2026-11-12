@@ -20,6 +20,7 @@ import {
   RingProgress,
   ScrollArea,
   Center,
+  Loader,
   ThemeIcon,
   Collapse,
   Modal,
@@ -301,18 +302,48 @@ function PhotosTab({ photos, isLoading }: { photos: TenantVenuePhoto[]; isLoadin
 
 // ─── Assets tab ───────────────────────────────────────────────────────────────
 
+/** Content types the preview modal can render inline. */
+function isPreviewable(contentType: string | null): boolean {
+  return (
+    Boolean(contentType) && (contentType!.startsWith("image/") || contentType === "application/pdf")
+  );
+}
+
 function AssetsTab({
+  tenantKey,
+  venueId,
   assets,
   isLoading,
-  previewUrls,
 }: {
+  tenantKey: string;
+  venueId: string;
   assets: TenantVenueAsset[];
   isLoading: boolean;
-  /** Presigned image URL per asset id — only photos have one. */
-  previewUrls: Map<string, string>;
 }) {
   const { t } = useLingui();
-  const [preview, setPreview] = useState<{ url: string; title: string } | null>(null);
+  // `url === null` while the presigned URL is still being minted.
+  const [preview, setPreview] = useState<{
+    name: string;
+    url: string | null;
+    contentType: string | null;
+  } | null>(null);
+
+  const openPreview = async (asset: TenantVenueAsset, name: string) => {
+    setPreview({ name, url: null, contentType: asset.contentType });
+    try {
+      const result = await tenantVenueApi.getAssetPreviewUrl(tenantKey, venueId, asset.id);
+      setPreview((current) =>
+        current ? { ...current, url: result.url, contentType: result.contentType } : current,
+      );
+    } catch {
+      setPreview(null);
+      notifications.show({
+        message: t`Could not load the preview.`,
+        color: "red",
+        icon: <IconAlertTriangle size={16} />,
+      });
+    }
+  };
 
   return (
     <>
@@ -333,7 +364,6 @@ function AssetsTab({
       ) : (
         <Stack gap={6}>
           {assets.map((asset) => {
-            const previewUrl = previewUrls.get(asset.id);
             const name = asset.label ?? asset.fileName ?? asset.id;
             return (
               <Paper key={asset.id} withBorder p="sm" radius="md" styles={ASSET_ROW_STYLES}>
@@ -361,13 +391,13 @@ function AssetsTab({
                       </Text>
                     </Stack>
                   </Group>
-                  {previewUrl && (
+                  {isPreviewable(asset.contentType) && (
                     <Button
                       size="compact-sm"
                       variant="subtle"
                       leftSection={<IconEye size={14} />}
                       style={{ flexShrink: 0 }}
-                      onClick={() => setPreview({ url: previewUrl, title: name })}
+                      onClick={() => void openPreview(asset, name)}
                     >
                       <Trans>Preview</Trans>
                     </Button>
@@ -384,12 +414,29 @@ function AssetsTab({
         onClose={() => setPreview(null)}
         size="xl"
         centered
-        title={preview?.title}
+        title={preview?.name}
       >
-        {preview && (
+        {preview && !preview.url && (
+          <Center h={240}>
+            <Loader size="lg" />
+          </Center>
+        )}
+        {preview?.url && preview.contentType === "application/pdf" && (
+          <iframe
+            src={preview.url}
+            title={preview.name}
+            style={{
+              width: "100%",
+              height: "75vh",
+              border: 0,
+              borderRadius: "var(--mantine-radius-sm)",
+            }}
+          />
+        )}
+        {preview?.url && preview.contentType !== "application/pdf" && (
           <img
             src={preview.url}
-            alt={preview.title}
+            alt={preview.name}
             style={{
               width: "100%",
               maxHeight: "75vh",
@@ -451,12 +498,6 @@ function TenantVenueDetailPage() {
 
   const assets = assetsData?.items ?? [];
   const photos = photosData?.items ?? [];
-
-  // Presigned image URL per photo asset — drives the Assets tab preview modal.
-  const photoUrlById = new Map<string, string>();
-  for (const photo of photos) {
-    if (photo.sourceUrl) photoUrlById.set(photo.id, photo.sourceUrl);
-  }
 
   // The full venue projection carries no photo URL — photos come from the assets endpoint.
   const hasPhoto = false;
@@ -1002,7 +1043,12 @@ function TenantVenueDetailPage() {
           </Tabs.Panel>
 
           <Tabs.Panel value="assets" pt="sm">
-            <AssetsTab assets={assets} isLoading={assetsLoading} previewUrls={photoUrlById} />
+            <AssetsTab
+              tenantKey={tenantKey}
+              venueId={venueId}
+              assets={assets}
+              isLoading={assetsLoading}
+            />
           </Tabs.Panel>
         </Tabs>
       </Stack>

@@ -798,6 +798,10 @@ msgstr "Impossible de récupérer les journaux webhook depuis l'API."
 msgid "Could not fetch your account details."
 msgstr "Impossible de récupérer les détails de votre compte."
 
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
+msgid "Could not load the preview."
+msgstr ""
+
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Could not open the billing portal. Please try again."
 msgstr "Impossible d'ouvrir le portail de facturation. Veuillez réessayer."

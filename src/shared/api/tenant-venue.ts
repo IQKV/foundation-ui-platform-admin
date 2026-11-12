@@ -47,6 +47,15 @@ export interface ConfirmVenueAssetUploadRequest {
   label?: string | null;
 }
 
+/** Presigned GET URL for one asset — lets the browser render it inline (images and PDFs). */
+export interface AdminVenueAssetPreviewUrlResponse {
+  assetId: string;
+  url: string;
+  contentType: string | null;
+  fileName: string | null;
+  expiresInMinutes: number;
+}
+
 export interface TenantVenueWriteRequest {
   name: string;
   address?: string | null;
@@ -137,6 +146,14 @@ export const tenantVenueApi = {
   ) =>
     httpClient
       .post<TenantVenueAsset>(`${basePath(tenantKey)}/${id}/assets/${assetId}/confirm`, data)
+      .then((r) => r.data),
+
+  // Presigned GET URL for one asset — lets the browser render the object inline.
+  getAssetPreviewUrl: (tenantKey: string, id: string, assetId: string) =>
+    httpClient
+      .get<AdminVenueAssetPreviewUrlResponse>(
+        `${basePath(tenantKey)}/${id}/assets/${assetId}/preview-url`,
+      )
       .then((r) => r.data),
 
   createTenantVenue: (tenantKey: string, data: TenantVenueWriteRequest) =>

@@ -798,6 +798,10 @@ msgstr "Could not fetch webhook logs from the API."
 msgid "Could not fetch your account details."
 msgstr "Could not fetch your account details."
 
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
+msgid "Could not load the preview."
+msgstr "Could not load the preview."
+
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Could not open the billing portal. Please try again."
 msgstr "Could not open the billing portal. Please try again."
