@@ -69,3 +69,16 @@ export interface TenantVenuePhoto {
   createdAt: string;
   updatedAt: string;
 }
+
+/**
+ * Admin projection of a venue text-content row (`VenueTextContentResponse`) — a source text
+ * chunk, optionally linked to the asset it was extracted from.
+ */
+export interface VenueTextContent {
+  id: string;
+  venueId: string | null;
+  sourceAssetId: string | null;
+  content: string;
+  createdAt: string;
+  updatedAt: string;
+}

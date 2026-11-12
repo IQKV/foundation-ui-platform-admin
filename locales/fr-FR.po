@@ -325,6 +325,10 @@ msgid "Are you sure?"
 msgstr "Êtes-vous sûr ?"
 
 #: src/pages/admin/venues.$tenantKey.$venueId.tsx
+msgid "Asset deleted."
+msgstr ""
+
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
 msgid "Asset uploaded."
 msgstr ""
 
@@ -480,6 +484,7 @@ msgstr "Paramètres de facturation"
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 #: src/pages/admin/subscriptions.tsx
 #: src/pages/admin/users.$userId.tsx
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
 msgid "Cancel"
 msgstr "Annuler"
 
@@ -528,6 +533,10 @@ msgstr "Changer le mot de passe"
 #: src/features/change-admin-password/ui/change-admin-password-modal.tsx
 msgid "Change Password"
 msgstr "Changer le mot de passe"
+
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
+msgid "characters"
+msgstr ""
 
 #: src/features/master-venue-admin/ui/venue-fields.tsx
 #: src/features/tenant-venue-admin/ui/venue-fields.tsx
@@ -681,6 +690,10 @@ msgstr "Impossible de créer la page. Veuillez vérifier le formulaire et réess
 #: src/features/announcement-admin/ui/delete-announcement-modal.tsx
 msgid "Could not delete the announcement. Please try again."
 msgstr "Impossible de supprimer l'annonce. Veuillez réessayer."
+
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
+msgid "Could not delete the asset."
+msgstr ""
 
 #: src/features/master-venue-admin/ui/delete-master-venue-modal.tsx
 msgid "Could not delete the master venue. Please try again."
@@ -945,6 +958,14 @@ msgstr "Supprimer l'annonce"
 #: src/features/announcement-admin/ui/delete-announcement-modal.tsx
 msgid "Delete Announcement"
 msgstr "Supprimer l'annonce"
+
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
+msgid "Delete asset"
+msgstr ""
+
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
+msgid "Delete asset?"
+msgstr ""
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Delete billing settings"
@@ -2098,6 +2119,10 @@ msgstr "Aucun remboursement enregistré pour l'instant"
 msgid "No results"
 msgstr "Aucun résultat"
 
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
+msgid "No sources for this venue."
+msgstr ""
+
 #: src/widgets/dashboard-subscription-breakdown/ui/subscription-breakdown.tsx
 msgid "No subscription data available"
 msgstr "Aucune donnée d'abonnement disponible"
@@ -3034,6 +3059,10 @@ msgstr ""
 msgid "Source is required"
 msgstr ""
 
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
+msgid "Sources"
+msgstr ""
+
 #: src/pages/loading-demo.tsx
 msgid "Start"
 msgstr "Démarrer"
@@ -3210,6 +3239,10 @@ msgstr "Clé locataire…"
 #: src/pages/admin/audit-logs.tsx
 msgid "Tenant updated"
 msgstr "Locataire mis à jour"
+
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
+msgid "Text"
+msgstr ""
 
 #: src/pages/admin/master-venue.$venueId.tsx
 #: src/pages/admin/venues.$tenantKey.$venueId.tsx

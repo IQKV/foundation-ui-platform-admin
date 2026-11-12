@@ -5,6 +5,7 @@ import type {
   TenantVenueAsset,
   TenantVenuePhoto,
   TenantVenueSummary,
+  VenueTextContent,
 } from "../../entities";
 
 // ─── API-specific types ───────────────────────────────────────────────────────
@@ -22,6 +23,12 @@ export interface AdminTenantVenueAssetListResponse {
 /** Photos come back as the public projection, which carries a presigned `sourceUrl`. */
 export interface AdminTenantVenuePhotoListResponse {
   items: TenantVenuePhoto[];
+  totalElements: number;
+}
+
+/** Source text chunks extracted for a venue. */
+export interface AdminVenueTextContentListResponse {
+  items: VenueTextContent[];
   totalElements: number;
 }
 
@@ -130,6 +137,14 @@ export const tenantVenueApi = {
   listTenantVenuePhotos: (tenantKey: string, id: string) =>
     httpClient
       .get<AdminTenantVenuePhotoListResponse>(`${basePath(tenantKey)}/${id}/photos`)
+      .then((r) => r.data),
+
+  // Source text chunks linked to the venue — the extraction provenance behind its metadata.
+  listVenueTextContents: (tenantKey: string, id: string) =>
+    httpClient
+      .get<AdminVenueTextContentListResponse>(
+        `/v1/catalog/admin/${encodeURIComponent(tenantKey)}/venue-text-contents/venue/${id}`,
+      )
       .then((r) => r.data),
 
   // Two-phase presigned upload on behalf of the tenant — mirrors the tenant surface.

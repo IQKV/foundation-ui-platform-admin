@@ -443,6 +443,7 @@ export const TestSelectors = {
     TENANT_VENUE_OVERVIEW: "tab-tenant-venue-overview",
     TENANT_VENUE_PHOTOS: "tab-tenant-venue-photos",
     TENANT_VENUE_ASSETS: "tab-tenant-venue-assets",
+    TENANT_VENUE_SOURCES: "tab-tenant-venue-sources",
   },
 
   // Selects

@@ -325,6 +325,10 @@ msgid "Are you sure?"
 msgstr "Сигурни ли сте?"
 
 #: src/pages/admin/venues.$tenantKey.$venueId.tsx
+msgid "Asset deleted."
+msgstr ""
+
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
 msgid "Asset uploaded."
 msgstr ""
 
@@ -480,6 +484,7 @@ msgstr "Настройки за фактуриране"
 #: src/pages/admin/subscriptions.$subscriptionId.tsx
 #: src/pages/admin/subscriptions.tsx
 #: src/pages/admin/users.$userId.tsx
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
 msgid "Cancel"
 msgstr "Отказ"
 
@@ -528,6 +533,10 @@ msgstr "Промяна на парола"
 #: src/features/change-admin-password/ui/change-admin-password-modal.tsx
 msgid "Change Password"
 msgstr "Промяна на парола"
+
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
+msgid "characters"
+msgstr ""
 
 #: src/features/master-venue-admin/ui/venue-fields.tsx
 #: src/features/tenant-venue-admin/ui/venue-fields.tsx
@@ -681,6 +690,10 @@ msgstr ""
 #: src/features/announcement-admin/ui/delete-announcement-modal.tsx
 msgid "Could not delete the announcement. Please try again."
 msgstr "Обявлението не може да бъде изтрито. Моля, опитайте отново."
+
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
+msgid "Could not delete the asset."
+msgstr ""
 
 #: src/features/master-venue-admin/ui/delete-master-venue-modal.tsx
 msgid "Could not delete the master venue. Please try again."
@@ -945,6 +958,14 @@ msgstr "Изтрий обявление"
 #: src/features/announcement-admin/ui/delete-announcement-modal.tsx
 msgid "Delete Announcement"
 msgstr "Изтрий обявление"
+
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
+msgid "Delete asset"
+msgstr ""
+
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
+msgid "Delete asset?"
+msgstr ""
 
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Delete billing settings"
@@ -2098,6 +2119,10 @@ msgstr "Все още няма записани възстановявания"
 msgid "No results"
 msgstr "Няма резултати"
 
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
+msgid "No sources for this venue."
+msgstr ""
+
 #: src/widgets/dashboard-subscription-breakdown/ui/subscription-breakdown.tsx
 msgid "No subscription data available"
 msgstr "Няма налични данни за абонамент"
@@ -3034,6 +3059,10 @@ msgstr ""
 msgid "Source is required"
 msgstr ""
 
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
+msgid "Sources"
+msgstr ""
+
 #: src/pages/loading-demo.tsx
 msgid "Start"
 msgstr "Начало"
@@ -3210,6 +3239,10 @@ msgstr "Ключ на наемател…"
 #: src/pages/admin/audit-logs.tsx
 msgid "Tenant updated"
 msgstr "Наемателят е актуализиран"
+
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
+msgid "Text"
+msgstr ""
 
 #: src/pages/admin/master-venue.$venueId.tsx
 #: src/pages/admin/venues.$tenantKey.$venueId.tsx

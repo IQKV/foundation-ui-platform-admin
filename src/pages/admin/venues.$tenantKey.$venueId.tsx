@@ -46,12 +46,13 @@ import {
   IconAlertTriangle,
   IconEye,
   IconUpload,
+  IconFileText,
 } from "@tabler/icons-react";
 import dayjs from "dayjs";
 import { Trans, useLingui } from "@lingui/react/macro";
 import { PageTitle } from "@/shared/lib/page-title";
 import { tenantVenueApi, uploadFileToPresignedUrl } from "@/shared/api";
-import type { TenantVenue, TenantVenueAsset, TenantVenuePhoto } from "@/entities";
+import type { TenantVenue, TenantVenueAsset, TenantVenuePhoto, VenueTextContent } from "@/entities";
 import { PageHeader } from "@/shared/ui";
 import {
   ACCENT_GRADIENT,
@@ -646,6 +647,139 @@ function AssetsTab({
   );
 }
 
+// ─── Sources tab ──────────────────────────────────────────────────────────────
+
+/** Collapse whitespace so a text chunk renders as a single readable line. */
+function sourceLabel(content: string): string {
+  return content.trim().replace(/\s+/g, " ");
+}
+
+/** Text variant of the preview surface — full width and top-aligned instead of centred. */
+const PREVIEW_TEXT_SURFACE_STYLES = {
+  ...PREVIEW_SURFACE_STYLES,
+  alignItems: "stretch",
+  justifyContent: "flex-start",
+  padding: "var(--mantine-spacing-md)",
+} as const;
+
+function SourcesTab({ sources, isLoading }: { sources: VenueTextContent[]; isLoading: boolean }) {
+  const { t } = useLingui();
+  const [preview, setPreview] = useState<VenueTextContent | null>(null);
+
+  return (
+    <>
+      {isLoading ? (
+        <Skeleton height={200} radius="md" />
+      ) : sources.length === 0 ? (
+        <Paper
+          withBorder
+          p="xl"
+          radius="md"
+          style={{ textAlign: "center", background: "var(--mantine-color-gray-0)" }}
+        >
+          <Stack align="center" gap="sm">
+            <IconFileText size={40} color="var(--mantine-color-gray-4)" />
+            <Text size="sm" c="dimmed">{t`No sources for this venue.`}</Text>
+          </Stack>
+        </Paper>
+      ) : (
+        <Stack gap={6}>
+          {sources.map((source) => (
+            <Paper key={source.id} withBorder p="sm" radius="md" styles={ASSET_ROW_STYLES}>
+              <Group justify="space-between" wrap="nowrap">
+                <Group gap="sm" wrap="nowrap" style={{ minWidth: 0 }}>
+                  <ThemeIcon
+                    size={32}
+                    radius="sm"
+                    variant="light"
+                    color="gray"
+                    style={{ flexShrink: 0 }}
+                  >
+                    <IconFileText size={16} />
+                  </ThemeIcon>
+                  <Stack gap={0} style={{ minWidth: 0 }}>
+                    <Text size="sm" fw={500} lineClamp={1}>
+                      {sourceLabel(source.content)}
+                    </Text>
+                    <Text size="xs" c="dimmed">
+                      {source.content.length} <Trans>characters</Trans>
+                      {` · ${dayjs(source.createdAt).format("MMM D, YYYY HH:mm")}`}
+                    </Text>
+                  </Stack>
+                </Group>
+                <Group gap={4} wrap="nowrap" style={{ flexShrink: 0 }}>
+                  <Button
+                    size="compact-sm"
+                    variant="subtle"
+                    leftSection={<IconEye size={14} />}
+                    onClick={() => setPreview(source)}
+                  >
+                    <Trans>Preview</Trans>
+                  </Button>
+                </Group>
+              </Group>
+            </Paper>
+          ))}
+        </Stack>
+      )}
+
+      <Modal
+        opened={preview !== null}
+        onClose={() => setPreview(null)}
+        size="xl"
+        centered
+        styles={PREVIEW_MODAL_STYLES}
+        title={
+          preview && (
+            <Stack gap={0}>
+              <Text fw={700} size="sm" lineClamp={1}>
+                {sourceLabel(preview.content)}
+              </Text>
+              <Text size="xs" c="dimmed" lineClamp={1}>
+                {dayjs(preview.createdAt).format("MMM D, YYYY HH:mm")}
+              </Text>
+            </Stack>
+          )
+        }
+      >
+        {preview && (
+          <Box>
+            {/* Meta strip: the content kind and its size, mirroring the asset dialog. */}
+            <Group
+              gap="sm"
+              px="md"
+              py={8}
+              wrap="nowrap"
+              justify="space-between"
+              style={{ borderBottom: `1px solid ${PREVIEW_TOKENS.borderSubtle}` }}
+            >
+              <Group gap="sm" wrap="nowrap" style={{ minWidth: 0 }}>
+                <Badge variant="light" color="blue" radius="sm" size="sm">
+                  <Trans>Text</Trans>
+                </Badge>
+                <Text size="xs" c="dimmed">
+                  {preview.content.length} <Trans>characters</Trans>
+                </Text>
+              </Group>
+            </Group>
+
+            {/* The sunken canvas that holds the rendered chunk. */}
+            <Box p="md" style={{ background: PREVIEW_TOKENS.canvas }}>
+              <Box style={PREVIEW_TEXT_SURFACE_STYLES}>
+                <ScrollArea.Autosize mah="72vh" style={{ width: "100%" }}>
+                  <Text size="sm" style={{ whiteSpace: "pre-wrap", wordBreak: "break-word" }}>
+                    {preview.content}
+                  </Text>
+                </ScrollArea.Autosize>
+              </Box>
+            </Box>
+          </Box>
+        )}
+      </Modal>
+    </>
+  );
+}
+
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 const bigTabStyles = {
@@ -691,8 +825,14 @@ function TenantVenueDetailPage() {
     queryFn: () => tenantVenueApi.listTenantVenuePhotos(tenantKey, venueId),
   });
 
+  const { data: sourcesData, isLoading: sourcesLoading } = useQuery({
+    queryKey: ["admin", "tenant-venues", tenantKey, "venue", venueId, "sources"],
+    queryFn: () => tenantVenueApi.listVenueTextContents(tenantKey, venueId),
+  });
+
   const assets = assetsData?.items ?? [];
   const photos = photosData?.items ?? [];
+  const sources = sourcesData?.items ?? [];
 
   // The full venue projection carries no photo URL — photos come from the assets endpoint.
   const hasPhoto = false;
@@ -1062,6 +1202,21 @@ function TenantVenueDetailPage() {
             >
               <Trans>Assets</Trans>
             </Tabs.Tab>
+            <Tabs.Tab
+              value="sources"
+              data-testid={TestSelectors.TAB.TENANT_VENUE_SOURCES}
+              leftSection={<IconFileText size={20} />}
+              styles={bigTabStyles}
+              rightSection={
+                !sourcesLoading && sources.length > 0 ? (
+                  <Badge size="xl" variant="filled" color="blue" circle>
+                    {sources.length}
+                  </Badge>
+                ) : undefined
+              }
+            >
+              <Trans>Sources</Trans>
+            </Tabs.Tab>
           </Tabs.List>
 
           {/* ── Details tab — mirrors DetailsTab section cards ─────────── */}
@@ -1244,6 +1399,10 @@ function TenantVenueDetailPage() {
               assets={assets}
               isLoading={assetsLoading}
             />
+          </Tabs.Panel>
+
+          <Tabs.Panel value="sources" pt="sm">
+            <SourcesTab sources={sources} isLoading={sourcesLoading} />
           </Tabs.Panel>
         </Tabs>
       </Stack>
