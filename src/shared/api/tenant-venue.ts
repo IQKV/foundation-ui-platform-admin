@@ -157,9 +157,7 @@ export const tenantVenueApi = {
       .then((r) => r.data),
 
   deleteAsset: (tenantKey: string, id: string, assetId: string): Promise<void> =>
-    httpClient
-      .delete(`${basePath(tenantKey)}/${id}/assets/${assetId}`)
-      .then(() => undefined),
+    httpClient.delete(`${basePath(tenantKey)}/${id}/assets/${assetId}`).then(() => undefined),
 
   createTenantVenue: (tenantKey: string, data: TenantVenueWriteRequest) =>
     httpClient.post<TenantVenue>(basePath(tenantKey), data).then((r) => r.data),
