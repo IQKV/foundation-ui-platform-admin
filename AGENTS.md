@@ -14,6 +14,7 @@
 - Runtime configuration override support via `public/config.js`
 - Session management with in-memory access tokens and sessionStorage-persisted refresh tokens
 - Axios-based HTTP client with automatic token refresh interceptor
+- Pluggable addon system with registry, loader, and extension points
 
 ## Tech Stack
 
@@ -76,21 +77,52 @@ The project follows Feature-Sliced Design methodology with strict layer hierarch
 ```
 src/
 ├── app/                  # Application layer (providers, config, theme, main.tsx)
-│   ├── config/          # Runtime env vars, app config
-│   ├── app.tsx         # Root component
-│   ├── theme.ts        # Mantine theme
+│   ├── addons/          # Addon system infrastructure
+│   │   ├── addon-loader.ts
+│   │   ├── addon-registry.ts
+│   │   ├── extension-points/  # navigation.ts, widgets.ts
+│   │   ├── types.ts
+│   │   └── index.ts
+│   ├── config/          # Runtime env vars, app config, addon config
+│   │   ├── addons.ts
+│   │   ├── runtime-env.ts
+│   │   └── index.ts
+│   ├── app.tsx          # Root component
+│   ├── theme.ts         # Mantine theme
 │   └── index.ts
 ├── processes/           # Process layer (cross-feature business processes)
-│   ├── inactivity-timer/
-│   ├── session/         # Session store (Zustand)
-│   └── theme/
-├── pages/             # Page layer (route components)
-│   ├── admin/         # Admin routes
-│   ├── __root.tsx     # Root route
-│   ├── index.tsx     # Home route
+│   ├── inactivity-timer/   # use-inactivity-timer.ts
+│   ├── session/            # Session store (Zustand)
+│   └── theme/              # Theme store (Zustand)
+├── pages/               # Page layer (route components)
+│   ├── admin/           # Admin routes (file-based, TanStack Router)
+│   │   ├── addons/$addonPath.tsx
+│   │   ├── -organization-tenant-panels.tsx
+│   │   ├── -organization-tenant-subtab.ts
+│   │   ├── account.tsx
+│   │   ├── addons.tsx
+│   │   ├── announcements.tsx / announcements.index.tsx
+│   │   ├── audit-logs.tsx
+│   │   ├── cms-pages.tsx / cms-pages.$tenantKey.$pageId.tsx / ...
+│   │   ├── invitations.tsx / invitations.index.tsx
+│   │   ├── master-venue.tsx / master-venue.$venueId.tsx / master-venue.index.tsx
+│   │   ├── notifications.tsx
+│   │   ├── organizations.tsx / organizations.$tenantKey.*.tsx
+│   │   ├── plans.tsx / plans.$planCode.tsx / plans.index.tsx
+│   │   ├── refunds.tsx / refunds.$refundId.tsx
+│   │   ├── subscriptions.tsx / subscriptions.$subscriptionId.tsx
+│   │   ├── users.tsx / users.$userId.tsx / users.index.tsx
+│   │   ├── venues.tsx / venues.$tenantKey.$venueId.tsx / venues.index.tsx
+│   │   ├── webhook-logs.tsx / webhook-logs.$webhookLogId.tsx
+│   │   └── index.tsx
+│   ├── __root.tsx       # Root route
+│   ├── index.tsx        # Home route
 │   ├── sign-in.tsx
-│   └── ...
-├── widgets/           # Widget layer (complex UI blocks)
+│   ├── 404.tsx
+│   ├── 500.tsx
+│   ├── unauthorized.tsx
+│   └── loading-demo.tsx
+├── widgets/             # Widget layer (complex UI blocks)
 │   ├── dashboard-card-group/
 │   ├── dashboard-recent-critical-audit/
 │   ├── dashboard-recent-refunds/
@@ -100,7 +132,7 @@ src/
 │   ├── dashboard-suspended-tenants/
 │   ├── dashboard-tenant-signup-chart/
 │   └── index.ts
-├── features/          # Feature layer (user scenarios, business logic)
+├── features/            # Feature layer (user scenarios, business logic)
 │   ├── announcement-admin/
 │   ├── ban-user/
 │   ├── change-admin-password/
@@ -110,6 +142,7 @@ src/
 │   ├── invitation-admin/
 │   ├── manage-platform-authority/
 │   ├── master-venue-admin/
+│   ├── master-venue-semantic-search/
 │   ├── notification-bell/
 │   ├── page-admin/
 │   ├── plan-catalog/
@@ -117,8 +150,10 @@ src/
 │   ├── sign-in/
 │   ├── sign-out/
 │   ├── tenant-billing-settings/
+│   ├── tenant-venue-admin/
+│   ├── tenant-venue-semantic-search/
 │   └── unlock-user/
-├── entities/          # Entity layer (business entities, data models)
+├── entities/            # Entity layer (business entities, data models)
 │   ├── announcement/
 │   ├── audit-record/
 │   ├── cms-page/
@@ -129,17 +164,73 @@ src/
 │   ├── refund/
 │   ├── subscription/
 │   ├── tenant/
+│   ├── tenant-venue/
 │   ├── user/
 │   ├── webhook-log/
 │   └── index.ts
-├── shared/            # Shared layer (reusable code, UI kit, utilities)
-│   ├── api/           # API client, auth interceptor
-│   ├── lib/           # utilities, validation
-│   ├── locales/
+├── shared/              # Shared layer (reusable code, UI kit, utilities)
+│   ├── api/             # API client, interceptors, service modules
+│   │   ├── http-client.ts
+│   │   ├── auth-interceptor.ts
+│   │   ├── auth.ts
+│   │   ├── audit.ts
+│   │   ├── billing.ts
+│   │   ├── catalog.ts
+│   │   ├── cms.ts
+│   │   ├── iam.ts
+│   │   ├── tenant-venue.ts
+│   │   ├── use-dashboard-counts.ts
+│   │   ├── use-dashboard-widgets.ts
+│   │   └── index.ts
+│   ├── lib/             # Utilities and helpers
+│   │   ├── color-utils.ts
+│   │   ├── date-utils.ts
+│   │   ├── design-tokens/
+│   │   ├── jwt.ts
+│   │   ├── motion/
+│   │   ├── page-title/
+│   │   ├── query-client.ts
+│   │   ├── test-selectors.ts
+│   │   ├── user-utils.ts
+│   │   ├── zod-form-validation.ts
+│   │   └── index.ts
+│   ├── locales/         # Locale loader (index.ts)
 │   ├── mocks/
 │   ├── types/
-│   └── ui/            # shared UI components
-├── architecture.test.ts  # Automated FSD compliance tests
+│   └── ui/              # Shared UI components
+│       ├── admin-layout/
+│       ├── announcement-status-badge/
+│       ├── app-layout/
+│       ├── auth-layout/
+│       ├── color-scheme-toggle/
+│       ├── error-boundary.tsx
+│       ├── gateway-type-badge/
+│       ├── invitation-status-badge/
+│       ├── loading-overlay/
+│       ├── locale-switcher/
+│       ├── page-header/
+│       ├── page-transition/
+│       ├── tenant-status-badge/
+│       ├── user-status-badge/
+│       ├── test-utils.tsx
+│       └── index.ts
+├── addons/              # Addon layer (optional pluggable modules)
+│   ├── platform-ai-chat-sessions/   # AI chat session addon
+│   │   ├── api/
+│   │   ├── model/
+│   │   ├── types/
+│   │   ├── ui/
+│   │   └── index.tsx
+│   └── platform-health-notes/       # Health notes addon
+│       ├── api/
+│       ├── model/
+│       ├── types/
+│       ├── ui/
+│       └── index.tsx
+├── types/               # Global ambient type declarations
+│   ├── locales.d.ts
+│   └── reset.d.ts
+├── architecture.test.ts # Automated FSD compliance tests
 ├── main.tsx
 └── ...
 ```
@@ -150,6 +241,7 @@ src/
    - ❌ `shared` cannot import from `features`
    - ✅ `features` can import from `shared` and `entities`
    - ✅ `processes` can import from `features`, `entities`, and `shared`
+   - ✅ `addons` can import from `features`, `entities`, and `shared` (treated as peer to `processes`)
 
 2. **Public API (MANDATORY)**: Each slice MUST expose functionality through `index.ts`
    - ✅ All imports must go through public API: `from "@/features/sign-in"`
@@ -169,7 +261,25 @@ src/
    └── index.ts     # Public API exports (REQUIRED - verified by tests)
    ```
 
-5. **Architecture Testing**: Run `pnpm test:arch` to verify FSD compliance
+   Addon slices follow the same structure plus a `types/` and `api/` segment:
+
+   ```
+   addon-name/
+   ├── api/          # Addon-specific API calls
+   ├── model/        # Business logic, stores
+   ├── types/        # Addon-specific TypeScript types
+   ├── ui/           # React components
+   └── index.tsx    # Public API exports
+   ```
+
+5. **Addon System**: Addons are optional pluggable modules registered at startup
+   - Each addon lives in `src/addons/<addon-name>/` with the structure above
+   - Addons register themselves via `app/addons/addon-registry.ts`
+   - Addon loading is controlled by `app/config/addons.ts`
+   - Addon extension points (`navigation`, `widgets`) are defined in `app/addons/extension-points/`
+   - Addon pages are served under `pages/admin/addons/$addonPath.tsx`
+
+6. **Architecture Testing**: Run `pnpm test:arch` to verify FSD compliance
 
 ## Execution Discipline
 
@@ -922,6 +1032,7 @@ A task is evaluated as done only when all of the following hold:
 | ------------------------------------------------ | ---------------------------------------------------------- |
 | Any change                                       | `pnpm type-check`, then the narrowest relevant test        |
 | Feature slice, widget or page (new or changed)   | `pnpm test` (co-located unit tests), then `pnpm test:arch` |
+| Addon slice (new or changed)                     | `pnpm test` (co-located unit tests), then `pnpm test:arch` |
 | Cross-slice or layer import, FSD boundary change | `pnpm test:arch`                                           |
 | API client, session handling or JWT decoding     | Unit test for the flow, then `pnpm type-check`             |
 | Router or route definition                       | `pnpm type-check`, then `pnpm test:arch`                   |
