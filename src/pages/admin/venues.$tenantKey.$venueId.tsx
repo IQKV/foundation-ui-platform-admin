@@ -12,6 +12,7 @@ import {
   Badge,
   Button,
   ActionIcon,
+  Popover,
   Tooltip,
   Tabs,
   SimpleGrid,
@@ -28,7 +29,7 @@ import {
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { notifications } from "@mantine/notifications";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import {
   IconAlertCircle,
   IconArrowLeft,
@@ -381,13 +382,32 @@ function AssetsTab({
   isLoading: boolean;
 }) {
   const { t } = useLingui();
-  // `url === null` while the presigned URL is still being minted.
+  const queryClient = useQueryClient();
   const [preview, setPreview] = useState<{
     name: string;
     url: string | null;
     contentType: string | null;
     sizeBytes: number | null;
   } | null>(null);
+  const [deletingId, setDeletingId] = useState<string | null>(null);
+
+  const deleteMutation = useMutation({
+    mutationFn: (assetId: string) => tenantVenueApi.deleteAsset(tenantKey, venueId, assetId),
+    onSuccess: () => {
+      setDeletingId(null);
+      void queryClient.invalidateQueries({
+        queryKey: ["admin", "tenant-venues", tenantKey, "venue", venueId],
+      });
+      notifications.show({ message: t`Asset deleted.`, color: "green", icon: <IconCheck size={16} /> });
+    },
+    onError: (err) => {
+      notifications.show({
+        message: err instanceof Error ? err.message : t`Could not delete the asset.`,
+        color: "red",
+        icon: <IconAlertTriangle size={16} />,
+      });
+    },
+  });
 
   const openPreview = async (asset: TenantVenueAsset, name: string) => {
     setPreview({ name, url: null, contentType: asset.contentType, sizeBytes: asset.sizeBytes });
@@ -452,17 +472,58 @@ function AssetsTab({
                       </Text>
                     </Stack>
                   </Group>
-                  {isPreviewable(asset.contentType) && (
-                    <Button
-                      size="compact-sm"
-                      variant="subtle"
-                      leftSection={<IconEye size={14} />}
-                      style={{ flexShrink: 0 }}
-                      onClick={() => void openPreview(asset, name)}
+                  <Group gap={4} wrap="nowrap" style={{ flexShrink: 0 }}>
+                    {isPreviewable(asset.contentType) && (
+                      <Button
+                        size="compact-sm"
+                        variant="subtle"
+                        leftSection={<IconEye size={14} />}
+                        onClick={() => void openPreview(asset, name)}
+                      >
+                        <Trans>Preview</Trans>
+                      </Button>
+                    )}
+                    <Popover
+                      opened={deletingId === asset.id}
+                      onClose={() => setDeletingId(null)}
+                      position="left"
+                      withArrow
+                      shadow="md"
+                      width={200}
                     >
-                      <Trans>Preview</Trans>
-                    </Button>
-                  )}
+                      <Popover.Target>
+                        <Tooltip label={t`Delete asset`} withArrow>
+                          <ActionIcon
+                            size="sm"
+                            variant="subtle"
+                            color="red"
+                            aria-label={t`Delete asset`}
+                            loading={deleteMutation.isPending && deletingId === asset.id}
+                            onClick={() => setDeletingId(asset.id)}
+                          >
+                            <IconTrash size={14} />
+                          </ActionIcon>
+                        </Tooltip>
+                      </Popover.Target>
+                      <Popover.Dropdown>
+                        <Stack gap={8}>
+                          <Text size="sm" fw={600}><Trans>Delete asset?</Trans></Text>
+                          <Text size="xs" c="dimmed" lineClamp={2}>{name}</Text>
+                          <Group gap={6} justify="flex-end">
+                            <Button size="compact-xs" variant="subtle" color="gray"
+                              onClick={() => setDeletingId(null)}>
+                              <Trans>Cancel</Trans>
+                            </Button>
+                            <Button size="compact-xs" color="red"
+                              loading={deleteMutation.isPending}
+                              onClick={() => deleteMutation.mutate(asset.id)}>
+                              <Trans>Delete</Trans>
+                            </Button>
+                          </Group>
+                        </Stack>
+                      </Popover.Dropdown>
+                    </Popover>
+                  </Group>
                 </Group>
               </Paper>
             );
