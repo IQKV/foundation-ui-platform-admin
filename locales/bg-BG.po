@@ -1418,6 +1418,10 @@ msgstr "Функция"
 msgid "Feature set (JSON)"
 msgstr "Набор от функции (JSON)"
 
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
+msgid "File"
+msgstr ""
+
 #: src/pages/admin/master-venue.index.tsx
 #: src/pages/admin/venues.index.tsx
 msgid "Fill all fields manually"
@@ -2182,6 +2186,10 @@ msgstr "OG заглавие"
 msgid "OIDC Identities"
 msgstr "OIDC идентичности"
 
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
+msgid "Open"
+msgstr ""
+
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Open Billing Portal"
 msgstr "Отвори портала за фактуриране"
@@ -2468,6 +2476,10 @@ msgstr "Моля, опитайте отново."
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Portal error"
 msgstr "Грешка на портала"
+
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
+msgid "Preparing the preview…"
+msgstr ""
 
 #: src/pages/admin/master-venue.index.tsx
 msgid "Present"

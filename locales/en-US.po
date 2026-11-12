@@ -1418,6 +1418,10 @@ msgstr "Feature"
 msgid "Feature set (JSON)"
 msgstr "Feature set (JSON)"
 
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
+msgid "File"
+msgstr "File"
+
 #: src/pages/admin/master-venue.index.tsx
 #: src/pages/admin/venues.index.tsx
 msgid "Fill all fields manually"
@@ -2182,6 +2186,10 @@ msgstr "OG title"
 msgid "OIDC Identities"
 msgstr "OIDC Identities"
 
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
+msgid "Open"
+msgstr "Open"
+
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Open Billing Portal"
 msgstr "Open Billing Portal"
@@ -2468,6 +2476,10 @@ msgstr "Please try again."
 #: src/features/tenant-billing-settings/ui/tenant-billing-settings-tab.tsx
 msgid "Portal error"
 msgstr "Portal error"
+
+#: src/pages/admin/venues.$tenantKey.$venueId.tsx
+msgid "Preparing the preview…"
+msgstr "Preparing the preview…"
 
 #: src/pages/admin/master-venue.index.tsx
 msgid "Present"
